@@ -1,0 +1,143 @@
+@use '../lib/scale' as *;
+@use 'sass:map';
+
+@layer x-utils {
+	.circle {
+		aspect-ratio: 1/1;
+		border-radius: 50%;
+		display: grid;
+		align-content: center;
+		justify-content: center;
+		place-content: center;
+	}
+
+	.container {
+		max-width: 1440px;
+		margin-inline: auto;
+		width: 100%;
+	}
+
+	.rounded {
+		border-radius: var(--radius);
+	}
+
+	.grow-1 {
+		flex-grow: 1;
+	}
+
+	.overflow-ellipsis {
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	@each $key, $value in $Scale {
+		.r-#{$key} {
+			border-radius: #{$value};
+		}
+	}
+
+	@for $i from 1 through 10 {
+		.z-#{$i} {
+			z-index: #{$i};
+		}
+	}
+
+	//  category: wrapping.
+	//  description: text wrap class(es).
+	//  properties: white-space.
+	//  classes: .overflow-
+	@each $value in (auto, hidden, visible) {
+		.overflow-#{$value} {
+			overflow: #{$value};
+		}
+	}
+
+	//  category: wrapping.
+	//  description: text wrap class(es).
+	//  properties: white-space.
+	//  classes: .whitespace-
+	@each $value in (break-spaces, normal, nowrap, pre, pre-line, pre-wrap, wrap)
+	{
+		.whitespace-#{$value} {
+			white-space: #{$value};
+		}
+	}
+
+	//  category: positioning.
+	//  description: position class(es).
+	//  properties: position.
+	//  classes: .ps-
+	@each $value in (absolute, relative, static, sticky) {
+		.ps-#{$value} {
+			position: #{$value};
+		}
+	}
+
+	//  category: positioning.
+	//  description: inset class(es).
+	//  properties: top, right, bottom, left.
+	//  classes: .top-, .right-, .bottom-, .left-
+	@each $property in (top, right, bottom, left) {
+		.#{$property} {
+			#{$property}: 0;
+		}
+	}
+
+	//  category: typography.
+	//  description: font sizing class(es).
+	//  properties: font-size.
+	//  classes: .text-
+	@each $key, $value in $Scale {
+		.text-#{$key} {
+			font-size: #{$value};
+		}
+	}
+
+	//  category: typography.
+	//  description: text aligment class(es).
+	//  properties: text-align.
+	//  classes: .text-
+	@each $key, $value in (left, right, justify, center) {
+		.text-#{$key} {
+			text-align: #{$value};
+		}
+	}
+
+	//  category: flex.
+	//  description: alignment class(es).
+	//  properties: align-items, align-content, justify-items, justify-content.
+	//  classes: .align-, .justify-
+	@each $key in ('align', 'justify') {
+		.#{$key} {
+			&-start {
+				#{$key}-items: flex-start;
+				#{$key}-content: flex-start;
+			}
+
+			&-center {
+				#{$key}-items: center;
+				#{$key}-content: center;
+			}
+
+			&-end {
+				#{$key}-items: flex-end;
+				#{$key}-content: flex-end;
+			}
+
+			&-around {
+				#{$key}-items: space-around;
+				#{$key}-content: space-around;
+			}
+
+			&-between {
+				#{$key}-items: space-between;
+				#{$key}-content: space-between;
+			}
+
+			&-evenly {
+				#{$key}-items: space-evenly;
+				#{$key}-content: space-evenly;
+			}
+		}
+	}
+}

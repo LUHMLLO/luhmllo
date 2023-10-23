@@ -1,0 +1,25 @@
+/** 
+*
+* This file should be used as a stand-alone solution 
+* Este archivo debe usarse como una solucion unica
+*
+* Not recomended alongside tailwind . . . yet
+* No recomendado su uso junto a tailwind . . . aun
+*
+**/
+
+@use './modules/reset.scss';
+@use './modules/icons.scss';
+@use './modules/modifiers.scss';
+@use './modules/responsive.scss';
+@use './modules/variants.scss';
+@use './modules/colors.scss';
+@use './modules/utils.scss';
+
+.debug {
+    border: solid 1px red;
+
+    * {
+        border: solid 1px red;
+    }
+}

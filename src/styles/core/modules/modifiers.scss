@@ -1,0 +1,77 @@
+@use '../lib/colors' as colors;
+@use '../lib/scale' as *;
+@use '../lib/attrs' as *;
+@use 'sass:map';
+
+@layer x-modifiers {
+	[x-debug] {
+		outline: dashed var(--xxxs);
+		outline-offset: calc(-1 * var(--xxxs));
+		outline-color: map.get(colors.$Info, surface);
+	}
+
+	[x-disabled] {
+		color: map.get(colors.$Text, 900);
+	}
+
+	[x-layout] {
+		@include suffix-attribute("='row'") {
+			display: flex;
+			flex-direction: row;
+			touch-action: pan-x;
+		}
+
+		@include suffix-attribute("='col'") {
+			display: flex;
+			flex-direction: column;
+			touch-action: pan-y;
+		}
+
+		@include suffix-attribute("='grid'") {
+			display: grid;
+			grid-template-columns: 1fr;
+
+			@media only screen and (min-width: 10rem) {
+				grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+			}
+
+			@media only screen and (min-width: 12rem) {
+				grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+			}
+
+			@media only screen and (min-width: 14rem) {
+				grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+			}
+
+			@media only screen and (min-width: 16rem) {
+				grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+			}
+
+			@media only screen and (min-width: 18rem) {
+				grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+			}
+
+			@media only screen and (min-width: 20rem) {
+				grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+			}
+		}
+	}
+
+	[x-position] {
+		@include suffix-attribute("='sticky'") {
+			position: sticky;
+			top: 0;
+		}
+	}
+
+	[x-scroll] {
+		@include suffix-attribute("='x'") {
+			overflow-x: auto;
+			touch-action: pan-x;
+		}
+		@include suffix-attribute("='y'") {
+			overflow-y: auto;
+			touch-action: pan-y;
+		}
+	}
+}

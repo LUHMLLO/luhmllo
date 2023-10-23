@@ -1,0 +1,233 @@
+@use '../lib/breakpoints' as bp;
+@use '../lib/scale' as *;
+@use 'sass:map';
+@use 'sass:math';
+
+@layer x-responsive {
+	//  category: display.
+	//  description: display class(es).
+	//  properties: display.
+	//  classes: .d-
+	@include bp.HasQueries() {
+		.#{bp.$prefix}d {
+			@each $value
+				in (
+					none,
+					content,
+					block,
+					flex,
+					grid,
+					table,
+					inline,
+					inline-block,
+					inline-flex,
+					inline-grid,
+					inline-table
+				)
+			{
+				&-#{$value} {
+					display: #{$value};
+				}
+			}
+		}
+	}
+
+	//  category: display.
+	//  description: show and hide classes.
+	//  properties: display.
+	//  classes: .hide-,.show-
+	@include bp.HasQueries() {
+		.#{bp.$prefix}hide {
+			display: none;
+		}
+
+		.#{bp.$prefix}show {
+			display: revert-layer;
+		}
+	}
+
+	//  category: sizing.
+	//  description: width class(es).
+	//  properties: width, min-width, max-width.
+	//  classes: .w-, .w-min-, .w-max-
+	@include bp.HasQueries() {
+		.#{bp.$prefix}w {
+			flex-shrink: 1;
+
+			@each $property,
+				$prefix in (width: '', min-width: '-min', max-width: '-max')
+			{
+				@for $i from 1 through 12 {
+					&#{$prefix}-#{$i + '-12'} {
+						#{$property}: math.percentage(math.div($i, 12));
+					}
+				}
+
+				@each $key, $value in $Scale {
+					&#{$prefix}-#{$key} {
+						#{$property}: #{$value};
+					}
+				}
+			}
+		}
+
+		.#{bp.$prefix}vw {
+			flex-shrink: 1;
+
+			@each $property,
+				$prefix in (width: '', min-width: '-min', max-width: '-max')
+			{
+				@for $i from 1 through 12 {
+					&#{$prefix}-#{$i + '-12'} {
+						#{$property}: #{math.div($i, 12) * 100dvw};
+					}
+				}
+			}
+		}
+	}
+
+	//  category: sizing.
+	//  description: height class(es).
+	//  properties: height, min-height, max-height.
+	//  classes: .h-, .h-min-, .h-max-
+	@include bp.HasQueries() {
+		.#{bp.$prefix}h {
+			flex-shrink: 1;
+
+			@each $property,
+				$prefix in (height: '', min-height: '-min', max-height: '-max')
+			{
+				@for $i from 1 through 12 {
+					&#{$prefix}-#{$i + '-12'} {
+						#{$property}: math.percentage(math.div($i, 12));
+					}
+				}
+
+				@each $key, $value in $Scale {
+					&#{$prefix}-#{$key} {
+						#{$property}: #{$value};
+					}
+				}
+			}
+		}
+
+		.#{bp.$prefix}vh {
+			flex-shrink: 1;
+
+			@each $property,
+				$prefix in (height: '', min-height: '-min', max-height: '-max')
+			{
+				@for $i from 1 through 12 {
+					&#{$prefix}-#{$i + '-12'} {
+						#{$property}: #{math.div($i, 12) * 100dvh};
+					}
+				}
+			}
+		}
+	}
+
+	//  category: spacing.
+	//  description: gap class(es).
+	//  properties: gap, column-gap, row-gap.
+	//  classes: .g-, .gx-, .gy-
+	@include bp.HasQueries() {
+		.#{bp.$prefix}g {
+			@each $property, $prefix in (gap: '', column-gap: 'x', row-gap: 'y') {
+				@each $key,
+					$value
+						in map.merge(
+							(
+								auto: auto,
+								0: 0,
+							),
+							$Scale
+						)
+				{
+					&#{$prefix}-#{$key} {
+						#{$property}: #{$value};
+					}
+				}
+			}
+		}
+	}
+
+	//  category: spacing.
+	//  description: margin class(es).
+	//  properties: margin, margin-inline, margin-block.
+	//  classes: .m-, .mx-, .my-
+	@include bp.HasQueries() {
+		.#{bp.$prefix}m {
+			@each $property,
+				$prefix in (margin: '', margin-inline: 'x', margin-block: 'y')
+			{
+				@each $key,
+					$value
+						in map.merge(
+							(
+								auto: auto,
+								0: 0,
+							),
+							$Scale
+						)
+				{
+					&#{$prefix}-#{$key} {
+						#{$property}: #{$value};
+					}
+				}
+			}
+		}
+	}
+
+	//  category: spacing.
+	//  description: offset class(es), for negative margin(s).
+	//  properties: margin, margin-inline, margin-block.
+	//  classes: .off-, .offx-, .offy-
+	@include bp.HasQueries() {
+		.#{bp.$prefix}off {
+			@each $property,
+				$prefix in (margin: '', margin-inline: 'x', margin-block: 'y')
+			{
+				@each $key,
+					$value
+						in map.merge(
+							(
+								auto: auto,
+								0: 0,
+							),
+							$Scale
+						)
+				{
+					&#{$prefix}-#{$key} {
+						#{$property}: calc(-1 * #{$value});
+					}
+				}
+			}
+		}
+	}
+
+	//  category: spacing.
+	//  description: padding class(es).
+	//  properties: padding, padding-inline, padding-block.
+	//  classes: .p-, .px-, .py-
+	@include bp.HasQueries() {
+		.#{bp.$prefix}p {
+			@each $property,
+				$prefix in (padding: '', padding-inline: 'x', padding-block: 'y')
+			{
+				@each $key,
+					$value
+						in map.merge(
+							(
+								0: 0,
+							),
+							$Scale
+						)
+				{
+					&#{$prefix}-#{$key} {
+						#{$property}: #{$value};
+					}
+				}
+			}
+		}
+	}
+}

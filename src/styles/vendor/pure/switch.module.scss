@@ -1,0 +1,48 @@
+[x-variant='switch'] {
+    align-items: center;
+    appearance: none;
+    cursor: pointer;
+    display: flex;
+    font-family: 'Material Symbols Rounded';
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+
+    width: 2.85rem;
+    height: 1.575rem;
+    font-size: 3rem;
+
+    &::before,
+    &::after {
+        position: absolute;
+        text-align: center;
+        vertical-align: middle;
+        white-space: pre;
+    }
+
+    &:not(:checked) {
+        &::before {
+            content: 'toggle_off';
+        }
+    }
+
+    &:checked {
+        @apply text-accent-500;
+
+        &::before {
+            content: 'toggle_on';
+        }
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            @apply text-accent-400;
+        }
+    }
+
+    &:active {
+        @apply text-accent-600;
+    }
+
+
+}

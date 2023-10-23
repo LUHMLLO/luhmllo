@@ -1,0 +1,150 @@
+/** 
+*
+* This file should load after tailwind 
+* Este archivo debe cargar despues de tailwind
+*
+* Please try to always write custom scss components inside the x-scss layer
+* Porfavor intentar siempre escribir componentes scss dentro del layer x-scss
+*
+**/
+
+@layer x-override {
+
+	*,
+	*:before,
+	*:after {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		clear: both;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		-webkit-overflow-scrolling: touch;
+		overscroll-behavior: contain;
+		scroll-behavior: smooth;
+	}
+
+	html,
+	body {
+		font-size: 1rem;
+		line-height: 1.5;
+	}
+}
+
+@layer x-override {
+	* {
+		scrollbar-color: hsla(0, 0%, 9%, 0.333) hsla(0, 0%, 6%, 0.333);
+		scrollbar-width: 0.3996373225rem;
+		scrollbar-width: thin;
+
+		&::-webkit-scrollbar {
+			height: 0.3996373225rem;
+			width: 0.3996373225rem;
+		}
+
+		&::-webkit-scrollbar-track {
+			background-color: hsla(0, 0%, 6%, 0.333);
+			border-radius: 0.3996373225rem;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: hsla(0, 0%, 9%, 0.333);
+			border-radius: 0.3996373225rem;
+
+			&:hover {
+				background-color: hsla(0, 0%, 12%, 0.333);
+			}
+
+			&:active {
+				background-color: hsla(0, 0%, 15%, 0.333);
+			}
+		}
+	}
+}
+
+@layer x-override {
+	h1 {
+		font-size: 2.1949726239rem;
+	}
+
+	h2 {
+		font-size: 1.9254145824rem;
+	}
+
+	h3 {
+		font-size: 1.68896016rem;
+	}
+
+	h4 {
+		font-size: 1.481544rem;
+	}
+
+	h5 {
+		font-size: 1.2996rem;
+	}
+
+	h6 {
+		font-size: 1.14rem;
+	}
+
+	// b,
+	// caption,
+	// figcaption,
+	// h1,
+	// h2,
+	// h3,
+	// h4,
+	// h5,
+	// h6,
+	// label,
+	// legend,
+	// mark,
+	// small,
+	// sub,
+	// sup,
+	// strong,
+	// var {
+	// 	font-weight: 500;
+	// }
+
+	// span {
+	// 	font: inherit;
+	// }
+
+	var {
+		font-style: normal;
+	}
+
+	button {
+		font-size: 0.8771929825rem;
+	}
+
+	caption,
+	figcaption,
+	label,
+	legend,
+	sub,
+	sup,
+	var {
+		font-size: 0.8771929825rem;
+	}
+
+	code,
+	kbd,
+	pre {
+		font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+	}
+
+	fieldset {
+		max-width: 100%;
+	}
+}
+
+@layer x-override {
+	* {
+		transition-delay: 0s;
+		transition-duration: 256ms;
+		transition-property: display, opacity, visibility, accent-color, background, background-color, color, outline-color, border-color;
+		transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+	}
+}
