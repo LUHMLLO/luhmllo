@@ -12,10 +12,6 @@ export class Check extends LitElement {
 		}
 	`;
 
-	private toggleIcon() {
-		this._icon = this.checked ? 'check_box' : 'check_box_outline_blank';
-	}
-
 	connectedCallback() {
 		super.connectedCallback();
 		this.toggleIcon();
@@ -24,6 +20,10 @@ export class Check extends LitElement {
 
 	render() {
 		return html` <lit-icon name=${this._icon}></lit-icon> `;
+	}
+
+	private toggleIcon() {
+		this._icon = this.checked ? 'check_box' : 'check_box_outline_blank';
 	}
 
 	private toggleChecked() {

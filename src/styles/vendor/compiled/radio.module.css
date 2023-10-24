@@ -1,4 +1,4 @@
-[x-variant=radio][type=radio] {
+input[type=radio] {
   appearance: none;
   cursor: pointer;
   background-color: transparent;
@@ -15,7 +15,7 @@
   @apply h-2xl;
   overflow: hidden;
 }
-[x-variant=radio][type=radio]::before {
+input[type=radio]::before {
   font-family: "Material Symbols Rounded";
   content: "radio_button_unchecked";
   display: inline-flex;
@@ -24,18 +24,18 @@
   @apply text-2xl;
   vertical-align: middle;
 }
-[x-variant=radio][type=radio]:checked {
+input[type=radio]:checked {
   @apply text-accent-600;
 }
-[x-variant=radio][type=radio]:checked::before {
+input[type=radio]:checked::before {
   content: "radio_button_checked";
   font-variation-settings: "FILL" 0;
 }
 @media (hover: hover) {
-  [x-variant=radio][type=radio]:hover {
+  input[type=radio]:hover {
     @apply text-accent-400;
   }
 }
-[x-variant=radio][type=radio]:active {
+input[type=radio]:active {
   @apply text-accent-600;
 }

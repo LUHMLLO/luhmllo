@@ -7,13 +7,12 @@ export class Icon extends LitElement {
 
 	static styles = css`
 		:host {
+			display: block;
 			font-family: 'Material Symbols Rounded';
 			font-size: 1.481544rem;
-			width: 1.481544rem;
-			height: 1.481544rem;
 			line-height: 1;
-			display: block;
 			user-select: none;
+			height:100%;
 		}
 	`;
 

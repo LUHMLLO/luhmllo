@@ -4,20 +4,14 @@ import { customElement, property } from 'lit/decorators.js';
 @customElement('lit-radio')
 export class Radio extends LitElement {
 	@property({ type: String }) _icon = '';
-	@property({ type: String }) group = '';
 	@property({ type: Boolean }) checked = false;
+	@property({ type: String }) group = '';
 
 	static styles = css`
 		:host {
 			cursor: pointer;
 		}
 	`;
-
-	private toggleIcon() {
-		this._icon = this.checked
-			? 'radio_button_checked'
-			: 'radio_button_unchecked';
-	}
 
 	connectedCallback() {
 		super.connectedCallback();
@@ -27,6 +21,12 @@ export class Radio extends LitElement {
 
 	render() {
 		return html` <lit-icon name=${this._icon}></lit-icon> `;
+	}
+
+	private toggleIcon() {
+		this._icon = this.checked
+			? 'radio_button_checked'
+			: 'radio_button_unchecked';
 	}
 
 	private toggleChecked() {
