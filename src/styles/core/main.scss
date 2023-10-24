@@ -9,17 +9,9 @@
 **/
 
 @use './modules/reset.scss';
-@use './modules/icons.scss';
+// @use './modules/icons.scss';
 @use './modules/modifiers.scss';
 @use './modules/responsive.scss';
 @use './modules/variants.scss';
 @use './modules/colors.scss';
 @use './modules/utils.scss';
-
-.debug {
-    border: solid 1px red;
-
-    * {
-        border: solid 1px red;
-    }
-}

@@ -10,12 +10,12 @@
     "make:css": "sass ./src/styles/vendor/pure/:./src/styles/vendor/compiled/ --no-source-map --charset --style expanded"
   },
   "dependencies": {
-    "lit": "^2.7.6",
+    "lit": "^2.8.0",
     "material-symbols": "^0.13.1",
     "sass": "^1.69.4"
   },
   "devDependencies": {
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0"
   }
 }

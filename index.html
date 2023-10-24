@@ -9,21 +9,51 @@
   <link rel="stylesheet" href="./src/styles/core/main.scss" />
 
   <script type="module" src="/src/components/atoms/check.ts" defer></script>
+  <script type="module" src="/src/components/atoms/media.ts" defer></script>
   <script type="module" src="/src/components/atoms/icon.ts" defer></script>
+  <script type="module" src="/src/components/atoms/layout.ts" defer></script>
   <script type="module" src="/src/components/atoms/radio.ts" defer></script>
 </head>
 
-<body class="debug">
-  <lit-check checked></lit-check>
-  <lit-check></lit-check>
+<body>
 
-  <lit-icon name="person"></lit-icon>
+  <lit-layout layout="grid">
 
-  <lit-radio group="radioGroup0"></lit-radio>
+    <lit-layout layout="column">
+      <lit-check checked></lit-check>
+      <lit-check></lit-check>
+    </lit-layout>
 
-  <lit-radio group="radioGroup1"></lit-radio>
-  <lit-radio group="radioGroup1"></lit-radio>
-  <lit-radio group="radioGroup1"></lit-radio>
+    <lit-layout layout="column">
+      <lit-media is="audio" src="/src/common/assets/trex.mp3" controls>
+      </lit-media>
+    </lit-layout>
+
+    <lit-layout layout="column">
+      <lit-media is="image"
+        src="https://cdn.dribbble.com/userupload/10972020/file/original-933f3353566cdd48f38cce49cb1736f7.png?resize=1024x768"
+        alt="this is an image">
+      </lit-media>
+    </lit-layout>
+
+    <lit-layout layout="column">
+      <lit-media is="video" src="/src/common/assets/flower.webm" controls>
+      </lit-media>
+    </lit-layout>
+
+    <lit-layout layout="column">
+      <lit-icon name="person"></lit-icon>
+      <lit-icon name="person" fill></lit-icon>
+    </lit-layout>
+
+    <lit-layout layout="column">
+      <lit-radio group="radioGroup1"></lit-radio>
+      <lit-radio group="radioGroup1"></lit-radio>
+      <lit-radio group="radioGroup1"></lit-radio>
+    </lit-layout>
+
+  </lit-layout>
+
 </body>
 
 </html>

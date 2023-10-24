@@ -6,7 +6,7 @@ settings:
 
 dependencies:
   lit:
-    specifier: ^2.7.6
+    specifier: ^2.8.0
     version: 2.8.0
   material-symbols:
     specifier: ^0.13.1
@@ -17,10 +17,10 @@ dependencies:
 
 devDependencies:
   typescript:
-    specifier: ^5.0.2
+    specifier: ^5.2.2
     version: 5.2.2
   vite:
-    specifier: ^4.4.5
+    specifier: ^4.5.0
     version: 4.5.0(sass@1.69.4)
 
 packages:

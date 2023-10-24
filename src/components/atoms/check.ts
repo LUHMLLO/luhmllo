@@ -8,6 +8,7 @@ export class Check extends LitElement {
 
 	static styles = css`
 		:host {
+			box-sizing: border-box;
 			cursor: pointer;
 		}
 	`;
@@ -19,7 +20,7 @@ export class Check extends LitElement {
 	}
 
 	render() {
-		return html` <lit-icon name=${this._icon}></lit-icon> `;
+		return html` <lit-icon name=${this._icon} ?fill=${this.checked}/> `;
 	}
 
 	private toggleIcon() {
