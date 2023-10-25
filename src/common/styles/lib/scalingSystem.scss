@@ -1,0 +1,23 @@
+@use 'sass:map';
+@use './utils.scss' as util;
+
+$range: () !default;
+
+$range: map.set($range, 5xs, util.DownScale(7));
+$range: map.set($range, 4xs, util.DownScale(6));
+$range: map.set($range, 3xs, util.DownScale(5));
+$range: map.set($range, 2xs, util.DownScale(4));
+
+$range: map.set($range, xs, util.DownScale(3));
+$range: map.set($range, sm, util.DownScale(2));
+$range: map.set($range, md, util.DownScale(1));
+$range: map.set($range, nm, util.ToRem(16px));
+$range: map.set($range, lg, util.Upscale(1));
+$range: map.set($range, xl, util.Upscale(2));
+
+$range: map.set($range, 2xl, util.Upscale(3));
+$range: map.set($range, 3xl, util.Upscale(4));
+$range: map.set($range, 4xl, util.Upscale(5));
+$range: map.set($range, 5xl, util.Upscale(6));
+
+// @debug $range;

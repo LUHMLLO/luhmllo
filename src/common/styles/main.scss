@@ -1,0 +1,30 @@
+@use './lib/scalingSystem' as scale;
+
+:root {
+    @each $key, $value in scale.$range {
+        --scale-#{$key}: #{$value};
+    }
+
+    --clr-primary: hsl(0, 0%, 0%);
+    --clr-secondary: hsl(0, 0%, 25%);
+    --clr-tertiary: hsl(0, 0%, 50%);
+    --clr-accent: hsl(118, 100%, 44%);
+
+    --bord-radius: var(--scale-5xs);
+}
+
+html,
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.debug {
+    gap: var(--scale-xs);
+    padding: var(--scale-xs);
+
+    >* {
+        border: solid 1px var(--clr-primary);
+        padding: var(--scale-xs)
+    }
+}

@@ -17,9 +17,19 @@ export class Layout extends LitElement {
 			flex-direction: column;
 		}
 
+		:host([layout='column-reverse']) {
+			display: flex;
+			flex-direction: column-reverse;
+		}
+
 		:host([layout='row']) {
 			display: flex;
 			flex-direction: row;
+		}
+
+		:host([layout='row-reverse']) {
+			display: flex;
+			flex-direction: row-reverse;
 		}
 
 		:host([layout='grid']) {
@@ -34,9 +44,13 @@ export class Layout extends LitElement {
 		if (this.layout) {
 			const value = this.layout;
 
-			if (!['column', 'row', 'grid'].includes(value)) {
+			if (
+				!['column', 'column-reverse', 'row', 'row-reverse', 'grid'].includes(
+					value
+				)
+			) {
 				console.warn(
-					`Invalid layout value: ${value}. Valid options are 'column', 'row', or 'grid'.`
+					`Invalid layout value: ${value}. Valid options are 'column', 'column-reverse', 'row', 'row-reverse', 'grid'.`
 				);
 			}
 		}

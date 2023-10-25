@@ -1,43 +1,47 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-@customElement('lit-radio')
-export class Radio extends LitElement {
+@customElement('lit-radiobox')
+export class RadioBox extends LitElement {
 	@property({ type: String }) _icon = '';
 	@property({ type: Boolean, reflect: true }) checked = false;
 	@property({ type: String }) group = '';
 
 	static styles = css`
 		:host {
+			display: inline-block;
 			box-sizing: border-box;
 			cursor: pointer;
+			overflow: hidden;
+			height: max-content;
+			isolation: isolate;
+			position: relative;
+		}
+
+		:host([checked]) {
+			outline: solid 1px red !important;
+			outline-offset: -1px;
 		}
 	`;
 
 	connectedCallback() {
 		super.connectedCallback();
-		this.toggleIcon();
 		this.addEventListener('click', this.toggleChecked);
 	}
 
 	render() {
-		return html` <lit-icon name=${this._icon} ?fill=${this.checked} /> `;
-	}
-
-	private toggleIcon() {
-		this._icon = this.checked ? 'check_circle' : 'radio_button_unchecked';
+		return html` <slot></slot> `;
 	}
 
 	private toggleChecked() {
 		if (!this.checked) {
 			const radios = document.querySelectorAll(
-				`lit-radio[group="${this.group}"]`
-			) as NodeListOf<Radio>;
+				`lit-radiobox[group="${this.group}"]`
+			) as NodeListOf<RadioBox>;
 
 			for (const radio of Array.from(radios)) {
-				(radio as Radio).checked = false;
-				(radio as Radio).toggleIcon();
-				(radio as Radio).dispatchEvent(
+				(radio as RadioBox).checked = false;
+				(radio as RadioBox).dispatchEvent(
 					new CustomEvent('change', {
 						bubbles: true,
 						detail: { checked: false },
@@ -46,7 +50,6 @@ export class Radio extends LitElement {
 			}
 
 			this.checked = true;
-			this.toggleIcon();
 		}
 
 		this.dispatchEvent(
