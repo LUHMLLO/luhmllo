@@ -13,54 +13,116 @@
   <script type="module" src="./src/components/atoms/icon.ts" defer></script>
   <script type="module" src="./src/components/atoms/layout.ts" defer></script>
   <script type="module" src="./src/components/atoms/radio.ts" defer></script>
+
+  <script type="module" src="./src/components/molecules/button.ts" defer></script>
+
   <script type="module" src="./src/components/organisms/expandable.ts" defer></script>
   <script type="module" src="./src/components/organisms/radiobox.ts" defer></script>
 </head>
 
 <body>
 
-  <lit-layout layout="grid" class="debug">
+  <lit-layout variant="grid" class="debug">
 
-    <lit-layout layout="column">
+    <lit-layout variant="column" place="center" class="aspect-square">
       <lit-check checked></lit-check>
       <lit-check></lit-check>
     </lit-layout>
 
-    <lit-layout layout="column">
-      <lit-media is="audio" src="/src/common/assets/trex.mp3" controls>
+    <lit-layout variant="grid" place="center" class="aspect-square cols-3">
+      <lit-icon name="person"></lit-icon>
+      <lit-icon name="person" fill></lit-icon>
+      <lit-icon name="person"></lit-icon>
+      <lit-icon name="person" fill></lit-icon>
+      <lit-icon name="person"></lit-icon>
+      <lit-icon name="person" fill></lit-icon>
+      <lit-icon name="person"></lit-icon>
+      <lit-icon name="person" fill></lit-icon>
+      <lit-icon name="person"></lit-icon>
+      <lit-icon name="person" fill></lit-icon>
+      <lit-icon name="person"></lit-icon>
+      <lit-icon name="person" fill></lit-icon>
+      <lit-icon name="person"></lit-icon>
+      <lit-icon name="person" fill></lit-icon>
+      <lit-icon name="person"></lit-icon>
+      <lit-icon name="person" fill></lit-icon>
+      <lit-icon name="person"></lit-icon>
+      <lit-icon name="person" fill></lit-icon>
+      <lit-icon name="person"></lit-icon>
+      <lit-icon name="person" fill></lit-icon>
+      <lit-icon name="person"></lit-icon>
+      <lit-icon name="person" fill></lit-icon>
+      <lit-icon name="person"></lit-icon>
+      <lit-icon name="person" fill></lit-icon>
+    </lit-layout>
+
+    <lit-layout variant="grid" place="top-left" class="aspect-square">
+      this is top-left
+    </lit-layout>
+
+    <lit-layout variant="grid" place="top" class="aspect-square">
+      this is top
+    </lit-layout>
+
+    <lit-layout variant="grid" place="top-right" class="aspect-square">
+      this is top-right
+    </lit-layout>
+
+    <lit-layout variant="grid" place="center-left" class="aspect-square">
+      this is center-left
+    </lit-layout>
+
+    <lit-layout variant="grid" place="center" class="aspect-square">
+      this is center
+    </lit-layout>
+
+    <lit-layout variant="grid" place="center-right" class="aspect-square">
+      this is center-right
+    </lit-layout>
+
+    <lit-layout variant="grid" place="bottom-left" class="aspect-square">
+      this is bottom-left
+    </lit-layout>
+
+    <lit-layout variant="grid" place="bottom" class="aspect-square">
+      this is bottom
+    </lit-layout>
+
+    <lit-layout variant="grid" place="bottom-right" class="aspect-square">
+      this is bottom-right
+    </lit-layout>
+
+    <lit-layout variant="column" place="center" class="aspect-square">
+      <lit-media variant="audio" src="/src/common/assets/trex.mp3" controls>
       </lit-media>
     </lit-layout>
 
-    <lit-layout layout="column">
-      <lit-media is="image"
+    <lit-layout variant="column" place="center" class="aspect-square">
+      <lit-media variant="image"
         src="https://cdn.dribbble.com/userupload/10972020/file/original-933f3353566cdd48f38cce49cb1736f7.png?resize=1024x768"
         alt="this is an image">
       </lit-media>
     </lit-layout>
 
-    <lit-layout layout="column">
-      <lit-media is="video" src="/src/common/assets/flower.webm" controls>
+    <lit-layout variant="column" place="center" class="aspect-square">
+      <lit-media variant="video" src="/src/common/assets/flower.webm" controls>
       </lit-media>
     </lit-layout>
 
-    <lit-layout layout="grid">
-      <lit-icon name="person"></lit-icon>
-      <lit-icon name="person" fill></lit-icon>
-      <lit-icon name="person"></lit-icon>
-      <lit-icon name="person" fill></lit-icon>
-      <lit-icon name="person"></lit-icon>
-      <lit-icon name="person" fill></lit-icon>
+    <lit-layout variant="grid" place="center" class="aspect-square">
+      <lit-button left_icon="person" left_fill right_icon="bolt">button</lit-button>
+      <lit-button left_icon="person" right_icon="bolt">button</lit-button>
+      <lit-button left_icon="person" right_icon="bolt" right_fill>button</lit-button>
     </lit-layout>
 
-    <lit-layout layout="column">
+    <lit-layout variant="column" place="center" class="aspect-square">
       <lit-radio group="radioGroup1" checked></lit-radio>
       <lit-radio group="radioGroup1"></lit-radio>
       <lit-radio group="radioGroup1"></lit-radio>
     </lit-layout>
 
-    <lit-layout layout="column">
-      <lit-expandable>
-        <h1 slot="heading">title</h1>
+    <lit-layout variant="column" place="center" class="aspect-square">
+      <lit-expandable title="expandable" left_icon="person" right_icon="arrow_right">
         <ul slot="content">
           <li>item 1</li>
           <li>item 2</li>
@@ -68,17 +130,20 @@
           <li>item 4</li>
         </ul>
       </lit-expandable>
-    </lit-layout>    
+    </lit-layout>
 
-    <lit-layout layout="row">
+    <lit-layout variant="row" place="center" class="aspect-square">
       <lit-radiobox group="radioGroup2" checked>
-        <lit-media is="image" src="https://cdn.dribbble.com/userupload/10972020/file/original-933f3353566cdd48f38cce49cb1736f7.png?resize=1024x768"></lit-media>
+        <lit-media variant="image"
+          src="https://cdn.dribbble.com/userupload/10972020/file/original-933f3353566cdd48f38cce49cb1736f7.png?resize=1024x768"></lit-media>
       </lit-radiobox>
       <lit-radiobox group="radioGroup2">
-        <lit-media is="image" src="https://cdn.dribbble.com/userupload/10972020/file/original-933f3353566cdd48f38cce49cb1736f7.png?resize=1024x768"></lit-media>
+        <lit-media variant="image"
+          src="https://cdn.dribbble.com/userupload/10972020/file/original-933f3353566cdd48f38cce49cb1736f7.png?resize=1024x768"></lit-media>
       </lit-radiobox>
       <lit-radiobox group="radioGroup2">
-        <lit-media is="image" src="https://cdn.dribbble.com/userupload/10972020/file/original-933f3353566cdd48f38cce49cb1736f7.png?resize=1024x768"></lit-media>
+        <lit-media variant="image"
+          src="https://cdn.dribbble.com/userupload/10972020/file/original-933f3353566cdd48f38cce49cb1736f7.png?resize=1024x768"></lit-media>
       </lit-radiobox>
     </lit-layout>
 

@@ -4,12 +4,15 @@ import { customElement, property } from 'lit/decorators.js';
 @customElement('lit-check')
 export class Check extends LitElement {
 	@property({ type: String }) _icon = '';
-	@property({ type: Boolean }) checked = false;
+	@property({ type: Boolean, reflect: true }) checked = false;
 
 	static styles = css`
 		:host {
 			box-sizing: border-box;
 			cursor: pointer;
+			display: block;
+			height: max-content;
+			width: max-content;
 		}
 	`;
 
@@ -20,7 +23,7 @@ export class Check extends LitElement {
 	}
 
 	render() {
-		return html` <lit-icon name=${this._icon} ?fill=${this.checked}/> `;
+		return html` <lit-icon name=${this._icon} ?fill=${this.checked} /> `;
 	}
 
 	private toggleIcon() {

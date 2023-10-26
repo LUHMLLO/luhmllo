@@ -3,22 +3,24 @@ import { customElement, property } from 'lit/decorators.js';
 
 @customElement('lit-media')
 export class Media extends LitElement {
-	@property({ type: String }) is = '';
-	@property({ type: String }) alt = '';
+	@property({ type: String }) variant = '';
 	@property({ type: String }) src = '';
 	@property({ type: String }) type = '';
-	@property({ type: Boolean }) controls = false;
-	@property({ type: Boolean }) autoplay = false;
-	@property({ type: Boolean }) loop = false;
+	@property({ type: String }) alt = '';
+	@property({ type: Boolean, reflect: true }) controls = false;
+	@property({ type: Boolean, reflect: true }) autoplay = false;
+	@property({ type: Boolean, reflect: true }) loop = false;
 
 	static styles = css`
 		:host {
 			box-sizing: border-box;
 			display: block;
+			height: max-content;
 			margin: 0;
 			max-width: 100%;
 			overflow: hidden;
 			padding: 0;
+			position: relative;
 		}
 
 		:host > * {
@@ -27,22 +29,21 @@ export class Media extends LitElement {
 			max-width: 100%;
 			object-fit: cover;
 			overflow: hidden;
-			width: 100%;
 		}
 	`;
 
 	connectedCallback(): void {
 		super.connectedCallback();
 
-		if (!this.is) {
+		if (!this.variant) {
 			console.warn(
 				`No media tag was selected. Valid options are 'audio', 'image', or 'video'.`
 			);
 		}
 
-		if (!['audio', 'image', 'video'].includes(this.is)) {
+		if (!['audio', 'image', 'video'].includes(this.variant)) {
 			console.warn(
-				`Invalid tag: ${this.is}. Valid options are 'audio', 'image', or 'video'.`
+				`Invalid tag: ${this.variant}. Valid options are 'audio', 'image', or 'video'.`
 			);
 		}
 	}
@@ -52,7 +53,7 @@ export class Media extends LitElement {
 	}
 
 	private setTag() {
-		switch (this.is) {
+		switch (this.variant) {
 			case 'audio':
 				return html`
 					<audio

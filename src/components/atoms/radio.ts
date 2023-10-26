@@ -5,12 +5,15 @@ import { customElement, property } from 'lit/decorators.js';
 export class Radio extends LitElement {
 	@property({ type: String }) _icon = '';
 	@property({ type: Boolean, reflect: true }) checked = false;
-	@property({ type: String }) group = '';
+	@property({ type: String, reflect: true }) group = '';
 
 	static styles = css`
 		:host {
 			box-sizing: border-box;
 			cursor: pointer;
+			display: block;
+			height: max-content;
+			width: max-content;
 		}
 	`;
 

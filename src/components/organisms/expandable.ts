@@ -3,34 +3,27 @@ import { customElement, property } from 'lit/decorators.js';
 
 @customElement('lit-expandable')
 export class Expandable extends LitElement {
-	@property({ type: Boolean }) open = false;
+	@property({ type: String }) left_icon = '';
+	@property({ type: String }) right_icon = '';
+	@property({ type: String }) title = '';
+	@property({ type: Boolean, reflect: true }) open = false;
 
 	static styles = css`
 		:host {
 			box-sizing: border-box;
 			margin: 0;
 			max-width: 100%;
-		}
 
-		:host {
 			display: flex;
 			flex-direction: column;
-		}
 
-		:host {
 			border-radius: var(--bord-radius);
 			overflow: hidden;
 		}
 
-		::slotted(*[slot='heading']) {
-			background-color: var(--clr-secondary);
-			color: red;
-
-			display: flex;
-			align-items: center;
-
-			margin: 0;
-			padding: var(--scale-xs) var(--scale-sm);
+		lit-button {
+			flex-grow: 1;
+			width: 100%;
 		}
 
 		::slotted(*[slot='heading']):focus {
@@ -66,7 +59,11 @@ export class Expandable extends LitElement {
 
 	private setExpandableTag() {
 		return html`
-			<slot name="heading"></slot>
+			<lit-button
+				left_icon=${this.left_icon}
+				right_icon=${this.right_icon}>
+				${this.title}
+			</lit-button>
 			<slot name="content"></slot>
 		`;
 	}

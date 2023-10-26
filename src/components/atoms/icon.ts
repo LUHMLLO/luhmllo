@@ -5,7 +5,7 @@ import '/node_modules/material-symbols/rounded.css';
 @customElement('lit-icon')
 export class Icon extends LitElement {
 	@property({ type: String }) name = '';
-	@property({ type: Boolean }) fill = false;
+	@property({ type: Boolean, reflect: true }) fill = false;
 
 	static styles = css`
 		:host {
@@ -13,8 +13,10 @@ export class Icon extends LitElement {
 			display: block;
 			font-family: 'Material Symbols Rounded';
 			font-size: 1.481544rem;
+			height: max-content;
 			line-height: 1;
 			user-select: none;
+			width: max-content;
 		}
 
 		:host([fill]) {
@@ -23,6 +25,6 @@ export class Icon extends LitElement {
 	`;
 
 	render() {
-		return html`${this.name}`;
+		return html`${this.name.trim().toLowerCase()}`;
 	}
 }

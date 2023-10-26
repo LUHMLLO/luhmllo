@@ -5,22 +5,32 @@ import { customElement, property } from 'lit/decorators.js';
 export class RadioBox extends LitElement {
 	@property({ type: String }) _icon = '';
 	@property({ type: Boolean, reflect: true }) checked = false;
-	@property({ type: String }) group = '';
+	@property({ type: String, reflect: true }) group = '';
 
 	static styles = css`
 		:host {
-			display: inline-block;
 			box-sizing: border-box;
 			cursor: pointer;
-			overflow: hidden;
+			display: inline-block;
+
 			height: max-content;
+
 			isolation: isolate;
+			overflow: hidden;
 			position: relative;
 		}
 
-		:host([checked]) {
-			outline: solid 1px red !important;
+		:host([checked]):after {
+			content: '';
+
+			outline: red 1px solid;
 			outline-offset: -1px;
+
+			position: absolute;
+			inset: 0;
+
+			width: 100%;
+			height: 100%;
 		}
 	`;
 
