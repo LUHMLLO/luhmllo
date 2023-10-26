@@ -6,17 +6,17 @@
     }
 
     /* primary */
-    --clr-primary--hover: hsl(0, 0%, 9%);
-    --clr-onPrimary--hover: hsl(0, 0%, 100%);
+    --clr-primary--hover: hsl(0, 0%, 12%);
+    --clr-onPrimary--hover: hsl(0, 0%, 99%);
 
-    --clr-primary: hsl(0, 0%, 6%);
-    --clr-onPrimary: hsl(0, 0%, 100%);
+    --clr-primary: hsl(0, 0%, 9%);
+    --clr-onPrimary: hsl(0, 0%, 96%);
 
-    --clr-primary--active: hsl(0, 0%, 0%);
-    --clr-onPrimary--active: hsl(0, 0%, 100%);
+    --clr-primary--active: hsl(0, 0%, 6%);
+    --clr-onPrimary--active: hsl(0, 0%, 93%);
 
-    --clr-primary--focus: hsl(0, 0%, 0%);
-    --clr-onPrimary--focus: hsl(0, 0%, 100%);
+    --clr-primary--focus: hsl(0, 0%, 15%);
+    --clr-onPrimary--focus: hsl(0, 0%, 90%);
 
     --clr-primary--disabled: hsl(0, 0%, 0%);
     --clr-onPrimary--disabled: hsl(0, 0%, 100%);
@@ -113,4 +113,8 @@ body {
 
 .cols-3 {
     grid-template-columns: repeat(3, 1fr);
+}
+
+.gap-5xs {
+    gap: var(--scale-5xs);
 }

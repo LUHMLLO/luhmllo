@@ -36,43 +36,43 @@
 
   <lit-layout variant="grid" class="cols-3 debug">
 
-    <lit-layout variant="grid" place="top-left" class="aspect-square">
+    <lit-layout variant="grid" place="top-left" class="aspect-square gap-5xs">
       this is top-left
     </lit-layout>
 
-    <lit-layout variant="grid" place="top" class="aspect-square">
+    <lit-layout variant="grid" place="top" class="aspect-square gap-5xs">
       this is top
     </lit-layout>
 
-    <lit-layout variant="grid" place="top-right" class="aspect-square">
+    <lit-layout variant="grid" place="top-right" class="aspect-square gap-5xs">
       this is top-right
     </lit-layout>
 
-    <lit-layout variant="grid" place="center-left" class="aspect-square">
+    <lit-layout variant="grid" place="center-left" class="aspect-square gap-5xs">
       this is center-left
     </lit-layout>
 
-    <lit-layout variant="grid" place="center" class="aspect-square">
+    <lit-layout variant="grid" place="center" class="aspect-square gap-5xs">
       this is center
     </lit-layout>
 
-    <lit-layout variant="grid" place="center-right" class="aspect-square">
+    <lit-layout variant="grid" place="center-right" class="aspect-square gap-5xs">
       this is center-right
     </lit-layout>
 
-    <lit-layout variant="grid" place="bottom-left" class="aspect-square">
+    <lit-layout variant="grid" place="bottom-left" class="aspect-square gap-5xs">
       this is bottom-left
     </lit-layout>
 
-    <lit-layout variant="grid" place="bottom" class="aspect-square">
+    <lit-layout variant="grid" place="bottom" class="aspect-square gap-5xs">
       this is bottom
     </lit-layout>
 
-    <lit-layout variant="grid" place="bottom-right" class="aspect-square">
+    <lit-layout variant="grid" place="bottom-right" class="aspect-square gap-5xs">
       this is bottom-right
     </lit-layout>
 
-    <lit-layout variant="column" place="center" class="aspect-square">
+    <lit-layout variant="column" place="center" class="aspect-square gap-5xs">
       <lit-check checked></lit-check>
       <lit-check></lit-check>
     </lit-layout>
@@ -104,48 +104,60 @@
       <lit-icon name="event" fill></lit-icon>
     </lit-layout>
 
-    <lit-layout variant="column" place="center" class="aspect-square">
+    <lit-layout variant="column" place="center" class="aspect-square gap-5xs">
       <lit-radio group="radioGroup1" checked></lit-radio>
       <lit-radio group="radioGroup1"></lit-radio>
       <lit-radio group="radioGroup1"></lit-radio>
     </lit-layout>
 
-    <lit-layout variant="column" place="center" class="aspect-square">
+    <lit-layout variant="column" place="center" class="aspect-square gap-5xs">
       <lit-media variant="audio" src="/src/common/assets/trex.mp3" controls>
       </lit-media>
     </lit-layout>
 
-    <lit-layout variant="column" place="center" class="aspect-square">
+    <lit-layout variant="column" place="center" class="aspect-square gap-5xs">
       <lit-media variant="image"
         src="https://cdn.dribbble.com/userupload/10972020/file/original-933f3353566cdd48f38cce49cb1736f7.png?resize=1024x768"
         alt="this is an image">
       </lit-media>
     </lit-layout>
 
-    <lit-layout variant="column" place="center" class="aspect-square">
+    <lit-layout variant="column" place="center" class="aspect-square gap-5xs">
       <lit-media variant="video" src="/src/common/assets/flower.webm" controls>
       </lit-media>
     </lit-layout>
 
-    <lit-layout variant="grid" place="center" class="aspect-square">
+    <lit-layout variant="column" place="center" class="aspect-square gap-5xs">
+      <lit-button emphasis="high"> plain </lit-button>
+      <lit-button emphasis="high" rounded> rounded</lit-button>
+      <lit-button emphasis="high" leading="favorite" rounded></lit-button>
+    </lit-layout>
+
+    <lit-layout variant="column" place="center" class="aspect-square gap-5xs">
+      <lit-button emphasis="medium"> plain </lit-button>
+      <lit-button emphasis="medium" rounded> rounded</lit-button>
+      <lit-button emphasis="medium" leading="favorite" rounded></lit-button>
+    </lit-layout>
+
+    <lit-layout variant="column" place="center" class="aspect-square gap-5xs">
       <lit-button emphasis="low"> plain </lit-button>
       <lit-button emphasis="low" rounded> rounded</lit-button>
       <lit-button emphasis="low" leading="favorite" rounded></lit-button>
     </lit-layout>
 
-    <lit-layout variant="grid" place="center" class="aspect-square">
+    <lit-layout variant="grid" place="center" class="aspect-square gap-5xs">
       <lit-button leading="person" leading_fill trailing="bolt">button</lit-button>
       <lit-button leading="person" trailing="bolt" rounded>button rounded</lit-button>
       <lit-button leading="person" trailing="bolt" trailing_fill>button</lit-button>
     </lit-layout>
 
-    <lit-layout variant="grid" place="center" class="aspect-square">
+    <lit-layout variant="grid" place="center" class="aspect-square gap-5xs">
       <lit-button leading="person" leading_fill trailing="bolt">button</lit-button>
       <lit-button leading="person" trailing="bolt" rounded>button rounded</lit-button>
       <lit-button leading="person" trailing="bolt" trailing_fill>button</lit-button>
     </lit-layout>
 
-    <lit-layout variant="column" place="center" class="aspect-square">
+    <lit-layout variant="column" place="center" class="aspect-square gap-5xs">
       <lit-expandable title="expandable" leading="person" trailing="arrow_right">
         <ul slot="content">
           <li>item 1</li>
@@ -156,7 +168,7 @@
       </lit-expandable>
     </lit-layout>
 
-    <lit-layout variant="row" place="center" class="aspect-square">
+    <lit-layout variant="row" place="center" class="aspect-square gap-5xs">
       <lit-radiobox group="radioGroup2" checked>
         <lit-media variant="image"
           src="https://cdn.dribbble.com/userupload/10972020/file/original-933f3353566cdd48f38cce49cb1736f7.png?resize=1024x768"></lit-media>
