@@ -22,7 +22,7 @@ export class Check extends LitElement {
 		this.addEventListener('click', this.toggleChecked);
 	}
 
-	render() {
+	protected render() {
 		return html` <lit-icon name=${this._icon} ?fill=${this.checked} /> `;
 	}
 

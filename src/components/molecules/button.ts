@@ -4,65 +4,151 @@ import '../atoms/icon.ts';
 
 @customElement('lit-button')
 export class Button extends LitElement {
-	@property({ type: String }) left_icon = '';
-	@property({ type: Boolean }) left_fill = '';
-	@property({ type: String }) right_icon = '';
-	@property({ type: Boolean }) right_fill = '';
+	static properties = {
+		delegatesFocus: { type: Boolean, reflect: true },
+	};
 
-	static styles = css`
-		:host {
-			appeareance: none;
-			box-sizing: border-box;
-			cursor: pointer;
+	@property({ type: Boolean }) emphasis = false;
+	@property({ type: Boolean }) rounded = false;
+	@property({ type: String }) leading = '';
+	@property({ type: Boolean }) leading_fill = false;
+	@property({ type: String }) trailing = '';
+	@property({ type: Boolean }) trailing_fill = false;
 
-			align-items: center;
-			display: inline-flex;
-			gap: var(--scale-5xs);
+	static styles = [
+		css`
+			:host {
+				appeareance: none;
+				box-sizing: border-box;
+				cursor: pointer;
 
-			font-size: var(--scale-md);
-			padding: var(--scale-xs) var(--scale-sm);
+				align-items: center;
+				display: inline-flex;
+				gap: var(--scale-5xs);
 
-			height: max-content;
-			width: max-content;
+				font-size: var(--scale-md);
+				padding: var(--scale-xs) var(--scale-sm);
 
-			outline: solid 1px var(--clr-primary);
-			outline-offset: -1px;
+				outline-color: transparent;
+				outline-style: solid;
+				outline-width: 1px;
+				outline-offset: -1px;
 
-			border-radius: var(--bord-radius);
-			overflow: hidden;
-		}
+				height: max-content;
+				width: max-content;
+				overflow: hidden;
 
-		:host {
-			transition: color var(--transition-settings),
-				background-color var(--transition-settings);
-		}
-
-		:host * {
-			transition: none;
-		}
-
-		:host(:focus) {
-			color: hsl(0, 0%, 0%);
-			outline-color: hsl(0, 0%, 0%);
-		}
-
-		@media (hover: hover) {
-			:host(:hover) {
-				background-color: hsl(0, 0%, 90%);
+				transition: color var(--transition-settings),
+					background-color var(--transition-settings);
 			}
-		}
 
-		:host(:active) {
-			color: hsl(0, 0%, 100%);
-			background-color: hsl(0, 0%, 0%);
-		}
-	`;
+			:host * {
+				margin: 0;
+				transition: none;
+			}
+
+			:host(:not([leading], [trailing])) {
+				padding: var(--scale-xs);
+			}
+
+			:host([rounded]) {
+				border-radius: var(--bord-radius);
+			}
+		`,
+		css`
+			:host,
+			:host([emphasis='low']) {
+				background-color: var(--clr-tertiary);
+				color: var(--clr-onTertiary);
+			}
+
+			:host(:focus),
+			:host([emphasis='low']:focus) {
+				background-color: var(--clr-tertiary--focus);
+				outline-color: var(--clr-onTertiary--focus);
+			}
+
+			@media (hover: hover) {
+				:host(:hover),
+				:host([emphasis='low']:hover) {
+					background-color: var(--clr-tertiary--hover);
+					color: var(--clr-onTertiary--hover);
+				}
+			}
+
+			:host(:active),
+			:host([emphasis='low']:active) {
+				background-color: var(--clr-tertiary--active);
+				color: var(--clr-onTertiary--active);
+			}
+		`,
+		css`
+			:host([emphasis='medium']) {
+				background-color: var(--clr-tertiary);
+				color: var(--clr-onTertiary);
+			}
+
+			:host([emphasis='medium']:focus) {
+				background-color: var(--clr-tertiary--focus);
+				outline-color: var(--clr-onTertiary--focus);
+			}
+
+			@media (hover: hover) {
+				:host([emphasis='medium']:hover) {
+					background-color: var(--clr-tertiary--hover);
+					color: var(--clr-onTertiary--hover);
+				}
+			}
+
+			:host([emphasis='medium']:active) {
+				background-color: var(--clr-tertiary--active);
+				color: var(--clr-onTertiary--active);
+			}
+		`,
+		css`
+			:host([emphasis='high']) {
+				background-color: var(--clr-tertiary);
+				color: var(--clr-onTertiary);
+			}
+
+			:host([emphasis='high']:focus) {
+				background-color: var(--clr-tertiary--focus);
+				outline-color: var(--clr-onTertiary--focus);
+			}
+
+			@media (hover: hover) {
+				:host([emphasis='high']:hover) {
+					background-color: var(--clr-tertiary--hover);
+					color: var(--clr-onTertiary--hover);
+				}
+			}
+
+			:host([emphasis='high']:active) {
+				background-color: var(--clr-tertiary--active);
+				color: var(--clr-onTertiary--active);
+			}
+		`,
+	];
+
+	connectedCallback() {
+		super.connectedCallback();
+		this.setAttribute('tabindex', '0');
+		this.addEventListener('focus', () => this.focus());
+	}
 
 	protected render() {
 		return html`
-			<lit-icon name=${this.left_icon} ?fill=${this.left_fill}></lit-icon>
+			${this.leading &&
+			html`<lit-icon
+				name=${this.leading}
+				?fill=${this.leading_fill}></lit-icon>`}
+
 			<slot></slot>
-			<lit-icon name=${this.right_icon} ?fill=${this.right_fill}></lit-icon>
+
+			${this.trailing &&
+			html`<lit-icon
+				name=${this.trailing}
+				?fill=${this.trailing_fill}></lit-icon>`}
 		`;
 	}
 }

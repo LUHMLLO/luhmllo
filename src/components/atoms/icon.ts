@@ -24,7 +24,7 @@ export class Icon extends LitElement {
 		}
 	`;
 
-	render() {
+	protected render() {
 		return html`${this.name.trim().toLowerCase()}`;
 	}
 }

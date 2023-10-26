@@ -48,7 +48,7 @@ export class Media extends LitElement {
 		}
 	}
 
-	render() {
+	protected render() {
 		return this.setTag();
 	}
 

@@ -39,7 +39,7 @@ export class RadioBox extends LitElement {
 		this.addEventListener('click', this.toggleChecked);
 	}
 
-	render() {
+	protected render() {
 		return html` <slot></slot> `;
 	}
 

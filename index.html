@@ -34,39 +34,7 @@
 
 <body>
 
-  <lit-layout variant="grid" class="debug">
-
-    <lit-layout variant="column" place="center" class="aspect-square">
-      <lit-check checked></lit-check>
-      <lit-check></lit-check>
-    </lit-layout>
-
-    <lit-layout variant="grid" place="center" class="aspect-square cols-3">
-      <lit-icon name="person"></lit-icon>
-      <lit-icon name="person" fill></lit-icon>
-      <lit-icon name="person"></lit-icon>
-      <lit-icon name="person" fill></lit-icon>
-      <lit-icon name="person"></lit-icon>
-      <lit-icon name="person" fill></lit-icon>
-      <lit-icon name="person"></lit-icon>
-      <lit-icon name="person" fill></lit-icon>
-      <lit-icon name="person"></lit-icon>
-      <lit-icon name="person" fill></lit-icon>
-      <lit-icon name="person"></lit-icon>
-      <lit-icon name="person" fill></lit-icon>
-      <lit-icon name="person"></lit-icon>
-      <lit-icon name="person" fill></lit-icon>
-      <lit-icon name="person"></lit-icon>
-      <lit-icon name="person" fill></lit-icon>
-      <lit-icon name="person"></lit-icon>
-      <lit-icon name="person" fill></lit-icon>
-      <lit-icon name="person"></lit-icon>
-      <lit-icon name="person" fill></lit-icon>
-      <lit-icon name="person"></lit-icon>
-      <lit-icon name="person" fill></lit-icon>
-      <lit-icon name="person"></lit-icon>
-      <lit-icon name="person" fill></lit-icon>
-    </lit-layout>
+  <lit-layout variant="grid" class="cols-3 debug">
 
     <lit-layout variant="grid" place="top-left" class="aspect-square">
       this is top-left
@@ -105,6 +73,44 @@
     </lit-layout>
 
     <lit-layout variant="column" place="center" class="aspect-square">
+      <lit-check checked></lit-check>
+      <lit-check></lit-check>
+    </lit-layout>
+
+    <lit-layout variant="grid" place="center" class="aspect-square cols-3">
+      <lit-icon name="shopping_cart"></lit-icon>
+      <lit-icon name="flutter" fill></lit-icon>
+      <lit-icon name="release_alert"></lit-icon>
+      <lit-icon name="inbox" fill></lit-icon>
+      <lit-icon name="search"></lit-icon>
+      <lit-icon name="menu" fill></lit-icon>
+      <lit-icon name="close"></lit-icon>
+      <lit-icon name="settings" fill></lit-icon>
+      <lit-icon name="favorite"></lit-icon>
+      <lit-icon name="delete" fill></lit-icon>
+      <lit-icon name="add"></lit-icon>
+      <lit-icon name="start" fill></lit-icon>
+      <lit-icon name="apps"></lit-icon>
+      <lit-icon name="bolt" fill></lit-icon>
+      <lit-icon name="token"></lit-icon>
+      <lit-icon name="select_all" fill></lit-icon>
+      <lit-icon name="fit_screen"></lit-icon>
+      <lit-icon name="auto_stories" fill></lit-icon>
+      <lit-icon name="view_cozy"></lit-icon>
+      <lit-icon name="clock_loader_40" fill></lit-icon>
+      <lit-icon name="lens_blur"></lit-icon>
+      <lit-icon name="group" fill></lit-icon>
+      <lit-icon name="auto_stories"></lit-icon>
+      <lit-icon name="event" fill></lit-icon>
+    </lit-layout>
+
+    <lit-layout variant="column" place="center" class="aspect-square">
+      <lit-radio group="radioGroup1" checked></lit-radio>
+      <lit-radio group="radioGroup1"></lit-radio>
+      <lit-radio group="radioGroup1"></lit-radio>
+    </lit-layout>
+
+    <lit-layout variant="column" place="center" class="aspect-square">
       <lit-media variant="audio" src="/src/common/assets/trex.mp3" controls>
       </lit-media>
     </lit-layout>
@@ -122,19 +128,25 @@
     </lit-layout>
 
     <lit-layout variant="grid" place="center" class="aspect-square">
-      <lit-button left_icon="person" left_fill right_icon="bolt">button</lit-button>
-      <lit-button left_icon="person" right_icon="bolt">button</lit-button>
-      <lit-button left_icon="person" right_icon="bolt" right_fill>button</lit-button>
+      <lit-button emphasis="low"> plain </lit-button>
+      <lit-button emphasis="low" rounded> rounded</lit-button>
+      <lit-button emphasis="low" leading="favorite" rounded></lit-button>
+    </lit-layout>
+
+    <lit-layout variant="grid" place="center" class="aspect-square">
+      <lit-button leading="person" leading_fill trailing="bolt">button</lit-button>
+      <lit-button leading="person" trailing="bolt" rounded>button rounded</lit-button>
+      <lit-button leading="person" trailing="bolt" trailing_fill>button</lit-button>
+    </lit-layout>
+
+    <lit-layout variant="grid" place="center" class="aspect-square">
+      <lit-button leading="person" leading_fill trailing="bolt">button</lit-button>
+      <lit-button leading="person" trailing="bolt" rounded>button rounded</lit-button>
+      <lit-button leading="person" trailing="bolt" trailing_fill>button</lit-button>
     </lit-layout>
 
     <lit-layout variant="column" place="center" class="aspect-square">
-      <lit-radio group="radioGroup1" checked></lit-radio>
-      <lit-radio group="radioGroup1"></lit-radio>
-      <lit-radio group="radioGroup1"></lit-radio>
-    </lit-layout>
-
-    <lit-layout variant="column" place="center" class="aspect-square">
-      <lit-expandable title="expandable" left_icon="person" right_icon="arrow_right">
+      <lit-expandable title="expandable" leading="person" trailing="arrow_right">
         <ul slot="content">
           <li>item 1</li>
           <li>item 2</li>

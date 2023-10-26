@@ -102,7 +102,7 @@ export class Layout extends LitElement {
 		}
 	}
 
-	render() {
+	protected render() {
 		return html` <slot /> `;
 	}
 }

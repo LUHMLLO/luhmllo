@@ -3,8 +3,8 @@ import { customElement, property } from 'lit/decorators.js';
 
 @customElement('lit-expandable')
 export class Expandable extends LitElement {
-	@property({ type: String }) left_icon = '';
-	@property({ type: String }) right_icon = '';
+	@property({ type: String }) leading = '';
+	@property({ type: String }) trailing = '';
 	@property({ type: String }) title = '';
 	@property({ type: Boolean, reflect: true }) open = false;
 
@@ -53,15 +53,15 @@ export class Expandable extends LitElement {
 		super.connectedCallback();
 	}
 
-	render() {
+	protected render() {
 		return this.setExpandableTag();
 	}
 
 	private setExpandableTag() {
 		return html`
 			<lit-button
-				left_icon=${this.left_icon}
-				right_icon=${this.right_icon}>
+				leading=${this.leading}
+				trailing=${this.trailing}>
 				${this.title}
 			</lit-button>
 			<slot name="content"></slot>
