@@ -19,7 +19,7 @@ export class Button extends LitElement {
 			display: inline-flex;
 			gap: var(--scale-5xs);
 
-			font-size: var(--scale-sm);
+			font-size: var(--scale-md);
 			padding: var(--scale-xs) var(--scale-sm);
 
 			height: max-content;
@@ -27,6 +27,9 @@ export class Button extends LitElement {
 
 			outline: solid 1px var(--clr-primary);
 			outline-offset: -1px;
+
+			border-radius: var(--bord-radius);
+			overflow: hidden;
 		}
 
 		:host {
