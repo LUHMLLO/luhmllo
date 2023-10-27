@@ -10,6 +10,7 @@ export class Button extends LitElement {
 
 	@property({ type: Boolean }) emphasis = false;
 	@property({ type: Boolean }) rounded = false;
+
 	@property({ type: String }) leading = '';
 	@property({ type: Boolean }) leading_fill = false;
 	@property({ type: String }) trailing = '';
