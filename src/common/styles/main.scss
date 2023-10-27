@@ -5,69 +5,10 @@
         --scale-#{$key}: #{$value};
     }
 
-    /* primary */
-    --clr-primary--hover: hsl(0, 0%, 12%);
-    --clr-onPrimary--hover: hsl(0, 0%, 99%);
-
-    --clr-primary: hsl(0, 0%, 9%);
-    --clr-onPrimary: hsl(0, 0%, 96%);
-
-    --clr-primary--active: hsl(0, 0%, 6%);
-    --clr-onPrimary--active: hsl(0, 0%, 93%);
-
-    --clr-primary--focus: hsl(0, 0%, 15%);
-    --clr-onPrimary--focus: hsl(0, 0%, 90%);
-
-    --clr-primary--disabled: hsl(0, 0%, 0%);
-    --clr-onPrimary--disabled: hsl(0, 0%, 100%);
-
-    /* secondary */
-    --clr-secondary--hover: hsl(0, 0%, 0%);
-    --clr-onSecondary--hover: hsl(0, 0%, 100%);
-
-    --clr-secondary: hsl(0, 0%, 0%);
-    --clr-onSecondary: hsl(0, 0%, 100%);
-
-    --clr-secondary--active: hsl(0, 0%, 0%);
-    --clr-onSecondary--active: hsl(0, 0%, 100%);
-
-    --clr-secondary--focus: hsl(0, 0%, 0%);
-    --clr-onSecondary--focus: hsl(0, 0%, 100%);
-
-    --clr-secondary--disabled: hsl(0, 0%, 0%);
-    --clr-onSecondary--disabled: hsl(0, 0%, 100%);
-
-    /* tertiary */
-    --clr-tertiary--hover: hsl(0, 0%, 96%);
-    --clr-onTertiary--hover: hsl(0, 0%, 3%);
-
-    --clr-tertiary: hsl(0, 0%, 93%);
-    --clr-onTertiary: hsl(0, 0%, 6%);
-
-    --clr-tertiary--active: hsl(0, 0%, 90%);
-    --clr-onTertiary--active: hsl(0, 0%, 9%);
-
-    --clr-tertiary--focus: hsl(0, 0%, 86%);
-    --clr-onTertiary--focus: hsl(0, 0%, 12%);
-
-    --clr-tertiary--disabled: hsl(0, 0%, 0%);
-    --clr-onTertiary--disabled: hsl(0, 0%, 100%);
-
-    /* accent */
-    --clr-accent--hover: hsl(0, 0%, 0%);
-    --clr-onAccent--hover: hsl(0, 0%, 100%);
-
-    --clr-accent: hsl(0, 0%, 0%);
-    --clr-onAccent: hsl(0, 0%, 100%);
-
-    --clr-accent--active: hsl(0, 0%, 0%);
-    --clr-onAccent--active: hsl(0, 0%, 100%);
-
-    --clr-accent--focus: hsl(0, 0%, 0%);
-    --clr-onAccent--focus: hsl(0, 0%, 100%);
-
-    --clr-accent--disabled: hsl(0, 0%, 0%);
-    --clr-onAccent--disabled: hsl(0, 0%, 100%);
+    --clr-accent: hsl(120, 88%, 50%);
+    --clr-primary: hsl(0, 0%, 6%);
+    --clr-secondary: hsl(0, 0%, 96%);
+    --clr-tertiary: hsl(0, 0%, 90%);
 
     /* theme settings */
     --bord-radius: var(--scale-5xs);
