@@ -71,6 +71,11 @@ export class Button extends LitElement {
 			:host([rounded]) {
 				border-radius: var(--bord-radius);
 			}
+
+			:host::part(lead),
+			:host::part(trail) {
+				transition: transform var(--transition-settings),
+					rotate var(--transition-settings);
 		`,
 		css`
 			:host,
@@ -113,30 +118,30 @@ export class Button extends LitElement {
 				--hover-clr: hsl(0, 0%, 6%);
 				--hover-bord: transparent;
 
-				--active-bg: hsl(0, 0%, 90%);
+				--active-bg: hsl(0, 0%, 87%);
 				--active-clr: hsl(0, 0%, 6%);
 				--active-bord: transparent;
 
-				--focus-bg: hsl(0, 0%, 93%);
+				--focus-bg: hsl(0, 0%, 90%);
 				--focus-clr: hsl(0, 0%, 6%);
 				--focus-bord: var(--clr-accent);
 			}
 		`,
 		css`
 			:host([emphasis='high']) {
-				--idle-bg: hsl(0, 0%, 6%);
+				--idle-bg: hsl(0, 0%, 15%);
 				--idle-clr: hsl(0, 0%, 96%);
 				--idle-bord: transparent;
 
-				--hover-bg: hsl(0, 0%, 9%);
+				--hover-bg: hsl(0, 0%, 21%);
 				--hover-clr: hsl(0, 0%, 96%);
 				--hover-bord: transparent;
 
-				--active-bg: hsl(0, 0%, 3%);
+				--active-bg: hsl(0, 0%, 9%);
 				--active-clr: hsl(0, 0%, 96%);
 				--active-bord: transparent;
 
-				--focus-bg: hsl(0, 0%, 6%);
+				--focus-bg: hsl(0, 0%, 12%);
 				--focus-clr: hsl(0, 0%, 96%);
 				--focus-bord: var(--clr-accent);
 			}
@@ -154,14 +159,16 @@ export class Button extends LitElement {
 			${this.leading &&
 			html`<lit-icon
 				name=${this.leading}
-				?fill=${this.leading_fill}></lit-icon>`}
+				?fill=${this.leading_fill}
+				part="lead"></lit-icon>`}
 
 			<slot></slot>
 
 			${this.trailing &&
 			html`<lit-icon
 				name=${this.trailing}
-				?fill=${this.trailing_fill}></lit-icon>`}
+				?fill=${this.trailing_fill}
+				part="trail"></lit-icon>`}
 		`;
 	}
 }
