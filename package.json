@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "lit": "^2.8.0",
-    "material-symbols": "^0.13.1",
-    "sass": "^1.69.4"
+    "material-symbols": "^0.13.2",
+    "sass": "^1.69.5"
   },
   "devDependencies": {
     "typescript": "^5.2.2",
