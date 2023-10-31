@@ -1,4 +1,4 @@
-import { LitElement, css, html } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 import '../atoms/icon.ts';
@@ -6,9 +6,11 @@ import '../atoms/icon.ts';
 import initialCss from '../../common/styles/lit/initial.ts';
 import buttonCss from '../../common/styles/lit/modules/molecule.button.ts';
 
+const allowedEmphasis: readonly string[] = ['low', 'medium', 'high'];
+
 @customElement('lit-button')
 export class Button extends LitElement {
-	@property({ type: Boolean }) emphasis = false;
+	@property({ type: String }) emphasis = 'low';
 	@property({ type: Boolean }) rounded = false;
 	@property({ type: String }) leading = '';
 	@property({ type: Boolean }) leading_fill = false;
@@ -21,10 +23,20 @@ export class Button extends LitElement {
 
 	static styles = [initialCss, buttonCss];
 
-	connectedCallback() {
+	async connectedCallback(): Promise<void> {
 		super.connectedCallback();
 		this.setAttribute('tabindex', '0');
 		this.addEventListener('focus', () => this.focus());
+
+		if (this.emphasis) {
+			const value = this.emphasis;
+
+			if (!allowedEmphasis.includes(value)) {
+				console.warn(
+					`Invalid emphasis value: ${value}. Valid options are [${allowedEmphasis}].`
+				);
+			}
+		}
 	}
 
 	protected render() {

@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 import initialCss from '../../common/styles/lit/initial.ts';
@@ -49,7 +49,7 @@ export class Radio extends LitElement {
 		);
 	}
 
-	connectedCallback() {
+	async connectedCallback(): Promise<void> {
 		super.connectedCallback();
 
 		this.toggleIcon();
@@ -60,6 +60,8 @@ export class Radio extends LitElement {
 	}
 
 	protected render() {
-		return html` <lit-icon name=${this._icon} ?fill=${this.checked} /> `;
+		return html`
+			<lit-icon name=${this._icon} ?fill=${this.checked}></lit-icon>
+		`;
 	}
 }

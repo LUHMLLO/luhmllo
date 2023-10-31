@@ -31,7 +31,7 @@ export class Check extends LitElement {
 		);
 	}
 
-	connectedCallback() {
+	async connectedCallback(): Promise<void> {
 		super.connectedCallback();
 
 		this.toggleIcon();

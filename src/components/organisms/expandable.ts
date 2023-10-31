@@ -1,8 +1,10 @@
-import { LitElement, css, html } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 import initialCss from '../../common/styles/lit/initial.ts';
-import expandableCss from '../../common/styles/lit/modules/molecule.expandable.ts';
+import expandableCss from '../../common/styles/lit/modules/organism.expandable.ts';
+
+const allowedEmphasis: readonly string[] = ['low', 'medium', 'high'];
 
 @customElement('lit-expandable')
 export class Expandable extends LitElement {
@@ -19,6 +21,24 @@ export class Expandable extends LitElement {
 
 	static styles = [initialCss, expandableCss];
 
+	private handleOpen() {
+		this.open = !this.open;
+	}
+
+	async connectedCallback(): Promise<void> {
+		super.connectedCallback();
+
+		if (this.emphasis) {
+			const value = this.emphasis;
+
+			if (!allowedEmphasis.includes(value)) {
+				console.warn(
+					`Invalid emphasis value: ${value}. Valid options are [${allowedEmphasis}].`
+				);
+			}
+		}
+	}
+
 	protected render() {
 		return html`
 			<lit-button
@@ -32,9 +52,5 @@ export class Expandable extends LitElement {
 
 			<content><slot></slot></content>
 		`;
-	}
-
-	private handleOpen() {
-		this.open = !this.open;
 	}
 }

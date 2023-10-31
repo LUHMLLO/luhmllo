@@ -1,4 +1,4 @@
-import { LitElement, css, html } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 import initialCss from '../../common/styles/lit/initial.ts';
@@ -24,13 +24,13 @@ export class Media extends LitElement {
 						?autoplay=${this.autoplay}
 						?controls=${this.controls}
 						?loop=${this.loop}>
-						<source src=${this.src} ?type=${this.type} />
+						<source src=${this.src} type=${this.type} />
 						Your browser does not support the audio element.
 					</audio>
 				`;
 
 			case 'image':
-				return html` <img src=${this.src} ?alt=${this.alt} /> `;
+				return html` <img src=${this.src} alt=${this.alt} /> `;
 
 			case 'video':
 				return html`
@@ -38,14 +38,14 @@ export class Media extends LitElement {
 						?autoplay=${this.autoplay}
 						?controls=${this.controls}
 						?loop=${this.loop}>
-						<source src=${this.src} ?type=${this.type} />
+						<source src=${this.src} type=${this.type} />
 						Your browser does not support the video tag.
 					</video>
 				`;
 		}
 	}
 
-	connectedCallback(): void {
+	async connectedCallback(): Promise<void> {
 		super.connectedCallback();
 
 		if (!this.variant) {

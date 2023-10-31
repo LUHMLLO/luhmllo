@@ -1,8 +1,8 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 import initialCss from '../../common/styles/lit/initial.ts';
-import radioboxCss from '../../common/styles/lit/modules/molecule.radiobox.ts';
+import radioboxCss from '../../common/styles/lit/modules/organism.radiobox.ts';
 
 @customElement('lit-radiobox')
 export class RadioBox extends LitElement {
@@ -43,7 +43,7 @@ export class RadioBox extends LitElement {
 		);
 	}
 
-	connectedCallback() {
+	async connectedCallback(): Promise<void> {
 		super.connectedCallback();
 		this.setAttribute('tabindex', '0');
 		this.addEventListener('focus', () => this.focus());
