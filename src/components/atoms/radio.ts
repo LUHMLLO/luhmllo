@@ -1,31 +1,20 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
+import initialCss from '../../common/styles/lit/initial.ts';
+import radioCss from '../../common/styles/lit/modules/atom.check.ts';
+
 @customElement('lit-radio')
 export class Radio extends LitElement {
 	@property({ type: String }) _icon = '';
 	@property({ type: Boolean, reflect: true }) checked = false;
 	@property({ type: String, reflect: true }) group = '';
 
-	static styles = css`
-		:host {
-			box-sizing: border-box;
-			cursor: pointer;
-			display: block;
-			height: max-content;
-			width: max-content;
-		}
-	`;
+	static properties = {
+		delegatesFocus: { type: Boolean, reflect: true },
+	};
 
-	connectedCallback() {
-		super.connectedCallback();
-		this.toggleIcon();
-		this.addEventListener('click', this.toggleChecked);
-	}
-
-	protected render() {
-		return html` <lit-icon name=${this._icon} ?fill=${this.checked} /> `;
-	}
+	static styles = [initialCss, radioCss];
 
 	private toggleIcon() {
 		this._icon = this.checked ? 'check_circle' : 'radio_button_unchecked';
@@ -58,5 +47,19 @@ export class Radio extends LitElement {
 				detail: { checked: this.checked },
 			})
 		);
+	}
+
+	connectedCallback() {
+		super.connectedCallback();
+
+		this.toggleIcon();
+
+		this.setAttribute('tabindex', '0');
+		this.addEventListener('focus', () => this.focus());
+		this.addEventListener('click', this.toggleChecked);
+	}
+
+	protected render() {
+		return html` <lit-icon name=${this._icon} ?fill=${this.checked} /> `;
 	}
 }

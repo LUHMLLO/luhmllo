@@ -1,28 +1,15 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import '/node_modules/material-symbols/rounded.css';
+
+import initialCss from '../../common/styles/lit/initial.ts';
+import iconCss from '../../common/styles/lit/modules/atom.icon.ts';
 
 @customElement('lit-icon')
 export class Icon extends LitElement {
-	@property({ type: String }) name = '';
 	@property({ type: Boolean, reflect: true }) fill = false;
+	@property({ type: String }) name = '';
 
-	static styles = css`
-		:host {
-			box-sizing: border-box;
-			display: block;
-			font-family: 'Material Symbols Rounded';
-			font-size: 1.481544rem;
-			height: max-content;
-			line-height: 1;
-			user-select: none;
-			width: max-content;
-		}
-
-		:host([fill]) {
-			font-variation-settings: 'FILL' 1;
-		}
-	`;
+	static styles = [initialCss, iconCss];
 
 	protected render() {
 		return html`${this.name.trim().toLowerCase()}`;

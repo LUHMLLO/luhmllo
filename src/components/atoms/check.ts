@@ -1,30 +1,19 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+
+import initialCss from '../../common/styles/lit/initial.ts';
+import checkCss from '../../common/styles/lit/modules/atom.check.ts';
 
 @customElement('lit-check')
 export class Check extends LitElement {
 	@property({ type: String }) _icon = '';
 	@property({ type: Boolean, reflect: true }) checked = false;
 
-	static styles = css`
-		:host {
-			box-sizing: border-box;
-			cursor: pointer;
-			display: block;
-			height: max-content;
-			width: max-content;
-		}
-	`;
+	static properties = {
+		delegatesFocus: { type: Boolean, reflect: true },
+	};
 
-	connectedCallback() {
-		super.connectedCallback();
-		this.toggleIcon();
-		this.addEventListener('click', this.toggleChecked);
-	}
-
-	protected render() {
-		return html` <lit-icon name=${this._icon} ?fill=${this.checked} /> `;
-	}
+	static styles = [initialCss, checkCss];
 
 	private toggleIcon() {
 		this._icon = this.checked ? 'check_box' : 'check_box_outline_blank';
@@ -40,5 +29,21 @@ export class Check extends LitElement {
 				detail: { checked: this.checked },
 			})
 		);
+	}
+
+	connectedCallback() {
+		super.connectedCallback();
+
+		this.toggleIcon();
+
+		this.setAttribute('tabindex', '0');
+		this.addEventListener('focus', () => this.focus());
+		this.addEventListener('click', this.toggleChecked);
+	}
+
+	protected render() {
+		return html`
+			<lit-icon name=${this._icon} ?fill=${this.checked}></lit-icon>
+		`;
 	}
 }

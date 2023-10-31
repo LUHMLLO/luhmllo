@@ -1,0 +1,111 @@
+import { css } from 'lit';
+
+export default css`
+	:host {
+		box-sizing: border-box;
+		cursor: pointer;
+
+		align-items: center;
+		display: inline-flex;
+
+		font-size: var(--scale-md);
+		gap: var(--scale-5xs);
+		padding: var(--scale-xs) var(--scale-sm);
+
+		outline-style: solid;
+		outline-width: 0.0938rem;
+		outline-offset: -0.0938rem;
+
+		height: max-content;
+		width: max-content;
+		overflow: hidden;
+
+		transition: color var(--transition-settings),
+			background-color var(--transition-settings),
+			outline-color var(--transition-settings);
+	}
+
+	:host * {
+		transition: none;
+	}
+
+	:host(:not([leading], [trailing])) {
+		padding: var(--scale-xs);
+	}
+
+	:host([rounded]) {
+		border-radius: var(--bord-radius);
+	}
+
+	:host::part(lead),
+	:host::part(trail) {
+		transition: transform var(--transition-settings),
+			rotate var(--transition-settings);
+	}
+
+	:host,
+	:host([emphasis='low']) {
+		background-color: var(--idle-bg);
+		color: var(--idle-clr);
+		outline-color: var(--idle-bord);
+	}
+
+	:host(:focus),
+	:host([emphasis='low']:focus) {
+		background-color: var(--focus-bg);
+		color: var(--focus-clr);
+		outline-color: var(--focus-bord);
+	}
+
+	@media (hover: hover) {
+		:host(:hover),
+		:host([emphasis='low']:hover) {
+			background-color: var(--hover-bg);
+			color: var(--hover-clr);
+			outline-color: var(--hover-bord);
+		}
+	}
+
+	:host(:active),
+	:host([emphasis='low']:active) {
+		background-color: var(--active-bg);
+		color: var(--active-clr);
+		outline-color: var(--active-bord);
+	}
+
+	:host([emphasis='medium']) {
+		--idle-bg: hsl(0, 0%, 93%);
+		--idle-clr: hsl(0, 0%, 6%);
+		--idle-bord: transparent;
+
+		--hover-bg: hsl(0, 0%, 96%);
+		--hover-clr: hsl(0, 0%, 6%);
+		--hover-bord: transparent;
+
+		--active-bg: hsl(0, 0%, 87%);
+		--active-clr: hsl(0, 0%, 6%);
+		--active-bord: transparent;
+
+		--focus-bg: hsl(0, 0%, 90%);
+		--focus-clr: hsl(0, 0%, 6%);
+		--focus-bord: var(--clr-accent);
+	}
+
+	:host([emphasis='high']) {
+		--idle-bg: hsl(0, 0%, 15%);
+		--idle-clr: hsl(0, 0%, 96%);
+		--idle-bord: transparent;
+
+		--hover-bg: hsl(0, 0%, 21%);
+		--hover-clr: hsl(0, 0%, 96%);
+		--hover-bord: transparent;
+
+		--active-bg: hsl(0, 0%, 9%);
+		--active-clr: hsl(0, 0%, 96%);
+		--active-bord: transparent;
+
+		--focus-bg: hsl(0, 0%, 12%);
+		--focus-clr: hsl(0, 0%, 96%);
+		--focus-bord: var(--clr-accent);
+	}
+`;
