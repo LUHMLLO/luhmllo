@@ -8,7 +8,7 @@ export default css`
 	}
 
 	:host([rounded]) {
-		border-radius: var(--bord-radius);
+		border-radius: var(--bordRadius);
 	}
 
 	:host::part(toggle) {
@@ -16,7 +16,7 @@ export default css`
 		width: 100%;
 	}
 
-	:host([open]) > lit-button::part(trail) {
+	:host([open]) ::part(trail) {
 		transform: rotate(90deg);
 	}
 
@@ -35,8 +35,7 @@ export default css`
 
 		overflow: hidden;
 
-		transition: opacity var(--transition-settings),
-			padding var(--transition-settings);
+		transition: opacity var(--animSettings), padding var(--animSettings);
 	}
 
 	:host([open]) > content {

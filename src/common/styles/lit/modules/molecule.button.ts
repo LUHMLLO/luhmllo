@@ -2,7 +2,6 @@ import { css } from 'lit';
 
 export default css`
 	:host {
-		box-sizing: border-box;
 		cursor: pointer;
 
 		align-items: center;
@@ -20,9 +19,9 @@ export default css`
 		width: max-content;
 		overflow: hidden;
 
-		transition: color var(--transition-settings),
-			background-color var(--transition-settings),
-			outline-color var(--transition-settings);
+		transition: color var(--animSettings),
+			background-color var(--animSettings),
+			outline-color var(--animSettings);
 	}
 
 	:host * {
@@ -34,13 +33,13 @@ export default css`
 	}
 
 	:host([rounded]) {
-		border-radius: var(--bord-radius);
+		border-radius: var(--bordRadius);
 	}
 
 	:host::part(lead),
 	:host::part(trail) {
-		transition: transform var(--transition-settings),
-			rotate var(--transition-settings);
+		transition: transform var(--animSettings),
+			rotate var(--animSettings);
 	}
 
 	:host,
