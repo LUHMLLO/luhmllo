@@ -51,3 +51,8 @@ body {
 .gap-5xs {
     gap: var(--scale-5xs);
 }
+
+docs-card {
+    aspect-ratio: 1/1;
+    background-color: red;
+}
