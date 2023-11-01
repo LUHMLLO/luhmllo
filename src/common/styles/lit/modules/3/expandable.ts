@@ -20,7 +20,7 @@ export default css`
 		transform: rotate(90deg);
 	}
 
-	:host > content {
+	:host::part(content) {
 		display: flex;
 		flex-direction: column;
 		gap: var(--scale-5xs);
@@ -38,7 +38,7 @@ export default css`
 		transition: opacity var(--animSettings), padding var(--animSettings);
 	}
 
-	:host([open]) > content {
+	:host([open])::part(content) {
 		height: max-content;
 		opacity: 1;
 		padding: var(--scale-xs) var(--scale-sm);
@@ -48,32 +48,32 @@ export default css`
 	}
 
 	:host,
-	:host([emphasis='low']) > content > p {
+	:host([emphasis='low'])::part(content) {
 		background-color: var(--idle-bg);
 		color: var(--idle-clr);
 		outline-color: var(--idle-bord);
 	}
 
 	:host(:focus),
-	:host([emphasis='low']:focus) > content > p {
-		background-color: var(--focus-bg);
-		color: var(--focus-clr);
+	:host([emphasis='low']:focus)::part(content) {
+		/* background-color: var(--focus-bg);
+		color: var(--focus-clr); */
 		outline-color: var(--focus-bord);
 	}
 
 	@media (hover: hover) {
 		:host(:hover),
-		:host([emphasis='low']:hover) > content > p {
-			background-color: var(--hover-bg);
-			color: var(--hover-clr);
+		:host([emphasis='low']:hover)::part(content) {
+			/* background-color: var(--hover-bg);
+			color: var(--hover-clr); */
 			outline-color: var(--hover-bord);
 		}
 	}
 
 	:host(:active),
-	:host([emphasis='low']:active) > content > p {
-		background-color: var(--active-bg);
-		color: var(--active-clr);
+	:host([emphasis='low']:active)::part(content) {
+		/* background-color: var(--active-bg);
+		color: var(--active-clr); */
 		outline-color: var(--active-bord);
 	}
 

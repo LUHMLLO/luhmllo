@@ -1,32 +1,32 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import '../atoms/icon.ts';
-
 import initialCss from '../../common/styles/lit/initial.ts';
-import buttonCss from '../../common/styles/lit/modules/molecule.button.ts';
+import expandableCss from '../../common/styles/lit/modules/3/expandable.ts';
 
 const allowedEmphasis: readonly string[] = ['low', 'medium', 'high'];
 
-@customElement('lit-button')
-export class Button extends LitElement {
+@customElement('lit-expandable')
+export class Expandable extends LitElement {
 	@property({ type: String }) emphasis = 'low';
 	@property({ type: Boolean }) rounded = false;
+
 	@property({ type: String }) leading = '';
 	@property({ type: Boolean }) leading_fill = false;
-	@property({ type: String }) trailing = '';
+	@property({ type: String }) trailing = 'chevron_right';
 	@property({ type: Boolean }) trailing_fill = false;
 
-	static properties = {
-		delegatesFocus: { type: Boolean, reflect: true },
-	};
+	@property({ type: Boolean, reflect: true }) open = false;
+	@property({ type: String }) title = '';
 
-	static styles = [initialCss, buttonCss];
+	static styles = [initialCss, expandableCss];
+
+	private handleOpen() {
+		this.open = !this.open;
+	}
 
 	async connectedCallback(): Promise<void> {
 		super.connectedCallback();
-		this.setAttribute('tabindex', '0');
-		this.addEventListener('focus', () => this.focus());
 
 		if (this.emphasis) {
 			const value = this.emphasis;
@@ -41,19 +41,18 @@ export class Button extends LitElement {
 
 	protected render() {
 		return html`
-			${this.leading &&
-			html`<lit-icon
-				name=${this.leading}
-				?fill=${this.leading_fill}
-				part="lead"></lit-icon>`}
+			<lit-button
+				part="toggle"
+				@click=${this.handleOpen}
+				emphasis=${this.emphasis}
+				leading=${this.leading}
+				trailing=${this.trailing}>
+				${this.title}
+			</lit-button>
 
-			<slot></slot>
-
-			${this.trailing &&
-			html`<lit-icon
-				name=${this.trailing}
-				?fill=${this.trailing_fill}
-				part="trail"></lit-icon>`}
+			<div part="content">
+				<slot></slot>
+			</div>
 		`;
 	}
 }

@@ -2,10 +2,10 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 import initialCss from '../../common/styles/lit/initial.ts';
-import radioboxCss from '../../common/styles/lit/modules/organism.radiobox.ts';
+import radioCss from '../../common/styles/lit/modules/1/check.ts';
 
-@customElement('lit-radiobox')
-export class RadioBox extends LitElement {
+@customElement('lit-radio')
+export class Radio extends LitElement {
 	@property({ type: String }) _icon = '';
 	@property({ type: Boolean, reflect: true }) checked = false;
 	@property({ type: String, reflect: true }) group = '';
@@ -14,17 +14,22 @@ export class RadioBox extends LitElement {
 		delegatesFocus: { type: Boolean, reflect: true },
 	};
 
-	static styles = [initialCss, radioboxCss];
+	static styles = [initialCss, radioCss];
+
+	private toggleIcon() {
+		this._icon = this.checked ? 'check_circle' : 'radio_button_unchecked';
+	}
 
 	private toggleChecked() {
 		if (!this.checked) {
 			const radios = document.querySelectorAll(
-				`lit-radiobox[group="${this.group}"]`
-			) as NodeListOf<RadioBox>;
+				`lit-radio[group="${this.group}"]`
+			) as NodeListOf<Radio>;
 
-			for (const radio of Array.from(radios)) {
-				(radio as RadioBox).checked = false;
-				(radio as RadioBox).dispatchEvent(
+			for (const radio of [...radios]) {
+				(radio as Radio).checked = false;
+				(radio as Radio).toggleIcon();
+				(radio as Radio).dispatchEvent(
 					new CustomEvent('change', {
 						bubbles: true,
 						detail: { checked: false },
@@ -33,6 +38,7 @@ export class RadioBox extends LitElement {
 			}
 
 			this.checked = true;
+			this.toggleIcon();
 		}
 
 		this.dispatchEvent(
@@ -45,12 +51,17 @@ export class RadioBox extends LitElement {
 
 	async connectedCallback(): Promise<void> {
 		super.connectedCallback();
+
+		this.toggleIcon();
+
 		this.setAttribute('tabindex', '0');
 		this.addEventListener('focus', () => this.focus());
 		this.addEventListener('click', this.toggleChecked);
 	}
 
 	protected render() {
-		return html` <slot></slot> `;
+		return html`
+			<lit-icon name=${this._icon} ?fill=${this.checked}></lit-icon>
+		`;
 	}
 }

@@ -16,7 +16,7 @@ export default css`
 		content: '';
 		inset: 0;
 		position: absolute;
-		z-index: -1;
+		z-index: 1;
 
 		outline: red 1px solid;
 		outline-offset: -1px;

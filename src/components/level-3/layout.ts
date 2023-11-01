@@ -2,7 +2,7 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 import initialCss from '../../common/styles/lit/initial.ts';
-import layoutCss from '../../common/styles/lit/modules/atom.layout.ts';
+import layoutCss from '../../common/styles/lit/modules/3/layout.ts';
 
 const allowedVariants: readonly string[] = [
 	'column',
