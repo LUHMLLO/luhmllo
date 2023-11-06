@@ -30,30 +30,20 @@ body {
     margin: 0;
 }
 
-.layout-debug {
-    gap: var(--scale-xs);
-    padding: var(--scale-xs);
-
-    >* {
-        border: solid 1px var(--clr-primary);
-        padding: var(--scale-xs)
-    }
-}
-
-.aspect-square {
-    aspect-ratio: 1/1;
-}
-
-.cols-3 {
+.dev-grid {
+    gap: var(--scale-5xs);
     grid-template-columns: repeat(3, minmax(1rem, 1fr));
     overflow: hidden;
+    padding: var(--scale-xs);
 }
 
-.gap-5xs {
-    gap: var(--scale-5xs);
-}
-
-docs-card {
+.dev-card {
     aspect-ratio: 1/1;
-    background-color: red;
+    gap: var(--scale-5xs);
+    overflow: hidden;
+    outline-color: inherit;
+    outline-offset: -0.0625rem;
+    outline-style: dashed;
+    outline-width: 0.0625rem;
+    padding: var(--scale-xs);
 }
