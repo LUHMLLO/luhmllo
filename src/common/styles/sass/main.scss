@@ -45,7 +45,8 @@ body {
 }
 
 .cols-3 {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(1rem, 1fr));
+    overflow: hidden;
 }
 
 .gap-5xs {
