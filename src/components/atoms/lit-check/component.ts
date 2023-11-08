@@ -1,45 +1,27 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import initialCss from '../../common/styles/lit/initial.ts';
-import radioCss from '../../common/styles/lit/modules/1/check.ts';
+import initialCss from '@global/initial.ts';
+import checkCss from './style.ts';
 
-@customElement('lit-radio')
-export class Radio extends LitElement {
+@customElement('lit-check')
+export class Check extends LitElement {
 	@property({ type: String }) _icon = '';
 	@property({ type: Boolean, reflect: true }) checked = false;
-	@property({ type: String, reflect: true }) group = '';
 
 	static properties = {
 		delegatesFocus: { type: Boolean, reflect: true },
 	};
 
-	static styles = [initialCss, radioCss];
+	static styles = [initialCss, checkCss];
 
 	private toggleIcon() {
-		this._icon = this.checked ? 'check_circle' : 'radio_button_unchecked';
+		this._icon = this.checked ? 'check_box' : 'check_box_outline_blank';
 	}
 
 	private toggleChecked() {
-		if (!this.checked) {
-			const radios = document.querySelectorAll(
-				`lit-radio[group="${this.group}"]`
-			) as NodeListOf<Radio>;
-
-			for (const radio of [...radios]) {
-				(radio as Radio).checked = false;
-				(radio as Radio).toggleIcon();
-				(radio as Radio).dispatchEvent(
-					new CustomEvent('change', {
-						bubbles: true,
-						detail: { checked: false },
-					})
-				);
-			}
-
-			this.checked = true;
-			this.toggleIcon();
-		}
+		this.checked = !this.checked;
+		this.toggleIcon();
 
 		this.dispatchEvent(
 			new CustomEvent('change', {

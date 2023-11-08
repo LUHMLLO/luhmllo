@@ -1,16 +1,7 @@
-import '/node_modules/material-symbols/rounded.css';
+import './fontFace.css';
 import { css } from 'lit';
 
 export default css`
-	@font-face {
-		font-display: block;
-		font-family: 'Material Symbols Rounded';
-		font-style: normal;
-		font-weight: 100 200 300 400 500 600 700 800 900;
-		src: url('/node_modules/material-symbols/material-symbols-rounded.woff2')
-			format('woff2');
-	}
-
 	:host {
 		display: block;
 		height: max-content;

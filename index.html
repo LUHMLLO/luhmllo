@@ -5,17 +5,22 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/lit.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lit</title>
-  <link rel="stylesheet" href="./src/common/styles/sass/main.scss" />
+  <title>Atomic Lit</title>
+  <link rel="stylesheet" href="./src/_dev/main.scss" />
 
-  <script type="module" src="./src/components/level-0/icon.ts" defer></script>
-  <script type="module" src="./src/components/level-1/check.ts" defer></script>
-  <script type="module" src="./src/components/level-1/media.ts" defer></script>
-  <script type="module" src="./src/components/level-1/radio.ts" defer></script>
-  <script type="module" src="./src/components/level-2/button.ts" defer></script>
-  <script type="module" src="./src/components/level-3/expandable.ts" defer></script>
-  <script type="module" src="./src/components/level-3/layout.ts" defer></script>
-  <script type="module" src="./src/components/level-3/radiobox.ts" defer></script>
+
+  <script type="module" src="./src/components/_buildingBlocks/layout.ts" defer></script>
+
+  <script type="module" src="./src/components/atoms/lit-icon/component.ts" defer></script>
+  <script type="module" src="./src/components/atoms/lit-check/component.ts" defer></script>
+  <script type="module" src="./src/components/atoms/lit-media/component.ts" defer></script>
+  <script type="module" src="./src/components/atoms/lit-radio/component.ts" defer></script>
+
+  <script type="module" src="./src/components/molecules/lit-button/component.ts" defer></script>
+
+  <script type="module" src="./src/components/organisms/lit-expandable/component.ts" defer></script>
+  <script type="module" src="./src/components/organisms/lit-radiobox/component.ts" defer></script>
+
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -109,7 +114,7 @@
     </lit-layout>
 
     <lit-layout variant="column" place="center" class="dev-card">
-      <lit-media variant="audio" src="/src/common/assets/trex.mp3" controls>
+      <lit-media variant="audio" src="/assets/trex.mp3" controls>
       </lit-media>
     </lit-layout>
 
@@ -121,7 +126,7 @@
     </lit-layout>
 
     <lit-layout variant="column" place="center" class="dev-card">
-      <lit-media variant="video" src="/src/common/assets/flower.webm" controls>
+      <lit-media variant="video" src="/assets/flower.webm" controls>
       </lit-media>
     </lit-layout>
 

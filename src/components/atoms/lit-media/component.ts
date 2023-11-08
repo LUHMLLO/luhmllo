@@ -1,8 +1,8 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import initialCss from '../../common/styles/lit/initial.ts';
-import mediaCss from '../../common/styles/lit/modules/1/media.ts';
+import initialCss from '@global/initial.ts';
+import mediaCss from './style.ts';
 
 @customElement('lit-media')
 export class Media extends LitElement {

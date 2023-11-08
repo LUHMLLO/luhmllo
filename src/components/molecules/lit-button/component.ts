@@ -1,10 +1,10 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import '../level-0/icon.ts';
+import '../../atoms/lit-icon/component.ts';
 
-import initialCss from '../../common/styles/lit/initial.ts';
-import buttonCss from '../../common/styles/lit/modules/2/button.ts';
+import initialCss from '@global/initial.ts';
+import buttonCss from './style.ts';
 
 const allowedEmphasis: readonly string[] = ['low', 'medium', 'high'];
 

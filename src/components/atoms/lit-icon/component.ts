@@ -1,8 +1,8 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import initialCss from '../../common/styles/lit/initial.ts';
-import iconCss from '../../common/styles/lit/modules/0/icon.ts';
+import initialCss from '@global/initial.ts';
+import iconCss from './style.ts';
 
 @customElement('lit-icon')
 export class Icon extends LitElement {

@@ -1,8 +1,8 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import initialCss from '../../common/styles/lit/initial.ts';
-import radioboxCss from '../../common/styles/lit/modules/3/radiobox.ts';
+import initialCss from '@global/initial.ts';
+import radioboxCss from './style.ts';
 
 @customElement('lit-radiobox')
 export class RadioBox extends LitElement {

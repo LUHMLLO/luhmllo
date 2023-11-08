@@ -19,8 +19,7 @@ export default css`
 		width: max-content;
 		overflow: hidden;
 
-		transition: color var(--animSettings),
-			background-color var(--animSettings),
+		transition: color var(--animSettings), background-color var(--animSettings),
 			outline-color var(--animSettings);
 	}
 
@@ -38,8 +37,7 @@ export default css`
 
 	:host::part(lead),
 	:host::part(trail) {
-		transition: transform var(--animSettings),
-			rotate var(--animSettings);
+		transition: transform var(--animSettings), rotate var(--animSettings);
 	}
 
 	:host,

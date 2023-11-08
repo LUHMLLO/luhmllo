@@ -1,8 +1,8 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import initialCss from '../../common/styles/lit/initial.ts';
-import expandableCss from '../../common/styles/lit/modules/3/expandable.ts';
+import initialCss from '@global/initial.ts';
+import expandableCss from './style.ts';
 
 const allowedEmphasis: readonly string[] = ['low', 'medium', 'high'];
 
