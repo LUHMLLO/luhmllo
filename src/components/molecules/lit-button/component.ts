@@ -2,7 +2,9 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 import initialCss from '@global/initial.ts';
-import buttonCss from './style.ts';
+import iconCss from '@global/reusable/icon.part.ts';
+import buttonCss from '@global/reusable/button.ts';
+import localButtonCss from './style.ts';
 
 const allowedEmphasis: readonly string[] = ['low', 'medium', 'high'];
 
@@ -21,7 +23,7 @@ export class Button extends LitElement {
 		delegatesFocus: { type: Boolean, reflect: true },
 	};
 
-	static styles = [initialCss, buttonCss];
+	static styles = [initialCss, iconCss, buttonCss, localButtonCss];
 
 	async connectedCallback(): Promise<void> {
 		super.connectedCallback();

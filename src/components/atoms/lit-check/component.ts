@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 import initialCss from '@global/initial.ts';
+import iconCss from '@global/reusable/icon.ts';
 import checkCss from './style.ts';
 
 @customElement('lit-check')
@@ -13,7 +14,7 @@ export class Check extends LitElement {
 		delegatesFocus: { type: Boolean, reflect: true },
 	};
 
-	static styles = [initialCss, checkCss];
+	static styles = [initialCss, iconCss, checkCss];
 
 	private toggleChecked() {
 		this.checked = !this.checked;
