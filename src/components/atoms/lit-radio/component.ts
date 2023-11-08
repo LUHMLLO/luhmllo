@@ -16,10 +16,6 @@ export class Radio extends LitElement {
 
 	static styles = [initialCss, radioCss];
 
-	private toggleIcon() {
-		this._icon = this.checked ? 'check_circle' : 'radio_button_unchecked';
-	}
-
 	private toggleChecked() {
 		if (!this.checked) {
 			const radios = document.querySelectorAll(
@@ -28,7 +24,6 @@ export class Radio extends LitElement {
 
 			for (const radio of [...radios]) {
 				(radio as Radio).checked = false;
-				(radio as Radio).toggleIcon();
 				(radio as Radio).dispatchEvent(
 					new CustomEvent('change', {
 						bubbles: true,
@@ -38,7 +33,6 @@ export class Radio extends LitElement {
 			}
 
 			this.checked = true;
-			this.toggleIcon();
 		}
 
 		this.dispatchEvent(
@@ -51,17 +45,12 @@ export class Radio extends LitElement {
 
 	async connectedCallback(): Promise<void> {
 		super.connectedCallback();
-
-		this.toggleIcon();
-
 		this.setAttribute('tabindex', '0');
 		this.addEventListener('focus', () => this.focus());
 		this.addEventListener('click', this.toggleChecked);
 	}
 
 	protected render() {
-		return html`
-			<lit-icon name=${this._icon} ?fill=${this.checked}></lit-icon>
-		`;
+		return html` ${this.checked ? 'check_circle' : 'radio_button_unchecked'} `;
 	}
 }

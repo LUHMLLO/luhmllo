@@ -8,7 +8,6 @@
   <title>Atomic Lit</title>
   <link rel="stylesheet" href="./src/_dev/main.scss" />
 
-
   <script type="module" src="./src/components/_buildingBlocks/layout.ts" defer></script>
 
   <script type="module" src="./src/components/atoms/lit-icon/component.ts" defer></script>
@@ -21,12 +20,10 @@
   <script type="module" src="./src/components/organisms/lit-expandable/component.ts" defer></script>
   <script type="module" src="./src/components/organisms/lit-radiobox/component.ts" defer></script>
 
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&display=swap"
-    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&display=swap">
 
   <style>
     :root {
@@ -133,37 +130,37 @@
     <lit-layout variant="column" place="center" class="dev-card">
       <lit-button emphasis="high"> plain </lit-button>
       <lit-button emphasis="high" rounded> rounded</lit-button>
-      <lit-button emphasis="high" leading="favorite" rounded></lit-button>
+      <lit-button emphasis="high" lead="favorite" rounded></lit-button>
     </lit-layout>
 
     <lit-layout variant="column" place="center" class="dev-card">
       <lit-button emphasis="medium"> plain </lit-button>
       <lit-button emphasis="medium" rounded> rounded</lit-button>
-      <lit-button emphasis="medium" leading="favorite" rounded></lit-button>
+      <lit-button emphasis="medium" lead="favorite" rounded></lit-button>
     </lit-layout>
 
     <lit-layout variant="column" place="center" class="dev-card">
       <lit-button emphasis="low"> plain </lit-button>
       <lit-button emphasis="low" rounded> rounded</lit-button>
-      <lit-button emphasis="low" leading="favorite" rounded></lit-button>
+      <lit-button emphasis="low" lead="favorite" rounded></lit-button>
     </lit-layout>
 
     <lit-layout variant="column" place="center" class="dev-card">
-      <lit-button emphasis="high" leading="person" trailing="arrow_forward"> plain </lit-button>
-      <lit-button emphasis="high" leading="person" trailing="arrow_forward" rounded> rounded</lit-button>
-      <lit-button emphasis="high" leading="directions_run" trailing="arrow_forward"></lit-button>
+      <lit-button emphasis="high" lead="person" trail="arrow_forward"> plain </lit-button>
+      <lit-button emphasis="high" lead="person" trail="arrow_forward" rounded> rounded</lit-button>
+      <lit-button emphasis="high" lead="directions_run" trail="arrow_forward"></lit-button>
     </lit-layout>
 
     <lit-layout variant="column" place="center" class="dev-card">
-      <lit-button emphasis="medium" leading="person" trailing="arrow_forward"> plain </lit-button>
-      <lit-button emphasis="medium" leading="person" trailing="arrow_forward" rounded> rounded</lit-button>
-      <lit-button emphasis="medium" leading="directions_run" trailing="arrow_forward"></lit-button>
+      <lit-button emphasis="medium" lead="person" trail="arrow_forward"> plain </lit-button>
+      <lit-button emphasis="medium" lead="person" trail="arrow_forward" rounded> rounded</lit-button>
+      <lit-button emphasis="medium" lead="directions_run" trail="arrow_forward"></lit-button>
     </lit-layout>
 
     <lit-layout variant="column" place="center" class="dev-card">
-      <lit-button emphasis="low" leading="person" trailing="arrow_forward"> plain </lit-button>
-      <lit-button emphasis="low" leading="person" trailing="arrow_forward" rounded> rounded</lit-button>
-      <lit-button emphasis="low" leading="directions_run" trailing="arrow_forward"></lit-button>
+      <lit-button emphasis="low" lead="person" trail="arrow_forward"> plain </lit-button>
+      <lit-button emphasis="low" lead="person" trail="arrow_forward" rounded> rounded</lit-button>
+      <lit-button emphasis="low" lead="directions_run" trail="arrow_forward"></lit-button>
     </lit-layout>
 
     <lit-layout variant="column" place="center" class="dev-card">
@@ -185,12 +182,7 @@
     </lit-layout>
 
     <lit-layout variant="column" place="center" class="dev-card">
-      <lit-expandable title="expandable" emphasis="high" open>
-        <p>item 1</p>
-        <p>item 2</p>
-        <p>item 3</p>
-        <p>item 4</p>
-      </lit-expandable>
+      <lit-expandable title="expandable" emphasis="high" open></lit-expandable>
     </lit-layout>
 
     <lit-layout variant="row" place="center" class="dev-card">

@@ -15,13 +15,8 @@ export class Check extends LitElement {
 
 	static styles = [initialCss, checkCss];
 
-	private toggleIcon() {
-		this._icon = this.checked ? 'check_box' : 'check_box_outline_blank';
-	}
-
 	private toggleChecked() {
 		this.checked = !this.checked;
-		this.toggleIcon();
 
 		this.dispatchEvent(
 			new CustomEvent('change', {
@@ -33,17 +28,12 @@ export class Check extends LitElement {
 
 	async connectedCallback(): Promise<void> {
 		super.connectedCallback();
-
-		this.toggleIcon();
-
 		this.setAttribute('tabindex', '0');
 		this.addEventListener('focus', () => this.focus());
 		this.addEventListener('click', this.toggleChecked);
 	}
 
 	protected render() {
-		return html`
-			<lit-icon name=${this._icon} ?fill=${this.checked}></lit-icon>
-		`;
+		return html` ${this.checked ? 'check_box' : 'check_box_outline_blank'} `;
 	}
 }

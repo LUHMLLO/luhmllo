@@ -2,7 +2,7 @@ import '@global/fontFace.css';
 import { css } from 'lit';
 
 export default css`
-	:host {
+	:host::part(toggle) {
 		cursor: pointer;
 
 		align-items: center;
@@ -24,49 +24,49 @@ export default css`
 			outline-color var(--animSettings);
 	}
 
-	:host * {
+	:host::part(toggle) * {
 		transition: none;
 	}
 
-	:host(:empty) {
-		padding: var(--scale-xs);
-	}
-
-	:host([rounded]) {
+	:host([rounded])::part(toggle) {
 		border-radius: var(--bordRadius);
 	}
 
-	:host,
-	:host([emphasis='low']) {
+	:host([open])::part(trail) {
+		transform: rotate(90deg);
+	}
+
+	:host::part(toggle),
+	:host([emphasis='low'])::part(toggle) {
 		background-color: var(--idle-bg);
 		color: var(--idle-clr);
 		outline-color: var(--idle-bord);
 	}
 
-	:host(:focus),
-	:host([emphasis='low']:focus) {
+	:host(:focus)::part(toggle),
+	:host([emphasis='low']:focus)::part(toggle) {
 		background-color: var(--focus-bg);
 		color: var(--focus-clr);
 		outline-color: var(--focus-bord);
 	}
 
 	@media (hover: hover) {
-		:host(:hover),
-		:host([emphasis='low']:hover) {
+		:host(:hover)::part(toggle),
+		:host([emphasis='low']:hover)::part(toggle) {
 			background-color: var(--hover-bg);
 			color: var(--hover-clr);
 			outline-color: var(--hover-bord);
 		}
 	}
 
-	:host(:active),
-	:host([emphasis='low']:active) {
+	:host(:active)::part(toggle),
+	:host([emphasis='low']:active)::part(toggle) {
 		background-color: var(--active-bg);
 		color: var(--active-clr);
 		outline-color: var(--active-bord);
 	}
 
-	:host([emphasis='medium']) {
+	:host([emphasis='medium'])::part(toggle) {
 		--idle-bg: hsl(0, 0%, 93%);
 		--idle-clr: hsl(0, 0%, 6%);
 		--idle-bord: transparent;
@@ -84,7 +84,7 @@ export default css`
 		--focus-bord: var(--clr-accent);
 	}
 
-	:host([emphasis='high']) {
+	:host([emphasis='high'])::part(toggle) {
 		--idle-bg: hsl(0, 0%, 15%);
 		--idle-clr: hsl(0, 0%, 96%);
 		--idle-bord: transparent;
@@ -107,7 +107,6 @@ export default css`
 		transition: transform var(--animSettings), rotate var(--animSettings);
 	}
 
-	:host::part(lead),
 	:host::part(trail) {
 		display: block;
 		height: max-content;
@@ -137,8 +136,8 @@ export default css`
 		-moz-font-smoothing: grayscale;
 	}
 
-	:host::part(lead)[fill],
-	:host::part(trail)[fill] {
+	:host::part(toggle)::part(lead)[fill],
+	:host::part(toggle)::part(trail)[fill] {
 		font-variation-settings: 'FILL' 1;
 	}
 `;

@@ -1,8 +1,6 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import '../../atoms/lit-icon/component.ts';
-
 import initialCss from '@global/initial.ts';
 import buttonCss from './style.ts';
 
@@ -12,10 +10,12 @@ const allowedEmphasis: readonly string[] = ['low', 'medium', 'high'];
 export class Button extends LitElement {
 	@property({ type: String }) emphasis = 'low';
 	@property({ type: Boolean }) rounded = false;
-	@property({ type: String }) leading = '';
-	@property({ type: Boolean }) leading_fill = false;
-	@property({ type: String }) trailing = '';
-	@property({ type: Boolean }) trailing_fill = false;
+
+	@property({ type: String }) lead = '';
+	@property({ type: Boolean }) lead_fill = false;
+
+	@property({ type: String }) trail = '';
+	@property({ type: Boolean }) trail_fill = false;
 
 	static properties = {
 		delegatesFocus: { type: Boolean, reflect: true },
@@ -41,19 +41,13 @@ export class Button extends LitElement {
 
 	protected render() {
 		return html`
-			${this.leading &&
-			html`<lit-icon
-				name=${this.leading}
-				?fill=${this.leading_fill}
-				part="lead"></lit-icon>`}
+			${this.lead &&
+			html`<span ?fill=${this.lead_fill} part="lead">${this.lead}</span>`}
 
 			<slot></slot>
 
-			${this.trailing &&
-			html`<lit-icon
-				name=${this.trailing}
-				?fill=${this.trailing_fill}
-				part="trail"></lit-icon>`}
+			${this.trail &&
+			html`<span ?fill=${this.trail_fill} part="trail">${this.trail}</span>`}
 		`;
 	}
 }
