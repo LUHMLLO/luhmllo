@@ -2,7 +2,7 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 import initialCss from '@global/initial.ts';
-import radioboxCss from './style.ts';
+import localCss from './style.ts';
 
 @customElement('lit-radiobox')
 export class RadioBox extends LitElement {
@@ -14,7 +14,7 @@ export class RadioBox extends LitElement {
 		delegatesFocus: { type: Boolean, reflect: true },
 	};
 
-	static styles = [initialCss, radioboxCss];
+	static styles = [initialCss, localCss];
 
 	private toggleChecked() {
 		if (!this.checked) {

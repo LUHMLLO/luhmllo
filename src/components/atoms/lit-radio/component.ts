@@ -3,7 +3,7 @@ import { customElement, property } from 'lit/decorators.js';
 
 import initialCss from '@global/initial.ts';
 import iconCss from '@global/reusable/icon.ts';
-import radioCss from './style.ts';
+import localCss from './style.ts';
 
 @customElement('lit-radio')
 export class Radio extends LitElement {
@@ -15,7 +15,7 @@ export class Radio extends LitElement {
 		delegatesFocus: { type: Boolean, reflect: true },
 	};
 
-	static styles = [initialCss, iconCss, radioCss];
+	static styles = [initialCss, iconCss, localCss];
 
 	private toggleChecked() {
 		if (!this.checked) {

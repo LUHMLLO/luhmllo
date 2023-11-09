@@ -2,9 +2,9 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 import initialCss from '@global/initial.ts';
-import expandableCss from './style.ts';
 import expandableToggleCss from './style.toggle.ts';
 import expandableContentCss from './style.content.ts';
+import localCss from './style.ts';
 
 const allowedEmphasis: readonly string[] = ['low', 'medium', 'high'];
 
@@ -23,9 +23,9 @@ export class Expandable extends LitElement {
 
 	static styles = [
 		initialCss,
-		expandableCss,
 		expandableToggleCss,
 		expandableContentCss,
+		localCss,
 	];
 
 	private handleOpen() {

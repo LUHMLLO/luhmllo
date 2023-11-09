@@ -2,7 +2,7 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 import initialCss from '@global/initial.ts';
-import mediaCss from './style.ts';
+import localCss from './style.ts';
 
 @customElement('lit-media')
 export class Media extends LitElement {
@@ -14,7 +14,7 @@ export class Media extends LitElement {
 	@property({ type: Boolean, reflect: true }) autoplay = false;
 	@property({ type: Boolean, reflect: true }) loop = false;
 
-	static styles = [initialCss, mediaCss];
+	static styles = [initialCss, localCss];
 
 	private setTag() {
 		switch (this.variant) {
