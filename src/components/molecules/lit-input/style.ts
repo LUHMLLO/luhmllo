@@ -57,6 +57,7 @@ export default css`
 		pointer-events: none;
 		user-select: none;
 		z-index: 2;
+		opacity: 0.5;
 	}
 
 	:host > div > span:first-of-type:not(:empty) ~ span {
