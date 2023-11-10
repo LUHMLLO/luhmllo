@@ -18,6 +18,7 @@ export class Input extends LitElement {
 	@property({ type: String }) trail = '';
 	@property({ type: Boolean }) trail_fill = false;
 
+	@property({ type: String }) placeholder = '';
 	@property({ type: String }) value = '';
 
 	static properties = {
@@ -46,7 +47,12 @@ export class Input extends LitElement {
 		return html`
 			${this.lead &&
 			html`<span ?fill=${this.lead_fill} part="lead">${this.lead}</span>`}
-			<div contenteditable>${this.value}</div>
+
+			<div>
+				<span contenteditable>${this.value}</span>
+				<span>${this.placeholder}</span>
+			</div>
+
 			${this.trail &&
 			html`<span ?fill=${this.trail_fill} part="trail">${this.trail}</span>`}
 		`;
