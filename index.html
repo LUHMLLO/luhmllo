@@ -17,6 +17,7 @@
 
   <script type="module" src="./src/components/molecules/lit-button/component.ts" defer></script>
   <script type="module" src="./src/components/molecules/lit-input/component.ts" defer></script>
+  <script type="module" src="./src/components/molecules/lit-link/component.ts" defer></script>
 
   <script type="module" src="./src/components/organisms/lit-expandable/component.ts" defer></script>
   <script type="module" src="./src/components/organisms/lit-radiobox/component.ts" defer></script>
@@ -174,6 +175,18 @@
 
     <lit-layout variant="column" place="center" class="dev-card">
       <lit-input trail="close" value="this is an input"></lit-input>
+    </lit-layout>
+
+    <lit-layout variant="column" place="center" class="dev-card">
+      <lit-link href="/#" target="" lead="person">link to '/#'</lit-link>
+    </lit-layout>
+
+    <lit-layout variant="column" place="center" class="dev-card">
+      <lit-link href="youtube.com" target="_self">link to '/youtube.com'</lit-link>
+    </lit-layout>
+
+    <lit-layout variant="column" place="center" class="dev-card">
+      <lit-link href="" target="" trail="close">link</lit-link>
     </lit-layout>
 
     <lit-layout variant="column" place="center" class="dev-card">

@@ -1,0 +1,54 @@
+import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+
+import initialCss from '@global/initial.ts';
+import iconCss from '@global/reusable/icon.part.ts';
+import localCss from './style.ts';
+
+@customElement('lit-link')
+export class Link extends LitElement {
+	@property({ type: String }) lead = '';
+	@property({ type: Boolean }) lead_fill = false;
+
+	@property({ type: String }) trail = '';
+	@property({ type: Boolean }) trail_fill = false;
+
+	@property({ type: String }) href = '';
+	@property({ type: String }) target = '';
+
+	static properties = {
+		delegatesFocus: { type: Boolean, reflect: true },
+	};
+
+	static styles = [initialCss, iconCss, localCss];
+
+	async connectedCallback(): Promise<void> {
+		super.connectedCallback();
+		this.setAttribute('tabindex', '0');
+		this.addEventListener('focus', () => this.focus());
+
+		if (this.href && !this.target) {
+			return this.addEventListener('click', () =>
+				window.location.replace(this.href)
+			);
+		}
+
+		if (this.href && this.target) {
+			return this.addEventListener('click', () =>
+				window.open(this.href, this.target)
+			);
+		}
+	}
+
+	protected render() {
+		return html`
+			${this.lead &&
+			html`<span ?fill=${this.lead_fill} part="lead">${this.lead}</span>`}
+
+			<slot></slot>
+
+			${this.trail &&
+			html`<span ?fill=${this.trail_fill} part="trail">${this.trail}</span>`}
+		`;
+	}
+}
