@@ -10,6 +10,7 @@ const allowedVariants: readonly string[] = [
 	'row',
 	'row-reverse',
 	'grid',
+	'main',
 ];
 
 const allowedAlignments: readonly string[] = [

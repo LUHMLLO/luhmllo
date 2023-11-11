@@ -30,23 +30,6 @@ body {
     margin: 0;
 }
 
-
-main {
-    display: grid;
-    grid-template-columns: 1fr [content-start] 1fr [content-end] 1fr;
-
-    &>* {
-        grid-column: content;
-    }
-}
-
-.dev-grid {
-    gap: var(--scale-5xs);
-    grid-template-columns: repeat(3, minmax(1rem, 1fr));
-    overflow: hidden;
-    padding: var(--scale-xs);
-}
-
 .dev-card {
     aspect-ratio: 1/1;
     gap: var(--scale-5xs);

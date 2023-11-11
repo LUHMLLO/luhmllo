@@ -28,7 +28,24 @@ export default css`
 
 	:host([variant='grid']) {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+	}
+	
+	:host([variant='main']) {
+		display: grid;
+		grid-template-columns: 1fr [content-start] 1fr [content-end] 1fr;
+
+		& > * {
+			grid-column: content;
+		}
+
+		& > .breakout {
+			grid-template-columns: 6rem 6rem 1fr [content-start] 1fr [content-end] 1fr 6rem 6rem;
+
+			& > * {
+				grid-column: content;
+			}
+		}
 	}
 
 	:host([place='top-left']) {
