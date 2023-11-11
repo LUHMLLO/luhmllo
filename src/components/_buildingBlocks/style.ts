@@ -30,7 +30,7 @@ export default css`
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
 	}
-	
+
 	:host([variant='main']) {
 		display: grid;
 		grid-template-columns: 1fr [content-start] 1fr [content-end] 1fr;
@@ -91,5 +91,10 @@ export default css`
 	:host([place='bottom-right']) {
 		place-items: end end;
 		place-content: end end;
+	}
+
+	:host([place='stretch']) {
+		place-items: stretch;
+		place-content: stretch;
 	}
 `;
