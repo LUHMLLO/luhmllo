@@ -19,6 +19,14 @@ export default css`
 		transition: opacity var(--animSettings), padding var(--animSettings);
 	}
 
+	:host([variant='dropdown'])::part(content) {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		margin-top: var(--scale-5xs);
+	}
+
 	:host([open])::part(content) {
 		height: max-content;
 		opacity: 1;

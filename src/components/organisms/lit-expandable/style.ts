@@ -4,7 +4,7 @@ export default css`
 	:host {
 		display: flex;
 		flex-direction: column;
-		overflow: hidden;
+		position: relative;
 	}
 
 	:host([rounded]) {

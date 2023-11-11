@@ -34,18 +34,18 @@ export default css`
 	:host([variant='main']) {
 		display: grid;
 		grid-template-columns: 1fr [content-start] 1fr [content-end] 1fr;
+	}
 
-		& > * {
-			grid-column: content;
-		}
+	:host([variant='main']) > * {
+		grid-column: content;
+	}
 
-		& > .breakout {
-			grid-template-columns: 6rem 6rem 1fr [content-start] 1fr [content-end] 1fr 6rem 6rem;
+	:host([variant='main']) > .breakout {
+		grid-template-columns: 6rem 6rem 1fr [content-start] 1fr [content-end] 1fr 6rem 6rem;
+	}
 
-			& > * {
-				grid-column: content;
-			}
-		}
+	:host([variant='main']) > .breakout > * {
+		grid-column: breakout;
 	}
 
 	:host([place='top-left']) {
