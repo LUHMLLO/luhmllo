@@ -2,12 +2,13 @@
   "name": "atomic-lit",
   "private": true,
   "version": "0.0.0",
+  "description": "Universal web components library made with Lit Element & Typescript",
+  "main": "./src/main.ts",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "make:css": "sass ./src/styles/vendor/pure/:./src/styles/vendor/compiled/ --no-source-map --charset --style expanded"
+    "preview": "vite preview"
   },
   "dependencies": {
     "lit": "^2.8.0",
