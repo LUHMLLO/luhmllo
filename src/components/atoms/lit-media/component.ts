@@ -23,21 +23,23 @@ export class Media extends LitElement {
 					<audio
 						?autoplay=${this.autoplay}
 						?controls=${this.controls}
-						?loop=${this.loop}>
+						?loop=${this.loop}
+						loading="lazy">
 						<source src=${this.src} type=${this.type} />
 						Your browser does not support the audio element.
 					</audio>
 				`;
 
 			case 'image':
-				return html` <img src=${this.src} alt=${this.alt} /> `;
+				return html` <img src=${this.src} alt=${this.alt} loading="lazy" /> `;
 
 			case 'video':
 				return html`
 					<video
 						?autoplay=${this.autoplay}
 						?controls=${this.controls}
-						?loop=${this.loop}>
+						?loop=${this.loop}
+						loading="lazy">
 						<source src=${this.src} type=${this.type} />
 						Your browser does not support the video tag.
 					</video>
@@ -59,6 +61,10 @@ export class Media extends LitElement {
 				`Invalid tag: ${this.variant}. Valid options are 'audio', 'image', or 'video'.`
 			);
 		}
+	}
+
+	async disconnectedCallback(): Promise<void> {
+		super.disconnectedCallback();
 	}
 
 	protected render() {

@@ -46,6 +46,10 @@ export class Expandable extends LitElement {
 		}
 	}
 
+	async disconnectedCallback(): Promise<void> {
+		super.disconnectedCallback();
+	}
+
 	protected render() {
 		return html`
 			<span part="toggle" @click=${this.handleOpen} emphasis=${this.emphasis}>

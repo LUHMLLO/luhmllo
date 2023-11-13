@@ -9,4 +9,14 @@ export default defineConfig({
 			'@global': './src/global/',
 		},
 	},
+	build: {
+		lib: {
+			entry: './src/main.ts',
+			formats: ['es'],
+			name: 'atomic-lit',
+		},
+		rollupOptions: {
+			external: /^lit/,
+		},
+	},
 });

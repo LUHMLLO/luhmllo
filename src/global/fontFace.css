@@ -2,6 +2,6 @@
     font-display: block;
     font-family: 'Material Symbols Rounded';
     font-style: normal;
-    font-weight: 100 200 300 400 500 600 700 800 900;
+    font-weight: 400;
     src: url('/node_modules/material-symbols/material-symbols-rounded.woff2') format('woff2');
 }

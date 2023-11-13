@@ -47,7 +47,14 @@ export class RadioBox extends LitElement {
 		super.connectedCallback();
 		this.setAttribute('tabindex', '0');
 		this.addEventListener('focus', () => this.focus());
-		this.addEventListener('click', this.toggleChecked);
+		this.addEventListener('click', () => this.toggleChecked);
+	}
+
+	async disconnectedCallback(): Promise<void> {
+		super.disconnectedCallback();
+		this.removeAttribute('tabindex');
+		this.removeEventListener('focus', () => this.focus());
+		this.removeEventListener('click', () => this.toggleChecked);
 	}
 
 	protected render() {

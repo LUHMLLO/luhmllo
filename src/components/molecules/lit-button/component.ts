@@ -41,6 +41,12 @@ export class Button extends LitElement {
 		}
 	}
 
+	async disconnectedCallback(): Promise<void> {
+		super.disconnectedCallback();
+		this.removeAttribute('tabindex');
+		this.removeEventListener('focus', () => this.focus());
+	}
+
 	protected render() {
 		return html`
 			${this.lead &&

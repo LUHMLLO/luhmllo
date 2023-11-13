@@ -56,6 +56,10 @@ export class Layout extends LitElement {
 		}
 	}
 
+	async disconnectedCallback(): Promise<void> {
+		super.disconnectedCallback();
+	}
+
 	protected render() {
 		return html` <slot></slot> `;
 	}

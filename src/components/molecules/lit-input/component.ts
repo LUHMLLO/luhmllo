@@ -28,6 +28,12 @@ export class Input extends LitElement {
 		this.querySelector('div')?.addEventListener('focus', () => this.focus());
 	}
 
+	async disconnectedCallback(): Promise<void> {
+		super.disconnectedCallback();
+		this.querySelector('div')?.removeAttribute('tabindex');
+		this.querySelector('div')?.removeEventListener('focus', () => this.focus());
+	}
+
 	protected render() {
 		return html`
 			${this.lead &&

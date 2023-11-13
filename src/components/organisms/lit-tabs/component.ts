@@ -12,6 +12,10 @@ export class Tabs extends LitElement {
 		super.connectedCallback();
 	}
 
+	async disconnectedCallback(): Promise<void> {
+		super.disconnectedCallback();
+	}
+
 	protected render() {
 		return html` not implemented yet `;
 	}

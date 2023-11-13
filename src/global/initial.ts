@@ -7,7 +7,7 @@ export default css`
 		max-width: 100%;
 	}
 
-	:host {
+	:root {
 		--idle-bg: transparent;
 		--idle-clr: hsl(0, 0%, 6%);
 		--idle-bord: transparent;

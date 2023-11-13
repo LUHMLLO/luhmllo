@@ -12,6 +12,14 @@ export class Icon extends LitElement {
 
 	static styles = [initialCss, iconCss, localCss];
 
+	async connectedCallback(): Promise<void> {
+		super.connectedCallback();
+	}
+
+	async disconnectedCallback(): Promise<void> {
+		super.disconnectedCallback();
+	}
+
 	protected render() {
 		return html`${this.name.trim().toLowerCase()}`;
 	}

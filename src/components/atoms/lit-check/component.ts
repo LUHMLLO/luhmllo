@@ -8,7 +8,7 @@ import localCss from './style.ts';
 @customElement('lit-check')
 export class Check extends LitElement {
 	@property({ type: String }) _icon = '';
-	@property({ type: Boolean, reflect: true }) checked = false;
+	@property({ type: Boolean, reflect: true }) _checked = false;
 
 	static properties = {
 		delegatesFocus: { type: Boolean, reflect: true },
@@ -17,12 +17,12 @@ export class Check extends LitElement {
 	static styles = [initialCss, iconCss, localCss];
 
 	private toggleChecked() {
-		this.checked = !this.checked;
+		this._checked = !this._checked;
 
 		this.dispatchEvent(
 			new CustomEvent('change', {
 				bubbles: true,
-				detail: { checked: this.checked },
+				detail: { checked: this._checked },
 			})
 		);
 	}
@@ -31,10 +31,17 @@ export class Check extends LitElement {
 		super.connectedCallback();
 		this.setAttribute('tabindex', '0');
 		this.addEventListener('focus', () => this.focus());
-		this.addEventListener('click', this.toggleChecked);
+		this.addEventListener('click', () => this.toggleChecked);
+	}
+
+	async disconnectedCallback(): Promise<void> {
+		super.disconnectedCallback();
+		this.removeAttribute('tabindex');
+		this.removeEventListener('focus', () => this.focus());
+		this.removeEventListener('click', () => this.toggleChecked);
 	}
 
 	protected render() {
-		return html` ${this.checked ? 'check_box' : 'check_box_outline_blank'} `;
+		return html` ${this._checked ? 'check_box' : 'check_box_outline_blank'} `;
 	}
 }
