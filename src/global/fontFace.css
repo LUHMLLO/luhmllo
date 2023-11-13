@@ -1,7 +1,7 @@
 @font-face {
-    font-display: block;
+    font-display: auto;
     font-family: 'Material Symbols Rounded';
     font-style: normal;
-    font-weight: 400;
+    font-weight: normal;
     src: url('/node_modules/material-symbols/material-symbols-rounded.woff2') format('woff2');
 }
