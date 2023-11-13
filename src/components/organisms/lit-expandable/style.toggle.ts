@@ -1,4 +1,3 @@
-import '@global/fontFace.css';
 import { css } from 'lit';
 
 export default css`
@@ -112,7 +111,7 @@ export default css`
 		height: max-content;
 		width: max-content;
 
-		font-family: 'Material Symbols Rounded';
+		font-family: var(--iconFontFamily);
 		font-size: 1.481544rem;
 		font-style: normal;
 		font-weight: normal;
