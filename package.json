@@ -1,5 +1,5 @@
 {
-  "name": "atomic-lit",
+  "name": "brrr-components",
   "description": "Universal web components library made with Lit Element & Typescript",
   "version": "0.0.0",
   "main": "./src/main.ts",
