@@ -12,12 +12,12 @@ export default defineConfig({
 	build: {
 		lib: {
 			entry: './src/main.ts',
-			formats: ['es'],
-			name: 'atomic-lit',
-			fileName: 'atomic-lit',
+			formats: ['es', 'cjs', 'umd', 'iife'],
+			name: 'brrrComponents',
+			fileName: 'index',
 		},
 		rollupOptions: {
-			external: /^lit/
+			external: /^lit/,
 		},
 	},
 });
