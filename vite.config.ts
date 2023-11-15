@@ -14,9 +14,10 @@ export default defineConfig({
 			entry: './src/main.ts',
 			formats: ['es'],
 			name: 'atomic-lit',
+			fileName: 'atomic-lit',
 		},
 		rollupOptions: {
-			external: /^lit/,
+			external: /^lit/
 		},
 	},
 });
