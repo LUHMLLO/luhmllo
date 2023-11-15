@@ -15,9 +15,6 @@ export default defineConfig({
 			formats: ['es', 'cjs', 'umd', 'iife'],
 			name: 'brrrComponents',
 			fileName: 'index',
-		},
-		rollupOptions: {
-			external: /^lit/,
-		},
+		}
 	},
 });
