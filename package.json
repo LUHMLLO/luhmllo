@@ -5,7 +5,10 @@
   "main": "./src/main.ts",
   "type": "module",
   "files": [
-    "dist/**.js"
+    "dist/index.cjs",
+    "dist/index.iife.js",
+    "dist/index.js",
+    "dist/index.umd.cjs"
   ],
   "scripts": {
     "update:latest": "pnpm update --interactive --latest",
