@@ -24,6 +24,7 @@
   "devDependencies": {
     "material-symbols": "^0.14.0",
     "sass": "^1.69.5",
+    "terser": "^5.24.0",
     "typescript": "^5.2.2",
     "vite": "^4.5.0"
   }
