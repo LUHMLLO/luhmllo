@@ -8,21 +8,20 @@
     "dist/index.cjs",
     "dist/index.iife.js",
     "dist/index.js",
-    "dist/index.umd.cjs"
+    "dist/index.umd.cjs",
+    "index.html",
+    "readme.md"
   ],
   "scripts": {
-    "update:latest": "pnpm update --interactive --latest",
+    "_css": "sass ./src/_dev/main.scss:./src/_dev/main.css --no-source-map --charset --style expanded",
+    "_publish": "tsc && vite build && pnpm version patch && pnpm publish",
+    "_update": "pnpm update --interactive --latest",
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "make:css": "sass ./src/_dev/main.scss:./src/_dev/main.css --no-source-map --charset --style expanded",
-    "lib:publish": "tsc && vite build && pnpm version patch && pnpm publish"
-  },
-  "dependencies": {
-    "lit": "^3.0.2"
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "material-symbols": "^0.14.0",
+    "lit": "^3.0.2",
     "sass": "^1.69.5",
     "terser": "^5.24.0",
     "typescript": "^5.2.2",
