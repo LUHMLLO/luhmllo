@@ -25,8 +25,8 @@ const allowedAlignments: readonly string[] = [
 	'bottom-right',
 ];
 
-@customElement('lit-layout')
-export class Layout extends LitElement {
+@customElement('lit-block')
+export class Block extends LitElement {
 	@property({ type: String, reflect: true }) variant = 'column';
 	@property({ type: String }) align = 'top-left';
 

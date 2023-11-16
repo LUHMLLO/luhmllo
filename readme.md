@@ -6,173 +6,173 @@ import 'brrr-components';
 const app = document.querySelector('#app') as Element;
 
 app.innerHTML = `
-    <lit-layout variant="main">
-        <lit-layout variant="grid" place="center">
+    <lit-block variant="main">
+        <lit-block variant="grid" place="center">
 
-        <lit-layout variant="grid" place="top-left">
+        <lit-block variant="grid" place="top-left">
             top-left
-        </lit-layout>
+        </lit-block>
 
-        <lit-layout variant="grid" place="top">
+        <lit-block variant="grid" place="top">
             top
-        </lit-layout>
+        </lit-block>
 
-        <lit-layout variant="grid" place="top-right">
+        <lit-block variant="grid" place="top-right">
             top-right
-        </lit-layout>
+        </lit-block>
 
-        <lit-layout variant="grid" place="center-left">
+        <lit-block variant="grid" place="center-left">
             center-left
-        </lit-layout>
+        </lit-block>
 
-        <lit-layout variant="grid" place="center">
+        <lit-block variant="grid" place="center">
             center
-        </lit-layout>
+        </lit-block>
 
-        <lit-layout variant="grid" place="center-right">
+        <lit-block variant="grid" place="center-right">
             center-right
-        </lit-layout>
+        </lit-block>
 
-        <lit-layout variant="grid" place="bottom-left">
+        <lit-block variant="grid" place="bottom-left">
             bottom-left
-        </lit-layout>
+        </lit-block>
 
-        <lit-layout variant="grid" place="bottom">
+        <lit-block variant="grid" place="bottom">
             bottom
-        </lit-layout>
+        </lit-block>
 
-        <lit-layout variant="grid" place="bottom-right">
+        <lit-block variant="grid" place="bottom-right">
             bottom-right
-        </lit-layout>
-        </lit-layout>
+        </lit-block>
+        </lit-block>
 
-        <lit-layout variant="column" place="center">
-        <lit-layout variant="column" place="center">
+        <lit-block variant="column" place="center">
+        <lit-block variant="column" place="center">
             <lit-check checked></lit-check>
-        </lit-layout>
-        <lit-layout variant="column" place="center">
+        </lit-block>
+        <lit-block variant="column" place="center">
             <lit-check></lit-check>
-        </lit-layout>
-        </lit-layout>
+        </lit-block>
+        </lit-block>
 
-        <lit-layout variant="grid" place="center">
-        <lit-layout variant="grid" place="center">
+        <lit-block variant="grid" place="center">
+        <lit-block variant="grid" place="center">
             <lit-icon name="person"></lit-icon>
-        </lit-layout>
-        <lit-layout variant="grid" place="center">
+        </lit-block>
+        <lit-block variant="grid" place="center">
             <lit-icon name="camera"></lit-icon>
-        </lit-layout>
-        <lit-layout variant="grid" place="center">
+        </lit-block>
+        <lit-block variant="grid" place="center">
             <lit-icon name="settings"></lit-icon>
-        </lit-layout>
-        <lit-layout variant="grid" place="center">
+        </lit-block>
+        <lit-block variant="grid" place="center">
             <lit-icon name="shopping_cart"></lit-icon>
-        </lit-layout>
-        <lit-layout variant="grid" place="center">
+        </lit-block>
+        <lit-block variant="grid" place="center">
             <lit-icon name="flutter"></lit-icon>
-        </lit-layout>
-        <lit-layout variant="grid" place="center">
+        </lit-block>
+        <lit-block variant="grid" place="center">
             <lit-icon name="release_alert"></lit-icon>
-        </lit-layout>
-        <lit-layout variant="grid" place="center">
+        </lit-block>
+        <lit-block variant="grid" place="center">
             <lit-icon name="dashboard"></lit-icon>
-        </lit-layout>
-        <lit-layout variant="grid" place="center">
+        </lit-block>
+        <lit-block variant="grid" place="center">
             <lit-icon name="home"></lit-icon>
-        </lit-layout>
-        <lit-layout variant="grid" place="center">
+        </lit-block>
+        <lit-block variant="grid" place="center">
             <lit-icon name="wifi"></lit-icon>
-        </lit-layout>
-        </lit-layout>
+        </lit-block>
+        </lit-block>
 
-        <lit-layout variant="column" place="center">
-        <lit-layout variant="column" place="center">
+        <lit-block variant="column" place="center">
+        <lit-block variant="column" place="center">
             <lit-radio group="radioGroup1" checked></lit-radio>
-        </lit-layout>
-        <lit-layout variant="column" place="center">
+        </lit-block>
+        <lit-block variant="column" place="center">
             <lit-radio group="radioGroup1"></lit-radio>
-        </lit-layout>
-        <lit-layout variant="column" place="center">
+        </lit-block>
+        <lit-block variant="column" place="center">
             <lit-radio group="radioGroup1"></lit-radio>
-        </lit-layout>
-        </lit-layout>
+        </lit-block>
+        </lit-block>
 
-        <lit-layout variant="column" place="center">
+        <lit-block variant="column" place="center">
 
-        <lit-layout variant="column" place="center">
+        <lit-block variant="column" place="center">
             <lit-media variant="audio" src="./src/_dev/assets/trex.mp3" controls>
             </lit-media>
-        </lit-layout>
+        </lit-block>
 
-        <lit-layout variant="column" place="center">
+        <lit-block variant="column" place="center">
             <lit-media variant="video" src="./src/_dev/assets/flower.webm" controls>
             </lit-media>
-        </lit-layout>
-        </lit-layout>
+        </lit-block>
+        </lit-block>
 
-        <lit-layout variant="column" place="center">
+        <lit-block variant="column" place="center">
         <lit-media variant="image"
             src="https://images.unsplash.com/photo-1633153010613-fd459a477641?w=600&h=600&auto=format&fit=crop&q=25"
             alt="this is an image">
         </lit-media>
-        </lit-layout>
+        </lit-block>
 
-        <lit-layout variant="grid" place="stretch">
-        <lit-layout variant="column" place="center">
+        <lit-block variant="grid" place="stretch">
+        <lit-block variant="column" place="center">
             <lit-button emphasis="high" lead="person"> lead </lit-button>
-        </lit-layout>
-        <lit-layout variant="column" place="center">
+        </lit-block>
+        <lit-block variant="column" place="center">
             <lit-button emphasis="medium" lead="person"> lead </lit-button>
-        </lit-layout>
-        <lit-layout variant="column" place="center">
+        </lit-block>
+        <lit-block variant="column" place="center">
             <lit-button emphasis="low" lead="person"> lead </lit-button>
-        </lit-layout>
-        <lit-layout variant="column" place="center">
+        </lit-block>
+        <lit-block variant="column" place="center">
             <lit-button emphasis="high" trail="person"> lead </lit-button>
-        </lit-layout>
-        <lit-layout variant="column" place="center">
+        </lit-block>
+        <lit-block variant="column" place="center">
             <lit-button emphasis="medium" trail="person"> lead </lit-button>
-        </lit-layout>
-        <lit-layout variant="column" place="center">
+        </lit-block>
+        <lit-block variant="column" place="center">
             <lit-button emphasis="low" trail="person"> lead </lit-button>
-        </lit-layout>
-        <lit-layout variant="column" place="center">
+        </lit-block>
+        <lit-block variant="column" place="center">
             <lit-button emphasis="high" lead="person" trail="arrow_forward"> lead + trail </lit-button>
-        </lit-layout>
-        <lit-layout variant="column" place="center">
+        </lit-block>
+        <lit-block variant="column" place="center">
             <lit-button emphasis="medium" lead="person" trail="arrow_forward"> lead + trail </lit-button>
-        </lit-layout>
-        <lit-layout variant="column" place="center">
+        </lit-block>
+        <lit-block variant="column" place="center">
             <lit-button emphasis="low" lead="person" trail="arrow_forward"> lead + trail </lit-button>
-        </lit-layout>
-        </lit-layout>
+        </lit-block>
+        </lit-block>
 
-        <lit-layout variant="column" place="center">
-        <lit-layout variant="column" place="center">
+        <lit-block variant="column" place="center">
+        <lit-block variant="column" place="center">
             <lit-input lead="person" value="this is an input"></lit-input>
-        </lit-layout>
-        <lit-layout variant="column" place="center">
+        </lit-block>
+        <lit-block variant="column" place="center">
             <lit-input placeholder="this is a placeholder"></lit-input>
-        </lit-layout>
-        <lit-layout variant="column" place="center">
+        </lit-block>
+        <lit-block variant="column" place="center">
             <lit-input trail="close" value="this is an input"></lit-input>
-        </lit-layout>
-        </lit-layout>
+        </lit-block>
+        </lit-block>
 
-        <lit-layout variant="column" place="center">
-        <lit-layout variant="column" place="center">
+        <lit-block variant="column" place="center">
+        <lit-block variant="column" place="center">
             <lit-link href="/#" target="" lead="person">link to '/#'</lit-link>
-        </lit-layout>
-        <lit-layout variant="column" place="center">
+        </lit-block>
+        <lit-block variant="column" place="center">
             <lit-link href="https://www.youtube.com" target="_blank">link to '/youtube.com'</lit-link>
-        </lit-layout>
-        <lit-layout variant="column" place="center">
+        </lit-block>
+        <lit-block variant="column" place="center">
             <lit-link href="/#link" target="" trail="close">link</lit-link>
-        </lit-layout>
-        </lit-layout>
+        </lit-block>
+        </lit-block>
 
-        <lit-layout variant="grid" place="stretch">
-        <lit-layout variant="column" place="center">
+        <lit-block variant="grid" place="stretch">
+        <lit-block variant="column" place="center">
             <lit-expandable variant="dropdown" title="expandable" emphasis="high" open>
             <lit-input placeholder="Filter..."></lit-input>
             <p>item 1</p>
@@ -180,26 +180,26 @@ app.innerHTML = `
             <p>item 3</p>
             <p>item 4</p>
             </lit-expandable>
-        </lit-layout>
-        <lit-layout variant="column" place="center">
+        </lit-block>
+        <lit-block variant="column" place="center">
             <lit-expandable title="expandable" emphasis="medium" open>
             <p>item 1</p>
             <p>item 2</p>
             <p>item 3</p>
             <p>item 4</p>
             </lit-expandable>
-        </lit-layout>
-        <lit-layout variant="column" place="center">
+        </lit-block>
+        <lit-block variant="column" place="center">
             <lit-expandable title="expandable" emphasis="low" open>
             <p>item 1</p>
             <p>item 2</p>
             <p>item 3</p>
             <p>item 4</p>
             </lit-expandable>
-        </lit-layout>
-        </lit-layout>
+        </lit-block>
+        </lit-block>
 
-        <lit-layout variant="row" place="center">
+        <lit-block variant="row" place="center">
         <lit-radiobox group="radioGroup2" checked>
             <lit-media variant="image"
             src="https://images.unsplash.com/photo-1646427066490-474a01f08a0c?w=300&h=600&auto=format&fit=crop&q=25"></lit-media>
@@ -212,8 +212,8 @@ app.innerHTML = `
             <lit-media variant="image"
             src="https://images.unsplash.com/photo-1582562320669-08063a679a22?w=300&h=600&auto=format&fit=crop&q=25"></lit-media>
         </lit-radiobox>
-        </lit-layout>
-    </lit-layout>
+        </lit-block>
+    </lit-block>
 `;
 ```
 
@@ -250,50 +250,50 @@ app.innerHTML = `
 
 	<body>
 		<main>
-			<lit-layout variant="grid" place="center" tabindex="0">
-				<lit-layout variant="grid" place="top-left" class="demo-block">
+			<lit-block variant="grid" place="center" tabindex="0">
+				<lit-block variant="grid" place="top-left" class="demo-block">
 					top-left
-				</lit-layout>
+				</lit-block>
 
-				<lit-layout variant="grid" place="top" class="demo-block">
+				<lit-block variant="grid" place="top" class="demo-block">
 					top
-				</lit-layout>
+				</lit-block>
 
-				<lit-layout variant="grid" place="top-right" class="demo-block">
+				<lit-block variant="grid" place="top-right" class="demo-block">
 					top-right
-				</lit-layout>
+				</lit-block>
 
-				<lit-layout variant="grid" place="center-left" class="demo-block">
+				<lit-block variant="grid" place="center-left" class="demo-block">
 					center-left
-				</lit-layout>
+				</lit-block>
 
-				<lit-layout variant="grid" place="center" class="demo-block">
+				<lit-block variant="grid" place="center" class="demo-block">
 					center
-				</lit-layout>
+				</lit-block>
 
-				<lit-layout variant="grid" place="center-right" class="demo-block">
+				<lit-block variant="grid" place="center-right" class="demo-block">
 					center-right
-				</lit-layout>
+				</lit-block>
 
-				<lit-layout variant="grid" place="bottom-left" class="demo-block">
+				<lit-block variant="grid" place="bottom-left" class="demo-block">
 					bottom-left
-				</lit-layout>
+				</lit-block>
 
-				<lit-layout variant="grid" place="bottom" class="demo-block">
+				<lit-block variant="grid" place="bottom" class="demo-block">
 					bottom
-				</lit-layout>
+				</lit-block>
 
-				<lit-layout variant="grid" place="bottom-right" class="demo-block">
+				<lit-block variant="grid" place="bottom-right" class="demo-block">
 					bottom-right
-				</lit-layout>
-			</lit-layout>
+				</lit-block>
+			</lit-block>
 
-			<lit-layout variant="column" place="center" tabindex="0">
+			<lit-block variant="column" place="center" tabindex="0">
 				<lit-check checked></lit-check>
 				<lit-check></lit-check>
-			</lit-layout>
+			</lit-block>
 
-			<lit-layout variant="grid" place="center" tabindex="0">
+			<lit-block variant="grid" place="center" tabindex="0">
 				<lit-icon name="person"></lit-icon>
 				<lit-icon name="camera"></lit-icon>
 				<lit-icon name="settings"></lit-icon>
@@ -303,122 +303,122 @@ app.innerHTML = `
 				<lit-icon name="dashboard"></lit-icon>
 				<lit-icon name="home"></lit-icon>
 				<lit-icon name="wifi"></lit-icon>
-			</lit-layout>
+			</lit-block>
 
-			<lit-layout variant="column" place="center" tabindex="0">
+			<lit-block variant="column" place="center" tabindex="0">
 				<lit-radio group="radioGroup1" checked></lit-radio>
 				<lit-radio group="radioGroup1"></lit-radio>
 				<lit-radio group="radioGroup1"></lit-radio>
-			</lit-layout>
+			</lit-block>
 
-			<lit-layout variant="column" place="center" tabindex="0">
+			<lit-block variant="column" place="center" tabindex="0">
 				<lit-media variant="audio" src="/assets/trex.mp3" controls> </lit-media>
-			</lit-layout>
+			</lit-block>
 
-			<lit-layout variant="column" place="center" tabindex="0">
+			<lit-block variant="column" place="center" tabindex="0">
 				<lit-media variant="video" src="/assets/flower.webm" controls>
 				</lit-media>
-			</lit-layout>
+			</lit-block>
 
-			<lit-layout variant="column" place="center" tabindex="0">
+			<lit-block variant="column" place="center" tabindex="0">
 				<lit-media
 					variant="image"
 					src="https://images.unsplash.com/photo-1633153010613-fd459a477641?w=600&h=600&auto=format&fit=crop&q=25"
 					alt="this is an image">
 				</lit-media>
-			</lit-layout>
+			</lit-block>
 
-			<lit-layout variant="grid" place="stretch" tabindex="0">
-				<lit-layout variant="column" place="center">
+			<lit-block variant="grid" place="stretch" tabindex="0">
+				<lit-block variant="column" place="center">
 					<lit-button emphasis="high" lead="person"> lead </lit-button>
-				</lit-layout>
-				<lit-layout variant="column" place="center">
+				</lit-block>
+				<lit-block variant="column" place="center">
 					<lit-button emphasis="medium" lead="person"> lead </lit-button>
-				</lit-layout>
-				<lit-layout variant="column" place="center">
+				</lit-block>
+				<lit-block variant="column" place="center">
 					<lit-button emphasis="low" lead="person"> lead </lit-button>
-				</lit-layout>
-				<lit-layout variant="column" place="center">
+				</lit-block>
+				<lit-block variant="column" place="center">
 					<lit-button emphasis="high" trail="person"> lead </lit-button>
-				</lit-layout>
-				<lit-layout variant="column" place="center">
+				</lit-block>
+				<lit-block variant="column" place="center">
 					<lit-button emphasis="medium" trail="person"> lead </lit-button>
-				</lit-layout>
-				<lit-layout variant="column" place="center">
+				</lit-block>
+				<lit-block variant="column" place="center">
 					<lit-button emphasis="low" trail="person"> lead </lit-button>
-				</lit-layout>
-				<lit-layout variant="column" place="center">
+				</lit-block>
+				<lit-block variant="column" place="center">
 					<lit-button emphasis="high" lead="person" trail="arrow_forward">
 						lead + trail
 					</lit-button>
-				</lit-layout>
-				<lit-layout variant="column" place="center">
+				</lit-block>
+				<lit-block variant="column" place="center">
 					<lit-button emphasis="medium" lead="person" trail="arrow_forward">
 						lead + trail
 					</lit-button>
-				</lit-layout>
-				<lit-layout variant="column" place="center">
+				</lit-block>
+				<lit-block variant="column" place="center">
 					<lit-button emphasis="low" lead="person" trail="arrow_forward">
 						lead + trail
 					</lit-button>
-				</lit-layout>
-			</lit-layout>
+				</lit-block>
+			</lit-block>
 
-			<lit-layout variant="column" place="center" tabindex="0">
-				<lit-layout variant="column" place="center">
+			<lit-block variant="column" place="center" tabindex="0">
+				<lit-block variant="column" place="center">
 					<lit-input lead="person" value="this is an input"></lit-input>
-				</lit-layout>
-				<lit-layout variant="column" place="center">
+				</lit-block>
+				<lit-block variant="column" place="center">
 					<lit-input placeholder="this is a placeholder"></lit-input>
-				</lit-layout>
-				<lit-layout variant="column" place="center">
+				</lit-block>
+				<lit-block variant="column" place="center">
 					<lit-input trail="close" value="this is an input"></lit-input>
-				</lit-layout>
-			</lit-layout>
+				</lit-block>
+			</lit-block>
 
-			<lit-layout variant="column" place="center" tabindex="0">
-				<lit-layout variant="column" place="center">
+			<lit-block variant="column" place="center" tabindex="0">
+				<lit-block variant="column" place="center">
 					<lit-link href="/#" target="" lead="person">link to '/#'</lit-link>
-				</lit-layout>
-				<lit-layout variant="column" place="center">
+				</lit-block>
+				<lit-block variant="column" place="center">
 					<lit-link href="https://www.youtube.com" target="_blank"
 						>link to '/youtube.com'</lit-link
 					>
-				</lit-layout>
-				<lit-layout variant="column" place="center">
+				</lit-block>
+				<lit-block variant="column" place="center">
 					<lit-link href="/#link" target="" trail="close">link</lit-link>
-				</lit-layout>
-			</lit-layout>
+				</lit-block>
+			</lit-block>
 
-			<lit-layout variant="grid" place="stretch" tabindex="0">
-				<lit-layout variant="column" place="center">
+			<lit-block variant="grid" place="stretch" tabindex="0">
+				<lit-block variant="column" place="center">
 					<lit-expandable title="expandable" emphasis="high" open>
 						<p>item 1</p>
 						<p>item 2</p>
 						<p>item 3</p>
 						<p>item 4</p>
 					</lit-expandable>
-				</lit-layout>
-				<lit-layout variant="column" place="center">
+				</lit-block>
+				<lit-block variant="column" place="center">
 					<lit-expandable title="expandable" emphasis="medium" open>
 						<p>item 1</p>
 						<p>item 2</p>
 						<p>item 3</p>
 						<p>item 4</p>
 					</lit-expandable>
-				</lit-layout>
-				<lit-layout variant="column" place="center">
+				</lit-block>
+				<lit-block variant="column" place="center">
 					<lit-expandable title="expandable" emphasis="low" open>
 						<p>item 1</p>
 						<p>item 2</p>
 						<p>item 3</p>
 						<p>item 4</p>
 					</lit-expandable>
-				</lit-layout>
-			</lit-layout>
+				</lit-block>
+			</lit-block>
 
-			<lit-layout variant="grid" place="stretch" tabindex="0">
-				<lit-layout variant="column" place="center">
+			<lit-block variant="grid" place="stretch" tabindex="0">
+				<lit-block variant="column" place="center">
 					<lit-expandable
 						variant="dropdown"
 						title="dropdown"
@@ -429,8 +429,8 @@ app.innerHTML = `
 						<p>item 3</p>
 						<p>item 4</p>
 					</lit-expandable>
-				</lit-layout>
-				<lit-layout variant="column" place="center">
+				</lit-block>
+				<lit-block variant="column" place="center">
 					<lit-expandable
 						variant="dropdown"
 						title="dropdown"
@@ -441,8 +441,8 @@ app.innerHTML = `
 						<p>item 3</p>
 						<p>item 4</p>
 					</lit-expandable>
-				</lit-layout>
-				<lit-layout variant="column" place="center">
+				</lit-block>
+				<lit-block variant="column" place="center">
 					<lit-expandable
 						variant="dropdown"
 						title="dropdown"
@@ -453,10 +453,10 @@ app.innerHTML = `
 						<p>item 3</p>
 						<p>item 4</p>
 					</lit-expandable>
-				</lit-layout>
-			</lit-layout>
+				</lit-block>
+			</lit-block>
 
-			<lit-layout variant="row" place="center" tabindex="0">
+			<lit-block variant="row" place="center" tabindex="0">
 				<lit-radiobox group="radioGroup2" checked>
 					<lit-media
 						variant="image"
@@ -472,7 +472,7 @@ app.innerHTML = `
 						variant="image"
 						src="https://images.unsplash.com/photo-1582562320669-08063a679a22?w=300&h=600&auto=format&fit=crop&q=25"></lit-media>
 				</lit-radiobox>
-			</lit-layout>
+			</lit-block>
 		</main>
 	</body>
 </html>

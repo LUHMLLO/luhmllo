@@ -1,5 +1,5 @@
 //building blocks || extras
-export { Layout } from '@wc/_buildingBlocks/layout.ts';
+export { Block } from '@/components/_layout/block/component.ts';
 
 //atoms
 export { Icon } from '@wc/atoms/lit-icon/component.ts';
