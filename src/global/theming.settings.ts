@@ -5,6 +5,7 @@ export default css`
 		--animSettings: var(--animDuration) var(--animTimingFunction);
 		--animDuration: 360ms;
 		--animTimingFunction: cubic-bezier(0.2, 0, 0, 1);
+
 		--fontFamily: sans-serif;
 		--iconFontFamily: 'Material Symbols Rounded';
 
