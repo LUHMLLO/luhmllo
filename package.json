@@ -1,21 +1,19 @@
 {
   "name": "brrr-components",
   "description": "Universal web components library made with Lit Element & Typescript",
-  "version": "0.0.9",
+  "version": "0.0.8",
   "main": "./src/main.ts",
   "type": "module",
   "files": [
-    "*/**.cjs",
-    "*/**.iife.js",
-    "*/**.js",
-    "*/**.umd.cjs",
+    "dist/lib/*",
     "index.html",
     "readme.md"
   ],
   "scripts": {
     "_build:demo": "tsc && vite build",
     "_build:lib": "tsc && vite build --config vite.lib.config.ts",
-    "_publish": "pnpm build && pnpm version patch && pnpm publish",
+    "_prepare": "cp -r dist/lib/* dist/. && rm -r dist/lib",
+    "_publish": "pnpm build && pnpm _prepare && pnpm version patch && pnpm publish",
     "_update": "pnpm update --interactive --latest",
     "dev": "vite",
     "build": "pnpm _build:demo && pnpm _build:lib",
