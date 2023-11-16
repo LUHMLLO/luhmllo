@@ -21,8 +21,6 @@
 :root {
     --demo-body: hsl(0, 0%, 96%);
     --demo-content: hsl(0, 0%, 99%);
-
-    --demo-clr-accent: hsl(0, 50%, 50%);
 }
 
 * {
@@ -52,33 +50,40 @@ main {
     grid-template-columns: 1fr [content-start] 1fr [content-end] 1fr;
     gap: 1rem;
     padding: 1rem;
-}
 
-main>* {
-    aspect-ratio: 1/1;
-    grid-column: content;
-    background-color: var(--demo-content);
-    gap: 0.5rem;
-    padding: 2rem;
-    border-radius: 0.5rem;
-}
+    >* {
+        --bordStyle: dashed;
 
-main>*:hover,
-main>*:focus,
-main>*:focus-visible,
-main>*:focus-within {
-    outline-color: var(--demo-clr-accent);
-    outline-offset: -0.0625rem;
-    outline-style: dashed;
-    outline-width: 0.0625rem;
+        aspect-ratio: 1/1;
+        background-color: var(--demo-content);
+        border-radius: 0.5rem;
+        gap: 0.5rem;
+        grid-column: content;
+        outline-color: transparent;
+        outline-offset: var(--bordOffset);
+        outline-style: var(--bordStyle);
+        outline-width: var(--bordWidth);
+        padding: 2rem;
+        transition: outline-color var(--animSettings);
+
+        &:hover,
+        &:focus {
+            outline-color: var(--clr-accent);
+        }
+    }
+
+
 }
 
 .demo-block {
-    border-collapse: collapse;
+    --bordStyle: dashed;
+
     aspect-ratio: 1/1;
     outline-color: inherit;
-    outline-offset: -0.0625rem;
-    outline-style: dashed;
-    outline-width: 0.0625rem;
+    outline-offset: var(--bordOffset);
+    outline-style: var(--bordStyle);
+    outline-width: var(--bordWidth);
     padding: 1rem;
+
+    transition: outline-color var(--animSettings);
 }
