@@ -38,9 +38,11 @@ export class RadioBox extends LitElement {
 		this.dispatchEvent(
 			new CustomEvent('change', {
 				bubbles: true,
-				detail: { checked: this.checked },
+				detail: { checked: this },
 			})
 		);
+
+		console.log(this)
 	}
 
 	async connectedCallback(): Promise<void> {
