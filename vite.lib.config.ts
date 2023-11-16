@@ -18,6 +18,12 @@ export default defineConfig({
 			mangle: true,
 		},
 		target: ['es2022'],
-		outDir: 'dist/demo',
+		outDir: 'dist/lib',
+		lib: {
+			entry: './src/main.ts',
+			formats: ['es', 'cjs', 'umd', 'iife'],
+			name: 'brrrComponents',
+			fileName: 'index',
+		},
 	},
 });
