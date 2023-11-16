@@ -5,10 +5,10 @@
   "main": "./src/main.ts",
   "type": "module",
   "files": [
-    "dist/lib/index.cjs",
-    "dist/lib/index.iife.js",
-    "dist/lib/index.js",
-    "dist/lib/index.umd.cjs",
+    "*/**.cjs",
+    "*/**.iife.js",
+    "*/**.js",
+    "*/**.umd.cjs",
     "index.html",
     "readme.md"
   ],
