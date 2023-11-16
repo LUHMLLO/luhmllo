@@ -2,11 +2,12 @@
   "name": "brrr-components",
   "description": "Universal web components library made with Lit Element & Typescript",
   "version": "0.0.10",
-  "main": "./src/main.ts",
+  "main": "./dist/lib/index.cjs",
+  "module": "./dist/lib/index.js",
+  "browser": "./dist/lib/index.iife.js",
   "type": "module",
   "files": [
     "dist/*",
-    "index.js",
     "index.html",
     "readme.md"
   ],
