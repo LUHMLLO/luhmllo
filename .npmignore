@@ -30,5 +30,4 @@ _dev
 dist/demo
 dist/lib/_dev
 
-package.json
 pnpm-lock.yaml
