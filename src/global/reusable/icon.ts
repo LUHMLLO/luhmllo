@@ -1,9 +1,7 @@
 import { css } from 'lit';
 
 export default css`
-	:host,
-	:host::part(lead),
-	:host::part(trail) {
+	:host {
 		display: block;
 		height: max-content;
 		width: max-content;
