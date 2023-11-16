@@ -14,7 +14,7 @@
   "scripts": {
     "_build:demo": "tsc && vite build",
     "_build:lib": "tsc && vite build --config vite.lib.config.ts",
-    "_publish": "pnpm build && pnpm version patch && pnpm publish",
+    "_publish": "pnpm build && pnpm version patch && pnpm publish && git push",
     "_update": "pnpm update --interactive --latest",
     "dev": "vite",
     "build": "pnpm _build:demo && pnpm _build:lib",
@@ -26,5 +26,14 @@
     "terser": "^5.24.0",
     "typescript": "^5.2.2",
     "vite": "^4.5.0"
-  }
+  },
+  "keywords": [
+    "web components",
+    "javascript",
+    "typescript",
+    "html5",
+    "lit-html",
+    "lit",
+    "litElement"
+  ]
 }
