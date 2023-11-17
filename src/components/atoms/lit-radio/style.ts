@@ -6,6 +6,7 @@ export default css`
 	}
 
 	:host([checked]) {
+		color: var(--clr-accent);
 		font-variation-settings: 'FILL' 1;
 	}
 `;

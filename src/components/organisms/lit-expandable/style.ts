@@ -2,13 +2,11 @@ import { css } from 'lit';
 
 export default css`
 	:host {
+		background-color: var(--idle-bg);
+		border-radius: var(--bordRadius);
 		display: flex;
 		flex-direction: column;
 		position: relative;
-	}
-
-	:host([rounded]) {
-		border-radius: var(--bordRadius);
 	}
 
 	:host([emphasis='medium']) {

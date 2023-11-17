@@ -2,6 +2,7 @@ import { css } from 'lit';
 
 export default css`
 	:host {
+		border-radius: var(--bordRadius);
 		display: flex;
 		gap: var(--scale-5xs);
 		height: auto;

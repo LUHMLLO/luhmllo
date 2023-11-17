@@ -11,9 +11,11 @@ export default css`
 		gap: var(--scale-5xs);
 		padding: var(--scale-xs) var(--scale-sm);
 
-		outline-style: solid;
-		outline-width: 0.0938rem;
-		outline-offset: -0.0938rem;
+		border-radius: var(--bordRadius);
+
+		outline-offset: var(--bordOffset);
+		outline-style: var(--bordStyle);
+		outline-width: var(--bordWidth);
 
 		height: max-content;
 		width: max-content;
@@ -25,10 +27,6 @@ export default css`
 
 	:host::part(toggle) * {
 		transition: none;
-	}
-
-	:host([rounded])::part(toggle) {
-		border-radius: var(--bordRadius);
 	}
 
 	:host([open])::part(trail) {

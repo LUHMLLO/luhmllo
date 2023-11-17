@@ -11,6 +11,8 @@ export default css`
 		opacity: 0;
 		padding: 0;
 
+		border-radius: var(--bordRadius);
+
 		pointer-events: none;
 		user-select: none;
 

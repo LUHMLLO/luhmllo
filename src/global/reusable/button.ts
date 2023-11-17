@@ -11,6 +11,7 @@ export default css`
 		gap: var(--scale-5xs);
 		padding: var(--scale-xs) var(--scale-sm);
 
+		border-radius: var(--bordRadius);
 		outline-style: solid;
 		outline-width: 0.0938rem;
 		outline-offset: -0.0938rem;
@@ -29,10 +30,6 @@ export default css`
 
 	:host(:empty) {
 		padding: var(--scale-xs);
-	}
-
-	:host([rounded]) {
-		border-radius: var(--bordRadius);
 	}
 
 	:host,
