@@ -28,12 +28,19 @@
     "vite": "^4.5.0"
   },
   "keywords": [
-    "web components",
+    "ui",
+    "ux",
+    "component library",
+    "web components api",
     "javascript",
+    "js",
     "typescript",
+    "ts",
     "html5",
+    "html",
     "lit-html",
-    "lit",
-    "litElement"
+    "lit-element",
+    "litElement",
+    "Brrr"
   ]
 }
