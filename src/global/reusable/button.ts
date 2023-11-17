@@ -12,9 +12,11 @@ export default css`
 		padding: var(--scale-xs) var(--scale-sm);
 
 		border-radius: var(--bordRadius);
-		outline-style: solid;
-		outline-width: 0.0938rem;
-		outline-offset: -0.0938rem;
+
+		outline-color: transparent;
+		outline-offset: var(--bordOffset);
+		outline-style: var(--bordStyle);
+		outline-width: var(--bordWidth);
 
 		height: max-content;
 		width: max-content;
@@ -34,9 +36,9 @@ export default css`
 
 	:host,
 	:host([emphasis='low']) {
-		background-color: var(--idle-bg);
+		background-color: var(--idle-bg, transparent);
 		color: var(--idle-clr);
-		outline-color: var(--idle-bord);
+		outline-color: var(--idle-bord, transparent);
 	}
 
 	:host(:focus),

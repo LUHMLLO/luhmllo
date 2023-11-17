@@ -13,6 +13,7 @@ export default css`
 
 		border-radius: var(--bordRadius);
 
+		outline-color: transparent;
 		outline-offset: var(--bordOffset);
 		outline-style: var(--bordStyle);
 		outline-width: var(--bordWidth);
@@ -35,7 +36,7 @@ export default css`
 
 	:host::part(toggle),
 	:host([emphasis='low'])::part(toggle) {
-		background-color: var(--idle-bg);
+		background-color: var(--idle-bg, transparent);
 		color: var(--idle-clr);
 		outline-color: var(--idle-bord);
 	}

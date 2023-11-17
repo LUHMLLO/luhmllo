@@ -40,7 +40,7 @@ export default css`
 
 	:host::part(content),
 	:host([emphasis='low'])::part(content) {
-		background-color: var(--idle-bg);
+		background-color: var(--idle-bg, transparent);
 		color: var(--idle-clr);
 		outline-color: var(--idle-bord);
 	}

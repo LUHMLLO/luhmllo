@@ -2,7 +2,7 @@ import { css } from 'lit';
 
 export default css`
 	:host {
-		background-color: var(--idle-bg);
+		background-color: var(--idle-bg, transparent);
 		border-radius: var(--bordRadius);
 		display: flex;
 		flex-direction: column;
