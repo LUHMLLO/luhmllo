@@ -23,7 +23,7 @@ export default css`
 		overflow: hidden;
 
 		transition: color var(--animSettings), background-color var(--animSettings),
-			outline-color var(--animSettings);
+			outline-color var(--animSettings), rotate var(--animSettings);
 	}
 
 	:host::part(toggle) * {
@@ -31,7 +31,7 @@ export default css`
 	}
 
 	:host([open])::part(trail) {
-		transform: rotate(90deg);
+		rotate: 90deg;
 	}
 
 	:host::part(toggle),

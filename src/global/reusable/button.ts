@@ -38,7 +38,7 @@ export default css`
 	:host([emphasis='low']) {
 		background-color: var(--idle-bg, transparent);
 		color: var(--idle-clr);
-		outline-color: var(--idle-bord, transparent);
+		outline-color: transparent;
 	}
 
 	:host(:focus),

@@ -5,7 +5,7 @@ export default css`
 		//idle
 		--idle-bg: transparent;
 		--idle-clr: hsl(0, 0%, 4%);
-		--idle-bord: hsl(0, 0%, 6%);
+		--idle-bord: hsl(0, 0%, 96%);
 
 		//focused
 		--focus-bg: transparent;
@@ -15,12 +15,12 @@ export default css`
 		//hovered
 		--hover-bg: hsl(0, 0%, 96%);
 		--hover-clr: hsl(0, 0%, 4%);
-		--hover-bord: hsl(0, 0%, 9%);
+		--hover-bord: hsl(0, 0%, 96%);
 
 		//active
 		--active-bg: hsl(0, 0%, 93%);
 		--active-clr: hsl(0, 0%, 4%);
-		--active-bord: hsl(0, 0%, 3%);
+		--active-bord: hsl(0, 0%, 93%);
 
 		//focused
 		--disabled-bg: hsl(0, 0%, 90%);
