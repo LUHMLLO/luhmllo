@@ -10,6 +10,8 @@ export default css`
 		overflow: hidden;
 		position: relative;
 		user-select: none;
+		border: none;
+		outline: none;
 	}
 
 	:host([checked]):after {
