@@ -17,8 +17,7 @@ export default css`
 		position: relative;
 		width: 100%;
 
-		transition: color var(--animSettings), background-color var(--animSettings),
-			outline-color var(--animSettings);
+		transition: var(--animColors);
 	}
 
 	:host > div {

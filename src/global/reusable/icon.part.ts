@@ -7,7 +7,7 @@ export default css`
 		height: max-content;
 		width: max-content;
 
-		color: var(--clr-txt);
+		color: inherit;
 
 		font-family: var(--iconFontFamily);
 		font-size: var(--iconFontSize);

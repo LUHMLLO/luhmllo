@@ -18,7 +18,7 @@ export default css`
 
 		overflow: hidden;
 
-		transition: opacity var(--animSettings), padding var(--animSettings);
+		transition: var(--animToggle);
 	}
 
 	:host([variant='dropdown'])::part(content) {
