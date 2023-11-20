@@ -13,11 +13,9 @@ export default css`
 
 		border-radius: var(--bordRadius);
 
+		overflow: hidden;
 		pointer-events: none;
 		user-select: none;
-
-		overflow: hidden;
-
 		transition: var(--animToggle);
 	}
 
@@ -40,14 +38,14 @@ export default css`
 
 	:host::part(content),
 	:host([emphasis='low'])::part(content) {
-		background-color: var(--idle-bg, transparent);
+		background-color: var(--idle-background, transparent);
 		color: var(--idle-txt);
 		outline-color: var(--idle-bord);
 	}
 
 	:host(:focus)::part(content),
 	:host([emphasis='low']:focus)::part(content) {
-		/* background-color: var(--focus-bg);
+		/* background-color: var(--focus-background);
 		color: var(--focus-txt); */
 		outline-color: var(--clr-accent);
 	}
@@ -55,7 +53,7 @@ export default css`
 	@media (hover: hover) {
 		:host(:hover)::part(content),
 		:host([emphasis='low']:hover)::part(content) {
-			/* background-color: var(--hover-bg);
+			/* background-color: var(--hover-background);
 			color: var(--hover-txt); */
 			outline-color: var(--hover-bord);
 		}
@@ -63,7 +61,7 @@ export default css`
 
 	:host(:active)::part(content),
 	:host([emphasis='low']:active)::part(content) {
-		/* background-color: var(--active-bg);
+		/* background-color: var(--active-background);
 		color: var(--active-txt); */
 		outline-color: var(--active-bord);
 	}

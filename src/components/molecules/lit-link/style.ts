@@ -16,39 +16,46 @@ export default [
 	`,
 	css`
 		:host {
-			background-color: var(--idle-bg);
+			--idle-background: transparent;
+
+			background-color: var(--idle-background);
 			color: var(--idle-txt);
 			outline-color: var(--idle-bord);
 		}
 
 		@media (hover: hover) {
 			:host(:hover) {
+				--hover-background: transparent;
 				--hover-txt: var(--clr-accent);
 
-				background-color: var(--hover-bg);
+				background-color: var(--hover-background);
 				color: var(--hover-txt);
 				outline-color: var(--hover-bord);
 			}
 		}
 
 		:host(:focus) {
-			background-color: var(--focus-bg);
+			--focus-background: transparent;
+
+			background-color: var(--focus-background);
 			color: var(--focus-txt);
 			outline-color: var(--focus-bord);
 		}
 
 		:host(:active) {
+			--active-background: transparent;
 			--active-txt: var(--clr-primary);
 
-			background-color: var(--active-bg);
+			background-color: var(--active-background);
 			color: var(--active-txt);
 			outline-color: var(--active-bord);
 		}
 
 		:host(:visited) {
+			--visited-background: transparent;
 			--visited-txt: var(--clr-tertiary);
 
-			background-color: var(--visited-bg);
+			background-color: var(--visited-background);
 			color: var(--visited-txt);
 			outline-color: var(--visited-bord);
 		}

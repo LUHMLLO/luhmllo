@@ -7,39 +7,16 @@
 // }
 
 :root {
-    --clr-accent: hsl(11, 100%, 35%);
-    --clr-bg: hsl(0, 85%, 95%);
-    --clr-txt: hsl(0, 0%, 2%);
-
-    --clr-primary: hsl(11, 100%, 59%);
-    --clr-secondary: hsl(60, 2%, 90%);
-    --clr-tertiary: hsl(90, 0%, 96%);
+    --demo-body: hsl(0, 0%, 93%);
+    --demo-content: hsl(0, 0%, 96%);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --clr-accent: hsl(11, 100%, 59%);
-        --clr-bg: hsl(0, 0%, 2%);
-        --clr-txt: hsl(0, 85%, 95%);
-
-        --clr-primary: hsl(11, 100%, 35%);
-        --clr-secondary: hsl(60, 2%, 10%);
-        --clr-tertiary: hsl(90, 0%, 6%);
+        --demo-body: hsl(0, 0%, 0%);
+        --demo-content: hsl(0, 0%, 1%);
     }
 }
-
-
-:root {
-    --demo-body: var(--clr-bg);
-    --demo-content: var(--clr-secondary);
-}
-
-// @media (prefers-color-scheme: dark) {
-//     :root {
-//         --demo-body: hsl(0, 0%, 6%);
-//         --demo-content: hsl(0, 0%, 9%);
-//     }
-// }
 
 * {
     box-sizing: border-box;
