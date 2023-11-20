@@ -7,8 +7,10 @@ export default css`
 		height: max-content;
 		width: max-content;
 
+		color: var(--clr-txt);
+
 		font-family: var(--iconFontFamily);
-		font-size: 1.481544rem;
+		font-size: var(--iconFontSize);
 		font-style: normal;
 		font-weight: normal;
 

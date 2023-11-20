@@ -41,14 +41,14 @@ export default css`
 	:host::part(content),
 	:host([emphasis='low'])::part(content) {
 		background-color: var(--idle-bg, transparent);
-		color: var(--idle-clr);
+		color: var(--idle-txt);
 		outline-color: var(--idle-bord);
 	}
 
 	:host(:focus)::part(content),
 	:host([emphasis='low']:focus)::part(content) {
 		/* background-color: var(--focus-bg);
-		color: var(--focus-clr); */
+		color: var(--focus-txt); */
 		outline-color: var(--clr-accent);
 	}
 
@@ -56,7 +56,7 @@ export default css`
 		:host(:hover)::part(content),
 		:host([emphasis='low']:hover)::part(content) {
 			/* background-color: var(--hover-bg);
-			color: var(--hover-clr); */
+			color: var(--hover-txt); */
 			outline-color: var(--hover-bord);
 		}
 	}
@@ -64,7 +64,7 @@ export default css`
 	:host(:active)::part(content),
 	:host([emphasis='low']:active)::part(content) {
 		/* background-color: var(--active-bg);
-		color: var(--active-clr); */
+		color: var(--active-txt); */
 		outline-color: var(--active-bord);
 	}
 `;

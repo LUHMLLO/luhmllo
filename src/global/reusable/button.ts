@@ -36,15 +36,15 @@ export default css`
 
 	:host,
 	:host([emphasis='low']) {
-		background-color: var(--idle-bg, transparent);
-		color: var(--idle-clr);
-		outline-color: transparent;
+		background-color: var(--idle-bg);
+		color: var(--idle-txt);
+		outline-color: var(--idle-bord);
 	}
 
 	:host(:focus),
 	:host([emphasis='low']:focus) {
 		background-color: var(--focus-bg);
-		color: var(--focus-clr);
+		color: var(--focus-txt);
 		outline-color: var(--clr-accent);
 	}
 
@@ -52,7 +52,7 @@ export default css`
 		:host(:hover),
 		:host([emphasis='low']:hover) {
 			background-color: var(--hover-bg);
-			color: var(--hover-clr);
+			color: var(--hover-txt);
 			outline-color: var(--hover-bord);
 		}
 	}
@@ -60,43 +60,43 @@ export default css`
 	:host(:active),
 	:host([emphasis='low']:active) {
 		background-color: var(--active-bg);
-		color: var(--active-clr);
+		color: var(--active-txt);
 		outline-color: var(--active-bord);
 	}
 
-	:host([emphasis='medium']) {
+	/* :host([emphasis='medium']) {
 		--idle-bg: hsl(0, 0%, 93%);
-		--idle-clr: hsl(0, 0%, 6%);
+		--idle-txt: hsl(0, 0%, 6%);
 		--idle-bord: transparent;
 
 		--hover-bg: hsl(0, 0%, 96%);
-		--hover-clr: hsl(0, 0%, 6%);
+		--hover-txt: hsl(0, 0%, 6%);
 		--hover-bord: transparent;
 
 		--active-bg: hsl(0, 0%, 87%);
-		--active-clr: hsl(0, 0%, 6%);
+		--active-txt: hsl(0, 0%, 6%);
 		--active-bord: transparent;
 
 		--focus-bg: hsl(0, 0%, 90%);
-		--focus-clr: hsl(0, 0%, 6%);
+		--focus-txt: hsl(0, 0%, 6%);
 		--focus-bord: var(--clr-accent);
 	}
 
 	:host([emphasis='high']) {
 		--idle-bg: hsl(0, 0%, 15%);
-		--idle-clr: hsl(0, 0%, 96%);
+		--idle-txt: hsl(0, 0%, 96%);
 		--idle-bord: transparent;
 
 		--hover-bg: hsl(0, 0%, 21%);
-		--hover-clr: hsl(0, 0%, 96%);
+		--hover-txt: hsl(0, 0%, 96%);
 		--hover-bord: transparent;
 
 		--active-bg: hsl(0, 0%, 9%);
-		--active-clr: hsl(0, 0%, 96%);
+		--active-txt: hsl(0, 0%, 96%);
 		--active-bord: transparent;
 
 		--focus-bg: hsl(0, 0%, 12%);
-		--focus-clr: hsl(0, 0%, 96%);
+		--focus-txt: hsl(0, 0%, 96%);
 		--focus-bord: var(--clr-accent);
-	}
+	} */
 `;

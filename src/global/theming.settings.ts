@@ -8,6 +8,7 @@ export default css`
 
 		--fontFamily: sans-serif;
 		--iconFontFamily: 'Material Symbols Rounded';
+		--iconFontSize: 1.481544rem;
 
 		--bordOffset: -0.125rem;
 		--bordStyle: solid;
