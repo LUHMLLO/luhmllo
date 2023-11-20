@@ -8,10 +8,10 @@ export default css`
 		height: auto;
 		isolation: isolate;
 		overflow: hidden;
-		outline-color: #333;
-		outline-offset: -0.0625rem;
-		outline-style: solid;
-		outline-width: 0.0625rem;
+		outline-color: var(--idle-bord);
+		outline-offset: var(--bordOffset);
+		outline-style: var(--bordStyle);
+		outline-width: var(--bordWidth);
 		padding: var(--scale-xs) var(--scale-sm);
 		place-items: center;
 		position: relative;

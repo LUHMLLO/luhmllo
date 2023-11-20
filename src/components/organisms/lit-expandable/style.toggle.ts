@@ -45,7 +45,7 @@ export default css`
 	:host([emphasis='low']:focus)::part(toggle) {
 		background-color: var(--focus-bg);
 		color: var(--focus-clr);
-		outline-color: var(--focus-bord);
+		outline-color: var(--clr-accent);
 	}
 
 	@media (hover: hover) {
