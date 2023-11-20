@@ -1,70 +1,108 @@
 import { css } from 'lit';
 
-export default css`
-	:host {
-		border-radius: var(--bordRadius);
-		display: flex;
-		gap: var(--scale-5xs);
-		height: auto;
-		isolation: isolate;
-		overflow: hidden;
-		outline-color: var(--idle-bord);
-		outline-offset: var(--bordOffset);
-		outline-style: var(--bordStyle);
-		outline-width: var(--bordWidth);
-		padding: var(--scale-xs) var(--scale-sm);
-		place-items: center;
-		position: relative;
-		width: 100%;
+export default [
+	css`
+		:host {
+			border-radius: var(--bordRadius);
+			display: flex;
+			gap: var(--scale-5xs);
+			height: auto;
+			isolation: isolate;
+			overflow: hidden;
+			outline-color: var(--idle-bord);
+			outline-offset: var(--bordOffset);
+			outline-style: var(--bordStyle);
+			outline-width: var(--bordWidth);
+			padding: var(--scale-xs) var(--scale-sm);
+			place-items: center;
+			position: relative;
+			width: 100%;
 
-		transition: var(--animColors);
-	}
+			transition: var(--animColors);
+		}
 
-	:host > div {
-		display: flex;
-		flex-grow: 1;
-		flex-shrink: 1;
-		min-height: 1.481544rem;
-		height: 100%;
-		line-height: 1.5;
-		inset: 0;
-		overflow: hidden;
-		place-items: center;
-		position: relative;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		width: 100%;
-	}
+		:host > div {
+			display: flex;
+			flex-grow: 1;
+			flex-shrink: 1;
+			min-height: 1.481544rem;
+			height: 100%;
+			line-height: 1.5;
+			inset: 0;
+			overflow: hidden;
+			place-items: center;
+			position: relative;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			width: 100%;
+		}
 
-	:host > div > span {
-		border: none;
-		outline: none;
-		display: flex;
-		min-height: 1.481544rem;
-		height: 100%;
-		inset: 0;
-		line-height: 1.5;
-		position: absolute;
-		width: 100%;
-		transition: opacity var(--animSettings);
-	}
+		:host > div > span {
+			border: none;
+			outline: none;
+			display: flex;
+			min-height: 1.481544rem;
+			height: 100%;
+			inset: 0;
+			line-height: 1.5;
+			position: absolute;
+			width: 100%;
+			transition: opacity var(--animSettings);
+		}
 
-	:host > div > span:first-of-type {
-		z-index: 1;
-	}
+		:host > div > span:first-of-type {
+			z-index: 1;
+		}
 
-	:host > div > span:last-of-type {
-		pointer-events: none;
-		user-select: none;
-		z-index: 2;
-		opacity: 0.8;
-	}
+		:host > div > span:last-of-type {
+			opacity: 0.8;
+			pointer-events: none;
+			user-select: none;
+			z-index: 2;
+		}
 
-	:host > div > span:first-of-type:not(:empty) ~ span {
-		opacity: 0;
-	}
+		:host > div > span:first-of-type:not(:empty) ~ span {
+			opacity: 0;
+		}
 
-	:host(:focus) {
-		outline-color: var(--clr-accent);
-	}
-`;
+		:host(:focus) {
+			outline-color: var(--clr-accent);
+		}
+	`,
+	,
+	css`
+		:host {
+			--idle-background: transparent;
+
+			background-color: var(--idle-background);
+			color: var(--idle-txt);
+			outline-color: var(--idle-bord);
+		}
+
+		@media (hover: hover) {
+			:host(:hover) {
+				--hover-background: transparent;
+
+				background-color: var(--hover-background);
+				color: var(--hover-txt);
+				outline-color: var(--hover-bord);
+			}
+		}
+
+		:host(:focus) {
+			--focus-background: transparent;
+
+			background-color: var(--focus-background);
+			color: var(--focus-txt);
+			outline-color: var(--focus-bord);
+		}
+
+		:host(:active) {
+			--active-background: transparent;
+
+			background-color: var(--active-background);
+			color: var(--active-txt);
+			outline-color: var(--active-bord);
+		}
+	`,
+];
