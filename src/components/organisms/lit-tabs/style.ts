@@ -23,7 +23,7 @@ export default css`
 		margin-bottom: auto;
 		top: 0;
 		bottom: 0;
-		position: absolute;
+		position: sticky;
 		vertical-align: middle;
 		z-index: 2;
 	}
