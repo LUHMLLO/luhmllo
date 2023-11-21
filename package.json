@@ -1,7 +1,7 @@
 {
   "name": "brrr-components",
   "description": "Universal web components library made with Lit Element & Typescript",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "main": "./dist/lib/index.cjs",
   "module": "./dist/lib/index.js",
   "browser": "./dist/lib/index.iife.js",
