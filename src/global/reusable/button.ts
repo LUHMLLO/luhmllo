@@ -22,8 +22,6 @@ export default [
 			height: max-content;
 			width: max-content;
 			overflow: hidden;
-
-			transition: var(--animColors);
 		}
 
 		:host * {

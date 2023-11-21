@@ -3,10 +3,11 @@ import { customElement } from 'lit/decorators.js';
 
 import initialCss from '@global/initial.ts';
 import localCss from './style.ts';
+import iconCss from '@global/reusable/icon.part.ts';
 
 @customElement('lit-tabs')
 export class Tabs extends LitElement {
-	static styles = [initialCss, localCss];
+	static styles = [initialCss, localCss, iconCss];
 
 	async connectedCallback(): Promise<void> {
 		super.connectedCallback();
@@ -17,6 +18,12 @@ export class Tabs extends LitElement {
 	}
 
 	protected render() {
-		return html` not implemented yet `;
+		return html`
+			<span part="lead">chevron_left</span>
+
+			<slot></slot>
+
+			<span part="trail">chevron_right</span>
+		`;
 	}
 }
