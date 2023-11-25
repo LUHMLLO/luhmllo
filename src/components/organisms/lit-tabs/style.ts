@@ -3,13 +3,14 @@ import { css } from 'lit';
 export default css`
 	:host {
 		align-items: center;
+		border-radius: var(--bordRadius);
 		display: flex;
 		flex-direction: row;
-		overflow-x: auto;
-		max-width: 100%;
-		white-space: nowrap;
-		position: relative;
 		isolation: isolate;
+		max-width: 100%;
+		overflow-x: auto;
+		position: relative;
+		white-space: nowrap;
 	}
 
 	::slotted(*) {
