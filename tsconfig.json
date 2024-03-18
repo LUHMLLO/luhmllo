@@ -1,41 +1,43 @@
 {
-  "compilerOptions": {
-    /* paths */
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@wc/*": [
-        "src/components/*"
-      ],
-      "@global/*": [
-        "src/global/*"
-      ],
-    },
-    /* lit */
-    "target": "es2022",
-    "module": "es2022",
-    "lib": [
-      "es2022",
-      "DOM",
-      "DOM.Iterable"
-    ],
-    "declaration": true,
-    "declarationMap": true,
-    "experimentalDecorators": true,
-    "useDefineForClassFields": false,
-    "moduleResolution": "node",
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    /* Others */
-    "skipLibCheck": true,
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-  }
+	"compilerOptions": {
+		// Project Structure
+		"baseUrl": ".", // Use current directory as the base for resolving modules
+		// Paths Mapping
+		"paths": {
+			"$lib/*": ["src/lib/*"] // Map alias $lib/* to src/lib* for module resolution
+		},
+		// Module System
+		"moduleResolution": "Bundler", // Use bundler-specific module resolution strategy
+		"target": "ESNext", // Generate code targeting ESNext features
+		"module": "ESNext", // Output ECMAScript modules (ESM)
+		// Libraries
+		"lib": [
+			"ESNext", // Include ESNext standard library
+			"DOM", // Include DOM types
+			"DOM.Iterable" // Include DOM.Iterable types
+		],
+		// Code Generation
+		"declaration": true, // Generate type declaration files (.d.ts)
+		"declarationMap": true, // Generate source maps for type declaration files
+		"experimentalDecorators": true, // Allow experimental support for decorators
+		"useDefineForClassFields": false, // Do not use `define` for class fields
+		"forceConsistentCasingInFileNames": true, // Enforce consistent casing for file names
+		// Strict Type Checking
+		"strict": true, // Enable all strict type checking options
+		"noUnusedLocals": true, // Report unused locals
+		"noUnusedParameters": true, // Report unused parameters
+		"noFallthroughCasesInSwitch": true, // Report fallthrough cases in switch statements
+		// Other Options
+		"skipLibCheck": true, // Skip type checking of library files
+		"allowImportingTsExtensions": true, // Allow importing TypeScript files (with .ts or .tsx extension)
+		"resolveJsonModule": true, // Resolve JSON modules
+		"isolatedModules": true, // Treat each file as a separate module
+		"noEmit": true, // Do not generate JavaScript files during compilation (useful for type checking)
+		"esModuleInterop": true, // Enable interop between ES Modules and CommonJS modules
+		"sourceMap": true, // Generate source maps for JavaScript files
+		"verbatimModuleSyntax": true, // Preserve module specifier syntax when importing
+		// Compatibility
+		"allowJs": true, // Allow compilation of JavaScript files
+		"checkJs": true // Perform basic type checking on JavaScript files
+	}
 }

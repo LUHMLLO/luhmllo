@@ -1,27 +1,26 @@
-import { LitElement, html } from 'lit';
+import { LitElement, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import icon from '../styles/icon.css.ts';
+import radio from '../styles/radio.css.ts';
 
-import initialCss from '@global/initial.ts';
-import iconCss from '@global/reusable/icon.ts';
-import localCss from './style.ts';
-
-@customElement('lit-radio')
+@customElement('lm-radio')
 export class Radio extends LitElement {
 	@property({ type: String }) _icon = '';
 	@property({ type: Boolean, reflect: true }) checked = false;
-	@property({ type: String, reflect: true }) group = '';
+	@property({ type: String }) group = '';
+	@property({ type: String }) label = '';
 
-	static properties = {
+	static readonly properties = {
 		delegatesFocus: { type: Boolean, reflect: true },
 	};
 
-	static styles = [initialCss, iconCss, localCss];
+	static readonly styles = [icon, radio];
 
 	private toggleChecked() {
 		if (!this.checked) {
 			const radios = document.querySelectorAll(
-				`lit-radio[group="${this.group}"]`
-			) as NodeListOf<Radio>;
+				`lm-radio[group="${this.group}"]`
+			);
 
 			for (const radio of [...radios]) {
 				(radio as Radio).checked = false;
@@ -59,6 +58,12 @@ export class Radio extends LitElement {
 	}
 
 	protected render() {
-		return html` ${this.checked ? 'check_circle' : 'radio_button_unchecked'} `;
+		return html`
+			<label>${this.label}</label>
+			<icon fill="${this.checked || nothing}">
+				${this.checked ? 'check_circle' : 'radio_button_unchecked'}
+			</icon>
+			${this.checked ? html`<slot></slot>` : nothing}
+		`;
 	}
 }

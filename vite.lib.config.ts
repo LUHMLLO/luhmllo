@@ -1,18 +1,20 @@
 import { defineConfig } from 'vite';
 
-// https://vitejs.dev/config/
 export default defineConfig({
 	build: {
 		copyPublicDir: false,
+		cssCodeSplit: true,
+		emptyOutDir: true,
 		lib: {
-			entry: './src/main.ts',
+			entry: './src/lib/index.ts',
 			formats: ['es', 'cjs', 'umd', 'iife'],
-			name: 'brrrComponents',
+			name: 'lm_components',
 			fileName: 'index',
 		},
 		minify: 'terser',
 		outDir: 'dist/lib',
-		target: ['es2022'],
+		sourcemap: false,
+		target: 'ESNEXT',
 		terserOptions: {
 			safari10: true,
 			ie8: true,
@@ -22,9 +24,7 @@ export default defineConfig({
 	},
 	resolve: {
 		alias: {
-			'@': './src/',
-			'@wc': './src/components/',
-			'@global': './src/global/',
+			$lib: './src/lib/',
 		},
 	},
 });

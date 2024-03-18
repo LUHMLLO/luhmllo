@@ -1,24 +1,22 @@
 import { defineConfig } from 'vite';
 
-// https://vitejs.dev/config/
 export default defineConfig({
 	build: {
+		emptyOutDir: true,
 		minify: 'terser',
-		outDir: 'dist/demo',
-		target: ['es2022'],
+		outDir: 'dist/app',
+		sourcemap: false,
+		target: 'ESNEXT',
 		terserOptions: {
 			safari10: true,
 			ie8: true,
 			compress: true,
 			mangle: true,
-			module: true,
 		},
 	},
 	resolve: {
 		alias: {
-			'@': './src/',
-			'@wc': './src/components/',
-			'@global': './src/global/',
+			$lib: './src/lib/',
 		},
 	},
 });

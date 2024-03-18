@@ -1,49 +1,49 @@
 {
-  "name": "brrr-components",
-  "description": "Framework Agnostic web components library made with Lit Element & Typescript",
-  "version": "0.0.17",
-  "main": "./dist/lib/index.cjs",
-  "module": "./dist/lib/index.js",
-  "browser": "./dist/lib/index.iife.js",
-  "type": "module",
-  "files": [
-    "dist/*",
-    "index.html",
-    "readme.md"
-  ],
-  "scripts": {
-    "_build:demo": "tsc && vite build",
-    "_build:lib": "tsc && vite build --config vite.lib.config.ts",
-    "_publish": "pnpm build && pnpm version patch && pnpm publish && git push",
-    "_update": "pnpm update --interactive --latest",
-    "dev": "vite",
-    "build": "pnpm _build:demo && pnpm _build:lib",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "lit": "^3.0.2",
-    "prismjs": "^1.29.0",
-    "sass": "^1.69.5",
-    "terser": "^5.24.0",
-    "typescript": "^5.2.2",
-    "vite": "^4.5.0"
-  },
-  "keywords": [
-    "ui",
-    "ux",
-    "component library",
-    "web components",
-    "web components api",
-    "javascript",
-    "js",
-    "typescript",
-    "ts",
-    "html5",
-    "html",
-    "lit-html",
-    "lit-element",
-    "litElement",
-    "Brrr",
-    "Framework Agnostic"
-  ]
+	"name": "lm-components",
+	"description": "Framework Agnostic web components library made with Lit Element & Typescript",
+	"version": "0.0.1-pre",
+	"type": "module",
+	"main": "./dist/lib/index.cjs",
+	"module": "./dist/lib/index.js",
+	"browser": "./dist/lib/index.iife.js",
+	"files": [
+		"dist/",
+		"index.html",
+		"readme.md"
+	],
+	"scripts": {
+		"build": "pnpm build:lib && pnpm build:app",
+		"build:app": "vite build --config vite.app.config.ts",
+		"build:lib": "vite build --config vite.lib.config.ts",
+		"check": "tsc",
+		"dev": "vite",
+		"preview": "vite preview --config vite.app.config.ts",
+		"publish": "pnpm run build && pnpm version patch && pnpm publish && git push"
+	},
+	"devDependencies": {
+		"lit": "^3.0.2",
+		"terser": "^5.29.2",
+		"typescript": "^5.2.2",
+		"vite": "^5.1.6"
+	},
+	"keywords": [
+		"ui",
+		"ux",
+		"component library",
+		"web components",
+		"web-components",
+		"javascript",
+		"js",
+		"typescript",
+		"ts",
+		"html5",
+		"html",
+		"lit-html",
+		"lit-element",
+		"LitElement",
+		"Brrr",
+		"BrrrComponents",
+		"Brrr-Components",
+		"Framework-Agnostic"
+	]
 }
