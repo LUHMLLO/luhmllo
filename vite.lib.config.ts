@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import { terserMinify } from './vite.terserMinify';
 
 export default defineConfig({
 	build: {
@@ -22,6 +23,7 @@ export default defineConfig({
 			mangle: true,
 		},
 	},
+	plugins: [terserMinify()],
 	resolve: {
 		alias: {
 			$lib: './src/lib/',
