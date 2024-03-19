@@ -21,6 +21,8 @@
 		"publish": "pnpm run build && pnpm version patch && pnpm publish && git push"
 	},
 	"devDependencies": {
+		"browserslist": "^4.23.0",
+		"lightningcss": "^1.24.1",
 		"lit": "^3.0.2",
 		"terser": "^5.29.2",
 		"typescript": "^5.2.2",

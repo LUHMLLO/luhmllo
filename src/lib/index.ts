@@ -1,1 +1,2 @@
-export { Radio } from './components/radio';
+export { Icon } from './components/icon.ts';
+export { Radio } from './components/radio.ts';

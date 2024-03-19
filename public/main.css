@@ -4,3 +4,9 @@
 	padding: 0;
 	max-width: 100%;
 }
+
+*:not(:defined) {
+	display: none;
+	opacity: 0;
+	visibility: hidden;
+}

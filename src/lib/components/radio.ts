@@ -1,8 +1,13 @@
-import { LitElement, html, nothing } from 'lit';
+import { LitElement, css, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import icon from '../styles/icon.css.ts';
-import radio from '../styles/radio.css.ts';
 
+const localCss = css`
+	:host {
+		cursor: pointer;
+		display: flex;
+		flex-direction: column;
+	}
+`;
 @customElement('lm-radio')
 export class Radio extends LitElement {
 	@property({ type: String }) _icon = '';
@@ -14,7 +19,7 @@ export class Radio extends LitElement {
 		delegatesFocus: { type: Boolean, reflect: true },
 	};
 
-	static readonly styles = [icon, radio];
+	static readonly styles = [localCss];
 
 	private toggleChecked() {
 		if (!this.checked) {
@@ -60,9 +65,9 @@ export class Radio extends LitElement {
 	protected render() {
 		return html`
 			<label>${this.label}</label>
-			<icon fill="${this.checked || nothing}">
+			<lm-icon ?solid="${this.checked}">
 				${this.checked ? 'check_circle' : 'radio_button_unchecked'}
-			</icon>
+			</lm-icon>
 			${this.checked ? html`<slot></slot>` : nothing}
 		`;
 	}
