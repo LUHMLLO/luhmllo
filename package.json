@@ -14,38 +14,35 @@
 	"scripts": {
 		"build": "pnpm build:lib && pnpm build:app",
 		"build:app": "vite build --config vite.app.config.ts",
-		"build:lib": "vite build --config vite.lib.config.ts",
+		"build:lib": "vite build --config vite.lib.components.config.ts && vite build --config vite.lib.css.config.ts",
 		"check": "tsc",
 		"dev": "vite",
 		"preview": "vite preview --config vite.app.config.ts",
 		"publish": "pnpm run build && pnpm version patch && pnpm publish && git push"
 	},
 	"devDependencies": {
-		"browserslist": "^4.23.0",
-		"lightningcss": "^1.24.1",
+		"autoprefixer": "^10.4.19",
+		"cssnano": "^6.1.1",
+		"cssnano-preset-advanced": "^6.1.1",
 		"lit": "^3.0.2",
+		"postcss": "^8.4.38",
+		"sass": "^1.72.0",
 		"terser": "^5.29.2",
 		"typescript": "^5.2.2",
 		"vite": "^5.1.6"
 	},
 	"keywords": [
+		"agnostic",
+		"css",
+		"custom elements",
+		"library",
 		"ui",
-		"ux",
-		"component library",
-		"web components",
-		"web-components",
-		"javascript",
-		"js",
-		"typescript",
-		"ts",
-		"html5",
-		"html",
-		"lit-html",
-		"lit-element",
-		"LitElement",
-		"Brrr",
-		"BrrrComponents",
-		"Brrr-Components",
-		"Framework-Agnostic"
+		"web components"
+	],
+	"cssnano": {
+		"preset": "advanced"
+	},
+	"browserslist": [
+		"defaults"
 	]
 }

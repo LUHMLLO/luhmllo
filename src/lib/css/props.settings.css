@@ -1,0 +1,11 @@
+@layer settings {
+	:root {
+		--sttng-iconScale: clamp(var(--scale-sm), 16vmin, var(--scale-lg));
+		--sttng-shadow: 0 var(--radius-5xs) var(--radius-sm) hsla(0, 0%, 0%, 0.072);
+		--sttng-spacing: clamp(
+			min(100%, var(--scale-5xs)),
+			16vmin,
+			var(--scale-5xl)
+		);
+	}
+}

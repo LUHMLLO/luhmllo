@@ -1,0 +1,44 @@
+@layer typescaling {
+	:root {
+		/* typography */
+		--baseFontFamily: 'DM Sans', sans-serif;
+		--baseFontSize: calc(var(--baseScalingRatio) * clamp(0.8rem, 1rem, 0.9rem));
+		--baseFontWeight: 400;
+		--baseLineHeight: clamp(1.25, 1.5, 1.75);
+
+		/* for typescale calcs */
+		--baseScalingRatio: 1.125;
+
+		/* for font calculations, gaps, paddings, . . . */
+		--scale-5xs: calc(var(--baseFontSize) / pow(var(--baseScalingRatio), 7));
+		--scale-4xs: calc(var(--baseFontSize) / pow(var(--baseScalingRatio), 6));
+		--scale-3xs: calc(var(--baseFontSize) / pow(var(--baseScalingRatio), 5));
+		--scale-2xs: calc(var(--baseFontSize) / pow(var(--baseScalingRatio), 4));
+		--scale-xs: calc(var(--baseFontSize) / pow(var(--baseScalingRatio), 3));
+		--scale-sm: calc(var(--baseFontSize) / pow(var(--baseScalingRatio), 2));
+		--scale-md: calc(var(--baseFontSize) / pow(var(--baseScalingRatio), 1));
+
+		--scale-nm: calc(var(--baseFontSize) * pow(var(--baseScalingRatio), 1));
+		--scale-lg: calc(var(--baseFontSize) * pow(var(--baseScalingRatio), 2));
+		--scale-xl: calc(var(--baseFontSize) * pow(var(--baseScalingRatio), 3));
+		--scale-2xl: calc(var(--baseFontSize) * pow(var(--baseScalingRatio), 4));
+		--scale-3xl: calc(var(--baseFontSize) * pow(var(--baseScalingRatio), 5));
+		--scale-4xl: calc(var(--baseFontSize) * pow(var(--baseScalingRatio), 6));
+		--scale-5xl: calc(var(--baseFontSize) * pow(var(--baseScalingRatio), 7));
+
+		/* for border radius */
+		--radius-5xs: 6.39pt;
+		--radius-4xs: 7.29pt;
+		--radius-3xs: 8.31pt;
+		--radius-2xs: 9.47pt;
+		--radius-xs: 10.8pt;
+		--radius-sm: 12.31pt;
+		--radius-md: 14.04pt;
+		--radius-nm: 16pt;
+		--radius-xl: 20.79pt;
+		--radius-2xl: 23.7pt;
+		--radius-3xl: 27.02pt;
+		--radius-4xl: 30.81pt;
+		--radius-5xl: 35.12pt;
+	}
+}

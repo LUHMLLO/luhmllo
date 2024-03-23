@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+@layer reset {
+	* {
+		-webkit-tap-highlight-color: transparent;
+		border: none;
+		box-sizing: border-box;
+		margin: 0;
+		max-width: 100%;
+		min-height: 0;
+		min-width: 0;
+		outline: none;
+		padding: 0;
+		position: relative;
+		scroll-behavior: smooth;
+		text-decoration: none;
+
+		&::before {
+			box-sizing: inherit;
+		}
+
+		&::after {
+			box-sizing: inherit;
+		}
+	}
+}

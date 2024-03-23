@@ -2,6 +2,12 @@ import { LitElement, css, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 const localCss = css`
+	host:not(:defined) {
+		display: none;
+		opacity: 0;
+		visibility: hidden;
+	}
+
 	:host {
 		cursor: pointer;
 		display: flex;
