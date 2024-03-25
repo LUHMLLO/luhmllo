@@ -1,12 +1,9 @@
 import { LitElement, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
-import styles from './styles/icon.css.ts';
+import { customElement } from 'lit/decorators.js';
+import styles from './styles/row.css.ts';
 
-@customElement('lm-icon')
-export class Icon extends LitElement {
-	@property({ type: String }) icon = '';
-	@property({ type: Boolean, reflect: true }) solid = false;
-
+@customElement('lm-row')
+export class Row extends LitElement {
 	static readonly styles = styles;
 
 	async connectedCallback(): Promise<void> {

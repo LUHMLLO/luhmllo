@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" no-fouc>
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="/lit.svg" />
@@ -7,8 +7,8 @@
 		<meta name="description" content="Lit Element universal web components" />
 
 		<title>Lit - Universal Web Components</title>
-
-		<link rel="stylesheet" href="/main.css" />
+		<script type="module" src="./src/export.css.ts"></script>
+		<script type="module" src="./src/export.components.ts"></script>
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,14 +18,12 @@
 		<link
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
-		<script type="module" src="./src/lib/components/_index.ts"></script>
-		<script type="module" src="./src/lib/css/_index.ts"></script>
 	</head>
 
 	<body>
 		<lm-icon> add </lm-icon>
 		<lm-icon solid> bolt </lm-icon>
+
 		<lm-radio label="Radio 1 of Group 1" group="radio-group-1">
 			<input type="text" name="" id="" />
 		</lm-radio>
@@ -52,5 +50,26 @@
 		<div style="font-size: var(--scale-3xl)">3xl</div>
 		<div style="font-size: var(--scale-4xl)">4xl</div>
 		<div style="font-size: var(--scale-5xl)">5xl</div>
+
+		<lm-col>
+			<span>Im inside a col</span>
+			<span>Im inside a col</span>
+			<span>Im inside a col</span>
+			<span>Im inside a col</span>
+		</lm-col>
+
+		<lm-grid max="4">
+			<span>Im inside a grid</span>
+			<span>Im inside a grid</span>
+			<span>Im inside a grid</span>
+			<span>Im inside a grid</span>
+		</lm-grid>
+
+		<lm-row>
+			<span>Im inside a row</span>
+			<span>Im inside a row</span>
+			<span>Im inside a row</span>
+			<span>Im inside a row</span>
+		</lm-row>
 	</body>
 </html>

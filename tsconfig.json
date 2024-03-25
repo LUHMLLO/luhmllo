@@ -3,9 +3,7 @@
 		// Project Structure
 		"baseUrl": ".", // Use current directory as the base for resolving modules
 		// Paths Mapping
-		"paths": {
-			"$lib/*": ["src/lib/*"] // Map alias $lib/* to src/lib* for module resolution
-		},
+		"paths": {},
 		// Module System
 		"moduleResolution": "Bundler", // Use bundler-specific module resolution strategy
 		"target": "ESNext", // Generate code targeting ESNext features

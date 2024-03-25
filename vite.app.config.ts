@@ -18,9 +18,4 @@ export default defineConfig({
 		},
 	},
 	plugins: [terserMinify()],
-	resolve: {
-		alias: {
-			$lib: './src/lib/',
-		},
-	},
 });

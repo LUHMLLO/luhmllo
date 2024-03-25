@@ -7,13 +7,13 @@ export default defineConfig({
 		cssCodeSplit: true,
 		emptyOutDir: true,
 		lib: {
-			entry: './src/lib/components/_index.ts',
+			entry: './src/export.components.ts',
 			formats: ['es', 'cjs', 'umd', 'iife'],
 			name: 'lm',
 			fileName: 'index',
 		},
 		minify: 'terser',
-		outDir: 'dist/lib/components',
+		outDir: 'dist/components',
 		sourcemap: false,
 		target: 'es2015',
 		terserOptions: {
@@ -24,9 +24,4 @@ export default defineConfig({
 		},
 	},
 	plugins: [terserMinify()],
-	resolve: {
-		alias: {
-			$lib: './src/lib/',
-		},
-	},
 });

@@ -1,39 +1,7 @@
-@layer utils {
-	column {
-		display: flex;
-		flex-direction: column;
-		gap: var(--scale-sm);
-	}
+import { css } from 'lit';
 
-	icon,
-	.material-symbols-outlined,
-	.material-symbols-rounded,
-	.material-symbols-sharp {
-		-webkit-user-select: none;
-		aspect-ratio: 1;
-		flex-shrink: 0;
-		font-family: 'Material Symbols Outlined', 'Material Symbols Rounded',
-			'Material Symbols Sharp', sans-serif;
-		-webkit-font-feature-settings: 'liga';
-		font-feature-settings: 'liga';
-		font-weight: normal;
-		font-size: var(--sttng-iconScale);
-		font-style: normal;
-		font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 400, 'opsz' 48;
-		height: max-content;
-		line-height: 1;
-		letter-spacing: normal;
-		overflow: clip;
-		text-transform: none;
-		user-select: none;
-		width: max-content;
-
-		&[data-fill='true'] {
-			font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 400, 'opsz' 48;
-		}
-	}
-
-	grid {
+export default css`
+	:host {
 		--gap: var(--scale-sm);
 		--minWidth: clamp(6rem, 16vmin, 24rem);
 		--maxWidth: 1fr;
@@ -78,7 +46,7 @@
 		&[demo] {
 			grid-auto-rows: 1fr;
 
-			> column {
+			> lm-col {
 				outline: dashed 0.125rem var(--clr-primary);
 				outline-offset: -0.125rem;
 				padding: var(--scale-sm);
@@ -87,9 +55,4 @@
 			}
 		}
 	}
-
-	row {
-		display: flex;
-		flex-direction: row;
-	}
-}
+`;

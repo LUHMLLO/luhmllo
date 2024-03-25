@@ -1,19 +1,7 @@
-import { LitElement, css, html, nothing } from 'lit';
+import { LitElement, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import styles from './styles/radio.css.ts';
 
-const localCss = css`
-	host:not(:defined) {
-		display: none;
-		opacity: 0;
-		visibility: hidden;
-	}
-
-	:host {
-		cursor: pointer;
-		display: flex;
-		flex-direction: column;
-	}
-`;
 @customElement('lm-radio')
 export class Radio extends LitElement {
 	@property({ type: String }) _icon = '';
@@ -25,7 +13,7 @@ export class Radio extends LitElement {
 		delegatesFocus: { type: Boolean, reflect: true },
 	};
 
-	static readonly styles = [localCss];
+	static readonly styles = styles;
 
 	private toggleChecked() {
 		if (!this.checked) {

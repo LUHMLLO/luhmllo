@@ -12,11 +12,12 @@
 		"readme.md"
 	],
 	"scripts": {
-		"build": "pnpm build:lib && pnpm build:app",
+		"build": "pnpm build:css && pnpm build:lib && pnpm build:app",
 		"build:app": "vite build --config vite.app.config.ts",
-		"build:lib": "vite build --config vite.lib.components.config.ts && vite build --config vite.lib.css.config.ts",
+		"build:css": "vite build --config vite.css.config.ts",
+		"build:lib": "vite build --config vite.lib.config.ts",
 		"check": "tsc",
-		"dev": "vite",
+		"dev": "vite --config vite.app.config.ts",
 		"preview": "vite preview --config vite.app.config.ts",
 		"publish": "pnpm run build && pnpm version patch && pnpm publish && git push"
 	},
@@ -26,6 +27,7 @@
 		"cssnano-preset-advanced": "^6.1.1",
 		"lit": "^3.0.2",
 		"postcss": "^8.4.38",
+		"postcss-cli": "^11.0.0",
 		"sass": "^1.72.0",
 		"terser": "^5.29.2",
 		"typescript": "^5.2.2",
@@ -40,7 +42,18 @@
 		"web components"
 	],
 	"cssnano": {
-		"preset": "advanced"
+		"preset": [
+			"advanced",
+			{
+				"discardComments": {
+					"removeAll": true
+				}
+			}
+		]
+	},
+	"postcss": {
+		"parser": "postcss",
+		"map": false
 	},
 	"browserslist": [
 		"defaults"
