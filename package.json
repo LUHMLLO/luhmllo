@@ -14,8 +14,9 @@
 	"scripts": {
 		"build": "pnpm build:css && pnpm build:lib && pnpm build:app",
 		"build:app": "vite build --config vite.app.config.ts",
-		"build:css": "vite build --config vite.css.config.ts",
 		"build:lib": "vite build --config vite.lib.config.ts",
+		"compile:scss": "sass --no-source-map ./src/lib/styles/sass/props.theming.scss ./src/lib/styles/css/props.theming.css",
+		"compile:css": "postcss ./src/lib/styles/css/**/*.css -o --replace ./dist/css/main.css --config ./postcss.config.cjs",
 		"check": "tsc",
 		"dev": "vite --config vite.app.config.ts",
 		"preview": "vite preview --config vite.app.config.ts",
@@ -41,20 +42,6 @@
 		"ui",
 		"web components"
 	],
-	"cssnano": {
-		"preset": [
-			"advanced",
-			{
-				"discardComments": {
-					"removeAll": true
-				}
-			}
-		]
-	},
-	"postcss": {
-		"parser": "postcss",
-		"map": false
-	},
 	"browserslist": [
 		"defaults"
 	]
