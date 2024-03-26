@@ -7,7 +7,7 @@ export default defineConfig({
 		cssCodeSplit: true,
 		emptyOutDir: true,
 		lib: {
-			entry: './src/export.components.ts',
+			entry: './src/lib/export.components.ts',
 			formats: ['es', 'cjs', 'umd', 'iife'],
 			name: 'lm',
 			fileName: 'index',

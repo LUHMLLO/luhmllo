@@ -1,0 +1,12 @@
+{
+	"extends": [
+		"eslint:recommended",
+		"plugin:wc/recommended",
+		"plugin:lit/recommended"
+	],
+	"plugins": ["lit"],
+	"rules": {
+		"lit/no-legacy-template-syntax": "error",
+		"lit/no-template-arrow": "warn"
+	}
+}
