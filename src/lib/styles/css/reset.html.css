@@ -1,5 +1,8 @@
 @layer reset {
 	html {
+		background-color: var(--clr-background);
+		color: var(--clr-text);
+
 		font-display: swap;
 		font-kerning: auto;
 		font-family: var(--baseFontFamily);
@@ -21,7 +24,15 @@
 		text-align: left;
 		text-rendering: optimizeLegibility;
 
+		transition: opacity var(--animDefaults);
+		transition-delay: 512ms;
+
 		word-spacing: 0.0625rem;
+
+		/* This will avoid Flash of Unstyled Content (FOUC), but beware it will also disable improperly used custom elements */
+		&:has(:not(:defined)) {
+			opacity: 0;
+		}
 	}
 
 	html,

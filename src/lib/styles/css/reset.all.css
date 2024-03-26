@@ -23,13 +23,4 @@
 			box-sizing: inherit;
 		}
 	}
-
-	html[no-fouc] {
-		/* This will avoid Flash of Unstyled Content (FOUC), but beware it will also disable improperly used custom elements */
-		*:not(:defined) {
-			display: none;
-			opacity: 0;
-			visibility: hidden;
-		}
-	}
 }
