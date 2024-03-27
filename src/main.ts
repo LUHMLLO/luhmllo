@@ -2,7 +2,7 @@ import './lib/export.components.ts';
 import './lib/export.styles.ts';
 
 import { render } from 'lit';
-import { routes } from './router.ts';
+import routes from './routes.ts';
 
 const app = document.body;
 

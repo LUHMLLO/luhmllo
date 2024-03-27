@@ -1,7 +1,7 @@
 import Home from './routes/home.ts';
 import Proposal from './routes/proposal.ts';
 
-export const routes = [
+export default [
 	{
 		path: '/',
 		component: Home,

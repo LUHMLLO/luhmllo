@@ -1,21 +1,36 @@
 import { html } from 'lit';
 
 export default html`
-	<section>
-		<h1>Proposal</h1>
-
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi,
-			delectus? Unde, sit. Fuga modi ea praesentium. Nemo dicta qui, magnam cum
-			dolorum excepturi beatae explicabo quidem fugiat ullam blanditiis minima!
-		</p>
-
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi,
-			delectus? Unde, sit. Fuga modi ea praesentium. Nemo dicta qui, magnam cum
-			dolorum excepturi beatae explicabo quidem fugiat ullam blanditiis minima!
-		</p>
-
-		<p>Here you can see <a href="/error">the not found page</a>.</p>
-	</section>
+	<lm-app>
+		<lm-sidebar>
+			<lm-group>
+				<label>Main Modules</label>
+			</lm-group>
+			<hr />
+			<lm-group>
+				<label>Main Modules</label>
+				<button>Customer Information</button>
+				<button>Additional Information</button>
+				<button>Internal Sale Notes</button>
+				<button>Financial</button>
+			</lm-group>
+			<hr />
+			<lm-group>
+				<label>Additional Modules</label>
+			</lm-group>
+			<hr />
+			<lm-group>
+				<label>Main Modules</label>
+			</lm-group>
+		</lm-sidebar>
+		<main>
+			<header>
+				<lm-row> </lm-row>
+				<lm-row> </lm-row>
+				<lm-row> </lm-row>
+			</header>
+			<lm-col> </lm-col>
+			<footer></footer>
+		</main>
+	</lm-app>
 `;

@@ -4,7 +4,6 @@ import styles from './styles/radio.css.ts';
 
 @customElement('lm-radio')
 export class Radio extends LitElement {
-	@property({ type: String }) _icon = '';
 	@property({ type: Boolean, reflect: true }) checked = false;
 	@property({ type: String }) group = '';
 	@property({ type: String }) label = '';
@@ -58,7 +57,7 @@ export class Radio extends LitElement {
 
 	protected render() {
 		return html`
-			<label>${this.label}</label>
+			${this.label ? html`<label>${this.label}</label>` : nothing}
 			<lm-icon ?solid="${this.checked}">
 				${this.checked ? 'check_circle' : 'radio_button_unchecked'}
 			</lm-icon>
