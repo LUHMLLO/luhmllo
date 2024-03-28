@@ -10,6 +10,9 @@
 		"dist/",
 		"readme.md"
 	],
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"stage:1": "sass --no-source-map ./src/lib/design_system/sass/props.theming.scss ./src/lib/design_system/css/props.theming.css",
 		"stage:2": "postcss ./src/lib/design_system/css/*.css -d ./dist/css/ --config ./.postcssrc",
