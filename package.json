@@ -1,7 +1,7 @@
 {
-	"name": "portable-components",
-	"description": "Framework Agnostic web components library made with Lit Element & Typescript",
-	"version": "0.0.1-pre",
+	"name": "@m/library",
+	"description": "Minimalism Meets Modularity for Effortless UI Development",
+	"version": "0.0.1-alpha",
 	"type": "module",
 	"main": "./dist/components/index.cjs",
 	"module": "./dist/components/index.js",

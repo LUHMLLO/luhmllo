@@ -1,18 +1,23 @@
-import Home from './routes/home.ts';
-import HTML from './routes/html.ts';
-import Proposal from './routes/proposal.ts';
+import StartPage from './routes/page.ts';
+import Elements from './routes/elements/page.ts';
+import HTML from './routes/examples/html.ts';
+import Proposal from './routes/examples/proposal.ts';
 
 export default [
 	{
 		path: '/',
-		component: Home,
+		component: StartPage,
 	},
 	{
-		path: '/html',
+		path: '/elements',
+		component: Elements,
+	},
+	{
+		path: '/examples/html',
 		component: HTML,
 	},
 	{
-		path: '/proposal',
+		path: '/examples/proposal',
 		component: Proposal,
 	},
 ];
