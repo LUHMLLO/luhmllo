@@ -7,8 +7,7 @@
 	"module": "./dist/components/index.js",
 	"browser": "./dist/components/index.iife.js",
 	"files": [
-		"dist/",
-		"readme.md"
+		"dist/"
 	],
 	"publishConfig": {
 		"access": "public"
