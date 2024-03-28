@@ -6,6 +6,8 @@
 	"main": "./dist/components/index.cjs",
 	"module": "./dist/components/index.js",
 	"browser": "./dist/components/index.iife.js",
+	"author": "luhmllo",
+	"license": "MIT",
 	"files": [
 		"dist/"
 	],
