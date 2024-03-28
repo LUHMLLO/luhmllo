@@ -7,13 +7,13 @@ export default defineConfig({
 		cssCodeSplit: true,
 		emptyOutDir: true,
 		lib: {
-			entry: './src/lib/components/_export.ts',
+			entry: './src/lib/elements/_export.ts',
 			formats: ['es', 'cjs', 'umd', 'iife'],
-			name: 'WComponents',
+			name: 'lilys_elements',
 			fileName: 'index',
 		},
 		minify: 'terser',
-		outDir: 'dist/components',
+		outDir: 'dist/elements',
 		sourcemap: false,
 		target: 'es2015',
 		terserOptions: {

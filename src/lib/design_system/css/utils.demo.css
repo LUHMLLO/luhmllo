@@ -6,4 +6,10 @@
 		place-items: center center;
 		place-content: center center;
 	}
+
+	.m {
+		&.--auto {
+			margin: auto;
+		}
+	}
 }

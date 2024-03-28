@@ -3,9 +3,9 @@
 	"description": "Minimalism Meets Modularity for Effortless UI Development",
 	"version": "0.0.1",
 	"type": "module",
-	"main": "./dist/components/index.cjs",
-	"module": "./dist/components/index.js",
-	"browser": "./dist/components/index.iife.js",
+	"main": "./dist/elements/index.cjs",
+	"module": "./dist/elements/index.js",
+	"browser": "./dist/elements/index.iife.js",
 	"author": "luhmllo",
 	"license": "MIT",
 	"files": [
