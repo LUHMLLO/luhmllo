@@ -1,5 +1,5 @@
 {
-	"name": "lilys-ui",
+	"name": "lilys",
 	"description": "Minimalism Meets Modularity for Effortless UI Development",
 	"version": "0.0.1",
 	"type": "module",
@@ -17,7 +17,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/LUHMLLO/m-ui.git"
+		"url": "https://github.com/LUHMLLO/lilys.git"
 	},
 	"scripts": {
 		"stage:1": "sass --no-source-map ./src/lib/design_system/sass/props.theming.scss ./src/lib/design_system/css/props.theming.css",
