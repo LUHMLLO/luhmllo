@@ -2,7 +2,7 @@ import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import styles from './styles/grid.css.ts';
 
-@customElement('lm-grid')
+@customElement('wc-grid')
 export class Grid extends LitElement {
 	static readonly styles = styles;
 

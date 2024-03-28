@@ -2,7 +2,7 @@ import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import styles from './styles/col.css.ts';
 
-@customElement('lm-col')
+@customElement('wc-col')
 export class Col extends LitElement {
 	static readonly styles = styles;
 

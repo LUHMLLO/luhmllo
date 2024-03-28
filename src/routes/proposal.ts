@@ -1,36 +1,40 @@
 import { html } from 'lit';
 
 export default html`
-	<lm-app>
-		<lm-sidebar>
-			<lm-group>
+	<wc-app>
+		<aside>
+			<wc-group>
 				<label>Main Modules</label>
-			</lm-group>
+			</wc-group>
 			<hr />
-			<lm-group>
+			<wc-group>
 				<label>Main Modules</label>
 				<button>Customer Information</button>
 				<button>Additional Information</button>
 				<button>Internal Sale Notes</button>
 				<button>Financial</button>
-			</lm-group>
+			</wc-group>
 			<hr />
-			<lm-group>
+			<wc-group>
 				<label>Additional Modules</label>
-			</lm-group>
+			</wc-group>
 			<hr />
-			<lm-group>
+			<wc-group>
 				<label>Main Modules</label>
-			</lm-group>
-		</lm-sidebar>
+			</wc-group>
+		</aside>
 		<main>
 			<header>
-				<lm-row> </lm-row>
-				<lm-row> </lm-row>
-				<lm-row> </lm-row>
+				<wc-row> </wc-row>
+				<wc-row> </wc-row>
+				<wc-row> </wc-row>
 			</header>
-			<lm-col> </lm-col>
+			<wc-col>
+				<form>
+					<input type="email" />
+				</form>
+			</wc-col>
 			<footer></footer>
 		</main>
-	</lm-app>
+	</wc-app>
 `;

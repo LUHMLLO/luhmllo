@@ -1,4 +1,4 @@
-@layer animations {
+@layer props {
 	:root {
 		--animDefaults: var(--animDuration) var(--animTiming);
 		--animDuration: 360ms;

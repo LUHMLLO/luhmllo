@@ -2,7 +2,7 @@ import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import styles from './styles/group.css.ts';
 
-@customElement('lm-group')
+@customElement('wc-group')
 export class Group extends LitElement {
 	static readonly styles = styles;
 

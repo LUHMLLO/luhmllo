@@ -1,5 +1,5 @@
 {
-	"name": "lm-components",
+	"name": "portable-components",
 	"description": "Framework Agnostic web components library made with Lit Element & Typescript",
 	"version": "0.0.1-pre",
 	"type": "module",
@@ -16,7 +16,7 @@
 		"build:app": "vite build --config vite.app.config.ts",
 		"build:lib": "vite build --config vite.lib.config.ts",
 		"compile:scss": "sass --no-source-map ./src/lib/styles/sass/props.theming.scss ./src/lib/styles/css/props.theming.css",
-		"compile:css": "postcss ./src/lib/styles/css/*.css -d ./dist/css/ --config ./postcss.config.cjs",
+		"compile:css": "postcss ./src/lib/styles/css/*.css -d ./dist/css/ --config ./.postcssrc",
 		"check": "tsc",
 		"dev": "vite --config vite.app.config.ts",
 		"preview": "vite preview --config vite.app.config.ts",
@@ -45,6 +45,9 @@
 		"web components"
 	],
 	"browserslist": [
-		"defaults"
+		"defaults",
+		"last 2 versions",
+		"not dead",
+		"> 1%"
 	]
 }

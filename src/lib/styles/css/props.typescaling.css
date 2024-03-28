@@ -1,4 +1,4 @@
-@layer typescaling {
+@layer props {
 	:root {
 		/* typography */
 		--baseFontFamily: 'DM Sans', sans-serif;

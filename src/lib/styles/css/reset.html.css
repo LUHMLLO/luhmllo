@@ -20,7 +20,6 @@
 		letter-spacing: 0.0125rem;
 
 		line-height: var(--baseLineHeight);
-		overflow: clip;
 		text-align: left;
 		text-rendering: optimizeLegibility;
 
@@ -38,6 +37,10 @@
 	html,
 	body {
 		display: contents;
+
+		&:has(wc-app, #app) {
+			overflow: clip;
+		}
 	}
 
 	h1 {

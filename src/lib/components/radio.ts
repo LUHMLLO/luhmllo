@@ -2,7 +2,7 @@ import { LitElement, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import styles from './styles/radio.css.ts';
 
-@customElement('lm-radio')
+@customElement('wc-radio')
 export class Radio extends LitElement {
 	@property({ type: Boolean, reflect: true }) checked = false;
 	@property({ type: String }) group = '';
@@ -17,7 +17,7 @@ export class Radio extends LitElement {
 	private toggleChecked() {
 		if (!this.checked) {
 			const radios = document.querySelectorAll(
-				`lm-radio[group="${this.group}"]`
+				`wc-radio[group="${this.group}"]`
 			);
 
 			for (const radio of [...radios]) {
@@ -58,9 +58,9 @@ export class Radio extends LitElement {
 	protected render() {
 		return html`
 			${this.label ? html`<label>${this.label}</label>` : nothing}
-			<lm-icon ?solid="${this.checked}">
+			<wc-icon ?solid="${this.checked}">
 				${this.checked ? 'check_circle' : 'radio_button_unchecked'}
-			</lm-icon>
+			</wc-icon>
 			${this.checked ? html`<slot></slot>` : nothing}
 		`;
 	}

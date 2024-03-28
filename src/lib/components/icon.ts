@@ -2,7 +2,7 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import styles from './styles/icon.css.ts';
 
-@customElement('lm-icon')
+@customElement('wc-icon')
 export class Icon extends LitElement {
 	@property({ type: Boolean, reflect: true }) solid = false;
 

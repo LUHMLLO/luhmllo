@@ -1,5 +1,5 @@
 @layer reset {
-	* {
+	:where(*) {
 		--bar-color: trasparent;
 		--bar-size: var(--radius-5xs);
 		--bar-radius: var(--radius-3xs);

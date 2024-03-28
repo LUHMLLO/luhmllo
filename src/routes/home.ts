@@ -1,18 +1,18 @@
 import { html } from 'lit';
 
 export default html`
-	<lm-icon> add </lm-icon>
-	<lm-icon solid> bolt </lm-icon>
+	<wc-icon> add </wc-icon>
+	<wc-icon solid> bolt </wc-icon>
 
-	<lm-radio label="Radio 1 of Group 1" group="radio-group-1">
+	<wc-radio label="Radio 1 of Group 1" group="radio-group-1">
 		<input type="text" name="" id="" />
-	</lm-radio>
-	<lm-radio label="Radio 2 of Group 1" group="radio-group-1">
+	</wc-radio>
+	<wc-radio label="Radio 2 of Group 1" group="radio-group-1">
 		<textarea name="" id="" cols="30" rows="10"></textarea>
-	</lm-radio>
+	</wc-radio>
 
-	<lm-radio label="Radio 1 of Group 2" group="radio-group-2"> </lm-radio>
-	<lm-radio label="Radio 1 of Group 2" group="radio-group-2"> </lm-radio>
+	<wc-radio label="Radio 1 of Group 2" group="radio-group-2"> </wc-radio>
+	<wc-radio label="Radio 1 of Group 2" group="radio-group-2"> </wc-radio>
 
 	<div style="font-size: var(--scale-5xs)">5xs</div>
 	<div style="font-size: var(--scale-4xs)">4xs</div>
@@ -31,19 +31,14 @@ export default html`
 	<div style="font-size: var(--scale-4xl)">4xl</div>
 	<div style="font-size: var(--scale-5xl)">5xl</div>
 
-	<lm-col>
+	<wc-col>
 		<span>Im inside a col</span>
 		<span>Im inside a col</span>
 		<span>Im inside a col</span>
 		<span>Im inside a col</span>
-	</lm-col>
+	</wc-col>
 
-	<lm-grid max="4">
-		<span class="demo-card">Im inside a grid</span>
-		<span class="demo-card">Im inside a grid</span>
-		<span class="demo-card">Im inside a grid</span>
-		<span class="demo-card">Im inside a grid</span>
-
+	<wc-grid max="4">
 		<span class="demo-card">Im inside a grid</span>
 		<span class="demo-card">Im inside a grid</span>
 		<span class="demo-card">Im inside a grid</span>
@@ -53,12 +48,17 @@ export default html`
 		<span class="demo-card">Im inside a grid</span>
 		<span class="demo-card">Im inside a grid</span>
 		<span class="demo-card">Im inside a grid</span>
-	</lm-grid>
 
-	<lm-row>
+		<span class="demo-card">Im inside a grid</span>
+		<span class="demo-card">Im inside a grid</span>
+		<span class="demo-card">Im inside a grid</span>
+		<span class="demo-card">Im inside a grid</span>
+	</wc-grid>
+
+	<wc-row>
 		<span>Im inside a row</span>
 		<span>Im inside a row</span>
 		<span>Im inside a row</span>
 		<span>Im inside a row</span>
-	</lm-row>
+	</wc-row>
 `;

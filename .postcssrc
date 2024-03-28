@@ -1,0 +1,11 @@
+{
+	"map": false,
+	"plugins": {
+		"autoprefixer": {
+			"cascade": false
+		},
+		"cssnano": {
+			"preset": "cssnano-preset-advanced"
+		}
+	}
+}
