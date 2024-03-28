@@ -1,7 +1,7 @@
 {
 	"name": "lilys",
 	"description": "Minimalism Meets Modularity for Effortless UI Development",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"type": "module",
 	"main": "./dist/elements/index.cjs",
 	"module": "./dist/elements/index.js",
