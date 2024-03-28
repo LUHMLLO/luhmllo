@@ -7,9 +7,9 @@ export default defineConfig({
 		cssCodeSplit: true,
 		emptyOutDir: true,
 		lib: {
-			entry: './src/lib/export.components.ts',
+			entry: './src/lib/components/_export.ts',
 			formats: ['es', 'cjs', 'umd', 'iife'],
-			name: 'lm',
+			name: 'WComponents',
 			fileName: 'index',
 		},
 		minify: 'terser',

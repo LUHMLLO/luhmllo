@@ -20,5 +20,15 @@
 		&::after {
 			box-sizing: inherit;
 		}
+
+		&:not(:defined) {
+			/* 
+				This will avoid Flash of Unstyled Content (FOUC), 
+				but beware it will also disable improperly used custom elements 
+			*/
+			opacity: 0;
+			transition: opacity var(--animDefaults);
+			transition-delay: 512ms;
+		}
 	}
 }

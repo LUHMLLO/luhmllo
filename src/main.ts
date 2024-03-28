@@ -1,7 +1,4 @@
-import './lib/export.components.ts';
-import './lib/export.styles.ts';
 import './main.css';
-
 import { render } from 'lit';
 import routes from './routes.ts';
 

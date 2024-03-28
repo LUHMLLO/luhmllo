@@ -12,11 +12,11 @@
 		"readme.md"
 	],
 	"scripts": {
-		"build": "pnpm compile:scss && pnpm compile:css && pnpm build:lib && pnpm build:app",
-		"build:app": "vite build --config vite.app.config.ts",
-		"build:lib": "vite build --config vite.lib.config.ts",
-		"compile:scss": "sass --no-source-map ./src/lib/styles/sass/props.theming.scss ./src/lib/styles/css/props.theming.css",
-		"compile:css": "postcss ./src/lib/styles/css/*.css -d ./dist/css/ --config ./.postcssrc",
+		"stage:1": "sass --no-source-map ./src/lib/design_system/sass/props.theming.scss ./src/lib/design_system/css/props.theming.css",
+		"stage:2": "postcss ./src/lib/design_system/css/*.css -d ./dist/css/ --config ./.postcssrc",
+		"stage:3": "vite build --config vite.lib.config.ts",
+		"stage:4": "vite build --config vite.app.config.ts",
+		"build": "pnpm stage:1 && pnpm stage:2 && pnpm stage:3 && pnpm stage:4",
 		"check": "tsc",
 		"dev": "vite --config vite.app.config.ts",
 		"preview": "vite preview --config vite.app.config.ts",
