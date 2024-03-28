@@ -17,8 +17,5 @@ export default defineConfig({
 			mangle: true,
 		},
 	},
-	css: {
-		postcss: {}
-	},
 	plugins: [terserMinify()],
 });

@@ -3,12 +3,11 @@
 	"description": "Framework Agnostic web components library made with Lit Element & Typescript",
 	"version": "0.0.1-pre",
 	"type": "module",
-	"main": "./dist/lib/index.cjs",
-	"module": "./dist/lib/index.js",
-	"browser": "./dist/lib/index.iife.js",
+	"main": "./dist/components/index.cjs",
+	"module": "./dist/components/index.js",
+	"browser": "./dist/components/index.iife.js",
 	"files": [
 		"dist/",
-		"index.html",
 		"readme.md"
 	],
 	"scripts": {
