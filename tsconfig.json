@@ -35,7 +35,15 @@
 		"sourceMap": true, // Generate source maps for JavaScript files
 		"verbatimModuleSyntax": true, // Preserve module specifier syntax when importing
 		// Compatibility
-		"allowJs": true, // Allow compilation of JavaScript files
-		"checkJs": true // Perform basic type checking on JavaScript files
-	}
+		"allowJs": false, // Allow compilation of JavaScript files
+		"checkJs": false // Perform basic type checking on JavaScript files
+	},
+	"include": ["src"],
+	"exclude": [
+		"dist",
+		"node_modules",
+		"vite.app.config.ts",
+		"vite.lib.config.ts",
+		"vite.terserMinify.ts"
+	]
 }
