@@ -1,0 +1,11 @@
+@layer utils {
+    .m {
+        &.--auto {
+            margin: auto;
+        }
+
+        &.--0 {
+            margin: auto;
+        }
+    }
+}

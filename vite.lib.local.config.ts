@@ -4,15 +4,14 @@ import { terserMinify } from './vite.terserMinify';
 export default defineConfig({
 	build: {
 		copyPublicDir: false,
-		cssCodeSplit: true,
-		emptyOutDir: true,
+		cssCodeSplit: false,
+		emptyOutDir: false,
 		lib: {
 			entry: './src/lib/_exports/elements/_all.ts',
-			formats: ['es', 'cjs', 'umd', 'iife'],
-			name: 'lilys',
-			fileName: 'index',
+			formats: ['es'],
+			fileName: 'lilys',
 		},
-		outDir: './dist/elements',
+		outDir: './public/assets/js',
 	},
-	plugins: [terserMinify()]
+	plugins: [terserMinify()],
 });

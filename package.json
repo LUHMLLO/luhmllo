@@ -1,15 +1,51 @@
 {
-	"name": "lilys",
-	"description": "Minimalism Meets Modularity for Effortless UI Development",
-	"version": "0.0.2",
-	"type": "module",
-	"main": "./dist/elements/index.cjs",
-	"module": "./dist/elements/index.js",
-	"browser": "./dist/elements/index.iife.js",
 	"author": "luhmllo",
+	"description": "Minimalism Meets Modularity for Effortless UI Development",
+	"homepage": "https://github.com/LUHMLLO/lilys.git",
 	"license": "MIT",
+	"name": "lilys",
+	"type": "module",
+	"version": "0.0.1",
+	"browserslist": [
+		"defaults",
+		"last 2 versions",
+		"not dead",
+		"> 1%"
+	],
+	"dependencies": {
+		"@astrojs/check": "^0.5.10",
+		"@astrojs/lit": "^4.0.1",
+		"@webcomponents/template-shadowroot": "^0.2.1",
+		"astro": "^4.5.12",
+		"lit": "^3.1.2",
+		"typescript": "^5.4.3"
+	},
+	"devDependencies": {
+		"autoprefixer": "^10.4.19",
+		"cssnano": "^6.1.2",
+		"cssnano-preset-advanced": "^6.1.2",
+		"eslint-plugin-lit": "^1.11.0",
+		"eslint-plugin-wc": "^2.0.4",
+		"postcss": "^8.4.38",
+		"postcss-cli": "^11.0.0",
+		"postcss-fail-on-warn": "^0.2.1",
+		"sass": "^1.72.0",
+		"terser": "^5.30.1",
+		"vite": "^5.2.7"
+	},
+	"exports": {
+		".": "./elements/index.js"
+	},
 	"files": [
 		"dist/"
+	],
+	"keywords": [
+		"agnostic",
+		"css",
+		"custom elements",
+		"library",
+		"ui",
+		"web components"
 	],
 	"publishConfig": {
 		"access": "public",
@@ -20,42 +56,15 @@
 		"url": "https://github.com/LUHMLLO/lilys.git"
 	},
 	"scripts": {
-		"stage:1": "sass --no-source-map ./src/lib/design_system/sass/props.theming.scss ./src/lib/design_system/css/props.theming.css",
-		"stage:2": "postcss ./src/lib/design_system/css/*.css -d ./dist/css/ --config ./.postcssrc",
-		"stage:3": "vite build --config vite.lib.config.ts",
-		"stage:4": "vite build --config vite.app.config.ts",
-		"build": "pnpm stage:1 && pnpm stage:2 && pnpm stage:3 && pnpm stage:4",
-		"check": "tsc",
-		"dev": "vite --config vite.app.config.ts",
-		"preview": "vite preview --config vite.app.config.ts",
-		"publish": "pnpm run build && pnpm version patch && pnpm publish && git push"
-	},
-	"devDependencies": {
-		"autoprefixer": "^10.4.19",
-		"cssnano": "^6.1.2",
-		"cssnano-preset-advanced": "^6.1.2",
-		"eslint-plugin-lit": "^1.11.0",
-		"eslint-plugin-wc": "^2.0.4",
-		"lit": "^3.0.2",
-		"postcss": "^8.4.38",
-		"postcss-cli": "^11.0.0",
-		"sass": "^1.72.0",
-		"terser": "^5.29.2",
-		"typescript": "^5.2.2",
-		"vite": "^5.2.6"
-	},
-	"keywords": [
-		"agnostic",
-		"css",
-		"custom elements",
-		"library",
-		"ui",
-		"web components"
-	],
-	"browserslist": [
-		"defaults",
-		"last 2 versions",
-		"not dead",
-		"> 1%"
-	]
+		"astro": "astro",
+		"build": "pnpm check && pnpm stage:1 && pnpm stage:2 && pnpm stage:3 && pnpm stage:4",
+		"check": "tsc && astro check",
+		"dev": "astro dev",
+		"preview": "astro preview",
+		"start": "astro dev",
+		"stage:1": "sass --color --no-source-map --stop-on-error --unicode --update ./src/lib/_exports/design_system/sass/props.theming.scss ./src/lib/_exports/design_system/css/props.theming.css",
+		"stage:2": "postcss ./src/lib/_exports/design_system/css/*.css -d ./dist/css/ --config ./.postcssrc",
+		"stage:3": "vite build --config vite.lib.config.ts && vite build --config vite.lib.local.config.ts",
+		"stage:4": "astro build"
+	}
 }

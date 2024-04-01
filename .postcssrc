@@ -6,6 +6,7 @@
 		},
 		"cssnano": {
 			"preset": "cssnano-preset-advanced"
-		}
+		},
+		"postcss-fail-on-warn": {}
 	}
 }

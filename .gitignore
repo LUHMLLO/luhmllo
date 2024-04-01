@@ -1,4 +1,16 @@
-# Logs
+# build output
+dist/
+dist-ssr/
+
+# generated types
+.astro/
+
+# dependencies
+*.local
+node_modules/
+pnpm-lock.yaml
+
+# logs
 logs
 *.log
 npm-debug.log*
@@ -7,10 +19,12 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
 
 # Editor directories and files
 .vscode/*
@@ -22,6 +36,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-
-pnpm-lock.yaml

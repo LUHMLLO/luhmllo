@@ -6,15 +6,49 @@
 		"@typescript-eslint/recommended"
 	],
 	"parserOptions": {
-		"ecmaVersion": 2015,
+		"ecmaVersion": 2022,
 		"sourceType": "module"
 	},
-	"plugins": ["lit", "@typescript-eslint"],
+	"plugins": [
+		"lit",
+		"@typescript-eslint"
+	],
 	"rules": {
 		"lit/no-legacy-template-syntax": "error",
-		"lit/no-template-arrow": "warn",
+		"lit/no-template-arrow": "error", // Updated to error
 		"lit/attribute-has-boolean-value": "warn",
 		"lit/property-no-constructor-initializer": "error",
-		"@typescript-eslint/no-unused-vars": "error" // Example: Adding a TypeScript rule
+		"@typescript-eslint/no-unused-vars": "warn", // More granular warning
+		"@typescript-eslint/no-explicit-any": "warn",
+		"@typescript-eslint/ban-types": [
+			"error",
+			{
+				"types": {
+					"Function": {
+						"message": "Use a typed function instead."
+					}
+				}
+			}
+		],
+		"no-console": [
+			"warn",
+			{
+				"allow": [
+					"warn",
+					"error"
+				]
+			}
+		], // Allow warn and error in console
+		"import/order": [
+			"warn",
+			{
+				"groups": [],
+				"newlines-between": "always"
+			}
+		], // Configure import order (replace [...] with your preferences)
+		"semi": [
+			"error",
+			"always"
+		]
 	}
 }

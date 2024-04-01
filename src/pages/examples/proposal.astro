@@ -1,0 +1,65 @@
+---
+import Layout from 'src/lib/layouts/Layout.astro';
+---
+
+<Layout title='Proposal Tool'>
+	<ly-app>
+		<aside>
+			<ly-group>
+				<label>Main Modules</label>
+			</ly-group>
+			<hr />
+			<ly-group>
+				<label>Main Modules</label>
+				<button>Customer Information</button>
+				<button>Additional Information</button>
+				<button>Internal Sale Notes</button>
+				<button>Financial</button>
+			</ly-group>
+			<hr />
+			<ly-group>
+				<label>Additional Modules</label>
+			</ly-group>
+			<hr />
+			<ly-group>
+				<label>Main Modules</label>
+			</ly-group>
+		</aside>
+		<main>
+			<header>
+				<ly-row> </ly-row>
+				<ly-row> </ly-row>
+				<ly-row> </ly-row>
+			</header>
+			<ly-col>
+				<form>
+					<input type='email' />
+				</form>
+			</ly-col>
+			<footer></footer>
+		</main>
+	</ly-app>
+</Layout>
+
+<style>
+	ly-app {
+		& > aside {
+			background-color: var(--clr-primary);
+			display: flex;
+			flex-direction: column;
+			gap: var(--scale-lg);
+			padding: var(--scale-lg);
+			& > ly-group {
+				& > label {
+					--clr: var(--clr-subtext);
+				}
+				& > button {
+					--bg: var(--clr-secondary);
+				}
+			}
+		}
+		& > main {
+			flex-grow: 1;
+		}
+	}
+</style>

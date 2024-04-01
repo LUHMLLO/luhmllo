@@ -1,0 +1,7 @@
+@layer utils {
+    .align {
+        &.--center {
+            align-items: center;
+        }
+    }
+}
