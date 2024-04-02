@@ -13,7 +13,10 @@
 @import url('./reset.scrollbars.css');
 
 @import url('./utils.alignment.css');
+@import url('./utils.borders.css');
 @import url('./utils.coloring.css');
 @import url('./utils.demo.css');
+@import url('./utils.sizing.css');
 @import url('./utils.spacing.css');
+@import url('./utils.text.css');
 @import url('./utils.zindex.css');

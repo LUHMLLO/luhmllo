@@ -2,7 +2,7 @@
   @media (prefers-color-scheme: dark) {
     :root {
       --clr-accent: hsl(124, 69%, 40%);
-      --clr-context: hsl(169, 69%, 40%);
+      --clr-context: hsl(24, 88%, 40%);
       --clr-background: hsl(0, 0%, 4%);
       --clr-text: hsl(0, 0%, 96%);
       --clr-subtext: hsl(0, 0%, 72%);
@@ -14,7 +14,7 @@
   @media (prefers-color-scheme: light) {
     :root {
       --clr-accent: hsl(124, 69%, 64%);
-      --clr-context: hsl(169, 69%, 64%);
+      --clr-context: hsl(24, 69%, 64%);
       --clr-background: color-mix(in srgb, var(--clr-accent), #fbfbfe 96%);
       --clr-text: color-mix(in srgb, var(--clr-background), black 88%);
       --clr-subtext: color-mix(in srgb, var(--clr-background), var(--clr-text) 56%);
@@ -29,7 +29,7 @@
   }
   html[scheme=dark] {
     --clr-accent: hsl(124, 69%, 40%);
-    --clr-context: hsl(169, 69%, 40%);
+    --clr-context: hsl(24, 88%, 40%);
     --clr-background: hsl(0, 0%, 4%);
     --clr-text: hsl(0, 0%, 96%);
     --clr-subtext: hsl(0, 0%, 72%);
@@ -39,7 +39,7 @@
   }
   html[scheme=light] {
     --clr-accent: hsl(124, 69%, 64%);
-    --clr-context: hsl(169, 69%, 64%);
+    --clr-context: hsl(24, 69%, 64%);
     --clr-background: color-mix(in srgb, var(--clr-accent), #fbfbfe 96%);
     --clr-text: color-mix(in srgb, var(--clr-background), black 88%);
     --clr-subtext: color-mix(in srgb, var(--clr-background), var(--clr-text) 56%);

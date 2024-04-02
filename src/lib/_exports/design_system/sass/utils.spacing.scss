@@ -1,4 +1,46 @@
 @layer utils {
+    .g {
+        @each $v in (auto, 0) {
+            &-#{$v} {
+                gap: #{$v};
+            }
+        }
+
+        @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+            &-#{$v} {
+                gap: var(--scale-#{$v});
+            }
+        }
+
+        &x {
+            @each $v in (auto, 0) {
+                &-#{$v} {
+                    row-gap: var(--scale-#{$v});
+                }
+            }
+
+            @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+                &-#{$v} {
+                    row-gap: var(--scale-#{$v});
+                }
+            }
+        }
+
+        &y {
+            @each $v in (auto, 0) {
+                &-#{$v} {
+                    column-gap: var(--scale-#{$v});
+                }
+            }
+
+            @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+                &-#{$v} {
+                    column-gap: var(--scale-#{$v});
+                }
+            }
+        }
+    }
+
     .m {
         @each $v in (auto, 0) {
             &-#{$v} {
@@ -13,6 +55,12 @@
         }
 
         &x {
+            @each $v in (auto, 0) {
+                &-#{$v} {
+                    margin-inline: #{$v};
+                }
+            }
+
             @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
                 &-#{$v} {
                     margin-inline: var(--scale-#{$v});
@@ -21,6 +69,12 @@
         }
 
         &y {
+            @each $v in (auto, 0) {
+                &-#{$v} {
+                    margin-block: #{$v};
+                }
+            }
+
             @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
                 &-#{$v} {
                     margin-block: var(--scale-#{$v});
@@ -43,6 +97,12 @@
         }
 
         &x {
+            @each $v in (auto, 0) {
+                &-#{$v} {
+                    padding-inline: #{$v};
+                }
+            }
+
             @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
                 &-#{$v} {
                     padding-inline: var(--scale-#{$v});
@@ -51,6 +111,12 @@
         }
 
         &y {
+            @each $v in (auto, 0) {
+                &-#{$v} {
+                    padding-block: #{$v};
+                }
+            }
+
             @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
                 &-#{$v} {
                     padding-block: var(--scale-#{$v});

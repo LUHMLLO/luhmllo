@@ -1,0 +1,53 @@
+@layer utils {
+  .txt-5xs {
+    font-size: var(--scale-5xs);
+  }
+  .txt-4xs {
+    font-size: var(--scale-4xs);
+  }
+  .txt-3xs {
+    font-size: var(--scale-3xs);
+  }
+  .txt-2xs {
+    font-size: var(--scale-2xs);
+  }
+  .txt-xs {
+    font-size: var(--scale-xs);
+  }
+  .txt-sm {
+    font-size: var(--scale-sm);
+  }
+  .txt-md {
+    font-size: var(--scale-md);
+  }
+  .txt-nm {
+    font-size: var(--scale-nm);
+  }
+  .txt-lg {
+    font-size: var(--scale-lg);
+  }
+  .txt-xl {
+    font-size: var(--scale-xl);
+  }
+  .txt-2xl {
+    font-size: var(--scale-2xl);
+  }
+  .txt-3xl {
+    font-size: var(--scale-3xl);
+  }
+  .txt-4xl {
+    font-size: var(--scale-4xl);
+  }
+  .txt-5xl {
+    font-size: var(--scale-5xl);
+  }
+  .txt-left {
+    text-align: left;
+  }
+  .txt-center {
+    text-align: center;
+  }
+  .txt-right {
+    text-align: right;
+  }
+}

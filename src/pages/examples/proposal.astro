@@ -6,7 +6,7 @@ import Layout from 'src/lib/layouts/Layout.astro';
 	<ly-app>
 		<aside>
 			<ly-group>
-				<label>Main Modules</label>
+				<label>Proposal Tool by Gizmo</label>
 			</ly-group>
 			<hr />
 			<ly-group>
@@ -19,10 +19,42 @@ import Layout from 'src/lib/layouts/Layout.astro';
 			<hr />
 			<ly-group>
 				<label>Additional Modules</label>
+				<button>
+					<span>Solar System</span>
+					<ly-switch></ly-switch>
+				</button>
+				<button>
+					<span>Project Adders</span>
+					<ly-switch></ly-switch>
+				</button>
+				<button>
+					<span>Battery System</span>
+					<ly-switch></ly-switch>
+				</button>
+				<button>
+					<span>Roofing</span>
+					<ly-switch></ly-switch>
+				</button>
+				<button>
+					<span>Electrical</span>
+					<ly-switch></ly-switch>
+				</button>
+				<button>
+					<span>Energy Efficiency</span>
+					<ly-switch></ly-switch>
+				</button>
+				<button>
+					<span>HVAC</span>
+					<ly-switch></ly-switch>
+				</button>
 			</ly-group>
 			<hr />
-			<ly-group class='bg-secondary clr-context p-lg'>
-				<var class='font-5xl'><abbr title='USD'>$</abbr>0.86</var>
+			<ly-group class='bg-secondary g-0 p-lg radius-3xs txt-center'>
+				<var class='txt-5xl'>
+					<abbr title='USD'>$</abbr>
+					0.86
+				</var>
+				<small class='clr-subtext'>PPW Base Commission</small>
 			</ly-group>
 		</aside>
 		<main>
@@ -49,12 +81,20 @@ import Layout from 'src/lib/layouts/Layout.astro';
 			flex-direction: column;
 			gap: var(--scale-lg);
 			padding: var(--scale-lg);
+			width: clamp(8rem, 10vdw, 16rem);
+
 			& > ly-group {
 				& > label {
 					--clr: var(--clr-subtext);
+					width: 100%;
 				}
 				& > button {
 					--bg: var(--clr-secondary);
+					width: 100%;
+
+					&:has(ly-switch:not([checked])) {
+						opacity: 0.5;
+					}
 				}
 			}
 		}

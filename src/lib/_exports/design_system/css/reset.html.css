@@ -35,40 +35,33 @@
 		}
 	}
 
-	h1 {
+	:where(h1, h2, h3, h4, h5, h6) {
 		display: flex;
-		font-size: var(--scale-5xl);
 		font-weight: 500;
+	}
+
+	h1 {
+		font-size: var(--scale-5xl);
 	}
 
 	h2 {
-		display: flex;
 		font-size: var(--scale-4xl);
-		font-weight: 500;
 	}
 
 	h3 {
-		display: flex;
 		font-size: var(--scale-3xl);
-		font-weight: 500;
 	}
 
 	h4 {
-		display: flex;
 		font-size: var(--scale-2xl);
-		font-weight: 500;
 	}
 
 	h5 {
-		display: flex;
 		font-size: var(--scale-xl);
-		font-weight: 500;
 	}
 
 	h6 {
-		display: flex;
 		font-size: var(--scale-nm);
-		font-weight: 500;
 	}
 
 	p {

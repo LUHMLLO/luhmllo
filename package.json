@@ -65,7 +65,7 @@
 		"start": "astro dev",
 		"stage:1": "sass --color --no-source-map --stop-on-error --unicode --update ./src/lib/_exports/design_system/sass/:./src/lib/_exports/design_system/css/",
 		"stage:2": "postcss ./src/lib/_exports/design_system/css/*.css -d ./dist/css/ --config ./.postcssrc",
-		"stage:3": "vite build --config vite.lib.config.ts && vite build --config vite.lib.local.config.ts",
+		"stage:3": "vite build --config vite.lib.prod.config.ts && vite build --config vite.lib.local.config.ts",
 		"stage:4": "astro build"
 	}
 }
