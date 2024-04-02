@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
-
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel/static';
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,7 +10,7 @@ export default defineConfig({
 	},
 	compressHTML: true,
 	outDir: './dist/app',
-	output: 'hybrid',
+	output: 'static',
 	prefetch: {
 		prefetchAll: true,
 	},
