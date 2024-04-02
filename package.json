@@ -8,27 +8,28 @@
 	"version": "0.0.1",
 	"browserslist": [
 		"defaults",
-		"last 2 versions",
+		"> 1%",
 		"not dead",
-		"> 1%"
+		"not op_mini all"
 	],
 	"dependencies": {
 		"@astrojs/check": "^0.5.10",
-		"@astrojs/lit": "^4.0.1",
-		"@webcomponents/template-shadowroot": "^0.2.1",
+		"@astrojs/vercel": "^7.5.1",
 		"astro": "^4.5.12",
-		"lit": "^3.1.2",
 		"typescript": "^5.4.3"
 	},
 	"devDependencies": {
+		"@webcomponents/template-shadowroot": "^0.2.1",
 		"autoprefixer": "^10.4.19",
 		"cssnano": "^6.1.2",
 		"cssnano-preset-advanced": "^6.1.2",
 		"eslint-plugin-lit": "^1.11.0",
 		"eslint-plugin-wc": "^2.0.4",
+		"lit": "^3.1.2",
 		"postcss": "^8.4.38",
 		"postcss-cli": "^11.0.0",
 		"postcss-fail-on-warn": "^0.2.1",
+		"postcss-import": "^16.1.0",
 		"sass": "^1.72.0",
 		"terser": "^5.30.1",
 		"vite": "^5.2.7"
@@ -62,7 +63,7 @@
 		"dev": "astro dev",
 		"preview": "astro preview",
 		"start": "astro dev",
-		"stage:1": "sass --color --no-source-map --stop-on-error --unicode --update ./src/lib/_exports/design_system/sass/props.theming.scss ./src/lib/_exports/design_system/css/props.theming.css",
+		"stage:1": "sass --color --no-source-map --stop-on-error --unicode --update ./src/lib/_exports/design_system/sass/:./src/lib/_exports/design_system/css/",
 		"stage:2": "postcss ./src/lib/_exports/design_system/css/*.css -d ./dist/css/ --config ./.postcssrc",
 		"stage:3": "vite build --config vite.lib.config.ts && vite build --config vite.lib.local.config.ts",
 		"stage:4": "astro build"

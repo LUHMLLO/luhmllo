@@ -3,10 +3,13 @@ import { css } from 'lit';
 export default css`
 	@layer web-components {
 		:host {
-			--gap: var(--scale-sm);
+			/* local vars */
+			--gap: 0;
 			--minWidth: clamp(6rem, 16vmin, 24rem);
 			--maxWidth: 1fr;
 			--repeat: auto-fill;
+
+			/* base styles */
 			display: grid;
 			gap: var(--gap);
 			grid-template-columns: var(--maxWidth);

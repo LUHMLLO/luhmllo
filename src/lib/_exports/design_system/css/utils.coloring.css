@@ -1,0 +1,50 @@
+@layer utils {
+  .bg-accent {
+    background-color: var(--clr-accent);
+  }
+  .clr-accent {
+    color: var(--clr-accent);
+  }
+  .bg-context {
+    background-color: var(--clr-context);
+  }
+  .clr-context {
+    color: var(--clr-context);
+  }
+  .bg-background {
+    background-color: var(--clr-background);
+  }
+  .clr-background {
+    color: var(--clr-background);
+  }
+  .bg-text {
+    background-color: var(--clr-text);
+  }
+  .clr-text {
+    color: var(--clr-text);
+  }
+  .bg-subtext {
+    background-color: var(--clr-subtext);
+  }
+  .clr-subtext {
+    color: var(--clr-subtext);
+  }
+  .bg-primary {
+    background-color: var(--clr-primary);
+  }
+  .clr-primary {
+    color: var(--clr-primary);
+  }
+  .bg-secondary {
+    background-color: var(--clr-secondary);
+  }
+  .clr-secondary {
+    color: var(--clr-secondary);
+  }
+  .bg-tertiary {
+    background-color: var(--clr-tertiary);
+  }
+  .clr-tertiary {
+    color: var(--clr-tertiary);
+  }
+}

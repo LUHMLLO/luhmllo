@@ -1,0 +1,70 @@
+$alignValues: (
+    'normal': normal,
+    'stretch': stretch,
+    'center': center,
+    'start': start,
+    'end': end,
+    'flex-start': flex-start,
+    'flex-end': flex-end,
+    'self-start': self-start,
+    'self-center': self-center,
+    'self-end': self-end,
+    'space-around': space-around,
+    'space-between': space-between,
+    'space-evenly': space-evenly,
+    'baseline': baseline,
+    'first-baseline': first baseline,
+    'last-baseline': last baseline,
+    'safe-center': safe center,
+    'unsafe-center': unsafe center,
+);
+
+@layer utils {
+    .align {
+        @each $k, $v in $alignValues {
+            &-#{$k} {
+                align-content: #{$v};
+            }
+        }
+    }
+
+    .align-items {
+        @each $k, $v in $alignValues {
+            &-#{$k} {
+                align-items: #{$v};
+            }
+        }
+    }
+
+    .justify {
+        @each $k, $v in $alignValues {
+            &-#{$k} {
+                justify-content: #{$v};
+            }
+        }
+    }
+
+    .justify-items {
+        @each $k, $v in $alignValues {
+            &-#{$k} {
+                justify-items: #{$v};
+            }
+        }
+    }
+
+    .place {
+        @each $k, $v in $alignValues {
+            &-#{$k} {
+                place-content: #{$v};
+            }
+        }
+    }
+
+    .place-items {
+        @each $k, $v in $alignValues {
+            &-#{$k} {
+                place-items: #{$v};
+            }
+        }
+    }
+}

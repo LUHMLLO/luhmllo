@@ -1,0 +1,62 @@
+@layer utils {
+    .m {
+        @each $v in (auto, 0) {
+            &-#{$v} {
+                margin: #{$v};
+            }
+        }
+
+        @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+            &-#{$v} {
+                margin: var(--scale-#{$v});
+            }
+        }
+
+        &x {
+            @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+                &-#{$v} {
+                    margin-inline: var(--scale-#{$v});
+                }
+            }
+        }
+
+        &y {
+            @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+                &-#{$v} {
+                    margin-block: var(--scale-#{$v});
+                }
+            }
+        }
+    }
+
+    .p {
+        @each $v in (auto, 0) {
+            &-#{$v} {
+                padding: #{$v};
+            }
+        }
+
+        @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+            &-#{$v} {
+                padding: var(--scale-#{$v});
+            }
+        }
+
+        &x {
+            @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+                &-#{$v} {
+                    padding-inline: var(--scale-#{$v});
+                }
+            }
+        }
+
+        &y {
+            @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+                &-#{$v} {
+                    padding-block: var(--scale-#{$v});
+                }
+            }
+        }
+    }
+
+}

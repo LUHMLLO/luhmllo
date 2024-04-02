@@ -18,17 +18,13 @@
       --clr-background: color-mix(in srgb, var(--clr-accent), #fbfbfe 96%);
       --clr-text: color-mix(in srgb, var(--clr-background), black 88%);
       --clr-subtext: color-mix(in srgb, var(--clr-background), var(--clr-text) 56%);
-      --clr-primary: color-mix(
-      	in srgb,
-      	var(--clr-background),
-      	hsl(108, 6%, 75%) 12%
-      );
+      --clr-primary: color-mix(in srgb,
+      		var(--clr-background),
+      		hsl(108, 6%, 75%) 12%);
       --clr-secondary: color-mix(in srgb, var(--clr-primary), hsl(93, 6%, 72%) 18%);
-      --clr-tertiary: color-mix(
-      	in srgb,
-      	var(--clr-secondary),
-      	hsl(103, 6%, 77%) 32%
-      );
+      --clr-tertiary: color-mix(in srgb,
+      		var(--clr-secondary),
+      		hsl(103, 6%, 77%) 32%);
     }
   }
   html[scheme=dark] {
@@ -47,16 +43,12 @@
     --clr-background: color-mix(in srgb, var(--clr-accent), #fbfbfe 96%);
     --clr-text: color-mix(in srgb, var(--clr-background), black 88%);
     --clr-subtext: color-mix(in srgb, var(--clr-background), var(--clr-text) 56%);
-    --clr-primary: color-mix(
-    	in srgb,
-    	var(--clr-background),
-    	hsl(108, 6%, 75%) 12%
-    );
+    --clr-primary: color-mix(in srgb,
+    		var(--clr-background),
+    		hsl(108, 6%, 75%) 12%);
     --clr-secondary: color-mix(in srgb, var(--clr-primary), hsl(93, 6%, 72%) 18%);
-    --clr-tertiary: color-mix(
-    	in srgb,
-    	var(--clr-secondary),
-    	hsl(103, 6%, 77%) 32%
-    );
+    --clr-tertiary: color-mix(in srgb,
+    		var(--clr-secondary),
+    		hsl(103, 6%, 77%) 32%);
   }
 }

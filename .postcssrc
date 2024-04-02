@@ -2,11 +2,17 @@
 	"map": false,
 	"plugins": {
 		"autoprefixer": {
-			"cascade": false
+			"add": true,
+			"cascade": true,
+			"flexbox": true,
+			"grid": "autoplace",
+			"remove": false,
+			"supports": true
 		},
 		"cssnano": {
 			"preset": "cssnano-preset-advanced"
 		},
+		"postcss-import": {},
 		"postcss-fail-on-warn": {}
 	}
 }

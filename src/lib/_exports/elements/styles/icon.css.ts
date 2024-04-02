@@ -3,6 +3,7 @@ import { css } from 'lit';
 export default css`
 	@layer web-components {
 		:host {
+			/* base styles */
 			-webkit-user-select: none;
 			aspect-ratio: 1;
 			flex-shrink: 0;

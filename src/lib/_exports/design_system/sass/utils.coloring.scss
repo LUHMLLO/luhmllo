@@ -1,0 +1,15 @@
+@layer utils {
+    @each $v in (accent, context, background, text, subtext, primary, secondary, tertiary) {
+        .bg {
+            &-#{$v} {
+                background-color: var(--clr-#{$v});
+            }
+        }
+
+        .clr {
+            &-#{$v} {
+                color: var(--clr-#{$v});
+            }
+        }
+    }
+}
