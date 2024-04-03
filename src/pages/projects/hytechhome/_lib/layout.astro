@@ -1,7 +1,5 @@
 ---
 import Layout_HTML from 'src/lib/layout.html.astro';
-import Layer_Overlay from './layers/layer.overlay.astro';
-import Layer_Underlay from './layers/layer.underlay.astro';
 
 import Banner from './components/banner.astro';
 import Appbar from './components/appbar.astro';
@@ -9,19 +7,12 @@ import Hero from './components/hero.astro';
 ---
 
 <Layout_HTML title='Hytech Home'>
-	<Layer_Overlay />
+	<ly-layer stacked='under'> </ly-layer>
 	<ly-app>
 		<Banner />
 		<Appbar />
 		<Hero />
 		<slot />
 	</ly-app>
-	<Layer_Underlay />
+	<ly-layer stacked='over'> </ly-layer>
 </Layout_HTML>
-
-<style lang='css'>
-	.layer {
-		inset: 0;
-		position: fixed;
-	}
-</style>

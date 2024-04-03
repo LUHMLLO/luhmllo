@@ -3,7 +3,7 @@ import { customElement, property } from 'lit/decorators.js';
 import styles from './styles/app.css.ts';
 @customElement('ly-app')
 export class App extends LitElement {
-	@property({ type: String, reflect: true }) layout = 'col';
+	@property({ type: String, reflect: true }) layout = 'default';
 
 	static override readonly styles = styles;
 

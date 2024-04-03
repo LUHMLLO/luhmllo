@@ -1,0 +1,95 @@
+<aside>
+	<ly-group>
+		<label>Proposal Tool by Gizmo</label>
+	</ly-group>
+	<hr />
+	<ly-group>
+		<label>Main Modules</label>
+		<button>Customer Information</button>
+		<button>Additional Information</button>
+		<button>Internal Sale Notes</button>
+		<button>Financial</button>
+	</ly-group>
+	<hr />
+	<ly-group class='grow shrink'>
+		<label>Additional Modules</label>
+		<button>
+			<span>Solar System</span>
+			<ly-switch checked></ly-switch>
+		</button>
+		<button>
+			<span>Project Adders</span>
+			<ly-switch></ly-switch>
+		</button>
+		<button>
+			<span>Battery System</span>
+			<ly-switch checked></ly-switch>
+		</button>
+		<button>
+			<span>Roofing</span>
+			<ly-switch></ly-switch>
+		</button>
+		<button>
+			<span>Electrical</span>
+			<ly-switch></ly-switch>
+		</button>
+		<button>
+			<span>Energy Efficiency</span>
+			<ly-switch></ly-switch>
+		</button>
+		<button>
+			<span>HVAC</span>
+			<ly-switch checked></ly-switch>
+		</button>
+	</ly-group>
+	<hr />
+	<ly-group>
+		<ly-col class='bg-secondary p-lg radius-3xs txt-center'>
+			<var class='txt-5xl'>
+				<abbr title='USD'>$</abbr>
+				0.86
+			</var>
+			<small class='clr-subtext'>PPW Base Commission</small>
+		</ly-col>
+	</ly-group>
+</aside>
+
+<style lang='css'>
+	aside {
+		background-color: var(--clr-primary);
+		display: flex;
+		flex-direction: column;
+		gap: var(--scale-lg);
+		overflow-x: clip;
+		overflow-y: auto;
+		padding: var(--scale-lg);
+		width: 16rem;
+
+		& > hr {
+			--bg: var(--clr-secondary);
+			flex-shrink: 0;
+			height: calc(var(--scale-5xs) * 0.0625);
+		}
+
+		& > ly-group {
+			gap: var(--scale-sm);
+			flex-shrink: 0;
+
+			& > label {
+				color: var(--clr-subtext);
+				flex-shrink: 0;
+			}
+
+			& > button {
+				--bg: var(--clr-secondary);
+				flex-shrink: 0;
+				justify-content: space-between;
+				width: 100%;
+
+				&:has(ly-switch:not([checked])) {
+					--clr: var(--clr-subtext);
+				}
+			}
+		}
+	}
+</style>

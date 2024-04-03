@@ -1,11 +1,9 @@
 @layer props {
 	:root {
-		--sttng-iconScale: clamp(var(--scale-sm), 16vmin, var(--scale-lg));
+		--sttng-iconScale: clamp(var(--scale-lg), 16vmax, var(--scale-xl));
 		--sttng-shadow: 0 var(--radius-5xs) var(--radius-sm) hsla(0, 0%, 0%, 0.072);
-		--sttng-spacing: clamp(
-			min(100%, var(--scale-5xs)),
-			16vmin,
-			var(--scale-5xl)
-		);
+		--sttng-spacing: clamp(min(100%, var(--scale-5xs)),
+				16vmin,
+				var(--scale-5xl));
 	}
 }

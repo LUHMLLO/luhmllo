@@ -25,6 +25,12 @@ export default css`
 			z-index: 1;
 		}
 
+		:host(:is(ly-app[layout='default'])) {
+			flex-direction: column;
+			overflow-x: clip;
+			overflow-y: auto;
+		}
+
 		:host(:is(ly-app[layout='row'])) {
 			flex-direction: row;
 		}

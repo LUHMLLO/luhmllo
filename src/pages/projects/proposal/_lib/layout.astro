@@ -1,0 +1,27 @@
+---
+import Layout_HTML from 'src/lib/layout.html.astro';
+import Bottombar from './components/bottombar.astro';
+import Sidebar from './components/sidebar.astro';
+import Topbar from './components/topbar.astro';
+---
+
+<Layout_HTML title='Proposal Tool'>
+	<ly-app layout='row'>
+		<Sidebar />
+		<main>
+			<Topbar />
+			<ly-col>
+				<slot />
+			</ly-col>
+			<Bottombar />
+		</main>
+	</ly-app>
+</Layout_HTML>
+
+<style lang='css'>
+	ly-app {
+		& > main {
+			flex-grow: 1;
+		}
+	}
+</style>

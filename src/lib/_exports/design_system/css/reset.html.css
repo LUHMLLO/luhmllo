@@ -141,7 +141,7 @@
 		font-size: var(--scale-sm);
 		font-weight: 400;
 		gap: var(--scale-sm);
-		height: var(--scale-4xl);
+		height: var(--scale-5xl);
 		overflow: clip;
 		padding: 0 var(--scale-sm);
 		text-overflow: ellipsis;

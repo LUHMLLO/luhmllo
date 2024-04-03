@@ -5,7 +5,7 @@
 		box-sizing: border-box;
 		margin: 0;
 		max-width: 100%;
-		min-height: 0;
+		min-height: min-content;
 		min-width: 0;
 		outline: none;
 		padding: 0;

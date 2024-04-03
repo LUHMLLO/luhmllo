@@ -16,6 +16,8 @@
 @import url('./utils.borders.css');
 @import url('./utils.coloring.css');
 @import url('./utils.demo.css');
+@import url('./utils.display.css');
+@import url('./utils.flex.css');
 @import url('./utils.sizing.css');
 @import url('./utils.spacing.css');
 @import url('./utils.text.css');
