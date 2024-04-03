@@ -1,27 +1,27 @@
 <nav id='appbar' class='align-center'>
-	<a href='/examples/hytechhome'>
+	<a id='logo' href='/examples/hytechhome'>
 		<figure>
 			<img src='/favicon.svg' />
 		</figure>
 	</a>
-	<nav>
-		<a href='#'>Home</a>
+	<nav id='routes'>
+		<a href='#' class='active'>Home</a>
 		<a href='#'>Service</a>
 		<a href='#'>About us</a>
 		<a href='#'>Contact</a>
 	</nav>
-	<nav>
-		<a>
+	<nav id='networks'>
+		<a href='#'>
 			<figure>
 				<img src='/assets/media/linkedin.png' />
 			</figure>
 		</a>
-		<a>
+		<a href='#'>
 			<figure>
 				<img src='/assets/media/facebook.png' />
 			</figure>
 		</a>
-		<a>
+		<a href='#'>
 			<figure>
 				<img src='/assets/media/instagram.png' />
 			</figure>
@@ -30,9 +30,11 @@
 </nav>
 
 <style lang='css'>
-	nav#appbar {
+	#appbar {
 		align-items: center;
-		background-color: hsla(0, 0%, 0%, 0.5);
+		backdrop-filter: blur(var(--radius-3xs));
+		background-color: hsla(0, 0%, 0%, 0.0625);
+		/* border-radius: var(--radius-5xl); */
 		height: calc(var(--sttng-spacing) * 1.75);
 		inset: 0;
 		padding-inline: var(--sttng-spacing);
@@ -45,11 +47,25 @@
 			width: 1.5rem;
 		}
 
-		& > nav {
-			gap: var(--scale-3xs);
-
+		& > #routes {
+			gap: var(--scale-sm);
 			& > a {
 				--clr: var(--clr-text);
+
+				&.active {
+					--clr: var(--clr-accent);
+				}
+			}
+		}
+
+		& > #networks {
+			gap: var(--scale-3xs);
+			& > a {
+				--bg: transparent;
+				--clr: transparent;
+				& img {
+					filter: invert(1);
+				}
 			}
 		}
 	}

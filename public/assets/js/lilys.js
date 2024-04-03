@@ -170,7 +170,12 @@ const y=t=>(e,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(t,e)}
 			margin: var(--m) !important;
 			overflow: clip;
 			position: var(--ps) !important;
+			visibility: hidden;
 			width: 100dvw;
+
+			&> * {
+				visibility: visible;
+			}
 		}
 
 		:host(:is(ly-layer[stacked='under'])) {

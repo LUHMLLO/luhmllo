@@ -38,30 +38,32 @@
 	:where(h1, h2, h3, h4, h5, h6) {
 		display: flex;
 		font-weight: 500;
-	}
 
-	h1 {
-		font-size: var(--scale-5xl);
-	}
 
-	h2 {
-		font-size: var(--scale-4xl);
-	}
 
-	h3 {
-		font-size: var(--scale-3xl);
-	}
+		&:is(h1) {
+			font-size: var(--scale-5xl);
+		}
 
-	h4 {
-		font-size: var(--scale-2xl);
-	}
+		&:is(h2) {
+			font-size: var(--scale-4xl);
+		}
 
-	h5 {
-		font-size: var(--scale-xl);
-	}
+		&:is(h3) {
+			font-size: var(--scale-3xl);
+		}
 
-	h6 {
-		font-size: var(--scale-nm);
+		&:is(h4) {
+			font-size: var(--scale-2xl);
+		}
+
+		&:is(h5) {
+			font-size: var(--scale-xl);
+		}
+
+		&:is(h6) {
+			font-size: var(--scale-nm);
+		}
 	}
 
 	p {
@@ -81,14 +83,23 @@
 		gap: var(--scale-sm);
 		transition: background-color var(--animDefaults), color var(--animDefaults);
 
-		&[href]:hover {
-			color: color-mix(in srgb, var(--clr), white 6%);
-			background-color: color-mix(in srgb, var(--bg), white 3%);
+		@media (hover:hover) {
+			&[href]:hover {
+				color: color-mix(in srgb, var(--clr), white 6%);
+
+				@container style:not(--bg: transparent) {
+					background-color: color-mix(in srgb, var(--bg), white 3%);
+				}
+			}
+
 		}
 
 		&[href]:active {
 			color: color-mix(in srgb, var(--clr), black 9%);
-			background-color: color-mix(in srgb, var(--bg), black 6%);
+
+			@container style:not(--bg: transparent) {
+				background-color: color-mix(in srgb, var(--bg), black 6%);
+			}
 		}
 	}
 
