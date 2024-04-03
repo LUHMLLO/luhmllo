@@ -3,8 +3,14 @@ import Layout from 'src/lib/layout.html.astro';
 ---
 
 <Layout title='Lilys'>
-	<ly-app>
-		<h1 class='m-auto'>Lily's</h1>
-		<p class='m-auto'>Build UIs Simply. Anywhere.</p>
+	<ly-layer stacked='under'> under </ly-layer>
+	<ly-app layout='col' class='g-5xs place-center'>
+		<ly-col>
+			<h1 class='m-auto'>Lily's</h1>
+		</ly-col>
+		<ly-col>
+			<p class='m-auto'>Build UIs Simply. Anywhere.</p>
+		</ly-col>
 	</ly-app>
+	<ly-layer stacked='over'> over </ly-layer>
 </Layout>

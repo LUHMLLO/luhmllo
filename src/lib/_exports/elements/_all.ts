@@ -3,6 +3,7 @@ export { Col } from './col.ts';
 export { Grid } from './grid.ts';
 export { Group } from './group.ts';
 export { Icon } from './icon.ts';
+export { Layer } from './layer.ts';
 export { Radio } from './radio.ts';
 export { Row } from './row.ts';
 export { Switch } from './switch.ts';

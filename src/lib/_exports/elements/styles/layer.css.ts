@@ -2,10 +2,10 @@ import { css } from 'lit';
 
 export default css`
 	@layer web-components {
-		:host(:is(ly-app)) {
+		:host(:is(ly-layer)) {
 			/* local vars */
-			--bg: var(--clr-background);
-			--clr: var(--clr-text);
+			--bg: transparent;
+			--clr: inherit;
 			--m: auto;
 			--ps: fixed;
 
@@ -22,15 +22,15 @@ export default css`
 			overflow: clip;
 			position: var(--ps) !important;
 			width: 100dvw;
-			z-index: 1;
 		}
 
-		:host(:is(ly-app[layout='row'])) {
-			flex-direction: row;
+		:host(:is(ly-layer[stacked='under'])) {
+			z-index: -1;
 		}
 
-		:host(:is(ly-app[layout='col'])) {
+		:host(:is(ly-layer[stacked='over'])) {
 			flex-direction: column;
+			z-index: 2;
 		}
 	}
 `;
