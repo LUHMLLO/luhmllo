@@ -1,5 +1,5 @@
 ---
-import Layout from 'src/lib/layouts/Layout.astro';
+import Layout from 'src/lib/layout.html.astro';
 ---
 
 <Layout title='Lilys'>
@@ -34,10 +34,10 @@ import Layout from 'src/lib/layouts/Layout.astro';
 	<div style='font-size: var(--scale-5xl)'>5xl</div>
 
 	<ly-col>
-		<span>Im inside a col</span>
-		<span>Im inside a col</span>
-		<span>Im inside a col</span>
-		<span>Im inside a col</span>
+		<span class='demo-card'>Im inside a col</span>
+		<span class='demo-card'>Im inside a col</span>
+		<span class='demo-card'>Im inside a col</span>
+		<span class='demo-card'>Im inside a col</span>
 	</ly-col>
 
 	<ly-grid max='4'>
@@ -58,9 +58,9 @@ import Layout from 'src/lib/layouts/Layout.astro';
 	</ly-grid>
 
 	<ly-row>
-		<span>Im inside a row</span>
-		<span>Im inside a row</span>
-		<span>Im inside a row</span>
-		<span>Im inside a row</span>
+		<span class='demo-card'>Im inside a row</span>
+		<span class='demo-card'>Im inside a row</span>
+		<span class='demo-card'>Im inside a row</span>
+		<span class='demo-card'>Im inside a row</span>
 	</ly-row>
 </Layout>

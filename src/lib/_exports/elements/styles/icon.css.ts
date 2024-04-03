@@ -2,7 +2,7 @@ import { css } from 'lit';
 
 export default css`
 	@layer web-components {
-		:host {
+		:host(:is(ly-icon)) {
 			/* base styles */
 			-webkit-user-select: none;
 			aspect-ratio: 1;
@@ -24,7 +24,7 @@ export default css`
 			width: max-content;
 		}
 
-		:host([solid]) {
+		:host(:is(ly-icon[solid])) {
 			font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 400, 'opsz' 48;
 		}
 	}

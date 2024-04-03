@@ -1,8 +1,10 @@
 import { LitElement, html } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import styles from './styles/app.css.ts';
 @customElement('ly-app')
 export class App extends LitElement {
+	@property({ type: String, reflect: true }) layout = 'col';
+
 	static override readonly styles = styles;
 
 	override async connectedCallback(): Promise<void> {

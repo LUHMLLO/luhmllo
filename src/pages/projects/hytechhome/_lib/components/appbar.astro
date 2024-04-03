@@ -1,0 +1,56 @@
+<nav id='appbar' class='align-center'>
+	<a href='/examples/hytechhome'>
+		<figure>
+			<img src='/favicon.svg' />
+		</figure>
+	</a>
+	<nav>
+		<a href='#'>Home</a>
+		<a href='#'>Service</a>
+		<a href='#'>About us</a>
+		<a href='#'>Contact</a>
+	</nav>
+	<nav>
+		<a>
+			<figure>
+				<img src='/assets/media/linkedin.png' />
+			</figure>
+		</a>
+		<a>
+			<figure>
+				<img src='/assets/media/facebook.png' />
+			</figure>
+		</a>
+		<a>
+			<figure>
+				<img src='/assets/media/instagram.png' />
+			</figure>
+		</a>
+	</nav>
+</nav>
+
+<style lang='css'>
+	nav#appbar {
+		align-items: center;
+		background-color: hsla(0, 0%, 0%, 0.5);
+		height: calc(var(--sttng-spacing) * 1.75);
+		inset: 0;
+		padding-inline: var(--sttng-spacing);
+		place-content: space-between;
+		position: fixed;
+		z-index: 2;
+
+		& figure {
+			aspect-ratio: 1;
+			width: 1.5rem;
+		}
+
+		& > nav {
+			gap: var(--scale-3xs);
+
+			& > a {
+				--clr: var(--clr-text);
+			}
+		}
+	}
+</style>

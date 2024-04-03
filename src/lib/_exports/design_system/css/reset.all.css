@@ -21,8 +21,10 @@
 			box-sizing: inherit;
 		}
 	}
+}
 
-	* {
+@layer reset {
+	:where(*) {
 		/* This will avoid Flash of Unstyled Content (FOUC), but beware it will also disable improperly used custom elements */
 		transition: opacity var(--animDefaults);
 		transition-delay: 0ms;

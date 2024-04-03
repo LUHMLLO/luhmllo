@@ -12,7 +12,7 @@ export default defineConfig({
 			name: 'lilys',
 			fileName: 'index',
 		},
-		outDir: './dist/elements',
+		outDir: './dist/js',
 	},
 	plugins: [terserMinify()]
 });

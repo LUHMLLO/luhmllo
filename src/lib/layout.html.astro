@@ -21,7 +21,7 @@ const { title } = Astro.props;
 		<!-- <link rel="stylesheet" :href={async()=> await import('dist/css/all.css')}> -->
 		<link
 			rel='stylesheet'
-			:href={async () => await import('../_exports/design_system/css/all.css')}
+			:href={async () => await import('src/lib/_exports/design_system/css/all.css')}
 		/>
 		<script is:inline type='module' src='/assets/js/lilys.js'></script>
 

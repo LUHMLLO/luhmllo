@@ -3,29 +3,24 @@
   "compilerOptions": {
     // Project Structure
     "baseUrl": ".", // Use current directory as the base for resolving modules
-
     // Paths Mapping
     "paths": {}, // Configure paths mapping for faster resolution
-
     // Module System
     "moduleResolution": "Bundler", // Use bundler's module resolution strategy
     "target": "ESNext", // Generate code compatible with latest ECMAScript features
     "module": "ESNext", // Output code as ECMAScript modules
-
     // Libraries
     "lib": [
       "ESNext", // Include ESNext standard library
       "DOM", // Include DOM types for browser development
       "DOM.Iterable" // Include DOM.Iterable types for browser development
     ],
-
     // Code Generation
     "declaration": true, // Generate type declaration files (.d.ts)
     "declarationMap": true, // Generate source maps for type declaration files
     "experimentalDecorators": true, // Allow experimental support for decorators
     "useDefineForClassFields": false, // Do not use `define` for class fields
     "forceConsistentCasingInFileNames": true, // Enforce consistent casing for file names
-
     // Strict Type Checking
     "strict": true, // Enable all strict type checking options
     "noUnusedLocals": true, // Report unused local variables
@@ -37,7 +32,6 @@
     "exactOptionalPropertyTypes": true, // Enforce optional property types
     "allowUnreachableCode": false, // Report errors for unreachable code
     "allowUnusedLabels": false, // Report errors for unused labels
-
     // Other Options
     "skipLibCheck": true, // Skip type checking of library files
     "allowImportingTsExtensions": true, // Allow importing TypeScript files
@@ -47,17 +41,18 @@
     "esModuleInterop": true, // Enable interop between ES Modules and CommonJS modules
     "sourceMap": true, // Generate source maps for JavaScript files
     "verbatimModuleSyntax": true, // Preserve module specifier syntax when importing
-
     // Compatibility
     "allowJs": false, // Do not allow compilation of JavaScript files
     "checkJs": false, // Do not perform basic type checking on JavaScript files
     "jsx": "preserve" // Preserve JSX syntax
   },
-  "include": ["src", "src/lib/_exports/elements/.all.ts"], // Include source files in compilation
+  "include": [
+    "src",
+  ], // Include source files in compilation
   "exclude": [ // Exclude specific files and folders from compilation
-    "dist",  // Exclude distribution folder
-    "node_modules",  // Exclude node_modules folder
-    "vite.lib.config.ts",  // Exclude specific configuration file
-    "vite.terserMinify.ts"   // Exclude specific configuration file
+    "dist", // Exclude distribution folder
+    "node_modules", // Exclude node_modules folder
+    "vite.lib.config.ts", // Exclude specific configuration file
+    "vite.terserMinify.ts" // Exclude specific configuration file
   ]
 }
