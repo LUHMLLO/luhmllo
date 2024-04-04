@@ -14,8 +14,8 @@
 	],
 	"dependencies": {
 		"@astrojs/check": "^0.5.10",
-		"@astrojs/vercel": "^7.5.1",
-		"astro": "^4.5.12",
+		"@astrojs/vercel": "^7.5.2",
+		"astro": "^4.5.15",
 		"typescript": "^5.4.3"
 	},
 	"devDependencies": {
@@ -30,9 +30,9 @@
 		"postcss-cli": "^11.0.0",
 		"postcss-fail-on-warn": "^0.2.1",
 		"postcss-import": "^16.1.0",
-		"sass": "^1.72.0",
-		"terser": "^5.30.1",
-		"vite": "^5.2.7"
+		"sass": "^1.74.1",
+		"terser": "^5.30.3",
+		"vite": "^5.2.8"
 	},
 	"exports": {
 		".": "./elements/index.js"
@@ -59,6 +59,8 @@
 	"scripts": {
 		"astro": "astro",
 		"build": "pnpm check && pnpm stage:1 && pnpm stage:2 && pnpm stage:3 && pnpm stage:4",
+		"build:css": "pnpm stage:1 && pnpm stage:2",
+		"build:components": "pnpm stage:3",
 		"check": "tsc && astro check",
 		"dev": "astro dev",
 		"preview": "astro preview",

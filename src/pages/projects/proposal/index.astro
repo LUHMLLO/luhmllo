@@ -1,9 +1,57 @@
 ---
 import Layout from './_lib/layout.astro';
+
+const fields = [
+	{
+		label: 'First Name',
+		type: 'text',
+	},
+	{
+		label: 'Last Name',
+		type: 'text',
+	},
+	{
+		label: 'Mobile Phone',
+		type: 'text',
+	},
+	{
+		label: 'Email',
+		type: 'text',
+	},
+	{
+		label: 'Street',
+		type: 'text',
+	},
+	{
+		label: 'City',
+		type: 'text',
+	},
+	{
+		label: 'State',
+		type: 'text',
+	},
+	{
+		label: 'Zip Code',
+		type: 'text',
+	},
+	{
+		label: 'Utiliy Company',
+		type: 'text',
+	},
+];
 ---
 
 <Layout>
 	<form>
-		<input type='email' />
+		<ly-grid>
+			{
+				fields.map((field) => {
+					<ly-field>
+						<label for={field.label}>{field.label}</label>
+						<input name='{field.label}' type={field.type as 'text'} />
+					</ly-field>;
+				})
+			}
+		</ly-grid>
 	</form>
 </Layout>

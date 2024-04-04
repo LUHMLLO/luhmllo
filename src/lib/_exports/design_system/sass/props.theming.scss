@@ -4,28 +4,24 @@
 
 	--clr-background: hsl(0, 0%, 4%);
 	--clr-text: hsl(0, 0%, 96%);
-	--clr-subtext: hsl(0, 0%, 72%);
+	--clr-subtext: hsl(0, 0%, 31%);
 
-	--clr-primary: hsl(0, 0%, 8%);
-	--clr-secondary: hsl(0, 0%, 12%);
-	--clr-tertiary: hsl(0, 0%, 16%);
+	--clr-primary: hsl(0, 0%, 7%);
+	--clr-secondary: hsl(0, 0%, 9%);
+	--clr-tertiary: hsl(0, 0%, 10%);
 }
 
 @mixin light {
 	--clr-accent: hsl(124, 69%, 64%);
 	--clr-context: hsl(24, 69%, 64%);
 
-	--clr-background: color-mix(in srgb, var(--clr-accent), #fbfbfe 96%);
-	--clr-text: color-mix(in srgb, var(--clr-background), black 88%);
-	--clr-subtext: color-mix(in srgb, var(--clr-background), var(--clr-text) 56%);
+	--clr-background: hsl(156, 33%, 97%);
+	--clr-text: hsl(180, 2%, 12%);
+	--clr-subtext: hsl(174, 4%, 52%);
 
-	--clr-primary: color-mix(in srgb,
-			var(--clr-background),
-			hsl(108, 6%, 75%) 12%);
-	--clr-secondary: color-mix(in srgb, var(--clr-primary), hsl(93, 6%, 72%) 18%);
-	--clr-tertiary: color-mix(in srgb,
-			var(--clr-secondary),
-			hsl(103, 6%, 77%) 32%);
+	--clr-primary: hsl(156, 17%, 94%);
+	--clr-secondary: hsl(144, 10%, 90%);
+	--clr-tertiary: hsl(120, 7%, 87%);
 }
 
 @layer theming {

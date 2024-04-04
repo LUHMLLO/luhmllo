@@ -11,5 +11,11 @@
                 text-align: #{$v};
             }
         }
+
+        @each $v in (normal, italic, oblique) {
+            &-#{$v} {
+                font-style: #{$v};
+            }
+        }
     }
 }

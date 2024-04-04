@@ -50,4 +50,13 @@
   .txt-right {
     text-align: right;
   }
+  .txt-normal {
+    font-style: normal;
+  }
+  .txt-italic {
+    font-style: italic;
+  }
+  .txt-oblique {
+    font-style: oblique;
+  }
 }
