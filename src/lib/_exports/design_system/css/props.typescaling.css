@@ -29,18 +29,20 @@
 		--scale-5xl: calc(var(--baseFontSize) * pow(var(--baseScalingRatio), 7));
 
 		/* for border radius */
-		--radius-5xs: 6.39pt;
-		--radius-4xs: 7.29pt;
-		--radius-3xs: 8.31pt;
-		--radius-2xs: 9.47pt;
-		--radius-xs: 10.8pt;
-		--radius-sm: 12.31pt;
-		--radius-md: 14.04pt;
-		--radius-nm: 16pt;
-		--radius-xl: 20.79pt;
-		--radius-2xl: 23.7pt;
-		--radius-3xl: 27.02pt;
-		--radius-4xl: 30.81pt;
-		--radius-5xl: 35.12pt;
+		--radius-5xs: calc(var(--scale-5xs) / pow(calc(96 / 72), 1.75));
+		--radius-4xs: calc(var(--scale-4xs) / pow(calc(96 / 72), 1.5));
+		--radius-3xs: calc(var(--scale-3xs) / pow(calc(96 / 72), 1.25));
+		--radius-2xs: calc(var(--scale-2xs) / pow(calc(96 / 72), 1));
+		--radius-xs: calc(var(--scale-xs) / pow(calc(96 / 72), 0.75));
+		--radius-sm: calc(var(--scale-sm) / pow(calc(96 / 72), 0.5));
+		--radius-md: calc(var(--scale-md) / pow(calc(96 / 72), 0.25));
+
+		--radius-nm: calc(var(--scale-nm) * pow(calc(96 / 72), 0.25));
+		--radius-lg: calc(var(--scale-lg) * pow(calc(96 / 72), 0.5));
+		--radius-xl: calc(var(--scale-xl) * pow(calc(96 / 72), 0.75));
+		--radius-2xl: calc(var(--scale-2xl) * pow(calc(96 / 72), 1));
+		--radius-3xl: calc(var(--scale-3xl) * pow(calc(96 / 72), 1.25));
+		--radius-4xl: calc(var(--scale-4xl) * pow(calc(96 / 72), 1.5));
+		--radius-5xl: calc(var(--scale-5xl) * pow(calc(96 / 72), 1.75));
 	}
 }

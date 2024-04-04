@@ -14,4 +14,13 @@
     .nogrow {
         flex-grow: 0;
     }
+
+    .flex-col {
+        flex-direction: column;
+    }
+
+    .flex-row {
+        flex-direction: row;
+    }
+
 }

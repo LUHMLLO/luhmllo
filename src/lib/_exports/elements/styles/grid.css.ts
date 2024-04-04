@@ -4,8 +4,8 @@ export default css`
 	@layer web-components {
 		:host(:is(ly-grid)) {
 			/* local vars */
+			--cols: 1;
 			--gap: 0rem;
-			--max: 1;
 			--maxWidth: 1fr;
 			--minWidth: clamp(6rem, 16vmin, 24rem);
 			--repeat: auto-fill;
@@ -16,22 +16,22 @@ export default css`
 			grid-template-columns: repeat(
 				var(--repeat),
 				minmax(
-					max(var(--minWidth), calc(100% / var(--max) - var(--gap))),
+					max(var(--minWidth), calc(100% / var(--cols) - var(--gap))),
 					var(--maxWidth)
 				)
 			);
 		}
 
-		:host(:is(ly-grid[max='2'])) {
-			--max: 2;
+		:host(:is(ly-grid[cols='2'])) {
+			--cols: 2;
 		}
 
-		:host(:is(ly-grid[max='3'])) {
-			--max: 3;
+		:host(:is(ly-grid[cols='3'])) {
+			--cols: 3;
 		}
 
-		:host(:is(ly-grid[max='4'])) {
-			--max: 4;
+		:host(:is(ly-grid[cols='4'])) {
+			--cols: 4;
 		}
 	}
 `;

@@ -39,8 +39,6 @@
 		display: flex;
 		font-weight: 500;
 
-
-
 		&:is(h1) {
 			font-size: var(--scale-5xl);
 		}
@@ -72,15 +70,17 @@
 	}
 
 	a {
+		/* local vars */
 		--bg: transparent;
 		--clr: var(--clr-accent);
+		--gap: var(--scale-sm) align-items: center;
 
-		align-items: center;
+		/* base styles */
 		background-color: var(--bg);
 		color: var(--clr);
 		display: inline-flex;
 		font-size: var(--scale-md);
-		gap: var(--scale-sm);
+		gap: var(--gap);
 		transition: background-color var(--animDefaults), color var(--animDefaults);
 
 		@media (hover:hover) {
@@ -142,6 +142,7 @@
 	button {
 		--bg: var(--clr-primary);
 		--clr: var(--clr-text);
+		--gap: var(--scale-sm);
 
 		align-items: center;
 		border-radius: var(--radius-sm);
@@ -151,7 +152,7 @@
 		display: inline-flex;
 		font-size: var(--scale-sm);
 		font-weight: 400;
-		gap: var(--scale-sm);
+		gap: var(--gap);
 		height: var(--scale-5xl);
 		overflow: clip;
 		padding: 0 var(--scale-sm);
@@ -238,9 +239,11 @@
 	form,
 	main,
 	section {
+		--gap: var(--scale-sm);
+
 		display: flex;
 		flex-direction: column;
-		gap: var(--scale-sm);
+		gap: var(--gap);
 	}
 
 	hr {
@@ -249,11 +252,11 @@
 
 		&[data-variant='vertical'] {
 			height: 100%;
-			width: calc(var(--scale-5xs) * 0.125);
+			width: calc(var(--scale-5xs) * 0.1625);
 		}
 
 		&[data-variant='horizontal'] {
-			height: calc(var(--scale-5xs) * 0.125);
+			height: calc(var(--scale-5xs) * 0.1625);
 			width: 100%;
 		}
 	}
@@ -262,6 +265,7 @@
 	textarea,
 	select {
 		--bg: var(--clr-primary);
+		--gap: var(--scale-sm);
 
 		align-items: center;
 		background-color: var(--bg);
@@ -269,7 +273,7 @@
 		color: var(--clr-text);
 		display: inline-flex;
 		font-size: var(--scale-sm);
-		gap: var(--scale-sm);
+		gap: var(--gap);
 		min-height: var(--scale-5xl);
 		height: max-content;
 		padding: 0 var(--scale-sm);
@@ -292,6 +296,7 @@
 		summary {
 			--bg: transparent;
 			--clr: var(--clr-text);
+			--gap: var(--scale-sm);
 
 			align-items: center;
 			background-color: var(--bg);
@@ -299,7 +304,7 @@
 			cursor: pointer;
 			display: inline-flex;
 			font-size: var(--scale-md);
-			gap: var(--scale-sm);
+			gap: var(--gap);
 			list-style-type: none;
 			transition: background-color var(--animDefaults),
 				color var(--animDefaults);

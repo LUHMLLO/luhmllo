@@ -1,147 +1,195 @@
 @layer utils {
   .g-auto {
-    gap: auto;
+    --gap: auto;
+    gap: var(--gap);
   }
   .g-0 {
-    gap: 0;
+    --gap: 0;
+    gap: var(--gap);
   }
   .g-5xs {
-    gap: var(--scale-5xs);
+    --gap: var(--scale-5xs);
+    gap: var(--gap);
   }
   .g-4xs {
-    gap: var(--scale-4xs);
+    --gap: var(--scale-4xs);
+    gap: var(--gap);
   }
   .g-3xs {
-    gap: var(--scale-3xs);
+    --gap: var(--scale-3xs);
+    gap: var(--gap);
   }
   .g-2xs {
-    gap: var(--scale-2xs);
+    --gap: var(--scale-2xs);
+    gap: var(--gap);
   }
   .g-xs {
-    gap: var(--scale-xs);
+    --gap: var(--scale-xs);
+    gap: var(--gap);
   }
   .g-sm {
-    gap: var(--scale-sm);
+    --gap: var(--scale-sm);
+    gap: var(--gap);
   }
   .g-md {
-    gap: var(--scale-md);
+    --gap: var(--scale-md);
+    gap: var(--gap);
   }
   .g-nm {
-    gap: var(--scale-nm);
+    --gap: var(--scale-nm);
+    gap: var(--gap);
   }
   .g-lg {
-    gap: var(--scale-lg);
+    --gap: var(--scale-lg);
+    gap: var(--gap);
   }
   .g-xl {
-    gap: var(--scale-xl);
+    --gap: var(--scale-xl);
+    gap: var(--gap);
   }
   .g-2xl {
-    gap: var(--scale-2xl);
+    --gap: var(--scale-2xl);
+    gap: var(--gap);
   }
   .g-3xl {
-    gap: var(--scale-3xl);
+    --gap: var(--scale-3xl);
+    gap: var(--gap);
   }
   .g-4xl {
-    gap: var(--scale-4xl);
+    --gap: var(--scale-4xl);
+    gap: var(--gap);
   }
   .g-5xl {
-    gap: var(--scale-5xl);
+    --gap: var(--scale-5xl);
+    gap: var(--gap);
   }
   .gx-auto {
-    row-gap: var(--scale-auto);
+    --gap: var(--scale-auto);
+    row-gap: var(--gap);
   }
   .gx-0 {
-    row-gap: var(--scale-0);
+    --gap: var(--scale-0);
+    row-gap: var(--gap);
   }
   .gx-5xs {
-    row-gap: var(--scale-5xs);
+    --gap: var(--scale-5xs);
+    row-gap: var(--gap);
   }
   .gx-4xs {
-    row-gap: var(--scale-4xs);
+    --gap: var(--scale-4xs);
+    row-gap: var(--gap);
   }
   .gx-3xs {
-    row-gap: var(--scale-3xs);
+    --gap: var(--scale-3xs);
+    row-gap: var(--gap);
   }
   .gx-2xs {
-    row-gap: var(--scale-2xs);
+    --gap: var(--scale-2xs);
+    row-gap: var(--gap);
   }
   .gx-xs {
-    row-gap: var(--scale-xs);
+    --gap: var(--scale-xs);
+    row-gap: var(--gap);
   }
   .gx-sm {
-    row-gap: var(--scale-sm);
+    --gap: var(--scale-sm);
+    row-gap: var(--gap);
   }
   .gx-md {
-    row-gap: var(--scale-md);
+    --gap: var(--scale-md);
+    row-gap: var(--gap);
   }
   .gx-nm {
-    row-gap: var(--scale-nm);
+    --gap: var(--scale-nm);
+    row-gap: var(--gap);
   }
   .gx-lg {
-    row-gap: var(--scale-lg);
+    --gap: var(--scale-lg);
+    row-gap: var(--gap);
   }
   .gx-xl {
-    row-gap: var(--scale-xl);
+    --gap: var(--scale-xl);
+    row-gap: var(--gap);
   }
   .gx-2xl {
-    row-gap: var(--scale-2xl);
+    --gap: var(--scale-2xl);
+    row-gap: var(--gap);
   }
   .gx-3xl {
-    row-gap: var(--scale-3xl);
+    --gap: var(--scale-3xl);
+    row-gap: var(--gap);
   }
   .gx-4xl {
-    row-gap: var(--scale-4xl);
+    --gap: var(--scale-4xl);
+    row-gap: var(--gap);
   }
   .gx-5xl {
-    row-gap: var(--scale-5xl);
+    --gap: var(--scale-5xl);
+    row-gap: var(--gap);
   }
   .gy-auto {
-    column-gap: var(--scale-auto);
+    --gap: var(--scale-auto);
+    column-gap: var(--gap);
   }
   .gy-0 {
-    column-gap: var(--scale-0);
+    --gap: var(--scale-0);
+    column-gap: var(--gap);
   }
   .gy-5xs {
-    column-gap: var(--scale-5xs);
+    --gap: var(--scale-5xs);
+    column-gap: var(--gap);
   }
   .gy-4xs {
-    column-gap: var(--scale-4xs);
+    --gap: var(--scale-4xs);
+    column-gap: var(--gap);
   }
   .gy-3xs {
-    column-gap: var(--scale-3xs);
+    --gap: var(--scale-3xs);
+    column-gap: var(--gap);
   }
   .gy-2xs {
-    column-gap: var(--scale-2xs);
+    --gap: var(--scale-2xs);
+    column-gap: var(--gap);
   }
   .gy-xs {
-    column-gap: var(--scale-xs);
+    --gap: var(--scale-xs);
+    column-gap: var(--gap);
   }
   .gy-sm {
-    column-gap: var(--scale-sm);
+    --gap: var(--scale-sm);
+    column-gap: var(--gap);
   }
   .gy-md {
-    column-gap: var(--scale-md);
+    --gap: var(--scale-md);
+    column-gap: var(--gap);
   }
   .gy-nm {
-    column-gap: var(--scale-nm);
+    --gap: var(--scale-nm);
+    column-gap: var(--gap);
   }
   .gy-lg {
-    column-gap: var(--scale-lg);
+    --gap: var(--scale-lg);
+    column-gap: var(--gap);
   }
   .gy-xl {
-    column-gap: var(--scale-xl);
+    --gap: var(--scale-xl);
+    column-gap: var(--gap);
   }
   .gy-2xl {
-    column-gap: var(--scale-2xl);
+    --gap: var(--scale-2xl);
+    column-gap: var(--gap);
   }
   .gy-3xl {
-    column-gap: var(--scale-3xl);
+    --gap: var(--scale-3xl);
+    column-gap: var(--gap);
   }
   .gy-4xl {
-    column-gap: var(--scale-4xl);
+    --gap: var(--scale-4xl);
+    column-gap: var(--gap);
   }
   .gy-5xl {
-    column-gap: var(--scale-5xl);
+    --gap: var(--scale-5xl);
+    column-gap: var(--gap);
   }
   .m-auto {
     margin: auto;

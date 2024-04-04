@@ -31,6 +31,8 @@ export class Radio extends LitElement {
 			}
 
 			this.checked = true;
+		} else {
+			this.checked = !this.checked;
 		}
 
 		this.dispatchEvent(

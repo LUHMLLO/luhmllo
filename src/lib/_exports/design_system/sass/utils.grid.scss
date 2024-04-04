@@ -1,0 +1,22 @@
+@layer utils {
+    :where(.grid) {
+        /* local vars */
+        --cols: 1;
+        --gap: 0rem;
+        --maxWidth: 1fr;
+        --minWidth: clamp(6rem, 16vmin, 24rem);
+        --repeat: auto-fill;
+
+        gap: var(--gap);
+        grid-template-columns: repeat(var(--repeat),
+                minmax(max(var(--minWidth), calc(100% / var(--cols) - var(--gap))),
+                    var(--maxWidth)));
+
+        @for $i from 1 through 12 {
+            &.cols-#{$i} {
+                --cols: #{$i};
+            }
+        }
+    }
+
+}

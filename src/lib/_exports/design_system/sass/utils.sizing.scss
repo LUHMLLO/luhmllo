@@ -4,6 +4,12 @@
             &-#{$i} {
                 height: #{$i+'%'};
             }
+
+            @each $v in (min-content, fit-content, max-content) {
+                &-#{$v} {
+                    height: #{$v};
+                }
+            }
         }
 
         .w {
