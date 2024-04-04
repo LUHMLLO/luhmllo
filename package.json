@@ -46,7 +46,10 @@
 		"custom elements",
 		"library",
 		"ui",
-		"web components"
+		"web components",
+		"minimal",
+		"modular",
+		"props"
 	],
 	"publishConfig": {
 		"access": "public",

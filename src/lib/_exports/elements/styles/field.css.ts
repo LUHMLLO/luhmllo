@@ -10,6 +10,7 @@ export default css`
 			display: flex;
 			flex-direction: column;
 			gap: var(--gap);
+			height: max-content;
 		}
 	}
 `;

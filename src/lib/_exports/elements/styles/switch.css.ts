@@ -6,6 +6,7 @@ export default css`
 			/* base styles */
 			cursor: pointer;
 			display: flex;
+			height: max-content;
 		}
 	}
 `;

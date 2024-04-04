@@ -7,6 +7,7 @@ export default css`
 			cursor: pointer;
 			display: flex;
 			flex-direction: column;
+			height: max-content;
 		}
 	}
 `;

@@ -6,6 +6,7 @@ export default css`
 			/* base styles */
 			display: flex;
 			flex-direction: column;
+			height: max-content;
 		}
 	}
 `;

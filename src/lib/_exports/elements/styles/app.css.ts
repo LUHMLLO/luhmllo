@@ -31,6 +31,12 @@ export default css`
 			overflow-y: auto;
 		}
 
+		:host(:is(ly-app[layout='gallery'])) {
+			display: grid;
+			overflow-x: clip;
+			overflow-y: auto;
+		}
+
 		:host(:is(ly-app[layout='row'])) {
 			flex-direction: row;
 		}

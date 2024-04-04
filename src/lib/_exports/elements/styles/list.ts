@@ -19,6 +19,7 @@ export default css`
 			display: flex;
 			flex-direction: column;
 			flex-shrink: 0;
+			height: max-content;
 			gap: var(--gap);
 			isolation: isolate;
 			overflow: auto;

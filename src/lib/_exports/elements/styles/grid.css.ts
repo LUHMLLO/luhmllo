@@ -20,6 +20,7 @@ export default css`
 					var(--maxWidth)
 				)
 			);
+			height: max-content;
 		}
 
 		:host(:is(ly-grid[cols='2'])) {
@@ -32,6 +33,38 @@ export default css`
 
 		:host(:is(ly-grid[cols='4'])) {
 			--cols: 4;
+		}
+
+		:host(:is(ly-grid[cols='5'])) {
+			--cols: 5;
+		}
+
+		:host(:is(ly-grid[cols='6'])) {
+			--cols: 6;
+		}
+
+		:host(:is(ly-grid[cols='7'])) {
+			--cols: 7;
+		}
+
+		:host(:is(ly-grid[cols='8'])) {
+			--cols: 8;
+		}
+
+		:host(:is(ly-grid[cols='9'])) {
+			--cols: 9;
+		}
+
+		:host(:is(ly-grid[cols='10'])) {
+			--cols: 10;
+		}
+
+		:host(:is(ly-grid[cols='11'])) {
+			--cols: 11;
+		}
+
+		:host(:is(ly-grid[cols='12'])) {
+			--cols: 12;
 		}
 	}
 `;

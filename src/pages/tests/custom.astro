@@ -94,130 +94,56 @@ const iconNames = [
 ---
 
 <Layout title='Lilys'>
-	<ly-app layout='default' class='g-5xl p-5xl'>
-		<section class='grid cols-12 g-sm place-items-stretch'>
-			{
-				iconNames
-					.sort(() => Math.random() - 0.5)
-					.slice(0, iconNames.length / 4.25)
-					.map((icon, index) => (
-						<button class='place-center h-max-content p-5xl w-100'>
-							<ly-icon solid={index % 2 === 0}>{icon}</ly-icon>
-						</button>
-					))
-			}
-		</section>
-
-		<section class='flex-row place-space-between wrap'>
-			<ly-radio label='Radio 1 of Group 1' group='radio-group-1'>
-				<input type='text' name='' id='' />
-			</ly-radio>
-			<ly-radio label='Radio 2 of Group 1' group='radio-group-1'>
-				<textarea name='' id='' cols='30' rows='10'></textarea>
-			</ly-radio>
-			<ly-radio label='Radio 1 of Group 2' group='radio-group-2'> </ly-radio>
-			<ly-radio label='Radio 1 of Group 2' group='radio-group-2'> </ly-radio>
-		</section>
-
-		<section class='grid cols-2 g-sm justify-space-between wrap'>
-			<ly-col class='place-items-center'>
-				<pre style='font-size: var(--scale-5xs)'>--scale-5xs</pre>
-				<pre style='font-size: var(--scale-4xs)'>--scale-4xs</pre>
-				<pre style='font-size: var(--scale-3xs)'>--scale-3xs</pre>
-				<pre style='font-size: var(--scale-2xs)'>--scale-2xs</pre>
-				<pre style='font-size: var(--scale-xs)'>--scale-xs</pre>
-
-				<pre style='font-size: var(--scale-sm)'>--scale-sm</pre>
-				<pre style='font-size: var(--scale-md)'>--scale-md</pre>
-				<pre style='font-size: var(--scale-nm)'>--scale-nm</pre>
-				<pre style='font-size: var(--scale-lg)'>--scale-lg</pre>
-
-				<pre style='font-size: var(--scale-xl)'>--scale-xl</pre>
-				<pre style='font-size: var(--scale-2xl)'>--scale-2xl</pre>
-				<pre style='font-size: var(--scale-3xl)'>--scale-3xl</pre>
-				<pre style='font-size: var(--scale-4xl)'>--scale-4xl</pre>
-				<pre style='font-size: var(--scale-5xl)'>--scale-5xl</pre>
-			</ly-col>
-
-			<ly-col class='place-items-center'>
-				<pre style='font-size: var(--radius-5xs)'>--radius-5xs</pre>
-				<pre style='font-size: var(--radius-4xs)'>--radius-4xs</pre>
-				<pre style='font-size: var(--radius-3xs)'>--radius-3xs</pre>
-				<pre style='font-size: var(--radius-2xs)'>--radius-2xs</pre>
-				<pre style='font-size: var(--radius-xs)'>--radius-xs</pre>
-
-				<pre style='font-size: var(--radius-sm)'>--radius-sm</pre>
-				<pre style='font-size: var(--radius-md)'>--radius-md</pre>
-				<pre style='font-size: var(--radius-nm)'>--radius-nm</pre>
-				<pre style='font-size: var(--radius-lg)'>--radius-lg</pre>
-
-				<pre style='font-size: var(--radius-xl)'>--radius-xl</pre>
-				<pre style='font-size: var(--radius-2xl)'>--radius-2xl</pre>
-				<pre style='font-size: var(--radius-3xl)'>--radius-3xl</pre>
-				<pre style='font-size: var(--radius-4xl)'>--radius-4xl</pre>
-				<pre style='font-size: var(--radius-5xl)'>--radius-5xl</pre>
-			</ly-col>
-		</section>
-
-		<section class='grid cols-4'>
-			<ly-field
-				label='First Name'
-				name='firstname'
-				if-error="field value it's badly formatted">
-				<input name='firstname' type='text' />
-			</ly-field>
-			<ly-field
-				label='Email Address'
-				name='email'
-				if-error="field value it's badly formatted">
-				<input name='email' type='email' />
-			</ly-field>
-			<ly-field
-				label='Email Address'
-				name='email'
-				if-error="field value it's badly formatted">
-				<input name='email' type='email' />
-			</ly-field>
-			<ly-field
-				label='Email Address'
-				name='email'
-				if-error="field value it's badly formatted">
-				<input name='email' type='email' />
-			</ly-field>
-		</section>
-
+	<ly-app layout='default' class='grid cols-4'>
 		<section>
-			<ly-col>
-				<span class='demo-card'>Im inside a col</span>
-				<span class='demo-card'>Im inside a col</span>
-				<span class='demo-card'>Im inside a col</span>
-				<span class='demo-card'>Im inside a col</span>
-			</ly-col>
-		</section>
-
-		<section>
-			<ly-grid cols='4'>
-				<span class='demo-card'>Im inside a grid</span>
-				<span class='demo-card'>Im inside a grid</span>
-				<span class='demo-card'>Im inside a grid</span>
-				<span class='demo-card'>Im inside a grid</span>
-				<span class='demo-card'>Im inside a grid</span>
-				<span class='demo-card'>Im inside a grid</span>
-				<span class='demo-card'>Im inside a grid</span>
-				<span class='demo-card'>Im inside a grid</span>
-				<span class='demo-card'>Im inside a grid</span>
-				<span class='demo-card'>Im inside a grid</span>
-				<span class='demo-card'>Im inside a grid</span>
-				<span class='demo-card'>Im inside a grid</span>
+			<h6>Icon</h6>
+			<ly-grid class='place-items-center h-100'>
+				{
+					iconNames
+						.sort(() => Math.random() - 0.5)
+						.slice(0, iconNames.length / iconNames.length)
+						.map((icon) => <ly-icon>{icon}</ly-icon>)
+				}
 			</ly-grid>
 		</section>
 
 		<section>
-			<ly-row>
-				<span class='demo-card'>Im inside a row</span>
-				<span class='demo-card'>Im inside a row</span>
-				<span class='demo-card'>Im inside a row</span>
-				<span class='demo-card'>Im inside a row</span>
+			<h6>Radio</h6>
+			<ly-grid class='place-items-center h-100'>
+				<ly-radio group='radio-group'> </ly-radio>
+			</ly-grid>
+		</section>
+
+		<section>
+			<h6>Field</h6>
+			<ly-grid class='place-items-center h-100'>
+				<ly-field
+					label='First Name'
+					name='firstname'
+					if-error="field value it's badly formatted">
+					<input name='firstname' type='text' />
+				</ly-field>
+			</ly-grid>
+		</section>
+
+		<section>
+			<h6>Col</h6>
+			<ly-col class='place-items-center grow h-100'>
+				<span>Im inside a col</span>
+			</ly-col>
+		</section>
+
+		<section>
+			<h6>Grid</h6>
+			<ly-grid class='place-items-center h-100'>
+				<span>Im inside a grid</span>
+			</ly-grid>
+		</section>
+
+		<section>
+			<h6>Row</h6>
+			<ly-row class='place-items-center grow h-100'>
+				<span>Im inside a row</span>
 			</ly-row>
 		</section>
 
@@ -242,3 +168,16 @@ const iconNames = [
 		</section>
 	</ly-app>
 </Layout>
+
+<style lang='css'>
+	ly-app {
+		--bg: var(--clr-background);
+		--gap: var(--scale-5xs);
+		padding: var(--scale-5xs);
+
+		& > section {
+			background-color: color-mix(in srgb, var(--bg), black 50%);
+			padding: var(--scale-5xs);
+		}
+	}
+</style>
