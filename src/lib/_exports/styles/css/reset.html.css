@@ -348,20 +348,30 @@
 	}
 
 	table {
-		background-color: transparent;
+		--bg: var(--clr-background);
+		--clr: var(--clr-text);
+
+		background-color: var(--bg);
 		border-radius: var(--radius-3xs);
-		table-layout: fixed;
 		border-collapse: collapse;
 		border: none;
 		clip: rect(0 0 0 0);
 		clip-path: inset(0% round var(--radius-3xs));
+		position: relative;
+		table-layout: fixed;
+		width: 100%;
 
-		&>thead {
+		& caption {
+			inset: 0 auto;
+			position: absolute;
+		}
+
+		& thead {
 			& tr {
-				background-color: var(--clr-secondary);
+				background-color: color-mix(in srgb, var(--bg), white 3%);
 				transition: background-color var(--animDefaults);
 
-				&>th {
+				& th {
 					font-size: var(--scale-md);
 					padding: var(--scale-sm);
 					vertical-align: middle;
@@ -369,19 +379,21 @@
 			}
 		}
 
-		&>tbody {
+		& tbody {
 			& tr {
 				background-color: var(--clr-primary);
 				transition: background-color var(--animDefaults);
 
-				&>td {
+				& td {
 					font-size: var(--scale-md);
 					padding: var(--scale-sm);
 					vertical-align: middle;
 				}
 
-				&:hover {
-					background-color: var(--clr-accent);
+				@media (hover: hover) {
+					&:hover {
+						background-color: var(--clr-accent);
+					}
 				}
 			}
 		}
