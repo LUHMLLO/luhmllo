@@ -27,7 +27,7 @@ How to Import ?
 - Using CDN
 
     ```html
-    <link rel="stylesheet" url="https://unpkg.com/lilys@latest/styles/all.css" />
+    <link rel="stylesheet" url="https://unpkg.com/lilys@latest/dist/styles/all.css" />
     <link type="module" src="https://unpkg.com/lilys@latest" />
     ```
 
