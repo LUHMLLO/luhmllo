@@ -12,6 +12,7 @@
       --clr-error: hsl(359, 50%, 32%);
       --clr-warning: hsl(48, 40%, 48%);
       --clr-info: hsl(197, 40%, 48%);
+      --clr-debug: hsl(330, 32%, 56%);
     }
   }
   @media (prefers-color-scheme: light) {
@@ -27,6 +28,7 @@
       --clr-error: hsl(359, 50%, 32%);
       --clr-warning: hsl(48, 40%, 48%);
       --clr-info: hsl(197, 40%, 48%);
+      --clr-debug: hsl(330, 32%, 56%);
     }
   }
   html[scheme=dark] {
@@ -41,6 +43,7 @@
     --clr-error: hsl(359, 50%, 32%);
     --clr-warning: hsl(48, 40%, 48%);
     --clr-info: hsl(197, 40%, 48%);
+    --clr-debug: hsl(330, 32%, 56%);
   }
   html[scheme=light] {
     --clr-accent: hsl(124, 69%, 64%);
@@ -54,5 +57,6 @@
     --clr-error: hsl(359, 50%, 32%);
     --clr-warning: hsl(48, 40%, 48%);
     --clr-info: hsl(197, 40%, 48%);
+    --clr-debug: hsl(330, 32%, 56%);
   }
 }

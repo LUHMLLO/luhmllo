@@ -1,6 +1,6 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import styles from './styles/radio.css.ts';
+import styles from './styles/switch.css.ts';
 
 @customElement('ly-switch')
 export class Switch extends LitElement {

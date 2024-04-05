@@ -94,63 +94,94 @@ const iconNames = [
 ---
 
 <Layout>
-	<main class='grid cols-4'>
+	<main>
 		<section>
 			<h6>Icon</h6>
-			<ly-grid>
+			<article>
 				{
 					iconNames
 						.sort(() => Math.random() - 0.5)
 						.slice(0, iconNames.length / iconNames.length)
 						.map((icon) => <ly-icon>{icon}</ly-icon>)
 				}
-			</ly-grid>
+			</article>
 		</section>
 
 		<section>
 			<h6>Radio</h6>
-			<ly-grid>
+			<article>
 				<ly-radio group='radio-group'> </ly-radio>
-			</ly-grid>
+			</article>
+		</section>
+
+		<section>
+			<h6>Switch</h6>
+			<article>
+				<ly-switch group='radio-group'> </ly-switch>
+			</article>
 		</section>
 
 		<section>
 			<h6>Field</h6>
-			<ly-grid>
+			<article>
 				<ly-field
 					label='First Name'
 					name='firstname'
 					if-error="field value it's badly formatted">
 					<input name='firstname' type='text' />
 				</ly-field>
-			</ly-grid>
+			</article>
 		</section>
 
 		<section>
 			<h6>Col</h6>
-			<ly-grid>
-				<span>Im inside a col</span>
-			</ly-grid>
+			<article class='bg-debug-stripes'>
+				<ly-col class='g-sm w-100'>
+					{
+						[...Array(3).keys()].map((i) => (
+							<span class='bg-debug p-5xl place-all-center radius-3xs w-100'>
+								{i}
+							</span>
+						))
+					}
+				</ly-col>
+			</article>
 		</section>
 
 		<section>
 			<h6>Grid</h6>
-			<ly-grid>
-				<span>Im inside a grid</span>
-			</ly-grid>
+			<article class='bg-debug-stripes'>
+				<ly-grid cols='4' class='g-sm w-100'>
+					{
+						[...Array(8).keys()].map((i) => (
+							<span class='bg-debug p-5xl place-all-center radius-3xs w-100'>
+								{i}
+							</span>
+						))
+					}
+				</ly-grid>
+			</article>
 		</section>
 
 		<section>
 			<h6>Row</h6>
-			<ly-grid class='inspect'>
-				<span>Im inside a row</span>
-			</ly-grid>
+			<article class='bg-debug-stripes'>
+				<ly-row class='g-sm w-100'>
+					{
+						[...Array(3).keys()].map((i) => (
+							<span class='bg-debug p-5xl place-all-center radius-3xs w-100'>
+								{i}
+							</span>
+						))
+					}
+				</ly-row>
+			</article>
 		</section>
 
 		<section>
 			<h6>List</h6>
-			<ly-grid>
-				<ly-list>
+			<article>
+				<ly-list class='w-100'>
 					<ly-list-header>
 						<ly-list-cell>cell</ly-list-cell>
 						<ly-list-cell>cell</ly-list-cell>
@@ -167,40 +198,32 @@ const iconNames = [
 						<ly-list-cell>cell</ly-list-cell>
 					</ly-list-footer>
 				</ly-list>
-			</ly-grid>
+			</article>
 		</section>
 	</main>
 </Layout>
 
 <style lang='css'>
 	main {
-		--gap: var(--scale-sm);
+		--gap: var(--scale-5xl);
 		grid-auto-rows: 1fr;
+		margin-inline: auto;
 		padding: var(--scale-sm);
+		max-width: 72dvw;
+		width: 100%;
 
 		& > section {
 			background-color: var(--clr-background);
 			border-radius: var(--radius-3xs);
 			padding: var(--scale-3xl);
 
-			& > ly-grid {
+			& > article {
+				border-radius: var(--radius-3xs);
+				display: grid;
+				grid-template-columns: 1fr;
 				flex-grow: 1;
 				place-items: center center;
 			}
 		}
-	}
-
-	.inspect {
-		background-image: linear-gradient(
-			135deg,
-			var(--clr-context) 10%,
-			var(--clr-background) 0,
-			var(--clr-background) 50%,
-			var(--clr-context) 0,
-			var(--clr-context) 50%,
-			var(--clr-background) 0,
-			var(--clr-background)
-		);
-		background-size: var(--scale-5xs) var(--scale-5xs);
 	}
 </style>

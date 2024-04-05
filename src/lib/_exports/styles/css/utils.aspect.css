@@ -1,0 +1,5 @@
+@layer utils {
+  .aspect-1 {
+    aspect-ratio: 1;
+  }
+}

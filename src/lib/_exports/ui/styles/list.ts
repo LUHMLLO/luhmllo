@@ -8,7 +8,6 @@ export default css`
 			--clr: var(--clr-text);
 			--gap: calc(var(--scale-5xs) * 0.1625);
 			--radius: var(--radius-3xs);
-			--maxCols: infinite;
 
 			/* theming */
 			background-color: var(--bg);
@@ -32,8 +31,8 @@ export default css`
 			flex-shrink: 0;
 			gap: var(--gap);
 			grid-template-columns: repeat(
-				var(--maxCols),
-				minmax(max(10rem, calc(100% / var(--maxCols) - 0.125rem)), 1fr)
+				auto-fit,
+				minmax(8rem, 1fr)
 			);
 		}
 

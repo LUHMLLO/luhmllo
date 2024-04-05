@@ -13,6 +13,7 @@
 	--clr-error: hsl(359, 50%, 32%);
 	--clr-warning: hsl(48, 40%, 48%);
 	--clr-info: hsl(197, 40%, 48%);
+	--clr-debug: hsl(330, 32%, 56%);
 }
 
 @mixin light {
@@ -30,6 +31,7 @@
 	--clr-error: hsl(359, 50%, 32%);
 	--clr-warning: hsl(48, 40%, 48%);
 	--clr-info: hsl(197, 40%, 48%);
+	--clr-debug: hsl(330, 32%, 56%);
 }
 
 @layer theming {

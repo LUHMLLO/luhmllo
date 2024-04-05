@@ -2,11 +2,23 @@
   .bg-accent {
     background-color: var(--clr-accent);
   }
+  .bg-accent-stripes {
+    --mixed: color-mix(in srgb, var(--clr-accent), transparent 50%);
+    background-color: rgba(244, 114, 182, 0.1019607843);
+    background-image: linear-gradient(135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
+    background-size: 7.07px 7.07px;
+  }
   .clr-accent {
     color: var(--clr-accent);
   }
   .bg-context {
     background-color: var(--clr-context);
+  }
+  .bg-context-stripes {
+    --mixed: color-mix(in srgb, var(--clr-context), transparent 50%);
+    background-color: rgba(244, 114, 182, 0.1019607843);
+    background-image: linear-gradient(135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
+    background-size: 7.07px 7.07px;
   }
   .clr-context {
     color: var(--clr-context);
@@ -14,11 +26,23 @@
   .bg-background {
     background-color: var(--clr-background);
   }
+  .bg-background-stripes {
+    --mixed: color-mix(in srgb, var(--clr-background), transparent 50%);
+    background-color: rgba(244, 114, 182, 0.1019607843);
+    background-image: linear-gradient(135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
+    background-size: 7.07px 7.07px;
+  }
   .clr-background {
     color: var(--clr-background);
   }
   .bg-text {
     background-color: var(--clr-text);
+  }
+  .bg-text-stripes {
+    --mixed: color-mix(in srgb, var(--clr-text), transparent 50%);
+    background-color: rgba(244, 114, 182, 0.1019607843);
+    background-image: linear-gradient(135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
+    background-size: 7.07px 7.07px;
   }
   .clr-text {
     color: var(--clr-text);
@@ -26,11 +50,23 @@
   .bg-subtext {
     background-color: var(--clr-subtext);
   }
+  .bg-subtext-stripes {
+    --mixed: color-mix(in srgb, var(--clr-subtext), transparent 50%);
+    background-color: rgba(244, 114, 182, 0.1019607843);
+    background-image: linear-gradient(135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
+    background-size: 7.07px 7.07px;
+  }
   .clr-subtext {
     color: var(--clr-subtext);
   }
   .bg-primary {
     background-color: var(--clr-primary);
+  }
+  .bg-primary-stripes {
+    --mixed: color-mix(in srgb, var(--clr-primary), transparent 50%);
+    background-color: rgba(244, 114, 182, 0.1019607843);
+    background-image: linear-gradient(135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
+    background-size: 7.07px 7.07px;
   }
   .clr-primary {
     color: var(--clr-primary);
@@ -38,11 +74,23 @@
   .bg-secondary {
     background-color: var(--clr-secondary);
   }
+  .bg-secondary-stripes {
+    --mixed: color-mix(in srgb, var(--clr-secondary), transparent 50%);
+    background-color: rgba(244, 114, 182, 0.1019607843);
+    background-image: linear-gradient(135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
+    background-size: 7.07px 7.07px;
+  }
   .clr-secondary {
     color: var(--clr-secondary);
   }
   .bg-tertiary {
     background-color: var(--clr-tertiary);
+  }
+  .bg-tertiary-stripes {
+    --mixed: color-mix(in srgb, var(--clr-tertiary), transparent 50%);
+    background-color: rgba(244, 114, 182, 0.1019607843);
+    background-image: linear-gradient(135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
+    background-size: 7.07px 7.07px;
   }
   .clr-tertiary {
     color: var(--clr-tertiary);
@@ -50,11 +98,23 @@
   .bg-error {
     background-color: var(--clr-error);
   }
+  .bg-error-stripes {
+    --mixed: color-mix(in srgb, var(--clr-error), transparent 50%);
+    background-color: rgba(244, 114, 182, 0.1019607843);
+    background-image: linear-gradient(135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
+    background-size: 7.07px 7.07px;
+  }
   .clr-error {
     color: var(--clr-error);
   }
   .bg-warning {
     background-color: var(--clr-warning);
+  }
+  .bg-warning-stripes {
+    --mixed: color-mix(in srgb, var(--clr-warning), transparent 50%);
+    background-color: rgba(244, 114, 182, 0.1019607843);
+    background-image: linear-gradient(135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
+    background-size: 7.07px 7.07px;
   }
   .clr-warning {
     color: var(--clr-warning);
@@ -62,7 +122,25 @@
   .bg-info {
     background-color: var(--clr-info);
   }
+  .bg-info-stripes {
+    --mixed: color-mix(in srgb, var(--clr-info), transparent 50%);
+    background-color: rgba(244, 114, 182, 0.1019607843);
+    background-image: linear-gradient(135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
+    background-size: 7.07px 7.07px;
+  }
   .clr-info {
     color: var(--clr-info);
+  }
+  .bg-debug {
+    background-color: var(--clr-debug);
+  }
+  .bg-debug-stripes {
+    --mixed: color-mix(in srgb, var(--clr-debug), transparent 50%);
+    background-color: rgba(244, 114, 182, 0.1019607843);
+    background-image: linear-gradient(135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
+    background-size: 7.07px 7.07px;
+  }
+  .clr-debug {
+    color: var(--clr-debug);
   }
 }
