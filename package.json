@@ -3,9 +3,10 @@
 	"description": "Minimalism Meets Modularity for Effortless UI Development",
 	"homepage": "https://uwc.vercel.app/",
 	"license": "MIT",
+	"main": "dist/ui/index.js",
 	"name": "lilys",
 	"type": "module",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"browserslist": [
 		"defaults",
 		"not op_mini all"
@@ -32,7 +33,12 @@
 		"vite": "^5.2.8"
 	},
 	"exports": {
-		".": "./dist/ui/index.js"
+		".": {
+			"import": "./dist/ui/index.js",
+			"require": "./dist/ui/index.cjs",
+			"browser": "./dist/ui/index.iife.js",
+			"umd": "./dist/ui/index.umd.js"
+		}
 	},
 	"files": [
 		"dist/"
