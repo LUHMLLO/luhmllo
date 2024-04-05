@@ -1,5 +1,5 @@
 ---
-import Layout from 'src/lib/layout.html.astro';
+import Layout from 'src/lib/layout.base.astro';
 
 const iconNames = [
 	'stadia_controller',
@@ -93,8 +93,8 @@ const iconNames = [
 ];
 ---
 
-<Layout title='Lilys'>
-	<ly-app layout='default' class='grid cols-4'>
+<Layout>
+	<main class='grid cols-4'>
 		<section>
 			<h6>Icon</h6>
 			<ly-grid>
@@ -169,20 +169,19 @@ const iconNames = [
 				</ly-list>
 			</ly-grid>
 		</section>
-	</ly-app>
+	</main>
 </Layout>
 
 <style lang='css'>
-	ly-app {
-		--bg: var(--clr-background);
+	main {
 		--gap: var(--scale-sm);
 		grid-auto-rows: 1fr;
 		padding: var(--scale-sm);
 
 		& > section {
-			background-color: color-mix(in srgb, var(--bg), black 24%);
-			border-radius: var(--radius-xl);
-			padding: var(--scale-xl);
+			background-color: var(--clr-background);
+			border-radius: var(--radius-3xs);
+			padding: var(--scale-3xl);
 
 			& > ly-grid {
 				flex-grow: 1;

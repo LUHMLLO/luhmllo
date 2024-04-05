@@ -1,5 +1,5 @@
 @layer utils {
-    @each $v in (accent, context, background, text, subtext, primary, secondary, tertiary) {
+    @each $v in (accent, context, background, text, subtext, primary, secondary, tertiary, error, warning, info) {
         .bg {
             &-#{$v} {
                 background-color: var(--clr-#{$v});

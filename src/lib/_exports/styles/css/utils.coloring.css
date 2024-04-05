@@ -47,4 +47,22 @@
   .clr-tertiary {
     color: var(--clr-tertiary);
   }
+  .bg-error {
+    background-color: var(--clr-error);
+  }
+  .clr-error {
+    color: var(--clr-error);
+  }
+  .bg-warning {
+    background-color: var(--clr-warning);
+  }
+  .clr-warning {
+    color: var(--clr-warning);
+  }
+  .bg-info {
+    background-color: var(--clr-info);
+  }
+  .clr-info {
+    color: var(--clr-info);
+  }
 }

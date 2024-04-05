@@ -1,0 +1,27 @@
+---
+import Layout from 'src/lib/layout.base.astro';
+---
+
+<Layout>
+	<header class='g-nm place-items-center flex-col text-center m-auto w-100'>
+		<h1>Lily's Documentation Books</h1>
+		<ly-row class='g-sm place-all-center'>
+			<a href='/docs/elements'> Html native elements </a>
+			<pre>/</pre>
+			<a href='/docs/ui'> Custom UI components </a>
+			<pre>/</pre>
+			<a href='/docs/styles'> CSS library & utilities </a>
+		</ly-row>
+	</header>
+</Layout>
+
+<style lang='css'>
+	header {
+		& > ly-row {
+			& > a {
+				--bg: var(--clr-primary);
+				--clr: var(--clr-text);
+			}
+		}
+	}
+</style>
