@@ -7,11 +7,11 @@ export default defineConfig({
 		cssCodeSplit: false,
 		emptyOutDir: false,
 		lib: {
-			entry: './src/lib/_exports/elements/_all.ts',
+			entry: './src/lib/_exports/ui/_all.ts',
 			formats: ['es'],
 			fileName: 'lilys',
 		},
-		outDir: './public/assets/js',
+		outDir: './public/assets/vendors',
 	},
 	plugins: [terserMinify()],
 });

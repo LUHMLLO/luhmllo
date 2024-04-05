@@ -323,4 +323,76 @@
   .place-items-unsafe-center {
     place-items: unsafe center;
   }
+  .place-all-normal {
+    place-content: normal;
+    place-items: normal;
+  }
+  .place-all-stretch {
+    place-content: stretch;
+    place-items: stretch;
+  }
+  .place-all-center {
+    place-content: center;
+    place-items: center;
+  }
+  .place-all-start {
+    place-content: start;
+    place-items: start;
+  }
+  .place-all-end {
+    place-content: end;
+    place-items: end;
+  }
+  .place-all-flex-start {
+    place-content: flex-start;
+    place-items: flex-start;
+  }
+  .place-all-flex-end {
+    place-content: flex-end;
+    place-items: flex-end;
+  }
+  .place-all-self-start {
+    place-content: self-start;
+    place-items: self-start;
+  }
+  .place-all-self-center {
+    place-content: self-center;
+    place-items: self-center;
+  }
+  .place-all-self-end {
+    place-content: self-end;
+    place-items: self-end;
+  }
+  .place-all-space-around {
+    place-content: space-around;
+    place-items: space-around;
+  }
+  .place-all-space-between {
+    place-content: space-between;
+    place-items: space-between;
+  }
+  .place-all-space-evenly {
+    place-content: space-evenly;
+    place-items: space-evenly;
+  }
+  .place-all-baseline {
+    place-content: baseline;
+    place-items: baseline;
+  }
+  .place-all-first-baseline {
+    place-content: first baseline;
+    place-items: first baseline;
+  }
+  .place-all-last-baseline {
+    place-content: last baseline;
+    place-items: last baseline;
+  }
+  .place-all-safe-center {
+    place-content: safe center;
+    place-items: safe center;
+  }
+  .place-all-unsafe-center {
+    place-content: unsafe center;
+    place-items: unsafe center;
+  }
 }

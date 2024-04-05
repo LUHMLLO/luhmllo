@@ -97,7 +97,7 @@ const iconNames = [
 	<ly-app layout='default' class='grid cols-4'>
 		<section>
 			<h6>Icon</h6>
-			<ly-grid class='place-items-center h-100'>
+			<ly-grid>
 				{
 					iconNames
 						.sort(() => Math.random() - 0.5)
@@ -109,14 +109,14 @@ const iconNames = [
 
 		<section>
 			<h6>Radio</h6>
-			<ly-grid class='place-items-center h-100'>
+			<ly-grid>
 				<ly-radio group='radio-group'> </ly-radio>
 			</ly-grid>
 		</section>
 
 		<section>
 			<h6>Field</h6>
-			<ly-grid class='place-items-center h-100'>
+			<ly-grid>
 				<ly-field
 					label='First Name'
 					name='firstname'
@@ -128,43 +128,46 @@ const iconNames = [
 
 		<section>
 			<h6>Col</h6>
-			<ly-col class='place-items-center grow h-100'>
+			<ly-grid>
 				<span>Im inside a col</span>
-			</ly-col>
+			</ly-grid>
 		</section>
 
 		<section>
 			<h6>Grid</h6>
-			<ly-grid class='place-items-center h-100'>
+			<ly-grid>
 				<span>Im inside a grid</span>
 			</ly-grid>
 		</section>
 
 		<section>
 			<h6>Row</h6>
-			<ly-row class='place-items-center grow h-100'>
+			<ly-grid class='inspect'>
 				<span>Im inside a row</span>
-			</ly-row>
+			</ly-grid>
 		</section>
 
 		<section>
-			<ly-list style='--maxCols: 3;'>
-				<ly-list-header>
-					<ly-list-cell>cell</ly-list-cell>
-					<ly-list-cell>cell</ly-list-cell>
-					<ly-list-cell>cell</ly-list-cell>
-				</ly-list-header>
-				<ly-list-row>
-					<ly-list-cell>cell</ly-list-cell>
-					<ly-list-cell>cell</ly-list-cell>
-					<ly-list-cell>cell</ly-list-cell>
-				</ly-list-row>
-				<ly-list-footer>
-					<ly-list-cell>cell</ly-list-cell>
-					<ly-list-cell>cell</ly-list-cell>
-					<ly-list-cell>cell</ly-list-cell>
-				</ly-list-footer>
-			</ly-list>
+			<h6>List</h6>
+			<ly-grid>
+				<ly-list>
+					<ly-list-header>
+						<ly-list-cell>cell</ly-list-cell>
+						<ly-list-cell>cell</ly-list-cell>
+						<ly-list-cell>cell</ly-list-cell>
+					</ly-list-header>
+					<ly-list-row>
+						<ly-list-cell>cell</ly-list-cell>
+						<ly-list-cell>cell</ly-list-cell>
+						<ly-list-cell>cell</ly-list-cell>
+					</ly-list-row>
+					<ly-list-footer>
+						<ly-list-cell>cell</ly-list-cell>
+						<ly-list-cell>cell</ly-list-cell>
+						<ly-list-cell>cell</ly-list-cell>
+					</ly-list-footer>
+				</ly-list>
+			</ly-grid>
 		</section>
 	</ly-app>
 </Layout>
@@ -172,12 +175,33 @@ const iconNames = [
 <style lang='css'>
 	ly-app {
 		--bg: var(--clr-background);
-		--gap: var(--scale-5xs);
-		padding: var(--scale-5xs);
+		--gap: var(--scale-sm);
+		grid-auto-rows: 1fr;
+		padding: var(--scale-sm);
 
 		& > section {
-			background-color: color-mix(in srgb, var(--bg), black 50%);
-			padding: var(--scale-5xs);
+			background-color: color-mix(in srgb, var(--bg), black 24%);
+			border-radius: var(--radius-xl);
+			padding: var(--scale-xl);
+
+			& > ly-grid {
+				flex-grow: 1;
+				place-items: center center;
+			}
 		}
+	}
+
+	.inspect {
+		background-image: linear-gradient(
+			135deg,
+			var(--clr-context) 10%,
+			var(--clr-background) 0,
+			var(--clr-background) 50%,
+			var(--clr-context) 0,
+			var(--clr-context) 50%,
+			var(--clr-background) 0,
+			var(--clr-background)
+		);
+		background-size: var(--scale-5xs) var(--scale-5xs);
 	}
 </style>

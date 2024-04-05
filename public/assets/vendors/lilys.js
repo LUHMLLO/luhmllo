@@ -203,7 +203,7 @@ const f=e=>(t,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(e,t)}
 		:host(:is(ly-layer)) {
 			/* local vars */
 			--bg: transparent;
-			--clr: inherit;
+			--clr: var(--clr-text);
 			--m: auto;
 			--ps: fixed;
 
@@ -221,10 +221,10 @@ const f=e=>(t,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(e,t)}
 			position: var(--ps) !important;
 			visibility: hidden;
 			width: 100dvw;
+		}
 
-			&> * {
-				visibility: visible;
-			}
+		:host(:is(ly-layer)) * {
+			visibility: visible;
 		}
 
 		:host(:is(ly-layer[stacked='under'])) {

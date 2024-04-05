@@ -67,4 +67,13 @@ $alignValues: (
             }
         }
     }
+
+    .place-all {
+        @each $k, $v in $alignValues {
+            &-#{$k} {
+                place-content: #{$v};
+                place-items: #{$v};
+            }
+        }
+    }
 }

@@ -7,12 +7,12 @@ export default defineConfig({
 		cssCodeSplit: true,
 		emptyOutDir: true,
 		lib: {
-			entry: './src/lib/_exports/elements/_all.ts',
+			entry: './src/lib/_exports/ui/_all.ts',
 			formats: ['es', 'cjs', 'umd', 'iife'],
 			name: 'lilys',
 			fileName: 'index',
 		},
-		outDir: './dist/js',
+		outDir: './dist/ui',
 	},
 	plugins: [terserMinify()]
 });

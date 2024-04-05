@@ -5,7 +5,7 @@ export default css`
 		:host(:is(ly-layer)) {
 			/* local vars */
 			--bg: transparent;
-			--clr: inherit;
+			--clr: var(--clr-text);
 			--m: auto;
 			--ps: fixed;
 
@@ -23,10 +23,10 @@ export default css`
 			position: var(--ps) !important;
 			visibility: hidden;
 			width: 100dvw;
+		}
 
-			&> * {
-				visibility: visible;
-			}
+		:host(:is(ly-layer)) * {
+			visibility: visible;
 		}
 
 		:host(:is(ly-layer[stacked='under'])) {

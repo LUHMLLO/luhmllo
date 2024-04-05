@@ -5,11 +5,9 @@
 	"license": "MIT",
 	"name": "lilys",
 	"type": "module",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"browserslist": [
 		"defaults",
-		"> 1%",
-		"not dead",
 		"not op_mini all"
 	],
 	"dependencies": {
@@ -20,7 +18,6 @@
 	},
 	"devDependencies": {
 		"@webcomponents/template-shadowroot": "^0.2.1",
-		"autoprefixer": "^10.4.19",
 		"cssnano": "^6.1.2",
 		"cssnano-preset-advanced": "^6.1.2",
 		"eslint-plugin-lit": "^1.11.0",
@@ -35,7 +32,7 @@
 		"vite": "^5.2.8"
 	},
 	"exports": {
-		".": "./elements/index.js"
+		".": "./ui/index.js"
 	},
 	"files": [
 		"dist/"
@@ -68,8 +65,8 @@
 		"dev": "astro dev",
 		"preview": "astro preview",
 		"start": "astro dev",
-		"stage:1": "sass --color --no-source-map --stop-on-error --unicode --update ./src/lib/_exports/design_system/sass/:./src/lib/_exports/design_system/css/",
-		"stage:2": "postcss ./src/lib/_exports/design_system/css/*.css -d ./dist/css/ --config ./.postcssrc",
+		"stage:1": "sass --color --no-source-map --stop-on-error --unicode --update ./src/lib/_exports/styles/sass/:./src/lib/_exports/styles/css/",
+		"stage:2": "postcss ./src/lib/_exports/styles/css/*.css -d ./dist/styles/ --config ./.postcssrc",
 		"stage:3": "vite build --config vite.lib.prod.config.ts && vite build --config vite.lib.local.config.ts",
 		"stage:4": "astro build"
 	}

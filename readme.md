@@ -1,54 +1,63 @@
-# Astro Starter Kit: Basics
+# Lilys
+
+![Lilys Logo](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+
+> **Quick links:** Check the repo or read the documentation. Have fun!
+
+[![Official Docs & Showcase site](https://img.shields.io/badge/Powered%20by-Vercel-black.svg?style=for-the-badge&logo=vercel)](https://uwc.vercel.app/)
+[![Official GitHub Repository](https://img.shields.io/badge/Open%20in-GitHub-black.svg?style=for-the-badge&logo=github)](https://github.com/LUHMLLO/lilys)
+
+## Getting Started
+
+You can install Lilys via npm:
 
 ```sh
-npm create astro@latest -- --template basics
+pnpm install lilys@latest
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+How to Import ?
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Using Node:
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+    ```js
+    import 'lilys';
+    import 'lilys/styles/all.css';
+    ```
 
-## 🚀 Project Structure
+- Using CDN
 
-Inside of your Astro project, you'll see the following folders and files:
+    ```html
+    <link rel="stylesheet" url="https://unpkg.com/lilys@latest/styles/all.css" />
+    <link type="module" src="https://unpkg.com/lilys@latest" />
+    ```
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+## Starter Template
+
+Inside of your project, you'll have the option to use the following folders and
+files:
+
+```html
+
+    <ly-layer stacked="under">
+        <!--place not really interactive things here-->
+    </ly-layer>
+
+    <ly-app layout="default" class="place-all-center">
+        <header class="g-nm place-items-center flex-col text-center">
+            <h1>Lily's</h1>
+            <p>Build UIs Simply. Anywhere.</p>
+            <a href="#" class="contents">
+                <button>Discover</button>
+            </a>
+        </header>
+    </ly-app>
+
+    <ly-layer stacked="over">
+        <!--place floating items here and things might overlay -->
+    </ly-layer>
+
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Want to learn more?
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Feel free to check [our documentation](https://uwc.vercel.app/docs/)
