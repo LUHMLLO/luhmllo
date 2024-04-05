@@ -97,11 +97,11 @@ const f=e=>(t,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(e,t)}
 			height: max-content;
 		}
 	}
-`;var ct=Object.defineProperty,at=Object.getOwnPropertyDescriptor,J=(e,t,s,i)=>{for(var r,o=i>1?void 0:i?at(t,s):t,n=e.length-1;n>=0;n--)(r=e[n])&&(o=(i?r(t,s,o):r(o))||o);return i&&o&&ct(t,s,o),o};let O=class extends p{constructor(){super(...arguments),this.label="",this["if-error"]="",this.name=""}async connectedCallback(){super.connectedCallback()}async disconnectedCallback(){super.disconnectedCallback()}render(){return d`
+`;var ct=Object.defineProperty,at=Object.getOwnPropertyDescriptor,J=(e,t,s,i)=>{for(var r,o=i>1?void 0:i?at(t,s):t,n=e.length-1;n>=0;n--)(r=e[n])&&(o=(i?r(t,s,o):r(o))||o);return i&&o&&ct(t,s,o),o};let O=class extends p{constructor(){super(...arguments),this.label="",this.caption="",this.name=""}async connectedCallback(){super.connectedCallback()}async disconnectedCallback(){super.disconnectedCallback()}render(){return d`
 			${this.label?d`<label for=${this.name}>${this.label}</label>`:h}
 			<slot></slot>
-			${this["if-error"]?d`<small>${this["if-error"]}</small>`:h}
-		`}};O.styles=lt,J([v({type:String,reflect:!0})],O.prototype,"label",2),J([v({type:String,reflect:!0})],O.prototype,"if-error",2),J([v({type:String,reflect:!0})],O.prototype,"name",2),O=J([f("ly-field")],O);const ht=$`
+			${this.caption?d`<small>${this.caption}</small>`:h}
+		`}};O.styles=lt,J([v({type:String,reflect:!0})],O.prototype,"label",2),J([v({type:String,reflect:!0})],O.prototype,"caption",2),J([v({type:String,reflect:!0})],O.prototype,"name",2),O=J([f("ly-field")],O);const ht=$`
 	@layer web-components {
 		:host(:is(ly-grid)) {
 			/* local vars */
