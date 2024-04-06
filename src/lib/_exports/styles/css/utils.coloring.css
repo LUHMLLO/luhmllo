@@ -4,9 +4,9 @@
   }
   .bg-accent-stripes {
     --mixed: color-mix(in srgb, var(--clr-accent), transparent 50%);
-    background-color: rgba(244, 114, 182, 0.1019607843);
-    background-image: linear-gradient(-135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
-    background-size: 7.07px 7.07px;
+    background-color: transparent;
+    background-image: linear-gradient(-135deg, rgba(0, 0, 0, 0) 50%, var(--mixed) 60%, rgba(0, 0, 0, 0) 0%);
+    background-size: 0.5rem 0.5rem;
   }
   .clr-accent {
     color: var(--clr-accent);
@@ -16,9 +16,9 @@
   }
   .bg-context-stripes {
     --mixed: color-mix(in srgb, var(--clr-context), transparent 50%);
-    background-color: rgba(244, 114, 182, 0.1019607843);
-    background-image: linear-gradient(-135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
-    background-size: 7.07px 7.07px;
+    background-color: transparent;
+    background-image: linear-gradient(-135deg, rgba(0, 0, 0, 0) 50%, var(--mixed) 60%, rgba(0, 0, 0, 0) 0%);
+    background-size: 0.5rem 0.5rem;
   }
   .clr-context {
     color: var(--clr-context);
@@ -28,9 +28,9 @@
   }
   .bg-background-stripes {
     --mixed: color-mix(in srgb, var(--clr-background), transparent 50%);
-    background-color: rgba(244, 114, 182, 0.1019607843);
-    background-image: linear-gradient(-135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
-    background-size: 7.07px 7.07px;
+    background-color: transparent;
+    background-image: linear-gradient(-135deg, rgba(0, 0, 0, 0) 50%, var(--mixed) 60%, rgba(0, 0, 0, 0) 0%);
+    background-size: 0.5rem 0.5rem;
   }
   .clr-background {
     color: var(--clr-background);
@@ -40,9 +40,9 @@
   }
   .bg-text-stripes {
     --mixed: color-mix(in srgb, var(--clr-text), transparent 50%);
-    background-color: rgba(244, 114, 182, 0.1019607843);
-    background-image: linear-gradient(-135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
-    background-size: 7.07px 7.07px;
+    background-color: transparent;
+    background-image: linear-gradient(-135deg, rgba(0, 0, 0, 0) 50%, var(--mixed) 60%, rgba(0, 0, 0, 0) 0%);
+    background-size: 0.5rem 0.5rem;
   }
   .clr-text {
     color: var(--clr-text);
@@ -52,9 +52,9 @@
   }
   .bg-subtext-stripes {
     --mixed: color-mix(in srgb, var(--clr-subtext), transparent 50%);
-    background-color: rgba(244, 114, 182, 0.1019607843);
-    background-image: linear-gradient(-135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
-    background-size: 7.07px 7.07px;
+    background-color: transparent;
+    background-image: linear-gradient(-135deg, rgba(0, 0, 0, 0) 50%, var(--mixed) 60%, rgba(0, 0, 0, 0) 0%);
+    background-size: 0.5rem 0.5rem;
   }
   .clr-subtext {
     color: var(--clr-subtext);
@@ -64,9 +64,9 @@
   }
   .bg-primary-stripes {
     --mixed: color-mix(in srgb, var(--clr-primary), transparent 50%);
-    background-color: rgba(244, 114, 182, 0.1019607843);
-    background-image: linear-gradient(-135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
-    background-size: 7.07px 7.07px;
+    background-color: transparent;
+    background-image: linear-gradient(-135deg, rgba(0, 0, 0, 0) 50%, var(--mixed) 60%, rgba(0, 0, 0, 0) 0%);
+    background-size: 0.5rem 0.5rem;
   }
   .clr-primary {
     color: var(--clr-primary);
@@ -76,9 +76,9 @@
   }
   .bg-secondary-stripes {
     --mixed: color-mix(in srgb, var(--clr-secondary), transparent 50%);
-    background-color: rgba(244, 114, 182, 0.1019607843);
-    background-image: linear-gradient(-135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
-    background-size: 7.07px 7.07px;
+    background-color: transparent;
+    background-image: linear-gradient(-135deg, rgba(0, 0, 0, 0) 50%, var(--mixed) 60%, rgba(0, 0, 0, 0) 0%);
+    background-size: 0.5rem 0.5rem;
   }
   .clr-secondary {
     color: var(--clr-secondary);
@@ -88,9 +88,9 @@
   }
   .bg-tertiary-stripes {
     --mixed: color-mix(in srgb, var(--clr-tertiary), transparent 50%);
-    background-color: rgba(244, 114, 182, 0.1019607843);
-    background-image: linear-gradient(-135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
-    background-size: 7.07px 7.07px;
+    background-color: transparent;
+    background-image: linear-gradient(-135deg, rgba(0, 0, 0, 0) 50%, var(--mixed) 60%, rgba(0, 0, 0, 0) 0%);
+    background-size: 0.5rem 0.5rem;
   }
   .clr-tertiary {
     color: var(--clr-tertiary);
@@ -100,9 +100,9 @@
   }
   .bg-error-stripes {
     --mixed: color-mix(in srgb, var(--clr-error), transparent 50%);
-    background-color: rgba(244, 114, 182, 0.1019607843);
-    background-image: linear-gradient(-135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
-    background-size: 7.07px 7.07px;
+    background-color: transparent;
+    background-image: linear-gradient(-135deg, rgba(0, 0, 0, 0) 50%, var(--mixed) 60%, rgba(0, 0, 0, 0) 0%);
+    background-size: 0.5rem 0.5rem;
   }
   .clr-error {
     color: var(--clr-error);
@@ -112,9 +112,9 @@
   }
   .bg-warning-stripes {
     --mixed: color-mix(in srgb, var(--clr-warning), transparent 50%);
-    background-color: rgba(244, 114, 182, 0.1019607843);
-    background-image: linear-gradient(-135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
-    background-size: 7.07px 7.07px;
+    background-color: transparent;
+    background-image: linear-gradient(-135deg, rgba(0, 0, 0, 0) 50%, var(--mixed) 60%, rgba(0, 0, 0, 0) 0%);
+    background-size: 0.5rem 0.5rem;
   }
   .clr-warning {
     color: var(--clr-warning);
@@ -124,9 +124,9 @@
   }
   .bg-info-stripes {
     --mixed: color-mix(in srgb, var(--clr-info), transparent 50%);
-    background-color: rgba(244, 114, 182, 0.1019607843);
-    background-image: linear-gradient(-135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
-    background-size: 7.07px 7.07px;
+    background-color: transparent;
+    background-image: linear-gradient(-135deg, rgba(0, 0, 0, 0) 50%, var(--mixed) 60%, rgba(0, 0, 0, 0) 0%);
+    background-size: 0.5rem 0.5rem;
   }
   .clr-info {
     color: var(--clr-info);
@@ -136,9 +136,9 @@
   }
   .bg-debug-stripes {
     --mixed: color-mix(in srgb, var(--clr-debug), transparent 50%);
-    background-color: rgba(244, 114, 182, 0.1019607843);
-    background-image: linear-gradient(-135deg, var(--mixed) 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, var(--mixed) 0, var(--mixed) 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
-    background-size: 7.07px 7.07px;
+    background-color: transparent;
+    background-image: linear-gradient(-135deg, rgba(0, 0, 0, 0) 50%, var(--mixed) 60%, rgba(0, 0, 0, 0) 0%);
+    background-size: 0.5rem 0.5rem;
   }
   .clr-debug {
     color: var(--clr-debug);
