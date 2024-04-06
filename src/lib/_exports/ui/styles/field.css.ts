@@ -1,4 +1,4 @@
-import { css } from 'lit';
+import { css } from 'lit'
 
 export default css`
 	@layer web-components {
@@ -13,4 +13,4 @@ export default css`
 			height: max-content;
 		}
 	}
-`;
+`

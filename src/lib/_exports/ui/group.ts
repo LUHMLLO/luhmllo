@@ -1,20 +1,20 @@
-import { LitElement, html } from 'lit';
-import { customElement } from 'lit/decorators.js';
-import styles from './styles/group.css.ts';
+import { LitElement, html } from 'lit'
+import { customElement } from 'lit/decorators.js'
+import styles from './styles/group.css.ts'
 
-@customElement('ly-group')
+@customElement( 'ly-group' )
 export class Group extends LitElement {
 	static override readonly styles = styles;
 
 	override async connectedCallback(): Promise<void> {
-		super.connectedCallback();
+		super.connectedCallback()
 	}
 
 	override async disconnectedCallback(): Promise<void> {
-		super.disconnectedCallback();
+		super.disconnectedCallback()
 	}
 
 	protected override render() {
-		return html` <slot></slot> `;
+		return html` <slot></slot> `
 	}
 }

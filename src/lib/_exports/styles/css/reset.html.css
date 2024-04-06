@@ -186,7 +186,7 @@
 		flex-shrink: 0;
 		overflow: clip;
 
-		>img {
+		> img {
 			height: 100%;
 			object-fit: cover;
 			object-position: center;
@@ -310,7 +310,7 @@
 				color var(--animDefaults);
 			width: 100%;
 
-			&>.icon:not(:first-of-type) {
+			& > .icon:not(:first-of-type) {
 				transition: rotate var(--animDefaults);
 			}
 
@@ -326,16 +326,16 @@
 		}
 
 		&[open] {
-			>summary {
-				>.icon:last-of-type {
+			> summary {
+				> .icon:last-of-type {
 					rotate: -180deg;
 				}
 			}
 		}
 
 		&[data-variant='tree'] {
-			>summary {
-				+* {
+			> summary {
+				+ * {
 					margin-top: var(--scale-5xs);
 					padding-left: var(--scale-nm);
 				}

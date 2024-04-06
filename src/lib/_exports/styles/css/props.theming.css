@@ -15,6 +15,7 @@
       --clr-debug: hsl(330, 32%, 56%);
     }
   }
+
   @media (prefers-color-scheme: light) {
     :root {
       --clr-accent: hsl(124, 69%, 64%);
@@ -31,6 +32,7 @@
       --clr-debug: hsl(330, 32%, 56%);
     }
   }
+
   html[scheme=dark] {
     --clr-accent: hsl(124, 69%, 40%);
     --clr-context: hsl(24, 88%, 40%);
@@ -45,6 +47,7 @@
     --clr-info: hsl(197, 40%, 48%);
     --clr-debug: hsl(330, 32%, 56%);
   }
+
   html[scheme=light] {
     --clr-accent: hsl(124, 69%, 64%);
     --clr-context: hsl(24, 69%, 64%);

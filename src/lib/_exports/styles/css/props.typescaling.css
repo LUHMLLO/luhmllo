@@ -2,9 +2,7 @@
 	:root {
 		/* typography */
 		--baseFontFamily: 'DM Sans', sans-serif;
-		--baseFontSize: calc(
-			var(--baseScalingRatio) * clamp(0.72rem, 1rem, 0.88rem)
-		);
+		--baseFontSize: calc(var(--baseScalingRatio) * clamp(0.72rem, 1rem, 0.88rem));
 		--baseFontWeight: 400;
 		--baseLineHeight: clamp(1.25, 1.5, 1.75);
 

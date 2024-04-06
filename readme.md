@@ -19,17 +19,17 @@ How to Import ?
 
 - Using Node:
 
-    ```js
-    import 'lilys';
-    import 'lilys/styles/all.css';
-    ```
+  ```js
+  import "lilys";
+  import "lilys/styles/all.css";
+  ```
 
 - Using CDN
 
-    ```html
-    <link rel="stylesheet" url="https://unpkg.com/lilys@latest/dist/styles/all.css" />
-    <link type="module" src="https://unpkg.com/lilys@latest" />
-    ```
+  ```html
+  <link rel="stylesheet" url="https://unpkg.com/lilys@latest/dist/styles/all.css" />
+  <link type="module" src="https://unpkg.com/lilys@latest" />
+  ```
 
 ## Starter Template
 
@@ -37,7 +37,6 @@ Inside of your project, you'll have the option to use the following folders and
 files:
 
 ```html
-
     <ly-layer stacked="under">
         <!--place not really interactive things here-->
     </ly-layer>
@@ -55,7 +54,6 @@ files:
     <ly-layer stacked="over">
         <!--place floating items here and things might overlay -->
     </ly-layer>
-
 ```
 
 ## Want to learn more?

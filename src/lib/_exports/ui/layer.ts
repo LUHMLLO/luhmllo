@@ -1,22 +1,22 @@
-import { LitElement, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
-import styles from './styles/layer.css.ts';
+import { LitElement, html } from 'lit'
+import { customElement, property } from 'lit/decorators.js'
+import styles from './styles/layer.css.ts'
 
-@customElement('ly-layer')
+@customElement( 'ly-layer' )
 export class Layer extends LitElement {
-    @property({ type: String, reflect: true }) stacked = 'over';
+    @property( { type: String, reflect: true } ) stacked = 'over';
 
     static override readonly styles = styles;
 
     override async connectedCallback(): Promise<void> {
-        super.connectedCallback();
+        super.connectedCallback()
     }
 
     override async disconnectedCallback(): Promise<void> {
-        super.disconnectedCallback();
+        super.disconnectedCallback()
     }
 
     protected override render() {
-        return html` <slot></slot> `;
+        return html` <slot></slot> `
     }
 }

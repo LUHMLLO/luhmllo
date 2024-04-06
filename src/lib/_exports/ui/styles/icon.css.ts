@@ -1,4 +1,4 @@
-import { css } from 'lit';
+import { css } from 'lit'
 
 export default css`
 	@layer web-components {
@@ -21,4 +21,4 @@ export default css`
 			font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 400, 'opsz' 48;
 		}
 	}
-`;
+`

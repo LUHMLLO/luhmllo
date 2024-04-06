@@ -29,13 +29,13 @@
   .align-self-end {
     align-content: self-end;
   }
-  .align-space-around {
+  .align-around {
     align-content: space-around;
   }
-  .align-space-between {
+  .align-between {
     align-content: space-between;
   }
-  .align-space-evenly {
+  .align-evenly {
     align-content: space-evenly;
   }
   .align-baseline {
@@ -83,13 +83,13 @@
   .align-items-self-end {
     align-items: self-end;
   }
-  .align-items-space-around {
+  .align-items-around {
     align-items: space-around;
   }
-  .align-items-space-between {
+  .align-items-between {
     align-items: space-between;
   }
-  .align-items-space-evenly {
+  .align-items-evenly {
     align-items: space-evenly;
   }
   .align-items-baseline {
@@ -137,13 +137,13 @@
   .justify-self-end {
     justify-content: self-end;
   }
-  .justify-space-around {
+  .justify-around {
     justify-content: space-around;
   }
-  .justify-space-between {
+  .justify-between {
     justify-content: space-between;
   }
-  .justify-space-evenly {
+  .justify-evenly {
     justify-content: space-evenly;
   }
   .justify-baseline {
@@ -191,13 +191,13 @@
   .justify-items-self-end {
     justify-items: self-end;
   }
-  .justify-items-space-around {
+  .justify-items-around {
     justify-items: space-around;
   }
-  .justify-items-space-between {
+  .justify-items-between {
     justify-items: space-between;
   }
-  .justify-items-space-evenly {
+  .justify-items-evenly {
     justify-items: space-evenly;
   }
   .justify-items-baseline {
@@ -245,13 +245,13 @@
   .place-self-end {
     place-content: self-end;
   }
-  .place-space-around {
+  .place-around {
     place-content: space-around;
   }
-  .place-space-between {
+  .place-between {
     place-content: space-between;
   }
-  .place-space-evenly {
+  .place-evenly {
     place-content: space-evenly;
   }
   .place-baseline {
@@ -299,13 +299,13 @@
   .place-items-self-end {
     place-items: self-end;
   }
-  .place-items-space-around {
+  .place-items-around {
     place-items: space-around;
   }
-  .place-items-space-between {
+  .place-items-between {
     place-items: space-between;
   }
-  .place-items-space-evenly {
+  .place-items-evenly {
     place-items: space-evenly;
   }
   .place-items-baseline {
@@ -363,15 +363,15 @@
     place-content: self-end;
     place-items: self-end;
   }
-  .place-all-space-around {
+  .place-all-around {
     place-content: space-around;
     place-items: space-around;
   }
-  .place-all-space-between {
+  .place-all-between {
     place-content: space-between;
     place-items: space-between;
   }
-  .place-all-space-evenly {
+  .place-all-evenly {
     place-content: space-evenly;
     place-items: space-evenly;
   }

@@ -8,7 +8,7 @@
             &-#{$v}-stripes {
                 --mixed: color-mix(in srgb, var(--clr-#{$v}), transparent 50%);
                 background-color: #f472b61a;
-                background-image: linear-gradient(135deg, var(--mixed) 10%, #0000 0, #0000 50%, var(--mixed) 0, var(--mixed) 60%, #0000 0, #0000);
+                background-image: linear-gradient(-135deg, var(--mixed) 10%, #0000 0, #0000 50%, var(--mixed) 0, var(--mixed) 60%, #0000 0, #0000);
                 background-size: 7.07px 7.07px;
             }
         }
