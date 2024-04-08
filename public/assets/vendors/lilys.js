@@ -241,6 +241,7 @@ const f=e=>(t,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(e,t)}
 			/* local vars */
 			--bg: var(--clr-primary);
 			--clr: var(--clr-text);
+			--cols: 1;
 			--gap: calc(var(--scale-5xs) * 0.1625);
 			--radius: var(--radius-3xs);
 
@@ -266,14 +267,14 @@ const f=e=>(t,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(e,t)}
 			flex-shrink: 0;
 			gap: var(--gap);
 			grid-template-columns: repeat(
-				auto-fit,
-				minmax(8rem, 1fr)
+				var(--cols),
+				minmax(max(10rem, calc(100% / var(--cols) - 0.125rem)), 1fr)
 			);
 		}
 
 		:host(:is(ly-list-cell)) {
 			/* base styles */
-			background-color: color-mix(in srgb, var(--bg),black 50%);
+			background-color: color-mix(in srgb, var(--bg), black 50%);
 			display: flex;
 			flex-direction: column;
 			overflow: clip;
@@ -281,7 +282,6 @@ const f=e=>(t,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(e,t)}
 			place-content: center;
 			z-index: 1;
 		}
-		
 	}
 `;var wt=Object.defineProperty,xt=Object.getOwnPropertyDescriptor,N=(e,t,s,i)=>{for(var r,o=i>1?void 0:i?xt(t,s):t,n=e.length-1;n>=0;n--)(r=e[n])&&(o=(i?r(t,s,o):r(o))||o);return i&&o&&wt(t,s,o),o};let re=class extends p{async connectedCallback(){super.connectedCallback()}async disconnectedCallback(){super.disconnectedCallback()}render(){return d` <slot></slot> `}};re.styles=M,re=N([f("ly-list-header")],re);let ie=class extends p{async connectedCallback(){super.connectedCallback()}async disconnectedCallback(){super.disconnectedCallback()}render(){return d` <slot></slot> `}};ie.styles=M,ie=N([f("ly-list-row")],ie);let oe=class extends p{async connectedCallback(){super.connectedCallback()}async disconnectedCallback(){super.disconnectedCallback()}render(){return d` <slot></slot> `}};oe.styles=M,oe=N([f("ly-list-footer")],oe);let ne=class extends p{async connectedCallback(){super.connectedCallback()}async disconnectedCallback(){super.disconnectedCallback()}render(){return d` <slot></slot> `}};ne.styles=M,ne=N([f("ly-list-cell")],ne);let le=class extends p{async connectedCallback(){super.connectedCallback()}async disconnectedCallback(){super.disconnectedCallback()}render(){return d` <slot></slot> `}};le.styles=M,le=N([f("ly-list")],le);const Pt=$`
 	@layer web-components {

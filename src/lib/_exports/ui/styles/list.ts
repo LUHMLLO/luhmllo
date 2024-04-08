@@ -1,4 +1,4 @@
-import { css } from 'lit'
+import { css } from 'lit';
 
 export default css`
 	@layer web-components {
@@ -6,6 +6,7 @@ export default css`
 			/* local vars */
 			--bg: var(--clr-primary);
 			--clr: var(--clr-text);
+			--cols: 1;
 			--gap: calc(var(--scale-5xs) * 0.1625);
 			--radius: var(--radius-3xs);
 
@@ -31,14 +32,14 @@ export default css`
 			flex-shrink: 0;
 			gap: var(--gap);
 			grid-template-columns: repeat(
-				auto-fit,
-				minmax(8rem, 1fr)
+				var(--cols),
+				minmax(max(10rem, calc(100% / var(--cols) - 0.125rem)), 1fr)
 			);
 		}
 
 		:host(:is(ly-list-cell)) {
 			/* base styles */
-			background-color: color-mix(in srgb, var(--bg),black 50%);
+			background-color: color-mix(in srgb, var(--bg), black 50%);
 			display: flex;
 			flex-direction: column;
 			overflow: clip;
@@ -46,6 +47,5 @@ export default css`
 			place-content: center;
 			z-index: 1;
 		}
-		
 	}
-`
+`;
