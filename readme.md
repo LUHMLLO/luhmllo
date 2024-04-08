@@ -20,15 +20,15 @@ How to Import ?
 - Using Node:
 
   ```js
-  import "lilys";
-  import "lilys/styles/all.css";
+  import 'lilys/ui';
+  import 'lilys/styles';
   ```
 
 - Using CDN
 
   ```html
-  <link rel="stylesheet" url="https://unpkg.com/lilys@latest/dist/styles/all.css" />
-  <link type="module" src="https://unpkg.com/lilys@latest" />
+  <link rel="stylesheet" url="https://unpkg.com/lilys@latest/styles" />
+  <link type="module" src="https://unpkg.com/lilys@latest/ui" />
   ```
 
 ## Starter Template
@@ -37,23 +37,23 @@ Inside of your project, you'll have the option to use the following folders and
 files:
 
 ```html
-    <ly-layer stacked="under">
-        <!--place not really interactive things here-->
-    </ly-layer>
+<ly-layer stacked="under">
+	<!--place not really interactive things here-->
+</ly-layer>
 
-    <ly-app layout="default" class="place-all-center">
-        <header class="g-nm place-items-center flex-col text-center">
-            <h1>Lily's</h1>
-            <p>Build UIs Simply. Anywhere.</p>
-            <a href="#" class="contents">
-                <button>Discover</button>
-            </a>
-        </header>
-    </ly-app>
+<ly-app layout="default" class="place-all-center">
+	<header class="g-nm place-items-center flex-col txt-center">
+		<h1>Lily's</h1>
+		<p>Build UIs Simply. Anywhere.</p>
+		<a href="#" class="contents">
+			<button>Discover</button>
+		</a>
+	</header>
+</ly-app>
 
-    <ly-layer stacked="over">
-        <!--place floating items here and things might overlay -->
-    </ly-layer>
+<ly-layer stacked="over">
+	<!--place floating items here and things might overlay -->
+</ly-layer>
 ```
 
 ## Want to learn more?

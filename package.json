@@ -6,7 +6,7 @@
 	"main": "dist/ui/index.js",
 	"name": "lilys",
 	"type": "module",
-	"version": "0.0.6-patch-2",
+	"version": "0.0.6-patch-3",
 	"browserslist": [
 		"defaults",
 		"not op_mini all"
@@ -33,14 +33,17 @@
 		"vite": "^5.2.8"
 	},
 	"exports": {
-		".": {
+		"./styles": {
+			"import": "./dist/styles/all.css",
+			"require": "./dist/styles/all.css",
+			"browser": "./dist/styles/all.css",
+			"umd": "./dist/styles/all.css"
+		},
+		"./ui": {
 			"import": "./dist/ui/index.js",
 			"require": "./dist/ui/index.cjs",
 			"browser": "./dist/ui/index.iife.js",
 			"umd": "./dist/ui/index.umd.js"
-		},
-		"./styles": {
-			"import": "./dist/styles/all.css"
 		}
 	},
 	"files": [
