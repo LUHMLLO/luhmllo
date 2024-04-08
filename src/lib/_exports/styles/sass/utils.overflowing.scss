@@ -1,0 +1,39 @@
+.scroll {
+    overflow-x: auto;
+    overflow-y: auto
+}
+
+.scroll > * {
+    flex-shrink: 0
+}
+
+.scroll-stable {
+    scrollbar-gutter: stable both-edges
+}
+
+.scroll-x {
+    flex-direction: row;
+    overflow-y: clip;
+    padding-bottom: var(--scale-xs)
+}
+
+.scroll-x-snap {
+    scroll-snap-type: x proximity
+}
+
+.scroll-x-snap > * {
+    scroll-snap-align: start
+}
+
+.scroll-y {
+    flex-direction: column;
+    overflow-x: clip
+}
+
+.scroll-y-snap {
+    scroll-snap-type: y proximity
+}
+
+.scroll-y-snap > * {
+    scroll-snap-align: start
+}
