@@ -1,5 +1,5 @@
 @layer reset {
-	html {
+	:is(html) {
 		background-color: var(--clr-background);
 		color: var(--clr-text);
 
@@ -26,8 +26,7 @@
 		word-spacing: 0.0625rem;
 	}
 
-	html,
-	body {
+	:is(html, body) {
 		display: contents;
 
 		&:has(ly-app, #app) {
@@ -64,12 +63,12 @@
 		}
 	}
 
-	p {
+	:where(p) {
 		display: flex;
 		font-size: var(--scale-md);
 	}
 
-	a {
+	:where(a) {
 		/* local vars */
 		--bg: transparent;
 		--clr: var(--clr-accent);
@@ -103,19 +102,19 @@
 		}
 	}
 
-	caption,
+	:where(caption,
 	figcaption,
 	label,
-	legend {
+	legend) {
 		display: inline-flex;
 		font-size: var(--scale-md);
 	}
 
-	small {
+	:where(small) {
 		font-size: clamp(72%, 0.5vw, 88%);
 	}
 
-	span {
+	:where(span) {
 		&[data-text] {
 			display: inline-flex;
 			color: inherit;
@@ -127,19 +126,19 @@
 		}
 	}
 
-	audio,
-	button,
-	figure,
-	i,
-	iframe,
-	img,
-	picture,
-	video {
+	:where(audio,
+		button,
+		figure,
+		i,
+		iframe,
+		img,
+		picture,
+		video) {
 		-webkit-user-select: none;
 		user-select: none;
 	}
 
-	button {
+	:where(button) {
 		--bg: var(--clr-primary);
 		--clr: var(--clr-text);
 		--gap: var(--scale-sm);
@@ -181,7 +180,7 @@
 		}
 	}
 
-	figure {
+	:where(figure) {
 		border-radius: var(--radius-3xs);
 		display: inline-grid;
 		flex-shrink: 0;
@@ -207,15 +206,15 @@
 		}
 	}
 
-	footer,
-	header,
-	label,
-	nav {
+	:where(footer,
+		header,
+		label,
+		nav) {
 		display: flex;
 		flex-direction: row;
 	}
 
-	nav {
+	:where(nav) {
 		place-items: center center;
 
 		&[data-variant='pill'] {
@@ -227,19 +226,19 @@
 		}
 	}
 
-	header {
+	:where(header) {
 		min-height: var(--scale-5xl);
 	}
 
-	footer {
+	:where(footer) {
 		min-height: calc(var(--scale-5xl) * 1.56);
 	}
 
-	aside,
-	fieldset,
-	form,
-	main,
-	section {
+	:where(aside,
+		fieldset,
+		form,
+		main,
+		section) {
 		--gap: var(--scale-sm);
 
 		display: flex;
@@ -247,7 +246,7 @@
 		gap: var(--gap);
 	}
 
-	hr {
+	:where(hr) {
 		--bg: var(--clr-primary);
 		background-color: var(--bg);
 
@@ -262,9 +261,9 @@
 		}
 	}
 
-	input,
-	textarea,
-	select {
+	:where(input,
+		textarea,
+		select) {
 		--bg: var(--clr-primary);
 		--gap: var(--scale-sm);
 
@@ -290,7 +289,7 @@
 		}
 	}
 
-	details {
+	:where(details) {
 		display: block;
 		width: 100%;
 
@@ -348,7 +347,7 @@
 		}
 	}
 
-	table {
+	:where(table) {
 		--bg: var(--clr-background);
 		--clr: var(--clr-text);
 

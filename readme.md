@@ -24,7 +24,7 @@ How to Import ?
   import 'lilys/ui';
   ```
 
-- Using CDN
+- Using CDN (not tested)
 
   ```html
   <link rel="stylesheet" url="https://unpkg.com/lilys@latest/styles" />
