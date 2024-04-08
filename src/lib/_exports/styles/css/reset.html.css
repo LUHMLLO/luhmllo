@@ -145,7 +145,7 @@
 		--gap: var(--scale-sm);
 
 		align-items: center;
-		border-radius: var(--radius-sm);
+		border-radius: var(--radius-3xl);
 		background-color: var(--bg);
 		color: var(--clr);
 		cursor: pointer;
@@ -183,6 +183,7 @@
 
 	figure {
 		border-radius: var(--radius-3xs);
+		display: inline-grid;
 		flex-shrink: 0;
 		overflow: clip;
 

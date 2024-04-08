@@ -8,9 +8,9 @@ import Topbar from './components/topbar.astro';
 <Layout_HTML title='Proposal Tool'>
 	<ly-app layout='row'>
 		<Sidebar />
-		<main>
+		<main class='h-100 grow shrink'>
 			<Topbar />
-			<ly-col>
+			<ly-col class='h-100 grow shrink'>
 				<slot />
 			</ly-col>
 			<Bottombar />
@@ -21,7 +21,13 @@ import Topbar from './components/topbar.astro';
 <style lang='css'>
 	ly-app {
 		& > main {
-			flex-grow: 1;
+			--gap: 0;
+
+			& > ly-col {
+				overflow-x: clip;
+				overflow-y: auto;
+				padding: var(--scale-2xl);
+			}
 		}
 	}
 </style>

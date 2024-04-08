@@ -1,5 +1,35 @@
-<header>
-	<ly-row> </ly-row>
-	<ly-row> </ly-row>
-	<ly-row> </ly-row>
+<header class='noshrink'>
+	<ly-row>
+		<small class='txt-sm'>
+			<span class='clr-subtext'>Proposal For</span>
+			Joselito Perla Negra
+		</small>
+	</ly-row>
+	<ly-row> <span>validation message</span> </ly-row>
+	<ly-row class='g-sm'>
+		<ly-col class='txt-right'>
+			<span>username</span>
+			<small class='clr-context'>email@address.com</small>
+		</ly-col>
+		<figure class='noshrink radius-5xl w-5xl'>
+			<img
+				src='https://images.unsplash.com/photo-1704895598909-dd19e72fc3ae?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+				alt='avatar'
+			/>
+		</figure>
+	</ly-row>
 </header>
+
+<style>
+	header {
+		align-items: center;
+		gap: var(--scale-lg);
+		min-height: 4rem;
+		padding-inline: var(--scale-lg);
+		justify-content: space-between;
+
+		& > ly-row {
+			align-items: center;
+		}
+	}
+</style>

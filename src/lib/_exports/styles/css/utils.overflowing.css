@@ -7,14 +7,13 @@
   flex-shrink: 0;
 }
 
-.scroll-stable {
+.scrollbar-stable {
   scrollbar-gutter: stable both-edges;
 }
 
 .scroll-x {
-  flex-direction: row;
   overflow-y: clip;
-  padding-bottom: var(--scale-xs);
+  margin-bottom: var(--scale-xs);
 }
 
 .scroll-x-snap {
@@ -26,7 +25,6 @@
 }
 
 .scroll-y {
-  flex-direction: column;
   overflow-x: clip;
 }
 

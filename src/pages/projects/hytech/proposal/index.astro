@@ -43,14 +43,18 @@ const fields = [
 
 <Layout>
 	<form>
-		<ly-grid>
+		<ly-grid cols='2' class="g-lg">
 			{
-				fields.map((field) => {
+				fields.map((field) => (
 					<ly-field>
 						<label for={field.label}>{field.label}</label>
-						<input name='{field.label}' type={field.type as 'text'} />
-					</ly-field>;
-				})
+						<input
+							name='{field.label}'
+							type={field.type as 'text'}
+							class='w-100'
+						/>
+					</ly-field>
+				))
 			}
 		</ly-grid>
 	</form>

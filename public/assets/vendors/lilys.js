@@ -181,7 +181,6 @@ const f=e=>(t,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(e,t)}
 	@layer web-components {
 		:host(:is(ly-icon)) {
 			/* base styles */
-			aspect-ratio: 1/1;
 			display: inline-grid;
 			font-family: 'Material Symbols Outlined', 'Material Symbols Rounded', 'Material Symbols Sharp', sans-serif;
 			font-feature-settings: 'liga';

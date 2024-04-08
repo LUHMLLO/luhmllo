@@ -1,21 +1,43 @@
 @layer utils {
-    @for $i from 0 through 100 {
-        .h {
-            &-#{$i} {
-                height: #{$i+'%'};
-            }
 
-            @each $v in (min-content, fit-content, max-content) {
-                &-#{$v} {
-                    height: #{$v};
-                }
+    .h {
+        @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+            &-#{$v} {
+                width: var(--scale-#{$v});
             }
         }
 
-        .w {
+        @each $v in (min-content, fit-content, max-content) {
+            &-#{$v} {
+                height: #{$v};
+            }
+        }
+
+        @for $i from 0 through 100 {
+            &-#{$i} {
+                height: #{$i+'%'};
+            }
+        }
+    }
+
+    .w {
+        @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+            &-#{$v} {
+                width: var(--scale-#{$v});
+            }
+        }
+
+        @each $v in (min-content, fit-content, max-content) {
+            &-#{$v} {
+                width: #{$v};
+            }
+        }
+
+        @for $i from 0 through 100 {
             &-#{$i} {
                 width: #{$i+'%'};
             }
         }
     }
+
 }
