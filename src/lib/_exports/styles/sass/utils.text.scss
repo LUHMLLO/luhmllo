@@ -1,21 +1,28 @@
 @layer utils {
-    .txt {
-        @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
-            &-#{$v} {
-                font-size: var(--scale-#{$v});
-            }
-        }
+	.txt {
+		@each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl)
+		{
+			&-#{$v} {
+				font-size: var(--scale-#{$v});
+			}
+		}
 
-        @each $v in (left, center, right) {
-            &-#{$v} {
-                text-align: #{$v};
-            }
-        }
+		@each $v in (left, center, right) {
+			&-#{$v} {
+				text-align: #{$v};
+			}
+		}
 
-        @each $v in (normal, italic, oblique) {
-            &-#{$v} {
-                font-style: #{$v};
-            }
-        }
-    }
+		@each $v in (normal, italic, oblique) {
+			&-#{$v} {
+				font-style: #{$v};
+			}
+		}
+
+		@each $v in (100, 200, 300, 400, 500, 600, 700, 800, 900) {
+			&-#{$v} {
+				font-weight: #{$v};
+			}
+		}
+	}
 }
