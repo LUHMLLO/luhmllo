@@ -39,7 +39,7 @@ export default css`
 
 		:host(:is(ly-list-cell)) {
 			/* base styles */
-			background-color: color-mix(in srgb, var(--bg), black 50%);
+			background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), black 50%);
 			display: flex;
 			flex-direction: column;
 			overflow: clip;

@@ -7,7 +7,7 @@ export default css`
 			display: inline-grid;
 			font-family: 'Material Symbols Outlined', 'Material Symbols Rounded', 'Material Symbols Sharp', sans-serif;
 			font-feature-settings: 'liga';
-			font-size: var(--sttng-iconScale);
+			font-size: var(--prefers-iconScale);
 			font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 400, 'opsz' 48;
 			height: auto;
 			overflow: clip;

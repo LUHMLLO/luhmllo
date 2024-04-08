@@ -4,7 +4,7 @@
 		--bar-size: var(--radius-5xs);
 		--bar-radius: var(--radius-3xs);
 
-		--thumb-color: color-mix(in srgb, var(--clr-tertiary), transparent 56%);
+		--thumb-color: color-mix(in var(--prefers-colorSpace, srgb), var(--clr-tertiary), transparent 56%);
 		--thumb-size: var(--radius-5xs);
 		--thumb-radius: var(--radius-3xs);
 

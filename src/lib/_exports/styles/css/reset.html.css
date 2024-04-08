@@ -84,28 +84,28 @@
 
 		@media (hover:hover) {
 			&[href]:hover {
-				color: color-mix(in srgb, var(--clr), white 6%);
+				color: color-mix(in var(--prefers-colorSpace, srgb), var(--clr), white 6%);
 
 				@container style:not(--bg: transparent) {
-					background-color: color-mix(in srgb, var(--bg), white 3%);
+					background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), white 3%);
 				}
 			}
 
 		}
 
 		&[href]:active {
-			color: color-mix(in srgb, var(--clr), black 9%);
+			color: color-mix(in var(--prefers-colorSpace, srgb), var(--clr), black 9%);
 
 			@container style:not(--bg: transparent) {
-				background-color: color-mix(in srgb, var(--bg), black 6%);
+				background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), black 6%);
 			}
 		}
 	}
 
 	:where(caption,
-	figcaption,
-	label,
-	legend) {
+		figcaption,
+		label,
+		legend) {
 		display: inline-flex;
 		font-size: var(--scale-md);
 	}
@@ -161,11 +161,11 @@
 		width: fit-content;
 
 		&:hover {
-			background-color: color-mix(in srgb, var(--bg), white 3%);
+			background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), white 3%);
 		}
 
 		&:active {
-			background-color: color-mix(in srgb, var(--bg), black 6%);
+			background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), black 6%);
 		}
 
 		&[data-variant='primary'] {
@@ -281,11 +281,11 @@
 		transition: background-color var(--animDefaults);
 
 		&:not(:focus):hover {
-			background-color: color-mix(in srgb, var(--bg), white 3%);
+			background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), white 3%);
 		}
 
 		&:not(:focus):active {
-			background-color: color-mix(in srgb, var(--bg), black 6%);
+			background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), black 6%);
 		}
 	}
 
@@ -315,13 +315,13 @@
 			}
 
 			&:hover {
-				color: color-mix(in srgb, var(--clr), white 6%);
-				background-color: color-mix(in srgb, var(--bg), white 3%);
+				color: color-mix(in var(--prefers-colorSpace, srgb), var(--clr), white 6%);
+				background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), white 3%);
 			}
 
 			&:active {
-				color: color-mix(in srgb, var(--clr), black 9%);
-				background-color: color-mix(in srgb, var(--bg), black 6%);
+				color: color-mix(in var(--prefers-colorSpace, srgb), var(--clr), black 9%);
+				background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), black 6%);
 			}
 		}
 
@@ -368,7 +368,7 @@
 
 		& thead {
 			& tr {
-				background-color: color-mix(in srgb, var(--bg), white 3%);
+				background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), white 3%);
 				transition: background-color var(--animDefaults);
 
 				& th {

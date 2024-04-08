@@ -184,7 +184,7 @@ const f=e=>(t,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(e,t)}
 			display: inline-grid;
 			font-family: 'Material Symbols Outlined', 'Material Symbols Rounded', 'Material Symbols Sharp', sans-serif;
 			font-feature-settings: 'liga';
-			font-size: var(--sttng-iconScale);
+			font-size: var(--prefers-iconScale);
 			font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 400, 'opsz' 48;
 			height: auto;
 			overflow: clip;
@@ -274,7 +274,7 @@ const f=e=>(t,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(e,t)}
 
 		:host(:is(ly-list-cell)) {
 			/* base styles */
-			background-color: color-mix(in srgb, var(--bg), black 50%);
+			background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), black 50%);
 			display: flex;
 			flex-direction: column;
 			overflow: clip;
