@@ -15,8 +15,8 @@ import Layout from 'src/lib/layout.app.astro';
 		</a>
 	</section>
 
-	<section class='banner bg-debug-stripes place-all-center'>
-		<h1 id='docs'>Documentation</h1>
+	<section id='docs' class='banner bg-debug-stripes place-all-center'>
+		<h1>Documentation</h1>
 		<ly-row class='g-sm place-all-center'>
 			<a href='/docs/elements' class='clr-text'>
 				<ly-icon>chevron_left</ly-icon>
@@ -37,10 +37,21 @@ import Layout from 'src/lib/layout.app.astro';
 			</a>
 		</ly-row>
 	</section>
+
+	<section id='showcases' class='banner bg-debug-stripes place-all-center'>
+		<h1>Showcases</h1>
+		<ly-row class='g-sm place-all-center'> comming soon . . . </ly-row>
+	</section>
+
+	<section id='templates' class='banner bg-debug-stripes place-all-center'>
+		<h1>Templates</h1>
+		<ly-row class='g-sm place-all-center'> comming soon . . . </ly-row>
+	</section>
 </Layout>
 
 <style lang='css'>
 	section {
-		min-height: 100dvh;
+		flex-shrink: 0;
+		height: 100%;
 	}
 </style>
