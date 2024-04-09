@@ -1,8 +1,8 @@
-import { css } from 'lit'
+import { css } from 'lit';
 
 export default css`
 	@layer web-components {
-		:host(:is(ly-radio)) {
+		:host(:is(ly-checkbox)) {
 			/* local vars */
 			--gap: var(--scale-5xs);
 
@@ -15,13 +15,13 @@ export default css`
 			overflow: clip;
 		}
 
-		:host(:is(ly-radio))::part(row) {
+		:host(:is(ly-checkbox))::part(row) {
 			gap: inherit;
 		}
 
-		:host(:is(ly-radio))::part(label) {
+		:host(:is(ly-checkbox))::part(label) {
 			display: inline-flex;
 			flex-shrink: 1;
 		}
 	}
-`
+`;

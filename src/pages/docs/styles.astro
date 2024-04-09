@@ -1,8 +1,8 @@
 ---
-import Layout from 'src/lib/layout.base.astro';
+import Layout from 'src/lib/layout.app.astro';
 ---
 
-<Layout>
+<Layout layout='default'>
 	<section class='grid cols-2 g-sm justify-between wrap'>
 		<ly-col class='place-items-center'>
 			<pre style='font-size: var(--scale-5xs)'>--scale-5xs</pre>
@@ -21,25 +21,6 @@ import Layout from 'src/lib/layout.base.astro';
 			<pre style='font-size: var(--scale-3xl)'>--scale-3xl</pre>
 			<pre style='font-size: var(--scale-4xl)'>--scale-4xl</pre>
 			<pre style='font-size: var(--scale-5xl)'>--scale-5xl</pre>
-		</ly-col>
-
-		<ly-col class='place-items-center'>
-			<pre style='font-size: var(--radius-5xs)'>--radius-5xs</pre>
-			<pre style='font-size: var(--radius-4xs)'>--radius-4xs</pre>
-			<pre style='font-size: var(--radius-3xs)'>--radius-3xs</pre>
-			<pre style='font-size: var(--radius-2xs)'>--radius-2xs</pre>
-			<pre style='font-size: var(--radius-xs)'>--radius-xs</pre>
-
-			<pre style='font-size: var(--radius-sm)'>--radius-sm</pre>
-			<pre style='font-size: var(--radius-md)'>--radius-md</pre>
-			<pre style='font-size: var(--radius-nm)'>--radius-nm</pre>
-			<pre style='font-size: var(--radius-lg)'>--radius-lg</pre>
-
-			<pre style='font-size: var(--radius-xl)'>--radius-xl</pre>
-			<pre style='font-size: var(--radius-2xl)'>--radius-2xl</pre>
-			<pre style='font-size: var(--radius-3xl)'>--radius-3xl</pre>
-			<pre style='font-size: var(--radius-4xl)'>--radius-4xl</pre>
-			<pre style='font-size: var(--radius-5xl)'>--radius-5xl</pre>
 		</ly-col>
 	</section>
 </Layout>

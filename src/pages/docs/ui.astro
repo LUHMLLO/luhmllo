@@ -1,5 +1,5 @@
 ---
-import Layout from 'src/lib/layout.base.astro';
+import Layout from 'src/lib/layout.app.astro';
 
 const iconNames = [
 	'stadia_controller',
@@ -93,7 +93,7 @@ const iconNames = [
 ];
 ---
 
-<Layout>
+<Layout layout='default'>
 	<main>
 		<section>
 			<h6>Icon</h6>
@@ -214,11 +214,11 @@ const iconNames = [
 
 		& > section {
 			background-color: var(--clr-background);
-			border-radius: var(--radius-3xs);
+			border-radius: var(--scale-3xs);
 			padding: var(--scale-3xl);
 
 			& > article {
-				border-radius: var(--radius-3xs);
+				border-radius: var(--scale-3xs);
 				display: grid;
 				grid-template-columns: 1fr;
 				flex-grow: 1;

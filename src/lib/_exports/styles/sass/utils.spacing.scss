@@ -87,6 +87,22 @@
                 }
             }
         }
+
+        @each $ps_key, $ps_value in ("t":top, "r":right, "b":bottom, "l":left) {
+            &#{$ps_key} {
+                @each $v in (auto, 0) {
+                    &-#{$v} {
+                        margin-#{$ps_value}: #{$v};
+                    }
+                }
+
+                @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+                    &-#{$v} {
+                        margin-#{$ps_value}: var(--scale-#{$v});
+                    }
+                }
+            }
+        }
     }
 
     .p {
@@ -126,6 +142,22 @@
             @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
                 &-#{$v} {
                     padding-block: var(--scale-#{$v});
+                }
+            }
+        }
+
+        @each $ps_key, $ps_value in ("t":top, "r":right, "b":bottom, "l":left) {
+            &#{$ps_key} {
+                @each $v in (auto, 0) {
+                    &-#{$v} {
+                        padding-#{$ps_value}: #{$v};
+                    }
+                }
+
+                @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+                    &-#{$v} {
+                        padding-#{$ps_value}: var(--scale-#{$v});
+                    }
                 }
             }
         }

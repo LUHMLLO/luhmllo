@@ -1,45 +1,45 @@
 @layer utils {
   .h-5xs {
-    width: var(--scale-5xs);
+    height: var(--scale-5xs);
   }
   .h-4xs {
-    width: var(--scale-4xs);
+    height: var(--scale-4xs);
   }
   .h-3xs {
-    width: var(--scale-3xs);
+    height: var(--scale-3xs);
   }
   .h-2xs {
-    width: var(--scale-2xs);
+    height: var(--scale-2xs);
   }
   .h-xs {
-    width: var(--scale-xs);
+    height: var(--scale-xs);
   }
   .h-sm {
-    width: var(--scale-sm);
+    height: var(--scale-sm);
   }
   .h-md {
-    width: var(--scale-md);
+    height: var(--scale-md);
   }
   .h-nm {
-    width: var(--scale-nm);
+    height: var(--scale-nm);
   }
   .h-lg {
-    width: var(--scale-lg);
+    height: var(--scale-lg);
   }
   .h-xl {
-    width: var(--scale-xl);
+    height: var(--scale-xl);
   }
   .h-2xl {
-    width: var(--scale-2xl);
+    height: var(--scale-2xl);
   }
   .h-3xl {
-    width: var(--scale-3xl);
+    height: var(--scale-3xl);
   }
   .h-4xl {
-    width: var(--scale-4xl);
+    height: var(--scale-4xl);
   }
   .h-5xl {
-    width: var(--scale-5xl);
+    height: var(--scale-5xl);
   }
   .h-min-content {
     height: min-content;

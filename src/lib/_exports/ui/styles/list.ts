@@ -8,7 +8,7 @@ export default css`
 			--clr: var(--clr-text);
 			--cols: 1;
 			--gap: calc(var(--scale-5xs) * 0.1625);
-			--radius: var(--radius-3xs);
+			--radius: var(--scale-3xs);
 
 			/* theming */
 			background-color: var(--bg);

@@ -1,44 +1,44 @@
 @layer utils {
   .radius-5xs {
-    border-radius: var(--radius-5xs);
+    border-radius: var(--scale-5xs);
   }
   .radius-4xs {
-    border-radius: var(--radius-4xs);
+    border-radius: var(--scale-4xs);
   }
   .radius-3xs {
-    border-radius: var(--radius-3xs);
+    border-radius: var(--scale-3xs);
   }
   .radius-2xs {
-    border-radius: var(--radius-2xs);
+    border-radius: var(--scale-2xs);
   }
   .radius-xs {
-    border-radius: var(--radius-xs);
+    border-radius: var(--scale-xs);
   }
   .radius-sm {
-    border-radius: var(--radius-sm);
+    border-radius: var(--scale-sm);
   }
   .radius-md {
-    border-radius: var(--radius-md);
+    border-radius: var(--scale-md);
   }
   .radius-nm {
-    border-radius: var(--radius-nm);
+    border-radius: var(--scale-nm);
   }
   .radius-lg {
-    border-radius: var(--radius-lg);
+    border-radius: var(--scale-lg);
   }
   .radius-xl {
-    border-radius: var(--radius-xl);
+    border-radius: var(--scale-xl);
   }
   .radius-2xl {
-    border-radius: var(--radius-2xl);
+    border-radius: var(--scale-2xl);
   }
   .radius-3xl {
-    border-radius: var(--radius-3xl);
+    border-radius: var(--scale-3xl);
   }
   .radius-4xl {
-    border-radius: var(--radius-4xl);
+    border-radius: var(--scale-4xl);
   }
   .radius-5xl {
-    border-radius: var(--radius-5xl);
+    border-radius: var(--scale-5xl);
   }
 }

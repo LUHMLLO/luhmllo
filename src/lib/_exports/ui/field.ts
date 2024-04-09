@@ -7,6 +7,7 @@ export class Field extends LitElement {
 	@property( { type: String, reflect: true } ) label = '';
 	@property( { type: String, reflect: true } ) caption = '';
 	@property( { type: String, reflect: true } ) name = '';
+	@property( { type: String, reflect: true } ) type = 'text';
 
 	static override readonly styles = styles;
 

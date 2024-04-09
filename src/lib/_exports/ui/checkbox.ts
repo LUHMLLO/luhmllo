@@ -1,11 +1,10 @@
 import { LitElement, html, nothing } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import styles from './styles/radio.css.ts'
+import styles from './styles/checkbox.css.ts'
 
-@customElement( 'ly-radio' )
-export class Radio extends LitElement {
+@customElement( 'ly-checkbox' )
+export class Checkbox extends LitElement {
 	@property( { type: Boolean, reflect: true } ) checked = false;
-	@property( { type: String } ) group = '';
 	@property( { type: String } ) label = '';
 
 	static override readonly properties = {
@@ -15,25 +14,7 @@ export class Radio extends LitElement {
 	static override readonly styles = styles;
 
 	private toggleChecked() {
-		if ( !this.checked ) {
-			const radios = document.querySelectorAll(
-				`ly-radio[group="${ this.group }"]`
-			)
-
-			for ( const radio of [ ...radios ] ) {
-				( radio as Radio ).checked = false;
-				( radio as Radio ).dispatchEvent(
-					new CustomEvent( 'change', {
-						bubbles: true,
-						detail: { checked: false },
-					} )
-				)
-			}
-
-			this.checked = true
-		} else {
-			this.checked = !this.checked
-		}
+		this.checked = !this.checked
 
 		this.dispatchEvent(
 			new CustomEvent( 'change', {
@@ -61,7 +42,7 @@ export class Radio extends LitElement {
 		return html`
 			<ly-row part="row">
 				<ly-icon ?solid="${ this.checked }">
-					${ this.checked ? 'check_circle' : 'radio_button_unchecked' }
+					${ this.checked ? 'check_box' : 'check_box_outline_blank' }
 				</ly-icon>
 				${ this.label
 				? html`<label part="label">${ this.label }</label>`

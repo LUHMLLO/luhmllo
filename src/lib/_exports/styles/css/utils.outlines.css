@@ -60,45 +60,45 @@
     outline-style: ridge;
   }
   .outln-5xs {
-    outline-width: var(--radius-5xs);
+    outline-width: var(--scale-5xs);
   }
   .outln-4xs {
-    outline-width: var(--radius-4xs);
+    outline-width: var(--scale-4xs);
   }
   .outln-3xs {
-    outline-width: var(--radius-3xs);
+    outline-width: var(--scale-3xs);
   }
   .outln-2xs {
-    outline-width: var(--radius-2xs);
+    outline-width: var(--scale-2xs);
   }
   .outln-xs {
-    outline-width: var(--radius-xs);
+    outline-width: var(--scale-xs);
   }
   .outln-sm {
-    outline-width: var(--radius-sm);
+    outline-width: var(--scale-sm);
   }
   .outln-md {
-    outline-width: var(--radius-md);
+    outline-width: var(--scale-md);
   }
   .outln-nm {
-    outline-width: var(--radius-nm);
+    outline-width: var(--scale-nm);
   }
   .outln-lg {
-    outline-width: var(--radius-lg);
+    outline-width: var(--scale-lg);
   }
   .outln-xl {
-    outline-width: var(--radius-xl);
+    outline-width: var(--scale-xl);
   }
   .outln-2xl {
-    outline-width: var(--radius-2xl);
+    outline-width: var(--scale-2xl);
   }
   .outln-3xl {
-    outline-width: var(--radius-3xl);
+    outline-width: var(--scale-3xl);
   }
   .outln-4xl {
-    outline-width: var(--radius-4xl);
+    outline-width: var(--scale-4xl);
   }
   .outln-5xl {
-    outline-width: var(--radius-5xl);
+    outline-width: var(--scale-5xl);
   }
 }

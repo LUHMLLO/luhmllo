@@ -1,0 +1,21 @@
+<button>
+	<ly-icon> info </ly-icon>
+	<pre>|</pre>
+	<span>Validation Message Warning</span>
+	<pre>|</pre>
+	<ly-icon> close </ly-icon>
+</button>
+
+<style lang='css'>
+	button {
+		--bg: var(--clr-warning);
+
+		& > pre {
+			color: color-mix(
+				in var(--prefers-colorSpace, srgb),
+				var(--bg),
+				black 16%
+			);
+		}
+	}
+</style>

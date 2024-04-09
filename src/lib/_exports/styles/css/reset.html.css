@@ -144,7 +144,7 @@
 		--gap: var(--scale-sm);
 
 		align-items: center;
-		border-radius: var(--radius-3xl);
+		border-radius: var(--scale-3xl);
 		background-color: var(--bg);
 		color: var(--clr);
 		cursor: pointer;
@@ -181,12 +181,14 @@
 	}
 
 	:where(figure) {
-		border-radius: var(--radius-3xs);
+		border-radius: var(--scale-3xs);
 		display: inline-grid;
 		flex-shrink: 0;
 		overflow: clip;
 
-		> img {
+		> img,
+		> object,
+		> svg {
 			height: 100%;
 			object-fit: cover;
 			object-position: center;
@@ -219,7 +221,7 @@
 
 		&[data-variant='pill'] {
 			background-color: var(--clr-primary);
-			border-radius: var(--radius-3xs);
+			border-radius: var(--scale-3xs);
 			gap: calc(var(--scale-5xs) * 1.5);
 			height: calc(var(--scale-5xl) * 0.88);
 			padding: 0 var(--scale-sm);
@@ -269,7 +271,7 @@
 
 		align-items: center;
 		background-color: var(--bg);
-		border-radius: var(--radius-3xs);
+		border-radius: var(--scale-3xs);
 		color: var(--clr-text);
 		display: inline-flex;
 		font-size: var(--scale-sm);
@@ -352,11 +354,11 @@
 		--clr: var(--clr-text);
 
 		background-color: var(--bg);
-		border-radius: var(--radius-3xs);
+		border-radius: var(--scale-3xs);
 		border-collapse: collapse;
 		border: none;
 		clip: rect(0 0 0 0);
-		clip-path: inset(0% round var(--radius-3xs));
+		clip-path: inset(0% round var(--scale-3xs));
 		position: relative;
 		table-layout: fixed;
 		width: 100%;

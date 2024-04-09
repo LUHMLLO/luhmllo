@@ -1,7 +1,7 @@
 <nav id='appbar' class='align-center'>
 	<a id='logo' href='/examples/hytechhome'>
-		<figure>
-			<img src='/favicon.svg' />
+		<figure class='w-5xl'>
+			<object data='/assets/media/hytech/favicon.svg' class='m-auto'></object>
 		</figure>
 	</a>
 	<nav id='routes'>
@@ -32,15 +32,50 @@
 <style lang='css'>
 	#appbar {
 		align-items: center;
-		backdrop-filter: blur(var(--radius-3xs));
-		background-color: hsla(0, 0%, 0%, 0.0625);
-		/* border-radius: var(--radius-5xl); */
-		height: calc(var(--prefers-spacing) * 1.75);
+		min-height: calc(var(--prefers-spacing) * 1.75);
 		inset: 0;
+		isolation: isolate;
 		padding-inline: var(--prefers-spacing);
 		place-content: space-between;
 		position: fixed;
 		z-index: 2;
+
+		backdrop-filter: blur(var(--scale-3xs));
+		background: linear-gradient(
+			hsla(0, 0%, 0%, 0.64),
+			hsla(0, 0%, 0%, 0.56),
+			hsla(0, 0%, 0%, 0.48),
+			hsla(0, 0%, 0%, 0.4),
+			hsla(0, 0%, 0%, 0.32),
+			hsla(0, 0%, 0%, 0.24),
+			hsla(0, 0%, 0%, 0.16),
+			hsla(0, 0%, 0%, 0.14),
+			hsla(0, 0%, 0%, 0.12),
+			hsla(0, 0%, 0%, 0.1),
+			hsla(0, 0%, 0%, 0.08),
+			hsla(0, 0%, 0%, 0.06),
+			transparent
+		);
+		mask-image: linear-gradient(
+			to bottom,
+			hsla(0, 0%, 0%, 1) 64%,
+			hsla(0, 0%, 0%, 1) 56%,
+			hsla(0, 0%, 0%, 1) 48%,
+			hsla(0, 0%, 0%, 1) 40%,
+			transparent
+		);
+
+		&::before {
+			content: '';
+			display: block;
+			inset: 0;
+			position: absolute;
+
+			background: url(https://demo.cosmo.studio/noise.png);
+			mix-blend-mode: multiply;
+			opacity: 0.1;
+			z-index: -1;
+		}
 
 		& figure {
 			aspect-ratio: 1;

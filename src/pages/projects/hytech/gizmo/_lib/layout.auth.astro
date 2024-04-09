@@ -1,0 +1,21 @@
+---
+import Layout_HTML from 'src/lib/layout.html.astro';
+---
+
+<Layout_HTML title='Hytech Home'>
+	<ly-layer stacked='under'>
+		<figure>
+			<img id='carousel-slide' alt='carousel-slide' />
+		</figure>
+	</ly-layer>
+	<ly-app layout='row'>
+		<slot />
+	</ly-app>
+	<ly-layer stacked='over'> </ly-layer>
+</Layout_HTML>
+
+<style>
+	ly-app {
+		--bg: transparent;
+	}
+</style>

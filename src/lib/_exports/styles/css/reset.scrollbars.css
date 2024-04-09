@@ -1,12 +1,12 @@
 @layer reset {
 	:where(*) {
 		--bar-color: trasparent;
-		--bar-size: var(--radius-5xs);
-		--bar-radius: var(--radius-3xs);
+		--bar-size: var(--scale-5xs);
+		--bar-radius: var(--scale-3xs);
 
 		--thumb-color: color-mix(in var(--prefers-colorSpace, srgb), var(--clr-tertiary), transparent 56%);
-		--thumb-size: var(--radius-5xs);
-		--thumb-radius: var(--radius-3xs);
+		--thumb-size: var(--scale-5xs);
+		--thumb-radius: var(--scale-3xs);
 
 		scrollbar-color: var(--thumb-color) var(--bar-color);
 		scrollbar-width: auto;

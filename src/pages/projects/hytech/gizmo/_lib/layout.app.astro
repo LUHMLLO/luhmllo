@@ -1,0 +1,11 @@
+---
+import Layout_HTML from 'src/lib/layout.html.astro';
+---
+
+<Layout_HTML title='Hytech Home'>
+	<ly-layer stacked='under'> </ly-layer>
+	<ly-app>
+		<slot />
+	</ly-app>
+	<ly-layer stacked='over'> </ly-layer>
+</Layout_HTML>

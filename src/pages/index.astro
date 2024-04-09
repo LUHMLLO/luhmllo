@@ -1,53 +1,46 @@
 ---
-import Layout from 'src/lib/layout.base.astro';
+import Layout from 'src/lib/layout.app.astro';
 ---
 
-<Layout>
-	<header
-		class='bg-debug-stripes g-nm place-items-center flex-col text-center m-auto w-100'>
+<Layout layout='default'>
+	<section class='bg-background place-all-center'>
 		<h1>Lily's</h1>
 		<p>Build UIs Simply. Anywhere.</p>
-		<a href='/docs' class=''>
-			<button> Discover </button>
+		<a href='#docs' class='clr-text flex-col g-sm ps-absolute bottom mb-5xl'>
+			<span> Discover your options in modern UI solutions </span>
+
+			<ly-icon> mouse </ly-icon>
+
+			<ly-icon> arrow_downward </ly-icon>
 		</a>
-	</header>
+	</section>
+
+	<section class='banner bg-debug-stripes place-all-center'>
+		<h1 id='docs'>Documentation</h1>
+		<ly-row class='g-sm place-all-center'>
+			<a href='/docs/elements' class='clr-text'>
+				<ly-icon>chevron_left</ly-icon>
+				<span>Html native elements</span>
+				<ly-icon>chevron_right</ly-icon>
+			</a>
+			<pre>|</pre>
+			<a href='/docs/ui' class='clr-text'>
+				<ly-icon>chevron_left</ly-icon>
+				<span>Custom UI components </span>
+				<ly-icon>chevron_right</ly-icon>
+			</a>
+			<pre>|</pre>
+			<a href='/docs/styles' class='clr-text'>
+				<ly-icon>chevron_left</ly-icon>
+				<span>CSS library & utilities</span>
+				<ly-icon>chevron_right</ly-icon>
+			</a>
+		</ly-row>
+	</section>
 </Layout>
 
 <style lang='css'>
-	header {
-		--outWidth: calc(var(--scale-5xs) * 0.25);
-
-		&::before {
-			content: '';
-			height: 100%;
-			inset: 0;
-			outline-color: var(--clr-debug);
-			outline-offset: calc(var(--outWidth) * -0.5);
-			outline-style: dashed;
-			outline-width: var(--outWidth);
-			position: absolute;
-			width: 100%;
-		}
-
-		& > * {
-			background-color: var(--clr-background);
-			place-content: center center;
-			place-items: center center;
-			text-align: center;
-			width: 100%;
-
-			&::before {
-				content: '';
-				height: 100%;
-				inset: 0 50%;
-				outline-color: var(--clr-debug);
-				outline-offset: calc(var(--outWidth) * -0.5);
-				outline-style: dashed;
-				outline-width: var(--outWidth);
-				position: absolute;
-				translate: -50% 0%;
-				width: 100dvw;
-			}
-		}
+	section {
+		min-height: 100dvh;
 	}
 </style>

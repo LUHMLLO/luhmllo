@@ -1,4 +1,5 @@
 export { App } from './app.ts'
+export { Checkbox } from './checkbox.ts'
 export { Col } from './col.ts'
 export { Field } from './field.ts'
 export { Grid } from './grid.ts'

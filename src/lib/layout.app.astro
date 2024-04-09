@@ -1,0 +1,105 @@
+---
+import HTML_Layout from 'src/lib/layout.html.astro';
+
+interface Props {
+	layout: string;
+}
+
+const { layout } = Astro.props;
+---
+
+<HTML_Layout title='Lilys'>
+	<ly-layer stacked='under' class='visible' transition:persist></ly-layer>
+	<ly-app layout={layout}>
+		<slot />
+	</ly-app>
+	<ly-layer stacked='over'></ly-layer>
+</HTML_Layout>
+
+<style lang='css' is:global>
+	ly-app {
+		--bg: transparent;
+	}
+
+	/* ly-layer {
+		--mixed: color-mix(
+			in var(--prefers-colorSpace, srgb),
+			var(--clr-text),
+			transparent 50%
+		);
+		--size: 0.75rem;
+
+		animation: inspectBG 60s linear alternate-reverse infinite;
+		background-color: transparent;
+		background-image: linear-gradient(
+			-45deg,
+			transparent 50%,
+			var(--mixed) 60%,
+			transparent 0
+		);
+		background-size: var(--size) var(--size);
+		border-radius: 50%;
+	}
+
+	@keyframes inspectBG {
+		0% {
+			opacity: 0.05;
+			rotate: 0deg;
+			scale: 1.5;
+		}
+		100% {
+			opacity: 0.15;
+			rotate: 360deg;
+			scale: 3;
+		}
+	} */
+
+	section:where(.banner) {
+		--mixed: color-mix(
+			in var(--prefers-colorSpace, srgb),
+			var(--clr-subtext),
+			transparent 50%
+		);
+		--outWidth: calc(var(--scale-5xs) * 0.0625);
+
+		&::before {
+			content: '';
+			height: 100%;
+			inset: 0;
+			outline-color: var(--mixed);
+			outline-offset: calc(var(--outWidth) * -1);
+			outline-style: dashed;
+			outline-width: var(--outWidth);
+			position: absolute;
+			width: 100%;
+		}
+
+		& > * {
+			backdrop-filter: blur(var(--scale-3xs));
+			background-blend-mode: multiply;
+			background-color: color-mix(
+				in var(--colorSpace, srgb),
+				var(--clr-background),
+				transparent 50%
+			);
+			place-content: center center;
+			place-items: center center;
+			padding: 1rem;
+			text-align: center;
+			width: 100%;
+
+			&::before {
+				content: '';
+				height: 100%;
+				inset: 0 50%;
+				outline-color: var(--mixed);
+				outline-offset: calc(var(--outWidth) * -1);
+				outline-style: dashed;
+				outline-width: var(--outWidth);
+				position: absolute;
+				translate: -50% 0%;
+				width: 100dvw;
+			}
+		}
+	}
+</style>

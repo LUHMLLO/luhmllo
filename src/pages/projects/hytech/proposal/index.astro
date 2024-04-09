@@ -4,38 +4,69 @@ import Layout from './_lib/layout.astro';
 const fields = [
 	{
 		label: 'First Name',
+		name: 'first_name',
 		type: 'text',
 	},
 	{
 		label: 'Last Name',
+		name: 'last_name',
 		type: 'text',
 	},
 	{
 		label: 'Mobile Phone',
-		type: 'text',
+		name: 'mobile_phone',
+		type: 'tel',
 	},
 	{
 		label: 'Email',
+		name: 'email',
+		type: 'email',
+	},
+
+	{
+		label: 'First Name (2nd)',
+		name: 'first_name_2',
 		type: 'text',
 	},
 	{
+		label: 'Last Name (2nd)',
+		name: 'last_name_2',
+		type: 'text',
+	},
+	{
+		label: 'Mobile Phone (2nd)',
+		name: 'customer_2_mobile',
+		type: 'tel',
+	},
+	{
+		label: 'Email (2nd)',
+		name: 'customer_2_email',
+		type: 'email',
+	},
+
+	{
 		label: 'Street',
+		name: 'street',
 		type: 'text',
 	},
 	{
 		label: 'City',
+		name: 'city',
 		type: 'text',
 	},
 	{
 		label: 'State',
+		name: 'state',
 		type: 'text',
 	},
 	{
 		label: 'Zip Code',
-		type: 'text',
+		name: 'zipcode',
+		type: 'number',
 	},
 	{
 		label: 'Utiliy Company',
+		name: 'utility_company',
 		type: 'text',
 	},
 ];
@@ -43,19 +74,23 @@ const fields = [
 
 <Layout>
 	<form>
-		<ly-grid cols='2' class="g-lg">
-			{
-				fields.map((field) => (
-					<ly-field>
-						<label for={field.label}>{field.label}</label>
-						<input
-							name='{field.label}'
-							type={field.type as 'text'}
-							class='w-100'
-						/>
-					</ly-field>
-				))
-			}
-		</ly-grid>
+		<section class='g-lg'>
+			<header>
+				<h6 class='clr-subtext'>Main Content</h6>
+			</header>
+			<ly-grid cols='2' class='g-lg'>
+				{
+					fields.map((field) => (
+						<ly-field label={field.label} name={field.name} type={field.type}>
+							<input
+								name={field.label}
+								type={field.type as 'text'}
+								class='w-100'
+							/>
+						</ly-field>
+					))
+				}
+			</ly-grid>
+		</section>
 	</form>
 </Layout>
