@@ -2,56 +2,59 @@
 import Layout from 'src/lib/layout.app.astro';
 ---
 
-<Layout layout='default'>
-	<section class='bg-background place-all-center'>
+<Layout layout='grid'>
+	<section id='docs-start'>
 		<h1>Lily's</h1>
 		<p>Build UIs Simply. Anywhere.</p>
-		<a href='#docs' class='clr-text flex-col g-sm ps-absolute bottom mb-5xl'>
-			<span> Discover your options in modern UI solutions </span>
-
-			<ly-icon> mouse </ly-icon>
-
+		<a
+			href='#docs-html'
+			class='clr-text flex-col g-sm ps-absolute bottom mb-5xl'>
+			<span> Explore modern UI solutions available to you </span>
 			<ly-icon> arrow_downward </ly-icon>
 		</a>
 	</section>
 
-	<section id='docs' class='banner bg-debug-stripes place-all-center'>
-		<h1>Documentation</h1>
-		<ly-row class='g-sm place-all-center'>
-			<a href='/docs/elements' class='clr-text'>
-				<ly-icon>chevron_left</ly-icon>
-				<span>Html native elements</span>
-				<ly-icon>chevron_right</ly-icon>
-			</a>
-			<pre>|</pre>
-			<a href='/docs/ui' class='clr-text'>
-				<ly-icon>chevron_left</ly-icon>
-				<span>Custom UI components </span>
-				<ly-icon>chevron_right</ly-icon>
-			</a>
-			<pre>|</pre>
-			<a href='/docs/styles' class='clr-text'>
-				<ly-icon>chevron_left</ly-icon>
-				<span>CSS library & utilities</span>
-				<ly-icon>chevron_right</ly-icon>
-			</a>
-		</ly-row>
+	<section id='docs-html' style='grid-column: full;'>
+		<nav>
+			<p>HTML Native Elements</p>
+		</nav>
+		<ly-slider>
+			{
+				[...Array(24).keys()].map(() => (
+					<div>
+						<figure>
+							<img
+								src='https://cdn-assets-us.frontify.com/s3/frontify-enterprise-files-us/eyJwYXRoIjoic3VucnVuXC9maWxlXC9FREtRWEtwTDR4ZHhING5IWkVpMi5wbmcifQ:sunrun:LcRDUd8hMC278VjHToWlOhWl2TAM-_2Ilz8ofej_QDk?width=640&format=webp'
+								alt='element-preview'
+							/>
+						</figure>
+						<h3>Element Name</h3>
+					</div>
+				))
+			}
+		</ly-slider>
 	</section>
 
-	<section id='showcases' class='banner bg-debug-stripes place-all-center'>
-		<h1>Showcases</h1>
-		<ly-row class='g-sm place-all-center'> comming soon . . . </ly-row>
+	<section id='docs-ui'>
+		<h2>Custom UI Elements</h2>
 	</section>
 
-	<section id='templates' class='banner bg-debug-stripes place-all-center'>
-		<h1>Templates</h1>
-		<ly-row class='g-sm place-all-center'> comming soon . . . </ly-row>
+	<section id='docs-css'>
+		<h2>CSS Framework & Tools</h2>
 	</section>
 </Layout>
 
-<style lang='css'>
+<style lang='css' is:global>
+	ly-app {
+		overflow-y: scroll;
+	}
 	section {
+		--gap: var(--scale-2xl);
+
 		flex-shrink: 0;
-		height: 100%;
+		min-height: 100dvh;
+		place-content: center;
+		place-items: center;
+
 	}
 </style>

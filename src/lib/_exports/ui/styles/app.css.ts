@@ -1,4 +1,4 @@
-import { css } from 'lit'
+import { css } from 'lit';
 
 export default css`
 	@layer web-components {
@@ -31,10 +31,16 @@ export default css`
 			overflow-y: auto;
 		}
 
-		:host(:is(ly-app[layout='gallery'])) {
+		:host(:is(ly-app[layout='grid'])) {
 			display: grid;
-			overflow-x: clip;
-			overflow-y: auto;
+			grid-template-columns:
+				[ full-start] minmax(2rem, 1fr)
+				[ inner-start] minmax(0, 40rem) [ inner-end]
+				minmax(2rem, 1fr) [ full-end];
+		}
+
+		:host(:is(ly-app[layout='grid'])) ::slotted(*) {
+			grid-column: inner;
 		}
 
 		:host(:is(ly-app[layout='row'])) {
@@ -45,4 +51,4 @@ export default css`
 			flex-direction: column;
 		}
 	}
-`
+`;

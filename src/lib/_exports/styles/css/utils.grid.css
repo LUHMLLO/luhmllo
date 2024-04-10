@@ -8,6 +8,7 @@
     --repeat: auto-fill;
     gap: var(--gap);
     grid-template-columns: repeat(var(--repeat), minmax(max(var(--minWidth), 100% / var(--cols) - var(--gap)), var(--maxWidth)));
+    height: max-content;
   }
   :where(.grid).cols-1 {
     --cols: 1;
@@ -44,5 +45,8 @@
   }
   :where(.grid).cols-12 {
     --cols: 12;
+  }
+  :where(.grid)[data-template=full-inner] {
+    grid-template-columns: [full-width-start] minmax(2rem, 1fr) [inner-start] minmax(0, 40rem) [inner-end] minmax(2rem, 1fr) [full-width-end];
   }
 }

@@ -1,22 +1,33 @@
 @layer utils {
-    :where(.grid) {
-        /* local vars */
-        --cols: 1;
-        --gap: 0rem;
-        --maxWidth: 1fr;
-        --minWidth: clamp(6rem, 16vmin, 24rem);
-        --repeat: auto-fill;
+	:where(.grid) {
+		/* local vars */
+		--cols: 1;
+		--gap: 0rem;
+		--maxWidth: 1fr;
+		--minWidth: clamp(6rem, 16vmin, 24rem);
+		--repeat: auto-fill;
 
-        gap: var(--gap);
-        grid-template-columns: repeat(var(--repeat),
-                minmax(max(var(--minWidth), calc(100% / var(--cols) - var(--gap))),
-                    var(--maxWidth)));
+		gap: var(--gap);
+		grid-template-columns: repeat(
+			var(--repeat),
+			minmax(
+				max(var(--minWidth), calc(100% / var(--cols) - var(--gap))),
+				var(--maxWidth)
+			)
+		);
+		height: max-content;
 
-        @for $i from 1 through 12 {
-            &.cols-#{$i} {
-                --cols: #{$i};
-            }
-        }
-    }
+		@for $i from 1 through 12 {
+			&.cols-#{$i} {
+				--cols: #{$i};
+			}
+		}
 
+		&[data-template='full-inner'] {
+			grid-template-columns: [ full-width-start] minmax(2rem, 1fr) [ inner-start] minmax(
+					0,
+					40rem
+				) [ inner-end] minmax(2rem, 1fr) [ full-width-end];
+		}
+	}
 }

@@ -1,12 +1,13 @@
-export { App } from './app.ts'
-export { Checkbox } from './checkbox.ts'
-export { Col } from './col.ts'
-export { Field } from './field.ts'
-export { Grid } from './grid.ts'
-export { Group } from './group.ts'
-export { Icon } from './icon.ts'
-export { Layer } from './layer.ts'
-export { List, ListHeader, ListRow, ListFooter, ListCell } from './list.ts'
-export { Radio } from './radio.ts'
-export { Row } from './row.ts'
-export { Switch } from './switch.ts'
+export { App } from './app.ts';
+export { Checkbox } from './checkbox.ts';
+export { Col } from './col.ts';
+export { Field } from './field.ts';
+export { Grid } from './grid.ts';
+export { Group } from './group.ts';
+export { Icon } from './icon.ts';
+export { Layer } from './layer.ts';
+export { List, ListHeader, ListRow, ListFooter, ListCell } from './list.ts';
+export { Radio } from './radio.ts';
+export { Row } from './row.ts';
+export { Slider } from './slider.ts';
+export { Switch } from './switch.ts';
