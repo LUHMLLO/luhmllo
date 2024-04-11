@@ -41,10 +41,7 @@ export class Field extends LitElement {
 			${this.label
 				? html`
 						<label for=${this.name} part="label">
-							${this.label}
-							${this.required
-								? html`<ly-icon part="required-icon">asterisk</ly-icon>`
-								: nothing}
+							${this.label} ${this.setRequiredIcon()}
 						</label>
 				  `
 				: nothing}
@@ -60,6 +57,14 @@ export class Field extends LitElement {
 				  `
 				: nothing}
 		`;
+	}
+
+	private setRequiredIcon(): TemplateResult {
+		if (this.required) {
+			return html`<ly-icon part="required-icon">asterisk</ly-icon>`;
+		} else {
+			return html``;
+		}
 	}
 
 	private setStatusIcon(): TemplateResult {
