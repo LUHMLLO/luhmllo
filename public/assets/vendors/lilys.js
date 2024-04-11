@@ -210,12 +210,11 @@ const y=e=>(t,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(e,t)}
 			color: var(--clr-warning);
 		}
 	}
-`;var vt=Object.defineProperty,bt=Object.getOwnPropertyDescriptor,E=(e,t,s,r)=>{for(var i,o=r>1?void 0:r?bt(t,s):t,n=e.length-1;n>=0;n--)(i=e[n])&&(o=(r?i(t,s,o):i(o))||o);return r&&o&&vt(t,s,o),o},je=(e=>(e[e.debug=0]="debug",e[e.error=1]="error",e[e.info=2]="info",e[e.success=3]="success",e[e.warning=4]="warning",e))(je||{});let $=class extends p{constructor(){super(...arguments),this.label="",this.caption="",this.name="",this.required=!1,this.status="",this.type="text"}async connectedCallback(){super.connectedCallback(),this.querySelector("input").name=this.name,this.querySelector("input").title=this.name,this.querySelector("input").type=this.type}async disconnectedCallback(){super.disconnectedCallback()}render(){return c`
-			${this.label?c`
-					<label for=${this.name} part="label">
-						${this.label} 
-						${this.required&&c`<ly-icon part='required-icon'>asterisk</ly-icon>`}
-					</label>`:d}
+`;var vt=Object.defineProperty,bt=Object.getOwnPropertyDescriptor,E=(e,t,s,r)=>{for(var i,o=r>1?void 0:r?bt(t,s):t,n=e.length-1;n>=0;n--)(i=e[n])&&(o=(r?i(t,s,o):i(o))||o);return r&&o&&vt(t,s,o),o},je=(e=>(e[e.debug=0]="debug",e[e.error=1]="error",e[e.info=2]="info",e[e.success=3]="success",e[e.warning=4]="warning",e))(je||{});let $=class extends p{constructor(){super(...arguments),this.label="",this.caption="",this.name="",this.required=!1,this.status="",this.type="text"}async connectedCallback(){super.connectedCallback();let e=this.querySelector("input");e&&(e.name=this.name,e.title=this.name,e.type=this.type)}async disconnectedCallback(){super.disconnectedCallback()}render(){return c`
+			${this.label?c` <label for=${this.name} part="label">
+						${this.label}
+						${this.required&&c`<ly-icon part="required-icon">asterisk</ly-icon>`}
+				  </label>`:d}
 
 			<slot></slot>
 

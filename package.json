@@ -6,7 +6,7 @@
 	"main": "dist/ui/index.js",
 	"name": "lilys",
 	"type": "module",
-	"version": "0.0.8",
+	"version": "0.0.8-fieldtest",
 	"browserslist": [
 		"defaults",
 		"not op_mini all"
