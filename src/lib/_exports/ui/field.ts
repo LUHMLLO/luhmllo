@@ -39,11 +39,14 @@ export class Field extends LitElement {
 	protected override render() {
 		return html`
 			${this.label
-				? html` <label for=${this.name} part="label">
-						${this.label}
-						${this.required &&
-						html`<ly-icon part="required-icon">asterisk</ly-icon>`}
-				  </label>`
+				? html`
+						<label for=${this.name} part="label">
+							${this.label}
+							${this.required
+								? html`<ly-icon part="required-icon">asterisk</ly-icon>`
+								: nothing}
+						</label>
+				  `
 				: nothing}
 
 			<slot></slot>
