@@ -23,12 +23,17 @@ export class Field extends LitElement {
 
 	override async connectedCallback(): Promise<void> {
 		super.connectedCallback();
+	}
 
-		let input = this.querySelector('input');
-		if (input) {
-			input.name = this.name;
-			input.title = this.name;
-			input.type = this.type;
+	override firstUpdated() {
+		const slot = this.renderRoot?.querySelector('slot');
+		let inputs = slot?.assignedElements();
+		if (inputs) {
+			inputs.forEach((input) => {
+				input.setAttribute('name', this.name);
+				input.setAttribute('title', this.name);
+				input.setAttribute('type', this.type);
+			});
 		}
 	}
 
