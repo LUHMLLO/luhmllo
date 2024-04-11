@@ -1,3 +1,76 @@
+---
+interface SideNav {
+	name: string;
+	modules: SideNavModule[];
+}
+
+interface SideNavModule {
+	name: string;
+	isActive?: boolean;
+}
+
+const sidenav: SideNav[] = [
+	{
+		name: 'Main Modules',
+		modules: [
+			{
+				name: 'Customer Information',
+			},
+			{
+				name: 'Additional Information',
+			},
+			{
+				name: 'Internal Sales Notes',
+			},
+			{
+				name: 'Financial',
+			},
+		],
+	},
+	{
+		name: 'Additional Modules',
+		modules: [
+			{
+				name: 'Solar System',
+				isActive: true,
+			},
+			{
+				name: 'Project Adders',
+				isActive: true,
+			},
+			{
+				name: 'Battery System',
+				isActive: true,
+			},
+			{
+				name: 'Roofing',
+				isActive: false,
+			},
+			{
+				name: 'Electrical',
+				isActive: false,
+			},
+			{
+				name: 'Energy Efficiency',
+				isActive: false,
+			},
+			{
+				name: 'HVAC',
+				isActive: true,
+			},
+		],
+	},
+];
+---
+
+<script is:inline type='module'>
+	function isActive(name) {
+		if (name === document.location.pathname) {
+			return 'active';
+		}
+	}
+</script>
+
 <aside>
 	<ly-group>
 		<ly-row class='align-items-center g-sm place-between'>
@@ -12,45 +85,23 @@
 		</ly-row>
 	</ly-group>
 	<hr />
-	<ly-group>
-		<label>Main Modules</label>
-		<button>Customer Information</button>
-		<button>Additional Information</button>
-		<button>Internal Sale Notes</button>
-		<button>Financial</button>
-	</ly-group>
-	<hr />
-	<ly-group class='grow shrink'>
-		<label>Additional Modules</label>
-		<button>
-			<span>Solar System</span>
-			<ly-switch checked></ly-switch>
-		</button>
-		<button>
-			<span>Project Adders</span>
-			<ly-switch></ly-switch>
-		</button>
-		<button>
-			<span>Battery System</span>
-			<ly-switch checked></ly-switch>
-		</button>
-		<button>
-			<span>Roofing</span>
-			<ly-switch></ly-switch>
-		</button>
-		<button>
-			<span>Electrical</span>
-			<ly-switch></ly-switch>
-		</button>
-		<button>
-			<span>Energy Efficiency</span>
-			<ly-switch></ly-switch>
-		</button>
-		<button>
-			<span>HVAC</span>
-			<ly-switch checked></ly-switch>
-		</button>
-	</ly-group>
+	{
+		sidenav.map((group) => (
+			<>
+				<ly-group>
+					<label>{group.name}</label>
+					{group.modules.map((module: SideNavModule) => (
+						<button>
+							<span>{module.name}</span>
+							{Object.keys(module).includes('isActive') && (
+								<ly-switch checked={module?.isActive} />
+							)}
+						</button>
+					))}
+				</ly-group>
+			</>
+		))
+	}
 	<hr />
 	<ly-group>
 		<ly-col class='outln-tertiary outln-solid p-lg radius-3xs txt-center'>
