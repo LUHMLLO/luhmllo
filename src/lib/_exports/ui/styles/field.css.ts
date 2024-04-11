@@ -42,13 +42,30 @@ export default css`
 			outline-color: var(--clr-warning) !important;
 		}
 
+		:host(:is(ly-field))::part(label){
+			align-items: center;
+			display: flex;
+			flex-direction: row;
+			font-size: var(--scale-md);
+			gap: var(--scale-3xs);
+		}
+
+		:host(:is(ly-field))::part(required-icon){
+			color: var(--clr-error);
+			font-size: var(--scale-xs);
+			margin: auto 0;
+		}
+
 		:host(:is(ly-field))::part(caption) {
 			align-items: center;
 			color: var(--clr-subtext);
 			gap: var(--scale-3xs);
 		}
+
 		:host(:is(ly-field))::part(caption-text){
 			font-size: clamp(72%, 0.5vw, 88%);
+			font-weight: 500;
+			margin: auto 0;
 		}
 
 		:host(:is(ly-field)[status='debug'])::part(caption) {

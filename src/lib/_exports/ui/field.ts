@@ -15,6 +15,7 @@ export class Field extends LitElement {
 	@property( { type: String, reflect: true } ) label = '';
 	@property( { type: String, reflect: true } ) caption = '';
 	@property( { type: String, reflect: true } ) name = '';
+	@property( { type: Boolean, reflect: true } ) required = false;
 	@property( { type: Status, reflect: true } ) status = '';
 	@property( { type: String, reflect: true } ) type = 'text';
 
@@ -22,6 +23,9 @@ export class Field extends LitElement {
 
 	override async connectedCallback(): Promise<void> {
 		super.connectedCallback()
+		this.querySelector( 'input' )!.name = this.name
+		this.querySelector( 'input' )!.title = this.name
+		this.querySelector( 'input' )!.type = this.type
 	}
 
 	override async disconnectedCallback(): Promise<void> {
@@ -31,7 +35,11 @@ export class Field extends LitElement {
 	protected override render() {
 		return html`
 			${ this.label
-				? html`<label for=${ this.name }>${ this.label }</label>`
+				? html`
+					<label for=${ this.name } part="label">
+						${ this.label } 
+						${ this.required && html`<ly-icon part='required-icon'>asterisk</ly-icon>` }
+					</label>`
 				: nothing }
 
 			<slot></slot>
