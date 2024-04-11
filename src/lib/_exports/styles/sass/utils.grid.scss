@@ -4,17 +4,13 @@
 		--cols: 1;
 		--gap: 0rem;
 		--maxWidth: 1fr;
-		--minWidth: clamp(6rem, 16vmin, 24rem);
+		--minWidth: clamp(8rem, 16vmin, 24rem);
 		--repeat: auto-fill;
 
 		gap: var(--gap);
-		grid-template-columns: repeat(
-			var(--repeat),
-			minmax(
-				max(var(--minWidth), calc(100% / var(--cols) - var(--gap))),
-				var(--maxWidth)
-			)
-		);
+		grid-template-columns: repeat(var(--repeat),
+				minmax(max(var(--minWidth), calc(100% / var(--cols) - var(--gap))),
+					var(--maxWidth)));
 		height: max-content;
 
 		@for $i from 1 through 12 {
@@ -24,10 +20,8 @@
 		}
 
 		&[data-template='full-inner'] {
-			grid-template-columns: [ full-width-start] minmax(2rem, 1fr) [ inner-start] minmax(
-					0,
-					40rem
-				) [ inner-end] minmax(2rem, 1fr) [ full-width-end];
+			grid-template-columns: [ full-width-start] minmax(1rem, 1fr) [ inner-start] minmax(0,
+					40rem) [ inner-end] minmax(1rem, 1fr) [ full-width-end];
 		}
 	}
 }

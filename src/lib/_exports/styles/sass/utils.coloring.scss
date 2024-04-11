@@ -1,40 +1,34 @@
 @layer utils {
-	@each $v
-		in (
-			accent,
-			context,
-			background,
-			text,
-			subtext,
-			primary,
-			secondary,
-			tertiary,
-			error,
-			warning,
-			info,
-			debug
-		)
-	{
+
+	@each $v in (accent,
+		context,
+		background,
+		text,
+		subtext,
+		primary,
+		secondary,
+		tertiary,
+		debug,
+		error,
+		info,
+		success,
+		warning) {
 		.bg {
 			&-#{$v} {
 				background-color: var(--clr-#{$v});
 			}
 
 			&-#{$v}-stripes {
-				--mixed: color-mix(
-					in var(--prefers-colorSpace, srgb),
+				--mixed: color-mix(in var(--prefers-colorSpace, srgb),
 					var(--clr-#{$v}),
-					transparent 50%
-				);
+					transparent 50%);
 				--size: 0.5rem;
 
 				background-color: transparent;
-				background-image: linear-gradient(
-					-135deg,
-					transparent 50%,
-					var(--mixed) 60%,
-					transparent 0%
-				);
+				background-image: linear-gradient(-135deg,
+						transparent 50%,
+						var(--mixed) 60%,
+						transparent 0%);
 				background-size: var(--size) var(--size);
 			}
 		}

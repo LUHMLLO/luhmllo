@@ -276,11 +276,17 @@
 		display: inline-flex;
 		font-size: var(--scale-sm);
 		gap: var(--gap);
-		min-height: var(--scale-5xl);
 		height: max-content;
+		min-height: var(--scale-5xl);
+		outline-color: transparent;
+		outline-style: solid;
 		padding: 0 var(--scale-sm);
 		width: max-content;
 		transition: background-color var(--animDefaults);
+
+		&:focus {
+			outline-color: var(--clr-accent);
+		}
 
 		&:not(:focus):hover {
 			background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), white 3%);

@@ -16,15 +16,6 @@ const sidenav: SideNav[] = [
 			{
 				name: 'Customer Information',
 			},
-			{
-				name: 'Additional Information',
-			},
-			{
-				name: 'Internal Sales Notes',
-			},
-			{
-				name: 'Financial',
-			},
 		],
 	},
 	{
@@ -60,6 +51,20 @@ const sidenav: SideNav[] = [
 			},
 		],
 	},
+	{
+		name: 'Financial',
+		modules: [
+			{
+				name: 'Additional Information',
+			},
+			{
+				name: 'Internal Sales Notes',
+			},
+			{
+				name: 'Financial',
+			},
+		],
+	},
 ];
 ---
 
@@ -85,23 +90,25 @@ const sidenav: SideNav[] = [
 		</ly-row>
 	</ly-group>
 	<hr />
-	{
-		sidenav.map((group) => (
-			<>
-				<ly-group>
-					<label>{group.name}</label>
-					{group.modules.map((module: SideNavModule) => (
-						<button>
-							<span>{module.name}</span>
-							{Object.keys(module).includes('isActive') && (
-								<ly-switch checked={module?.isActive} />
-							)}
-						</button>
-					))}
-				</ly-group>
-			</>
-		))
-	}
+	<ly-slider direction='column' class='h-100 g-0'>
+		{
+			sidenav.map((group) => (
+				<>
+					<ly-group>
+						<label>{group.name}</label>
+						{group.modules.map((module: SideNavModule) => (
+							<button>
+								<span>{module.name}</span>
+								{Object.keys(module).includes('isActive') && (
+									<ly-switch checked={module?.isActive} />
+								)}
+							</button>
+						))}
+					</ly-group>
+				</>
+			))
+		}
+	</ly-slider>
 	<hr />
 	<ly-group>
 		<ly-col class='outln-tertiary outln-solid p-lg radius-3xs txt-center'>
@@ -119,10 +126,9 @@ const sidenav: SideNav[] = [
 		background-color: var(--clr-primary);
 		display: flex;
 		flex-direction: column;
-		gap: var(--scale-lg);
+		--gap: 0;
 		overflow-x: clip;
 		overflow-y: auto;
-		padding: var(--scale-lg);
 		width: 16rem;
 
 		& > hr {
@@ -131,9 +137,10 @@ const sidenav: SideNav[] = [
 			height: calc(var(--scale-5xs) * 0.1625);
 		}
 
-		& > ly-group {
+		& ly-group {
 			gap: var(--scale-sm);
 			flex-shrink: 0;
+			padding: var(--scale-md) var(--scale-lg);
 
 			& > label {
 				color: var(--clr-subtext);

@@ -7,7 +7,7 @@ export default css`
 			--cols: 1;
 			--gap: 0rem;
 			--maxWidth: 1fr;
-			--minWidth: clamp(6rem, 16vmin, 24rem);
+			--minWidth: clamp(8rem, 16vmin, 24rem);
 			--repeat: auto-fill;
 
 			/* base styles */

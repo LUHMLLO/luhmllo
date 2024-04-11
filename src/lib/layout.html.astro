@@ -3,9 +3,10 @@ import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
 	title: string;
+	scheme?: string;
 }
 
-const { title } = Astro.props;
+const { title, scheme } = Astro.props;
 
 const anim = {
 	old: {
@@ -29,7 +30,7 @@ const myFade = {
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang='en' ly-scheme={scheme}>
 	<head>
 		<meta charset='UTF-8' />
 		<meta name='description' content='Astro description' />

@@ -10,10 +10,11 @@
 	--clr-secondary: hsl(0, 0%, 9%);
 	--clr-tertiary: hsl(0, 0%, 10%);
 
-	--clr-error: hsl(359, 50%, 32%);
-	--clr-warning: hsl(48, 40%, 48%);
-	--clr-info: hsl(197, 40%, 48%);
 	--clr-debug: hsl(330, 32%, 56%);
+	--clr-error: hsl(359, 50%, 32%);
+	--clr-info: hsl(197, 40%, 48%);
+	--clr-success: hsl(132, 40%, 48%);
+	--clr-warning: hsl(48, 40%, 48%);
 }
 
 @mixin light {
@@ -28,10 +29,11 @@
 	--clr-secondary: hsl(144, 10%, 90%);
 	--clr-tertiary: hsl(120, 7%, 87%);
 
-	--clr-error: hsl(359, 50%, 32%);
-	--clr-warning: hsl(48, 40%, 48%);
-	--clr-info: hsl(197, 40%, 48%);
 	--clr-debug: hsl(330, 32%, 56%);
+	--clr-error: hsl(359, 50%, 32%);
+	--clr-info: hsl(197, 40%, 48%);
+	--clr-success: hsl(132, 40%, 48%);
+	--clr-warning: hsl(48, 40%, 48%);
 }
 
 @layer theming {
@@ -47,11 +49,11 @@
 		}
 	}
 
-	html[scheme='dark'] {
+	html[ly-scheme='dark'] {
 		@include dark;
 	}
 
-	html[scheme='light'] {
+	html[ly-scheme='light'] {
 		@include light;
 	}
 }

@@ -27,21 +27,29 @@ const fields = [
 		label: 'First Name (2nd)',
 		name: 'first_name_2',
 		type: 'text',
+		status: 'debug',
+		caption: 'this field must be hidden by default',
 	},
 	{
 		label: 'Last Name (2nd)',
 		name: 'last_name_2',
 		type: 'text',
+		status: 'debug',
+		caption: 'this field must be hidden by default',
 	},
 	{
 		label: 'Mobile Phone (2nd)',
 		name: 'customer_2_mobile',
 		type: 'tel',
+		status: 'debug',
+		caption: 'this field must be hidden by default',
 	},
 	{
 		label: 'Email (2nd)',
 		name: 'customer_2_email',
 		type: 'email',
+		status: 'debug',
+		caption: 'this field must be hidden by default',
 	},
 
 	{
@@ -68,6 +76,8 @@ const fields = [
 		label: 'Utiliy Company',
 		name: 'utility_company',
 		type: 'text',
+		status: 'info',
+		caption: 'this field is required',
 	},
 ];
 ---
@@ -81,12 +91,16 @@ const fields = [
 			<ly-grid cols='2' class='g-lg'>
 				{
 					fields.map((field) => (
-						<ly-field label={field.label} name={field.name} type={field.type}>
-							<input
-								name={field.label}
-								type={field.type as 'text'}
-								class='w-100'
-							/>
+						<ly-field
+							label={field.label}
+							name={field.name}
+							type={field.type}
+							caption={
+								field.caption ||
+								'caption can be visible all times, but it will render an icon and change color if a valid status is provided'
+							}
+							status={field.status}>
+							<input />
 						</ly-field>
 					))
 				}

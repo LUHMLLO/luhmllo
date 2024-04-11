@@ -1,4 +1,4 @@
-import { css } from 'lit';
+import { css } from 'lit'
 
 export default css`
 	@layer web-components {
@@ -8,7 +8,6 @@ export default css`
 
 			/* base styles */
 			display: flex;
-			flex-direction: row;
 			gap: var(--gap);
 			height: max-content;
 		}
@@ -21,13 +20,15 @@ export default css`
 		}
 
 		:host(:is(ly-slider)[direction='row']) {
+			flex-direction: row;
 			overflow-x: auto;
 			scroll-snap-type: x proximity;
 		}
 
 		:host(:is(ly-slider)[direction='column']) {
+			flex-direction: column;
 			overflow-y: auto;
 			scroll-snap-type: y proximity;
 		}
 	}
-`;
+`

@@ -23,17 +23,20 @@
   .outln-tertiary {
     outline-color: var(--clr-tertiary);
   }
+  .outln-debug {
+    outline-color: var(--clr-debug);
+  }
   .outln-error {
     outline-color: var(--clr-error);
-  }
-  .outln-warning {
-    outline-color: var(--clr-warning);
   }
   .outln-info {
     outline-color: var(--clr-info);
   }
-  .outln-debug {
-    outline-color: var(--clr-debug);
+  .outln-success {
+    outline-color: var(--clr-success);
+  }
+  .outln-warning {
+    outline-color: var(--clr-warning);
   }
   .outln-solid {
     outline-style: solid;
