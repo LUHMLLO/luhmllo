@@ -25,7 +25,7 @@ export default css`
 			width: 100dvw;
 		}
 
-		:host(:is(ly-layer)) * {
+		:host(:is(ly-layer)) ::slotted(*) {
 			visibility: visible;
 		}
 
@@ -36,6 +36,12 @@ export default css`
 		:host(:is(ly-layer[stacked='over'])) {
 			flex-direction: column;
 			z-index: 2;
+		}
+
+		:host(:is(ly-layer)[has-backdrop])  {
+			--bg: color-mix(in var(--prefers-colorSpace, srgb), var(--clr-background), transparent 50%);
+			backdrop-filter: blur(var(--scale-3xs));
+			visibility: visible;
 		}
 	}
 `

@@ -3,6 +3,7 @@ import Layout_HTML from 'src/lib/layout.html.astro';
 import Bottombar from './components/bottombar.astro';
 import Sidebar from './components/sidebar.astro';
 import Topbar from './components/topbar.astro';
+import Modal from './components/modal.validation.astro';
 ---
 
 <Layout_HTML title='Proposal Tool' scheme='dark'>
@@ -16,6 +17,9 @@ import Topbar from './components/topbar.astro';
 			<Bottombar />
 		</main>
 	</ly-app>
+	<ly-layer stacked='over'>
+		<Modal />
+	</ly-layer>
 </Layout_HTML>
 
 <style lang='css'>

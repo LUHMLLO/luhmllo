@@ -2,7 +2,7 @@
 	:root {
 		--prefers-colorSpace: srgb;
 		--prefers-iconScale: clamp(var(--scale-xs), 24pt, var(--scale-xl));
-		--prefers-shadow: 0 var(--scale-5xs) var(--scale-sm) hsla(0, 0%, 0%, 0.072);
+		--prefers-shadow: 0 var(--scale-5xs) var(--scale-sm) hsla(0, 0%, 0%, 0.125);
 		--prefers-spacing: clamp(min(100%, var(--scale-5xs)), 16vmin, var(--scale-5xl));
 	}
 }

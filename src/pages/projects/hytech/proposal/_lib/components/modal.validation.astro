@@ -1,14 +1,27 @@
-<button>
-	<ly-icon> info </ly-icon>
-	<pre>|</pre>
-	<span>Validation Message Warning</span>
-	<pre>|</pre>
-	<ly-icon> close </ly-icon>
-</button>
+---
+let ueueue: boolean = false;
+---
+
+{
+	ueueue && (
+		<button has-backdrop>
+			<ly-icon> info </ly-icon>
+			<pre>|</pre>
+			<span>Validation Message Warning</span>
+			<pre>|</pre>
+			<ly-icon> close </ly-icon>
+		</button>
+	)
+}
 
 <style lang='css'>
 	button {
 		--bg: var(--clr-warning);
+
+		box-shadow: var(--prefers-shadow);
+		inset: 0 0 auto;
+		margin: var(--scale-md) auto auto;
+		position: absolute;
 
 		& > pre {
 			color: color-mix(
