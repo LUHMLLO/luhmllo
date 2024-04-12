@@ -31,16 +31,16 @@ export default css`
 			overflow-y: auto;
 		}
 
-		:host(:is(ly-app[layout='grid'])) {
+		:host(:is(ly-app[layout='container'])) {
 			display: grid;
 			grid-template-columns:
-				[ full-start] minmax(1rem, 1fr)
-				[ inner-start] minmax(0, 40rem) [ inner-end]
-				minmax(1rem, 1fr) [ full-end];
+				[ expand-start] minmax(1rem, 1fr)
+				[ contain-start] minmax(0, 40rem) [ contain-end]
+				minmax(1rem, 1fr) [ expand-end];
 		}
 
-		:host(:is(ly-app[layout='grid'])) ::slotted(*) {
-			grid-column: inner;
+		:host(:is(ly-app[layout='container'])) ::slotted(*) {
+			grid-column: contain;
 		}
 
 		:host(:is(ly-app[layout='row'])) {

@@ -86,7 +86,9 @@ const sidenav: SideNav[] = [
 				</figure>
 				<span class='grow txt-xs'>Proposal Tool<br />by Gizmo</span>
 			</ly-row>
-			<ly-icon>reply</ly-icon>
+			<button style='--bg: var(--clr-secondary);'>
+				<ly-icon>prompt_suggestion</ly-icon>
+			</button>
 		</ly-row>
 	</ly-group>
 	<hr />
@@ -110,23 +112,25 @@ const sidenav: SideNav[] = [
 		}
 	</ly-slider>
 	<hr />
-	<ly-group>
-		<ly-col class='outln-tertiary outln-solid p-lg radius-3xs txt-center'>
-			<var class='txt-5xl txt-normal'>
+	<ly-group class='bg-secondary'>
+		<ly-col class='bg-tertiary px-sm py-3xs radius-3xs txt-center'>
+			<var class='txt-3xl txt-normal'>
 				<abbr title='USD'>$</abbr>
 				0.86
 			</var>
-			<small class='clr-subtext txt-600'>PPW Base Commission</small>
+			<small class='clr-context txt-600 txt-3xs'>PPW Base Commission</small>
 		</ly-col>
 	</ly-group>
 </aside>
 
 <style lang='css'>
 	aside {
+		--gap: 0;
+
 		background-color: var(--clr-primary);
 		display: flex;
 		flex-direction: column;
-		--gap: 0;
+		flex-shrink: 0;
 		overflow-x: clip;
 		overflow-y: auto;
 		width: 16rem;

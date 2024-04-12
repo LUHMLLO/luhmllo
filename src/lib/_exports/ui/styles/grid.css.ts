@@ -1,4 +1,4 @@
-import { css } from 'lit';
+import { css } from 'lit'
 
 export default css`
 	@layer web-components {
@@ -7,7 +7,7 @@ export default css`
 			--cols: 1;
 			--gap: 0rem;
 			--maxWidth: 1fr;
-			--minWidth: clamp(8rem, 16vmin, 24rem);
+			--minWidth: clamp(12rem, 16vmin, 24rem);
 			--repeat: auto-fill;
 
 			/* base styles */
@@ -66,5 +66,17 @@ export default css`
 		:host(:is(ly-grid[cols='12'])) {
 			--cols: 12;
 		}
+
+		:host(:is(ly-grid[template='container'])) {
+			display: grid;
+			grid-template-columns:
+				[ expand-start] minmax(1rem, 1fr)
+				[ contain-start] minmax(0, 40rem) [ contain-end]
+				minmax(1rem, 1fr) [ expand-end];
+		}
+
+		:host(:is(ly-grid[template='container'])) ::slotted(*) {
+			grid-column: contain;
+		}
 	}
-`;
+`
