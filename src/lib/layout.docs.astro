@@ -3,36 +3,9 @@ import HTML_Layout from 'src/lib/layout.html.astro';
 ---
 
 <HTML_Layout title='Lilys'>
-	<ly-layer stacked='under' class='visible'></ly-layer>
-	<ly-app layout='default' class='place-all-center'>
+	<ly-layer stacked='under'></ly-layer>
+	<ly-app layout='container'>
 		<slot />
 	</ly-app>
 	<ly-layer stacked='over'></ly-layer>
 </HTML_Layout>
-
-<style lang='css'>
-	ly-app {
-		--bg: transparent;
-	}
-
-	ly-layer {
-		--size: 0.5rem;
-		background-image: linear-gradient(
-			45deg,
-			var(--clr-subtext) 8%,
-			transparent 0
-		);
-		background-size: var(--size) var(--size);
-		animation: inspectBG 360ms ease-in-out infinite;
-		transition: opacity var(--animDefaults);
-	}
-
-	@keyframes inspectBG {
-		0% {
-			opacity: 0.5;
-		}
-		100% {
-			opacity: 0.75;
-		}
-	}
-</style>
