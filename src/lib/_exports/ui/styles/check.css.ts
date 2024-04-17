@@ -2,7 +2,7 @@ import { css } from 'lit'
 
 export default css`
 	@layer web-components {
-		:host(:is(ly-radio)) {
+		:host(:is(ly-check)) {
 			/* local vars */
 			--gap: var(--scale-5xs);
 
@@ -15,13 +15,17 @@ export default css`
 			overflow: clip;
 		}
 
-		:host(:is(ly-radio))::part(row) {
+		:host(:is(ly-check))::part(row) {
 			gap: inherit;
 		}
 
-		:host(:is(ly-radio))::part(label) {
+		:host(:is(ly-check))::part(label) {
 			display: inline-flex;
 			flex-shrink: 1;
+		}
+
+		:host(:is(ly-check)) > ly-icon {
+			cursor: pointer;
 		}
 	}
 `

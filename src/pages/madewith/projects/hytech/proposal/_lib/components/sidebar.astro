@@ -102,7 +102,7 @@ const sidenav: SideNav[] = [
 							<button>
 								<span>{module.name}</span>
 								{Object.keys(module).includes('isActive') && (
-									<ly-switch checked={module?.isActive} />
+									<ly-check variant='switch' checked={module?.isActive} />
 								)}
 							</button>
 						))}
@@ -157,7 +157,7 @@ const sidenav: SideNav[] = [
 				justify-content: space-between;
 				width: 100%;
 
-				&:has(ly-switch:not([checked])) {
+				&:has(ly-check:not([checked])) {
 					--clr: var(--clr-subtext);
 				}
 			}
