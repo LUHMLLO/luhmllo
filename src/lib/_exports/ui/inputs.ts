@@ -6,10 +6,6 @@ import { CheckVariant, SelectVariant } from './_sharedTypes.ts'
 import stylesCheck from './styles/check.css.ts'
 import stylesSelect from './styles/select.css.ts'
 
-/**
- * Todo: Allow user to specify if ly-check can be deselected or not
- */
-
 @customElement( 'ly-check' )
 export class Check extends LitElement {
 	@property( { type: Boolean, reflect: true } ) checked = false;
@@ -24,27 +20,25 @@ export class Check extends LitElement {
 	static override readonly styles = stylesCheck;
 
 	private toggleChecked() {
-		if ( !this.checked ) {
-			if ( this.group ) {
-				const checks = document.querySelectorAll(
-					`ly-check[group="${ this.group }"]`
+		let groupChecks
+
+		if ( this.group ) {
+			groupChecks = document.querySelectorAll(
+				`ly-check[group="${ this.group }"]`
+			)
+
+			for ( const check of [ ...groupChecks ] ) {
+				( check as Check ).checked = false;
+				( check as Check ).dispatchEvent(
+					new CustomEvent( 'change', {
+						bubbles: true,
+						detail: { checked: false },
+					} )
 				)
-
-				for ( const check of [ ...checks ] ) {
-					( check as Check ).checked = false;
-					( check as Check ).dispatchEvent(
-						new CustomEvent( 'change', {
-							bubbles: true,
-							detail: { checked: false },
-						} )
-					)
-				}
 			}
-
-			this.checked = true
-		} else {
-			this.checked = !this.checked
 		}
+
+		this.checked = !this.checked
 
 		this.dispatchEvent(
 			new CustomEvent( 'change', {
