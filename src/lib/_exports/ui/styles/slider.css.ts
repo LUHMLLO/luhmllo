@@ -12,13 +12,13 @@ export default css`
 			display: grid;
 			gap: var(--gap);
 			height: max-content;
-			scroll-snap-padding-block: var(--gap);
+			/*scroll-snap-padding-block: var(--gap);*/
 		}
 
 		:host(:is(ly-slider)) ::slotted(*) {
 			min-height: max-content;
 			min-width: max-content;
-			scroll-snap-align: start;
+			/*scroll-snap-align: start;*/
 		}
 
 		:host(:is(ly-slider)[axis='row']) {
@@ -26,7 +26,7 @@ export default css`
 			grid-auto-columns: max-content;
 			overflow-x: auto;
 			overflow-y: visible;
-			scroll-snap-type: x proximity;
+			/*scroll-snap-type: x proximity;*/
 		}
 
 		:host(:is(ly-slider)[axis='col']) {
@@ -34,11 +34,11 @@ export default css`
 			grid-auto-rows: max-content;
 			overflow-x: visible;
 			overflow-y: auto;
-			scroll-snap-type: y proximity;
+			/*scroll-snap-type: y proximity;*/
 		}
 
 		:host(:is(ly-slider)[contain-children]) {
-			padding-inline: max(((100vw - 40rem) / 2), 1rem) !important;
+			padding-inline: max(((100vw - 64rem) / 2), 1rem) !important;
 		}
 	}
 `

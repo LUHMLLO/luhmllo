@@ -66,7 +66,7 @@ const u=e=>(t,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(e,t)}
 			grid-auto-rows: max-content;
 			grid-template-columns:
 				[ expand-start] minmax(1rem, 1fr)
-				[ contain-start] minmax(0, 40rem) [ contain-end]
+				[ contain-start] minmax(0, 64rem) [ contain-end]
 				minmax(1rem, 1fr) [ expand-end];
 			overflow-x: clip;
 			overflow-y: auto;
@@ -445,7 +445,7 @@ const u=e=>(t,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(e,t)}
 			grid-auto-rows: max-content;
 			grid-template-columns:
 				[ expand-start] minmax(1rem, 1fr)
-				[ contain-start] minmax(0, 40rem) [ contain-end]
+				[ contain-start] minmax(0, 64rem) [ contain-end]
 				minmax(1rem, 1fr) [ expand-end];
 			overflow-x: clip;
 			overflow-y: auto;
@@ -524,13 +524,13 @@ const u=e=>(t,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(e,t)}
 			display: grid;
 			gap: var(--gap);
 			height: max-content;
-			scroll-snap-padding-block: var(--gap);
+			/*scroll-snap-padding-block: var(--gap);*/
 		}
 
 		:host(:is(ly-slider)) ::slotted(*) {
 			min-height: max-content;
 			min-width: max-content;
-			scroll-snap-align: start;
+			/*scroll-snap-align: start;*/
 		}
 
 		:host(:is(ly-slider)[axis='row']) {
@@ -538,7 +538,7 @@ const u=e=>(t,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(e,t)}
 			grid-auto-columns: max-content;
 			overflow-x: auto;
 			overflow-y: visible;
-			scroll-snap-type: x proximity;
+			/*scroll-snap-type: x proximity;*/
 		}
 
 		:host(:is(ly-slider)[axis='col']) {
@@ -546,11 +546,11 @@ const u=e=>(t,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(e,t)}
 			grid-auto-rows: max-content;
 			overflow-x: visible;
 			overflow-y: auto;
-			scroll-snap-type: y proximity;
+			/*scroll-snap-type: y proximity;*/
 		}
 
 		:host(:is(ly-slider)[contain-children]) {
-			padding-inline: max(((100vw - 40rem) / 2), 1rem) !important;
+			padding-inline: max(((100vw - 64rem) / 2), 1rem) !important;
 		}
 	}
 `;var Mt=Object.defineProperty,zt=Object.getOwnPropertyDescriptor,ze=(e,t,s,r)=>{for(var i,o=r>1?void 0:r?zt(t,s):t,l=e.length-1;l>=0;l--)(i=e[l])&&(o=(r?i(t,s,o):i(o))||o);return r&&o&&Mt(t,s,o),o};let Q=class extends p{constructor(){super(...arguments),this.axis="row"}async connectedCallback(){super.connectedCallback()}async disconnectedCallback(){super.disconnectedCallback()}render(){return a` <slot></slot> `}};Q.styles=Nt,ze([f({type:Me,reflect:!0})],Q.prototype,"axis",2),Q=ze([u("ly-slider")],Q);export{G as App,ie as Card,R as Checkbox,oe as Col,$ as Field,le as Grid,ae as Group,J as Icon,Z as Layer,ce as List,ue as ListCell,pe as ListFooter,he as ListHeader,de as ListRow,S as Radio,ne as Row,K as Select,Q as Slider,M as Switch};
