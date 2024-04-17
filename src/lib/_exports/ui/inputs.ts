@@ -1,5 +1,8 @@
 import { LitElement, html, nothing } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+
+import { SelectVariant } from './_sharedTypes.ts'
+
 import stylesCheckbox from './styles/checkbox.css.ts'
 import stylesRadio from './styles/radio.css.ts'
 import stylesSelect from './styles/select.css.ts'
@@ -49,14 +52,14 @@ export class Checkbox extends LitElement {
 
 	protected override render() {
 		return html`
-			<ly-row part="row">
+			<ly-flex axis="row" part="row">
 				<ly-icon ?solid="${ this.checked }">
 					${ this.checked ? 'check_box' : 'check_box_outline_blank' }
 				</ly-icon>
 				${ this.label
 				? html`<label part="label">${ this.label }</label>`
 				: nothing }
-			</ly-row>
+			</ly-flex>
 			${ this.checked ? html`<slot></slot>` : nothing }
 		`
 	}
@@ -119,14 +122,14 @@ export class Radio extends LitElement {
 
 	protected override render() {
 		return html`
-			<ly-row part="row">
+			<ly-flex axis="row" part="row">
 				<ly-icon ?solid="${ this.checked }">
 					${ this.checked ? 'check_circle' : 'radio_button_unchecked' }
 				</ly-icon>
 				${ this.label
 				? html`<label part="label">${ this.label }</label>`
 				: nothing }
-			</ly-row>
+			</ly-flex>
 			${ this.checked ? html`<slot></slot>` : nothing }
 		`
 	}
@@ -175,24 +178,11 @@ export class Switch extends LitElement {
 	}
 }
 
-enum SelectMode {
-	'picker',
-	'combobox',
-}
-
 @customElement( 'ly-select' )
 export class Select extends LitElement {
-	@property( { type: SelectMode, reflect: true } ) mode = 'picker';
+	@property( { type: SelectVariant, reflect: true } ) mode = 'picker';
 
 	static override readonly styles = stylesSelect;
-
-	override async connectedCallback(): Promise<void> {
-		super.connectedCallback()
-	}
-
-	override async disconnectedCallback(): Promise<void> {
-		super.disconnectedCallback()
-	}
 
 	protected override render() {
 		return html` <slot></slot> `

@@ -1,25 +1,25 @@
 <nav>
-	<ly-row class='place-start'>
+	<ly-flex axis='row' class='place-start'>
 		<small class='txt-sm'>
 			<span class='block clr-subtext'>Proposal For</span>
 			Joselito Perla Negra
 		</small>
-	</ly-row>
+	</ly-flex>
 
-	<ly-row class='place-end'>
-		<ly-row class='g-sm'>
-			<ly-col class='txt-right'>
+	<ly-flex axis='row' class='place-end'>
+		<ly-flex axis='row' class='g-sm'>
+			<ly-flex axis='col' class='txt-right'>
 				<span>username</span>
 				<small class='clr-context'>email@address.com</small>
-			</ly-col>
+			</ly-flex>
 			<figure class='noshrink radius-5xl h-5xl w-5xl'>
 				<img
 					src='https://images.unsplash.com/photo-1704895598909-dd19e72fc3ae?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 					alt='avatar'
 				/>
 			</figure>
-		</ly-row>
-	</ly-row>
+		</ly-flex>
+	</ly-flex>
 
 	<style>
 		nav {
@@ -29,7 +29,7 @@
 			padding-inline: var(--scale-lg);
 			justify-content: space-between;
 
-			& > ly-row {
+			& > ly-flex {
 				align-items: center;
 				flex: 1 1 100%;
 			}

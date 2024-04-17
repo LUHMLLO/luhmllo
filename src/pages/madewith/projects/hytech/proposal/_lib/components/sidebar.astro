@@ -78,18 +78,18 @@ const sidenav: SideNav[] = [
 
 <aside>
 	<ly-group>
-		<ly-row class='align-items-center g-sm place-between'>
-			<ly-row class='g-5xs noshrink place-all-center w-fit'>
+		<ly-flex axis='row' class='align-items-center g-sm place-between'>
+			<ly-flex axis='row' class='g-5xs noshrink place-all-center w-fit'>
 				<figure class='flex place-all-center w-5xl'>
 					<object data='/assets/media/hytech/favicon.svg' class='m-auto'
 					></object>
 				</figure>
 				<span class='grow txt-xs'>Proposal Tool<br />by Gizmo</span>
-			</ly-row>
+			</ly-flex>
 			<button style='--bg: var(--clr-secondary);'>
 				<ly-icon>prompt_suggestion</ly-icon>
 			</button>
-		</ly-row>
+		</ly-flex>
 	</ly-group>
 	<hr />
 	<ly-slider axis='col' class='h-100 g-0'>
@@ -113,13 +113,13 @@ const sidenav: SideNav[] = [
 	</ly-slider>
 	<hr />
 	<ly-group class='bg-secondary' style='padding-block: var(--scale-3xs);'>
-		<ly-col class='bg-tertiary px-sm py-3xs radius-3xs txt-center'>
+		<ly-flex axis='col' class='bg-tertiary px-sm py-3xs radius-3xs txt-center'>
 			<var class='txt-3xl txt-normal'>
 				<abbr title='USD'>$</abbr>
 				0.86
 			</var>
 			<small class='clr-context txt-600 txt-3xs'>PPW Base Commission</small>
-		</ly-col>
+		</ly-flex>
 	</ly-group>
 </aside>
 

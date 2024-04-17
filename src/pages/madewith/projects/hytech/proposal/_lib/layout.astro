@@ -11,9 +11,9 @@ import Modal from './components/modal.validation.astro';
 		<Sidebar />
 		<main class='h-100 grow shrink'>
 			<Topbar />
-			<ly-col class='h-100 grow shrink'>
+			<ly-flex axis='col' class='h-100 grow shrink'>
 				<slot />
-			</ly-col>
+			</ly-flex>
 			<Bottombar />
 		</main>
 	</ly-app>
@@ -31,7 +31,7 @@ import Modal from './components/modal.validation.astro';
 	ly-app {
 		& > main {
 			--gap: 0;
-			& > ly-col {
+			& > ly-flex {
 				overflow-x: clip;
 				overflow-y: auto;
 				padding: var(--scale-2xl);

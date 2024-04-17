@@ -136,7 +136,7 @@ const iconNames = [
 		<section>
 			<h6>Col</h6>
 			<article class='bg-debug-stripes'>
-				<ly-col class='g-sm w-100'>
+				<ly-flex axis='col' class='g-sm w-100'>
 					{
 						[...Array(3).keys()].map((i) => (
 							<span class='bg-debug p-5xl place-all-center radius-3xs w-100'>
@@ -144,7 +144,7 @@ const iconNames = [
 							</span>
 						))
 					}
-				</ly-col>
+				</ly-flex>
 			</article>
 		</section>
 
@@ -166,7 +166,7 @@ const iconNames = [
 		<section>
 			<h6>Row</h6>
 			<article class='bg-debug-stripes'>
-				<ly-row class='g-sm w-100'>
+				<ly-flex axis='row' class='g-sm w-100'>
 					{
 						[...Array(3).keys()].map((i) => (
 							<span class='bg-debug p-5xl place-all-center radius-3xs w-100'>
@@ -174,7 +174,7 @@ const iconNames = [
 							</span>
 						))
 					}
-				</ly-row>
+				</ly-flex>
 			</article>
 		</section>
 
