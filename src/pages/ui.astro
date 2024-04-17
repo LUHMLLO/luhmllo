@@ -1,5 +1,5 @@
 ---
-import Layout from 'src/lib/layout.app.astro';
+import Layout from 'src/lib/layout.docs.astro';
 
 const iconNames = [
 	'stadia_controller',
@@ -93,7 +93,7 @@ const iconNames = [
 ];
 ---
 
-<Layout layout='default'>
+<Layout>
 	<main>
 		<section>
 			<h6>Icon</h6>
@@ -203,7 +203,27 @@ const iconNames = [
 	</main>
 </Layout>
 
-<style lang='css'>
+<style lang='css' is:global>
+	ly-layer {
+		--size: 0.5rem;
+		background-image: linear-gradient(
+			45deg,
+			var(--clr-subtext) 8%,
+			transparent 0
+		);
+		background-size: var(--size) var(--size);
+		animation: inspectBG 360ms ease-in-out infinite;
+		transition: opacity var(--animDefaults);
+	}
+
+	@keyframes inspectBG {
+		0% {
+			opacity: 0.5;
+		}
+		100% {
+			opacity: 0.75;
+		}
+	}
 	main {
 		--gap: var(--scale-5xl);
 		grid-auto-rows: 1fr;

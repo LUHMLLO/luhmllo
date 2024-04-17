@@ -1,22 +1,23 @@
-import { LitElement, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
-import styles from './styles/slider.css.ts';
+import { LitElement, html } from 'lit'
+import { customElement, property } from 'lit/decorators.js'
+import { Axis } from './_sharedTypes.ts'
+import styles from './styles/slider.css.ts'
 
-@customElement('ly-slider')
+@customElement( 'ly-slider' )
 export class Slider extends LitElement {
-	@property({ type: String, reflect: true }) direction = 'row';
+	@property( { type: Axis, reflect: true } ) axis = 'row';
 
 	static override readonly styles = styles;
 
 	override async connectedCallback(): Promise<void> {
-		super.connectedCallback();
+		super.connectedCallback()
 	}
 
 	override async disconnectedCallback(): Promise<void> {
-		super.disconnectedCallback();
+		super.disconnectedCallback()
 	}
 
 	protected override render() {
-		return html` <slot></slot> `;
+		return html` <slot></slot> `
 	}
 }

@@ -1,11 +1,25 @@
 ---
 import HTML_Layout from 'src/lib/layout.html.astro';
+
+interface Props {
+	className?: string;
+}
+
+const { className } = Astro.props;
 ---
 
 <HTML_Layout title='Lilys'>
 	<ly-layer stacked='under'></ly-layer>
-	<ly-app layout='container'>
+	<ly-app layout='container' class={className}>
 		<slot />
 	</ly-app>
 	<ly-layer stacked='over'></ly-layer>
 </HTML_Layout>
+
+<style>
+	@layer props {
+		:root {
+			--baseFontFamily: 'General Sans', sans-serif;
+		}
+	}
+</style>

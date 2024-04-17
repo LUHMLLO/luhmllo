@@ -209,8 +209,12 @@
 	}
 
 	:where(footer,
-		header,
-		label,
+		header) {
+		display: flex;
+		flex-direction: column;
+	}
+
+	:where(label,
 		nav) {
 		display: flex;
 		flex-direction: row;
@@ -226,14 +230,6 @@
 			height: calc(var(--scale-5xl) * 0.88);
 			padding: 0 var(--scale-sm);
 		}
-	}
-
-	:where(header) {
-		min-height: var(--scale-5xl);
-	}
-
-	:where(footer) {
-		min-height: calc(var(--scale-5xl) * 1.56);
 	}
 
 	:where(aside,

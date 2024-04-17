@@ -46,6 +46,10 @@ export default css`
 			grid-column: contain;
 		}
 
+		:host(:is(ly-app[layout='container'])) ::slotted([ignore-container]) {
+			grid-column: expand;
+		}
+
 		:host(:is(ly-app[layout='row'])) {
 			flex-direction: row;
 		}

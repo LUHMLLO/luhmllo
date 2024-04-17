@@ -67,15 +67,18 @@ export default css`
 			--cols: 12;
 		}
 
-		:host(:is(ly-grid[template='container'])) {
+		:host(:is(ly-grid[cols='container'])) {
 			display: grid;
+			grid-auto-rows: max-content;
 			grid-template-columns:
 				[ expand-start] minmax(1rem, 1fr)
 				[ contain-start] minmax(0, 40rem) [ contain-end]
 				minmax(1rem, 1fr) [ expand-end];
+			overflow-x: clip;
+			overflow-y: auto;
 		}
 
-		:host(:is(ly-grid[template='container'])) ::slotted(*) {
+		:host(:is(ly-grid[cols='container'])) ::slotted(*) {
 			grid-column: contain;
 		}
 	}

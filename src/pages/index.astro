@@ -2,44 +2,44 @@
 import Layout from 'src/lib/layout.docs.astro';
 ---
 
-<Layout>
-	<section id='docs-start'>
-		<h1>Lily's</h1>
-		<p>Build UIs Simply. Anywhere.</p>
-		<a
-			href='#docs-html'
-			class='clr-text flex-col g-sm ps-absolute bottom mb-5xl'>
-			<span> Explore modern UI solutions available to you </span>
-			<ly-icon> arrow_downward </ly-icon>
-		</a>
-	</section>
+<Layout className=''>
+	<header class='g-sm py-5xl'>
+		<span>
+			<h1>Lily's</h1>
+			<p>
+				Explore modern UI solutions, available within lily's collection of web
+				components &amp; css framework, to help you build simply beautiful AA
+				user experiences.
+			</p>
+		</span>
+		<a href='#'>Github</a>
+	</header>
 
-	<section id='docs-html' style='grid-column: expand;'>
-		<nav>
-			<p>HTML Native Elements</p>
-		</nav>
-		<ly-slider>
-			{
-				[...Array(24).keys()].map(() => (
-					<div>
-						<figure>
-							<img
-								src='https://cdn-assets-us.frontify.com/s3/frontify-enterprise-files-us/eyJwYXRoIjoic3VucnVuXC9maWxlXC9FREtRWEtwTDR4ZHhING5IWkVpMi5wbmcifQ:sunrun:LcRDUd8hMC278VjHToWlOhWl2TAM-_2Ilz8ofej_QDk?width=640&format=webp'
-								alt='element-preview'
-							/>
-						</figure>
-						<h3>Element Name</h3>
-					</div>
-				))
-			}
-		</ly-slider>
-	</section>
+	<figure>
+		<img
+			src='https://cdn.dribbble.com/userupload/12190560/file/original-d6d2027a27aa630f756ce2888a6e32f5.jpg'
+			alt='banner'
+			style='aspect-ratio: 20/10;'
+		/>
+	</figure>
 
-	<section id='docs-ui'>
-		<h2>Custom UI Elements</h2>
-	</section>
-
-	<section id='docs-css'>
-		<h2>CSS Framework & Tools</h2>
-	</section>
+	<ly-slider class='g-sm py-5xl' ignore-container contain-children>
+		{
+			[...Array(10).keys()].map((i) => (
+				<article
+					class='bg-primary grid g-sm p-5xl radius-3xs'
+					style='width: 16rem;'>
+					<header>
+						<h6>Heading #{i}</h6>
+						<small class='clr-subtext'>sub-heading</small>
+					</header>
+					<p>
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore
+						molestiae quo placeat eius facilis non nihil ipsa tempora ipsam! Ad
+						fuga aliquid iste magni, vero fugit aliquam at consequatur nam.
+					</p>
+				</article>
+			))
+		}
+	</ly-slider>
 </Layout>
