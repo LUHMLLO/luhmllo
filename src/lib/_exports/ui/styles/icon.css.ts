@@ -8,7 +8,7 @@ export default css`
 			display: grid;
 			flex-grow: 0;
 			flex-shrink: 0;
-			font-family: 'Material Symbols Outlined', 'Material Symbols Rounded', 'Material Symbols Sharp', sans-serif;
+			font-family: var(--prefers-iconFontFamily);
 			font-feature-settings: 'liga';
 			font-size: var(--prefers-iconScale);
 			font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 400, 'opsz' 48;

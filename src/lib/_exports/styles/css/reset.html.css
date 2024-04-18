@@ -17,6 +17,8 @@
 		font-stretch: normal;
 		font-weight: var(--baseFontWeight);
 
+		hanging-punctuation: first last;
+
 		letter-spacing: 0.0125rem;
 
 		line-height: var(--baseLineHeight);
@@ -35,8 +37,9 @@
 	}
 
 	:where(h1, h2, h3, h4, h5, h6) {
-		display: flex;
+		display: block;
 		font-weight: 500;
+		text-wrap: balance;
 
 		&:is(h1) {
 			font-size: var(--scale-5xl);
@@ -61,11 +64,6 @@
 		&:is(h6) {
 			font-size: var(--scale-nm);
 		}
-	}
-
-	:where(p) {
-		display: flex;
-		font-size: var(--scale-md);
 	}
 
 	:where(a) {
@@ -102,6 +100,24 @@
 		}
 	}
 
+	:where(p) {
+		display: block;
+		font-size: var(--scale-md);
+		text-wrap: pretty;
+		max-width: 72ch;
+	}
+
+	:where(ol, ul) {
+		list-style-type: none;
+	}
+
+	:where(li) {
+		display: block;
+		font-size: var(--scale-md);
+		text-wrap: pretty;
+		max-width: 72ch;
+	}
+
 	:where(caption,
 		figcaption,
 		label,
@@ -133,6 +149,7 @@
 		iframe,
 		img,
 		picture,
+		svg,
 		video) {
 		-webkit-user-select: none;
 		user-select: none;
@@ -188,6 +205,7 @@
 
 		> img,
 		> object,
+		> picture,
 		> svg {
 			height: 100%;
 			object-fit: cover;
