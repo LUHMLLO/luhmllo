@@ -433,7 +433,9 @@ const g=t=>(e,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(t,e)}
 			gap: var(--gap);
 			isolation: isolate;
 			overflow: auto;
-			outline: solid 0.125rem var(--bg) !important;
+			outline: revert !important;
+			outline-color: var(--bg) !important;
+			outline-style: solid !important;
 		}
 
 		:host(:is(ly-list-header, ly-list-row, ly-list-footer)) {
@@ -449,7 +451,11 @@ const g=t=>(e,s)=>{void 0!==s?s.addInitializer((()=>{customElements.define(t,e)}
 
 		:host(:is(ly-list-cell)) {
 			/* base styles */
-			background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), black 50%);
+			background-color: color-mix(
+				in var(--prefers-colorSpace, srgb),
+				var(--bg),
+				black 50%
+			);
 			display: flex;
 			flex-direction: column;
 			overflow: clip;
