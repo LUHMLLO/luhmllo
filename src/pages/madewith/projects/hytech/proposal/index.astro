@@ -87,37 +87,12 @@ const fields = [
 ];
 ---
 
-<script is:inline>
-	async function testForm() {
-		console.clear();
-
-		const form = document.querySelector('form');
-		console.log('form', form);
-
-		const data = new FormData(form);
-		console.log('data', data);
-
-		const ul_Results = document.querySelector('#testResults');
-		ul_Results.innerHTML = '';
-
-		data.entries().forEach((entry) => {
-			let text = `${Object.values(entry)[0]} : ${Object.values(entry)[1]}`;
-			console.log(text);
-
-			let li = document.createElement('li');
-			li.innerText = text;
-
-			ul_Results.appendChild(li);
-		});
-	}
-</script>
-
 <Layout>
-	<form>
-		<section class='g-lg'>
-			<header>
-				<h6 class='clr-subtext'>Main Content</h6>
-			</header>
+	<section class='g-lg'>
+		<header>
+			<h6 class='clr-subtext'>Main Content</h6>
+		</header>
+		<form class='contents'>
 			<ly-grid cols='2' class='g-lg'>
 				{
 					fields.map((field) => (
@@ -136,16 +111,6 @@ const fields = [
 					))
 				}
 			</ly-grid>
-		</section>
-	</form>
-
-	<br />
-
-	<section>
-		<ly-flex axis='col' class='outln-dashed outln-subtext p-5xl g-xl'>
-			<h6>test submit</h6>
-			<button onclick='testForm()'>submit</button>
-			<ul id='testResults' class='outln-dashed outln-subtext p-5xl g-xl'></ul>
-		</ly-flex>
+		</form>
 	</section>
 </Layout>

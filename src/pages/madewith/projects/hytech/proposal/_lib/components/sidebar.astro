@@ -68,21 +68,42 @@ const sidenav: SideNav[] = [
 ];
 ---
 
-<script is:inline>
-	function isActive(name) {
-		if (name === document.location.pathname) {
-			return 'active';
+<script>
+	function findButtons(): NodeListOf<Element> | undefined {
+		const sidebar = document.querySelector('#sidebar');
+		const buttons = sidebar?.querySelectorAll("button[type='button']");
+
+		return buttons;
+	}
+
+	function isActive(button: Element) {
+		const current = document.location.pathname.toLocaleLowerCase().trim();
+		const name = button
+			.querySelector('span')
+			?.innerText.toLocaleLowerCase()
+			.trim();
+
+		if (name?.includes(current)) {
+			button.classList.add('bg-accent');
+		} else {
+			if (button.classList.contains('bg-accent')) {
+				button.classList.remove('bg-accent');
+			}
 		}
 	}
+
+	onload = () => {
+		findButtons()?.forEach((button) => isActive(button));
+	};
 </script>
 
-<aside>
+<aside id='sidebar'>
 	<ly-group>
 		<ly-flex axis='row' class='align-items-center g-sm place-between'>
 			<ly-flex axis='row' class='g-5xs noshrink place-all-center w-fit'>
 				<figure class='flex place-all-center w-5xl'>
-					<object data='/assets/media/hytech/favicon.svg' class='m-auto'
-					></object>
+					<object data='/assets/media/hytech/favicon.svg' class='m-auto'>
+					</object>
 				</figure>
 				<span class='grow txt-xs'>Proposal Tool<br />by Gizmo</span>
 			</ly-flex>
@@ -99,7 +120,7 @@ const sidenav: SideNav[] = [
 					<ly-group>
 						<label>{group.name}</label>
 						{group.modules.map((module: SideNavModule) => (
-							<button>
+							<button type='button'>
 								<span>{module.name}</span>
 								{Object.keys(module).includes('isActive') && (
 									<ly-check variant='switch' checked={module?.isActive} />
