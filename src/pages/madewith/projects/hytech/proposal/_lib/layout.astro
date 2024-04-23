@@ -11,9 +11,9 @@ import Modal from './components/modal.validation.astro';
 		<Sidebar />
 		<main class='h-100 grow shrink'>
 			<Topbar />
-			<ly-flex axis='col' class='h-100 grow shrink'>
+			<ly-grid cols='container' class='h-100 grow shrink'>
 				<slot />
-			</ly-flex>
+			</ly-grid>
 			<Bottombar />
 		</main>
 	</ly-app>
