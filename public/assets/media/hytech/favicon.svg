@@ -20,31 +20,31 @@
     </g>
     <style>
         svg:root{
-            --clr-for-dark: #fff;
-            --clr-for-light: #000;
+            --if-dark: #fff;
+            --if-light: #000;
         }
 
         @media (prefers-color-scheme: dark) {
             path {
-                fill: var(--clr-for-dark);
+                fill: var(--if-dark);
             }
         }
 
         html[scheme=dark] {
             path {
-                fill: var(--clr-for-dark);
+                fill: var(--if-dark);
             }
         }
 
         @media (prefers-color-scheme: light) {
             path {
-                fill: var(--clr-for-light);
+                fill: var(--if-light);
             }
         }
 
         html[scheme=light] {
             path {
-                fill: var(--clr-for-light);
+                fill: var(--if-light);
             }
         }
     </style>
