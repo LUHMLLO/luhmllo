@@ -34,10 +34,10 @@ export default css`
 		:host(:is(ly-app[layout='container'])) {
 			display: grid;
 			grid-auto-rows: max-content;
-			grid-template-columns:
-				[ expand-start] minmax(1rem, 1fr)
-				[ contain-start] minmax(0, 64rem) [ contain-end]
-				minmax(1rem, 1fr) [ expand-end];
+			grid-template-columns: [expand-start] minmax(1.5rem, 1fr) [contain-start] minmax(
+					0px,
+					88rem
+				) [contain-end] minmax(1.5rem, 1fr) [expand-end];
 			overflow-x: clip;
 			overflow-y: auto;
 		}
