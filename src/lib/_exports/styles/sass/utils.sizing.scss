@@ -44,6 +44,12 @@
                             #{$variant}-#{$property}: #{$i + 'dvw'};
                         }
                     }
+
+                    @for $i from 0 through 100 {
+                        &-#{$i}\[ch\] {
+                            #{$variant}-#{$property}: #{$i + 'ch'};
+                        }
+                    }
                 }
             }
 
@@ -88,6 +94,12 @@
                     @for $i from 0 through 100 {
                         &-#{$i}\[vw\] {
                             #{$property}: #{$i + 'dvw'};
+                        }
+                    }
+
+                    @for $i from 0 through 100 {
+                        &-#{$i}\[ch\] {
+                            #{$property}: #{$i + 'ch'};
                         }
                     }
                 }
