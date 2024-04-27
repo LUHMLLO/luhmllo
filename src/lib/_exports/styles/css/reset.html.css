@@ -70,9 +70,10 @@
 		/* local vars */
 		--bg: transparent;
 		--clr: var(--clr-accent);
-		--gap: var(--scale-sm) align-items: center;
+		--gap: var(--scale-sm);
 
 		/* base styles */
+		align-items: center;
 		background-color: var(--bg);
 		color: var(--clr);
 		display: inline-flex;

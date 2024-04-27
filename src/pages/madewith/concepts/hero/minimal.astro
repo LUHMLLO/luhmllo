@@ -1,0 +1,65 @@
+---
+import Layout_HTML from 'src/lib/layout.html.astro';
+
+const overrides = `
+	<style>
+		:root {
+			--clr-accent: hsl(84, 100%, 64%);
+			--clr-context: hsl(83, 46%, 22%);
+		}
+	</style>
+`;
+
+const logos: string[] = [
+	'https://cdn.freebiesupply.com/logos/thumbs/2x/mcdonalds-black-logo.png',
+	'https://cdn.freebiesupply.com/images/large/2x/starbucks-logo-black-and-white.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/general-electric-black-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/nfl-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/mercedes-benz-6-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/hogwarts-logo-png-transparent.png',
+];
+---
+
+<Layout_HTML title='Lilys - CONCEPTS : Hero #1' scheme='light' {overrides}>
+	<ly-layer stacked='under'> </ly-layer>
+	<ly-app layout='container'>
+		<nav
+			class='bg-primary clr-text place-between p-xl ps-sticky top z-2'
+			ignore-container>
+			<a href='#' class='clr-inherit'>
+				<ly-icon> blur_on </ly-icon>
+			</a>
+			<nav class='g-sm'>
+				<a href='#' class='clr-inherit'>Process</a>
+				<a href='#' class='clr-inherit'>Projects</a>
+				<a href='#' class='clr-inherit'>FAQ</a>
+				<a
+					href='#'
+					class='clr-inherit h-2xl outln-solid place-center[items] px-sm radius-3xs'
+					>Packages</a
+				>
+			</nav>
+		</nav>
+		<header
+			class='bg-primary g-xl place-center[all] px-xl txt-center [min]h-100[vh]'
+			ignore-container>
+			<h1>We craft minimum viable SaaS products</h1>
+			<p>
+				Helping founders bring their product to life, attract early users, and
+				validate their idea.
+			</p>
+			<button class='bg-accent clr-context'> See packages </button>
+
+			<ly-slider>
+				{
+					logos.map((i) => (
+						<figure class='aspect-[21/9] radius-3xs noshrink w-25[vw]'>
+							<img src={i} alt='logo' class='fit-contain' />
+						</figure>
+					))
+				}
+			</ly-slider>
+		</header>
+	</ly-app>
+	<ly-layer stacked='over'> </ly-layer>
+</Layout_HTML>

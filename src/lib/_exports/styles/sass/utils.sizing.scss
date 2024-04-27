@@ -1,43 +1,97 @@
 @layer utils {
+    @each $class, $property in (h: height, w: width) {
+        @each $variant in (min, '', max) {
+            @if $variant !='' {
+                .\[#{$variant}\]#{$class} {
+                    @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+                        &-#{$v} {
+                            #{$variant}-#{$property}: var(--scale-#{$v});
+                        }
+                    }
 
-    .h {
-        @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
-            &-#{$v} {
-                height: var(--scale-#{$v});
+                    @each $v in (min-content, fit-content, max-content) {
+                        &-#{$v} {
+                            #{$variant}-#{$property}: #{$v};
+                        }
+                    }
+
+                    @for $i from 0 through 100 {
+                        &-#{$i} {
+                            #{$variant}-#{$property}: #{$i + '%'};
+                        }
+                    }
+
+                    @for $i from 0 through 100 {
+                        &-#{$i}\[vh\] {
+                            #{$variant}-#{$property}: #{$i + 'dvh'};
+                        }
+                    }
+
+                    @for $i from 0 through 100 {
+                        &-#{$i}\[vmax\] {
+                            #{$variant}-#{$property}: #{$i + 'dvmax'};
+                        }
+                    }
+
+                    @for $i from 0 through 100 {
+                        &-#{$i}\[vmin\] {
+                            #{$variant}-#{$property}: #{$i + 'dvmin'};
+                        }
+                    }
+
+                    @for $i from 0 through 100 {
+                        &-#{$i}\[vw\] {
+                            #{$variant}-#{$property}: #{$i + 'dvw'};
+                        }
+                    }
+                }
             }
-        }
 
-        @each $v in (min-content, fit-content, max-content) {
-            &-#{$v} {
-                height: #{$v};
-            }
-        }
+            @else {
+                .#{$class} {
+                    @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+                        &-#{$v} {
+                            #{$property}: var(--scale-#{$v});
+                        }
+                    }
 
-        @for $i from 0 through 100 {
-            &-#{$i} {
-                height: #{$i+'%'};
+                    @each $v in (min-content, fit-content, max-content) {
+                        &-#{$v} {
+                            #{$property}: #{$v};
+                        }
+                    }
+
+                    @for $i from 0 through 100 {
+                        &-#{$i} {
+                            #{$property}: #{$i + '%'};
+                        }
+                    }
+
+                    @for $i from 0 through 100 {
+                        &-#{$i}\[vh\] {
+                            #{$property}: #{$i + 'dvh'};
+                        }
+                    }
+
+                    @for $i from 0 through 100 {
+                        &-#{$i}\[vmin\] {
+                            #{$property}: #{$i + 'dvmax'};
+                        }
+                    }
+
+                    @for $i from 0 through 100 {
+                        &-#{$i}\[vmax\] {
+                            #{$property}: #{$i + 'dvmin'};
+                        }
+                    }
+
+                    @for $i from 0 through 100 {
+                        &-#{$i}\[vw\] {
+                            #{$property}: #{$i + 'dvw'};
+                        }
+                    }
+                }
             }
         }
     }
-
-    .w {
-        @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
-            &-#{$v} {
-                width: var(--scale-#{$v});
-            }
-        }
-
-        @each $v in (min-content, fit-content, max-content) {
-            &-#{$v} {
-                width: #{$v};
-            }
-        }
-
-        @for $i from 0 through 100 {
-            &-#{$i} {
-                width: #{$i+'%'};
-            }
-        }
-    }
-
 }

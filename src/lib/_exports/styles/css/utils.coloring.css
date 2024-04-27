@@ -1,195 +1,84 @@
 @layer utils {
+  .bg-inherit {
+    background-color: inherit;
+  }
   .bg-accent {
     background-color: var(--clr-accent);
-  }
-  .bg-accent-stripes {
-    --mixed: color-mix(in var(--prefers-colorSpace, srgb),
-    	var(--clr-accent),
-    	transparent 50%);
-    --size: 0.5rem;
-    background-color: transparent;
-    background-image: linear-gradient(-135deg, transparent 50%, var(--mixed) 60%, transparent 0%);
-    background-size: var(--size) var(--size);
-  }
-  .clr-accent {
-    color: var(--clr-accent);
   }
   .bg-context {
     background-color: var(--clr-context);
   }
-  .bg-context-stripes {
-    --mixed: color-mix(in var(--prefers-colorSpace, srgb),
-    	var(--clr-context),
-    	transparent 50%);
-    --size: 0.5rem;
-    background-color: transparent;
-    background-image: linear-gradient(-135deg, transparent 50%, var(--mixed) 60%, transparent 0%);
-    background-size: var(--size) var(--size);
-  }
-  .clr-context {
-    color: var(--clr-context);
-  }
   .bg-background {
     background-color: var(--clr-background);
-  }
-  .bg-background-stripes {
-    --mixed: color-mix(in var(--prefers-colorSpace, srgb),
-    	var(--clr-background),
-    	transparent 50%);
-    --size: 0.5rem;
-    background-color: transparent;
-    background-image: linear-gradient(-135deg, transparent 50%, var(--mixed) 60%, transparent 0%);
-    background-size: var(--size) var(--size);
-  }
-  .clr-background {
-    color: var(--clr-background);
   }
   .bg-text {
     background-color: var(--clr-text);
   }
-  .bg-text-stripes {
-    --mixed: color-mix(in var(--prefers-colorSpace, srgb),
-    	var(--clr-text),
-    	transparent 50%);
-    --size: 0.5rem;
-    background-color: transparent;
-    background-image: linear-gradient(-135deg, transparent 50%, var(--mixed) 60%, transparent 0%);
-    background-size: var(--size) var(--size);
-  }
-  .clr-text {
-    color: var(--clr-text);
-  }
   .bg-subtext {
     background-color: var(--clr-subtext);
-  }
-  .bg-subtext-stripes {
-    --mixed: color-mix(in var(--prefers-colorSpace, srgb),
-    	var(--clr-subtext),
-    	transparent 50%);
-    --size: 0.5rem;
-    background-color: transparent;
-    background-image: linear-gradient(-135deg, transparent 50%, var(--mixed) 60%, transparent 0%);
-    background-size: var(--size) var(--size);
-  }
-  .clr-subtext {
-    color: var(--clr-subtext);
   }
   .bg-primary {
     background-color: var(--clr-primary);
   }
-  .bg-primary-stripes {
-    --mixed: color-mix(in var(--prefers-colorSpace, srgb),
-    	var(--clr-primary),
-    	transparent 50%);
-    --size: 0.5rem;
-    background-color: transparent;
-    background-image: linear-gradient(-135deg, transparent 50%, var(--mixed) 60%, transparent 0%);
-    background-size: var(--size) var(--size);
-  }
-  .clr-primary {
-    color: var(--clr-primary);
-  }
   .bg-secondary {
     background-color: var(--clr-secondary);
-  }
-  .bg-secondary-stripes {
-    --mixed: color-mix(in var(--prefers-colorSpace, srgb),
-    	var(--clr-secondary),
-    	transparent 50%);
-    --size: 0.5rem;
-    background-color: transparent;
-    background-image: linear-gradient(-135deg, transparent 50%, var(--mixed) 60%, transparent 0%);
-    background-size: var(--size) var(--size);
-  }
-  .clr-secondary {
-    color: var(--clr-secondary);
   }
   .bg-tertiary {
     background-color: var(--clr-tertiary);
   }
-  .bg-tertiary-stripes {
-    --mixed: color-mix(in var(--prefers-colorSpace, srgb),
-    	var(--clr-tertiary),
-    	transparent 50%);
-    --size: 0.5rem;
-    background-color: transparent;
-    background-image: linear-gradient(-135deg, transparent 50%, var(--mixed) 60%, transparent 0%);
-    background-size: var(--size) var(--size);
-  }
-  .clr-tertiary {
-    color: var(--clr-tertiary);
-  }
   .bg-debug {
     background-color: var(--clr-debug);
-  }
-  .bg-debug-stripes {
-    --mixed: color-mix(in var(--prefers-colorSpace, srgb),
-    	var(--clr-debug),
-    	transparent 50%);
-    --size: 0.5rem;
-    background-color: transparent;
-    background-image: linear-gradient(-135deg, transparent 50%, var(--mixed) 60%, transparent 0%);
-    background-size: var(--size) var(--size);
-  }
-  .clr-debug {
-    color: var(--clr-debug);
   }
   .bg-error {
     background-color: var(--clr-error);
   }
-  .bg-error-stripes {
-    --mixed: color-mix(in var(--prefers-colorSpace, srgb),
-    	var(--clr-error),
-    	transparent 50%);
-    --size: 0.5rem;
-    background-color: transparent;
-    background-image: linear-gradient(-135deg, transparent 50%, var(--mixed) 60%, transparent 0%);
-    background-size: var(--size) var(--size);
-  }
-  .clr-error {
-    color: var(--clr-error);
-  }
   .bg-info {
     background-color: var(--clr-info);
-  }
-  .bg-info-stripes {
-    --mixed: color-mix(in var(--prefers-colorSpace, srgb),
-    	var(--clr-info),
-    	transparent 50%);
-    --size: 0.5rem;
-    background-color: transparent;
-    background-image: linear-gradient(-135deg, transparent 50%, var(--mixed) 60%, transparent 0%);
-    background-size: var(--size) var(--size);
-  }
-  .clr-info {
-    color: var(--clr-info);
   }
   .bg-success {
     background-color: var(--clr-success);
   }
-  .bg-success-stripes {
-    --mixed: color-mix(in var(--prefers-colorSpace, srgb),
-    	var(--clr-success),
-    	transparent 50%);
-    --size: 0.5rem;
-    background-color: transparent;
-    background-image: linear-gradient(-135deg, transparent 50%, var(--mixed) 60%, transparent 0%);
-    background-size: var(--size) var(--size);
-  }
-  .clr-success {
-    color: var(--clr-success);
-  }
   .bg-warning {
     background-color: var(--clr-warning);
   }
-  .bg-warning-stripes {
-    --mixed: color-mix(in var(--prefers-colorSpace, srgb),
-    	var(--clr-warning),
-    	transparent 50%);
-    --size: 0.5rem;
-    background-color: transparent;
-    background-image: linear-gradient(-135deg, transparent 50%, var(--mixed) 60%, transparent 0%);
-    background-size: var(--size) var(--size);
+  .clr-inherit {
+    color: inherit;
+  }
+  .clr-accent {
+    color: var(--clr-accent);
+  }
+  .clr-context {
+    color: var(--clr-context);
+  }
+  .clr-background {
+    color: var(--clr-background);
+  }
+  .clr-text {
+    color: var(--clr-text);
+  }
+  .clr-subtext {
+    color: var(--clr-subtext);
+  }
+  .clr-primary {
+    color: var(--clr-primary);
+  }
+  .clr-secondary {
+    color: var(--clr-secondary);
+  }
+  .clr-tertiary {
+    color: var(--clr-tertiary);
+  }
+  .clr-debug {
+    color: var(--clr-debug);
+  }
+  .clr-error {
+    color: var(--clr-error);
+  }
+  .clr-info {
+    color: var(--clr-info);
+  }
+  .clr-success {
+    color: var(--clr-success);
   }
   .clr-warning {
     color: var(--clr-warning);
