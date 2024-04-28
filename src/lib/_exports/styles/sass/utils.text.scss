@@ -1,9 +1,26 @@
 @layer utils {
 	.txt {
-		@each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl)
-		{
+		@each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
 			&-#{$v} {
 				font-size: var(--scale-#{$v});
+			}
+		}
+
+		@for $i from 0 through 100 {
+			&-#{$i}\[rem\] {
+				font-size: #{$i + 'rem'};
+			}
+		}
+
+		@for $i from 0 through 100 {
+			&-#{$i}\[pt\] {
+				font-size: #{$i + 'pt'};
+			}
+		}
+
+		@for $i from 0 through 100 {
+			&-#{$i}\[ch\] {
+				font-size: #{$i + 'ch'};
 			}
 		}
 

@@ -50,6 +50,12 @@
                             #{$variant}-#{$property}: #{$i + 'ch'};
                         }
                     }
+
+                    @for $i from 0 through 100 {
+                        &-#{$i}\[pt\] {
+                            #{$variant}-#{$property}: #{$i + 'pt'};
+                        }
+                    }
                 }
             }
 
@@ -100,6 +106,12 @@
                     @for $i from 0 through 100 {
                         &-#{$i}\[ch\] {
                             #{$property}: #{$i + 'ch'};
+                        }
+                    }
+
+                    @for $i from 0 through 100 {
+                        &-#{$i}\[pt\] {
+                            #{$property}: #{$i + 'pt'};
                         }
                     }
                 }
