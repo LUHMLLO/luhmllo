@@ -59,13 +59,13 @@ const logos: string[] = [
 
 				<header
 					class='g-xl place-center[all] px-xl py-5xl txt-center grow noshrink'>
-					<h1 class='[max]w-32[ch]'>We craft minimum viable SaaS products</h1>
-					<p class='[max]w-40[ch]'>
+					<h1 class='[max]w-24[ch]'>We craft minimum viable SaaS products</h1>
+					<p class='[max]w-32[ch]'>
 						Helping founders bring their product to life, attract early users,
 						and validate their idea.
 					</p>
 					<button class='bg-accent clr-context radius-3xs txt-600'>
-						See packages
+						See available packages
 					</button>
 				</header>
 
@@ -85,6 +85,12 @@ const logos: string[] = [
 </Layout_HTML>
 
 <style lang='css'>
+	@layer props {
+		:root {
+			--baseFontFamily: 'Clash Display', sans-serif;
+		}
+	}
+
 	#logoslider {
 		animation: scroll 30s linear infinite;
 
