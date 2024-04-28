@@ -11,12 +11,26 @@ const overrides = `
 `;
 
 const logos: string[] = [
-	'https://cdn.freebiesupply.com/logos/thumbs/2x/mcdonalds-black-logo.png',
-	'https://cdn.freebiesupply.com/images/large/2x/starbucks-logo-black-and-white.png',
-	'https://cdn.freebiesupply.com/logos/large/2x/general-electric-black-logo-png-transparent.png',
-	'https://cdn.freebiesupply.com/logos/large/2x/nfl-logo-png-transparent.png',
-	'https://cdn.freebiesupply.com/logos/large/2x/mercedes-benz-6-logo-png-transparent.png',
-	'https://cdn.freebiesupply.com/logos/large/2x/hogwarts-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/apple-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/microsoft-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/samsung-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/google-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/paypal-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/apple-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/microsoft-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/samsung-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/google-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/paypal-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/apple-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/microsoft-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/samsung-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/google-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/paypal-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/apple-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/microsoft-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/samsung-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/google-logo-png-transparent.png',
+	'https://cdn.freebiesupply.com/logos/large/2x/paypal-logo-png-transparent.png',
 ];
 ---
 
@@ -45,7 +59,7 @@ const logos: string[] = [
 
 				<header
 					class='g-xl place-center[all] px-xl py-5xl txt-center grow noshrink'>
-					<h1 class="[max]w-32[ch]">We craft minimum viable SaaS products</h1>
+					<h1 class='[max]w-32[ch]'>We craft minimum viable SaaS products</h1>
 					<p class='[max]w-40[ch]'>
 						Helping founders bring their product to life, attract early users,
 						and validate their idea.
@@ -55,24 +69,10 @@ const logos: string[] = [
 					</button>
 				</header>
 
-				<ly-flex id='logoslider' class='g-0 pb-5xl' ignore-container>
+				<ly-flex id='logoslider' class='g-5xl pb-5xl' ignore-container>
 					{
 						logos.map((i) => (
-							<figure class='aspect-[21/9] radius-3xs noshrink w-25[ch]'>
-								<img src={i} alt='logo' class='fit-contain' />
-							</figure>
-						))
-					}
-					{
-						logos.map((i) => (
-							<figure class='aspect-[21/9] radius-3xs noshrink w-25[ch]'>
-								<img src={i} alt='logo' class='fit-contain' />
-							</figure>
-						))
-					}
-					{
-						logos.map((i) => (
-							<figure class='aspect-[21/9] radius-3xs noshrink w-25[ch]'>
+							<figure class='aspect-[21/9] radius-3xs noshrink w-16[ch]'>
 								<img src={i} alt='logo' class='fit-contain' />
 							</figure>
 						))
@@ -87,6 +87,11 @@ const logos: string[] = [
 <style lang='css'>
 	#logoslider {
 		animation: scroll 30s linear infinite;
+
+		& img {
+			filter: grayscale(100%);
+			mix-blend-mode: difference;
+		}
 	}
 
 	@keyframes scroll {
