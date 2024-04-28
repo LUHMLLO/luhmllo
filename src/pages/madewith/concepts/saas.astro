@@ -32,10 +32,32 @@ const logos: string[] = [
 	'https://cdn.freebiesupply.com/logos/large/2x/google-logo-png-transparent.png',
 	'https://cdn.freebiesupply.com/logos/large/2x/paypal-logo-png-transparent.png',
 ];
+
+const foundersArticles = [
+	{
+		heading: 'Research',
+		paragraph:
+			'We dive into your idea, learn about your audience, and create a strategy to bring your idea to life.',
+	},
+	{
+		heading: 'Branding',
+		paragraph:
+			'We craft a well-suited and positioned brand so that you can build awareness from day one.',
+	},
+	{
+		heading: 'Design',
+		paragraph:
+			'We design every detail to ensure you showcase your idea clearly and provide a seamless user experience',
+	},
+	{
+		heading: 'Build',
+		paragraph:
+			'We code from scratch so you can learn from each user interaction and iterate to product-market fit.',
+	},
+];
 ---
 
 <Layout_HTML title='Lilys - CONCEPTS : Hero #1' scheme='light' {overrides}>
-	<ly-layer stacked='under'> </ly-layer>
 	<ly-app layout='container'>
 		<section
 			class='bg-primary place-center[all] [min]h-100[vh]'
@@ -58,7 +80,7 @@ const logos: string[] = [
 				</nav>
 
 				<header
-					class='g-xl place-center[all] px-xl py-5xl txt-center grow noshrink'>
+					class='g-xl place-center[all] px-xl py-5xl txt-center grow noshrink [min]h-40[ch]'>
 					<h1 class='[max]w-24[ch]'>We craft minimum viable SaaS products</h1>
 					<p class='[max]w-32[ch]'>
 						Helping founders bring their product to life, attract early users,
@@ -80,8 +102,31 @@ const logos: string[] = [
 				</ly-flex>
 			</ly-grid>
 		</section>
+		<section class='g-5xl py-5xl place-center[all] [min]h-75[vh]'>
+			<header class='place-center[all]'>
+				<small>THE PROCESS</small>
+				<h2>Built by founds, for founders</h2>
+			</header>
+			<ly-grid cols='4' class='g-sm'>
+				{
+					foundersArticles.map((article, index) => (
+						<ly-flex axis='col' class='bg-primary g-5xl p-sm radius-3xs'>
+							<ly-flex class='align-center[items] place-between'>
+								<var class='inline-flex place-center[all] txt-normal w-5xl bg-accent aspect-[1/1] radius-3xs'>
+									{index}
+								</var>
+								<small>week {index}</small>
+							</ly-flex>
+							<ly-group>
+								<h6>{article.heading}</h6>
+								<p>{article.paragraph}</p>
+							</ly-group>
+						</ly-flex>
+					))
+				}
+			</ly-grid>
+		</section>
 	</ly-app>
-	<ly-layer stacked='over'> </ly-layer>
 </Layout_HTML>
 
 <style lang='css'>
