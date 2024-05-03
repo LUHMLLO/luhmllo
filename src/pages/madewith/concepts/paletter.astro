@@ -1,0 +1,23 @@
+---
+import Layout_HTML from 'src/lib/layout.html.astro';
+import App_Paletter from 'src/apps/paletter.svelte';
+
+const overrides = `
+	<style>
+		:root {
+			--clr-accent: hsl(84, 100%, 64%);
+			--clr-context: hsl(83, 46%, 22%);
+		}
+	</style>
+`;
+---
+
+<Layout_HTML title='Lilys - Paletter' scheme='dark' {overrides}>
+	<App_Paletter client:only />
+</Layout_HTML>
+
+<style lang='css'>
+	:root {
+		--baseFontFamily: 'Satoshi', sans-serif;
+	}
+</style>
