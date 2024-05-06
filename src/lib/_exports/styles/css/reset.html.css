@@ -81,22 +81,58 @@
 		gap: var(--gap);
 		transition: background-color var(--animDefaults), color var(--animDefaults);
 
-		@media (hover:hover) {
-			&[href]:hover {
-				color: color-mix(in var(--prefers-colorSpace, srgb), var(--clr), white 6%);
+		&[href] {
+			cursor: pointer;
 
-				@container style:not(--bg: transparent) {
-					background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), white 3%);
+			@media (hover: hover) {
+				&:hover {
+					color: color-mix(in var(--prefers-colorSpace, srgb),
+							var(--clr),
+							white 6%);
+
+					@container style:not(--bg: transparent) {
+						background-color: color-mix(in var(--prefers-colorSpace, srgb),
+								var(--bg),
+								white 3%);
+					}
 				}
 			}
 
+			&:active {
+				color: color-mix(in var(--prefers-colorSpace, srgb),
+						var(--clr),
+						black 9%);
+
+				@container style:not(--bg: transparent) {
+					background-color: color-mix(in var(--prefers-colorSpace, srgb),
+							var(--bg),
+							black 6%);
+				}
+			}
+		}
+	}
+
+	:where(ol, ul) {
+		&:is(ol) {
+			list-style-type: decimal;
 		}
 
-		&[href]:active {
-			color: color-mix(in var(--prefers-colorSpace, srgb), var(--clr), black 9%);
+		&:is(ul) {
+			list-style-type: disc;
+		}
 
-			@container style:not(--bg: transparent) {
-				background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), black 6%);
+		& :where(li) {
+			display: list-item;
+			font-size: var(--scale-md);
+			text-wrap: pretty;
+			max-width: 72ch;
+		}
+
+		&[class] {
+			list-style-type: none;
+
+			& > :where(li) {
+				display: block;
 			}
 		}
 	}
@@ -108,21 +144,7 @@
 		max-width: 72ch;
 	}
 
-	:where(ol, ul) {
-		list-style-type: none;
-	}
-
-	:where(li) {
-		display: block;
-		font-size: var(--scale-md);
-		text-wrap: pretty;
-		max-width: 72ch;
-	}
-
-	:where(caption,
-		figcaption,
-		label,
-		legend) {
+	:where(caption, figcaption, label, legend) {
 		display: inline-flex;
 		font-size: var(--scale-md);
 	}
@@ -143,15 +165,7 @@
 		}
 	}
 
-	:where(audio,
-		button,
-		figure,
-		i,
-		iframe,
-		img,
-		picture,
-		svg,
-		video) {
+	:where(audio, button, figure, i, iframe, img, picture, svg, video) {
 		-webkit-user-select: none;
 		user-select: none;
 	}
@@ -178,12 +192,18 @@
 		white-space: nowrap;
 		width: fit-content;
 
-		&:hover {
-			background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), white 3%);
+		@media (hover: hover) {
+			&:hover {
+				background-color: color-mix(in var(--prefers-colorSpace, srgb),
+						var(--bg),
+						white 3%);
+			}
 		}
 
 		&:active {
-			background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), black 6%);
+			background-color: color-mix(in var(--prefers-colorSpace, srgb),
+					var(--bg),
+					black 6%);
 		}
 
 		&[data-variant='primary'] {
@@ -227,14 +247,12 @@
 		}
 	}
 
-	:where(footer,
-		header) {
+	:where(footer, header) {
 		display: flex;
 		flex-direction: column;
 	}
 
-	:where(label,
-		nav) {
+	:where(label, nav) {
 		display: flex;
 		flex-direction: row;
 	}
@@ -251,11 +269,7 @@
 		}
 	}
 
-	:where(aside,
-		fieldset,
-		form,
-		main,
-		section) {
+	:where(aside, fieldset, form, main, section) {
 		--gap: var(--scale-sm);
 
 		display: flex;
@@ -278,9 +292,7 @@
 		}
 	}
 
-	:where(input,
-		textarea,
-		select) {
+	:where(input, textarea, select) {
 		--bg: var(--clr-primary);
 		--gap: var(--scale-sm);
 
@@ -303,12 +315,18 @@
 			outline-color: var(--clr-accent);
 		}
 
-		&:not(:focus-visible):hover {
-			background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), white 3%);
+		@media (hover: hover) {
+			&:not(:focus-visible):hover {
+				background-color: color-mix(in var(--prefers-colorSpace, srgb),
+						var(--bg),
+						white 3%);
+			}
 		}
 
 		&:not(:focus-visible):active {
-			background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), black 6%);
+			background-color: color-mix(in var(--prefers-colorSpace, srgb),
+					var(--bg),
+					black 6%);
 		}
 	}
 
@@ -337,14 +355,24 @@
 				transition: rotate var(--animDefaults);
 			}
 
-			&:hover {
-				color: color-mix(in var(--prefers-colorSpace, srgb), var(--clr), white 6%);
-				background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), white 3%);
+			@media (hover: hover) {
+				&:hover {
+					color: color-mix(in var(--prefers-colorSpace, srgb),
+							var(--clr),
+							white 6%);
+					background-color: color-mix(in var(--prefers-colorSpace, srgb),
+							var(--bg),
+							white 3%);
+				}
 			}
 
 			&:active {
-				color: color-mix(in var(--prefers-colorSpace, srgb), var(--clr), black 9%);
-				background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), black 6%);
+				color: color-mix(in var(--prefers-colorSpace, srgb),
+						var(--clr),
+						black 9%);
+				background-color: color-mix(in var(--prefers-colorSpace, srgb),
+						var(--bg),
+						black 6%);
 			}
 		}
 
@@ -391,7 +419,9 @@
 
 		& thead {
 			& tr {
-				background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), white 3%);
+				background-color: color-mix(in var(--prefers-colorSpace, srgb),
+						var(--bg),
+						white 3%);
 				transition: background-color var(--animDefaults);
 
 				& th {
