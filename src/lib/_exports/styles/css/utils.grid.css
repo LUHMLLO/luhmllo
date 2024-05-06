@@ -61,8 +61,20 @@
     --cols: 12;
   }
 
-  :where(.grid)[data-template='container'] {
+  :where(.grid).container {
     grid-template-columns:
-      [expand-start] minmax(1.5rem, 1fr) [contain-start] minmax(0px, 88rem) [contain-end] minmax(1.5rem, 1fr) [expand-end];
+      [expand-start] minmax(1.5rem, 1fr) [contain-start] minmax(0px, var(--prefers-containerWidth)) [contain-end] minmax(1.5rem, 1fr) [expand-end];
+  }
+
+  :where(.grid).container > * {
+    grid-column: contain;
+  }
+
+  :where(.grid).container > *[ignore-container] {
+    grid-column: expand;
+  }
+
+  :where(.grid).container > *[contain-children] {
+    padding-inline: max(((100dvw - var(--prefers-containerWidth)) / 2), var(--gap)) !important;
   }
 }

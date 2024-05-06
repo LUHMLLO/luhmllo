@@ -9,8 +9,9 @@
                         }
                     }
 
-                    @each $v in (min-content, fit-content, max-content) {
-                        &-#{$v} {
+                    @each $k,
+                    $v in ('min': min-content, 'fit': fit-content, 'max': max-content) {
+                        &-#{$k} {
                             #{$variant}-#{$property}: #{$v};
                         }
                     }
@@ -67,8 +68,9 @@
                         }
                     }
 
-                    @each $v in (min-content, fit-content, max-content) {
-                        &-#{$v} {
+                    @each $k,
+                    $v in ('min': min-content, 'fit': fit-content, 'max': max-content) {
+                        &-#{$k} {
                             #{$property}: #{$v};
                         }
                     }

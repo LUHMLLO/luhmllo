@@ -72,7 +72,7 @@ export default css`
 			grid-auto-rows: max-content;
 			grid-template-columns: [expand-start] minmax(1.5rem, 1fr) [contain-start] minmax(
 					0px,
-					88rem
+					var(--prefers-containerWidth)
 				) [contain-end] minmax(1.5rem, 1fr) [expand-end];
 			overflow-x: clip;
 			overflow-y: auto;
@@ -80,6 +80,14 @@ export default css`
 
 		:host(:is(ly-grid[cols='container'])) ::slotted(*) {
 			grid-column: contain;
+		}
+
+		:host(:is(ly-grid[cols='container'])) ::slotted([ignore-container]) {
+			grid-column: expand;
+		}
+
+		:host(:is(ly-grid[cols='container'])) ::slotted([contain-children]) {
+			padding-inline: max(((100dvw - var(--prefers-containerWidth)) / 2), var(--gap)) !important;
 		}
 	}
 `

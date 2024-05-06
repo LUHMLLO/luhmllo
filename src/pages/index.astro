@@ -21,19 +21,17 @@ import Layout from 'src/lib/layout.docs.astro';
 			alt='banner'
 			style='aspect-ratio: 20/10;'
 		/>
-	</figure>s
+	</figure>
 
 	<ly-slider class='g-5xl py-5xl' ignore-container contain-children>
 		{
 			[...Array(10).keys()].map((i) => (
-				<article
-					class='bg-primary grid g-sm p-5xl radius-3xs'
-					style='width: 16rem;'>
+				<article class='bg-primary grid g-sm p-5xl radius-3xs w-max'>
 					<header>
 						<h6>Heading #{i}</h6>
 						<small class='clr-subtext'>sub-heading</small>
 					</header>
-					<p>
+					<p class='w-32[ch]'>
 						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore
 						molestiae quo placeat eius facilis non nihil ipsa tempora ipsam! Ad
 						fuga aliquid iste magni, vero fugit aliquam at consequatur nam.

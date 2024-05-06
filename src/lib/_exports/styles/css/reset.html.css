@@ -299,15 +299,15 @@
 		width: max-content;
 		transition: background-color var(--animDefaults);
 
-		&:focus {
+		&:focus-visible {
 			outline-color: var(--clr-accent);
 		}
 
-		&:not(:focus):hover {
+		&:not(:focus-visible):hover {
 			background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), white 3%);
 		}
 
-		&:not(:focus):active {
+		&:not(:focus-visible):active {
 			background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), black 6%);
 		}
 	}

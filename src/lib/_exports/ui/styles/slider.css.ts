@@ -36,9 +36,5 @@ export default css`
 			overflow-y: auto;
 			/*scroll-snap-type: y proximity;*/
 		}
-
-		:host(:is(ly-slider)[contain-children]) {
-			padding-inline: max(((100vw - 64rem) / 2), 1rem) !important;
-		}
 	}
 `
