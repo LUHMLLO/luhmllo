@@ -15,6 +15,10 @@ export default css`
 			overflow: clip;
 		}
 
+		:host(:is(ly-check):focus-visible){
+			outline: solid 0.125rem var(--clr-accent);
+		}
+
 		:host(:is(ly-check))::part(row) {
 			gap: inherit;
 		}

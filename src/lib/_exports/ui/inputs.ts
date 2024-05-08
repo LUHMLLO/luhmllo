@@ -1,17 +1,13 @@
 import { LitElement, html, nothing, type TemplateResult } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-
-import { CheckVariant, SelectVariant } from './_sharedTypes.ts'
-
 import stylesCheck from './styles/check.css.ts'
-import stylesSelect from './styles/select.css.ts'
 
 @customElement( 'ly-check' )
 export class Check extends LitElement {
 	@property( { type: Boolean, reflect: true } ) checked = false;
 	@property( { type: String, reflect: true } ) group = '';
 	@property( { type: String, reflect: true } ) label = '';
-	@property( { type: CheckVariant, reflect: true } ) variant = '';
+	@property( { type: 'checkbox' || 'box' || 'switch', reflect: true } ) variant = '';
 
 	static override readonly properties = {
 		delegatesFocus: { type: Boolean, reflect: true },
@@ -52,14 +48,24 @@ export class Check extends LitElement {
 		super.connectedCallback()
 		this.setAttribute( 'tabindex', '0' )
 		this.addEventListener( 'focus', () => this.focus() )
-		this.addEventListener( 'click', () => this.toggleChecked() )
+		this.addEventListener( 'click', this.toggleChecked )
+		this.addEventListener( 'keydown', ( event ) => {
+			if ( event.key === 'Enter' || event.key === ' ' ) {
+				this.toggleChecked()
+			}
+		} )
 	}
 
 	override async disconnectedCallback(): Promise<void> {
 		super.disconnectedCallback()
 		this.removeAttribute( 'tabindex' )
 		this.removeEventListener( 'focus', () => this.focus() )
-		this.removeEventListener( 'click', () => this.toggleChecked() )
+		this.removeEventListener( 'click', this.toggleChecked )
+		this.removeEventListener( 'keydown', ( event ) => {
+			if ( event.key === 'Enter' || event.key === ' ' ) {
+				this.toggleChecked()
+			}
+		} )
 	}
 
 	protected override render() {
@@ -89,16 +95,5 @@ export class Check extends LitElement {
 			default:
 				return html``
 		}
-	}
-}
-
-@customElement( 'ly-select' )
-export class Select extends LitElement {
-	@property( { type: SelectVariant, reflect: true } ) mode = 'picker';
-
-	static override readonly styles = stylesSelect;
-
-	protected override render() {
-		return html` <slot></slot> `
 	}
 }
