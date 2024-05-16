@@ -54,8 +54,8 @@ export default css`
 		:host(:is(ly-app[layout='container'])) ::slotted([contain-children]) {
 			/* (100vw - widthToMatch) / 2 , the min in the minmax() + the gap */
 			padding-inline: max(
-				((100dvw - var(--prefers-containerWidth)) / 2),
-				var(--prefers-containerOutterWidth) + var(--gap)
+				((100% - var(--prefers-containerWidth)) / 2),
+				var(--prefers-containerOutterWidth) + 1px
 			) !important;
 		}
 
