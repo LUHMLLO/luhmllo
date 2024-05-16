@@ -1,4 +1,4 @@
-import { css } from 'lit'
+import { css } from 'lit';
 
 export default css`
 	@layer web-components {
@@ -35,7 +35,10 @@ export default css`
 			display: grid;
 			grid-auto-rows: max-content;
 			grid-template-columns:
-			[expand-start] minmax(1.5rem, 1fr) [contain-start] minmax(0px, var(--prefers-containerWidth)) [contain-end] minmax(1.5rem, 1fr) [expand-end];
+				[expand-start] minmax(var(--prefers-containerOutterWidth), 1fr)
+				[contain-start] minmax(0, var(--prefers-containerWidth))
+				[contain-end] minmax(var(--prefers-containerOutterWidth), 1fr)
+				[expand-end];
 			overflow-x: clip;
 			overflow-y: auto;
 		}
@@ -49,7 +52,11 @@ export default css`
 		}
 
 		:host(:is(ly-app[layout='container'])) ::slotted([contain-children]) {
-			padding-inline: max(((100dvw - var(--prefers-containerWidth)) / 2), var(--gap)) !important;
+			/* (100vw - widthToMatch) / 2 , the min in the minmax() + the gap */
+			padding-inline: max(
+				((100dvw - var(--prefers-containerWidth)) / 2),
+				var(--prefers-containerOutterWidth) + var(--gap)
+			) !important;
 		}
 
 		:host(:is(ly-app[layout='row'])) {
@@ -60,4 +67,4 @@ export default css`
 			flex-direction: column;
 		}
 	}
-`
+`;
