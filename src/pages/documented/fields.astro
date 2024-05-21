@@ -1,0 +1,94 @@
+---
+import Layout from 'src/lib/layout.docs.astro';
+import './_lib/main.css';
+import Card from './_lib/components/card.astro';
+---
+
+<Layout className='py-5xl'>
+	<ly-grid cols='3' class='g-sm'>
+		<Card Heading='Date'>
+			<ly-field type='date'>
+				<input />
+			</ly-field>
+		</Card>
+		<Card Heading='Date / Time'>
+			<ly-field type='datetime-local'>
+				<input />
+			</ly-field>
+		</Card>
+		<Card Heading='Time'>
+			<ly-field type='time' caption='asdada' status='error'>
+				<input />
+			</ly-field>
+		</Card>
+		<Card Heading='Text Field [ Single Line ]'>
+			<ly-field type='text'>
+				<input />
+			</ly-field>
+		</Card>
+		<Card Heading='Text Area [ Multi Line ]'>
+			<ly-field>
+				<textarea></textarea>
+			</ly-field>
+		</Card>
+		<Card Heading='Email'>
+			<ly-field type='email'>
+				<input />
+			</ly-field>
+		</Card>
+		<Card Heading='Tel / Phone Number'>
+			<ly-field type='tel'>
+				<input />
+			</ly-field>
+		</Card>
+		<Card Heading='Number'>
+			<ly-field type='number'>
+				<input />
+			</ly-field>
+		</Card>
+		<Card Heading='Number [ Currency ]'>
+			<ly-field type='currency'>
+				<input />
+			</ly-field>
+		</Card>
+		<Card Heading='Number [ Decimal ]'>
+			<ly-field type='decimal'>
+				<input />
+			</ly-field>
+		</Card>
+		<Card Heading='Toggle [ Checkbox ]'>
+			<ly-check variant='checkbox'></ly-check>
+		</Card>
+		<Card Heading='Toggle [ Radiobox ]'>
+			<ly-check variant='radio'></ly-check>
+		</Card>
+		<Card Heading='Toggle [ Switch ]'>
+			<ly-check variant='switch'></ly-check>
+		</Card>
+		<Card Heading='Text [ URL ]'>
+			<ly-field type='url'>
+				<input />
+			</ly-field>
+		</Card>
+		<Card Heading='Formula'>
+			<ly-field type='formula'>
+				<input />
+			</ly-field>
+		</Card>
+		<Card Heading='Percent'>
+			<ly-field type='range'>
+				<input />
+			</ly-field>
+		</Card>
+		<Card Heading='File Upload'>
+			<ly-field type='file'>
+				<input />
+			</ly-field>
+		</Card>
+		<Card Heading='File Upload [ Preview ]'>
+			<ly-field type='file'>
+				<input />
+			</ly-field>
+		</Card>
+	</ly-grid>
+</Layout>

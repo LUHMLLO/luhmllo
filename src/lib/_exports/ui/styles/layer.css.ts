@@ -4,7 +4,7 @@ export default css`
 	@layer web-components {
 		:host(:is(ly-layer)) {
 			/* local vars */
-			--bg: transparent;
+			--bg: none;
 			--clr: var(--clr-text);
 			--m: auto;
 			--ps: fixed;

@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@layer props, reset, web-components, utils;
+@layer props, reset, normalize, web-components, utils;
 
 @import url('./props.animations.css');
 @import url('./props.breakpoints.css');
@@ -10,6 +10,7 @@
 
 @import url('./reset.all.css');
 @import url('./reset.html.css');
+@import url('./reset.normalize.css');
 @import url('./reset.scrollbars.css');
 
 @import url('./utils.alignment.css');

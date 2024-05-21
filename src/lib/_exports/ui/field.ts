@@ -2,22 +2,15 @@ import { LitElement, html, nothing, type TemplateResult } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import styles from './styles/field.css.ts'
 
-enum Status {
-	'debug',
-	'error',
-	'info',
-	'success',
-	'warning',
-}
-
 @customElement( 'ly-field' )
 export class Field extends LitElement {
-	@property( { type: String, reflect: true } ) label = '';
-	@property( { type: String, reflect: true } ) caption = '';
-	@property( { type: String, reflect: true } ) name = '';
+	@property( { type: String } ) label = '';
+	@property( { type: String } ) caption = '';
+	@property( { type: String } ) name = '';
 	@property( { type: Boolean, reflect: true } ) required = false;
-	@property( { type: Status, reflect: true } ) status = '';
-	@property( { type: String, reflect: true } ) type = 'text';
+	@property( { type: 'debug' || 'error' || 'info' || 'success' || 'warning' } )
+	status = '';
+	@property( { type: String } ) type = 'text';
 
 	static override readonly styles = styles;
 
@@ -25,14 +18,16 @@ export class Field extends LitElement {
 		super.connectedCallback()
 	}
 
-	override firstUpdated() {
+	override updated() {
 		const slot = this.renderRoot?.querySelector( 'slot' )
 		let inputs = slot?.assignedElements()
 		if ( inputs ) {
 			inputs.forEach( ( input ) => {
-				input.setAttribute( 'name', this.name )
-				input.setAttribute( 'title', this.name )
-				input.setAttribute( 'type', this.type )
+				if ( input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement ) {
+					this.name && input.setAttribute( 'name', this.name )
+					this.name && input.setAttribute( 'title', this.name )
+					this.type && input.setAttribute( 'type', this.type )
+				}
 			} )
 		}
 	}
@@ -57,7 +52,7 @@ export class Field extends LitElement {
 				? html`
 						<ly-flex axis="row" part="caption">
 							${ this.setStatusIcon() }
-							<small part="caption-text">${ this.caption }</small>
+							<small part="caption-text" html>${ this.caption }</small>
 						</ly-flex>
 				  `
 				: nothing }
@@ -75,15 +70,15 @@ export class Field extends LitElement {
 	private setStatusIcon(): TemplateResult {
 		switch ( this.status ) {
 			case 'debug':
-				return html`<ly-icon>bug_report</ly-icon>`
+				return html`<ly-icon part="caption-icon">bug_report</ly-icon>`
 			case 'error':
-				return html`<ly-icon>report</ly-icon>`
+				return html`<ly-icon part="caption-icon">report</ly-icon>`
 			case 'info':
-				return html`<ly-icon>info</ly-icon>`
+				return html`<ly-icon part="caption-icon">info</ly-icon>`
 			case 'success':
-				return html`<ly-icon>check</ly-icon>`
+				return html`<ly-icon part="caption-icon">check</ly-icon>`
 			case 'warning':
-				return html`<ly-icon>emergency_home</ly-icon>`
+				return html`<ly-icon part="caption-icon">emergency_home</ly-icon>`
 			default:
 				return html``
 		}

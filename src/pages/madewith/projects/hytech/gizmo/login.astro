@@ -14,7 +14,7 @@ import Layout from './_lib/layout.auth.astro';
 		const background = document.querySelector('#carousel-slide');
 		background.setAttribute('src', slides[0]);
 
-		const indicator = document.querySelector('#indicators');
+		const indicator = document.querySelector('.indicators');
 		let indicator_dots = [...indicator.children];
 		let index = 1;
 
@@ -59,15 +59,15 @@ import Layout from './_lib/layout.auth.astro';
 
 <Layout>
 	<aside>
-		<ul id='indicators'>
-			<li class='active'></li>
-			<li></li>
-			<li></li>
-			<li></li>
+		<ul class='indicators'>
+			<li class='indicator active'></li>
+			<li class='indicator'></li>
+			<li class='indicator'></li>
+			<li class='indicator'></li>
 		</ul>
 	</aside>
 	<aside id='form-wrapper'>
-		<header>
+		<header class='flex-row place-between'>
 			<figure class='w-5xl'>
 				<object data='/assets/media/hytech/favicon.svg'></object>
 			</figure>
@@ -134,12 +134,12 @@ import Layout from './_lib/layout.auth.astro';
 		flex: 1 1 100%;
 	}
 
-	#indicators {
+	.indicators {
 		display: flex;
 		gap: var(--scale-5xs);
 		width: max-content;
 
-		& > li {
+		& > .indicator {
 			aspect-ratio: 1/1;
 			cursor: pointer;
 			border-radius: var(--scale-3xs);
