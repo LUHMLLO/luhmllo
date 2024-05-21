@@ -1,5 +1,5 @@
 @layer normalize {
-	:where(details, ly-dropdown::part(details)) {
+	:where(details) {
 		display: inline-flex;
 		min-height: 0;
 		position: relative;
@@ -34,11 +34,7 @@
 
 		/* text must be wrapped */
 		& > span {
-			color: inherit;
 			flex: 1 1 100%;
-			overflow: clip;
-			text-overflow: ellipsis;
-			white-space: nowrap;
 		}
 
 		/* No icons */
@@ -65,6 +61,7 @@
 		/* link only */
 		&:is(a) {
 			height: max-content;
+			padding: 0;
 
 			&[href] {
 				--clr: var(--clr-accent);
@@ -80,6 +77,12 @@
 		}
 
 		/* Micro Interactions */
+		&:focus-visible {
+			outline-color: color-mix(in var(--prefers-colorSpace, srgb),
+					var(--clr),
+					transparent 56%) !important;
+		}
+
 		@media (hover: hover) {
 			&:hover {
 				background-color: color-mix(in var(--prefers-colorSpace, srgb),

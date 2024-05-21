@@ -111,27 +111,15 @@
 	} */
 
 	:where(ol, ul) {
-		&:is(ol) {
-			list-style-type: decimal;
-		}
+		list-style-position: inside;
 
-		&:is(ul) {
-			list-style-type: disc;
-		}
-
-		& :where(li) {
-			display: list-item;
+		& > li {
 			font-size: var(--scale-md);
 			text-wrap: pretty;
-			max-width: 72ch;
 		}
 
-		&[class] {
-			list-style-type: none;
-
-			& > :where(li) {
-				display: block;
-			}
+		& :where(ol, ul) {
+			margin-left: var(--scale-sm);
 		}
 	}
 
@@ -165,15 +153,12 @@
 	}
 
 	:where(span) {
-		&[data-text] {
-			display: inline-flex;
-			color: inherit;
-			flex-grow: 1;
-			font: inherit;
-			overflow: clip;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-		}
+		display: inline-flex;
+		color: inherit;
+		font: inherit;
+		overflow: clip;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	:where(audio, button, figure, i, iframe, img, picture, svg, video) {
@@ -344,7 +329,7 @@
 		}
 	}
 
-	:where(details) {
+	/* :where(details) {
 		display: block;
 		width: 100%;
 
@@ -397,7 +382,7 @@
 				}
 			}
 		}
-	}
+	} */
 
 	:where(dl) {
 		gap: var(--scale-5xs);

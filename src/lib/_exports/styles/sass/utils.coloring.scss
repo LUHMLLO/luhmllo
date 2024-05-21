@@ -1,6 +1,5 @@
 @layer utils {
 	.bg {
-
 		&-inherit {
 			background-color: inherit;
 		}
@@ -19,13 +18,13 @@
 			success,
 			warning) {
 			&-#{$v} {
-				background-color: var(--clr-#{$v});
+				--bg: var(--clr-#{$v});
+				background-color: var(--bg);
 			}
 		}
 	}
 
 	.clr {
-
 		&-inherit {
 			color: inherit;
 		}
@@ -44,7 +43,8 @@
 			success,
 			warning) {
 			&-#{$v} {
-				color: var(--clr-#{$v});
+				--clr: var(--clr-#{$v});
+				color: var(--clr);
 			}
 		}
 	}

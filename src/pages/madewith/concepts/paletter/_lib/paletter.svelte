@@ -84,7 +84,7 @@
 	{#each [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] as shade}
 		<button
 			class="swatch clr-{shade} w-100 grow shrink"
-			style="border-radius: 0;"
+			style="border-radius: 0; outline: none;"
 			on:click="{copyToClipboard}"
 		></button>
 	{/each}
@@ -99,134 +99,118 @@
 
 <style lang="css">
 	:root {
-		/*   --colorspace: srgb; */
-		/*   --colorspace: srgb-linear; */
-		/*   --colorspace: display-p3; */
-		/*   --colorspace: a98-rgb; */
-		/*   --colorspace: prophoto-rgb; */
-		/*   --colorspace: rec2020; */
-		/*   --colorspace: lab; */
-		/*   --colorspace: oklab; */
-		/*   --colorspace: xyz; */
-		/*   --colorspace: xyz-d50; */
-		/*   --colorspace: xyz-d65; */
-		/*   --colorspace: hsl; */
-		/*   --colorspace: hwb; */
-		/*   --colorspace: lch; */
-		/*   --colorspace: oklch; */
-
 		--50: color-mix(
-			in var(--colorspace, srgb),
+			in var(--prefers-colorSpace, srgb),
 			var(--100),
 			hsla(0, 0%, 100%, 1) 14%
 		);
 		--100: color-mix(
-			in var(--colorspace, srgb),
+			in var(--prefers-colorSpace, srgb),
 			var(--200),
 			hsla(0, 0%, 100%, 1) 12%
 		);
 		--200: color-mix(
-			in var(--colorspace, srgb),
+			in var(--prefers-colorSpace, srgb),
 			var(--300),
 			hsla(0, 0%, 100%, 1) 10%
 		);
 		--300: color-mix(
-			in var(--colorspace, srgb),
+			in var(--prefers-colorSpace, srgb),
 			var(--400),
 			hsla(0, 0%, 100%, 1) 8%
 		);
 		--400: color-mix(
-			in var(--colorspace, srgb),
+			in var(--prefers-colorSpace, srgb),
 			var(--500),
 			hsla(0, 0%, 100%, 1) 6%
 		);
 
 		--500: color-mix(
-			in var(--colorspace, srgb),
+			in var(--prefers-colorSpace, srgb),
 			var(--baseColor),
 			var(--baseColor)
 		);
 
 		--600: color-mix(
-			in var(--colorspace, srgb),
+			in var(--prefers-colorSpace, srgb),
 			var(--500),
 			hsla(0, 0%, 0%, 1) 6%
 		);
 		--700: color-mix(
-			in var(--colorspace, srgb),
+			in var(--prefers-colorSpace, srgb),
 			var(--600),
 			hsla(0, 0%, 0%, 1) 8%
 		);
 		--800: color-mix(
-			in var(--colorspace, srgb),
+			in var(--prefers-colorSpace, srgb),
 			var(--700),
 			hsla(0, 0%, 0%, 1) 10%
 		);
 		--900: color-mix(
-			in var(--colorspace, srgb),
+			in var(--prefers-colorSpace, srgb),
 			var(--800),
 			hsla(0, 0%, 0%, 1) 12%
 		);
 		--950: color-mix(
-			in var(--colorspace, srgb),
+			in var(--prefers-colorSpace, srgb),
 			var(--900),
 			hsla(0, 0%, 0%, 1) 14%
 		);
 	}
 
 	.clr-50 {
-		background-color: var(--50);
+		--bg: var(--50);
 	}
 
 	.clr-100 {
-		background-color: var(--100);
+		--bg: var(--100);
 	}
 
 	.clr-200 {
-		background-color: var(--200);
+		--bg: var(--200);
 	}
 
 	.clr-300 {
-		background-color: var(--300);
+		--bg: var(--300);
 	}
 
 	.clr-400 {
-		background-color: var(--400);
+		--bg: var(--400);
 	}
 
 	.clr-500 {
-		background-color: var(--500);
+		--bg: var(--500);
 	}
 
 	.clr-600 {
-		background-color: var(--600);
+		--bg: var(--600);
 	}
 
 	.clr-700 {
-		background-color: var(--700);
+		--bg: var(--700);
 	}
 
 	.clr-800 {
-		background-color: var(--800);
+		--bg: var(--800);
 	}
 
 	.clr-900 {
-		background-color: var(--900);
+		--bg: var(--900);
 	}
 
 	.clr-950 {
-		background-color: var(--950);
+		--bg: var(--950);
 	}
 
 	dialog#notification {
 		background-color: color-mix(
-			in var(--colorspace, srgb),
+			in var(--prefers-colorSpace, srgb),
 			var(--50),
 			transparent 56%
 		);
 		backdrop-filter: blur(3pt);
 		border-radius: 8pt;
-		box-shadow: 0 6pt 56pt -6pt color-mix(in var(--colorspace, srgb), var(--950), transparent
+		box-shadow: 0 6pt 56pt -6pt color-mix(in var(--prefers-colorSpace, srgb), var(--950), transparent
 					56%);
 		color: var(--950);
 		flex-direction: column;

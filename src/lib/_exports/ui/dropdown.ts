@@ -1,4 +1,4 @@
-import { LitElement, html, nothing } from 'lit'
+import { LitElement, css, html, nothing } from 'lit'
 import { customElement, property, query } from 'lit/decorators.js'
 
 import {
@@ -9,25 +9,27 @@ import {
     flip,
 } from '@floating-ui/dom'
 
-import styles from './styles/dropdown.css.ts'
+@customElement( 'ly-dropmenu' )
+export class Dropmenu extends LitElement {
+    static override readonly styles = css`
+		:host(:is(ly-dropmenu)) {
+			position: fixed;
+			z-index: 100000;
+		}
+	`;
+
+    protected override render() {
+        return html` <slot></slot> `
+    }
+}
 
 @customElement( 'ly-dropdown' )
 export class Dropdown extends LitElement {
     @property( { type: Boolean, reflect: true } ) open = false;
 
-    static override readonly styles = styles;
-
-    @query( 'summary' ) private _dropsummary!: HTMLDetailsElement
-    @query( 'ly-group' ) private _dropmenu!: HTMLElement
+    @query( 'summary' ) private _dropsummary!: HTMLElement
+    @query( 'ly-dropmenu' ) private _dropmenu!: HTMLElement
     private _cleanup?: any
-
-    protected override async firstUpdated(): Promise<void> {
-        // this.renderRoot.addEventListener(
-        //     'click',
-        //     ( e: Event ) => this._clickOutside( e as MouseEvent ),
-        //     { composed: true } as CustomEventOptions
-        // )
-    }
 
     override async updated(): Promise<void> {
         if ( this._dropsummary && this._dropmenu && this.open ) {
@@ -62,7 +64,6 @@ export class Dropdown extends LitElement {
 
     override async disconnectedCallback(): Promise<void> {
         super.disconnectedCallback()
-        // window.removeEventListener( 'click', () => this._clickOutside )
 
         if ( this._cleanup ) {
             this._cleanup()
@@ -71,12 +72,14 @@ export class Dropdown extends LitElement {
 
     protected override render() {
         return html`
-			<slot name="summary" @click=${ this._toggleOpen }></slot>
+			<summary>
+				<slot name="summary" @click=${ this._toggleOpen }></slot>
+			</summary>
 			${ this.open
                 ? html`
-						<ly-group>
+						<ly-dropmenu>
 							<slot></slot>
-						</ly-group>
+						</ly-dropmenu>
 				  `
                 : nothing }
 		`
@@ -89,11 +92,4 @@ export class Dropdown extends LitElement {
 
         this.open = !this.open
     }
-
-    // private _clickOutside( e: MouseEvent ): void {
-    //     if ( this.shadowRoot?.contains( e.target as HTMLElement ) ) return // Consider clicks within shadow DOM as "inside"
-
-    //     console.log( e.target )
-    //     if ( this.open ) this.open = false
-    // }
 }

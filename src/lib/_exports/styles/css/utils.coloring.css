@@ -3,84 +3,110 @@
     background-color: inherit;
   }
   .bg-accent {
-    background-color: var(--clr-accent);
+    --bg: var(--clr-accent);
+    background-color: var(--bg);
   }
   .bg-context {
-    background-color: var(--clr-context);
+    --bg: var(--clr-context);
+    background-color: var(--bg);
   }
   .bg-background {
-    background-color: var(--clr-background);
+    --bg: var(--clr-background);
+    background-color: var(--bg);
   }
   .bg-text {
-    background-color: var(--clr-text);
+    --bg: var(--clr-text);
+    background-color: var(--bg);
   }
   .bg-subtext {
-    background-color: var(--clr-subtext);
+    --bg: var(--clr-subtext);
+    background-color: var(--bg);
   }
   .bg-primary {
-    background-color: var(--clr-primary);
+    --bg: var(--clr-primary);
+    background-color: var(--bg);
   }
   .bg-secondary {
-    background-color: var(--clr-secondary);
+    --bg: var(--clr-secondary);
+    background-color: var(--bg);
   }
   .bg-tertiary {
-    background-color: var(--clr-tertiary);
+    --bg: var(--clr-tertiary);
+    background-color: var(--bg);
   }
   .bg-debug {
-    background-color: var(--clr-debug);
+    --bg: var(--clr-debug);
+    background-color: var(--bg);
   }
   .bg-error {
-    background-color: var(--clr-error);
+    --bg: var(--clr-error);
+    background-color: var(--bg);
   }
   .bg-info {
-    background-color: var(--clr-info);
+    --bg: var(--clr-info);
+    background-color: var(--bg);
   }
   .bg-success {
-    background-color: var(--clr-success);
+    --bg: var(--clr-success);
+    background-color: var(--bg);
   }
   .bg-warning {
-    background-color: var(--clr-warning);
+    --bg: var(--clr-warning);
+    background-color: var(--bg);
   }
   .clr-inherit {
     color: inherit;
   }
   .clr-accent {
-    color: var(--clr-accent);
+    --clr: var(--clr-accent);
+    color: var(--clr);
   }
   .clr-context {
-    color: var(--clr-context);
+    --clr: var(--clr-context);
+    color: var(--clr);
   }
   .clr-background {
-    color: var(--clr-background);
+    --clr: var(--clr-background);
+    color: var(--clr);
   }
   .clr-text {
-    color: var(--clr-text);
+    --clr: var(--clr-text);
+    color: var(--clr);
   }
   .clr-subtext {
-    color: var(--clr-subtext);
+    --clr: var(--clr-subtext);
+    color: var(--clr);
   }
   .clr-primary {
-    color: var(--clr-primary);
+    --clr: var(--clr-primary);
+    color: var(--clr);
   }
   .clr-secondary {
-    color: var(--clr-secondary);
+    --clr: var(--clr-secondary);
+    color: var(--clr);
   }
   .clr-tertiary {
-    color: var(--clr-tertiary);
+    --clr: var(--clr-tertiary);
+    color: var(--clr);
   }
   .clr-debug {
-    color: var(--clr-debug);
+    --clr: var(--clr-debug);
+    color: var(--clr);
   }
   .clr-error {
-    color: var(--clr-error);
+    --clr: var(--clr-error);
+    color: var(--clr);
   }
   .clr-info {
-    color: var(--clr-info);
+    --clr: var(--clr-info);
+    color: var(--clr);
   }
   .clr-success {
-    color: var(--clr-success);
+    --clr: var(--clr-success);
+    color: var(--clr);
   }
   .clr-warning {
-    color: var(--clr-warning);
+    --clr: var(--clr-warning);
+    color: var(--clr);
   }
 }
