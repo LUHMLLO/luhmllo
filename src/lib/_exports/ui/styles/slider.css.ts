@@ -4,11 +4,13 @@ export default css`
 	@layer web-components {
 		:host(:is(ly-slider)) {
 			/* local vars */
+			--bg: none;
 			--display: grid;
 			--gap: var(--scale-2xl);
 			--padding: 0;
 
 			/* base styles */
+			background-color: var(--bg);
 			display: grid;
 			gap: var(--gap);
 			height: max-content;

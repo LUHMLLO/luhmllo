@@ -12,10 +12,12 @@
 		--gap: calc(var(--spacing) * 0.25);
 		--mx: 0;
 		--my: 0;
+		--outln-clr: var(--bg);
 		--px: var(--spacing);
 		--py: 0;
 		--radius: var(--scale-5xl);
 		--spacing: var(--scale-sm);
+		--variant: 'outlined';
 
 		align-items: center;
 		background-color: var(--bg);
@@ -27,10 +29,12 @@
 		font-weight: 400;
 		gap: var(--gap);
 		margin: var(--my) var(--mx);
+		outline: solid 0.125rem transparent;
+		outline-offset: -0.125rem;
 		overflow: clip;
 		padding: var(--py) var(--px);
 		text-overflow: ellipsis;
-		transition: background-color var(--animDefaults), color var(--animDefaults);
+		transition: background-color var(--animDefaults), color var(--animDefaults), outline-color var(--animDefaults);
 		white-space: nowrap;
 		width: fit-content;
 
@@ -39,24 +43,31 @@
 			flex: 1 1 100%;
 		}
 
+		& > figure {
+			aspect-ratio: 1/1;
+			border-radius: 50%;
+			height: calc(100% - var(--spacing));
+			width: auto;
+		}
+
 		/* No icons */
-		&:not(:has(:where([class*='material-symbols'], .icon, ly-icon):first-child)):not(:has(:where([class*='material-symbols'], .icon, ly-icon):last-child)) {
+		&:not(:has(:where([class*='material-symbols'], .icon, ly-icon, ly-check, figure):first-child)):not(:has(:where([class*='material-symbols'], .icon, ly-icon, ly-check, figure):last-child)) {
 			--gap: 0;
 			--px: calc(var(--spacing) * 1.5);
 		}
 
 		/* Left icon only */
-		&:has(:where([class*='material-symbols'], .icon, ly-icon):first-child):is(:not(:has(:where([class*='material-symbols'], .icon, ly-icon):last-child))) {
+		&:has(:where([class*='material-symbols'], .icon, ly-icon, ly-check, figure):first-child):is(:not(:has(:where([class*='material-symbols'], .icon, ly-icon, ly-check, figure):last-child))) {
 			padding-inline-end: calc(var(--spacing) * 1.25);
 		}
 
 		/* Right icon only */
-		&:has(:where([class*='material-symbols'], .icon, ly-icon):last-child):is(:not(:has(:where([class*='material-symbols'], .icon, ly-icon):first-child))) {
+		&:has(:where([class*='material-symbols'], .icon, ly-icon, ly-check, figure):last-child):is(:not(:has(:where([class*='material-symbols'], .icon, ly-icon, ly-check, figure):first-child))) {
 			padding-inline-start: calc(var(--spacing) * 1.25);
 		}
 
 		/* Both icons */
-		&:has(:where([class*='material-symbols'], .icon, ly-icon):first-child):has(:where([class*='material-symbols'], .icon, ly-icon):last-child) {
+		&:has(:where([class*='material-symbols'], .icon, ly-icon, ly-check, figure):first-child):has(:where([class*='material-symbols'], .icon, ly-icon, ly-check, figure):last-child) {
 			--gap: calc(var(--spacing) * 0.5);
 		}
 
@@ -73,36 +84,55 @@
 		/* button, summary only */
 		&:is(button, summary) {
 			--bg: var(--clr-background);
-
 			height: var(--scale-5xl);
-			outline: solid 0.125rem var(--clr-primary);
+
+
+			/* conditional style modifiers */
+			&.__outlined {
+				outline-color: color-mix(in var(--prefers-colorSpace, srgb), var(--outln-clr), white 3%);
+
+				@media (hover: hover) {
+					&:hover {
+						outline-color: color-mix(in var(--prefers-colorSpace, srgb),
+								var(--outln-clr),
+								white 16%);
+					}
+				}
+
+				&:active {
+					outline-color: color-mix(in var(--prefers-colorSpace, srgb),
+							var(--outln-clr),
+							black 16%);
+				}
+			}
 		}
 
 		/* Micro Interactions */
 		&:focus-visible {
+			--outln-clr: var(--clr-accent);
 			outline-color: color-mix(in var(--prefers-colorSpace, srgb),
-					var(--clr),
-					transparent 56%) !important;
+					var(--outln-clr),
+					transparent 56%);
 		}
 
 		@media (hover: hover) {
 			&:hover {
 				background-color: color-mix(in var(--prefers-colorSpace, srgb),
 						var(--bg),
-						white 3%) !important;
+						white 3%);
 				color: color-mix(in var(--prefers-colorSpace, srgb),
 						var(--clr),
-						white 16%) !important;
+						white 16%);
 			}
 		}
 
 		&:active {
 			background-color: color-mix(in var(--prefers-colorSpace, srgb),
 					var(--bg),
-					black 3%) !important;
+					black 3%);
 			color: color-mix(in var(--prefers-colorSpace, srgb),
 					var(--clr),
-					black 16%) !important;
+					black 16%);
 		}
 	}
 
@@ -112,7 +142,7 @@
 		--gap: calc(var(--spacing) * 0.25);
 		--mx: 0;
 		--my: 0;
-		--outln-clr: var(--clr);
+		--outln-clr: var(--bg);
 		--px: var(--spacing);
 		--py: 0;
 		--radius: var(--scale-sm);
@@ -128,7 +158,8 @@
 		font-weight: 400;
 		gap: var(--gap);
 		margin: var(--my) var(--mx);
-		outline: solid 0.125rem color-mix(in srgb, var(--bg), white 3%);
+		outline: solid 0.125rem color-mix(in srgb, var(--outln-clr), white 3%);
+		outline-offset: -0.125rem;
 		overflow: clip;
 		padding: var(--py) var(--px);
 		text-overflow: ellipsis;
@@ -186,14 +217,14 @@
 		@media (hover: hover) {
 			&:hover {
 				outline-color: color-mix(in var(--prefers-colorSpace, srgb),
-						var(--clr),
+						var(--outln-clr),
 						white 16%) !important;
 			}
 		}
 
 		&:active {
 			outline-color: color-mix(in var(--prefers-colorSpace, srgb),
-					var(--clr),
+					var(--outln-clr),
 					black 16%) !important;
 		}
 	}

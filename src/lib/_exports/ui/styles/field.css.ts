@@ -19,27 +19,27 @@ export default css`
 
 		:host(:is(ly-field)[status='debug'])
 			::slotted(:where(input, select, textarea)) {
-			outline-color: var(--clr-debug) !important;
+				--outln-clr: var(--clr-debug) !important;
 		}
 
 		:host(:is(ly-field)[status='error'])
 			::slotted(:where(input, select, textarea)) {
-			outline-color: var(--clr-error) !important;
+				--outln-clr: var(--clr-error) !important;
 		}
 
 		:host(:is(ly-field)[status='info'])
 			::slotted(:where(input, select, textarea)) {
-			outline-color: var(--clr-info) !important;
+				--outln-clr: var(--clr-info) !important;
 		}
 
 		:host(:is(ly-field)[status='success'])
 			::slotted(:where(input, select, textarea)) {
-			outline-color: var(--clr-success) !important;
+			--outln-clr: var(--clr-success) !important;
 		}
 
 		:host(:is(ly-field)[status='warning'])
 			::slotted(:where(input, select, textarea)) {
-			outline-color: var(--clr-warning) !important;
+				--outln-clr: var(--clr-warning) !important;
 		}
 
 		:host(:is(ly-field))::part(label){

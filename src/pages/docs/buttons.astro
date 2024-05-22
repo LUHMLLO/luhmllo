@@ -11,6 +11,9 @@ import Card from 'src/lib/components/docs.card.astro';
 				<button>
 					<span>button</span>
 				</button>
+				<button class='__outlined'>
+					<span>button</span>
+				</button>
 			</ly-group>
 		</Card>
 		<Card Heading='Button with left icons'>
@@ -19,11 +22,19 @@ import Card from 'src/lib/components/docs.card.astro';
 					<ly-icon>add</ly-icon>
 					<span>button</span>
 				</button>
+				<button class='__outlined'>
+					<ly-icon>add</ly-icon>
+					<span>button</span>
+				</button>
 			</ly-group>
 		</Card>
 		<Card Heading='Button with right icons'>
 			<ly-group>
 				<button>
+					<span>button</span>
+					<ly-icon>add</ly-icon>
+				</button>
+				<button class='__outlined'>
 					<span>button</span>
 					<ly-icon>add</ly-icon>
 				</button>
@@ -36,10 +47,16 @@ import Card from 'src/lib/components/docs.card.astro';
 					<span>button</span>
 					<ly-icon>add</ly-icon>
 				</button>
+				<button class='__outlined'>
+					<ly-icon>add</ly-icon>
+					<span>button</span>
+					<ly-icon>add</ly-icon>
+				</button>
 			</ly-group>
 		</Card>
 		<Card Heading='Link'>
 			<a> link </a>
+			<a class="__outlined"> link </a>
 		</Card>
 		<Card Heading='Details > Summary'>
 			<details>
@@ -48,10 +65,33 @@ import Card from 'src/lib/components/docs.card.astro';
 				</summary>
 				details content . . .
 			</details>
+			<details>
+				<summary class='__outlined'>
+					<span>summary</span>
+				</summary>
+				details content . . .
+			</details>
 		</Card>
 		<Card Heading='Dropdown > Summary'>
 			<ly-dropdown>
 				<summary slot='summary'>
+					<span>Dropdown Summary</span>
+				</summary>
+				<ul>
+					<li>sasda</li>
+					<li>sasda</li>
+					<li>sasda</li>
+					<li>sasda</li>
+					<li>sasda</li>
+					<li>sasda</li>
+					<li>sasda</li>
+					<li>sasda</li>
+					<li>sasda</li>
+					<li>sasda</li>
+				</ul>
+			</ly-dropdown>
+			<ly-dropdown>
+				<summary slot='summary' class='__outlined'>
 					<span>Dropdown Summary</span>
 				</summary>
 				<ul>

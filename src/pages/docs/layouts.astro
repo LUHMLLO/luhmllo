@@ -1,0 +1,50 @@
+---
+import Layout from 'src/lib/layout.docs.astro';
+import Card from 'src/lib/components/docs.card.astro';
+---
+
+<Layout className='g-5xl py-5xl'>
+	<!--  -->
+	<ly-grid cols='1' class='g-sm py-5xl'>
+		<Card Heading='Flex - col'>
+			<article class='bg-debug-stripes w-100'>
+				<ly-flex axis='col' class='g-sm w-100'>
+					{
+						[...Array(3).keys()].map((i) => (
+							<span class='flex bg-debug p-5xl place-center[all] radius-3xs w-100'>
+								{i}
+							</span>
+						))
+					}
+				</ly-flex>
+			</article>
+		</Card>
+		<Card Heading='Flex - row'>
+			<article class='bg-debug-stripes w-100'>
+				<ly-flex axis='row' class='g-sm w-100'>
+					{
+						[...Array(3).keys()].map((i) => (
+							<span class='flex bg-debug p-5xl place-center[all] radius-3xs w-100'>
+								{i}
+							</span>
+						))
+					}
+				</ly-flex>
+			</article>
+		</Card>
+		<Card Heading='Grid'>
+			<article class='bg-debug-stripes w-100'>
+				<ly-grid cols='12' class='g-sm w-100'>
+					{
+						[...Array(8).keys()].map((i) => (
+							<span class='flex bg-debug p-5xl place-center[all] radius-3xs w-100'>
+								{i}
+							</span>
+						))
+					}
+				</ly-grid>
+			</article>
+		</Card>
+	</ly-grid>
+	<!--  -->
+</Layout>

@@ -10,7 +10,7 @@ const { Heading } = Astro.props;
 	<header class='row between'>
 		<label>{Heading}</label>
 	</header>
-	<div class='flex container place-center'>
+	<div class='flex flex-col container g-sm place-center[items]'>
 		<slot />
 	</div>
 </div>

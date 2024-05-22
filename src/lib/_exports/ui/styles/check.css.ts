@@ -10,12 +10,13 @@ export default css`
 			cursor: pointer;
 			display: inline-flex;
 			flex-direction: column;
+			flex-shrink: 0;
 			gap: var(--gap);
 			height: max-content;
 			overflow: clip;
 		}
 
-		:host(:is(ly-check):focus-visible){
+		:host(:is(ly-check):focus-visible) {
 			outline: solid 0.125rem var(--clr-accent);
 		}
 
