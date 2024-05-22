@@ -1,91 +1,66 @@
 @layer utils {
-	:where(.grid) {
-		/* local vars */
-		--cols: 1;
-		--gap: 0rem;
-		--maxWidth: 1fr;
-		--minWidth: clamp(12rem, 16vmin, 24rem);
-		--repeat: auto-fill;
-		gap: var(--gap);
-		grid-template-columns: repeat(
-			var(--repeat),
-			minmax(
-				max(var(--minWidth), 100% / var(--cols) - var(--gap)),
-				var(--maxWidth)
-			)
-		);
-		height: max-content;
-	}
-
-	:where(.grid).cols-1 {
-		--cols: 1;
-	}
-
-	:where(.grid).cols-2 {
-		--cols: 2;
-	}
-
-	:where(.grid).cols-3 {
-		--cols: 3;
-	}
-
-	:where(.grid).cols-4 {
-		--cols: 4;
-	}
-
-	:where(.grid).cols-5 {
-		--cols: 5;
-	}
-
-	:where(.grid).cols-6 {
-		--cols: 6;
-	}
-
-	:where(.grid).cols-7 {
-		--cols: 7;
-	}
-
-	:where(.grid).cols-8 {
-		--cols: 8;
-	}
-
-	:where(.grid).cols-9 {
-		--cols: 9;
-	}
-
-	:where(.grid).cols-10 {
-		--cols: 10;
-	}
-
-	:where(.grid).cols-11 {
-		--cols: 11;
-	}
-
-	:where(.grid).cols-12 {
-		--cols: 12;
-	}
-
-	:where(.grid).container {
-		grid-template-columns:
-			[expand-start] minmax(var(--prefers-containerOutterWidth), 1fr)
-			[contain-start] minmax(0, var(--prefers-containerWidth))
-			[contain-end] minmax(var(--prefers-containerOutterWidth), 1fr)
-			[expand-end];
-	}
-
-	:where(.grid).container > * {
-		grid-column: contain;
-	}
-
-	:where(.grid).container > *[ignore-container] {
-		grid-column: expand;
-	}
-
-	:where(.grid).container > *[contain-children] {
-		/* (100vw - widthToMatch) / 2 , the min in the minmax() + the gap */
-		padding-inline: max(
-			((100% - var(--prefers-containerWidth)) / 2),
-			var(--prefers-containerOutterWidth) + 1px
-		) !important;
-	}
+  :where(.grid) {
+    /* local vars */
+    --cols: 1;
+    --gap: 0rem;
+    --maxWidth: 1fr;
+    --minWidth: clamp(12rem, 16vmin, 24rem);
+    --repeat: auto-fill;
+    gap: var(--gap);
+    grid-template-columns: repeat(var(--repeat), minmax(max(var(--minWidth), 100% / var(--cols) - var(--gap)), var(--maxWidth)));
+    height: max-content;
+  }
+  :where(.grid).cols-1 {
+    --cols: 1;
+  }
+  :where(.grid).cols-2 {
+    --cols: 2;
+  }
+  :where(.grid).cols-3 {
+    --cols: 3;
+  }
+  :where(.grid).cols-4 {
+    --cols: 4;
+  }
+  :where(.grid).cols-5 {
+    --cols: 5;
+  }
+  :where(.grid).cols-6 {
+    --cols: 6;
+  }
+  :where(.grid).cols-7 {
+    --cols: 7;
+  }
+  :where(.grid).cols-8 {
+    --cols: 8;
+  }
+  :where(.grid).cols-9 {
+    --cols: 9;
+  }
+  :where(.grid).cols-10 {
+    --cols: 10;
+  }
+  :where(.grid).cols-11 {
+    --cols: 11;
+  }
+  :where(.grid).cols-12 {
+    --cols: 12;
+  }
+  :where(.grid).subgrid {
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+  }
+  :where(.grid).container {
+    grid-template-columns: [expand-start] minmax(var(--prefers-containerOutterWidth), 1fr) [contain-start] minmax(0, var(--prefers-containerWidth)) [contain-end] minmax(var(--prefers-containerOutterWidth), 1fr) [expand-end];
+  }
+  :where(.grid).container > * {
+    grid-column: contain;
+  }
+  :where(.grid).container > *[ignore-container] {
+    grid-column: expand;
+  }
+  :where(.grid).container > *[contain-children] {
+    /* (100vw - widthToMatch) / 2 , the min in the minmax() + the gap */
+    padding-inline: max((100% - var(--prefers-containerWidth)) / 2, var(--prefers-containerOutterWidth) + 1px) !important;
+  }
 }

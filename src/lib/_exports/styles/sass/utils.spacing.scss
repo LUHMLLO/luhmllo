@@ -18,14 +18,14 @@
             @each $v in (auto, 0) {
                 &-#{$v} {
                     --gap: var(--scale-#{$v});
-                    row-gap: var(--gap);
+                    column-gap: var(--gap);
                 }
             }
 
             @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
                 &-#{$v} {
                     --gap: var(--scale-#{$v});
-                    row-gap: var(--gap);
+                    column-gap: var(--gap);
                 }
             }
         }
@@ -34,14 +34,14 @@
             @each $v in (auto, 0) {
                 &-#{$v} {
                     --gap: var(--scale-#{$v});
-                    column-gap: var(--gap);
+                    row-gap: var(--gap);
                 }
             }
 
             @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
                 &-#{$v} {
                     --gap: var(--scale-#{$v});
-                    column-gap: var(--gap);
+                    row-gap: var(--gap);
                 }
             }
         }

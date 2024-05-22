@@ -1,13 +1,32 @@
 ---
 import Layout from 'src/lib/layout.docs.astro';
+import DocsArticle from 'src/lib/components/docs.article.astro';
+
+const articles = [
+	{
+		heading: 'Buttons',
+		subheading: 'a - button - summary',
+		description: '',
+		path: '/docs/buttons',
+	},
+	{
+		heading: 'Fields',
+		subheading: 'input - select - textarea',
+		description: '',
+		path: '/docs/fields',
+	},
+	{
+		heading: 'Layouts',
+		subheading: 'flex - grid - group',
+		description: '',
+		path: '/docs/fields',
+	},
+];
 ---
 
-<Layout className=''>
-	<header class='g-sm py-5xl'>
-		<h1>Lily's</h1>
-		<p>An opinionated props-powered CSS x Web Components Kit</p>
-	</header>
-
+<Layout className='gy-sm'>
+	<h1>Lily's</h1>
+	<p>An opinionated props-powered CSS x Web Components Kit</p>
 	<figure>
 		<img
 			src='https://cdn.dribbble.com/userupload/12190560/file/original-d6d2027a27aa630f756ce2888a6e32f5.jpg'
@@ -16,30 +35,22 @@ import Layout from 'src/lib/layout.docs.astro';
 		/>
 	</figure>
 
-	<ly-slider class='g-5xl py-5xl' ignore-container contain-children>
+	<h2>Components</h2>
+	<ly-slider class='g-5xl pb-5xl' ignore-container contain-children>
 		{
-			[...Array(10).keys()].map((i) => (
-				<article class='bg-primary grid g-sm p-5xl radius-3xs w-max'>
-					<header>
-						<h6>Heading #{i}</h6>
-						<small class='clr-subtext'>sub-heading</small>
-					</header>
-					<p class='w-32[ch]'>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore
-						molestiae quo placeat eius facilis non nihil ipsa tempora ipsam! Ad
-						fuga aliquid iste magni, vero fugit aliquam at consequatur nam.
-					</p>
-				</article>
+			articles.map(({ heading, subheading, description, path }) => (
+				<DocsArticle {heading} {subheading} {description} {path} />
 			))
 		}
 	</ly-slider>
 
-	<section class='g-sm py-5xl'>
+	<footer class='bg-primary g-sm py-5xl' ignore-container contain-children>
+		<h2>Know More</h2>
 		<p>
 			Explore modern UI solutions, available within lily's collection of web
 			components &amp; css framework, to help you build simply beautiful user
 			experiences.
 		</p>
 		<a href='#'>Github</a>
-	</section>
+	</footer>
 </Layout>

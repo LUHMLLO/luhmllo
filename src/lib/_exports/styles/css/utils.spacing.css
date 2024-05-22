@@ -65,131 +65,131 @@
   }
   .gx-auto {
     --gap: var(--scale-auto);
-    row-gap: var(--gap);
+    column-gap: var(--gap);
   }
   .gx-0 {
     --gap: var(--scale-0);
-    row-gap: var(--gap);
+    column-gap: var(--gap);
   }
   .gx-5xs {
     --gap: var(--scale-5xs);
-    row-gap: var(--gap);
+    column-gap: var(--gap);
   }
   .gx-4xs {
     --gap: var(--scale-4xs);
-    row-gap: var(--gap);
+    column-gap: var(--gap);
   }
   .gx-3xs {
     --gap: var(--scale-3xs);
-    row-gap: var(--gap);
+    column-gap: var(--gap);
   }
   .gx-2xs {
     --gap: var(--scale-2xs);
-    row-gap: var(--gap);
+    column-gap: var(--gap);
   }
   .gx-xs {
     --gap: var(--scale-xs);
-    row-gap: var(--gap);
+    column-gap: var(--gap);
   }
   .gx-sm {
     --gap: var(--scale-sm);
-    row-gap: var(--gap);
+    column-gap: var(--gap);
   }
   .gx-md {
     --gap: var(--scale-md);
-    row-gap: var(--gap);
+    column-gap: var(--gap);
   }
   .gx-nm {
     --gap: var(--scale-nm);
-    row-gap: var(--gap);
+    column-gap: var(--gap);
   }
   .gx-lg {
     --gap: var(--scale-lg);
-    row-gap: var(--gap);
+    column-gap: var(--gap);
   }
   .gx-xl {
     --gap: var(--scale-xl);
-    row-gap: var(--gap);
+    column-gap: var(--gap);
   }
   .gx-2xl {
     --gap: var(--scale-2xl);
-    row-gap: var(--gap);
+    column-gap: var(--gap);
   }
   .gx-3xl {
     --gap: var(--scale-3xl);
-    row-gap: var(--gap);
+    column-gap: var(--gap);
   }
   .gx-4xl {
     --gap: var(--scale-4xl);
-    row-gap: var(--gap);
+    column-gap: var(--gap);
   }
   .gx-5xl {
     --gap: var(--scale-5xl);
-    row-gap: var(--gap);
+    column-gap: var(--gap);
   }
   .gy-auto {
     --gap: var(--scale-auto);
-    column-gap: var(--gap);
+    row-gap: var(--gap);
   }
   .gy-0 {
     --gap: var(--scale-0);
-    column-gap: var(--gap);
+    row-gap: var(--gap);
   }
   .gy-5xs {
     --gap: var(--scale-5xs);
-    column-gap: var(--gap);
+    row-gap: var(--gap);
   }
   .gy-4xs {
     --gap: var(--scale-4xs);
-    column-gap: var(--gap);
+    row-gap: var(--gap);
   }
   .gy-3xs {
     --gap: var(--scale-3xs);
-    column-gap: var(--gap);
+    row-gap: var(--gap);
   }
   .gy-2xs {
     --gap: var(--scale-2xs);
-    column-gap: var(--gap);
+    row-gap: var(--gap);
   }
   .gy-xs {
     --gap: var(--scale-xs);
-    column-gap: var(--gap);
+    row-gap: var(--gap);
   }
   .gy-sm {
     --gap: var(--scale-sm);
-    column-gap: var(--gap);
+    row-gap: var(--gap);
   }
   .gy-md {
     --gap: var(--scale-md);
-    column-gap: var(--gap);
+    row-gap: var(--gap);
   }
   .gy-nm {
     --gap: var(--scale-nm);
-    column-gap: var(--gap);
+    row-gap: var(--gap);
   }
   .gy-lg {
     --gap: var(--scale-lg);
-    column-gap: var(--gap);
+    row-gap: var(--gap);
   }
   .gy-xl {
     --gap: var(--scale-xl);
-    column-gap: var(--gap);
+    row-gap: var(--gap);
   }
   .gy-2xl {
     --gap: var(--scale-2xl);
-    column-gap: var(--gap);
+    row-gap: var(--gap);
   }
   .gy-3xl {
     --gap: var(--scale-3xl);
-    column-gap: var(--gap);
+    row-gap: var(--gap);
   }
   .gy-4xl {
     --gap: var(--scale-4xl);
-    column-gap: var(--gap);
+    row-gap: var(--gap);
   }
   .gy-5xl {
     --gap: var(--scale-5xl);
-    column-gap: var(--gap);
+    row-gap: var(--gap);
   }
   .m-auto {
     margin: auto;

@@ -29,10 +29,16 @@
 	}
 
 	:is(html, body) {
-		display: contents;
+		height: 100dvh;
+		overflow-x: clip;
+		overflow-y: auto;
+		position: fixed;
+		width: 100dvw;
 
 		&:has(ly-app, #app) {
-			overflow: clip;
+			display: contents;
+			overflow-x: clip;
+			overflow-y: clip;
 		}
 	}
 
@@ -265,7 +271,7 @@
 		}
 	}
 
-	:where(input, textarea, select) {
+	/* :where(input, textarea, select) {
 		--bg: var(--clr-primary);
 		--gap: var(--scale-sm);
 
@@ -309,7 +315,7 @@
 					var(--bg),
 					black 6%);
 		}
-	}
+	} */
 
 	:where(input[type='color']) {
 		appearance: none;

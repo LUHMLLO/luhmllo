@@ -19,9 +19,29 @@
 			}
 		}
 
-		&[data-template='container'] {
+		&.subgrid {
+			grid-template-columns: subgrid;
+			grid-template-rows: subgrid;
+		}
+
+		&.container {
 			grid-template-columns:
-				[expand-start] minmax(1.5rem, 1fr) [contain-start] minmax(0px, 88rem) [contain-end] minmax(1.5rem, 1fr) [expand-end];
+				[expand-start] minmax(var(--prefers-containerOutterWidth), 1fr) [contain-start] minmax(0,
+					var(--prefers-containerWidth)) [contain-end] minmax(var(--prefers-containerOutterWidth), 1fr) [expand-end];
+
+			& > * {
+				grid-column: contain;
+			}
+
+			& > *[ignore-container] {
+				grid-column: expand;
+			}
+
+			& > *[contain-children] {
+				/* (100vw - widthToMatch) / 2 , the min in the minmax() + the gap */
+				padding-inline: max(((100% - var(--prefers-containerWidth)) / 2),
+						var(--prefers-containerOutterWidth) + 1px) !important;
+			}
 		}
 	}
 }

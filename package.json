@@ -6,7 +6,7 @@
 	"main": "dist/ui/index.js",
 	"name": "lilys",
 	"type": "module",
-	"version": "0.0.14-2",
+	"version": "0.0.15",
 	"browserslist": [
 		"defaults",
 		"not op_mini all"
@@ -73,16 +73,16 @@
 	},
 	"scripts": {
 		"astro": "astro",
-		"build": "pnpm check && pnpm stage:1 && pnpm stage:2 && pnpm stage:3 && pnpm stage:4",
-		"build:css": "pnpm stage:1 && pnpm stage:2",
-		"build:components": "pnpm stage:3",
+		"build": "pnpm check && pnpm gen:scss && pnpm gen:postcss && pnpm gen:lit && pnpm gen:astro",
+		"build:css": "pnpm gen:scss && pnpm gen:postcss",
+		"build:components": "pnpm gen:lit",
 		"check": "tsc && astro check",
 		"dev": "astro dev",
 		"preview": "astro preview",
 		"start": "astro dev",
-		"stage:1": "sass --color --no-source-map --stop-on-error --unicode --update ./src/lib/_exports/styles/sass/:./src/lib/_exports/styles/css/",
-		"stage:2": "postcss ./src/lib/_exports/styles/css/*.css -d ./dist/styles/ --config ./.postcssrc",
-		"stage:3": "vite build --config vite.lib.prod.config.ts && vite build --config vite.lib.local.config.ts",
-		"stage:4": "astro build"
+		"gen:scss": "sass --color --no-source-map --stop-on-error --unicode --update ./src/lib/_exports/styles/sass/:./src/lib/_exports/styles/css/",
+		"gen:postcss": "postcss ./src/lib/_exports/styles/css/*.css -d ./dist/styles/ --config ./.postcssrc",
+		"gen:lit": "vite build --config vite.lib.prod.config.ts && vite build --config vite.lib.local.config.ts",
+		"gen:astro": "astro build"
 	}
 }

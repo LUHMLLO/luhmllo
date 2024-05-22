@@ -16,10 +16,18 @@ const { className } = Astro.props;
 	<ly-layer stacked='over'></ly-layer>
 </HTML_Layout>
 
-<style>
+<style lang='css' scoped>
 	@layer props {
 		:root {
 			--baseFontFamily: 'General Sans', sans-serif;
+		}
+	}
+
+	@layer astro {
+		:where(ly-app) {
+			& > :global(:where(h1, h2, h3, h4, h5, h6)) {
+				margin-top: var(--scale-5xl);
+			}
 		}
 	}
 </style>

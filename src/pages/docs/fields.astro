@@ -6,75 +6,6 @@ import Card from 'src/lib/components/docs.card.astro';
 <Layout className='g-5xl py-5xl'>
 	<!--  -->
 	<ly-grid cols='4' class='g-sm py-5xl'>
-		<Card Heading='Button with no icons'>
-			<ly-group>
-				<button>
-					<span>button</span>
-				</button>
-			</ly-group>
-		</Card>
-		<Card Heading='Button with left icons'>
-			<ly-group>
-				<button>
-					<ly-icon>add</ly-icon>
-					<span>button</span>
-				</button>
-			</ly-group>
-		</Card>
-		<Card Heading='Button with right icons'>
-			<ly-group>
-				<button>
-					<span>button</span>
-					<ly-icon>add</ly-icon>
-				</button>
-			</ly-group>
-		</Card>
-		<Card Heading='Button with both icons'>
-			<ly-group>
-				<button>
-					<ly-icon>add</ly-icon>
-					<span>button</span>
-					<ly-icon>add</ly-icon>
-				</button>
-			</ly-group>
-		</Card>
-	</ly-grid>
-	<!--  -->
-	<ly-grid cols='4' class='g-sm py-5xl'>
-		<Card Heading='Link'>
-			<a> link </a>
-		</Card>
-		<Card Heading='Details > Summary'>
-			<details>
-				<summary>
-					<span>summary</span>
-				</summary>
-				details content . . .
-			</details>
-		</Card>
-		<Card Heading='Dropdown > Summary'>
-			<ly-dropdown>
-				<summary slot='summary'>
-					<span>Dropdown Summary</span>
-				</summary>
-				<ul>
-					<li>sasda</li>
-					<li>sasda</li>
-					<li>sasda</li>
-					<li>sasda</li>
-					<li>sasda</li>
-					<li>sasda</li>
-					<li>sasda</li>
-					<li>sasda</li>
-					<li>sasda</li>
-					<li>sasda</li>
-				</ul>
-			</ly-dropdown>
-		</Card>
-		<!--  -->
-	</ly-grid>
-	<!--  -->
-	<ly-grid cols='4' class='g-sm py-5xl'>
 		<Card Heading='Date'>
 			<ly-field type='date'>
 				<input />
@@ -144,19 +75,31 @@ import Card from 'src/lib/components/docs.card.astro';
 				<input />
 			</ly-field>
 		</Card>
-		<Card Heading='Percent'>
+		<Card Heading='Range'>
 			<ly-field type='range'>
 				<input />
 			</ly-field>
 		</Card>
-		<Card Heading='File Upload'>
-			<ly-field type='file'>
-				<input />
-			</ly-field>
-		</Card>
-		<Card Heading='File Upload [ Preview ]'>
-			<ly-field type='file'>
-				<input />
+		<Card Heading='File Upload (method #1)'>
+			<script is:inline>
+				function setFile(number) {
+					const field = document.querySelector(`#file-upload-field-${number}`);
+					const btn = document.querySelector(`#file-upload-input-${number}`);
+
+					btn.addEventListener('change', () => {
+						setTimeout(() => {
+							console.log(btn);
+							field.setAttribute('caption', btn.value);
+						}, 512);
+					});
+					btn.click();
+				}
+			</script>
+			<ly-field id='file-upload-field-1' type='file'>
+				<input id='file-upload-input-1' />
+				<button onclick='setFile(1)'>
+					<span>Select File</span>
+				</button>
 			</ly-field>
 		</Card>
 	</ly-grid>

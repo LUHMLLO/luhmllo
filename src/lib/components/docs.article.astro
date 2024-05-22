@@ -1,0 +1,35 @@
+---
+interface Props {
+	heading: string;
+	subheading?: string;
+	description?: string;
+	path: string;
+}
+
+const { heading, subheading, description, path } = Astro.props;
+---
+
+<a href={path} class='contents clr-text'>
+	<article class='bg-primary grid g-3xs py-sm px-nm radius-3xs w-max'>
+		<header>
+			<h6>{heading}</h6>
+			<small class='clr-subtext'>{subheading}</small>
+		</header>
+		<figure>
+			<img
+				src='https://cdn.dribbble.com/userupload/12190560/file/original-d6d2027a27aa630f756ce2888a6e32f5.jpg'
+				alt='article thumbnail'
+			/>
+		</figure>
+		<p class='w-32[ch]'>
+			{description}
+		</p>
+	</article>
+</a>
+
+<style lang='css' scoped>
+	figure {
+		height: calc(var(--scale-5xl) * 6);
+		width: 100%;
+	}
+</style>
