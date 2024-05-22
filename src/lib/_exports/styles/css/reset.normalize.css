@@ -146,7 +146,7 @@
 		--px: var(--spacing);
 		--py: 0;
 		--radius: var(--scale-sm);
-		--spacing: var(--scale-5xs);
+		--spacing: var(--scale-sm);
 
 		align-items: center;
 		background-color: var(--bg);
