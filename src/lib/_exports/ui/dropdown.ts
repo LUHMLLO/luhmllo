@@ -1,5 +1,10 @@
 import { LitElement, css, html, nothing } from 'lit';
-import { customElement, property, query } from 'lit/decorators.js';
+import {
+	customElement,
+	property,
+	query,
+	queryAssignedNodes,
+} from 'lit/decorators.js';
 
 import {
 	computePosition,
@@ -87,7 +92,8 @@ export class Dropdown extends LitElement {
 		}
 	`;
 
-	@query('summary') private _dropsummary!: HTMLElement;
+	@queryAssignedNodes({ slot: 'summary', flatten: true })
+	private _dropsummary!: HTMLElement[];
 	@query('div[part="dropmenu"]') private _dropmenu!: HTMLElement;
 	private _cleanup?: any;
 
@@ -98,11 +104,11 @@ export class Dropdown extends LitElement {
 	override async updated(): Promise<void> {
 		if (this._dropsummary && this._dropmenu && this.open) {
 			this._cleanup = autoUpdate(
-				this._dropsummary,
+				this._dropsummary[0]!,
 				this._dropmenu,
 				async () => {
 					const { x, y } = await computePosition(
-						this._dropsummary,
+						this._dropsummary[0]!,
 						this._dropmenu,
 						{
 							middleware: [
@@ -154,9 +160,7 @@ export class Dropdown extends LitElement {
 
 	protected override render() {
 		return html`
-			<summary @click=${this._toggleOpen}>
-				<slot name="summary"></slot>
-			</summary>
+			<slot name="summary" @click=${this._toggleOpen}></slot>
 			${this.open
 				? html`
 						<div part="dropmenu">
