@@ -7,56 +7,51 @@ import Card from 'src/lib/components/docs.card.astro';
 	<!--  -->
 	<ly-grid cols='4' class='g-sm py-5xl'>
 		<Card Heading='Button with no icons'>
-			<ly-group>
-				<button>
-					<span>button</span>
-				</button>
-				<button class='__outlined'>
-					<span>button</span>
-				</button>
-			</ly-group>
+			<button>
+				<span>button</span>
+			</button>
+			<button class='__outlined'>
+				<span>button</span>
+			</button>
+			<button class='bg-error __outlined' disabled>
+				<span>button</span>
+			</button>
 		</Card>
 		<Card Heading='Button with left icons'>
-			<ly-group>
-				<button>
-					<ly-icon>add</ly-icon>
-					<span>button</span>
-				</button>
-				<button class='__outlined'>
-					<ly-icon>add</ly-icon>
-					<span>button</span>
-				</button>
-			</ly-group>
+			<button>
+				<ly-icon>add</ly-icon>
+				<span>button</span>
+			</button>
+			<button class='__outlined'>
+				<ly-icon>add</ly-icon>
+				<span>button</span>
+			</button>
 		</Card>
 		<Card Heading='Button with right icons'>
-			<ly-group>
-				<button>
-					<span>button</span>
-					<ly-icon>add</ly-icon>
-				</button>
-				<button class='__outlined'>
-					<span>button</span>
-					<ly-icon>add</ly-icon>
-				</button>
-			</ly-group>
+			<button>
+				<span>button</span>
+				<ly-icon>add</ly-icon>
+			</button>
+			<button class='__outlined'>
+				<span>button</span>
+				<ly-icon>add</ly-icon>
+			</button>
 		</Card>
 		<Card Heading='Button with both icons'>
-			<ly-group>
-				<button>
-					<ly-icon>add</ly-icon>
-					<span>button</span>
-					<ly-icon>add</ly-icon>
-				</button>
-				<button class='__outlined'>
-					<ly-icon>add</ly-icon>
-					<span>button</span>
-					<ly-icon>add</ly-icon>
-				</button>
-			</ly-group>
+			<button>
+				<ly-icon>add</ly-icon>
+				<span>button</span>
+				<ly-icon>add</ly-icon>
+			</button>
+			<button class='__outlined'>
+				<ly-icon>add</ly-icon>
+				<span>button</span>
+				<ly-icon>add</ly-icon>
+			</button>
 		</Card>
 		<Card Heading='Link'>
 			<a> link </a>
-			<a class="__outlined"> link </a>
+			<a class='__outlined'> link </a>
 		</Card>
 		<Card Heading='Details > Summary'>
 			<details>
@@ -77,18 +72,21 @@ import Card from 'src/lib/components/docs.card.astro';
 				<summary slot='summary'>
 					<span>Dropdown Summary</span>
 				</summary>
-				<ul>
-					<li>sasda</li>
-					<li>sasda</li>
-					<li>sasda</li>
-					<li>sasda</li>
-					<li>sasda</li>
-					<li>sasda</li>
-					<li>sasda</li>
-					<li>sasda</li>
-					<li>sasda</li>
-					<li>sasda</li>
-				</ul>
+				<button>
+					<span>Option</span>
+				</button>
+				<button>
+					<span>Option</span>
+				</button>
+				<button>
+					<span>Option</span>
+				</button>
+				<button>
+					<span>Option</span>
+				</button>
+				<button>
+					<span>Option</span>
+				</button>
 			</ly-dropdown>
 			<ly-dropdown>
 				<summary slot='summary' class='__outlined'>

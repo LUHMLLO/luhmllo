@@ -23,6 +23,13 @@
 		&::after {
 			box-sizing: inherit;
 		}
+
+		&[disabled] {
+			cursor: none !important;
+			filter: grayscale(56%);
+			pointer-events: none;
+			user-select: none;
+		}
 	}
 }
 
