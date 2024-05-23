@@ -15,6 +15,14 @@ export class Dropdown extends LitElement {
 	@property({ type: Boolean, reflect: true }) open = false;
 
 	static override readonly styles = css`
+		:host(:is(ly-dropdown)) {
+			visibility: hidden;
+		}
+
+		:host(:is(ly-dropdown)) > * {
+			visibility: visible;
+		}
+
 		:host(:is(ly-dropdown[open]))::part(dropmenu) {
 			--bg: var(--clr-background);
 			--gap: 0;
@@ -84,7 +92,7 @@ export class Dropdown extends LitElement {
 	private _cleanup?: any;
 
 	override firstUpdated() {
-		document.addEventListener('click', this.clickOutsideHandler);
+		document.addEventListener('click', this.clickOutsideHandler.bind(this));
 	}
 
 	override async updated(): Promise<void> {
@@ -108,7 +116,7 @@ export class Dropdown extends LitElement {
 											altBoundary: true,
 											padding: 5,
 											boundary: document.documentElement,
-                                            rootBoundary: {
+											rootBoundary: {
 												x: 0,
 												y: 0,
 												width: document.documentElement.clientWidth,
@@ -171,12 +179,14 @@ export class Dropdown extends LitElement {
 
 	// Added clickOutside handler
 	clickOutsideHandler(event: MouseEvent) {
-		const target = event.target as Node;
-		if (
-			this.open &&
-			target &&
-			(!this._dropsummary?.contains(target) || !this._dropmenu.contains(target))
-		) {
+		const target = event.composedPath()[0] as Node; // Use composedPath to get the correct event target
+		const isOutside =
+			!this.shadowRoot?.contains(target) && !this.contains(target); // Check if the target is outside both shadow root and light DOM
+
+		// console.log(event.composed); // For debugging purposes
+		// console.log(event.composedPath()); // For debugging purposes
+
+		if (this.open && isOutside) {
 			this.open = false;
 		}
 	}
