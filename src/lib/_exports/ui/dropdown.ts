@@ -22,6 +22,9 @@ export class Dropdown extends LitElement {
 	static override readonly styles = css`
 		:host(:is(ly-dropdown)) {
 			display: inline-flex;
+			min-height: 0;
+			position: relative;
+			width: fit-content;
 			visibility: hidden;
 		}
 
