@@ -56,7 +56,7 @@ export class Dropdown extends LitElement {
 				color-mix(
 					in var(--prefers-colorSpace, srgb),
 					var(--outln-clr),
-					white 3%
+					gray 16%
 				);
 			outline-offset: -0.125rem;
 			overflow: clip;
@@ -164,6 +164,7 @@ export class Dropdown extends LitElement {
 								autoPlacement({
 									autoAlignment: true,
 									alignment: 'bottom' as Alignment,
+									allowedPlacements: ['top','bottom'],
 									crossAxis: true,
 									padding: 3,
 								}),
@@ -177,6 +178,7 @@ export class Dropdown extends LitElement {
 									// 		mainAxis: rects.reference.height,
 									// 	}),
 									// }),
+									padding: 3,
 								}),
 								size({
 									apply({ rects, elements }) {
@@ -209,8 +211,7 @@ export class Dropdown extends LitElement {
 						}
 					);
 					Object.assign(this._dropmenu.style, {
-						top: '0',
-						left: '0',
+						inset: '0',
 						transform: `translate(${this._roundByDPR(x)}px, ${this._roundByDPR(
 							y
 						)}px)`,
