@@ -89,20 +89,20 @@
 
 			/* conditional style modifiers */
 			&.__outlined {
-				outline-color: color-mix(in var(--prefers-colorSpace, srgb), var(--outln-clr), white 3%);
+				outline-color: color-mix(in var(--prefers-colorSpace, srgb), var(--outln-clr), gray 16%);
 
 				@media (hover: hover) {
 					&:hover {
 						outline-color: color-mix(in var(--prefers-colorSpace, srgb),
 								var(--outln-clr),
-								white 16%);
+								gray 16%);
 					}
 				}
 
 				&:active {
 					outline-color: color-mix(in var(--prefers-colorSpace, srgb),
 							var(--outln-clr),
-							black 16%);
+							darkgray 16%);
 				}
 			}
 		}
@@ -119,20 +119,20 @@
 			&:hover {
 				background-color: color-mix(in var(--prefers-colorSpace, srgb),
 						var(--bg),
-						white 3%);
+						gray 16%);
 				color: color-mix(in var(--prefers-colorSpace, srgb),
 						var(--clr),
-						white 16%);
+						gray 16%);
 			}
 		}
 
 		&:active {
 			background-color: color-mix(in var(--prefers-colorSpace, srgb),
 					var(--bg),
-					black 3%);
+					darkgray 16%);
 			color: color-mix(in var(--prefers-colorSpace, srgb),
 					var(--clr),
-					black 16%);
+					darkgray 16%);
 		}
 	}
 
@@ -158,7 +158,7 @@
 		font-weight: 400;
 		gap: var(--gap);
 		margin: var(--my) var(--mx);
-		outline: solid 0.125rem color-mix(in srgb, var(--outln-clr), white 3%);
+		outline: solid 0.125rem color-mix(in srgb, var(--outln-clr), gray 12%);
 		outline-offset: -0.125rem;
 		overflow: clip;
 		padding: var(--py) var(--px);
@@ -218,14 +218,14 @@
 			&:hover {
 				outline-color: color-mix(in var(--prefers-colorSpace, srgb),
 						var(--outln-clr),
-						white 16%) !important;
+						gray 16%) !important;
 			}
 		}
 
 		&:active {
 			outline-color: color-mix(in var(--prefers-colorSpace, srgb),
 					var(--outln-clr),
-					black 16%) !important;
+					darkgray 16%) !important;
 		}
 	}
 }
