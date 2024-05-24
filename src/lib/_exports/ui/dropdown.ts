@@ -1,10 +1,10 @@
-import { LitElement, css, html, nothing } from 'lit'
+import { LitElement, css, html, nothing } from 'lit';
 import {
 	customElement,
 	property,
 	query,
 	queryAssignedNodes,
-} from 'lit/decorators.js'
+} from 'lit/decorators.js';
 
 import {
 	computePosition,
@@ -13,14 +13,13 @@ import {
 	shift,
 	detectOverflow,
 	autoPlacement,
-	limitShift,
 	type Alignment,
 	size,
-} from '@floating-ui/dom'
+} from '@floating-ui/dom';
 
-@customElement( 'ly-dropdown' )
+@customElement('ly-dropdown')
 export class Dropdown extends LitElement {
-	@property( { type: Boolean, reflect: true } ) open = false;
+	@property({ type: Boolean, reflect: true }) open = false;
 
 	static override readonly styles = css`
 		:host(:is(ly-dropdown)) {
@@ -87,7 +86,8 @@ export class Dropdown extends LitElement {
 			/*mask: radial-gradient(circle at center, transparent, var(--bg) var(--percent));*/
 			overflow-x: clip;
 			overflow-y: auto;
-			transition: transform var(--animDefaults);
+			transition: inset var(--animDefaults), margin var(--animDefaults),
+				transform var(--animDefaults), translate var(--animDefaults);
 		}
 
 		div::-webkit-scrollbar {
@@ -100,32 +100,32 @@ export class Dropdown extends LitElement {
 		}
 	`;
 
-	@queryAssignedNodes( { slot: 'summary', flatten: true } )
-	private _dropsummary!: HTMLElement[]
-	@query( 'div[part="dropmenu"]' ) private _dropmenu!: HTMLElement
-	private _cleanup?: any
+	@queryAssignedNodes({ slot: 'summary', flatten: true })
+	private _dropsummary!: HTMLElement[];
+	@query('div[part="dropmenu"]') private _dropmenu!: HTMLElement;
+	private _cleanup?: any;
 
 	override firstUpdated() {
-		document.addEventListener( 'click', this.clickOutsideHandler.bind( this ) )
+		document.addEventListener('click', this.clickOutsideHandler.bind(this));
 	}
 
 	override async updated(): Promise<void> {
-		this._handleFloatingStyles()
+		this._handleFloatingStyles();
 	}
 
 	override async disconnectedCallback(): Promise<void> {
-		super.disconnectedCallback()
-		document.removeEventListener( 'click', this.clickOutsideHandler.bind( this ) )
+		super.disconnectedCallback();
+		document.removeEventListener('click', this.clickOutsideHandler.bind(this));
 
-		if ( this._cleanup ) {
-			this._cleanup()
+		if (this._cleanup) {
+			this._cleanup();
 		}
 	}
 
 	protected override render() {
 		return html`
-			<slot name="summary" @click=${ this._toggleOpen }></slot>
-			${ this.open
+			<slot name="summary" @click=${this._toggleOpen}></slot>
+			${this.open
 				? html`
 						<div part="dropmenu">
 							<div part="dropmenu__inner">
@@ -133,62 +133,62 @@ export class Dropdown extends LitElement {
 							</div>
 						</div>
 				  `
-				: nothing }
-		`
+				: nothing}
+		`;
 	}
 
 	private _toggleOpen() {
-		if ( this._cleanup ) {
-			this._cleanup()
+		if (this._cleanup) {
+			this._cleanup();
 		}
 
-		this.open = !this.open
+		this.open = !this.open;
 	}
 
-	private _roundByDPR( value: number ) {
-		const dpr = window.devicePixelRatio || 1
-		return Math.round( value * dpr ) / dpr
+	private _roundByDPR(value: number) {
+		const dpr = window.devicePixelRatio || 1;
+		return Math.round(value * dpr) / dpr;
 	}
 
 	private _handleFloatingStyles() {
-		if ( this._dropsummary && this._dropmenu && this.open ) {
+		if (this._dropsummary && this._dropmenu && this.open) {
 			this._cleanup = autoUpdate(
-				this._dropsummary[ 0 ]!,
+				this._dropsummary[0]!,
 				this._dropmenu,
 				async () => {
 					const { x, y } = await computePosition(
-						this._dropsummary[ 0 ]!,
+						this._dropsummary[0]!,
 						this._dropmenu,
 						{
 							middleware: [
-								autoPlacement( {
+								autoPlacement({
 									autoAlignment: true,
 									alignment: 'bottom' as Alignment,
 									crossAxis: true,
 									padding: 3,
-								} ),
-								offset( 3 ),
-								shift( (  ) => ( {
+								}),
+								offset(3),
+								shift({
 									crossAxis: true,
 									mainAxis: true,
-									limiter: limitShift( {
-										offset: ( { rects } ) => ( {
-											crossAxis: rects.floating.width,
-											mainAxis: rects.reference.height,
-										} ),
-									} ),
-								} ) ),
-								size( {
-									apply( { rects, elements } ) {
-										Object.assign( elements.floating.style, {
-											width: `${ rects.reference.width }px`,
-										} )
+									// limiter: limitShift({
+									// 	offset: ({ rects }) => ({
+									// 		crossAxis: rects.floating.width,
+									// 		mainAxis: rects.reference.height,
+									// 	}),
+									// }),
+								}),
+								size({
+									apply({ rects, elements }) {
+										Object.assign(elements.floating.style, {
+											width: `${rects.reference.width}px`,
+										});
 									},
-								} ),
+								}),
 								{
 									name: 'detectOverflow',
-									async fn( state ) {
-										await detectOverflow( state, {
+									async fn(state) {
+										await detectOverflow(state, {
 											altBoundary: true,
 											boundary: document.documentElement,
 											elementContext: 'floating',
@@ -199,41 +199,38 @@ export class Dropdown extends LitElement {
 												width: document.documentElement.clientWidth,
 												height: document.documentElement.clientHeight,
 											},
-										} )
-										return {}
+										});
+										return {};
 									},
 								},
 							],
 							placement: 'bottom',
 							strategy: 'fixed',
 						}
-					)
-					Object.assign( this._dropmenu.style, {
-						inset: '0',
-						transform: `translate(${ this._roundByDPR( x ) }px, ${ this._roundByDPR(
+					);
+					Object.assign(this._dropmenu.style, {
+						top: '0',
+						left: '0',
+						transform: `translate(${this._roundByDPR(x)}px, ${this._roundByDPR(
 							y
-						) }px)`,
-					} )
+						)}px)`,
+					});
 				},
 				{ animationFrame: true }
-			)
-		} else if ( this._cleanup ) {
-			this._cleanup()
-			this._cleanup = undefined
+			);
+		} else if (this._cleanup) {
+			this._cleanup();
+			this._cleanup = undefined;
 		}
 	}
 
-	// Added clickOutside handler
-	clickOutsideHandler( event: MouseEvent ) {
-		const target = event.composedPath()[ 0 ] as Node // Use composedPath to get the correct event target
+	clickOutsideHandler(event: MouseEvent) {
+		const target = event.composedPath()[0] as Node;
 		const isOutside =
-			!this.shadowRoot?.contains( target ) && !this.contains( target ) // Check if the target is outside both shadow root and light DOM
+			!this.shadowRoot?.contains(target) && !this.contains(target);
 
-		// console.log(event.composed); // For debugging purposes
-		// console.log(event.composedPath()); // For debugging purposes
-
-		if ( this.open && isOutside ) {
-			this.open = false
+		if (this.open && isOutside) {
+			this.open = false;
 		}
 	}
 }
