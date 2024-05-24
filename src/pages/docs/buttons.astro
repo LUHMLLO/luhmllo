@@ -6,49 +6,6 @@ import Card from 'src/lib/components/docs.card.astro';
 <Layout className='g-5xl py-5xl'>
 	<!--  -->
 	<ly-grid cols='4' class='g-sm py-5xl'>
-		<Card Heading='Button with no icons'>
-			<button>
-				<span>button</span>
-			</button>
-			<button class='__outlined'>
-				<span>button</span>
-			</button>
-			<button class='bg-error __outlined' disabled>
-				<span>button</span>
-			</button>
-		</Card>
-		<Card Heading='Button with left icons'>
-			<button>
-				<ly-icon>add</ly-icon>
-				<span>button</span>
-			</button>
-			<button class='__outlined'>
-				<ly-icon>add</ly-icon>
-				<span>button</span>
-			</button>
-		</Card>
-		<Card Heading='Button with right icons'>
-			<button>
-				<span>button</span>
-				<ly-icon>add</ly-icon>
-			</button>
-			<button class='__outlined'>
-				<span>button</span>
-				<ly-icon>add</ly-icon>
-			</button>
-		</Card>
-		<Card Heading='Button with both icons'>
-			<button>
-				<ly-icon>add</ly-icon>
-				<span>button</span>
-				<ly-icon>add</ly-icon>
-			</button>
-			<button class='__outlined'>
-				<ly-icon>add</ly-icon>
-				<span>button</span>
-				<ly-icon>add</ly-icon>
-			</button>
-		</Card>
 		<Card Heading='Link'>
 			<a> link </a>
 			<a class='__outlined'> link </a>
@@ -105,6 +62,49 @@ import Card from 'src/lib/components/docs.card.astro';
 					<li>sasda</li>
 				</ul>
 			</ly-dropdown>
+		</Card>
+		<Card Heading='Button with no icons'>
+			<button>
+				<span>button</span>
+			</button>
+			<button class='__outlined'>
+				<span>button</span>
+			</button>
+			<button class='bg-error __outlined' disabled>
+				<span>button</span>
+			</button>
+		</Card>
+		<Card Heading='Button with left icons'>
+			<button>
+				<ly-icon>add</ly-icon>
+				<span>button</span>
+			</button>
+			<button class='__outlined'>
+				<ly-icon>add</ly-icon>
+				<span>button</span>
+			</button>
+		</Card>
+		<Card Heading='Button with right icons'>
+			<button>
+				<span>button</span>
+				<ly-icon>add</ly-icon>
+			</button>
+			<button class='__outlined'>
+				<span>button</span>
+				<ly-icon>add</ly-icon>
+			</button>
+		</Card>
+		<Card Heading='Button with both icons'>
+			<button>
+				<ly-icon>add</ly-icon>
+				<span>button</span>
+				<ly-icon>add</ly-icon>
+			</button>
+			<button class='__outlined'>
+				<ly-icon>add</ly-icon>
+				<span>button</span>
+				<ly-icon>add</ly-icon>
+			</button>
 		</Card>
 	</ly-grid>
 	<!--  -->

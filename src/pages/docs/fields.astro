@@ -5,13 +5,36 @@ import Card from 'src/lib/components/docs.card.astro';
 
 <Layout className='g-5xl py-5xl'>
 	<!--  -->
+	<script is:inline>
+		function setFile(number) {
+			const field = document.querySelector(`#file-upload-field-${number}`);
+			const btn = document.querySelector(`#file-upload-input-${number}`);
+
+			btn.addEventListener('change', () => {
+				setTimeout(() => {
+					console.log(btn);
+					field.setAttribute('caption', btn.value);
+				}, 512);
+			});
+			btn.click();
+		}
+	</script>
+	<!--  -->
 	<ly-grid cols='4' class='g-sm py-5xl'>
+		<Card Heading='File Upload (method #1)'>
+			<ly-field id='file-upload-field-1' ref='file-upload-input-1' type='file'>
+				<input />
+				<button class='__outlined' onclick='setFile(1)'>
+					<span>Select File</span>
+				</button>
+			</ly-field>
+		</Card>
 		<Card Heading='Date'>
-			<ly-field type='date'>
+			<ly-field type='date' label='time input' caption='not custom'>
 				<input />
 			</ly-field>
 			<ly-field type='date'>
-				<input class="bg-error" disabled/>
+				<input class='bg-error' disabled />
 			</ly-field>
 		</Card>
 		<Card Heading='Date / Time'>
@@ -81,31 +104,6 @@ import Card from 'src/lib/components/docs.card.astro';
 		<Card Heading='Range'>
 			<ly-field type='range'>
 				<input />
-			</ly-field>
-		</Card>
-		<Card Heading='File Upload (method #1)'>
-			<script is:inline>
-				function setFile(number) {
-					const field = document.querySelector(`#file-upload-field-${number}`);
-					const btn = document.querySelector(`#file-upload-input-${number}`);
-
-					btn.addEventListener('change', () => {
-						setTimeout(() => {
-							console.log(btn);
-							field.setAttribute('caption', btn.value);
-						}, 512);
-					});
-					btn.click();
-				}
-			</script>
-			<ly-field id='file-upload-field-1' type='file'>
-				<input id='file-upload-input-1' />
-				<button onclick='setFile(1)'>
-					<span>Select File</span>
-				</button>
-				<button class="__outlined" onclick='setFile(1)'>
-					<span>Select File</span>
-				</button>
 			</ly-field>
 		</Card>
 	</ly-grid>

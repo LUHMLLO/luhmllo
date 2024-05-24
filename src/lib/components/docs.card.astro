@@ -6,7 +6,7 @@ interface Props {
 const { Heading } = Astro.props;
 ---
 
-<div class='card'>
+<div class='aspect-[1/1] card'>
 	<header class='row between'>
 		<label>{Heading}</label>
 	</header>
@@ -17,19 +17,20 @@ const { Heading } = Astro.props;
 
 <style lang='css' scoped>
 	.card {
+		--bg: var(--clr-background);
 		--radius: 12pt;
 		--spacing: 16pt;
 
+		background-color: var(--bg);
 		border-radius: var(--radius);
 		display: grid;
 		grid-template-rows: max-content minmax(0, 1fr);
 		/* isolation: isolate; */
 		outline: solid 0.125rem var(--clr-primary);
-		/* overflow: hidden; */
+		overflow: hidden;
 
 		& > header {
 			align-items: center;
-			background-color: inherit;
 			border-bottom: solid 1pt var(--clr-primary) !important;
 			padding: calc(var(--spacing) / 2) var(--spacing);
 		}

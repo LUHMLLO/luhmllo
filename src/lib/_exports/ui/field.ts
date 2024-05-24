@@ -7,6 +7,7 @@ export class Field extends LitElement {
 	@property( { type: String } ) label = '';
 	@property( { type: String } ) caption = '';
 	@property( { type: String } ) name = '';
+	@property( { type: String } ) ref = '';
 	@property( { type: Boolean, reflect: true } ) required = false;
 	@property( { type: 'debug' || 'error' || 'info' || 'success' || 'warning' } )
 	status = '';
@@ -23,9 +24,13 @@ export class Field extends LitElement {
 		let inputs = slot?.assignedElements()
 		if ( inputs ) {
 			inputs.forEach( ( input ) => {
-				if ( input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement ) {
+				if (
+					input instanceof HTMLInputElement ||
+					input instanceof HTMLTextAreaElement
+				) {
+					this.ref && input.setAttribute( 'id', this.ref )
 					this.name && input.setAttribute( 'name', this.name )
-					this.name && input.setAttribute( 'title', this.name )
+					this.required && input.setAttribute( 'required', `${ this.required }` )
 					this.type && input.setAttribute( 'type', this.type )
 				}
 			} )
