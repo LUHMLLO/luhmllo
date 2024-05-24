@@ -4,7 +4,7 @@ import { customElement } from 'lit/decorators.js'
 @customElement( 'ly-fragment' )
 export class Fragment extends LitElement {
     static override readonly styles = css`
-		:host {
+		:host(:is(ly-fragment)) {
 			display: contents;
 		}
 	`;

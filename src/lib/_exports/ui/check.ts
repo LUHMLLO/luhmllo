@@ -1,21 +1,93 @@
-import { LitElement, html, nothing, type TemplateResult } from 'lit'
+import { LitElement, css, html, nothing, type TemplateResult } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import stylesCheck from './styles/check.css.ts'
 
 @customElement( 'ly-check' )
 export class Check extends LitElement {
-	@property( { type: Boolean, reflect: true } ) checked = false;
-	@property( { type: String, reflect: true } ) group = '';
-	@property( { type: String, reflect: true } ) label = '';
-	@property( { type: 'checkbox' || 'box' || 'switch', reflect: true } ) variant = '';
+	static override readonly styles = css`
+		:host(:is(ly-check)) {
+			/* local vars */
+			--gap: var(--scale-5xs);
+
+			/* base styles */
+			cursor: pointer;
+			display: inline-flex;
+			flex-direction: column;
+			flex-shrink: 0;
+			gap: var(--gap);
+			height: max-content;
+			overflow: clip;
+		}
+
+		:host(:is(ly-check):focus-visible) {
+			outline: solid 0.125rem var(--clr-accent);
+		}
+
+		:host(:is(ly-check))::part(row) {
+			gap: inherit;
+		}
+
+		:host(:is(ly-check))::part(label) {
+			display: inline-flex;
+			flex-shrink: 1;
+		}
+
+		:host(:is(ly-check)) > ly-icon {
+			cursor: pointer;
+		}
+	`;
 
 	static override readonly properties = {
 		delegatesFocus: { type: Boolean, reflect: true },
 	};
 
-	static override readonly styles = stylesCheck;
+	static override readonly shadowRootOptions = {
+		...LitElement.shadowRootOptions,
+		delegatesFocus: true,
+	};
 
-	private toggleChecked() {
+	@property( { type: Boolean, reflect: true } ) checked = false;
+	@property( { type: String, reflect: true } ) group = '';
+	@property( { type: String, reflect: true } ) label = '';
+	@property( { type: 'checkbox' || 'box' || 'switch', reflect: true } ) variant =
+		'';
+
+	override async connectedCallback(): Promise<void> {
+		super.connectedCallback()
+		this.setAttribute( 'tabindex', '0' )
+		this.addEventListener( 'focus', () => this.focus() )
+		this.addEventListener( 'click', this._toggleChecked )
+		this.addEventListener( 'keydown', ( event ) => {
+			if ( event.key === 'Enter' || event.key === ' ' ) {
+				this._toggleChecked()
+			}
+		} )
+	}
+
+	override async disconnectedCallback(): Promise<void> {
+		super.disconnectedCallback()
+		this.removeAttribute( 'tabindex' )
+		this.removeEventListener( 'focus', () => this.focus() )
+		this.removeEventListener( 'click', this._toggleChecked )
+		this.removeEventListener( 'keydown', ( event ) => {
+			if ( event.key === 'Enter' || event.key === ' ' ) {
+				this._toggleChecked()
+			}
+		} )
+	}
+
+	protected override render() {
+		return html`
+			<ly-flex axis="row" part="row">
+				<ly-icon ?solid="${ this.checked }"> ${ this._handleVariant() } </ly-icon>
+				${ this.label
+				? html`<label part="label">${ this.label }</label>`
+				: nothing }
+			</ly-flex>
+			${ this.checked ? html`<slot></slot>` : nothing }
+		`
+	}
+
+	private _toggleChecked() {
 		let groupChecks
 
 		if ( this.group ) {
@@ -44,43 +116,7 @@ export class Check extends LitElement {
 		)
 	}
 
-	override async connectedCallback(): Promise<void> {
-		super.connectedCallback()
-		this.setAttribute( 'tabindex', '0' )
-		this.addEventListener( 'focus', () => this.focus() )
-		this.addEventListener( 'click', this.toggleChecked )
-		this.addEventListener( 'keydown', ( event ) => {
-			if ( event.key === 'Enter' || event.key === ' ' ) {
-				this.toggleChecked()
-			}
-		} )
-	}
-
-	override async disconnectedCallback(): Promise<void> {
-		super.disconnectedCallback()
-		this.removeAttribute( 'tabindex' )
-		this.removeEventListener( 'focus', () => this.focus() )
-		this.removeEventListener( 'click', this.toggleChecked )
-		this.removeEventListener( 'keydown', ( event ) => {
-			if ( event.key === 'Enter' || event.key === ' ' ) {
-				this.toggleChecked()
-			}
-		} )
-	}
-
-	protected override render() {
-		return html`
-			<ly-flex axis="row" part="row">
-				<ly-icon ?solid="${ this.checked }"> ${ this.handleVariant() } </ly-icon>
-				${ this.label
-				? html`<label part="label">${ this.label }</label>`
-				: nothing }
-			</ly-flex>
-			${ this.checked ? html`<slot></slot>` : nothing }
-		`
-	}
-
-	private handleVariant(): TemplateResult {
+	private _handleVariant(): TemplateResult {
 		switch ( this.variant ) {
 			case 'checkbox':
 				return html`${ this.checked ? 'check_box' : 'check_box_outline_blank' }`
