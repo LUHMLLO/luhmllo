@@ -7,11 +7,11 @@ import Modal from './components/modal.validation.astro';
 ---
 
 <Layout_HTML title='Proposal Tool' scheme='dark'>
-	<ly-app layout='row'>
+	<ly-app tmpl='row'>
 		<Sidebar />
 		<main class='h-100 grow shrink'>
 			<Topbar />
-			<ly-grid cols='container' class='h-100 grow shrink'>
+			<ly-grid tmpl='container' class='h-100 grow shrink'>
 				<slot />
 			</ly-grid>
 			<Bottombar />

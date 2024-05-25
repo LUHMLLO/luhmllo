@@ -77,7 +77,7 @@ export class Check extends LitElement {
 
 	protected override render() {
 		return html`
-			<ly-flex axis="row" part="row">
+			<ly-flex axis='x' part="row">
 				<ly-icon ?solid="${ this.checked }"> ${ this._handleVariant() } </ly-icon>
 				${ this.label
 				? html`<label part="label">${ this.label }</label>`

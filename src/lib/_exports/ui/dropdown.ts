@@ -109,8 +109,8 @@ export class Dropdown extends LitElement {
 
 	@property( { type: Boolean, reflect: true } ) open = false;
 	@queryAssignedNodes( { slot: 'summary', flatten: true } )
-	private _dropsummary!: HTMLElement[]
 	@query( 'div[part="dropmenu"]' ) private _dropmenu!: HTMLElement
+	private _dropsummary!: HTMLElement[]
 	private _cleanup?: any
 
 	override firstUpdated() {
@@ -147,14 +147,6 @@ export class Dropdown extends LitElement {
 		`
 	}
 
-	private _toggleOpen() {
-		if ( this._cleanup ) {
-			this._cleanup()
-		}
-
-		this.open = !this.open
-	}
-
 	public clickOutsideHandler( event: MouseEvent ) {
 		const target = event.composedPath()[ 0 ] as Node
 		const isOutside =
@@ -163,6 +155,14 @@ export class Dropdown extends LitElement {
 		if ( this.open && isOutside ) {
 			this.open = false
 		}
+	}
+
+	private _toggleOpen() {
+		if ( this._cleanup ) {
+			this._cleanup()
+		}
+
+		this.open = !this.open
 	}
 
 	private _roundByDPR( value: number ) {

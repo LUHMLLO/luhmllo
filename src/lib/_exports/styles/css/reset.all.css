@@ -24,11 +24,21 @@
 			box-sizing: inherit;
 		}
 
-		&[disabled] {
-			cursor: none !important;
-			filter: grayscale(56%);
+		&[disabled],
+		&[not-allowed] {
+			opacity: 0.75;
 			pointer-events: none;
 			user-select: none;
+
+			&:is([disabled]) {
+				cursor: none !important;
+				filter: grayscale(56%);
+			}
+
+			&:is([not-allowed]) {
+				cursor: not-allowed !important;
+				filter: sepia(56%) hue-rotate(348deg);
+			}
 		}
 	}
 }

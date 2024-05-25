@@ -6,7 +6,7 @@ const styles = css`
 		/* local vars */
 		--bg: var(--clr-primary);
 		--clr: var(--clr-text);
-		--cols: 1;
+		--tmpl: 1;
 		--gap: calc(var(--scale-5xs) * 0.1625);
 		--radius: var(--scale-3xs);
 

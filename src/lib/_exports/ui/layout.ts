@@ -10,16 +10,16 @@ export class Flex extends LitElement {
 			height: max-content;
 		}
 
-		:host(:is(ly-flex)[axis='col']) {
+		:host(:is(ly-flex)[axis='y']) {
 			flex-direction: column;
 		}
 
-		:host(:is(ly-flex)[axis='row']) {
+		:host(:is(ly-flex)[axis='x']) {
 			flex-direction: row;
 		}
 	`;
 
-	@property( { type: 'col' || 'row', reflect: true } ) axis = 'row';
+	@property( { type: 'col' || 'row', reflect: true } ) axis = 'x';
 
 	protected override render() {
 		return html` <slot></slot> `
@@ -31,7 +31,7 @@ export class Grid extends LitElement {
 	static override readonly styles = css`
 		:host(:is(ly-grid)) {
 			/* local vars */
-			--cols: 1;
+			--tmpl: 1;
 			--gap: 0rem;
 			--maxWidth: 1fr;
 			--minWidth: clamp(12rem, 16vmin, 24rem);
@@ -43,58 +43,58 @@ export class Grid extends LitElement {
 			grid-template-columns: repeat(
 				var(--repeat),
 				minmax(
-					max(var(--minWidth), calc(100% / var(--cols) - var(--gap))),
+					max(var(--minWidth), calc(100% / var(--tmpl) - var(--gap))),
 					var(--maxWidth)
 				)
 			);
 			height: max-content;
 		}
 
-		:host(:is(ly-grid[cols='2'])) {
-			--cols: 2;
+		:host(:is(ly-grid[tmpl='2'])) {
+			--tmpl: 2;
 		}
 
-		:host(:is(ly-grid[cols='3'])) {
-			--cols: 3;
+		:host(:is(ly-grid[tmpl='3'])) {
+			--tmpl: 3;
 		}
 
-		:host(:is(ly-grid[cols='4'])) {
-			--cols: 4;
+		:host(:is(ly-grid[tmpl='4'])) {
+			--tmpl: 4;
 		}
 
-		:host(:is(ly-grid[cols='5'])) {
-			--cols: 5;
+		:host(:is(ly-grid[tmpl='5'])) {
+			--tmpl: 5;
 		}
 
-		:host(:is(ly-grid[cols='6'])) {
-			--cols: 6;
+		:host(:is(ly-grid[tmpl='6'])) {
+			--tmpl: 6;
 		}
 
-		:host(:is(ly-grid[cols='7'])) {
-			--cols: 7;
+		:host(:is(ly-grid[tmpl='7'])) {
+			--tmpl: 7;
 		}
 
-		:host(:is(ly-grid[cols='8'])) {
-			--cols: 8;
+		:host(:is(ly-grid[tmpl='8'])) {
+			--tmpl: 8;
 		}
 
-		:host(:is(ly-grid[cols='9'])) {
-			--cols: 9;
+		:host(:is(ly-grid[tmpl='9'])) {
+			--tmpl: 9;
 		}
 
-		:host(:is(ly-grid[cols='10'])) {
-			--cols: 10;
+		:host(:is(ly-grid[tmpl='10'])) {
+			--tmpl: 10;
 		}
 
-		:host(:is(ly-grid[cols='11'])) {
-			--cols: 11;
+		:host(:is(ly-grid[tmpl='11'])) {
+			--tmpl: 11;
 		}
 
-		:host(:is(ly-grid[cols='12'])) {
-			--cols: 12;
+		:host(:is(ly-grid[tmpl='12'])) {
+			--tmpl: 12;
 		}
 
-		:host(:is(ly-grid[cols='container'])) {
+		:host(:is(ly-grid[tmpl='container'])) {
 			display: grid;
 			grid-auto-rows: max-content;
 			grid-template-columns:
@@ -106,22 +106,40 @@ export class Grid extends LitElement {
 			overflow-y: auto;
 		}
 
-		:host(:is(ly-grid[cols='container'])) ::slotted(*) {
+		:host(:is(ly-grid[tmpl='container'])) ::slotted(*) {
 			grid-column: contain;
 		}
 
-		:host(:is(ly-grid[cols='container'])) ::slotted([ignore-container]) {
+		:host(:is(ly-grid[tmpl='container'])) ::slotted([tmpl-expand]) {
 			grid-column: expand;
 		}
 
-		:host(:is(ly-grid[cols='container'])) ::slotted([contain-children]) {
+		:host(:is(ly-grid[tmpl='container']))
+			::slotted([tmpl-expand]:not([tmpl-expand='uncontained'])) {
 			/* (100vw - widthToMatch) / 2 , the min in the minmax() + the gap */
 			padding-inline: max(
 				((100% - var(--prefers-containerWidth)) / 2),
 				var(--prefers-containerOutterWidth) + 1px
 			) !important;
 		}
+
+		:host(:is(ly-grid[tmpl='container'])) ::slotted([tmpl-subgrid]) {
+			grid-auto-rows: inherit;
+			grid-template-columns: subgrid;
+			grid-column: expand;
+		}
+
+		:host(:is(ly-grid[tmpl='row'])) {
+			grid-auto-flow: column;
+			grid-auto-columns: minmax(0, 1fr);
+		}
+
+		:host(:is(ly-grid[tmpl='col'])) {
+			grid-auto-flow: row;
+			grid-auto-rows: minmax(0, 1fr);
+		}
 	`;
+	@property( { type: String, reflect: true } ) tmpl = '';
 
 	protected override render() {
 		return html` <slot></slot> `

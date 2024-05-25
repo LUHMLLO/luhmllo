@@ -5,10 +5,24 @@ import Card from 'src/lib/components/docs.card.astro';
 
 <Layout className='g-5xl py-5xl'>
 	<!--  -->
-	<ly-grid cols='4' class='g-sm py-5xl'>
+	<ly-grid tmpl='4' class='g-sm py-5xl'>
+		<Card Heading='Link [href]'>
+			<a href='#'>
+				<ly-icon>globe</ly-icon>link
+			</a>
+			<a href='#' class='__button'>
+				<ly-icon>globe</ly-icon> link
+			</a>
+			<a href='#' class='__button __outlined'> link </a>
+		</Card>
 		<Card Heading='Link'>
-			<a> link </a>
-			<a class='__outlined'> link </a>
+			<a>
+				<ly-icon>globe</ly-icon>link
+			</a>
+			<a class='__button'>
+				<ly-icon>globe</ly-icon> link
+			</a>
+			<a class='__button __outlined'> link </a>
 		</Card>
 		<Card Heading='Details > Summary'>
 			<details>
@@ -18,7 +32,7 @@ import Card from 'src/lib/components/docs.card.astro';
 				details content . . .
 			</details>
 			<details>
-				<summary class='__outlined'>
+				<summary class='__button __outlined'>
 					<span>summary</span>
 				</summary>
 				details content . . .
@@ -46,8 +60,9 @@ import Card from 'src/lib/components/docs.card.astro';
 				</button>
 			</ly-dropdown>
 			<ly-dropdown>
-				<summary slot='summary' class='__outlined'>
+				<summary slot='summary' class='__button __outlined'>
 					<span>Dropdown Summary</span>
+					<ly-icon>add</ly-icon>
 				</summary>
 				<ul>
 					<li>sasda</li>
@@ -63,18 +78,37 @@ import Card from 'src/lib/components/docs.card.astro';
 				</ul>
 			</ly-dropdown>
 		</Card>
-		<Card Heading='Button with no icons'>
+		<Card Heading='Button'>
 			<button>
 				<span>button</span>
 			</button>
 			<button class='__outlined'>
 				<span>button</span>
 			</button>
-			<button class='bg-error __outlined' disabled>
+		</Card>
+		<Card Heading='Button [disabled]'>
+			<button onclick="console.log('i shouldnt be clickable')" disabled>
+				<span>button</span>
+			</button>
+			<button
+				onclick="console.log('i shouldnt be clickable')"
+				class='__outlined'
+				disabled>
 				<span>button</span>
 			</button>
 		</Card>
-		<Card Heading='Button with left icons'>
+		<Card Heading='Button [not-allowed]'>
+			<button onclick="console.log('i shouldnt be clickable')" not-allowed>
+				<span>button</span>
+			</button>
+			<button
+				onclick="console.log('i shouldnt be clickable')"
+				class='__outlined'
+				not-allowed>
+				<span>button</span>
+			</button>
+		</Card>
+		<Card Heading='Button with left icon'>
 			<button>
 				<ly-icon>add</ly-icon>
 				<span>button</span>
@@ -84,7 +118,7 @@ import Card from 'src/lib/components/docs.card.astro';
 				<span>button</span>
 			</button>
 		</Card>
-		<Card Heading='Button with right icons'>
+		<Card Heading='Button with right icon'>
 			<button>
 				<span>button</span>
 				<ly-icon>add</ly-icon>

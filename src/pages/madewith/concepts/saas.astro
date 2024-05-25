@@ -58,11 +58,11 @@ const foundersArticles = [
 ---
 
 <Layout_HTML title='Lilys - CONCEPTS : Hero #1' scheme='light' {overrides}>
-	<ly-app layout='container'>
+	<ly-app tmpl='container'>
 		<section
 			class='bg-primary place-center[all] [min]h-100[vh]'
-			ignore-container>
-			<ly-grid cols='container' class='grow place-between[all] w-100'>
+			tmpl-subgrid>
+			<ly-grid tmpl='container' class='grow place-between[all] w-100'>
 				<nav class='clr-text place-between pt-5xl w-100'>
 					<a href='#' class='clr-inherit'>
 						<ly-icon> blur_on </ly-icon>
@@ -93,7 +93,7 @@ const foundersArticles = [
 					</button>
 				</header>
 
-				<ly-flex id='logoslider' class='g-5xl pb-5xl' ignore-container>
+				<ly-flex id='logoslider' class='g-5xl pb-5xl' expand>
 					{
 						logos.map((i) => (
 							<figure class='aspect-[21/9] radius-3xs noshrink w-16[ch]'>
@@ -109,10 +109,10 @@ const foundersArticles = [
 				<small>THE PROCESS</small>
 				<h2>Built by founds, for founders</h2>
 			</header>
-			<ly-grid cols='4' class='g-sm'>
+			<ly-grid tmpl='4' class='g-sm'>
 				{
 					foundersArticles.map((article, index) => (
-						<ly-flex axis='col' class='bg-primary g-5xl p-sm radius-3xs'>
+						<ly-flex axis='y' class='bg-primary g-5xl p-sm radius-3xs'>
 							<ly-flex class='align-center[items] place-between'>
 								<var class='inline-flex place-center[all] txt-normal w-5xl bg-accent aspect-[1/1] radius-3xs'>
 									{index}

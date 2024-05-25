@@ -3,7 +3,7 @@ import { customElement, property } from 'lit/decorators.js'
 
 @customElement( 'ly-slider' )
 export class Slider extends LitElement {
-	@property( { type: 'col' || 'row', reflect: true } ) axis = 'row';
+	@property( { type: 'col' || 'row', reflect: true } ) axis = 'x';
 
 	static override readonly styles = css`
 		:host(:is(ly-slider)) {
@@ -27,7 +27,7 @@ export class Slider extends LitElement {
 			/*scroll-snap-align: start;*/
 		}
 
-		:host(:is(ly-slider)[axis='row']) {
+		:host(:is(ly-slider)[axis='x']) {
 			grid-auto-flow: column;
 			grid-auto-columns: max-content;
 			overflow-x: auto;
@@ -35,7 +35,7 @@ export class Slider extends LitElement {
 			/*scroll-snap-type: x proximity;*/
 		}
 
-		:host(:is(ly-slider)[axis='col']) {
+		:host(:is(ly-slider)[axis='y']) {
 			grid-auto-flow: row;
 			grid-auto-rows: max-content;
 			overflow-x: visible;

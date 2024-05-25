@@ -80,7 +80,7 @@
 	}
 </script>
 
-<ly-app layout="col">
+<ly-app tmpl="col">
 	{#each [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] as shade}
 		<button
 			class="swatch clr-{shade} w-100 grow shrink"

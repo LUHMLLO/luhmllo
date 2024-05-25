@@ -41,7 +41,7 @@ files:
  <!--place not really interactive things here-->
 </ly-layer>
 
-<ly-app layout="default" class="place-center[all]">
+<ly-app tmpl="default" class="place-center[all]">
  <header class="g-nm place-center[items] flex-col txt-center">
   <h1>Lily's</h1>
   <p>Build UIs Simply. Anywhere.</p>

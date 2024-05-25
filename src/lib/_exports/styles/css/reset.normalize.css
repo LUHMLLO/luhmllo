@@ -9,14 +9,14 @@
 	:where(a, button, summary) {
 		--bg: none;
 		--clr: inherit;
-		--gap: calc(var(--spacing) * 0.25);
+		--gap: var(--spacing);
 		--mx: 0;
 		--my: 0;
 		--outln-clr: var(--bg);
 		--px: var(--spacing);
 		--py: 0;
 		--radius: var(--scale-5xl);
-		--spacing: var(--scale-sm);
+		--spacing: var(--scale-5xs);
 		--variant: 'outlined';
 
 		align-items: center;
@@ -34,7 +34,8 @@
 		overflow: clip;
 		padding: var(--py) var(--px);
 		text-overflow: ellipsis;
-		transition: background-color var(--animDefaults), color var(--animDefaults), outline-color var(--animDefaults);
+		transition: background-color var(--animDefaults), color var(--animDefaults),
+			outline-color var(--animDefaults);
 		white-space: nowrap;
 		width: fit-content;
 
@@ -50,60 +51,85 @@
 			width: auto;
 		}
 
+		/* & > ly-icon {
+			background-color: red;
+			border-radius: 50%;
+		} */
+
 		/* No icons */
-		&:not(:has(:where([class*='material-symbols'], .icon, ly-icon, ly-check, figure):first-child)):not(:has(:where([class*='material-symbols'], .icon, ly-icon, ly-check, figure):last-child)) {
-			--gap: 0;
-			--px: calc(var(--spacing) * 1.5);
+		&:not(:has(:where([class*='material-symbols'],
+					.icon,
+					ly-icon,
+					ly-check,
+					figure):first-child)):not(:has(:where([class*='material-symbols'],
+					.icon,
+					ly-icon,
+					ly-check,
+					figure):last-child)) {
+			--px: calc(var(--spacing) * 2);
 		}
 
 		/* Left icon only */
-		&:has(:where([class*='material-symbols'], .icon, ly-icon, ly-check, figure):first-child):is(:not(:has(:where([class*='material-symbols'], .icon, ly-icon, ly-check, figure):last-child))) {
-			padding-inline-end: calc(var(--spacing) * 1.25);
+		&:has(:where([class*='material-symbols'],
+				.icon,
+				ly-icon,
+				ly-check,
+				figure):first-child):is(:not(:has(:where([class*='material-symbols'],
+						.icon,
+						ly-icon,
+						ly-check,
+						figure):last-child))) {
+			padding-inline-end: calc(var(--spacing) * 1.5);
 		}
 
 		/* Right icon only */
-		&:has(:where([class*='material-symbols'], .icon, ly-icon, ly-check, figure):last-child):is(:not(:has(:where([class*='material-symbols'], .icon, ly-icon, ly-check, figure):first-child))) {
-			padding-inline-start: calc(var(--spacing) * 1.25);
+		&:has(:where([class*='material-symbols'],
+				.icon,
+				ly-icon,
+				ly-check,
+				figure):last-child):is(:not(:has(:where([class*='material-symbols'],
+						.icon,
+						ly-icon,
+						ly-check,
+						figure):first-child))) {
+			padding-inline-start: calc(var(--spacing) * 1.5);
 		}
 
-		/* Both icons */
-		&:has(:where([class*='material-symbols'], .icon, ly-icon, ly-check, figure):first-child):has(:where([class*='material-symbols'], .icon, ly-icon, ly-check, figure):last-child) {
-			--gap: calc(var(--spacing) * 0.5);
-		}
-
-		/* link only */
-		&:is(a) {
+		&:not(button, :is(a, summary).__button) {
+			--radius: var(--scale-sm);
 			height: max-content;
 			padding: 0;
-
-			&[href] {
-				--clr: var(--clr-accent);
-			}
 		}
 
-		/* button, summary only */
-		&:is(button, summary) {
+		&:is(button, :is(a, summary).__button) {
 			--bg: var(--clr-background);
-			height: var(--scale-5xl);
+			/*pending to add golden ratioi*/
+			min-height: var(--scale-5xl);
+			height: fit-content;
+		}
 
+		&[href] {
+			--clr: var(--clr-accent);
+		}
 
-			/* conditional style modifiers */
-			&.__outlined {
-				outline-color: color-mix(in var(--prefers-colorSpace, srgb), var(--outln-clr), gray 16%);
+		/* conditional style modifiers */
+		&:is(button, .__button).__outlined {
+			outline-color: color-mix(in var(--prefers-colorSpace, srgb),
+					var(--outln-clr),
+					gray 16%);
 
-				@media (hover: hover) {
-					&:hover {
-						outline-color: color-mix(in var(--prefers-colorSpace, srgb),
-								var(--outln-clr),
-								gray 16%);
-					}
-				}
-
-				&:active {
+			@media (hover: hover) {
+				&:hover {
 					outline-color: color-mix(in var(--prefers-colorSpace, srgb),
 							var(--outln-clr),
-							darkgray 16%);
+							gray 16%);
 				}
+			}
+
+			&:active {
+				outline-color: color-mix(in var(--prefers-colorSpace, srgb),
+						var(--outln-clr),
+						darkgray 16%);
 			}
 		}
 

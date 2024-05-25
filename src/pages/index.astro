@@ -2,7 +2,28 @@
 import Layout from 'src/lib/layout.docs.astro';
 import DocsArticle from 'src/lib/components/docs.article.astro';
 
-const articles = [
+const labs = [
+	{
+		heading: 'UI',
+		subheading: 'Custom web components',
+		description: '',
+		path: '/labs/ui',
+	},
+	{
+		heading: 'Tags',
+		subheading: 'Vanilla HTML Tags',
+		description: '',
+		path: '/labs/tags',
+	},
+	{
+		heading: 'Playground (live)',
+		subheading: 'Place to play around and test before publish',
+		description: '',
+		path: '/labs/tags',
+	},
+];
+
+const docs = [
 	{
 		heading: 'Buttons',
 		subheading: 'a - button - summary',
@@ -19,12 +40,13 @@ const articles = [
 		heading: 'Layouts',
 		subheading: 'flex - grid - group',
 		description: '',
-		path: '/docs/fields',
+		path: '/docs/layouts',
 	},
 ];
 ---
 
 <Layout className='gy-sm'>
+	<!--  -->
 	<h1>Lily's</h1>
 	<p>An opinionated props-powered CSS x Web Components Kit</p>
 	<figure>
@@ -34,17 +56,38 @@ const articles = [
 			style='aspect-ratio: 20/10;'
 		/>
 	</figure>
-
+	<!--  -->
 	<h2>Components</h2>
-	<ly-slider class='g-5xl pb-5xl' ignore-container contain-children>
+	<ly-slider class='g-5xl pb-5xl' tmpl-expand>
 		{
-			articles.map(({ heading, subheading, description, path }) => (
-				<DocsArticle {heading} {subheading} {description} {path} />
+			docs.map(({ heading, subheading, description, path }) => (
+				<DocsArticle
+					{heading}
+					{subheading}
+					{description}
+					{path}
+					className='w-40[ch]'
+				/>
 			))
 		}
 	</ly-slider>
-
-	<footer class='bg-primary g-sm py-5xl' ignore-container contain-children>
+	<!--  -->
+	<h2>Labs</h2>
+	<ly-slider class='g-5xl pb-5xl' tmpl-expand>
+		{
+			labs.map(({ heading, subheading, description, path }) => (
+				<DocsArticle
+					{heading}
+					{subheading}
+					{description}
+					{path}
+					className='w-40[ch]'
+				/>
+			))
+		}
+	</ly-slider>
+	<!--  -->
+	<footer class='bg-primary g-sm py-5xl' tmpl-expand>
 		<h2>Know More</h2>
 		<p>
 			Explore modern UI solutions, available within lily's collection of web

@@ -1,6 +1,6 @@
-import { LitElement, css, html } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
-@customElement( 'ly-app' )
+import { LitElement, css, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+@customElement('ly-app')
 export class App extends LitElement {
 	static override readonly styles = css`
 		:host(:is(ly-app)) {
@@ -26,13 +26,13 @@ export class App extends LitElement {
 			z-index: 1;
 		}
 
-		:host(:is(ly-app[layout='default'])) {
+		:host(:is(ly-app[tmpl='default'])) {
 			flex-direction: column;
 			overflow-x: clip;
 			overflow-y: auto;
 		}
 
-		:host(:is(ly-app[layout='container'])) {
+		:host(:is(ly-app[tmpl='container'])) {
 			display: grid;
 			grid-auto-rows: max-content;
 			grid-template-columns:
@@ -44,15 +44,16 @@ export class App extends LitElement {
 			overflow-y: auto;
 		}
 
-		:host(:is(ly-app[layout='container'])) ::slotted(*) {
+		:host(:is(ly-app[tmpl='container'])) ::slotted(*) {
 			grid-column: contain;
 		}
 
-		:host(:is(ly-app[layout='container'])) ::slotted([ignore-container]) {
+		:host(:is(ly-app[tmpl='container'])) ::slotted([tmpl-expand]) {
 			grid-column: expand;
 		}
 
-		:host(:is(ly-app[layout='container'])) ::slotted([contain-children]) {
+		:host(:is(ly-app[tmpl='container']))
+			::slotted([tmpl-expand]:not([tmpl-expand='uncontained'])) {
 			/* (100vw - widthToMatch) / 2 , the min in the minmax() + the gap */
 			padding-inline: max(
 				((100% - var(--prefers-containerWidth)) / 2),
@@ -60,18 +61,24 @@ export class App extends LitElement {
 			) !important;
 		}
 
-		:host(:is(ly-app[layout='row'])) {
+		:host(:is(ly-app[tmpl='container'])) ::slotted([tmpl-subgrid]) {
+			grid-auto-rows: inherit;
+			grid-template-columns: subgrid;
+			grid-column: expand;
+		}
+
+		:host(:is(ly-app[tmpl='row'])) {
 			flex-direction: row;
 		}
 
-		:host(:is(ly-app[layout='col'])) {
+		:host(:is(ly-app[tmpl='col'])) {
 			flex-direction: column;
 		}
 	`;
 
-	@property( { type: String, reflect: true } ) layout = 'default';
+	@property({ type: String, reflect: true }) tmpl = 'default';
 
 	protected override render() {
-		return html` <slot></slot> `
+		return html` <slot></slot> `;
 	}
 }

@@ -140,7 +140,7 @@ export class Field extends LitElement {
 
 			${ this.caption
 				? html`
-						<ly-flex axis="row" part="caption">
+						<ly-flex axis='x' part="caption">
 							${ this.setStatusIcon() }
 							<small part="caption-text" html>${ this.caption }</small>
 						</ly-flex>

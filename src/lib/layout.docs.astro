@@ -10,7 +10,7 @@ const { className } = Astro.props;
 
 <HTML_Layout title='Lilys'>
 	<ly-layer stacked='under'></ly-layer>
-	<ly-app layout='container' class={className}>
+	<ly-app tmpl='container' class={className}>
 		<slot />
 	</ly-app>
 	<ly-layer stacked='over'></ly-layer>
