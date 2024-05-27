@@ -4,10 +4,35 @@ import { customElement, property } from 'lit/decorators.js'
 @customElement( 'ly-icon' )
 export class Icon extends LitElement {
 	static override readonly styles = css`
+		:host() {
+			--bg: none;
+			background-color: var(--bg);
+
+			--clr: inherit;
+			color: var(--clr);
+
+			--gap: var(--scale-5xs);
+			gap: var(--gap);
+
+			--inset: 0;
+			inset: var(--inset);
+
+			--margin: 0;
+			margin: var(--margin);
+
+			--placement: relative;
+			position: var(--placement);
+
+			--radius: 0;
+			border-radius: var(--radius);
+
+			--spacing: 0;
+			padding: var(--spacing);
+		}
+
 		:host(:is(ly-icon)) {
-			/* base styles */
 			aspect-ratio: 1/1;
-			display: grid;
+			display: inline-grid;
 			flex-grow: 0;
 			flex-shrink: 0;
 			font-family: var(--prefers-iconFontFamily);

@@ -26,12 +26,12 @@ const { Heading } = Astro.props;
 		display: grid;
 		grid-template-rows: max-content minmax(0, 1fr);
 		/* isolation: isolate; */
-		outline: solid 0.125rem var(--clr-primary);
+		outline: solid var(--clr-primary);
 		overflow: hidden;
 
 		& > header {
 			align-items: center;
-			border-bottom: solid 1pt var(--clr-primary) !important;
+			border-bottom: solid var(--clr-primary) !important;
 			padding: calc(var(--spacing) / 2) var(--spacing);
 		}
 

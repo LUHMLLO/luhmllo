@@ -36,6 +36,7 @@
 		width: 100dvw;
 
 		&:has(ly-app, #app) {
+			isolation: isolate;
 			display: contents;
 			overflow-x: clip;
 			overflow-y: clip;

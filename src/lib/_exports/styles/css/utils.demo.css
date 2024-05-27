@@ -1,7 +1,6 @@
 @layer utils {
 	.demo-card {
-		outline: dashed 0.125rem var(--clr-primary);
-		outline-offset: -0.125rem;
+		outline: dashed var(--clr-primary);
 		padding: var(--scale-sm);
 		place-items: center center;
 		place-content: center center;

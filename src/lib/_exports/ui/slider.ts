@@ -3,20 +3,35 @@ import { customElement, property } from 'lit/decorators.js'
 
 @customElement( 'ly-slider' )
 export class Slider extends LitElement {
-	@property( { type: 'col' || 'row', reflect: true } ) axis = 'x';
-
 	static override readonly styles = css`
-		:host(:is(ly-slider)) {
-			/* local vars */
+		:host() {
 			--bg: none;
-			--display: grid;
-			--gap: var(--scale-2xl);
-			--padding: 0;
-
-			/* base styles */
 			background-color: var(--bg);
-			display: grid;
+
+			--clr: var(--clr-text);
+			color: var(--clr);
+
+			--gap: var(--scale-2xl);
 			gap: var(--gap);
+
+			--inset: 0;
+			inset: var(--inset);
+
+			--margin: auto;
+			margin: var(--margin);
+
+			--placement: fixed;
+			position: var(--placement);
+
+			--radius: 0;
+			border-radius: var(--radius);
+
+			--spacing: 0;
+			padding: var(--spacing);
+		}
+
+		:host(:is(ly-slider)) {
+			display: grid;
 			height: max-content;
 			/*scroll-snap-padding-block: var(--gap);*/
 		}
@@ -43,6 +58,8 @@ export class Slider extends LitElement {
 			/*scroll-snap-type: y proximity;*/
 		}
 	`;
+
+	@property( { type: 'col' || 'row', reflect: true } ) axis = 'x';
 
 	protected override render() {
 		return html` <slot></slot> `

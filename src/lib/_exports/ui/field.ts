@@ -4,11 +4,33 @@ import { customElement, property } from 'lit/decorators.js'
 @customElement( 'ly-field' )
 export class Field extends LitElement {
 	static override readonly styles = css`
-		:host(:is(ly-field)) {
-			/* local vars */
-			--gap: var(--scale-3xs);
+		:host() {
+			--bg: none;
+			background-color: var(--bg);
 
-			/* base styles */
+			--clr: inherit;
+			color: var(--clr);
+
+			--gap: var(--scale-3xs);
+			gap: var(--gap);
+
+			--inset: 0;
+			inset: var(--inset);
+
+			--margin: 0;
+			margin: var(--margin);
+
+			--placement: relative;
+			position: var(--placement);
+
+			--radius: 0;
+			border-radius: var(--radius);
+
+			--spacing: 0;
+			padding: var(--spacing);
+		}
+
+		:host(:is(ly-field)) {
 			display: flex;
 			flex-direction: column;
 			gap: var(--gap);
@@ -140,7 +162,7 @@ export class Field extends LitElement {
 
 			${ this.caption
 				? html`
-						<ly-flex axis='x' part="caption">
+						<ly-flex axis="x" part="caption">
 							${ this.setStatusIcon() }
 							<small part="caption-text" html>${ this.caption }</small>
 						</ly-flex>

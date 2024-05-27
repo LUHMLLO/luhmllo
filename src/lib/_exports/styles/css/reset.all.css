@@ -2,15 +2,15 @@
 	:where(*) {
 		-webkit-tap-highlight-color: transparent;
 		border: none;
-		border-width: 1.25pt;
+		border-width: var(--prefers-borderWidth) !important;
 		box-sizing: border-box;
 		margin: 0;
 		max-width: 100%;
 		min-height: min-content;
 		min-width: 0;
 		outline: none;
-		outline-offset: -1.25pt;
-		outline-width: 1.25pt;
+		outline-offset: calc(var(--prefers-outlineWidth) * -1) !important;
+		outline-width: var(--prefers-outlineWidth) !important;
 		padding: 0;
 		position: relative;
 		scroll-behavior: smooth;

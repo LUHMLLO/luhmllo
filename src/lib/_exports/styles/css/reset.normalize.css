@@ -29,8 +29,7 @@
 		font-weight: 400;
 		gap: var(--gap);
 		margin: var(--my) var(--mx);
-		outline: solid 0.125rem transparent;
-		outline-offset: -0.125rem;
+		outline: solid transparent;
 		overflow: clip;
 		padding: var(--py) var(--px);
 		text-overflow: ellipsis;
@@ -184,8 +183,7 @@
 		font-weight: 400;
 		gap: var(--gap);
 		margin: var(--my) var(--mx);
-		outline: solid 0.125rem color-mix(in srgb, var(--outln-clr), gray 12%);
-		outline-offset: -0.125rem;
+		outline: solid color-mix(in srgb, var(--outln-clr), gray 12%);
 		overflow: clip;
 		padding: var(--py) var(--px);
 		text-overflow: ellipsis;

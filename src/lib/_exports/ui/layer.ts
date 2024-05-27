@@ -3,7 +3,7 @@ import { customElement, property } from 'lit/decorators.js'
 
 @customElement( 'ly-layer' )
 export class Layer extends LitElement {
-    static override readonly styles = css`
+	static override readonly styles = css`
 		:host(:is(ly-layer)) {
 			/* local vars */
 			--bg: none;
@@ -11,12 +11,10 @@ export class Layer extends LitElement {
 			--m: auto;
 			--ps: fixed;
 
-			/* theming */
 			background-color: var(--bg);
 			color: var(--clr);
-
-			/* base styles */
 			display: flex;
+			flex-direction: column;
 			height: 100dvh;
 			inset: 0;
 			isolation: isolate;
@@ -36,24 +34,13 @@ export class Layer extends LitElement {
 		}
 
 		:host(:is(ly-layer[stacked='over'])) {
-			flex-direction: column;
 			z-index: 2;
-		}
-
-		:host(:is(ly-layer)[has-backdrop]) {
-			--bg: color-mix(
-				in var(--prefers-colorSpace, srgb),
-				var(--clr-background),
-				transparent 50%
-			);
-			backdrop-filter: blur(var(--scale-3xs));
-			visibility: visible;
 		}
 	`;
 
-    @property( { type: 'over' || 'under', reflect: true } ) stacked = 'over';
+	@property( { type: 'over' || 'under', reflect: true } ) stacked = 'over';
 
-    protected override render() {
-        return html` <slot></slot> `
-    }
+	protected override render() {
+		return html` <slot></slot> `
+	}
 }

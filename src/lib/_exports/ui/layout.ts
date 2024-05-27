@@ -5,7 +5,6 @@ import { customElement, property } from 'lit/decorators.js'
 export class Flex extends LitElement {
 	static override readonly styles = css`
 		:host(:is(ly-flex)) {
-			/* base styles */
 			display: flex;
 			height: max-content;
 		}

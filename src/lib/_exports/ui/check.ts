@@ -4,22 +4,43 @@ import { customElement, property } from 'lit/decorators.js'
 @customElement( 'ly-check' )
 export class Check extends LitElement {
 	static override readonly styles = css`
-		:host(:is(ly-check)) {
-			/* local vars */
-			--gap: var(--scale-5xs);
+		:host() {
+			--bg: none;
+			background-color: var(--bg);
 
-			/* base styles */
+			--clr: inherit;
+			color: var(--clr);
+
+			--gap: var(--scale-5xs);
+			gap: var(--gap);
+
+			--inset: 0;
+			inset: var(--inset);
+
+			--margin: 0;
+			margin: var(--margin);
+
+			--placement: relative;
+			position: var(--placement);
+
+			--radius: 0;
+			border-radius: var(--radius);
+
+			--spacing: 0;
+			padding: var(--spacing);
+		}
+
+		:host(:is(ly-check)) {
 			cursor: pointer;
 			display: inline-flex;
 			flex-direction: column;
 			flex-shrink: 0;
-			gap: var(--gap);
 			height: max-content;
 			overflow: clip;
 		}
 
 		:host(:is(ly-check):focus-visible) {
-			outline: solid 0.125rem var(--clr-accent);
+			outline: solid var(--clr-accent);
 		}
 
 		:host(:is(ly-check))::part(row) {
@@ -77,7 +98,7 @@ export class Check extends LitElement {
 
 	protected override render() {
 		return html`
-			<ly-flex axis='x' part="row">
+			<ly-flex axis="x" part="row">
 				<ly-icon ?solid="${ this.checked }"> ${ this._handleVariant() } </ly-icon>
 				${ this.label
 				? html`<label part="label">${ this.label }</label>`

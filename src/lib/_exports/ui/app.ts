@@ -1,33 +1,54 @@
-import { LitElement, css, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
-@customElement('ly-app')
+import { LitElement, css, html } from 'lit'
+import { customElement, property } from 'lit/decorators.js'
+@customElement( 'ly-app' )
 export class App extends LitElement {
 	static override readonly styles = css`
-		:host(:is(ly-app)) {
-			/* local vars */
+		:host() {
 			--bg: var(--clr-background);
-			--clr: var(--clr-text);
-			--m: auto;
-			--ps: fixed;
-
-			/* theming */
 			background-color: var(--bg);
+
+			--clr: var(--clr-text);
 			color: var(--clr);
 
-			/* base styles */
-			display: flex;
+			--gap: 0;
+			gap: var(--gap);
+
+			--inset: 0;
+			inset: var(--inset);
+
+			--margin: 0;
+			margin: var(--margin);
+
+			--placement: fixed;
+			position: var(--placement);
+
+			--radius: 0;
+			border-radius: var(--radius);
+
+			--spacing: 0;
+			padding: var(--spacing);
+		}
+
+		:host(:is(ly-app)) {
+			color: var(--clr);
+			display: grid;
 			height: 100dvh;
-			inset: 0;
 			isolation: isolate;
-			margin: var(--m) !important;
 			overflow: clip;
-			position: var(--ps) !important;
 			width: 100dvw;
 			z-index: 1;
 		}
 
-		:host(:is(ly-app[tmpl='default'])) {
-			flex-direction: column;
+		:host(:is(ly-app[tmpl='default-x'])) {
+			grid-auto-columns: max-content;
+			grid-auto-flow: column;
+			overflow-x: auto;
+			overflow-y: clip;
+		}
+
+		:host(:is(ly-app[tmpl='default-y'])) {
+			grid-auto-columns: max-content;
+			grid-auto-flow: column;
 			overflow-x: clip;
 			overflow-y: auto;
 		}
@@ -68,17 +89,19 @@ export class App extends LitElement {
 		}
 
 		:host(:is(ly-app[tmpl='row'])) {
+			display: flex;
 			flex-direction: row;
 		}
 
 		:host(:is(ly-app[tmpl='col'])) {
+			display: flex;
 			flex-direction: column;
 		}
 	`;
 
-	@property({ type: String, reflect: true }) tmpl = 'default';
+	@property( { type: String, reflect: true } ) tmpl = 'default-y';
 
 	protected override render() {
-		return html` <slot></slot> `;
+		return html` <slot></slot> `
 	}
 }
