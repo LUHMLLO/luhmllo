@@ -3,7 +3,7 @@ import { customElement, property } from 'lit/decorators.js'
 @customElement( 'ly-app' )
 export class App extends LitElement {
 	static override readonly styles = css`
-		:host() {
+		:host(:is(ly-app)) {
 			--bg: var(--clr-background);
 			background-color: var(--bg);
 

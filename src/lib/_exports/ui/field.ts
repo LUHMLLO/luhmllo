@@ -4,7 +4,7 @@ import { customElement, property } from 'lit/decorators.js'
 @customElement( 'ly-field' )
 export class Field extends LitElement {
 	static override readonly styles = css`
-		:host() {
+		:host(:is(ly-field)) {
 			--bg: none;
 			background-color: var(--bg);
 

@@ -46,7 +46,7 @@ const O=t=>(e,i)=>{void 0!==i?i.addInitializer((()=>{customElements.define(t,e)}
  * Copyright 2021 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */function gi(t){return(e,i)=>{const{slot:n,selector:r}=t??{},o="slot"+(n?`[name=${n}]`:":not([name])");return Re(e,i,{get(){var e;const i=null==(e=this.renderRoot)?void 0:e.querySelector(o),n=(null==i?void 0:i.assignedElements(t))??[];return void 0===r?n:n.filter((t=>t.matches(r)))}})}}var yi=Object.defineProperty,vi=Object.getOwnPropertyDescriptor,Te=(t,e,i,n)=>{for(var r,o=n>1?void 0:n?vi(e,i):e,s=t.length-1;s>=0;s--)(r=t[s])&&(o=(n?r(e,i,o):r(o))||o);return n&&o&&yi(e,i,o),o};let Ot=class extends ${constructor(){super(...arguments),this.tmpl="default-y"}render(){return y` <slot></slot> `}};Ot.styles=R`
-		:host() {
+		:host(:is(ly-app)) {
 			--bg: var(--clr-background);
 			background-color: var(--bg);
 
@@ -147,7 +147,7 @@ const O=t=>(e,i)=>{void 0!==i?i.addInitializer((()=>{customElements.define(t,e)}
 			</ly-flex>
 			${this.checked?y`<slot></slot>`:_}
 		`}_toggleChecked(){let t;if(this.group){t=document.querySelectorAll(`ly-check[group="${this.group}"]`);for(const e of[...t])e.checked=!1,e.dispatchEvent(new CustomEvent("change",{bubbles:!0,detail:{checked:!1}}))}this.checked=!this.checked,this.dispatchEvent(new CustomEvent("change",{bubbles:!0,detail:{checked:this.checked}}))}_handleVariant(){switch(this.variant){case"checkbox":return y`${this.checked?"check_box":"check_box_outline_blank"}`;case"switch":return y`${this.checked?"toggle_on":"toggle_off"}`;case"radio":return y`${this.checked?"check_circle":"radio_button_unchecked"}`;default:return y``}}};N.styles=R`
-		:host() {
+		:host(:is(ly-check)) {
 			--bg: none;
 			background-color: var(--bg);
 
@@ -290,7 +290,7 @@ const O=t=>(e,i)=>{void 0!==i?i.addInitializer((()=>{customElements.define(t,e)}
 						</ly-flex>
 				  `:_}
 		`}setRequiredIcon(){return this.required?y`<ly-icon part="required-icon">asterisk</ly-icon>`:y``}setStatusIcon(){switch(this.status){case"debug":return y`<ly-icon part="caption-icon">bug_report</ly-icon>`;case"error":return y`<ly-icon part="caption-icon">report</ly-icon>`;case"info":return y`<ly-icon part="caption-icon">info</ly-icon>`;case"success":return y`<ly-icon part="caption-icon">check</ly-icon>`;case"warning":return y`<ly-icon part="caption-icon">emergency_home</ly-icon>`;default:return y``}}};H.styles=R`
-		:host() {
+		:host(:is(ly-field)) {
 			--bg: none;
 			background-color: var(--bg);
 
@@ -398,7 +398,7 @@ const O=t=>(e,i)=>{void 0!==i?i.addInitializer((()=>{customElements.define(t,e)}
 			color: var(--clr-warning);
 		}
 	`,q([A({type:String})],H.prototype,"label",2),q([A({type:String})],H.prototype,"caption",2),q([A({type:String})],H.prototype,"name",2),q([A({type:String})],H.prototype,"ref",2),q([A({type:Boolean,reflect:!0})],H.prototype,"required",2),q([A({type:"debug"})],H.prototype,"status",2),q([A({type:String})],H.prototype,"type",2),H=q([O("ly-field")],H);var pn=Object.defineProperty,un=Object.getOwnPropertyDescriptor,fn=(t,e,i,n)=>{for(var r,o=n>1?void 0:n?un(e,i):e,s=t.length-1;s>=0;s--)(r=t[s])&&(o=(n?r(e,i,o):r(o))||o);return n&&o&&pn(e,i,o),o};let zt=class extends ${render(){return y` <slot></slot> `}};zt.styles=R`
-		:host() {
+		:host(:is(ly-fragment)) {
 			--bg: none;
 			background-color: var(--bg);
 
@@ -428,7 +428,7 @@ const O=t=>(e,i)=>{void 0!==i?i.addInitializer((()=>{customElements.define(t,e)}
 			display: contents;
 		}
 	`,zt=fn([O("ly-fragment")],zt);var mn=Object.defineProperty,gn=Object.getOwnPropertyDescriptor,ze=(t,e,i,n)=>{for(var r,o=n>1?void 0:n?gn(e,i):e,s=t.length-1;s>=0;s--)(r=t[s])&&(o=(n?r(e,i,o):r(o))||o);return n&&o&&mn(e,i,o),o};let Pt=class extends ${constructor(){super(...arguments),this.solid=!1}render(){return y` <slot></slot> `}};Pt.styles=R`
-		:host() {
+		:host(:is(ly-icon)) {
 			--bg: none;
 			background-color: var(--bg);
 
@@ -691,7 +691,7 @@ const O=t=>(e,i)=>{void 0!==i?i.addInitializer((()=>{customElements.define(t,e)}
 		z-index: 1;
 	}
 `;let Vt=class extends ${async connectedCallback(){super.connectedCallback()}async disconnectedCallback(){super.disconnectedCallback()}render(){return y` <slot></slot> `}};Vt.styles=bt,Vt=wt([O("ly-list")],Vt);let qt=class extends ${render(){return y` <slot></slot> `}};qt.styles=bt,qt=wt([O("ly-list-header")],qt);let Xt=class extends ${render(){return y` <slot></slot> `}};Xt.styles=bt,Xt=wt([O("ly-list-row")],Xt);let Yt=class extends ${render(){return y` <slot></slot> `}};Yt.styles=bt,Yt=wt([O("ly-list-footer")],Yt);let Gt=class extends ${render(){return y` <slot></slot> `}};Gt.styles=bt,Gt=wt([O("ly-list-cell")],Gt);var $n=Object.defineProperty,An=Object.getOwnPropertyDescriptor,Ve=(t,e,i,n)=>{for(var r,o=n>1?void 0:n?An(e,i):e,s=t.length-1;s>=0;s--)(r=t[s])&&(o=(n?r(e,i,o):r(o))||o);return n&&o&&$n(e,i,o),o};let kt=class extends ${constructor(){super(...arguments),this.axis="x"}render(){return y` <slot></slot> `}};kt.styles=R`
-		:host() {
+		:host(:is(ly-slider)) {
 			--bg: none;
 			background-color: var(--bg);
 

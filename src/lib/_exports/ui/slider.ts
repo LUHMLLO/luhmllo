@@ -4,7 +4,7 @@ import { customElement, property } from 'lit/decorators.js'
 @customElement( 'ly-slider' )
 export class Slider extends LitElement {
 	static override readonly styles = css`
-		:host() {
+		:host(:is(ly-slider)) {
 			--bg: none;
 			background-color: var(--bg);
 

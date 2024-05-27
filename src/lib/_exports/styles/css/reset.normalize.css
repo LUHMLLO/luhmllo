@@ -78,7 +78,7 @@
 						ly-icon,
 						ly-check,
 						figure):last-child))) {
-			padding-inline-end: calc(var(--spacing) * 1.5);
+			padding-inline-end: calc(var(--spacing) * 2);
 		}
 
 		/* Right icon only */
@@ -91,7 +91,7 @@
 						ly-icon,
 						ly-check,
 						figure):first-child))) {
-			padding-inline-start: calc(var(--spacing) * 1.5);
+			padding-inline-start: calc(var(--spacing) * 2);
 		}
 
 		&:not(button, :is(a, summary).__button) {

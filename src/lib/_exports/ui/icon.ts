@@ -4,7 +4,7 @@ import { customElement, property } from 'lit/decorators.js'
 @customElement( 'ly-icon' )
 export class Icon extends LitElement {
 	static override readonly styles = css`
-		:host() {
+		:host(:is(ly-icon)) {
 			--bg: none;
 			background-color: var(--bg);
 

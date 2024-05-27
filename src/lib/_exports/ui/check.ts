@@ -4,7 +4,7 @@ import { customElement, property } from 'lit/decorators.js'
 @customElement( 'ly-check' )
 export class Check extends LitElement {
 	static override readonly styles = css`
-		:host() {
+		:host(:is(ly-check)) {
 			--bg: none;
 			background-color: var(--bg);
 
