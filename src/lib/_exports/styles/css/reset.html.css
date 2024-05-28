@@ -405,7 +405,7 @@
 		}
 	}
 
-	:where(table) {
+	/* :where(table) {
 		--bg: var(--clr-background);
 		--clr: var(--clr-text);
 
@@ -457,7 +457,7 @@
 				}
 			}
 		}
-	}
+	} */
 }
 
 :where(address) {

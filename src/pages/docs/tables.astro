@@ -1,0 +1,300 @@
+---
+import Layout from 'src/lib/layout.docs.astro';
+---
+
+<Layout>
+	<!--  -->
+	<h2>Table Standard</h2>
+	<ly-flex axis='x' class='g-sm place-between'>
+		<button class='bg-primary'>
+			<span>call to action</span>
+		</button>
+		<ly-field type='search' class='grow'>
+			<input placeholder='Type to filter table' />
+		</ly-field>
+		<button class='bg-primary'>
+			<ly-icon>view_column_2</ly-icon>
+			<span>Columns</span>
+		</button>
+		<button class='bg-primary'>
+			<ly-icon>swap_vert</ly-icon>
+			<span>Sort</span>
+		</button>
+		<button class='bg-primary'>
+			<ly-icon>filter_list</ly-icon>
+			<span>Filters</span>
+		</button>
+	</ly-flex>
+	<ly-slider class='radius-3xs'>
+		<!-- <Table table="{productsRepeaterTestData}" /> -->
+	</ly-slider>
+	<!--  -->
+	<h2>Table Standar Expanded</h2>
+	<p>Replacement for repeater section</p>
+	<ly-flex axis='x' class='g-sm place-between wrap'>
+		<button class='bg-primary'>
+			<span>call to action</span>
+		</button>
+		<ly-field type='search' class='grow'>
+			<input placeholder='Type to filter table' />
+		</ly-field>
+		<button class='bg-primary'>
+			<ly-icon>view_column_2</ly-icon>
+			<span>Columns</span>
+		</button>
+		<button class='bg-primary'>
+			<ly-icon>swap_vert</ly-icon>
+			<span>Sort</span>
+		</button>
+		<button class='bg-primary'>
+			<ly-icon>filter_list</ly-icon>
+			<span>Filters</span>
+		</button>
+	</ly-flex>
+	<ly-slider tmpl-expand>
+		<!-- <Table table="{productsRepeaterTestData}" /> -->
+	</ly-slider>
+	<!--  -->
+	<h2>Table Outlined</h2>
+	<p>Replacement for repeater section</p>
+	<ly-flex axis='x' class='g-sm place-between wrap'>
+		<button class='bg-primary'>
+			<span>call to action</span>
+		</button>
+		<ly-field type='search' class='grow'>
+			<input placeholder='Type to filter table' />
+		</ly-field>
+		<button class='bg-primary'>
+			<ly-icon>view_column_2</ly-icon>
+			<span>Columns</span>
+		</button>
+		<button class='bg-primary'>
+			<ly-icon>swap_vert</ly-icon>
+			<span>Sort</span>
+		</button>
+		<button class='bg-primary'>
+			<ly-icon>filter_list</ly-icon>
+			<span>Filters</span>
+		</button>
+	</ly-flex>
+	<ly-slider>
+		<!-- <Table className="__outlined" table="{productsRepeaterTestData}" /> -->
+	</ly-slider>
+	<!--  -->
+	<h2>Table Outlined Expanded</h2>
+	<p>Replacement for repeater section</p>
+	<ly-flex axis='x' class='g-sm place-between wrap'>
+		<button class='bg-primary'>
+			<span>call to action</span>
+		</button>
+		<ly-field type='search' class='grow'>
+			<input placeholder='Type to filter table' />
+		</ly-field>
+		<button class='bg-primary'>
+			<ly-icon>view_column_2</ly-icon>
+			<span>Columns</span>
+		</button>
+		<button class='bg-primary'>
+			<ly-icon>swap_vert</ly-icon>
+			<span>Sort</span>
+		</button>
+		<button class='bg-primary'>
+			<ly-icon>filter_list</ly-icon>
+			<span>Filters</span>
+		</button>
+	</ly-flex>
+	<table>
+		<thead>
+			<tr>
+				<th class='w-auto'>
+					<ly-check variant='checkbox'></ly-check>
+				</th>
+				<th>
+					<span>Col name</span>
+					<button class='marker'>
+						<ly-icon> unfold_more </ly-icon>
+					</button>
+				</th>
+				<th>
+					<span>Col name</span>
+					<button class='marker'>
+						<ly-icon> unfold_more </ly-icon>
+					</button>
+				</th>
+				<th>
+					<span>Col name</span>
+					<button class='marker'>
+						<ly-icon> unfold_more </ly-icon>
+					</button>
+				</th>
+				<th>
+					<span>Col name</span>
+					<button class='marker'>
+						<ly-icon> unfold_more </ly-icon>
+					</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class='w-auto'> <ly-check variant='checkbox'></ly-check> </td>
+				<td>Table Cell 2</td>
+				<td>Table Cell 3</td>
+				<td>Table Cell 4</td>
+				<td>Table Cell 5</td>
+			</tr>
+			<tr>
+				<td class='w-auto'> <ly-check variant='checkbox'></ly-check> </td>
+				<td>Table Cell 2</td>
+				<td>Table Cell 3</td>
+				<td>Table Cell 4</td>
+				<td>Table Cell 5</td>
+			</tr>
+			<tr>
+				<td class='w-auto'> <ly-check variant='checkbox'></ly-check> </td>
+				<td>Table Cell 2</td>
+				<td>Table Cell 3</td>
+				<td>Table Cell 4</td>
+				<td>Table Cell 5</td>
+			</tr>
+			<tr>
+				<td class='w-auto'> <ly-check variant='checkbox'></ly-check> </td>
+				<td>Table Cell 2</td>
+				<td>Table Cell 3</td>
+				<td>Table Cell 4</td>
+				<td>Table Cell 5</td>
+			</tr>
+		</tbody>
+	</table>
+</Layout>
+
+<style lang='css'>
+	/* :where(table:not(.__outlined)) {
+		--bg: var(--clr-background);
+		--gap: 0.5rem;
+		--radius: 0.75rem;
+		--spacing: 1.5rem;
+
+		background-color: var(--bg);
+		border: none;
+		border-collapse: collapse;
+		border-radius: var(--radius);
+		clip: rect(0 0 0 0);
+		clip-path: inset(0% round var(--radius));
+		position: relative;
+		table-layout: auto;
+		width: 100%;
+
+		& > thead {
+			& tr {
+				background-color: color-mix(in srgb, var(--bg), white 8%);
+				transition: background-color var(--animDefaults);
+
+				& th {
+					font-size: var(--scale-md);
+					font-weight: 400;
+					padding: calc(var(--spacing) / 2) var(--spacing);
+					text-wrap: balance;
+					vertical-align: middle;
+					width: fit-content;
+				}
+			}
+		}
+
+		& > tbody {
+			& tr {
+				background-color: color-mix(in srgb, var(--bg), white 6%);
+				outline: solid transparent;
+				transition: background-color var(--animDefaults);
+
+				@media (hover: hover) {
+					&:hover {
+						background-color: color-mix(in srgb, var(--bg), white 12%);
+					}
+				}
+
+				& td {
+					font-size: var(--scale-md);
+					font-weight: 400;
+					padding: calc(var(--spacing) / 2) var(--spacing);
+					text-wrap: pretty;
+					vertical-align: middle;
+					width: fit-content;
+				}
+			}
+		}
+	} */
+
+	:where(table) {
+		--bg: var(--clr-background);
+		--clr: var(--clr-text);
+		--gap: 0;
+		--radius: 0;
+		--spacing: var(--scale-sm);
+
+		background-color: var(--bg);
+		border-collapse: collapse;
+		table-layout: auto;
+
+		& tr {
+			border-bottom: solid var(--clr-primary);
+
+			&:first-child {
+				border-top: solid var(--clr-primary);
+			}
+		}
+
+		& th,
+		& td {
+			font-size: var(--scale-md);
+			font-weight: 400;
+			height: var(--scale-5xl);
+			line-height: 0;
+			min-height: fit-content;
+			overflow: clip;
+			padding: calc(var(--spacing) / 2) calc(var(--spacing) * 2);
+			position: relative;
+			text-overflow: ellipsis;
+			vertical-align: middle;
+			white-space: nowrap;
+
+			& > * {
+				line-height: var(--baseLineHeight);
+			}
+
+			& > .marker {
+				inset: 0 0 0 auto;
+				margin: auto 0;
+				position: absolute;
+			}
+		}
+
+		& thead {
+			& > tr {
+				& > th {
+					&:not(:last-child) {
+						border-right: solid var(--clr-primary);
+					}
+				}
+			}
+		}
+
+		& tbody {
+			& > tr {
+				transition: background-color var(--animDefaults);
+
+				@media (hover: hover) {
+					&:hover {
+						background-color: color-mix(in srgb, var(--bg), gray 1%);
+					}
+				}
+
+				& > td {
+					&:not(:last-child) {
+						border-right: solid var(--clr-primary);
+					}
+				}
+			}
+		}
+	}
+</style>

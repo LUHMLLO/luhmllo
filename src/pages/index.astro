@@ -42,10 +42,16 @@ const docs = [
 		description: '',
 		path: '/docs/layouts',
 	},
+	{
+		heading: 'Tables',
+		subheading: 'simple - complex',
+		description: '',
+		path: '/docs/tables',
+	},
 ];
 ---
 
-<Layout className='gy-sm'>
+<Layout>
 	<!--  -->
 	<h1>Lily's</h1>
 	<p>An opinionated props-powered CSS x Web Components Kit</p>
@@ -58,7 +64,7 @@ const docs = [
 	</figure>
 	<!--  -->
 	<h2>Components</h2>
-	<ly-slider class='g-5xl pb-5xl' tmpl-expand>
+	<ly-slider class='g-5xl' tmpl-expand>
 		{
 			docs.map(({ heading, subheading, description, path }) => (
 				<DocsArticle
@@ -73,7 +79,7 @@ const docs = [
 	</ly-slider>
 	<!--  -->
 	<h2>Labs</h2>
-	<ly-slider class='g-5xl pb-5xl' tmpl-expand>
+	<ly-slider class='g-5xl' tmpl-expand>
 		{
 			labs.map(({ heading, subheading, description, path }) => (
 				<DocsArticle
@@ -87,7 +93,7 @@ const docs = [
 		}
 	</ly-slider>
 	<!--  -->
-	<footer class='bg-primary g-sm py-5xl' tmpl-expand>
+	<!-- <footer class='bg-primary g-sm py-5xl' tmpl-expand>
 		<h2>Know More</h2>
 		<p>
 			Explore modern UI solutions, available within lily's collection of web
@@ -95,5 +101,5 @@ const docs = [
 			experiences.
 		</p>
 		<a href='#'>Github</a>
-	</footer>
+	</footer> -->
 </Layout>
