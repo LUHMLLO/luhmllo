@@ -252,4 +252,92 @@
 					darkgray 16%) !important;
 		}
 	}
+
+	:where(table) {
+		--bg: var(--clr-background);
+		--bg--lighter: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), darkgray 6%);
+		--clr: var(--clr-text);
+		--gap: 0;
+		--radius: 0;
+		--spacing: var(--scale-sm);
+
+		background-color: var(--bg);
+		border-collapse: collapse;
+		table-layout: auto;
+		width: 100%;
+
+		& caption {
+			inset: auto 0 0;
+			margin: auto;
+			position: absolute;
+			translate: 0% 100%;
+			width: fit-content;
+			z-index: auto;
+		}
+
+		& tr {
+			border-bottom: solid var(--bg--lighter);
+
+			&:first-child {
+				border-top: solid var(--bg--lighter);
+			}
+
+			& > th,
+			& > td {
+				font-size: var(--scale-md);
+				font-weight: 400;
+				height: var(--scale-5xl);
+				line-height: 0;
+				min-height: fit-content;
+				min-width: max-content;
+				overflow: clip;
+				padding: calc(var(--spacing) * 0.75) calc(var(--spacing) * 3);
+				position: relative;
+				text-overflow: ellipsis;
+				vertical-align: middle;
+				white-space: nowrap;
+				width: auto;
+
+				& > * {
+					line-height: var(--baseLineHeight);
+				}
+
+				& > .marker {
+					--bg: none;
+
+					inset: 0 0 0 auto;
+					margin: auto 0;
+					position: absolute;
+				}
+			}
+		}
+
+		& thead {
+			& > tr {
+				& > th {
+					&:not(:last-child) {
+						border-right: solid var(--bg--lighter);
+					}
+				}
+			}
+		}
+
+		& tbody {
+			& > tr {
+				transition: background-color var(--animDefaults);
+
+				@media (hover: hover) {
+					&:hover {
+						background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), darkgray 1%);
+					}
+				}
+
+				& > td {
+					&:not(:last-child) {
+						border-right: solid var(--bg--lighter);
+					}
+				}
+			}
+		}
+	}
 }
