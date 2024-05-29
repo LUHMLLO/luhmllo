@@ -23,7 +23,7 @@ export class Icon extends LitElement {
 			--placement: relative;
 			position: var(--placement);
 
-			--radius: 0;
+			--radius: 50%;
 			border-radius: var(--radius);
 
 			--spacing: 0;
@@ -37,15 +37,15 @@ export class Icon extends LitElement {
 			flex-shrink: 0;
 			font-family: var(--prefers-iconFontFamily);
 			font-feature-settings: 'liga';
-			font-size: var(--prefers-iconScale);
+			font-size: calc(var(--prefers-iconScale) * 0.75);
 			font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 400, 'opsz' 48;
-			max-height: var(--prefers-iconScale);
+			height: var(--prefers-iconScale);
 			overflow: clip;
-			place-content: center;
+			place-content: center center;
 			shape-margin: var(--scale-5xs);
 			shape-outside: circle(50%);
 			user-select: none;
-			max-width: var(--prefers-iconScale);
+			width: auto;
 		}
 
 		:host(:is(ly-icon[solid])) {

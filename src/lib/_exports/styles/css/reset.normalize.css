@@ -65,7 +65,7 @@
 					ly-icon,
 					ly-check,
 					figure):last-child)) {
-			--px: calc(var(--spacing) * 2);
+			--px: calc(var(--spacing) * 2.75);
 		}
 
 		/* Left icon only */
