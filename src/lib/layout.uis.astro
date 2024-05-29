@@ -1,0 +1,43 @@
+---
+import HTML_Layout from 'src/lib/layout.html.astro';
+
+interface Props {
+	className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<HTML_Layout title='Lilys - UIS'>
+	<ly-layer stacked='under'></ly-layer>
+	<ly-app tmpl='container' class={className}>
+		<slot />
+	</ly-app>
+	<ly-layer stacked='over'></ly-layer>
+</HTML_Layout>
+
+<style lang='css' scoped>
+	@layer props {
+		:root {
+			--baseFontFamily: 'General Sans', sans-serif;
+		}
+	}
+
+	@layer astro {
+		ly-app {
+			gap: 0;
+			padding-block: var(--scale-5xl);
+
+			& > :global(h1, h2, h3) {
+				text-transform: capitalize;
+			}
+			& > :global(:where(h1, h2, h3) + p) {
+				color: var(--clr-subtext);
+			}
+			& > :global(:not(:where(h1, h2, h3) + *)) {
+				--spacing: inherit;
+				margin-top: calc(var(--scale-5xl) * 0.75);
+			}
+		}
+	}
+</style>

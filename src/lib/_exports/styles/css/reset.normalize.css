@@ -50,10 +50,10 @@
 			width: auto;
 		}
 
-		/* & > ly-icon {
-			background-color: red;
-			border-radius: 50%;
-		} */
+		& > ly-icon {
+			--bg: none;
+			pointer-events: none;
+		}
 
 		/* No icons */
 		&:not(:has(:where([class*='material-symbols'],

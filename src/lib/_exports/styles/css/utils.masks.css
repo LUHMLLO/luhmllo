@@ -1,0 +1,6 @@
+@layer utils {
+  .mask-x {
+    --percent: max(4%, 6%);
+    mask: linear-gradient(90deg, transparent, var(--clr-background) var(--percent), var(--clr-background) calc(100% - var(--percent)), transparent);
+  }
+}

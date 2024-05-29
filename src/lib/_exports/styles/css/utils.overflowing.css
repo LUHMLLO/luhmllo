@@ -35,3 +35,7 @@
 .scroll-y-snap > * {
   scroll-snap-align: start;
 }
+
+.overflow-clip {
+  overflow: clip;
+}

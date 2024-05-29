@@ -1,23 +1,23 @@
 $displays: (
-    block,
-    inline,
-    inline-block,
-    flex,
-    inline-flex,
-    grid,
-    inline-grid,
-    flow-root,
-    none,
-    contents,
-    table,
-    table-row,
-    list-item
+	block,
+	inline,
+	inline-block,
+	flex,
+	inline-flex,
+	grid,
+	inline-grid,
+	flow-root,
+	none,
+	contents,
+	table,
+	table-row,
+	list-item
 );
 
 @layer utils {
-    @each $v in $displays {
-        .#{$v} {
-            display: #{$v};
-        }
-    }
+	@each $v in $displays {
+		.#{$v} {
+			display: #{$v};
+		}
+	}
 }
