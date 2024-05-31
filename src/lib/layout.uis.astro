@@ -3,13 +3,14 @@ import HTML_Layout from 'src/lib/layout.html.astro';
 
 interface Props {
 	className?: string;
+	overrides?: string;
 	scheme?: string;
 }
 
-const { className, scheme = 'auto' } = Astro.props;
+const { className, overrides = '', scheme = 'auto' } = Astro.props;
 ---
 
-<HTML_Layout title='Lilys - UIS' scheme={scheme}>
+<HTML_Layout title='Lilys - UIS' {scheme} {overrides}>
 	<ly-layer stacked='under'></ly-layer>
 	<ly-app tmpl='container' class={className}>
 		<slot />

@@ -1,5 +1,5 @@
 ---
-import Layout_HTML from 'src/lib/layout.html.astro';
+import Layout from 'src/lib/layout.uis.astro';
 
 const overrides = `
 	<style>
@@ -57,83 +57,87 @@ const foundersArticles = [
 ];
 ---
 
-<Layout_HTML title='Lilys - CONCEPTS : Hero #1' scheme='light' {overrides}>
-	<ly-app tmpl='container'>
-		<section
-			class='bg-primary place-center[all] [min]h-100[vh]'
-			tmpl-subgrid>
-			<ly-grid tmpl='container' class='grow place-between[all] w-100'>
-				<nav class='clr-text place-between pt-5xl w-100'>
-					<a href='#' class='clr-inherit'>
-						<ly-icon> blur_on </ly-icon>
-					</a>
-					<nav class='g-5xl'>
-						<a href='#' class='clr-inherit'>Process</a>
-						<a href='#' class='clr-inherit'>Projects</a>
-						<a href='#' class='clr-inherit'>FAQ</a>
-						<a
-							href='#'
-							class='clr-inherit outln-solid place-center[items] px-sm py-5xs radius-3xs txt-sm'
-							>Packages</a
-						>
-					</nav>
+<Layout scheme='light' {overrides}>
+	<section class='bg-primary place-center[all] [min]h-100[vh]' tmpl-subgrid>
+		<ly-grid tmpl='container' class='grow place-between[all] w-100'>
+			<nav class='clr-text place-between pt-5xl w-100'>
+				<a href='#' class='clr-inherit'>
+					<ly-icon> blur_on </ly-icon>
+				</a>
+				<nav class='g-5xl'>
+					<a href='#' class='clr-inherit'>Process</a>
+					<a href='#' class='clr-inherit'>Projects</a>
+					<a href='#' class='clr-inherit'>FAQ</a>
+					<a
+						href='#'
+						class='clr-inherit outln-solid place-center[items] px-sm py-5xs radius-3xs txt-sm'
+						>Packages</a
+					>
 				</nav>
+			</nav>
 
-				<header
-					class='g-xl place-center[all] px-xl py-5xl txt-center grow noshrink [min]h-40[ch]'>
-					<h1 class='txt-600'>
-						We craft minimum <br /> viable SaaS products
-					</h1>
-					<p class='[max]w-32[ch]'>
-						Helping founders bring their product to life, attract early users,
-						and validate their idea.
-					</p>
-					<button class='bg-accent clr-context radius-3xs txt-600'>
-						See available packages
-					</button>
-				</header>
-
-				<ly-flex id='logoslider' class='g-5xl pb-5xl' expand>
-					{
-						logos.map((i) => (
-							<figure class='aspect-[21/9] radius-3xs noshrink w-16[ch]'>
-								<img src={i} alt='logo' class='fit-contain' />
-							</figure>
-						))
-					}
-				</ly-flex>
-			</ly-grid>
-		</section>
-		<section class='g-5xl py-5xl place-center[all] [min]h-75[vh]'>
-			<header class='place-center[all] txt-center'>
-				<small>THE PROCESS</small>
-				<h2>Built by founds, for founders</h2>
+			<header
+				class='g-xl place-center[all] px-xl py-5xl txt-center grow noshrink [min]h-40[ch]'>
+				<h1 class='txt-600'>
+					We craft minimum <br /> viable SaaS products
+				</h1>
+				<p class='[max]w-32[ch]'>
+					Helping founders bring their product to life, attract early users, and
+					validate their idea.
+				</p>
+				<button class='bg-accent clr-context radius-3xs txt-600'>
+					See available packages
+				</button>
 			</header>
-			<ly-grid tmpl='4' class='g-sm'>
+
+			<ly-flex id='logoslider' class='g-5xl pb-5xl' expand>
 				{
-					foundersArticles.map((article, index) => (
-						<ly-flex axis='y' class='bg-primary g-5xl p-sm radius-3xs'>
-							<ly-flex class='align-center[items] place-between'>
-								<var class='inline-flex place-center[all] txt-normal w-5xl bg-accent aspect-[1/1] radius-3xs'>
-									{index}
-								</var>
-								<small>week {index}</small>
-							</ly-flex>
-							<ly-group>
-								<h6>{article.heading}</h6>
-								<p>{article.paragraph}</p>
-							</ly-group>
-						</ly-flex>
+					logos.map((i) => (
+						<figure class='aspect-[21/9] radius-3xs noshrink w-16[ch]'>
+							<img src={i} alt='logo' class='fit-contain' />
+						</figure>
 					))
 				}
-			</ly-grid>
-		</section>
-	</ly-app>
-</Layout_HTML>
+			</ly-flex>
+		</ly-grid>
+	</section>
+	<section class='g-5xl py-5xl place-center[all] [min]h-75[vh]'>
+		<header class='place-center[all] txt-center'>
+			<small>THE PROCESS</small>
+			<h2>Built by founds, for founders</h2>
+		</header>
+		<ly-grid tmpl='4' class='g-sm'>
+			{
+				foundersArticles.map((article, index) => (
+					<ly-flex axis='y' class='bg-primary g-5xl p-sm radius-3xs'>
+						<ly-flex class='align-center[items] place-between'>
+							<var class='inline-flex place-center[all] txt-normal w-5xl bg-accent aspect-[1/1] radius-3xs'>
+								{index}
+							</var>
+							<small>week {index}</small>
+						</ly-flex>
+						<ly-group>
+							<h6>{article.heading}</h6>
+							<p>{article.paragraph}</p>
+						</ly-group>
+					</ly-flex>
+				))
+			}
+		</ly-grid>
+	</section>
+</Layout>
 
 <style lang='css'>
 	:root {
 		--baseFontFamily: 'Clash Display', sans-serif;
+	}
+
+	:global(ly-app) {
+		padding-block: 0;
+
+		& > *:first-child {
+			margin-top: 0;
+		}
 	}
 
 	#logoslider {

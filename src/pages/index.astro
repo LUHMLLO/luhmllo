@@ -2,27 +2,6 @@
 import Layout from 'src/lib/layout.docs.astro';
 import DocsArticle from 'src/lib/components/docs.article.astro';
 
-const labs = [
-	{
-		heading: 'UI',
-		subheading: 'Custom web components',
-		description: '',
-		path: '/labs/ui',
-	},
-	{
-		heading: 'Playground (live)',
-		subheading: 'Place to play around and test before publish',
-		description: '',
-		path: '/labs/playground',
-	},
-	{
-		heading: 'widgets',
-		subheading: 'Vanilla HTML Tags',
-		description: '',
-		path: '/labs/widgets',
-	},
-];
-
 const docs = [
 	{
 		heading: 'Buttons',
@@ -62,6 +41,15 @@ const docs = [
 	},
 ];
 
+const prototypes = [
+	{
+		heading: 'Paletter',
+		subheading: 'Generate color palettes',
+		description: '',
+		path: '/prototypes/paletter',
+	},
+];
+
 const uis = [
 	{
 		heading: `Blog`,
@@ -70,10 +58,28 @@ const uis = [
 		path: '/uis/blog',
 	},
 	{
+		heading: `Dashboard`,
+		subheading: 'snippets',
+		description: '',
+		path: '/uis/dashboard',
+	},
+	{
+		heading: `Dribbble`,
+		subheading: 'snippets',
+		description: '',
+		path: '/uis/dribbble',
+	},
+	{
 		heading: `Products`,
 		subheading: 'snippets',
 		description: '',
 		path: '/uis/products',
+	},
+	{
+		heading: `Saas`,
+		subheading: 'snippets',
+		description: '',
+		path: '/uis/saas',
 	},
 	{
 		heading: `Table`,
@@ -97,7 +103,12 @@ const uis = [
 	</figure>
 	<!--  -->
 	<h2>Components</h2>
-	<ly-slider class='g-5xl' tmpl-expand>
+	<p>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam quisquam
+		blanditiis odit, dicta quo asperiores repellat provident totam nulla, rerum
+		et iure qui optio eaque maxime explicabo vitae ea exercitationem.
+	</p>
+	<ly-slider class='g-sm' tmpl-expand>
 		{
 			docs.map(({ heading, subheading, description, path }) => (
 				<DocsArticle
@@ -111,10 +122,15 @@ const uis = [
 		}
 	</ly-slider>
 	<!--  -->
-	<h2>Labs</h2>
-	<ly-slider class='g-5xl' tmpl-expand>
+	<h2>Prototypes</h2>
+	<p>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam quisquam
+		blanditiis odit, dicta quo asperiores repellat provident totam nulla, rerum
+		et iure qui optio eaque maxime explicabo vitae ea exercitationem.
+	</p>
+	<ly-slider class='g-sm' tmpl-expand>
 		{
-			labs.map(({ heading, subheading, description, path }) => (
+			prototypes.map(({ heading, subheading, description, path }) => (
 				<DocsArticle
 					{heading}
 					{subheading}
@@ -127,7 +143,12 @@ const uis = [
 	</ly-slider>
 	<!--  -->
 	<h2>User Interfaces</h2>
-	<ly-slider class='g-5xl' tmpl-expand>
+	<p>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam quisquam
+		blanditiis odit, dicta quo asperiores repellat provident totam nulla, rerum
+		et iure qui optio eaque maxime explicabo vitae ea exercitationem.
+	</p>
+	<ly-slider class='g-sm' tmpl-expand>
 		{
 			uis.map(({ heading, subheading, description, path }) => (
 				<DocsArticle
