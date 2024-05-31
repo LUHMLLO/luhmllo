@@ -1,6 +1,6 @@
 ---
-import Layout_HTML from 'src/lib/layout.html.astro';
-import App_Paletter from './_lib/paletter.svelte';
+import Layout from 'src/lib/layout.uis.astro';
+import Module from './_lib/paletter.svelte';
 
 const overrides = `
 	<style>
@@ -12,9 +12,9 @@ const overrides = `
 `;
 ---
 
-<Layout_HTML title='Lilys - Paletter' scheme='dark' {overrides}>
-	<App_Paletter client:only="svelte" />
-</Layout_HTML>
+<Layout scheme='dark' {overrides}>
+	<Module client:only='svelte' />
+</Layout>
 
 <style lang='css'>
 	:root {

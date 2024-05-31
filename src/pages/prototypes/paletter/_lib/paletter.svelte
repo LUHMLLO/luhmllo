@@ -80,15 +80,16 @@
 	}
 </script>
 
-<ly-app tmpl="col">
+<ly-flex axis="y" class="ps-absolute h-100 w-100" style="grid-column: expand;">
 	{#each [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] as shade}
 		<button
-			class="swatch clr-{shade} w-100 grow shrink"
-			style="border-radius: 0; outline: none;"
+			class="swatch w-100"
+			style="--bg: var(--{shade}); --radius: 0; flex: 1 1 100%;"
 			on:click="{copyToClipboard}"
-		></button>
+		>
+		</button>
 	{/each}
-</ly-app>
+</ly-flex>
 
 <ly-layer stacked="over">
 	<dialog id="notification">
@@ -161,43 +162,33 @@
 	.clr-50 {
 		--bg: var(--50);
 	}
-
 	.clr-100 {
 		--bg: var(--100);
 	}
-
 	.clr-200 {
 		--bg: var(--200);
 	}
-
 	.clr-300 {
 		--bg: var(--300);
 	}
-
 	.clr-400 {
 		--bg: var(--400);
 	}
-
 	.clr-500 {
 		--bg: var(--500);
 	}
-
 	.clr-600 {
 		--bg: var(--600);
 	}
-
 	.clr-700 {
 		--bg: var(--700);
 	}
-
 	.clr-800 {
 		--bg: var(--800);
 	}
-
 	.clr-900 {
 		--bg: var(--900);
 	}
-
 	.clr-950 {
 		--bg: var(--950);
 	}
