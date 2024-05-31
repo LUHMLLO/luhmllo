@@ -100,6 +100,8 @@
 
 <style lang="css">
 	:root {
+		--baseColor: hsl(50, 50%, 50%) !important;
+
 		--50: color-mix(
 			in var(--prefers-colorSpace, srgb),
 			var(--100),
@@ -159,38 +161,12 @@
 		);
 	}
 
-	.clr-50 {
-		--bg: var(--50);
-	}
-	.clr-100 {
-		--bg: var(--100);
-	}
-	.clr-200 {
-		--bg: var(--200);
-	}
-	.clr-300 {
-		--bg: var(--300);
-	}
-	.clr-400 {
-		--bg: var(--400);
-	}
-	.clr-500 {
-		--bg: var(--500);
-	}
-	.clr-600 {
-		--bg: var(--600);
-	}
-	.clr-700 {
-		--bg: var(--700);
-	}
-	.clr-800 {
-		--bg: var(--800);
-	}
-	.clr-900 {
-		--bg: var(--900);
-	}
-	.clr-950 {
-		--bg: var(--950);
+	:global(ly-app) {
+		border: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
 	}
 
 	dialog#notification {
@@ -208,7 +184,7 @@
 		gap: 0.32rem;
 		height: max-content;
 		inset: 0;
-		margin: auto 3dvw 3dvw auto;
+		margin: auto var(--scale-sm) var(--scale-sm) auto;
 		outline: none;
 		padding: 1.5rem 2rem;
 		position: fixed;
@@ -230,9 +206,5 @@
 			font-weight: 600;
 			text-transform: uppercase;
 		}
-	}
-
-	:root {
-		--baseColor: hsl(50, 50%, 50%) !important;
 	}
 </style>
