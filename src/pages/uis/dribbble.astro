@@ -13,7 +13,7 @@ const filters = [
 ];
 ---
 
-<Layout scheme='light'>
+<Layout scheme='light' className='overflow-clip'>
 	<!--  -->
 	<nav
 		class='align-center[items] place-between px-5xl'
@@ -43,7 +43,6 @@ const filters = [
 		</ly-flex>
 	</nav>
 	<!--  -->
-
 	<nav
 		class='align-center[items] place-between px-5xl'
 		tmpl-expand='uncontained'>
@@ -87,48 +86,51 @@ const filters = [
 		}
 	</ly-slider>
 	<!--  -->
-	<ly-grid tmpl='4' class='g-5xl px-5xl' tmpl-expand='uncontained'>
-		{
-			[...Array(12).keys()].map(() => (
-				<article class='grid g-sm'>
-					<figure class='w-100'>
-						<img
-							src='https://cdn.dribbble.com/userupload/14829882/file/original-9776221b049412e514238e7aeed74fef.jpg?resize=1024x768'
-							alt=''
-						/>
-					</figure>
-					<ly-flex axis='x' class='align-center[items] g-sm place-between'>
-						<ly-group class='flex flex-row align-center[items] g-3xs'>
-							<figure class='aspect-[1/1] h-5xl w-auto radius-5xl'>
-								<img
-									src='https://cdn.dribbble.com/userupload/14829882/file/original-9776221b049412e514238e7aeed74fef.jpg?resize=1024x768'
-									alt=''
-								/>
-							</figure>
-							<span class='txt-500 txt-sm'>Username</span>
-							<small class='inline-block bg-tertiary clr-text px-sm py-5xs radius-3xs txt-3xs txt-500 txt-truncate'>
-								PRO
-							</small>
-						</ly-group>
-						<ly-group class='flex flex-row align-center[items] g-3xs'>
-							<a class='clr-subtext'>
-								<ly-icon solid>favorite</ly-icon>
-								<var>120</var>
-							</a>
-							<a class='clr-subtext'>
-								<ly-icon solid>visibility</ly-icon>
-								<var>120</var>
-							</a>
-						</ly-group>
-					</ly-flex>
-				</article>
-			))
-		}
-	</ly-grid>
+	<ly-slider axis='y' class="radius-3xs" style="height: 100%;">
+		<ly-grid tmpl='4' class='g-5xl'>
+			{
+				[...Array(12).keys()].map(() => (
+					<article class='grid g-sm'>
+						<figure class='w-100'>
+							<img
+								src='https://cdn.dribbble.com/userupload/14829882/file/original-9776221b049412e514238e7aeed74fef.jpg?resize=1024x768'
+								alt=''
+							/>
+						</figure>
+						<ly-flex axis='x' class='align-center[items] g-sm place-between'>
+							<ly-group class='flex flex-row align-center[items] g-3xs'>
+								<figure class='aspect-[1/1] h-5xl w-auto radius-5xl'>
+									<img
+										src='https://cdn.dribbble.com/userupload/14829882/file/original-9776221b049412e514238e7aeed74fef.jpg?resize=1024x768'
+										alt=''
+									/>
+								</figure>
+								<span class='txt-500 txt-sm'>Username</span>
+								<small class='inline-block bg-tertiary clr-text px-sm py-5xs radius-3xs txt-3xs txt-500 txt-truncate'>
+									PRO
+								</small>
+							</ly-group>
+							<ly-group class='flex flex-row align-center[items] g-3xs'>
+								<a class='clr-subtext'>
+									<ly-icon solid>favorite</ly-icon>
+									<var>120</var>
+								</a>
+								<a class='clr-subtext'>
+									<ly-icon solid>visibility</ly-icon>
+									<var>120</var>
+								</a>
+							</ly-group>
+						</ly-flex>
+					</article>
+				))
+			}
+		</ly-grid>
+	</ly-slider>
 </Layout>
 
 <style lang='css'>
 	:global(ly-app) {
+		grid-template-rows: max-content max-content max-content 1fr;
 		& > *:first-child {
 			margin-top: 0;
 		}
