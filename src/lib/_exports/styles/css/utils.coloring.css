@@ -54,6 +54,118 @@
     --bg: var(--clr-warning);
     background-color: var(--bg);
   }
+  @media (hover: hover) {
+    .hover\:bg-inherit:hover {
+      background-color: inherit;
+    }
+    .hover\:bg-accent:hover {
+      --bg: var(--clr-accent);
+      background-color: var(--bg);
+    }
+    .hover\:bg-context:hover {
+      --bg: var(--clr-context);
+      background-color: var(--bg);
+    }
+    .hover\:bg-background:hover {
+      --bg: var(--clr-background);
+      background-color: var(--bg);
+    }
+    .hover\:bg-text:hover {
+      --bg: var(--clr-text);
+      background-color: var(--bg);
+    }
+    .hover\:bg-subtext:hover {
+      --bg: var(--clr-subtext);
+      background-color: var(--bg);
+    }
+    .hover\:bg-primary:hover {
+      --bg: var(--clr-primary);
+      background-color: var(--bg);
+    }
+    .hover\:bg-secondary:hover {
+      --bg: var(--clr-secondary);
+      background-color: var(--bg);
+    }
+    .hover\:bg-tertiary:hover {
+      --bg: var(--clr-tertiary);
+      background-color: var(--bg);
+    }
+    .hover\:bg-debug:hover {
+      --bg: var(--clr-debug);
+      background-color: var(--bg);
+    }
+    .hover\:bg-error:hover {
+      --bg: var(--clr-error);
+      background-color: var(--bg);
+    }
+    .hover\:bg-info:hover {
+      --bg: var(--clr-info);
+      background-color: var(--bg);
+    }
+    .hover\:bg-success:hover {
+      --bg: var(--clr-success);
+      background-color: var(--bg);
+    }
+    .hover\:bg-warning:hover {
+      --bg: var(--clr-warning);
+      background-color: var(--bg);
+    }
+  }
+  .bord-inherit {
+    border-color: inherit;
+  }
+  .bord-accent {
+    --clr: var(--clr-accent);
+    border-color: var(--clr);
+  }
+  .bord-context {
+    --clr: var(--clr-context);
+    border-color: var(--clr);
+  }
+  .bord-background {
+    --clr: var(--clr-background);
+    border-color: var(--clr);
+  }
+  .bord-text {
+    --clr: var(--clr-text);
+    border-color: var(--clr);
+  }
+  .bord-subtext {
+    --clr: var(--clr-subtext);
+    border-color: var(--clr);
+  }
+  .bord-primary {
+    --clr: var(--clr-primary);
+    border-color: var(--clr);
+  }
+  .bord-secondary {
+    --clr: var(--clr-secondary);
+    border-color: var(--clr);
+  }
+  .bord-tertiary {
+    --clr: var(--clr-tertiary);
+    border-color: var(--clr);
+  }
+  .bord-debug {
+    --clr: var(--clr-debug);
+    border-color: var(--clr);
+  }
+  .bord-error {
+    --clr: var(--clr-error);
+    border-color: var(--clr);
+  }
+  .bord-info {
+    --clr: var(--clr-info);
+    border-color: var(--clr);
+  }
+  .bord-success {
+    --clr: var(--clr-success);
+    border-color: var(--clr);
+  }
+  .bord-warning {
+    --clr: var(--clr-warning);
+    border-color: var(--clr);
+  }
   .clr-inherit {
     color: inherit;
   }
@@ -108,5 +220,47 @@
   .clr-warning {
     --clr: var(--clr-warning);
     color: var(--clr);
+  }
+  .outln-inherit {
+    outline-color: inherit;
+  }
+  .outln-accent {
+    outline-color: var(--clr-accent);
+  }
+  .outln-context {
+    outline-color: var(--clr-context);
+  }
+  .outln-background {
+    outline-color: var(--clr-background);
+  }
+  .outln-text {
+    outline-color: var(--clr-text);
+  }
+  .outln-subtext {
+    outline-color: var(--clr-subtext);
+  }
+  .outln-primary {
+    outline-color: var(--clr-primary);
+  }
+  .outln-secondary {
+    outline-color: var(--clr-secondary);
+  }
+  .outln-tertiary {
+    outline-color: var(--clr-tertiary);
+  }
+  .outln-debug {
+    outline-color: var(--clr-debug);
+  }
+  .outln-error {
+    outline-color: var(--clr-error);
+  }
+  .outln-info {
+    outline-color: var(--clr-info);
+  }
+  .outln-success {
+    outline-color: var(--clr-success);
+  }
+  .outln-warning {
+    outline-color: var(--clr-warning);
   }
 }

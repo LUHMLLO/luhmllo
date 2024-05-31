@@ -23,4 +23,12 @@
         flex-direction: row;
     }
 
+    .nowrap {
+        flex-wrap: nowrap;
+    }
+
+    .wrap {
+        flex-wrap: wrap;
+    }
+
 }

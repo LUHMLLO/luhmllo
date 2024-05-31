@@ -61,6 +61,27 @@ const docs = [
 		path: '/docs/tags',
 	},
 ];
+
+const uis = [
+	{
+		heading: `Blog`,
+		subheading: 'snippets',
+		description: '',
+		path: '/uis/blog',
+	},
+	{
+		heading: `Products`,
+		subheading: 'snippets',
+		description: '',
+		path: '/uis/products',
+	},
+	{
+		heading: `Table`,
+		subheading: 'snippets',
+		description: '',
+		path: '/uis/tables',
+	},
+];
 ---
 
 <Layout>
@@ -105,13 +126,19 @@ const docs = [
 		}
 	</ly-slider>
 	<!--  -->
-	<!-- <footer class='bg-primary g-sm py-5xl' tmpl-expand>
-		<h2>Know More</h2>
-		<p>
-			Explore modern UI solutions, available within lily's collection of web
-			components &amp; css framework, to help you build simply beautiful user
-			experiences.
-		</p>
-		<a href='#'>Github</a>
-	</footer> -->
+	<h2>User Interfaces</h2>
+	<ly-slider class='g-5xl' tmpl-expand>
+		{
+			uis.map(({ heading, subheading, description, path }) => (
+				<DocsArticle
+					{heading}
+					{subheading}
+					{description}
+					{path}
+					className='w-40[ch]'
+				/>
+			))
+		}
+	</ly-slider>
+	<!--  -->
 </Layout>

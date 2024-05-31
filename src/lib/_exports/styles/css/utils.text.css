@@ -995,4 +995,9 @@
   .txt-900 {
     font-weight: 900;
   }
+  .txt-truncate {
+    overflow: clip;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }

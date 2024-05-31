@@ -41,5 +41,11 @@
 				font-weight: #{$v};
 			}
 		}
+
+		&-truncate {
+			overflow: clip;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 	}
 }

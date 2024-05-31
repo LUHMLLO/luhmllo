@@ -123,10 +123,30 @@
 		& > li {
 			font-size: var(--scale-md);
 			text-wrap: pretty;
+			width: min(72ch, 100%);
 		}
 
 		& :where(ol, ul) {
 			margin-left: var(--scale-sm);
+		}
+
+		&:is(ol) {
+			counter-reset: li;
+
+			& .counter {
+				counter-increment: li;
+				font-size: var(--scale-md);
+				font-style: normal;
+				font-variant-numeric: slashed-zero;
+				text-align: center;
+				width: 100px;
+
+				&::after {
+					clear: both;
+					content: "" counter(li)"";
+					display: inline-block;
+				}
+			}
 		}
 	}
 
@@ -140,13 +160,15 @@
 		font-size: 88%;
 		font-style: italic;
 		font-weight: 500;
+		text-wrap: pretty;
+		width: min(72ch, 100%);
 	}
 
 	:where(p) {
 		display: block;
 		font-size: var(--scale-md);
 		text-wrap: pretty;
-		max-width: 72ch;
+		width: min(72ch, 100%);
 	}
 
 	:where(caption, figcaption, label, legend) {

@@ -1,0 +1,190 @@
+---
+import Layout from 'src/lib/layout.uis.astro';
+---
+
+<Layout scheme='dark'>
+	<ly-flex axis='x'>
+		<a href='#' class='clr-inherit'>
+			<ly-icon class='bg-text clr-subtext'> layers </ly-icon>
+			<h6>Discovery</h6>
+		</a>
+	</ly-flex>
+	<ly-flex axis='x' class='g-5xs'>
+		<button class='__outlined'>
+			<ly-icon class='bg-tertiary'> auto_awesome_mosaic </ly-icon>
+			<span>Layout</span>
+		</button>
+		<button class='__outlined'>
+			<ly-icon class='bg-tertiary'> looks </ly-icon>
+			<span>Customizing</span>
+		</button>
+		<button class='__outlined'>
+			<ly-icon class='bg-tertiary'> campaign </ly-icon>
+			<span>Report Details</span>
+		</button>
+	</ly-flex>
+	<ly-grid tmpl='3' class='g-sm'>
+		<ly-flex axis='y' class='g-sm'>
+			<ly-group class='g-sm p-sm outln outln-primary radius-3xs'>
+				<header class='align-end[items] flex flex-row place-between'>
+					<label>Visualization</label>
+					<button>
+						<ly-icon> add </ly-icon>
+					</button>
+				</header>
+				<ly-flex class='g-sm wrap'>
+					<button class='__outlined'>
+						<ly-icon class='xl'> data_exploration </ly-icon>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='xl outlined'> database </ly-icon>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='xl outlined'> function </ly-icon>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='xl outlined'> timeline </ly-icon>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='xl outlined'> stacked_line_chart </ly-icon>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='xl outlined'> bubble_chart </ly-icon>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='xl outlined'> pie_chart </ly-icon>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='xl outlined'> donut_large </ly-icon>
+					</button>
+				</ly-flex>
+			</ly-group>
+
+			<ly-group class='g-sm p-sm outln outln-primary radius-3xs'>
+				<header class='align-end[items] flex flex-row place-between'>
+					<label>Fields</label>
+					<ly-flex axis='x' class='place-end[items]'>
+						<button>
+							<ly-icon> search </ly-icon>
+						</button>
+						<button>
+							<ly-icon> instant_mix </ly-icon>
+						</button>
+					</ly-flex>
+				</header>
+				<ly-slider axis='y' class='g-5xs h-100'>
+					<button class='__outlined'>
+						<ly-icon class='bg-primary'> text_fields </ly-icon>
+						<span>Account Name</span>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='bg-primary'> text_fields </ly-icon>
+						<span>Billing City</span>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='bg-primary'> text_fields </ly-icon>
+						<span>Billing State</span>
+						<ly-icon class='bg-primary'> text_fields </ly-icon>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='bg-primary'> text_fields </ly-icon>
+						<span>Forecast Category</span>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='bg-primary'> text_fields </ly-icon>
+						<span>Industry</span>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='bg-primary'> text_fields </ly-icon>
+						<span>Lead Source</span>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='bg-primary'> text_fields </ly-icon>
+						<span>Opportunity Name</span>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='bg-primary'> text_fields </ly-icon>
+						<span>Owner Role</span>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='bg-primary'> tag </ly-icon>
+						<span>Cast</span>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='bg-primary'> tag </ly-icon>
+						<span>Amount</span>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='bg-primary'> tag </ly-icon>
+						<span>Name</span>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='bg-primary'> calendar_month </ly-icon>
+						<span>Close Date</span>
+					</button>
+					<button class='__outlined'>
+						<ly-icon class='bg-primary'> calendar_month </ly-icon>
+						<span>Created Date</span>
+					</button>
+				</ly-slider>
+			</ly-group>
+		</ly-flex>
+		<ly-flex axis='y' class='g-sm'>
+			<ly-group class='g-sm p-sm outln outln-primary radius-3xs'>
+				<header class='align-end[items] flex flex-row place-between'>
+					<label>Color Stack</label>
+				</header>
+				<ly-group class='g-5xs place-center[items]'>
+					<button class='__outlined'>
+						<ly-icon> add </ly-icon>
+					</button>
+					<small>Drop Field Here</small>
+				</ly-group>
+				<ly-slider class='h-100'> </ly-slider>
+			</ly-group>
+
+			<ly-group class='g-sm p-sm outln outln-primary radius-3xs'>
+				<header class='align-end[items] flex flex-row place-between'>
+					<label>Stages</label>
+				</header>
+				<ly-group class='g-5xs place-center[items]'>
+					<button class='__outlined'>
+						<ly-icon> add </ly-icon>
+					</button>
+					<small>Drop Field Here</small>
+				</ly-group>
+				<ly-slider class='h-100'> </ly-slider>
+			</ly-group>
+
+			<ly-group class='g-sm p-sm outln outln-primary radius-3xs'>
+				<header class='align-end[items] flex flex-row place-between'>
+					<label>Metrics</label>
+					<button>
+						<ly-icon> add </ly-icon>
+					</button>
+				</header>
+				<ly-group class='g-5xs place-center[items]'>
+					<button class='__outlined'>
+						<ly-icon> add </ly-icon>
+					</button>
+					<small>Drop Field Here</small>
+				</ly-group>
+				<ly-slider axis='y' class='h-100'>
+					<button class='__outlined'>
+						<ly-icon class='bg-primary'> text_fields </ly-icon>
+						<span>Opportunity</span>
+					</button>
+				</ly-slider>
+			</ly-group>
+		</ly-flex>
+
+		<ly-group class='g-sm p-sm outln outln-primary radius-3xs'>
+			<header class='align-end[items] flex flex-row place-between'>
+				<header>
+					<label>Opportunity ID</label>
+				</header>
+				<div class='container'></div>
+			</header>
+		</ly-group>
+	</ly-grid>
+</Layout>
