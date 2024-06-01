@@ -52,17 +52,17 @@ import Layout from 'src/lib/layout.uis.astro';
 			{
 				[...Array(10).keys()].map(() => (
 					<a
-						class='align-start[items] g-sm p-2xl w-100 wrap hover:bg-primary'
+						class='g-sm p-2xl w-100 wrap hover:bg-primary'
 						style='overflow: visible;'>
 						<var
-							class='flex place-center pt-5xs mb-auto counter txt-xl w-max h-max'
-							style='flex: 0 0 24pt;'
+							class='bg-primary block counter txt-xl w-max'
+							style='height: 1lh; width: 1lh; margin-top: calc(1lh/4); margin-bottom: auto;'
 						/>
-						<h2 class='' style='flex: 1 0 auto;'>
+						<h2 style='inline-flex: 1 0 auto; max-height: 3lh; margin-bottom: auto; overflow: clip;'>
 							Article Heading
 						</h2>
 						<ly-grid tmpl='2' class='g-2xl' style='flex: 1 0 50%;'>
-							<p>
+							<p style='max-height: 3lh; overflow: clip; text-overflow: ellipsis;'>
 								Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
 								cumque laborum adipisci. Facilis unde fugit eaque natus nulla?
 								Ipsa blanditiis maxime reiciendis beatae nisi enim perspiciatis

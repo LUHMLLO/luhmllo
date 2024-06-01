@@ -1,0 +1,151 @@
+---
+import Layout from 'src/lib/layout.uis.astro';
+
+const filters = [
+	'Discover',
+	'Animation',
+	'Branding',
+	'Illustration',
+	'Mobile',
+	'Print',
+	'Typography',
+	'Web Design',
+];
+---
+
+<Layout scheme='light'>
+	<!--  -->
+	<nav class='align-center[items] place-between px-5xl'>
+		<ly-flex axis='x' class='align-center[items] g-sm'>
+			<figure class='align-center[items] aspect-[1/1] h-auto w-auto bg-primary'>
+				<span class='noshrink p-5xl txt-5xl'>A</span>
+			</figure>
+			<ly-group>
+				<span class='txt-600 g-sm'>
+					Acme Inc.
+					<ly-icon> unfold_more </ly-icon>
+				</span>
+				<p class='clr-subtext'>perian@makenotion.com</p>
+			</ly-group>
+		</ly-flex>
+		<ly-flex axis='x' class='align-center[items] g-5xs'>
+			<ly-dropdown>
+				<summary slot='summary' class='__button __outlined'>
+					<ly-icon> more_horiz </ly-icon>
+				</summary>
+				<button>
+					<span> options </span>
+				</button>
+				<button>
+					<span> options </span>
+				</button>
+				<button>
+					<span> options </span>
+				</button>
+			</ly-dropdown>
+		</ly-flex>
+	</nav>
+	<!--  -->
+	<ly-slider axis='y' class='radius-3xs' style='height: 100%;'>
+		<!--  -->
+		<label>Jumb Back In</label>
+		<ly-slider axis='x'>
+			{
+				filters.map(() => (
+					<article style='width: calc(var(--scale-5xl) * 2.5);'>
+						<figure
+							class='aspect-[1/1] bg-primary align-end w-100'
+							style='overflow: visible;'>
+							{/* <img src="" alt=""> */}
+							<ly-icon style='margin-bottom: calc(var(--scale-md) * -1);'>
+								home
+							</ly-icon>
+						</figure>
+						<h6>Home</h6>
+					</article>
+				))
+			}
+		</ly-slider>
+		<nav class='align-center[items] place-between'>
+			<ly-dropdown>
+				<summary slot='summary' class='__button __outlined radius-3xs'>
+					<span>Following</span>
+					<ly-icon> expand_more </ly-icon>
+				</summary>
+				<button>
+					<span>Following</span>
+				</button>
+				<button>
+					<span>Popular</span>
+				</button>
+				<button>
+					<span>New & Noteworthy</span>
+				</button>
+			</ly-dropdown>
+			<ly-dropdown>
+				<summary slot='summary' class='__button __outlined radius-3xs'>
+					<ly-icon> filter_list </ly-icon>
+					<span>Filters</span>
+				</summary>
+				<ly-field label='Tags' type='text'>
+					<input />
+				</ly-field>
+				<ly-field label='Color' type='color'>
+					<input style='border: none; outline: none;' />
+				</ly-field>
+				<ly-field label='Timeframe' type='datetime-local'>
+					<input />
+				</ly-field>
+			</ly-dropdown>
+		</nav>
+		<!--  -->
+		<ly-slider axis='x' class='place-safe-center g-5xs' tmpl-expand>
+			{
+				filters.map((filter, i) => (
+					<button class={i <= 0 ? 'bg-primary' : ''}> {filter} </button>
+				))
+			}
+		</ly-slider>
+		<!--  -->
+	</ly-slider>
+	<!--  -->
+	<footer>
+		<ly-field class='w-100'>
+			<ly-flex axis='x' class='place-items g-sm'>
+				<button class='aspect-[1/1] h-5xl w-max'>
+					<ly-icon>search</ly-icon>
+				</button>
+				<input type='search' class='w-100' />
+			</ly-flex>
+		</ly-field>
+		<nav class='g-sm place-around'>
+			<button>
+				<ly-icon> list </ly-icon>
+			</button>
+			<button>
+				<ly-icon> search </ly-icon>
+			</button>
+			<button>
+				<ly-icon> notifications </ly-icon>
+			</button>
+			<button>
+				<ly-icon> edit </ly-icon>
+			</button>
+		</nav>
+	</footer>
+	<!--  -->
+</Layout>
+
+<style lang='css' scoped>
+	@layer astro {
+		:global(:is(ly-app)) {
+			grid-template-rows:
+				max-content
+				minmax(0, 1fr)
+				max-content !important;
+			& > *:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+</style>

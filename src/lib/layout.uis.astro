@@ -5,14 +5,20 @@ interface Props {
 	className?: string;
 	overrides?: string;
 	scheme?: string;
+	tmpl?: string;
 }
 
-const { className, overrides = '', scheme = 'auto' } = Astro.props;
+const {
+	className,
+	overrides = '',
+	scheme = 'auto',
+	tmpl = 'container',
+} = Astro.props;
 ---
 
 <HTML_Layout title='Lilys - UIS' {scheme} {overrides}>
 	<ly-layer stacked='under'></ly-layer>
-	<ly-app tmpl='container' class={className}>
+	<ly-app {tmpl} class={className}>
 		<slot />
 	</ly-app>
 	<ly-layer stacked='over'></ly-layer>
