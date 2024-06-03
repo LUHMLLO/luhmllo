@@ -8,6 +8,19 @@
 }
 
 @layer normalize {
+	:where(fieldset) {
+		--radius: var(--scale-3xs);
+		--spacing: var(--scale-sm);
+
+		&.__card {
+			border-radius: var(--radius);
+			outline: solid var(--clr-primary);
+			padding: var(--spacing);
+		}
+	}
+}
+
+@layer normalize {
 	:where(a, button, summary) {
 		--bg: none;
 		--clr: inherit;
@@ -26,7 +39,7 @@
 		color: var(--clr);
 		cursor: pointer;
 		display: inline-flex;
-		font-size: var(--scale-sm);
+		font-size: var(--scale-md);
 		font-weight: 400;
 		gap: var(--gap);
 		margin: var(--my) var(--mx);
@@ -48,7 +61,7 @@
 			aspect-ratio: 1/1;
 			border-radius: 50%;
 			height: calc(100% - var(--spacing));
-			width: auto;
+			width: max-content;
 		}
 
 		& > ly-icon {
@@ -57,80 +70,40 @@
 		}
 
 		/* No icons */
-		&:not(:has(:where([class*='material-symbols'],
-					.icon,
-					ly-icon,
-					ly-check,
-					figure):first-child)):not(:has(:where([class*='material-symbols'],
-					.icon,
-					ly-icon,
-					ly-check,
-					figure):last-child)) {
+		&:not(:has(:where(.__lead):first-child)):not(:has(:where(.__trail):last-child)) {
 			--px: calc(var(--spacing) * 2.75);
 		}
 
 		/* Left icon only */
-		&:has(:where([class*='material-symbols'],
-				.icon,
-				ly-icon,
-				ly-check,
-				figure):first-child):is(:not(:has(:where([class*='material-symbols'],
-						.icon,
-						ly-icon,
-						ly-check,
-						figure):last-child))) {
+		&:has(:where(.__lead):first-child):is(:not(:has(:where(.__trail):last-child))) {
 			padding-inline-end: calc(var(--spacing) * 2);
 		}
 
 		/* Right icon only */
-		&:has(:where([class*='material-symbols'],
-				.icon,
-				ly-icon,
-				ly-check,
-				figure):last-child):is(:not(:has(:where([class*='material-symbols'],
-						.icon,
-						ly-icon,
-						ly-check,
-						figure):first-child))) {
+		&:has(:where(.__trail):last-child):is(:not(:has(:where(.__lead):first-child))) {
 			padding-inline-start: calc(var(--spacing) * 2);
-		}
-
-		&:not(button, :is(a, summary).__button) {
-			--radius: var(--scale-sm);
-			height: max-content;
-			padding: 0;
-		}
-
-		&:is(button, :is(a, summary).__button) {
-			--bg: var(--clr-background);
-			/*pending to add golden ratioi*/
-			min-height: var(--scale-5xl);
-			height: fit-content;
 		}
 
 		&[href] {
 			--clr: var(--clr-accent);
 		}
 
-		/* conditional style modifiers */
+		&:not(button, :is(a, summary).__button) {
+			--radius: var(--scale-sm);
+
+			height: max-content;
+			padding: 0;
+		}
+
+		&:is(button, :is(a, summary).__button) {
+			--bg: var(--clr-background);
+			height: var(--scale-5xl);
+		}
+
 		&:is(button, .__button).__outlined {
 			outline-color: color-mix(in var(--prefers-colorSpace, srgb),
 					var(--outln),
 					gray 16%);
-
-			@media (hover: hover) {
-				&:hover {
-					outline-color: color-mix(in var(--prefers-colorSpace, srgb),
-							var(--outln),
-							gray 16%);
-				}
-			}
-
-			&:active {
-				outline-color: color-mix(in var(--prefers-colorSpace, srgb),
-						var(--outln),
-						darkgray 16%);
-			}
 		}
 
 		/* Micro Interactions */
@@ -142,6 +115,12 @@
 				color: color-mix(in var(--prefers-colorSpace, srgb),
 						var(--clr),
 						gray 16%);
+
+				&:is(button, .__button).__outlined {
+					outline-color: color-mix(in var(--prefers-colorSpace, srgb),
+							var(--outln),
+							gray 16%);
+				}
 			}
 		}
 
@@ -152,6 +131,12 @@
 			color: color-mix(in var(--prefers-colorSpace, srgb),
 					var(--clr),
 					darkgray 16%);
+
+			&:is(button, .__button).__outlined {
+				outline-color: color-mix(in var(--prefers-colorSpace, srgb),
+						var(--outln),
+						darkgray 16%);
+			}
 		}
 
 		&:focus-visible {
@@ -261,15 +246,16 @@
 		--gap: var(--spacing);
 		--radius: var(--scale-5xl);
 		--spacing: var(--scale-5xs);
-		--size: 1.5lh;
 
 		display: block;
+		color: var(--clr);
 		font-size: var(--scale-md);
 		gap: var(--gap);
 
 		& input {
 			--bg: var(--clr-background);
 			--px: 0;
+			--size: 1.5lh;
 
 			appearance: none;
 			display: inline-block;

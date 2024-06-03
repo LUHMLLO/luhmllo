@@ -1,12 +1,16 @@
 ---
+import type { CSSProperty } from 'astro/types'
+
 interface Props {
 	Heading?: string;
+	className?: string | string[];
+	style?: string | CSSProperty;
 }
 
-const { Heading } = Astro.props;
+const { Heading, className = '', style = '' } = Astro.props;
 ---
 
-<div class='card'>
+<div class=`card ${className}` style={style}>
 	<header class='row between'>
 		<label>{Heading}</label>
 	</header>

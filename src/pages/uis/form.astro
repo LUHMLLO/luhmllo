@@ -1,87 +1,214 @@
 ---
 import Layout from 'src/lib/layout.uis.astro';
+import {elements} from 'src/lib/shared/docs/elements.buttons.ts'
 ---
 
-<Layout scheme="dark">
+<Layout scheme='dark'>
 	<!--  -->
 	<h1>Form Elements</h1>
 	<p>Vanilla implementations</p>
 	<!--  -->
+	{
+		elements.map((element) => (
+			<>
+				<h2>{element.alias}</h2>
+				<blockquote>
+					<dl>
+						{
+							element.summary.map(({name, description})=> (
+								<dt>{name}</dt>
+								<dd>{description}</dd>
+							))
+						}
+					</dl>
+				</blockquote>
+				<ly-slider axis="x" class="g-sm">
+					{
+						element.snippets.map((snippet)=> 
+							{
+								snippet.templates.map((template)=> (
+									<element.tagName>
+										<Fragment set:html={template}/>
+									</element.tagName>
+								))
+							}
+						)
+					}
+				</ly-slider>
+			</e>
+		))
+	}
+	<!--  -->
+	<h2>Links</h2>
+	<fieldset>
+		<a>
+			<span>link</span>
+		</a>
+		<a class='__button'>
+			<span>link</span>
+		</a>
+		<a class='__button __outlined'>
+			<span>link</span>
+		</a>
+	</fieldset>
+	<!--  -->
+	<h2>Links (href)</h2>
+	<fieldset>
+		<a href='#'>
+			<span>link</span>
+		</a>
+		<a href='#' class='__button'>
+			<span>link</span>
+		</a>
+		<a href='#' class='__button __outlined'>
+			<span>link</span>
+		</a>
+	</fieldset>
+	<!--  -->
+	<h2>Details / Summary</h2>
+	<fieldset>
+		<details>
+			<summary>
+				<span>summary</span>
+			</summary>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
+			iure, ullam labore quod beatae veritatis, minus quia fugit temporibus illum
+			autem facilis consequuntur incidunt optio inventore exercitationem rerum.
+		</details>
+		<details>
+			<summary class='__button'>
+				<span>summary <pre>.__button</pre></span>
+			</summary>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
+			iure, ullam labore quod beatae veritatis, minus quia fugit temporibus illum
+			autem facilis consequuntur incidunt optio inventore exercitationem rerum.
+		</details>
+		<details>
+			<summary class='__button __outlined'>
+				<span>summary <pre>.__button.__outlined</pre></span>
+			</summary>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
+			iure, ullam labore quod beatae veritatis, minus quia fugit temporibus illum
+			autem facilis consequuntur incidunt optio inventore exercitationem rerum.
+		</details>
+	</fieldset>
+	<!--  -->
 	<h2>Text</h2>
 	<fieldset>
-		<label for="email">
-			<input name="email" type="email" />
+		<label for='email'>
+			<input name='email' type='email' />
 		</label>
-		<label for="text">
-			<input name="text" type="text" />
+		<label for='number'>
+			<input name='number' type='number' />
 		</label>
-		<label for="tel">
-			<input name="tel" type="tel" />
+		<label for='text'>
+			<input name='text' type='text' />
+		</label>
+		<label for='tel'>
+			<input name='tel' type='tel' />
+		</label>
+		<label for='textarea'>
+			<textarea name='textarea'></textarea>
 		</label>
 	</fieldset>
+	<!--  -->
 	<h2>Checkbox</h2>
 	<fieldset>
-		<label for="checkbox">
+		<label for='checkbox'>
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugiat
 			consequuntur beatae libero eos aspernatur dolorum incidunt aliquam eaque!
 			Rem quis excepturi laudantium dolorum nemo debitis ea itaque maxime
 			tenetur!
-			<input name="checkbox" type="checkbox" />
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugiat
-			consequuntur beatae libero eos aspernatur dolorum incidunt aliquam eaque!
-			Rem quis excepturi laudantium dolorum nemo debitis ea itaque maxime
-			tenetur!
+			<input name='checkbox' type='checkbox' />
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugiat consequuntur
+			beatae libero eos aspernatur dolorum incidunt aliquam eaque! Rem quis excepturi
+			laudantium dolorum nemo debitis ea itaque maxime tenetur!
 		</label>
-		<label for="checkbox">
-			<input name="checkbox" type="checkbox" />
+		<label for='checkbox'>
+			<input name='checkbox' type='checkbox' />
 			<span>label</span>
 		</label>
-		<label for="radio-3">
-			<input name="checkbox" type="checkbox" />
+		<label for='radio-3'>
+			<input name='checkbox' type='checkbox' />
 			<span>label</span>
 		</label>
 	</fieldset>
 	<!--  -->
 	<h2>Radio</h2>
 	<fieldset>
-		<label for="radio">
+		<label for='radio'>
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugiat
 			consequuntur beatae libero eos aspernatur dolorum incidunt aliquam eaque!
 			Rem quis excepturi laudantium dolorum nemo debitis ea itaque maxime
 			tenetur!
-			<input name="radio" type="radio" />
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugiat
-			consequuntur beatae libero eos aspernatur dolorum incidunt aliquam eaque!
-			Rem quis excepturi laudantium dolorum nemo debitis ea itaque maxime
-			tenetur!
+			<input name='radio' type='radio' />
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugiat consequuntur
+			beatae libero eos aspernatur dolorum incidunt aliquam eaque! Rem quis excepturi
+			laudantium dolorum nemo debitis ea itaque maxime tenetur!
 		</label>
-		<label for="radio-2">
-			<input name="radio" type="radio" />
+		<label for='radio-2'>
+			<input name='radio' type='radio' />
 			<span>label</span>
 		</label>
-		<label for="radio-3">
-			<input name="radio" type="radio" />
+		<label for='radio-3'>
+			<input name='radio' type='radio' />
 			<span>label</span>
 		</label>
 	</fieldset>
 	<!--  -->
 	<h2>Switch (Checkbox / Radio)</h2>
 	<fieldset>
-		<label for="checkbox-2">
-			<span>label</span>
-			<input name="checkbox-2" type="checkbox" class="__switch" />
+		<label for='checkbox-2'>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio sunt libero
+			animi harum, recusandae commodi omnis odit incidunt delectus aliquam atque
+			iusto illo ratione dolorum asperiores quibusdam voluptatum ab quia.
+			<input name='checkbox-2' type='checkbox' class='__switch' />
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio sunt libero animi
+			harum, recusandae commodi omnis odit incidunt delectus aliquam atque iusto
+			illo ratione dolorum asperiores quibusdam voluptatum ab quia.
+		</label>
+		<label for='checkbox-2'>
+			<input name='checkbox-2' type='checkbox' class='__switch' />
 			<span>label</span>
 		</label>
-		<label for="radio">
+		<label for='radio-2'>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio sunt libero
+			animi harum, recusandae commodi omnis odit incidunt delectus aliquam atque
+			iusto illo ratione dolorum asperiores quibusdam voluptatum ab quia.
+			<input name='radio-2' type='radio' class='__switch' />
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio sunt libero animi
+			harum, recusandae commodi omnis odit incidunt delectus aliquam atque iusto
+			illo ratione dolorum asperiores quibusdam voluptatum ab quia.
+		</label>
+		<label for='radio-2'>
+			<input name='radio-2' type='radio' class='__switch' />
 			<span>label</span>
-			<input name="radio" type="radio" class="__switch" />
-			<span>label</span>
+		</label>
+	</fieldset>
+	<!--  -->
+	<h2>Range</h2>
+	<fieldset>
+		<label for='range'>
+			<input name='range' type='range' />
+		</label>
+	</fieldset>
+	<!--  -->
+	<h2>Date / Time</h2>
+	<fieldset>
+		<label for='date'>
+			<input name='date' type='date' />
+		</label>
+		<label for='datetime-local'>
+			<input name='datetime-local' type='datetime-local' />
+		</label>
+		<label for='time'>
+			<input name='time' type='time' />
 		</label>
 	</fieldset>
 	<!--  -->
 </Layout>
 
-<style lang="css">
+<style lang='css'>
 	:global(ly-app) {
 		& > *:first-child {
 			margin-top: 0;

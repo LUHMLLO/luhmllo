@@ -8,21 +8,26 @@ import Card from 'src/lib/components/docs.card.astro';
 	<ly-grid tmpl='4' class='g-sm py-5xl'>
 		<Card Heading='Link [href]'>
 			<a href='#'>
-				<ly-icon>globe</ly-icon>link
+				<ly-icon class='__lead'>globe</ly-icon>
+				<span>link</span>
 			</a>
 			<a href='#' class='__button'>
-				<ly-icon>globe</ly-icon> link
+				<ly-icon class='__lead'>globe</ly-icon>
+				<span>link</span>
 			</a>
-			<a href='#' class='__button __outlined'> link </a>
+			<a href='#' class='__button __outlined'>
+				<span>link</span>
+			</a>
 		</Card>
 		<Card Heading='Link'>
 			<a>
-				<ly-icon>globe</ly-icon>link
+				<ly-icon>globe</ly-icon><span>link</span>
 			</a>
 			<a class='__button'>
-				<ly-icon>globe</ly-icon> link
+				<ly-icon>globe</ly-icon>
+				<span>link</span>
 			</a>
-			<a class='__button __outlined'> link </a>
+			<a class='__button __outlined'> <span>link</span> </a>
 		</Card>
 		<Card Heading='Details > Summary'>
 			<details>
