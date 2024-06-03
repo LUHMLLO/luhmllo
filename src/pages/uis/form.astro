@@ -1,0 +1,90 @@
+---
+import Layout from 'src/lib/layout.uis.astro';
+---
+
+<Layout scheme="dark">
+	<!--  -->
+	<h1>Form Elements</h1>
+	<p>Vanilla implementations</p>
+	<!--  -->
+	<h2>Text</h2>
+	<fieldset>
+		<label for="email">
+			<input name="email" type="email" />
+		</label>
+		<label for="text">
+			<input name="text" type="text" />
+		</label>
+		<label for="tel">
+			<input name="tel" type="tel" />
+		</label>
+	</fieldset>
+	<h2>Checkbox</h2>
+	<fieldset>
+		<label for="checkbox">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugiat
+			consequuntur beatae libero eos aspernatur dolorum incidunt aliquam eaque!
+			Rem quis excepturi laudantium dolorum nemo debitis ea itaque maxime
+			tenetur!
+			<input name="checkbox" type="checkbox" />
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugiat
+			consequuntur beatae libero eos aspernatur dolorum incidunt aliquam eaque!
+			Rem quis excepturi laudantium dolorum nemo debitis ea itaque maxime
+			tenetur!
+		</label>
+		<label for="checkbox">
+			<input name="checkbox" type="checkbox" />
+			<span>label</span>
+		</label>
+		<label for="radio-3">
+			<input name="checkbox" type="checkbox" />
+			<span>label</span>
+		</label>
+	</fieldset>
+	<!--  -->
+	<h2>Radio</h2>
+	<fieldset>
+		<label for="radio">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugiat
+			consequuntur beatae libero eos aspernatur dolorum incidunt aliquam eaque!
+			Rem quis excepturi laudantium dolorum nemo debitis ea itaque maxime
+			tenetur!
+			<input name="radio" type="radio" />
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugiat
+			consequuntur beatae libero eos aspernatur dolorum incidunt aliquam eaque!
+			Rem quis excepturi laudantium dolorum nemo debitis ea itaque maxime
+			tenetur!
+		</label>
+		<label for="radio-2">
+			<input name="radio" type="radio" />
+			<span>label</span>
+		</label>
+		<label for="radio-3">
+			<input name="radio" type="radio" />
+			<span>label</span>
+		</label>
+	</fieldset>
+	<!--  -->
+	<h2>Switch (Checkbox / Radio)</h2>
+	<fieldset>
+		<label for="checkbox-2">
+			<span>label</span>
+			<input name="checkbox-2" type="checkbox" class="__switch" />
+			<span>label</span>
+		</label>
+		<label for="radio">
+			<span>label</span>
+			<input name="radio" type="radio" class="__switch" />
+			<span>label</span>
+		</label>
+	</fieldset>
+	<!--  -->
+</Layout>
+
+<style lang="css">
+	:global(ly-app) {
+		& > *:first-child {
+			margin-top: 0;
+		}
+	}
+</style>

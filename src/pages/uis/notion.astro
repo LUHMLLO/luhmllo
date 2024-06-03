@@ -15,7 +15,7 @@ const filters = [
 
 <Layout scheme='light'>
 	<!--  -->
-	<nav class='align-center[items] place-between px-5xl'>
+	<nav class='align-center[items] place-between'>
 		<ly-flex axis='x' class='align-center[items] g-sm'>
 			<figure class='align-center[items] aspect-[1/1] h-auto w-auto bg-primary'>
 				<span class='noshrink p-5xl txt-5xl'>A</span>
@@ -46,9 +46,8 @@ const filters = [
 		</ly-flex>
 	</nav>
 	<!--  -->
-	<ly-slider axis='y' class='radius-3xs' style='height: 100%;'>
-		<!--  -->
-		<label>Jumb Back In</label>
+	<ly-group>
+		<h6>Jumb Back In</h6>
 		<ly-slider axis='x'>
 			{
 				filters.map(() => (
@@ -57,66 +56,26 @@ const filters = [
 							class='aspect-[1/1] bg-primary align-end w-100'
 							style='overflow: visible;'>
 							{/* <img src="" alt=""> */}
-							<ly-icon style='margin-bottom: calc(var(--scale-md) * -1);'>
+							<ly-icon style='margin-bottom: calc(var(--scale-sm) * -1); translate: 0% 16%;'>
 								home
 							</ly-icon>
 						</figure>
-						<h6>Home</h6>
+						<h6 class='px-5xs'>Home</h6>
 					</article>
 				))
 			}
 		</ly-slider>
-		<nav class='align-center[items] place-between'>
-			<ly-dropdown>
-				<summary slot='summary' class='__button __outlined radius-3xs'>
-					<span>Following</span>
-					<ly-icon> expand_more </ly-icon>
-				</summary>
-				<button>
-					<span>Following</span>
-				</button>
-				<button>
-					<span>Popular</span>
-				</button>
-				<button>
-					<span>New & Noteworthy</span>
-				</button>
-			</ly-dropdown>
-			<ly-dropdown>
-				<summary slot='summary' class='__button __outlined radius-3xs'>
-					<ly-icon> filter_list </ly-icon>
-					<span>Filters</span>
-				</summary>
-				<ly-field label='Tags' type='text'>
-					<input />
-				</ly-field>
-				<ly-field label='Color' type='color'>
-					<input style='border: none; outline: none;' />
-				</ly-field>
-				<ly-field label='Timeframe' type='datetime-local'>
-					<input />
-				</ly-field>
-			</ly-dropdown>
-		</nav>
-		<!--  -->
-		<ly-slider axis='x' class='place-safe-center g-5xs' tmpl-expand>
-			{
-				filters.map((filter, i) => (
-					<button class={i <= 0 ? 'bg-primary' : ''}> {filter} </button>
-				))
-			}
-		</ly-slider>
-		<!--  -->
-	</ly-slider>
+	</ly-group>
 	<!--  -->
 	<footer>
-		<ly-field class='w-100'>
-			<ly-flex axis='x' class='place-items g-sm'>
-				<button class='aspect-[1/1] h-5xl w-max'>
-					<ly-icon>search</ly-icon>
-				</button>
-				<input type='search' class='w-100' />
-			</ly-flex>
+		<ly-field class='__wrapper'>
+			<button class='aspect-[1/1] h-5xl w-max'>
+				<ly-icon>search</ly-icon>
+			</button>
+			<input type='search' />
+			<button class='aspect-[1/1] h-5xl w-max'>
+				<ly-icon>IA</ly-icon>
+			</button>
 		</ly-field>
 		<nav class='g-sm place-around'>
 			<button>
@@ -128,7 +87,7 @@ const filters = [
 			<button>
 				<ly-icon> notifications </ly-icon>
 			</button>
-			<button>
+			<button class="__outlined">
 				<ly-icon> edit </ly-icon>
 			</button>
 		</nav>

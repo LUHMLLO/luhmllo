@@ -5,19 +5,20 @@
 		position: relative;
 		width: fit-content;
 	}
+}
 
+@layer normalize {
 	:where(a, button, summary) {
 		--bg: none;
 		--clr: inherit;
 		--gap: var(--spacing);
 		--mx: 0;
 		--my: 0;
-		--outln-clr: var(--bg);
+		--outln: var(--bg);
 		--px: var(--spacing);
 		--py: 0;
 		--radius: var(--scale-5xl);
 		--spacing: var(--scale-5xs);
-		--variant: 'outlined';
 
 		align-items: center;
 		background-color: var(--bg);
@@ -114,32 +115,25 @@
 		/* conditional style modifiers */
 		&:is(button, .__button).__outlined {
 			outline-color: color-mix(in var(--prefers-colorSpace, srgb),
-					var(--outln-clr),
+					var(--outln),
 					gray 16%);
 
 			@media (hover: hover) {
 				&:hover {
 					outline-color: color-mix(in var(--prefers-colorSpace, srgb),
-							var(--outln-clr),
+							var(--outln),
 							gray 16%);
 				}
 			}
 
 			&:active {
 				outline-color: color-mix(in var(--prefers-colorSpace, srgb),
-						var(--outln-clr),
+						var(--outln),
 						darkgray 16%);
 			}
 		}
 
 		/* Micro Interactions */
-		&:focus-visible {
-			--outln-clr: var(--clr-accent);
-			outline-color: color-mix(in var(--prefers-colorSpace, srgb),
-					var(--outln-clr),
-					transparent 56%);
-		}
-
 		@media (hover: hover) {
 			&:hover {
 				background-color: color-mix(in var(--prefers-colorSpace, srgb),
@@ -159,15 +153,24 @@
 					var(--clr),
 					darkgray 16%);
 		}
-	}
 
+		&:focus-visible {
+			--outln: var(--clr-accent);
+			outline-color: color-mix(in var(--prefers-colorSpace, srgb),
+					var(--outln),
+					transparent 56%);
+		}
+	}
+}
+
+@layer normalize {
 	:where(input, select, textarea) {
 		--bg: var(--clr-background);
 		--clr: inherit;
 		--gap: calc(var(--spacing) * 0.25);
 		--mx: 0;
 		--my: 0;
-		--outln-clr: var(--bg);
+		--outln: color-mix(in srgb, var(--bg), darkgray 16%);
 		--px: var(--spacing);
 		--py: 0;
 		--radius: var(--scale-sm);
@@ -183,7 +186,7 @@
 		font-weight: 400;
 		gap: var(--gap);
 		margin: var(--my) var(--mx);
-		outline: solid color-mix(in srgb, var(--outln-clr), gray 12%);
+		outline: solid var(--outln);
 		overflow: clip;
 		padding: var(--py) var(--px);
 		text-overflow: ellipsis;
@@ -230,29 +233,115 @@
 		}
 
 		/* Micro Interactions */
-		&:focus-visible {
-			--outln-clr: var(--clr-accent);
-
-			outline-color: color-mix(in var(--prefers-colorSpace, srgb),
-					var(--outln-clr),
-					transparent 56%) !important;
-		}
-
 		@media (hover: hover) {
 			&:hover {
 				outline-color: color-mix(in var(--prefers-colorSpace, srgb),
-						var(--outln-clr),
-						gray 16%) !important;
+						var(--outln),
+						darkgray 16%) !important;
 			}
 		}
 
 		&:active {
 			outline-color: color-mix(in var(--prefers-colorSpace, srgb),
-					var(--outln-clr),
-					darkgray 16%) !important;
+					var(--outln),
+					darkgray 8%) !important;
+		}
+
+		&:focus-visible {
+			outline-color: color-mix(in var(--prefers-colorSpace, srgb),
+					var(--clr-accent),
+					transparent 56%) !important;
 		}
 	}
+}
 
+@layer normalize {
+	:where(label) {
+		--clr: inherit;
+		--gap: var(--spacing);
+		--radius: var(--scale-5xl);
+		--spacing: var(--scale-5xs);
+		--size: 1.5lh;
+
+		display: block;
+		font-size: var(--scale-md);
+		gap: var(--gap);
+
+		& input {
+			--bg: var(--clr-background);
+			--px: 0;
+
+			appearance: none;
+			display: inline-block;
+			height: var(--size);
+			position: relative;
+			vertical-align: middle;
+			width: var(--size);
+
+			&:is([type='checkbox'], [type='radio']) {
+				--iconOff: '';
+				--iconOn: 'check';
+
+				aspect-ratio: 1/1;
+
+				&::after {
+					aspect-ratio: 1/1;
+					content: var(--iconOff);
+					display: block;
+					font-family: var(--prefers-iconFontFamily);
+					font-size: 100%;
+					line-height: var(--size);
+					margin: auto;
+					pointer-events: none;
+					text-align: center;
+					transition: background-color var(--animDefaults), color var(--animDefaults), margin var(--animDefaults), outline-color var(--animDefaults);
+				}
+
+				&:checked {
+					&::after {
+						background-color: var(--clr-accent);
+						content: var(--iconOn);
+					}
+				}
+
+				&:is([type='checkbox']:not(.__switch)) {
+					--radius: 25%;
+				}
+
+				&:is([type='radio']:not(.__switch)) {
+					--radius: 50%;
+				}
+			}
+
+			&.__switch {
+				--iconOff: '';
+				--iconOn: '';
+
+				display: inline-flex;
+				width: calc(var(--size) * 2);
+
+				&::after {
+					background-color: color-mix(in var(--prefers-colorSpace, srgb),
+							var(--bg),
+							darkgray 16%);
+					border-radius: 50%;
+					height: calc(var(--size) / 2);
+					margin-block: auto;
+					margin-left: calc(var(--prefers-outlineWidth) - -1%);
+					width: calc(var(--size) / 2);
+				}
+
+				&:checked {
+					&::after {
+						margin-left: calc(calc(99% - calc(var(--size)/2) - var(--prefers-outlineWidth)));
+					}
+				}
+			}
+		}
+	}
+}
+
+@layer normalize {
 	:where(table) {
 		--bg: var(--clr-background);
 		--bg--lighter: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), darkgray 6%);
