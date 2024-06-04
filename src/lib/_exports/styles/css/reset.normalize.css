@@ -8,19 +8,6 @@
 }
 
 @layer normalize {
-	:where(fieldset) {
-		--radius: var(--scale-3xs);
-		--spacing: var(--scale-sm);
-
-		&.__card {
-			border-radius: var(--radius);
-			outline: solid var(--clr-primary);
-			padding: var(--spacing);
-		}
-	}
-}
-
-@layer normalize {
 	:where(a, button, summary) {
 		--bg: none;
 		--clr: inherit;
@@ -54,7 +41,7 @@
 
 		/* text must be wrapped */
 		& > span {
-			flex: 1 1 100%;
+			flex: 1;
 		}
 
 		& > figure {
@@ -100,7 +87,7 @@
 			height: var(--scale-5xl);
 		}
 
-		&:is(button, .__button).__outlined {
+		&:is(button, .__button).__outline {
 			outline-color: color-mix(in var(--prefers-colorSpace, srgb),
 					var(--outln),
 					gray 16%);
@@ -116,7 +103,7 @@
 						var(--clr),
 						gray 16%);
 
-				&:is(button, .__button).__outlined {
+				&:is(button, .__button).__outline {
 					outline-color: color-mix(in var(--prefers-colorSpace, srgb),
 							var(--outln),
 							gray 16%);
@@ -132,7 +119,7 @@
 					var(--clr),
 					darkgray 16%);
 
-			&:is(button, .__button).__outlined {
+			&:is(button, .__button).__outline {
 				outline-color: color-mix(in var(--prefers-colorSpace, srgb),
 						var(--outln),
 						darkgray 16%);
@@ -252,11 +239,15 @@
 		font-size: var(--scale-md);
 		gap: var(--gap);
 
-		& input {
+		& > :is([type='checkbox'], [type='radio']) {
 			--bg: var(--clr-background);
 			--px: 0;
 			--size: 1.5lh;
 
+			--iconOff: '';
+			--iconOn: 'check';
+
+			aspect-ratio: 1/1;
 			appearance: none;
 			display: inline-block;
 			height: var(--size);
@@ -264,42 +255,37 @@
 			vertical-align: middle;
 			width: var(--size);
 
-			&:is([type='checkbox'], [type='radio']) {
-				--iconOff: '';
-				--iconOn: 'check';
-
+			&::after {
 				aspect-ratio: 1/1;
+				content: var(--iconOff);
+				display: block;
+				font-family: var(--prefers-iconFontFamily);
+				font-size: 100%;
+				line-height: var(--size);
+				margin: auto;
+				pointer-events: none;
+				text-align: center;
+				transition: background-color var(--animDefaults),
+					color var(--animDefaults), margin var(--animDefaults),
+					outline-color var(--animDefaults);
+			}
 
+			&:checked {
 				&::after {
-					aspect-ratio: 1/1;
-					content: var(--iconOff);
-					display: block;
-					font-family: var(--prefers-iconFontFamily);
-					font-size: 100%;
-					line-height: var(--size);
-					margin: auto;
-					pointer-events: none;
-					text-align: center;
-					transition: background-color var(--animDefaults), color var(--animDefaults), margin var(--animDefaults), outline-color var(--animDefaults);
-				}
-
-				&:checked {
-					&::after {
-						background-color: var(--clr-accent);
-						content: var(--iconOn);
-					}
-				}
-
-				&:is([type='checkbox']:not(.__switch)) {
-					--radius: 25%;
-				}
-
-				&:is([type='radio']:not(.__switch)) {
-					--radius: 50%;
+					background-color: var(--clr-accent);
+					content: var(--iconOn);
 				}
 			}
 
-			&.__switch {
+			&:is([type='checkbox']:not(.__switch)) {
+				--radius: 25%;
+			}
+
+			&:is([type='radio']:not(.__switch)) {
+				--radius: 50%;
+			}
+
+			&:is(.__switch) {
 				--iconOff: '';
 				--iconOn: '';
 
@@ -319,7 +305,8 @@
 
 				&:checked {
 					&::after {
-						margin-left: calc(calc(99% - calc(var(--size)/2) - var(--prefers-outlineWidth)));
+						background-color: var(--clr-accent);
+						margin-left: calc(calc(99% - calc(var(--size) / 2) - var(--prefers-outlineWidth)));
 					}
 				}
 			}
@@ -330,7 +317,9 @@
 @layer normalize {
 	:where(table) {
 		--bg: var(--clr-background);
-		--bg--lighter: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), darkgray 6%);
+		--bg--lighter: color-mix(in var(--prefers-colorSpace, srgb),
+				var(--bg),
+				darkgray 6%);
 		--clr: var(--clr-text);
 		--gap: 0;
 		--radius: 0;
@@ -403,7 +392,9 @@
 
 				@media (hover: hover) {
 					&:hover {
-						background-color: color-mix(in var(--prefers-colorSpace, srgb), var(--bg), darkgray 1%);
+						background-color: color-mix(in var(--prefers-colorSpace, srgb),
+								var(--bg),
+								darkgray 1%);
 					}
 				}
 

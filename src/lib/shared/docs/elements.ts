@@ -3,7 +3,7 @@ export default [
 		alias: 'Buttons',
 		summary: [
 			{
-				name: '.__outlined',
+				name: '.__outline',
 				description:
 					'class acts as variant for the parent element base styling.',
 			},
@@ -21,14 +21,14 @@ export default [
 				</button>
             `,
 			`
-				<button class="__outlined">
+				<button class="__outline">
 					<span>
-						.__outlined
+						.__outline
 					</span>
 				</button>
             `,
 			`
-               <button class="__outlined">
+               <button class="__outline">
 					<ly-icon class='__lead'>
 						add
 					</ly-icon>
@@ -38,7 +38,7 @@ export default [
 				</button>
             `,
 			`
-				<button class="__outlined">
+				<button class="__outline">
 					<span>
 						has .__trail
 					</span>
@@ -59,7 +59,7 @@ export default [
 					'class acts as variant for the parent element base styling.',
 			},
 			{
-				name: '.__outlined',
+				name: '.__outline',
 				description:
 					'class acts as variant for the parent element base styling.',
 			},
@@ -99,9 +99,9 @@ export default [
 				</a>
             `,
 			`
-				<a class="__button __outlined">
+				<a class="__button __outline">
 					<span>
-						.__button .__outlined
+						.__button .__outline
 					</span>
 				</a>
             `,
@@ -117,7 +117,7 @@ export default [
 					'class acts as variant for the summary element base styling.',
 			},
 			{
-				name: '.__outlined',
+				name: '.__outline',
 				description:
 					'class acts as variant for the summary element base styling.',
 			},
@@ -152,7 +152,7 @@ export default [
             `,
 			`
 				<details open>
-					<summary class="__button __outlined">
+					<summary class="__button __outline">
 						<span>summary</span>
 					</summary>
 					<p class='clr-subtext'>
@@ -163,7 +163,7 @@ export default [
             `,
 			`
 				<details open>
-					<summary class="__button __outlined">
+					<summary class="__button __outline">
 						<span>summary</span>
 						<ly-icon class='__trail'>
 							add
