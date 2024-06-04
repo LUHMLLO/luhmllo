@@ -10,7 +10,7 @@ interface Props {
 const { className, overrides = '', scheme = 'auto' } = Astro.props;
 ---
 
-<HTML_Layout title='Lilys - DOCS' {scheme} {overrides}>
+<HTML_Layout title='Lilys' {scheme} {overrides}>
 	<ly-layer stacked='under'></ly-layer>
 	<ly-app tmpl='container' class={className}>
 		<slot />
