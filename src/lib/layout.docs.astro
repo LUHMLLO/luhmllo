@@ -18,28 +18,26 @@ const { className, overrides = '', scheme = 'auto' } = Astro.props;
 	<ly-layer stacked='over'></ly-layer>
 </HTML_Layout>
 
-<style lang='css' scoped>
+<style lang='css'>
 	@layer props {
 		:root {
 			--baseFontFamily: 'General Sans', sans-serif;
 		}
 	}
 
-	@layer astro {
-		ly-app {
-			gap: 0;
-			padding-block: var(--scale-5xl);
+	ly-app {
+		gap: 0;
+		padding-block: var(--scale-5xl);
 
-			& > :global(h1, h2, h3) {
-				text-transform: capitalize;
-			}
-			& > :global(:where(h1, h2, h3) + p) {
-				color: var(--clr-subtext);
-			}
-			& > :global(:not(:where(h1, h2, h3) + *)) {
-				--spacing: inherit;
-				margin-top: calc(var(--scale-5xl) * 0.75);
-			}
+		& > :global(h1, h2, h3) {
+			text-transform: capitalize;
+		}
+		& > :global(:where(h1, h2, h3) + p) {
+			color: var(--clr-subtext);
+		}
+		& > :global(:not(:where(h1, h2, h3) + *)) {
+			--spacing: inherit;
+			margin-top: calc(var(--scale-5xl) * 0.75);
 		}
 	}
 </style>
