@@ -1,97 +1,39 @@
 ---
 import Layout from 'src/lib/layout.uis.astro';
-import {elements} from 'src/lib/shared/docs/elements.buttons.ts'
+import Elements from 'src/lib/shared/docs/elements'
 ---
 
 <Layout scheme='dark'>
 	<!--  -->
-	<h1>Form Elements</h1>
-	<p>Vanilla implementations</p>
+	<h1>Docs</h1>
+	<p>Use cases and implementations</p>
 	<!--  -->
 	{
-		elements.map((element) => (
+		Elements.map(({alias, summary, snippets}) => (
 			<>
-				<h2>{element.alias}</h2>
+				<h2>{ alias }</h2>
 				<blockquote>
 					<dl>
 						{
-							element.summary.map(({name, description})=> (
+							summary.map(({ name, description }) => (
 								<dt>{name}</dt>
 								<dd>{description}</dd>
 							))
 						}
 					</dl>
 				</blockquote>
-				<ly-slider axis="x" class="g-sm">
+				<ly-grid tmpl='4' class="g-sm">
 					{
-						element.snippets.map((snippet)=> 
-							{
-								snippet.templates.map((template)=> (
-									<element.tagName>
-										<Fragment set:html={template}/>
-									</element.tagName>
-								))
-							}
-						)
+						snippets.map((snippet) => (
+							<article class="grid outln outln-primary overflow-clip place-center px-sm py-5xl radius-3xs">
+								<Fragment set:html={ snippet } />
+							</article>
+						))
 					}
-				</ly-slider>
-			</e>
+				</ly-grid>
+			</>
 		))
 	}
-	<!--  -->
-	<h2>Links</h2>
-	<fieldset>
-		<a>
-			<span>link</span>
-		</a>
-		<a class='__button'>
-			<span>link</span>
-		</a>
-		<a class='__button __outlined'>
-			<span>link</span>
-		</a>
-	</fieldset>
-	<!--  -->
-	<h2>Links (href)</h2>
-	<fieldset>
-		<a href='#'>
-			<span>link</span>
-		</a>
-		<a href='#' class='__button'>
-			<span>link</span>
-		</a>
-		<a href='#' class='__button __outlined'>
-			<span>link</span>
-		</a>
-	</fieldset>
-	<!--  -->
-	<h2>Details / Summary</h2>
-	<fieldset>
-		<details>
-			<summary>
-				<span>summary</span>
-			</summary>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
-			iure, ullam labore quod beatae veritatis, minus quia fugit temporibus illum
-			autem facilis consequuntur incidunt optio inventore exercitationem rerum.
-		</details>
-		<details>
-			<summary class='__button'>
-				<span>summary <pre>.__button</pre></span>
-			</summary>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
-			iure, ullam labore quod beatae veritatis, minus quia fugit temporibus illum
-			autem facilis consequuntur incidunt optio inventore exercitationem rerum.
-		</details>
-		<details>
-			<summary class='__button __outlined'>
-				<span>summary <pre>.__button.__outlined</pre></span>
-			</summary>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
-			iure, ullam labore quod beatae veritatis, minus quia fugit temporibus illum
-			autem facilis consequuntur incidunt optio inventore exercitationem rerum.
-		</details>
-	</fieldset>
 	<!--  -->
 	<h2>Text</h2>
 	<fieldset>
