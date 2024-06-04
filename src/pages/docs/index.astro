@@ -22,10 +22,10 @@ import Elements from 'src/lib/shared/docs/elements'
 						}
 					</dl>
 				</blockquote>
-				<ly-grid tmpl='4' class="g-sm">
+				<ly-grid tmpl='4' class="g-sm" style="grid-auto-rows: 1fr;">
 					{
 						snippets.map((snippet) => (
-							<article class="grid outln outln-primary overflow-clip place-center px-sm py-5xl radius-3xs">
+							<article class="grid g-sm outln outln-primary overflow-clip place-center px-sm py-5xl radius-3xs h-100">
 								<Fragment set:html={ snippet } />
 							</article>
 						))
@@ -51,80 +51,6 @@ import Elements from 'src/lib/shared/docs/elements'
 		</label>
 		<label for='textarea'>
 			<textarea name='textarea'></textarea>
-		</label>
-	</fieldset>
-	<!--  -->
-	<h2>Checkbox</h2>
-	<fieldset>
-		<label for='checkbox'>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugiat
-			consequuntur beatae libero eos aspernatur dolorum incidunt aliquam eaque!
-			Rem quis excepturi laudantium dolorum nemo debitis ea itaque maxime
-			tenetur!
-			<input name='checkbox' type='checkbox' />
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugiat consequuntur
-			beatae libero eos aspernatur dolorum incidunt aliquam eaque! Rem quis excepturi
-			laudantium dolorum nemo debitis ea itaque maxime tenetur!
-		</label>
-		<label for='checkbox'>
-			<input name='checkbox' type='checkbox' />
-			<span>label</span>
-		</label>
-		<label for='radio-3'>
-			<input name='checkbox' type='checkbox' />
-			<span>label</span>
-		</label>
-	</fieldset>
-	<!--  -->
-	<h2>Radio</h2>
-	<fieldset>
-		<label for='radio'>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugiat
-			consequuntur beatae libero eos aspernatur dolorum incidunt aliquam eaque!
-			Rem quis excepturi laudantium dolorum nemo debitis ea itaque maxime
-			tenetur!
-			<input name='radio' type='radio' />
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugiat consequuntur
-			beatae libero eos aspernatur dolorum incidunt aliquam eaque! Rem quis excepturi
-			laudantium dolorum nemo debitis ea itaque maxime tenetur!
-		</label>
-		<label for='radio-2'>
-			<input name='radio' type='radio' />
-			<span>label</span>
-		</label>
-		<label for='radio-3'>
-			<input name='radio' type='radio' />
-			<span>label</span>
-		</label>
-	</fieldset>
-	<!--  -->
-	<h2>Switch (Checkbox / Radio)</h2>
-	<fieldset>
-		<label for='checkbox-2'>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio sunt libero
-			animi harum, recusandae commodi omnis odit incidunt delectus aliquam atque
-			iusto illo ratione dolorum asperiores quibusdam voluptatum ab quia.
-			<input name='checkbox-2' type='checkbox' class='__switch' />
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio sunt libero animi
-			harum, recusandae commodi omnis odit incidunt delectus aliquam atque iusto
-			illo ratione dolorum asperiores quibusdam voluptatum ab quia.
-		</label>
-		<label for='checkbox-2'>
-			<input name='checkbox-2' type='checkbox' class='__switch' />
-			<span>label</span>
-		</label>
-		<label for='radio-2'>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio sunt libero
-			animi harum, recusandae commodi omnis odit incidunt delectus aliquam atque
-			iusto illo ratione dolorum asperiores quibusdam voluptatum ab quia.
-			<input name='radio-2' type='radio' class='__switch' />
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio sunt libero animi
-			harum, recusandae commodi omnis odit incidunt delectus aliquam atque iusto
-			illo ratione dolorum asperiores quibusdam voluptatum ab quia.
-		</label>
-		<label for='radio-2'>
-			<input name='radio-2' type='radio' class='__switch' />
-			<span>label</span>
 		</label>
 	</fieldset>
 	<!--  -->

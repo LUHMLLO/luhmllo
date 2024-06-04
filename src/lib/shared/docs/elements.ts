@@ -133,9 +133,10 @@ export default [
 					<summary>
 						<span>summary</span>
 					</summary>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
-					iure, ullam labore quod beatae veritatis, minus quia fugit temporibus illum
-					autem facilis consequuntur incidunt optio inventore exercitationem rerum.
+					<p class='clr-subtext'>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
+						iure, ullam labore quod beatae veritatis.
+					</p>
 				</details>
             `,
 			`
@@ -143,9 +144,10 @@ export default [
 					<summary class="__button">
 						<span>summary</span>
 					</summary>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
-					iure, ullam labore quod beatae veritatis, minus quia fugit temporibus illum
-					autem facilis consequuntur incidunt optio inventore exercitationem rerum.
+					<p class='clr-subtext'>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
+						iure, ullam labore quod beatae veritatis.
+					</p>
 				</details>
             `,
 			`
@@ -153,9 +155,10 @@ export default [
 					<summary class="__button __outlined">
 						<span>summary</span>
 					</summary>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
-					iure, ullam labore quod beatae veritatis, minus quia fugit temporibus illum
-					autem facilis consequuntur incidunt optio inventore exercitationem rerum.
+					<p class='clr-subtext'>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
+						iure, ullam labore quod beatae veritatis.
+					</p>
 				</details>
             `,
 			`
@@ -166,10 +169,84 @@ export default [
 							add
 						</ly-icon>
 					</summary>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
-					iure, ullam labore quod beatae veritatis, minus quia fugit temporibus illum
-					autem facilis consequuntur incidunt optio inventore exercitationem rerum.
+					<p class='clr-subtext'>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
+						iure, ullam labore quod beatae veritatis.
+					</p>
 				</details>
+            `,
+		],
+	},
+
+	{
+		alias: 'input[type=checkbox] / input[type=radio]',
+		summary: [
+			{
+				name: '.__switch',
+				description:
+					'class acts as variant for the parent element base styling.',
+			},
+		],
+		snippets: [
+			`
+				<label for='checkbox'>
+					<input name='checkbox' type='checkbox' />
+					<span> input checkbox </span>
+				</label>
+            `,
+			`
+				<label for='radio'>
+					<input name='radio' type='radio' />
+					<span> input radio </span>
+				</label>
+				<label for='radio'>
+					<input name='radio' type='radio' />
+					<span> input radio </span>
+				</label>
+            `,
+			`
+				<label for='checkbox'>
+					Lorem ipsum dolor consectetur adipisicing elit.
+					<input name='checkbox' type='checkbox' />
+					omnis odit incidunt delectus aliquam atque quibusdam voluptatum ab quia.
+				</label>
+            `,
+			`
+				<label for='radio'>
+					Lorem ipsum dolor consectetur adipisicing elit.
+					<input name='radio' type='radio' />
+					omnis odit incidunt delectus aliquam atque quibusdam voluptatum ab quia.
+				</label>
+            `,
+			`
+				<label for='checkbox'>
+					<input name='checkbox' type='checkbox' class="__switch" />
+					<span> input checkbox </span>
+				</label>
+            `,
+			`
+				<label for='radio'>
+					<input name='radio' type='radio' class="__switch" />
+					<span> input radio </span>
+				</label>
+				<label for='radio'>
+					<input name='radio' type='radio' class="__switch" />
+					<span> input radio </span>
+				</label>
+            `,
+			`
+				<label for='checkbox'>
+					Lorem ipsum dolor consectetur adipisicing elit.
+					<input name='checkbox' type='checkbox' class="__switch" />
+					omnis odit incidunt delectus aliquam atque quibusdam voluptatum ab quia.
+				</label>
+            `,
+			`
+				<label for='radio'>
+					Lorem ipsum dolor consectetur adipisicing elit.
+					<input name='radio' type='radio' class="__switch" />
+					omnis odit incidunt delectus aliquam atque quibusdam voluptatum ab quia.
+				</label>
             `,
 		],
 	},
