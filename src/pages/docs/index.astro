@@ -1,5 +1,5 @@
 ---
-import Layout from 'src/lib/layout.uis.astro';
+import Layout from 'src/lib/layout.docs.astro';
 
 const Elements = [
 	{
@@ -355,14 +355,46 @@ const Elements = [
             `,
 		],
 	},
+
+	{
+		alias: 'File',
+		summary: [
+			{
+				name: '.__',
+				description:'',
+			},
+		],
+		snippets: [
+			`
+				<label for='file'>
+					<script is:inline>
+						function setFile() {
+							const label = document.querySelector("label[for='file']");
+							const input = document.querySelector("input[name='file'][type='file']");
+
+							input.addEventListener('change', () => {
+								setTimeout(() => {
+									label.querySelector("span").innerText = input.value;
+								}, 512);
+							});
+							input.click();
+						}
+					</script>
+					<span>label</span>
+					<input name='file' type='file' />
+					<button class='__outline' onclick='setFile()'>
+						<span>Select File</span>
+					</button>
+				</label>
+			`,
+		],
+	},
 ];
 ---
 
 <Layout scheme='dark'>
-	<!--  -->
 	<h1>Docs</h1>
 	<p>Use cases and implementations</p>
-	<!--  -->
 	{
 		Elements.map(({alias, summary, snippets}) => (
 			<>
