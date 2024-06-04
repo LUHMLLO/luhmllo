@@ -8,7 +8,7 @@ export default defineConfig({
   adapter: vercel(),
   build: {
     format: 'file',
-    inlineStylesheets: 'never'
+    inlineStylesheets: 'auto'
   },
   compressHTML: true,
   outDir: './dist/app',
