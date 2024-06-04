@@ -179,12 +179,12 @@ export default [
 	},
 
 	{
-		alias: 'input[type=checkbox] / input[type=radio]',
+		alias: 'Checkbox / Radio / Switch',
 		summary: [
 			{
 				name: '.__switch',
 				description:
-					'class acts as variant for the parent element base styling.',
+					'class acts as variant for the input element base styling.',
 			},
 		],
 		snippets: [
