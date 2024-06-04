@@ -1,6 +1,6 @@
 export default [
 	{
-		alias: 'buttons',
+		alias: 'Buttons',
 		summary: [
 			{
 				name: '.__outlined',
@@ -51,7 +51,7 @@ export default [
 	},
 
 	{
-		alias: 'links (A tag)',
+		alias: 'Links (A tag)',
 		summary: [
 			{
 				name: '.__button',
@@ -246,6 +246,112 @@ export default [
 					Lorem ipsum dolor consectetur adipisicing elit.
 					<input name='radio' type='radio' class="__switch" />
 					omnis odit incidunt delectus aliquam atque quibusdam voluptatum ab quia.
+				</label>
+            `,
+		],
+	},
+
+	{
+		alias: 'Text / Number / Email / Tel',
+		summary: [
+			{
+				name: '.__',
+				description:
+					'class acts as variant for the input element base styling.',
+			},
+		],
+		snippets: [
+			`
+				<label for='text'>
+					<span>label</span>
+					<input name='text' type='text' />
+				</label>
+            `,
+			`
+				<label for='number'>
+					<span>label</span>
+					<input name='number' type='number' />
+				</label>
+            `,
+			`
+				<label for='email'>
+					<span>label</span>
+					<input name='email' type='email' />
+				</label>
+            `,
+			`
+				<label for='tel'>
+					<span>label</span>
+					<input name='tel' type='tel' />
+				</label>
+            `,
+		],
+	},
+
+	{
+		alias: 'Textarea',
+		summary: [
+			{
+				name: '.__',
+				description:
+					'class acts as variant for the input element base styling.',
+			},
+		],
+		snippets: [
+			`
+				<label for='textarea'>
+					<span>label</span>
+					<textarea name='textarea'></textarea>
+				</label>
+            `,
+		],
+	},
+
+	{
+		alias: 'Date / Datetime / Time',
+		summary: [
+			{
+				name: '.__',
+				description:
+					'class acts as variant for the input element base styling.',
+			},
+		],
+		snippets: [
+			`
+				<label for='date'>
+					<span>label</span>
+					<input name='date' type='date' />
+				</label>
+            `,
+			`
+				<label for='datetime-local'>
+					<span>label</span>
+					<input name='datetime-local' type='datetime-local' />
+				</label>
+            `,
+			`
+				<label for='time'>
+					<span>label</span>
+					<input name='time' type='time' />
+				</label>
+            `,
+		],
+	},
+
+	{
+		alias: 'Range',
+		summary: [
+			{
+				name: '.__',
+				description:
+					'class acts as variant for the input element base styling.',
+			},
+		],
+		snippets: [
+			`
+				<label for='range'>
+					<span>label</span>
+					<input name='range' type='range' />
 				</label>
             `,
 		],
