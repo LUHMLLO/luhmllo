@@ -10,7 +10,7 @@
 		display: grid;
 		gap: var(--gap);
 		grid-template-columns: repeat(var(--repeat),
-				minmax(max(var(--minWidth), calc(100% / var(--cols) - var(--gap))),
+				minmax(max(var(--minWidth), calc(100% / var(--tmpl) - var(--gap))),
 					var(--maxWidth)));
 		height: max-content;
 
@@ -28,9 +28,7 @@
 		&.container {
 			grid-auto-rows: max-content;
 			grid-template-columns:
-				[expand-start] minmax(var(--prefers-containerOutterWidth),
-					1fr) [contain-start] minmax(0, var(--prefers-containerWidth)) [contain-end] minmax(var(--prefers-containerOutterWidth),
-					1fr) [expand-end];
+				[expand-start] minmax(var(--prefers-containerOutterWidth), 1fr) [contain-start] minmax(0, var(--prefers-containerWidth)) [contain-end] minmax(var(--prefers-containerOutterWidth), 1fr) [expand-end];
 
 			& > * {
 				grid-column: contain;

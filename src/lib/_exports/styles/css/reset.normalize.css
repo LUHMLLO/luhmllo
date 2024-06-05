@@ -240,7 +240,7 @@
 		gap: var(--gap);
 
 		& > :is([type='checkbox'], [type='radio']) {
-			--bg: var(--clr-background);
+			--bg: none;
 			--px: 0;
 			--size: 1.5lh;
 
