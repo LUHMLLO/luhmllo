@@ -36,6 +36,12 @@
 			}
 		}
 
+		@each $v in (uppercase, capitalize, lowercase) {
+			&-#{$v} {
+				text-transform: #{$v};
+			}
+		}
+
 		@each $v in (100, 200, 300, 400, 500, 600, 700, 800, 900) {
 			&-#{$v} {
 				font-weight: #{$v};

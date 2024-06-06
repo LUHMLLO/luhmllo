@@ -968,6 +968,15 @@
   .txt-oblique {
     font-style: oblique;
   }
+  .txt-uppercase {
+    text-transform: uppercase;
+  }
+  .txt-capitalize {
+    text-transform: capitalize;
+  }
+  .txt-lowercase {
+    text-transform: lowercase;
+  }
   .txt-100 {
     font-weight: 100;
   }
