@@ -105,6 +105,64 @@
         }
     }
 
+    .off {
+        @each $v in (auto, 0) {
+            &-#{$v} {
+                margin: -#{$v};
+            }
+        }
+
+        @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+            &-#{$v} {
+                margin: calc(var(--scale-#{$v}) * -1);
+            }
+        }
+
+        &x {
+            @each $v in (auto, 0) {
+                &-#{$v} {
+                    margin-inline: -#{$v};
+                }
+            }
+
+            @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+                &-#{$v} {
+                    margin-inline: calc(var(--scale-#{$v}) * -1);
+                }
+            }
+        }
+
+        &y {
+            @each $v in (auto, 0) {
+                &-#{$v} {
+                    margin-block: -#{$v};
+                }
+            }
+
+            @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+                &-#{$v} {
+                    margin-block: calc(var(--scale-#{$v}) * -1);
+                }
+            }
+        }
+
+        @each $ps_key, $ps_value in ("t":top, "r":right, "b":bottom, "l":left) {
+            &#{$ps_key} {
+                @each $v in (auto, 0) {
+                    &-#{$v} {
+                        margin-#{$ps_value}: -#{$v};
+                    }
+                }
+
+                @each $v in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+                    &-#{$v} {
+                        margin-#{$ps_value}: calc(var(--scale-#{$v}) * -1);
+                    }
+                }
+            }
+        }
+    }
+
     .p {
         @each $v in (auto, 0) {
             &-#{$v} {

@@ -27,6 +27,11 @@ const { className, overrides = '', scheme = 'auto' } = Astro.props;
 
 	ly-app {
 		row-gap: calc(var(--scale-5xl) * 1);
+		scrollbar-width: 0;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
 
 		& > :global(h1, h2, h3) {
 			text-transform: capitalize;

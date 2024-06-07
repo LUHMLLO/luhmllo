@@ -375,8 +375,8 @@ const Elements = [
 			</figure>
 
 			<nav class="g-sm place-safe-end wrap">
-				<a href="#" class="clr-inherit">Get Started</a>
-				<a href="#" class="clr-inherit">Demos &amp; Showcases</a>
+				<a href="/" class="clr-inherit">Get Started</a>
+				<a href="/examples" class="clr-inherit">Examples</a>
 				<a href="#" class="__button __outline clr-subtext" style="--bg:transparent; pointer-events: none;">Playground (not available)</a>
 			</nav>
 		</nav>
@@ -402,12 +402,12 @@ const Elements = [
 				{
 					(summary && summary.length > 0) 
 					&& (
-						<blockquote class="bg-primary p-xl">
-							<dl class="grid gy-sm">
+						<blockquote>
+							<dl class="grid gy-sm bg-primary p-xl radius-3xs">
 								{
 									summary.map(({ name, description }) => (
 										<dt>{name}</dt>
-										<dd class="clr-subtext">{description}</dd>
+										<dd class="clr-subtext offt-sm">{description}</dd>
 									))
 								}
 							</dl>
