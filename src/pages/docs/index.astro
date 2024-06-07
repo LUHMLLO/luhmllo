@@ -393,8 +393,35 @@ const Elements = [
 ---
 
 <Layout scheme='dark'>
-	<h1>Docs</h1>
-	<p>Use cases and implementations</p>
+	<header class="bg-primary g-5xl place-between py-5xl [min]h-75[vh] radius-3xs" tmpl-expand>
+		<nav class="g-sm place-between">
+			<ly-icon class="txt-5xl">
+				deployed_code
+			</ly-icon>
+
+			<nav class="g-sm place-end">
+				<a href="#" class="clr-inherit">Get Started</a>
+				<pre>-</pre>
+				<a href="#" class="clr-inherit">Demos &amp; Showcases</a>
+				<pre>-</pre>
+				<a href="#" class="__button __outline clr-subtext" style="--bg:transparent; pointer-events: none;">Playground (not available)</a>
+			</nav>
+		</nav>
+		<ly-group>
+			<h1 style="font-size: calc(var(--scale-5xl) * 2);">Lily's</h1>
+			<h2>Human Interface's <br/>&amp; Mood Styling <br/>Guidelines</h2>
+			<p class="clr-subtext txt-500">
+				Powered by dead simple CSS props and conventions.
+			</p>
+		</ly-group>
+		<ly-flex class="g-sm">
+			<button class="__outline txt-500" style="--bg: transparent;">Tv</button>
+			<button class="__outline txt-500" style="--bg: transparent;">Web</button>
+			<button class="__outline txt-500" style="--bg: transparent;">Tablet</button>
+			<button class="__outline txt-500" style="--bg: transparent;">Mobile</button>
+			<button class="__outline txt-500" style="--bg: transparent;">Watch</button>
+		</ly-flex>
+	</header>
 	{
 		Elements.map(({alias, summary, snippets}) => (
 			<>
@@ -409,10 +436,10 @@ const Elements = [
 						}
 					</dl>
 				</blockquote>
-				<ly-grid tmpl='4' class="g-sm" style="grid-auto-rows: 1fr;">
+				<ly-grid tmpl='4' class="g-sm" style="grid-auto-rows: 1fr;" tmpl-expand>
 					{
 						snippets.map((snippet) => (
-							<article class="grid g-sm outln outln-primary overflow-clip place-center px-sm py-5xl radius-3xs h-100">
+							<article class="grid g-sm outln outln-primary overflow-clip place-center[items] px-sm py-5xl radius-3xs h-100">
 								<Fragment set:html={ snippet } />
 							</article>
 						))

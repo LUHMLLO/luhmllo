@@ -21,13 +21,12 @@ const { className, overrides = '', scheme = 'auto' } = Astro.props;
 <style lang='css'>
 	@layer props {
 		:root {
-			--baseFontFamily: 'General Sans', sans-serif;
+			--baseFontFamily: 'Clash Display', sans-serif;
 		}
 	}
 
 	ly-app {
-		gap: 0;
-		padding-block: var(--scale-5xl);
+		row-gap: calc(var(--scale-5xl) * 1.5);
 
 		& > :global(h1, h2, h3) {
 			text-transform: capitalize;
@@ -35,9 +34,12 @@ const { className, overrides = '', scheme = 'auto' } = Astro.props;
 		& > :global(:where(h1, h2, h3) + p) {
 			color: var(--clr-subtext);
 		}
-		& > :global(:not(:where(h1, h2, h3) + *)) {
-			--spacing: inherit;
-			margin-top: calc(var(--scale-5xl) * 0.75);
+		& > :global(:where(h1, h2, h3):not(:first-child)) {
+			margin-bottom: -3rem;
+		}
+
+		& > :global(:not(footer):last-child) {
+			margin-bottom: calc(var(--scale-5xl) * 2);
 		}
 	}
 </style>
