@@ -256,12 +256,7 @@ const Elements = [
 
 	{
 		alias: 'Text / Number / Email / Tel',
-		summary: [
-			{
-				name: '.__',
-				description:'',
-			},
-		],
+		summary: [],
 		snippets: [
 			`
 				<label for='text'>
@@ -292,12 +287,7 @@ const Elements = [
 
 	{
 		alias: 'Textarea',
-		summary: [
-			{
-				name: '.__',
-				description:'',
-			},
-		],
+		summary: [],
 		snippets: [
 			`
 				<label for='textarea'>
@@ -310,12 +300,7 @@ const Elements = [
 
 	{
 		alias: 'Date / Datetime / Time',
-		summary: [
-			{
-				name: '.__',
-				description:'',
-			},
-		],
+		summary: [],
 		snippets: [
 			`
 				<label for='date'>
@@ -340,12 +325,7 @@ const Elements = [
 
 	{
 		alias: 'Range',
-		summary: [
-			{
-				name: '.__',
-				description:'',
-			},
-		],
+		summary: [],
 		snippets: [
 			`
 				<label for='range'>
@@ -358,12 +338,7 @@ const Elements = [
 
 	{
 		alias: 'File',
-		summary: [
-			{
-				name: '.__',
-				description:'',
-			},
-		],
+		summary: [],
 		snippets: [
 			`
 				<label for='file'>
@@ -426,16 +401,21 @@ const Elements = [
 		Elements.map(({alias, summary, snippets}) => (
 			<>
 				<h3>{ alias }</h3>
-				<blockquote class="bg-primary p-xl">
-					<dl class="grid gy-sm">
-						{
-							summary.map(({ name, description }) => (
-								<dt>{name}</dt>
-								<dd>{description}</dd>
-							))
-						}
-					</dl>
-				</blockquote>
+				{
+					(summary && summary.length > 0) 
+					&& (
+						<blockquote class="bg-primary p-xl">
+							<dl class="grid gy-sm">
+								{
+									summary.map(({ name, description }) => (
+										<dt>{name}</dt>
+										<dd class="clr-subtext">{description}</dd>
+									))
+								}
+							</dl>
+						</blockquote>
+					)
+				}
 				<ly-grid tmpl='4' class="g-sm" style="grid-auto-rows: 1fr;" tmpl-expand>
 					{
 						snippets.map((snippet) => (
