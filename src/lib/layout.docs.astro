@@ -26,7 +26,7 @@ const { className, overrides = '', scheme = 'auto' } = Astro.props;
 	}
 
 	ly-app {
-		row-gap: calc(var(--scale-5xl) * 1.5);
+		row-gap: calc(var(--scale-5xl) * 1);
 
 		& > :global(h1, h2, h3) {
 			text-transform: capitalize;
@@ -34,8 +34,9 @@ const { className, overrides = '', scheme = 'auto' } = Astro.props;
 		& > :global(:where(h1, h2, h3) + p) {
 			color: var(--clr-subtext);
 		}
+
 		& > :global(:where(h1, h2, h3):not(:first-child)) {
-			margin-bottom: -3rem;
+			margin-bottom: -1.5rem;
 		}
 
 		& > :global(:not(footer):last-child) {

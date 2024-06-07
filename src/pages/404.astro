@@ -8,8 +8,8 @@ import Layout from 'src/lib/layout.html.astro';
 		<header class='g-nm place-center[items] flex-col text-center'>
 			<h1>404</h1>
 			<p>Oops... It appears you reached a dead end.</p>
-			<a href='/' class='contents'>
-				<button class='bg-error'> Take me back </button>
+			<a href='/' class='__button __outline clr-inherit'>
+				<span> Take me back </span>
 			</a>
 		</header>
 	</ly-app>
@@ -18,30 +18,37 @@ import Layout from 'src/lib/layout.html.astro';
 <style lang='css'>
 	ly-app {
 		--bg: none;
-
-		& > button {
-			--bg: var(--clr-secondary);
-		}
 	}
 
 	ly-layer {
-		--size: 0.5rem;
-		background-image: linear-gradient(
-			45deg,
-			var(--clr-subtext) 8%,
-			transparent 0
-		);
-		background-size: var(--size) var(--size);
-		animation: inspectBG 360ms ease-in-out infinite;
-		transition: opacity var(--animDefaults);
+		--dot-bg: black;
+		--dot-color: linear-gradient(90deg, rgb(255, 0, 0), rgb(246, 255, 0));
+		--dot-size: 0.1rem;
+		--dot-space: 1rem;
+
+		background:
+			linear-gradient(
+					90deg,
+					var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+					transparent 1%
+				)
+				center / var(--dot-space) var(--dot-space),
+			linear-gradient(
+					var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+					transparent 1%
+				)
+				center / var(--dot-space) var(--dot-space),
+			var(--dot-color);
+
+		/* animation: movebg 30s linear infinite; */
+		animation: movebg 360ms linear infinite;
+		scale: 3;
 	}
 
-	@keyframes inspectBG {
-		0% {
-			opacity: 0.5;
-		}
+	@keyframes movebg {
 		100% {
-			opacity: 0.75;
+			--dot-color: linear-gradient(90deg, rgb(186, 203, 206), rgb(255, 157, 0));
+			rotate: 360deg;
 		}
 	}
 </style>
