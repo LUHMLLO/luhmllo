@@ -17,6 +17,20 @@
 		min-height: 0;
 		position: relative;
 		width: fit-content;
+
+		& > summary {
+			& .__animate {
+				transition: rotate var(--animDefaults);
+			}
+		}
+
+		&[open] {
+			& > summary {
+				& .__animate {
+					rotate: -180deg;
+				}
+			}
+		}
 	}
 }
 

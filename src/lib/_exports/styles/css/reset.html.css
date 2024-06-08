@@ -89,18 +89,50 @@
 		&:is(ol) {
 			counter-reset: li;
 
-			& .counter {
+			& li {
 				counter-increment: li;
-				font-size: var(--scale-md);
+
+				&::marker {
+					content: counter(li)'. ';
+				}
+
+				&:is(.__counter) {
+					&::marker {
+						content: none;
+						display: none;
+					}
+				}
+			}
+
+			& .__counter {
+				counter-increment: li;
 				font-style: normal;
 				font-variant-numeric: slashed-zero;
-				text-align: center;
-				width: 100px;
 
+				&::before,
 				&::after {
 					clear: both;
-					content: '' counter(li) '';
 					display: inline-block;
+					margin-inline: 0.5rem;
+				}
+
+				&:is(.__lead)::before {
+					content: counter(li)'. ';
+				}
+
+				&:is(.__trail)::after {
+					content: ' .' counter(li);
+				}
+			}
+		}
+
+		&:is(ul) {
+			& li {
+				&::marker {
+					clear: both;
+					content: '- ';
+					display: inline-block;
+					margin-inline: 0.5rem;
 				}
 			}
 		}

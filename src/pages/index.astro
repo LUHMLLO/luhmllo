@@ -129,6 +129,11 @@ const Elements = [
 				description:
 					'classes are optional but required if one wishes to apply optical corrections to the summary element.',
 			},
+			{
+				name: '.__animate',
+				description:
+					'class acts as variant for the summary element base styling.',
+			},
 		],
 		snippets: [
 			`
@@ -167,8 +172,8 @@ const Elements = [
 			`
 				<details open>
 					<summary class="__button __outline">
-						<span>summary</span>
-						<ly-icon class='__trail'>
+						<span>has .__animate</span>
+						<ly-icon class='__trail __animate'>
 							add
 						</ly-icon>
 					</summary>
@@ -366,23 +371,48 @@ const Elements = [
 	},
 
 {
-	alias: 'Definition List',
-	summary: [],
+	alias: 'Ordered List / Unordered List / Definition List',
+	summary: [
+		{
+			name: '.__counter',
+			description: '. . .'
+		},
+		{
+			name: '.__lead / .__trail',
+			description: '. . .'
+		}
+	],
 	snippets: [
+		`
+			<ol>
+				<li> list item </li>
+				<li class="__counter __lead"> list item </li>
+				<li class="__counter"> list item </li>
+				<li class="__counter __trail"> list item </li>
+			</ol>
+		`,
+		`
+			<ul>
+				<li> list item </li>
+				<li> list item </li>
+				<li> list item </li>
+				<li> list item </li>
+			</ul>
+		`,
 		`
 			<dl>
 				<dt>title</dt>
 				<dd>definition</dd>
-			</dl>
-
-			<dl>
-				<dt>title</dt>
-				<dd>definition</dd>
 				<dt>title</dt>
 				<dd>definition</dd>
 				<dt>title</dt>
 				<dd>definition</dd>
 			</dl>
+		`,
+		`
+			<ol>
+				<dt class="__counter __lead">title</dt>
+			</ol>
 		`,
 	],
 },
@@ -439,7 +469,7 @@ const Elements = [
 				<ly-grid tmpl='4' class="g-sm" style="grid-auto-rows: 1fr;" tmpl-expand>
 					{
 						snippets.map((snippet) => (
-							<article class="grid g-sm outln outln-primary overflow-clip place-center[items] px-sm py-5xl radius-3xs h-100">
+							<article class="grid g-xl outln outln-primary overflow-clip place-center[items] px-sm py-5xl radius-3xs h-100">
 								<Fragment set:html={ snippet } />
 							</article>
 						))
