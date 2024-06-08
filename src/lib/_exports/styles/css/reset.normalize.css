@@ -1,4 +1,17 @@
 @layer normalize {
+	:where(dl) {
+		display: grid;
+		gap: var(--scale-sm);
+		min-height: 0;
+		position: relative;
+
+		& > dd {
+			margin-top: calc(var(--scale-sm) * -1);
+		}
+	}
+}
+
+@layer normalize {
 	:where(details) {
 		display: inline-flex;
 		min-height: 0;
