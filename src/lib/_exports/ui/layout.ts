@@ -1,5 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import type { Axis } from 'src/lib/shared/types/zod'
 
 @customElement( 'ly-flex' )
 export class Flex extends LitElement {
@@ -18,7 +19,7 @@ export class Flex extends LitElement {
 		}
 	`;
 
-	@property( { type: 'col' || 'row', reflect: true } ) axis = 'x';
+	@property( { type: String, reflect: true } ) axis = <Axis> 'x';
 
 	protected override render() {
 		return html` <slot></slot> `

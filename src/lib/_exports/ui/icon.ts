@@ -1,5 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import type { IconSolid } from 'src/lib/shared/types/zod'
 
 @customElement( 'ly-icon' )
 export class Icon extends LitElement {
@@ -53,7 +54,7 @@ export class Icon extends LitElement {
 		}
 	`;
 
-	@property( { type: Boolean, reflect: true } ) solid = false;
+	@property( { type: Boolean, reflect: true } ) solid = <IconSolid> false;
 
 	protected override render() {
 		return html` <slot></slot> `

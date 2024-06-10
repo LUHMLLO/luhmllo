@@ -180,7 +180,6 @@
 		border-radius: var(--radius);
 		color: var(--clr);
 		cursor: pointer;
-		display: inline-flex;
 		font-size: var(--scale-sm);
 		font-weight: 400;
 		gap: var(--gap);
@@ -196,6 +195,7 @@
 
 		/* input, select only */
 		&:is(input, select) {
+			display: inline-flex;
 			height: var(--scale-5xl);
 		}
 
@@ -216,7 +216,98 @@
 				width: 100%;
 			}
 
-			&[type='file'] {
+			&:is([type='color']) {
+				appearance: none;
+				aspect-ratio: 1/1;
+				border-radius: var(--scale-3xs);
+				height: auto;
+				overflow: hidden;
+				padding: 0 !important;
+				width: var(--scale-5xl);
+
+				&::-webkit-color-swatch-wrapper {
+					padding: 0 !important;
+				}
+
+				&::-webkit-color-swatch {
+					border: none !important;
+				}
+			}
+
+			&:is([type='checkbox'], [type='radio']) {
+				--bg: transparent;
+				--px: 0;
+				--size: 1.5lh;
+
+				--iconOff: '';
+				--iconOn: 'check';
+
+				aspect-ratio: 1/1;
+				appearance: none;
+				display: inline-block;
+				height: var(--size);
+				position: relative;
+				vertical-align: middle;
+				width: var(--size);
+
+				&::after {
+					aspect-ratio: 1/1;
+					content: var(--iconOff);
+					display: block;
+					font-family: var(--prefers-iconFontFamily);
+					font-size: 100%;
+					line-height: var(--size);
+					margin: auto;
+					pointer-events: none;
+					text-align: center;
+					transition: background-color var(--animDefaults),
+						color var(--animDefaults), margin var(--animDefaults),
+						outline-color var(--animDefaults);
+				}
+
+				&:checked {
+					&::after {
+						background-color: var(--clr-accent);
+						content: var(--iconOn);
+					}
+				}
+
+				&:is([type='checkbox']:not(.__switch)) {
+					--radius: 25%;
+				}
+
+				&:is([type='radio']:not(.__switch)) {
+					--radius: 50%;
+				}
+
+				&:is(.__switch) {
+					--iconOff: '';
+					--iconOn: '';
+
+					display: inline-flex;
+					width: calc(var(--size) * 2);
+
+					&::after {
+						background-color: color-mix(in var(--prefers-colorSpace, srgb),
+								var(--bg),
+								darkgray 16%);
+						border-radius: 50%;
+						height: calc(var(--size) / 2);
+						margin-block: auto;
+						margin-left: calc(var(--prefers-outlineWidth) + 1%);
+						width: calc(var(--size) / 2);
+					}
+
+					&:checked {
+						&::after {
+							background-color: var(--clr-accent);
+							margin-left: calc(calc(99% - calc(var(--size) / 2) - var(--prefers-outlineWidth)));
+						}
+					}
+				}
+			}
+
+			&:is([type='file']) {
 				display: none;
 			}
 		}
@@ -224,11 +315,15 @@
 		/* textarea only */
 		&:is(textarea) {
 			--py: var(--spacing);
+
+			display: block;
+			field-sizing: content;
 			height: max-content;
 			min-height: calc(var(--scale-5xl) * 1.75);
 			overflow: auto;
 			resize: both;
 			text-wrap: pretty;
+			width: 100%;
 		}
 
 		/* Micro Interactions */
@@ -257,85 +352,18 @@
 @layer normalize {
 	:where(label) {
 		--clr: inherit;
-		--gap: var(--spacing);
-		--radius: var(--scale-5xl);
-		--spacing: var(--scale-5xs);
+		--gap: var(--scale-5xs);
 
-		display: block;
+		display: inline-block;
 		color: var(--clr);
 		font-size: var(--scale-md);
-		gap: var(--gap);
+		width: fit-content;
 
-		& > :is([type='checkbox'], [type='radio']) {
-			--bg: transparent;
-			--px: 0;
-			--size: 1.5lh;
+		& > :where(.__label) {
+			width: 100%;
 
-			--iconOff: '';
-			--iconOn: 'check';
-
-			aspect-ratio: 1/1;
-			appearance: none;
-			display: inline-block;
-			height: var(--size);
-			position: relative;
-			vertical-align: middle;
-			width: var(--size);
-
-			&::after {
-				aspect-ratio: 1/1;
-				content: var(--iconOff);
-				display: block;
-				font-family: var(--prefers-iconFontFamily);
-				font-size: 100%;
-				line-height: var(--size);
-				margin: auto;
-				pointer-events: none;
-				text-align: center;
-				transition: background-color var(--animDefaults),
-					color var(--animDefaults), margin var(--animDefaults),
-					outline-color var(--animDefaults);
-			}
-
-			&:checked {
-				&::after {
-					background-color: var(--clr-accent);
-					content: var(--iconOn);
-				}
-			}
-
-			&:is([type='checkbox']:not(.__switch)) {
-				--radius: 25%;
-			}
-
-			&:is([type='radio']:not(.__switch)) {
-				--radius: 50%;
-			}
-
-			&:is(.__switch) {
-				--iconOff: '';
-				--iconOn: '';
-
-				display: inline-flex;
-				width: calc(var(--size) * 2);
-
-				&::after {
-					background-color: color-mix(in var(--prefers-colorSpace, srgb),
-							var(--bg),
-							darkgray 16%);
-					border-radius: 50%;
-					height: calc(var(--size) / 2);
-					margin-block: auto;
-					margin-left: calc(var(--prefers-outlineWidth) + 1%);
-					width: calc(var(--size) / 2);
-				}
-
-				&:checked {
-					&::after {
-						background-color: var(--clr-accent);
-						margin-left: calc(calc(99% - calc(var(--size) / 2) - var(--prefers-outlineWidth)));
-					}
-				}
+			&:first-child {
+				margin-bottom: var(--gap);
 			}
 		}
 	}

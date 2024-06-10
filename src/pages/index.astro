@@ -190,6 +190,11 @@ const Elements = [
 		alias: 'Checkbox / Radio / Switch',
 		summary: [
 			{
+				name: '.__label',
+				description:
+					'class acts as variant for the span element base styling.',
+			},
+			{
 				name: '.__switch',
 				description:
 					'class acts as variant for the input element base styling.',
@@ -198,8 +203,8 @@ const Elements = [
 		snippets: [
 			`
 				<label for='checkbox'>
+					<span class="__label"> input checkbox </span>
 					<input name='checkbox' type='checkbox' />
-					<span> input checkbox </span>
 				</label>
             `,
 			`
@@ -228,8 +233,8 @@ const Elements = [
             `,
 			`
 				<label for='checkbox'>
+					<span class="__label"> input checkbox </span>
 					<input name='checkbox' type='checkbox' class="__switch" />
-					<span> input checkbox </span>
 				</label>
             `,
 			`
@@ -261,29 +266,35 @@ const Elements = [
 
 	{
 		alias: 'Text / Number / Email / Tel',
-		summary: [],
+		summary: [
+			{
+				name: '.__label',
+				description:
+					'class acts as variant for the span element base styling.',
+			},
+		],
 		snippets: [
 			`
 				<label for='text'>
-					<span>label</span>
+					<span class="__label">label</span>
 					<input name='text' type='text' />
 				</label>
             `,
 			`
 				<label for='number'>
-					<span>label</span>
+					<span class="__label">label</span>
 					<input name='number' type='number' />
 				</label>
             `,
 			`
 				<label for='email'>
-					<span>label</span>
+					<span class="__label">label</span>
 					<input name='email' type='email' />
 				</label>
             `,
 			`
 				<label for='tel'>
-					<span>label</span>
+					<span class="__label">label</span>
 					<input name='tel' type='tel' />
 				</label>
             `,
@@ -292,11 +303,17 @@ const Elements = [
 
 	{
 		alias: 'Textarea',
-		summary: [],
+		summary: [
+			{
+				name: '.__label',
+				description:
+					'class acts as variant for the span element base styling.',
+			},
+		],
 		snippets: [
 			`
 				<label for='textarea'>
-					<span>label</span>
+					<span class="__label">label</span>
 					<textarea name='textarea'></textarea>
 				</label>
             `,
@@ -305,23 +322,29 @@ const Elements = [
 
 	{
 		alias: 'Date / Datetime / Time',
-		summary: [],
+		summary: [
+			{
+				name: '.__label',
+				description:
+					'class acts as variant for the span element base styling.',
+			},
+		],
 		snippets: [
 			`
 				<label for='date'>
-					<span>label</span>
+					<span class="__label">label</span>
 					<input name='date' type='date' />
 				</label>
             `,
 			`
 				<label for='datetime-local'>
-					<span>label</span>
+					<span class="__label">label</span>
 					<input name='datetime-local' type='datetime-local' />
 				</label>
             `,
 			`
 				<label for='time'>
-					<span>label</span>
+					<span class="__label">label</span>
 					<input name='time' type='time' />
 				</label>
             `,
@@ -330,11 +353,17 @@ const Elements = [
 
 	{
 		alias: 'Range',
-		summary: [],
+		summary: [
+			{
+				name: '.__label',
+				description:
+					'class acts as variant for the span element base styling.',
+			},
+		],
 		snippets: [
 			`
 				<label for='range'>
-					<span>label</span>
+					<span class="__label">label</span>
 					<input name='range' type='range' />
 				</label>
             `,
@@ -343,7 +372,13 @@ const Elements = [
 
 	{
 		alias: 'File',
-		summary: [],
+		summary: [
+			{
+				name: '.__label',
+				description:
+					'class acts as variant for the span element base styling.',
+			},
+		],
 		snippets: [
 			`
 				<label for='file'>
@@ -360,7 +395,7 @@ const Elements = [
 							input.click();
 						}
 					</script>
-					<span>label</span>
+					<span class="__label">label</span>
 					<input name='file' type='file' />
 					<button class='__outline' onclick='setFile()'>
 						<span>Select File</span>

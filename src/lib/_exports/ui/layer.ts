@@ -1,5 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import type { LayerStack } from 'src/lib/shared/types/zod'
 
 @customElement( 'ly-layer' )
 export class Layer extends LitElement {
@@ -38,7 +39,7 @@ export class Layer extends LitElement {
 		}
 	`;
 
-	@property( { type: 'over' || 'under', reflect: true } ) stacked = 'over';
+	@property( { type: String, reflect: true } ) stacked = <LayerStack> 'over';
 
 	protected override render() {
 		return html` <slot></slot> `

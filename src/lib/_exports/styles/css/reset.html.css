@@ -234,24 +234,6 @@
 		}
 	}
 
-	:where(input[type='color']) {
-		appearance: none;
-		aspect-ratio: 1/1;
-		border-radius: var(--scale-3xs);
-		height: auto;
-		overflow: hidden;
-		padding: 0 !important;
-		width: var(--scale-5xl);
-
-		&::-webkit-color-swatch-wrapper {
-			padding: 0 !important;
-		}
-
-		&::-webkit-color-swatch {
-			border: none !important;
-		}
-	}
-
 	:where(dl) {
 		gap: var(--scale-5xs);
 
