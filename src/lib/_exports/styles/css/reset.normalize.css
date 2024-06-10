@@ -46,6 +46,7 @@
 		--py: 0;
 		--radius: var(--scale-5xl);
 		--spacing: var(--scale-5xs);
+		--size: 2.25lh;
 
 		align-items: center;
 		background-color: var(--bg);
@@ -111,7 +112,7 @@
 
 		&:is(button, :is(a, summary).__button) {
 			--bg: var(--clr-background);
-			height: var(--scale-5xl);
+			height: var(--size);
 		}
 
 		&:is(button, .__button).__outline {
@@ -359,11 +360,23 @@
 		font-size: var(--scale-md);
 		width: fit-content;
 
-		& > :where(.__label) {
+		&:is(.__field) {
+			display: grid;
+			gap: var(--gap);
+			grid-template-columns: minmax(0, 1fr);
 			width: 100%;
 
-			&:first-child {
-				margin-bottom: var(--gap);
+			& > :where(.__label) {
+				font-size: var(--scale-md);
+			}
+
+			& > :where(input, select, textarea) {
+				width: 100%;
+			}
+
+			& > :where(.__caption) {
+				color: var(--clr-subtext);
+				font-size: var(--scale-sm);
 			}
 		}
 	}

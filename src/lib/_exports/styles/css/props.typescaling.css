@@ -7,7 +7,7 @@
 		--baseFontSize: calc(var(--baseScalingRatio) * clamp(0.72rem, 1rem, 0.88rem));
 		--baseFontSize: calc(var(--baseScalingRatio) * clamp(clamp(0.72rem, 1rem, 0.88rem), 0.0625dvw, clamp(1rem, 1vw, 16pt)));
 		--baseFontWeight: 400;
-		--baseLineHeight: clamp(1.25, 1.5, 1.75);
+		--baseLineHeight: clamp(1, 1.25, 1.5);
 
 		/* for typescale calcs */
 		--baseScalingRatio: 1.125;

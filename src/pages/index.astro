@@ -190,6 +190,11 @@ const Elements = [
 		alias: 'Checkbox / Radio / Switch',
 		summary: [
 			{
+				name: '.__field',
+				description:
+					'class acts as variant for the parent element base styling.',
+			},
+			{
 				name: '.__label',
 				description:
 					'class acts as variant for the span element base styling.',
@@ -202,7 +207,7 @@ const Elements = [
 		],
 		snippets: [
 			`
-				<label for='checkbox'>
+				<label for='checkbox' class="__field">
 					<span class="__label"> input checkbox </span>
 					<input name='checkbox' type='checkbox' />
 				</label>
@@ -232,7 +237,7 @@ const Elements = [
 				</label>
             `,
 			`
-				<label for='checkbox'>
+				<label for='checkbox' class="__field">
 					<span class="__label"> input checkbox </span>
 					<input name='checkbox' type='checkbox' class="__switch" />
 				</label>
@@ -268,6 +273,11 @@ const Elements = [
 		alias: 'Text / Number / Email / Tel',
 		summary: [
 			{
+				name: '.__field',
+				description:
+					'class acts as variant for the parent element base styling.',
+			},
+			{
 				name: '.__label',
 				description:
 					'class acts as variant for the span element base styling.',
@@ -275,25 +285,25 @@ const Elements = [
 		],
 		snippets: [
 			`
-				<label for='text'>
+				<label for='text' class="__field">
 					<span class="__label">label</span>
 					<input name='text' type='text' />
 				</label>
             `,
 			`
-				<label for='number'>
+				<label for='number' class="__field">
 					<span class="__label">label</span>
 					<input name='number' type='number' />
 				</label>
             `,
 			`
-				<label for='email'>
+				<label for='email' class="__field">
 					<span class="__label">label</span>
 					<input name='email' type='email' />
 				</label>
             `,
 			`
-				<label for='tel'>
+				<label for='tel' class="__field">
 					<span class="__label">label</span>
 					<input name='tel' type='tel' />
 				</label>
@@ -305,16 +315,17 @@ const Elements = [
 		alias: 'Textarea',
 		summary: [
 			{
-				name: '.__label',
+				name: '.__field',
 				description:
-					'class acts as variant for the span element base styling.',
+					'class acts as variant for the parent element base styling.',
 			},
 		],
 		snippets: [
 			`
-				<label for='textarea'>
-					<span class="__label">label</span>
+				<label for='textarea' class="__field">
+					<span class="__label">.__label</span>
 					<textarea name='textarea'></textarea>
+					<span class="__caption">.__caption</span>
 				</label>
             `,
 		],
@@ -324,6 +335,11 @@ const Elements = [
 		alias: 'Date / Datetime / Time',
 		summary: [
 			{
+				name: '.__field',
+				description:
+					'class acts as variant for the parent element base styling.',
+			},
+			{
 				name: '.__label',
 				description:
 					'class acts as variant for the span element base styling.',
@@ -331,19 +347,19 @@ const Elements = [
 		],
 		snippets: [
 			`
-				<label for='date'>
+				<label for='date' class="__field">
 					<span class="__label">label</span>
 					<input name='date' type='date' />
 				</label>
             `,
 			`
-				<label for='datetime-local'>
+				<label for='datetime-local' class="__field">
 					<span class="__label">label</span>
 					<input name='datetime-local' type='datetime-local' />
 				</label>
             `,
 			`
-				<label for='time'>
+				<label for='time' class="__field">
 					<span class="__label">label</span>
 					<input name='time' type='time' />
 				</label>
@@ -355,6 +371,11 @@ const Elements = [
 		alias: 'Range',
 		summary: [
 			{
+				name: '.__field',
+				description:
+					'class acts as variant for the parent element base styling.',
+			},
+			{
 				name: '.__label',
 				description:
 					'class acts as variant for the span element base styling.',
@@ -362,7 +383,7 @@ const Elements = [
 		],
 		snippets: [
 			`
-				<label for='range'>
+				<label for='range' class="__field">
 					<span class="__label">label</span>
 					<input name='range' type='range' />
 				</label>
@@ -374,6 +395,11 @@ const Elements = [
 		alias: 'File',
 		summary: [
 			{
+				name: '.__field',
+				description:
+					'class acts as variant for the parent element base styling.',
+			},
+			{
 				name: '.__label',
 				description:
 					'class acts as variant for the span element base styling.',
@@ -381,7 +407,7 @@ const Elements = [
 		],
 		snippets: [
 			`
-				<label for='file'>
+				<label for='file' class="__field">
 					<script is:inline>
 						function setFile() {
 							const label = document.querySelector("label[for='file']");
