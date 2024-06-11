@@ -3,7 +3,13 @@ const brands = await Astro.glob('public/assets/media/trpc/*').then((files) => {
 	return files.map((file) => file.default);
 });
 
-console.log(brands);
+const serviceNames = [
+	'Solar',
+	'Roofing',
+	'HVAC',
+	'Geothermal Insulation',
+	'Efficiency Experts',
+];
 ---
 
 <!doctype html>
@@ -17,12 +23,20 @@ console.log(brands);
 		<section id='brand-selection-view'>
 			<div class='__grid --cols-4' style='--gap: var(--scale-sm);'>
 				{
-					brands.map(({ src }) => (
+					serviceNames.map((service) => (
 						<article class='__brand'>
 							<figure>
-								<img {src} alt='brand_thumbnail' />
+								<img
+									src='/assets/media/hytech/outer.png'
+									alt='brand_thumbnail'
+								/>
+								<img
+									src='/assets/media/hytech/inner.png'
+									alt='brand_thumbnail'
+								/>
 							</figure>
-							<input type='radio' name='tobechanged' />
+							<h6>{service}</h6>
+							<input type='checkbox' name='tobechanged' />
 						</article>
 					))
 				}
@@ -101,6 +115,7 @@ console.log(brands);
 
 		body {
 			background-color: var(--clr-background);
+			font-family: 'Monserrat', 'Helvetica', 'Arial', sans-serif;
 			padding: var(--scale-sm);
 		}
 
@@ -167,27 +182,59 @@ console.log(brands);
 		article:is(.__brand) {
 			display: grid;
 			border-radius: var(--scale-3xs);
-			outline: solid 2pt var(--clr-primary);
+			outline: solid 3pt var(--clr-primary);
+			outline-offset: -3pt;
 			overflow: clip;
 			position: relative;
 
 			& > :where(figure) {
 				aspect-ratio: 3/2;
-				background-color: var(--clr-subtext);
-				border-radius: var(--scale-3xs);
+				mask: linear-gradient(0deg, transparent, white, white, white);
 				overflow: clip;
+				place-content: center center;
 				position: relative;
+				transition: all 360ms cubic-bezier(1, 0, 0, 1);
 				width: 100%;
 
 				& > :where(img, picture, svg) {
 					height: 100%;
+					inset: 0;
+					margin: auto;
 					object-fit: contain;
 					object-position: center;
+					position: absolute;
 					width: 100%;
+
+					&:first-of-type {
+						animation: rotate 30s linear infinite;
+						animation-play-state: paused;
+					}
 				}
 			}
 
-			& > :where(input[type='radio']) {
+			& > :where(h6) {
+				color: var(--clr-text);
+				display: grid;
+				font-size: 12pt;
+				font-weight: 600;
+				height: 2.5lh;
+				inset: auto 0 0 0;
+				place-content: center center;
+				position: absolute;
+				text-align: center;
+				text-transform: uppercase;
+				text-wrap: balance;
+				width: 100%;
+			}
+
+			& > :where(p) {
+				color: var(--clr-text);
+				font-size: var(--scale-sm);
+				font-weight: 600;
+				padding: var(--scale-sm);
+			}
+
+			& > :where(input[type='radio'], input[type='checkbox']) {
 				cursor: pointer;
 				display: block;
 				height: 100%;
@@ -202,8 +249,30 @@ console.log(brands);
 				}
 			}
 
-			&:has(input[type='radio']:checked) {
+			&:has(:where(input[type='radio'], input[type='checkbox']):not(:checked)) {
+				& > figure {
+					background-color: var(--clr-primary);
+				}
+			}
+
+			&:has(:where(input[type='radio'], input[type='checkbox']):checked) {
 				outline-color: var(--clr-accent);
+				& > figure {
+					background-color: var(--clr-text);
+					& > img {
+						mix-blend-mode: difference;
+
+						&:first-of-type {
+							animation-play-state: running;
+						}
+					}
+				}
+			}
+		}
+
+		@keyframes rotate {
+			to {
+				rotate: 360deg;
 			}
 		}
 	</style>
