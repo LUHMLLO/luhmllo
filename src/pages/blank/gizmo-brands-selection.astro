@@ -1,0 +1,210 @@
+---
+const brands = await Astro.glob('public/assets/media/trpc/*').then((files) => {
+	return files.map((file) => file.default);
+});
+
+console.log(brands);
+---
+
+<!doctype html>
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+		<title>Document</title>
+	</head>
+	<body>
+		<section id='brand-selection-view'>
+			<div class='__grid --cols-4' style='--gap: var(--scale-sm);'>
+				{
+					brands.map(({ src }) => (
+						<article class='__brand'>
+							<figure>
+								<img {src} alt='brand_thumbnail' />
+							</figure>
+							<input type='radio' name='tobechanged' />
+						</article>
+					))
+				}
+			</div>
+		</section>
+	</body>
+
+	<style lang='css'>
+		/* 
+            anything above here will be considered deprecated (eventually)
+            a lot things will change, a better implementation will be made
+
+            for future references use the code below as 
+            a more up-to-date guideline
+        */
+
+		:root {
+			--baseFontFamily: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+				Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+				sans-serif;
+			--baseFontSize: calc(
+				var(--baseScalingRatio) * clamp(0.72rem, 1rem, 0.88rem)
+			);
+			--baseFontSize: calc(
+				var(--baseScalingRatio) *
+					clamp(
+						clamp(0.72rem, 1rem, 0.88rem),
+						0.0625dvw,
+						clamp(1rem, 1vw, 16pt)
+					)
+			);
+			--baseFontWeight: 400;
+			--baseLineHeight: clamp(1, 1.25, 1.5);
+
+			/* for typescale calcs */
+			--baseScalingRatio: 1.125;
+
+			/* for font calculations, gaps, paddings, . . . */
+			--scale-5xs: calc(var(--baseFontSize) / pow(var(--baseScalingRatio), 7));
+			--scale-4xs: calc(var(--baseFontSize) / pow(var(--baseScalingRatio), 6));
+			--scale-3xs: calc(var(--baseFontSize) / pow(var(--baseScalingRatio), 5));
+			--scale-2xs: calc(var(--baseFontSize) / pow(var(--baseScalingRatio), 4));
+			--scale-xs: calc(var(--baseFontSize) / pow(var(--baseScalingRatio), 3));
+			--scale-sm: calc(var(--baseFontSize) / pow(var(--baseScalingRatio), 2));
+			--scale-md: calc(var(--baseFontSize) / pow(var(--baseScalingRatio), 1));
+
+			--scale-nm: calc(var(--baseFontSize) * pow(var(--baseScalingRatio), 1));
+			--scale-lg: calc(var(--baseFontSize) * pow(var(--baseScalingRatio), 2));
+			--scale-xl: calc(var(--baseFontSize) * pow(var(--baseScalingRatio), 3));
+			--scale-2xl: calc(var(--baseFontSize) * pow(var(--baseScalingRatio), 4));
+			--scale-3xl: calc(var(--baseFontSize) * pow(var(--baseScalingRatio), 5));
+			--scale-4xl: calc(var(--baseFontSize) * pow(var(--baseScalingRatio), 6));
+			--scale-5xl: calc(var(--baseFontSize) * pow(var(--baseScalingRatio), 7));
+
+			--clr-accent: hsl(124, 69%, 40%);
+			--clr-context: hsl(24, 88%, 40%);
+			--clr-background: hsl(0, 0%, 4%);
+			--clr-text: hsl(0, 0%, 96%);
+			--clr-subtext: hsl(0, 0%, 56%);
+			--clr-primary: hsl(0, 0%, 7%);
+			--clr-secondary: hsl(0, 0%, 9%);
+			--clr-tertiary: hsl(0, 0%, 10%);
+			--clr-debug: hsl(330, 32%, 56%);
+			--clr-error: hsl(359, 50%, 32%);
+			--clr-info: hsl(197, 40%, 48%);
+			--clr-success: hsl(132, 40%, 48%);
+			--clr-warning: hsl(48, 40%, 48%);
+		}
+
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			max-width: 100%;
+			padding: 0;
+		}
+
+		body {
+			background-color: var(--clr-background);
+			padding: var(--scale-sm);
+		}
+
+		*:is(.__grid) {
+			--cols: 1;
+			--gap: 0rem;
+
+			--count: auto-fill;
+			--track_min: clamp(6rem, 8rem, 12rem);
+			--track_max: 1fr;
+
+			display: grid;
+			gap: var(--gap);
+			grid-template-columns: repeat(
+				var(--count),
+				minmax(
+					max(var(--track_min), 100% / var(--cols) - var(--gap)),
+					var(--track_max)
+				)
+			);
+			height: max-content;
+
+			&:where(.--cols-2) {
+				--cols: 2;
+			}
+
+			&:where(.--cols-3) {
+				--cols: 3;
+			}
+
+			&:where(.--cols-4) {
+				--cols: 4;
+			}
+
+			&:where(.--cols-6) {
+				--cols: 6;
+			}
+
+			&:where(.--cols-7) {
+				--cols: 7;
+			}
+
+			&:where(.--cols-8) {
+				--cols: 8;
+			}
+
+			&:where(.--cols-9) {
+				--cols: 9;
+			}
+
+			&:where(.--cols-10) {
+				--cols: 10;
+			}
+
+			&:where(.--cols-11) {
+				--cols: 11;
+			}
+
+			&:where(.--cols-12) {
+				--cols: 12;
+			}
+		}
+
+		article:is(.__brand) {
+			display: grid;
+			border-radius: var(--scale-3xs);
+			outline: solid 2pt var(--clr-primary);
+			overflow: clip;
+			position: relative;
+
+			& > :where(figure) {
+				aspect-ratio: 3/2;
+				background-color: var(--clr-subtext);
+				border-radius: var(--scale-3xs);
+				overflow: clip;
+				position: relative;
+				width: 100%;
+
+				& > :where(img, picture, svg) {
+					height: 100%;
+					object-fit: contain;
+					object-position: center;
+					width: 100%;
+				}
+			}
+
+			& > :where(input[type='radio']) {
+				cursor: pointer;
+				display: block;
+				height: 100%;
+				inset: 0;
+				opacity: 0;
+				position: absolute;
+				width: 100%;
+				z-index: 3;
+
+				&:focus-visible {
+					outline-color: color-mix(in srgb, var(--clr-accent), white 3%);
+				}
+			}
+
+			&:has(input[type='radio']:checked) {
+				outline-color: var(--clr-accent);
+			}
+		}
+	</style>
+</html>

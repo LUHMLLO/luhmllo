@@ -138,7 +138,7 @@
 		}
 	}
 
-	:where(blockquote) {
+	:where(blockquote, q) {
 		border-left: 0.125rem solid var(--clr-subtext);
 		font-size: var(--scale-sm);
 		padding: var(--scale-sm) 0 var(--scale-sm) var(--scale-sm);
@@ -205,12 +205,6 @@
 		flex-direction: column;
 	}
 
-	:where(nav) {
-		display: flex;
-		flex-direction: row;
-		place-items: center center;
-	}
-
 	:where(aside, fieldset, form, main, section) {
 		--gap: var(--scale-sm);
 
@@ -223,12 +217,12 @@
 		--bg: var(--clr-primary);
 		background-color: var(--bg);
 
-		&[data-variant='vertical'] {
+		&:is(.__divider-y) {
 			height: 100%;
 			width: calc(var(--scale-5xs) * 0.1625);
 		}
 
-		&[data-variant='horizontal'] {
+		&:is(.__divider-x) {
 			height: calc(var(--scale-5xs) * 0.1625);
 			width: 100%;
 		}

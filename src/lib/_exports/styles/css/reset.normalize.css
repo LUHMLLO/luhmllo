@@ -46,7 +46,7 @@
 		--py: 0;
 		--radius: var(--scale-5xl);
 		--spacing: var(--scale-5xs);
-		--size: 2.25lh;
+		--size: clamp(24pt, 2lh, var(--scale-5xl));
 
 		align-items: center;
 		background-color: var(--bg);
@@ -119,6 +119,14 @@
 			outline-color: color-mix(in var(--prefers-colorSpace, srgb),
 					var(--outln),
 					gray 16%);
+		}
+
+		&:is(button, .__button).__fab {
+			--px: 0;
+			--py: 0;
+			aspect-ratio: 1/1;
+			place-content: center;
+			width: max-content;
 		}
 
 		/* Micro Interactions */
@@ -377,6 +385,27 @@
 			& > :where(.__caption) {
 				color: var(--clr-subtext);
 				font-size: var(--scale-sm);
+			}
+		}
+	}
+}
+
+@layer normalize {
+	:where(nav) {
+		display: flex;
+		flex-direction: row;
+		place-items: center center;
+		width: fit-content;
+
+		&:is(.__tabs) {
+			--bg: var(--clr-background);
+			--radius: var(--scale-5xl);
+
+			background-color: var(--bg);
+			border-radius: var(--radius);
+			overflow: clip;
+
+			& > :where(button) {
 			}
 		}
 	}

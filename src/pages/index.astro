@@ -1,540 +1,98 @@
 ---
 import Layout from 'src/lib/layout.docs.astro';
-
-const Elements = [
-	{
-		alias: 'Buttons',
-		summary: [
-			{
-				name: '.__outline',
-				description:
-					'class acts as variant for the parent element base styling.',
-			},
-
-			{
-				name: '.__lead / .__trail',
-				description:
-					'classes are optional but required if one wishes to apply optical corrections to the parent element.',
-			},
-		],
-		snippets: [
-			`
-				<button>
-					normal
-				</button>
-            `,
-			`
-				<button class="__outline">
-					<span>
-						.__outline
-					</span>
-				</button>
-            `,
-			`
-               <button class="__outline">
-					<ly-icon class='__lead'>
-						add
-					</ly-icon>
-					<span>
-						has .__lead
-					</span>
-				</button>
-            `,
-			`
-				<button class="__outline">
-					<span>
-						has .__trail
-					</span>
-					<ly-icon class='__trail'>
-						add
-					</ly-icon>
-				</button>
-            `,
-		],
-	},
-
-	{
-		alias: 'Links (A tag)',
-		summary: [
-			{
-				name: '.__button',
-				description:
-					'class acts as variant for the parent element base styling.',
-			},
-			{
-				name: '.__outline',
-				description:
-					'class acts as variant for the parent element base styling.',
-			},
-
-			{
-				name: '.__lead / .__trail',
-				description:
-					'classes are optional but required if one wishes to apply optical corrections to the parent element.',
-			},
-		],
-		snippets: [
-			`
-				<a>
-					<ly-icon class='__lead'>
-						globe
-					</ly-icon>
-					<span>
-						normal
-					</span>
-				</a>
-            `,
-			`
-				<a href='#'>
-					<ly-icon class='__lead'>
-						globe
-					</ly-icon>
-					<span>
-						has [href]
-					</span>
-				</a>
-            `,
-			`
-				<a class="__button">
-					<span>
-						.__button
-					</span>
-				</a>
-            `,
-			`
-				<a class="__button __outline">
-					<span>
-						.__button .__outline
-					</span>
-				</a>
-            `,
-		],
-	},
-
-	{
-		alias: 'Details / Summary',
-		summary: [
-			{
-				name: '.__button',
-				description:
-					'class acts as variant for the summary element base styling.',
-			},
-			{
-				name: '.__outline',
-				description:
-					'class acts as variant for the summary element base styling.',
-			},
-			{
-				name: '.__lead / .__trail',
-				description:
-					'classes are optional but required if one wishes to apply optical corrections to the summary element.',
-			},
-			{
-				name: '.__animate',
-				description:
-					'class acts as variant for the summary element base styling.',
-			},
-		],
-		snippets: [
-			`
-				<details open>
-					<summary>
-						<span>summary</span>
-					</summary>
-					<p class='clr-subtext'>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
-						iure, ullam labore quod beatae veritatis.
-					</p>
-				</details>
-            `,
-			`
-				<details open>
-					<summary class="__button">
-						<span>summary</span>
-					</summary>
-					<p class='clr-subtext'>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
-						iure, ullam labore quod beatae veritatis.
-					</p>
-				</details>
-            `,
-			`
-				<details open>
-					<summary class="__button __outline">
-						<span>summary</span>
-					</summary>
-					<p class='clr-subtext'>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
-						iure, ullam labore quod beatae veritatis.
-					</p>
-				</details>
-            `,
-			`
-				<details open>
-					<summary class="__button __outline">
-						<span>has .__animate</span>
-						<ly-icon class='__trail __animate'>
-							add
-						</ly-icon>
-					</summary>
-					<p class='clr-subtext'>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate distinctio
-						iure, ullam labore quod beatae veritatis.
-					</p>
-				</details>
-            `,
-		],
-	},
-
-	{
-		alias: 'Checkbox / Radio / Switch',
-		summary: [
-			{
-				name: '.__field',
-				description:
-					'class acts as variant for the parent element base styling.',
-			},
-			{
-				name: '.__label',
-				description:
-					'class acts as variant for the span element base styling.',
-			},
-			{
-				name: '.__switch',
-				description:
-					'class acts as variant for the input element base styling.',
-			},
-		],
-		snippets: [
-			`
-				<label for='checkbox' class="__field">
-					<span class="__label"> input checkbox </span>
-					<input name='checkbox' type='checkbox' />
-				</label>
-            `,
-			`
-				<label for='radio'>
-					<input name='radio' type='radio' />
-					<span> input radio </span>
-				</label>
-				<label for='radio'>
-					<input name='radio' type='radio' />
-					<span> input radio </span>
-				</label>
-            `,
-			`
-				<label for='checkbox'>
-					Lorem ipsum dolor consectetur adipisicing elit.
-					<input name='checkbox' type='checkbox' />
-					omnis odit incidunt delectus aliquam atque quibusdam voluptatum ab quia.
-				</label>
-            `,
-			`
-				<label for='radio'>
-					Lorem ipsum dolor consectetur adipisicing elit.
-					<input name='radio' type='radio' />
-					omnis odit incidunt delectus aliquam atque quibusdam voluptatum ab quia.
-				</label>
-            `,
-			`
-				<label for='checkbox' class="__field">
-					<span class="__label"> input checkbox </span>
-					<input name='checkbox' type='checkbox' class="__switch" />
-				</label>
-            `,
-			`
-				<label for='radio'>
-					<input name='radio' type='radio' class="__switch" />
-					<span> input radio </span>
-				</label>
-				<label for='radio'>
-					<input name='radio' type='radio' class="__switch" />
-					<span> input radio </span>
-				</label>
-            `,
-			`
-				<label for='checkbox'>
-					Lorem ipsum dolor consectetur adipisicing elit.
-					<input name='checkbox' type='checkbox' class="__switch" />
-					omnis odit incidunt delectus aliquam atque quibusdam voluptatum ab quia.
-				</label>
-            `,
-			`
-				<label for='radio'>
-					Lorem ipsum dolor consectetur adipisicing elit.
-					<input name='radio' type='radio' class="__switch" />
-					omnis odit incidunt delectus aliquam atque quibusdam voluptatum ab quia.
-				</label>
-            `,
-		],
-	},
-
-	{
-		alias: 'Text / Number / Email / Tel',
-		summary: [
-			{
-				name: '.__field',
-				description:
-					'class acts as variant for the parent element base styling.',
-			},
-			{
-				name: '.__label',
-				description:
-					'class acts as variant for the span element base styling.',
-			},
-		],
-		snippets: [
-			`
-				<label for='text' class="__field">
-					<span class="__label">label</span>
-					<input name='text' type='text' />
-				</label>
-            `,
-			`
-				<label for='number' class="__field">
-					<span class="__label">label</span>
-					<input name='number' type='number' />
-				</label>
-            `,
-			`
-				<label for='email' class="__field">
-					<span class="__label">label</span>
-					<input name='email' type='email' />
-				</label>
-            `,
-			`
-				<label for='tel' class="__field">
-					<span class="__label">label</span>
-					<input name='tel' type='tel' />
-				</label>
-            `,
-		],
-	},
-
-	{
-		alias: 'Textarea',
-		summary: [
-			{
-				name: '.__field',
-				description:
-					'class acts as variant for the parent element base styling.',
-			},
-		],
-		snippets: [
-			`
-				<label for='textarea' class="__field">
-					<span class="__label">.__label</span>
-					<textarea name='textarea'></textarea>
-					<span class="__caption">.__caption</span>
-				</label>
-            `,
-		],
-	},
-
-	{
-		alias: 'Date / Datetime / Time',
-		summary: [
-			{
-				name: '.__field',
-				description:
-					'class acts as variant for the parent element base styling.',
-			},
-			{
-				name: '.__label',
-				description:
-					'class acts as variant for the span element base styling.',
-			},
-		],
-		snippets: [
-			`
-				<label for='date' class="__field">
-					<span class="__label">label</span>
-					<input name='date' type='date' />
-				</label>
-            `,
-			`
-				<label for='datetime-local' class="__field">
-					<span class="__label">label</span>
-					<input name='datetime-local' type='datetime-local' />
-				</label>
-            `,
-			`
-				<label for='time' class="__field">
-					<span class="__label">label</span>
-					<input name='time' type='time' />
-				</label>
-            `,
-		],
-	},
-
-	{
-		alias: 'Range',
-		summary: [
-			{
-				name: '.__field',
-				description:
-					'class acts as variant for the parent element base styling.',
-			},
-			{
-				name: '.__label',
-				description:
-					'class acts as variant for the span element base styling.',
-			},
-		],
-		snippets: [
-			`
-				<label for='range' class="__field">
-					<span class="__label">label</span>
-					<input name='range' type='range' />
-				</label>
-            `,
-		],
-	},
-
-	{
-		alias: 'File',
-		summary: [
-			{
-				name: '.__field',
-				description:
-					'class acts as variant for the parent element base styling.',
-			},
-			{
-				name: '.__label',
-				description:
-					'class acts as variant for the span element base styling.',
-			},
-		],
-		snippets: [
-			`
-				<label for='file' class="__field">
-					<script is:inline>
-						function setFile() {
-							const label = document.querySelector("label[for='file']");
-							const input = document.querySelector("input[name='file'][type='file']");
-
-							input.addEventListener('change', () => {
-								setTimeout(() => {
-									label.querySelector("span").innerText = input.value;
-								}, 512);
-							});
-							input.click();
-						}
-					</script>
-					<span class="__label">label</span>
-					<input name='file' type='file' />
-					<button class='__outline' onclick='setFile()'>
-						<span>Select File</span>
-					</button>
-				</label>
-			`,
-		],
-	},
-
-{
-	alias: 'Ordered List / Unordered List / Definition List',
-	summary: [
-		{
-			name: '.__counter',
-			description: '. . .'
-		},
-		{
-			name: '.__lead / .__trail',
-			description: '. . .'
-		}
-	],
-	snippets: [
-		`
-			<ol>
-				<li> list item </li>
-				<li class="__counter __lead"> list item </li>
-				<li class="__counter"> list item </li>
-				<li class="__counter __trail"> list item </li>
-			</ol>
-		`,
-		`
-			<ul>
-				<li> list item </li>
-				<li> list item </li>
-				<li> list item </li>
-				<li> list item </li>
-			</ul>
-		`,
-		`
-			<dl>
-				<dt>title</dt>
-				<dd>definition</dd>
-				<dt>title</dt>
-				<dd>definition</dd>
-				<dt>title</dt>
-				<dd>definition</dd>
-			</dl>
-		`,
-		`
-			<ol>
-				<dt class="__counter __lead">title</dt>
-			</ol>
-		`,
-	],
-},
-];
+import Elements from 'src/lib/shared/docu-elements.ts';
 ---
 
 <Layout scheme='dark'>
-	<header class="bg-primary g-5xl place-between py-5xl [min]h-75[vh] radius-3xs" tmpl-expand>
-		<nav class="g-sm place-between wrap">
-			<figure class="aspect-[1/1] h-5xl w-max">
-				<img src="/icon.png" alt="logo" style="filter: invert(1);">
+	<header
+		class='bg-primary g-5xl place-between py-5xl [min]h-75[vh] radius-3xs'
+		tmpl-expand>
+		<nav class='g-sm place-between wrap w-100'>
+			<figure class='aspect-[1/1] h-5xl w-max'>
+				<img src='/icon.png' alt='logo' style='filter: invert(1);' />
 			</figure>
 
-			<nav class="g-sm place-safe-end wrap">
-				<a href="/" class="clr-inherit">Get Started</a>
-				<a href="/examples" class="clr-inherit">Examples</a>
-				<a href="#" class="__button __outline clr-subtext" style="--bg:transparent; pointer-events: none;">Playground (not available)</a>
+			<nav class='g-sm place-safe-end wrap'>
+				<a href='/' class='clr-inherit'>Get Started</a>
+				<a href='/examples' class='clr-inherit'>Examples</a>
+				<a
+					href='#'
+					class='__button __outline clr-subtext'
+					style='--bg:transparent; pointer-events: none;'
+					>Playground (not available)</a
+				>
 			</nav>
 		</nav>
 		<ly-group>
-			<h1 style="font-size: calc(var(--scale-5xl) * 2);">Lily's</h1>
-			<h2>Human Interface's <br/>&amp; Mood Styling <br/>Guidelines</h2>
-			<p class="clr-subtext txt-500">
+			<h1 style='font-size: calc(var(--scale-5xl) * 2);'>Lily's</h1>
+			<h2>Human Interface's <br />&amp; Mood Styling <br />Guidelines</h2>
+			<p class='clr-subtext txt-500'>
 				Powered by dead simple CSS props and conventions.
 			</p>
 		</ly-group>
-		<ly-flex class="g-sm wrap">
-			<button class="__outline txt-500" style="--bg: transparent;">Tv</button>
-			<button class="__outline txt-500" style="--bg: transparent;">Web</button>
-			<button class="__outline txt-500" style="--bg: transparent;">Tablet</button>
-			<button class="__outline txt-500" style="--bg: transparent;">Mobile</button>
-			<button class="__outline txt-500" style="--bg: transparent;">Watch</button>
+		<ly-flex class='g-sm wrap'>
+			<button class='__outline txt-500' style='--bg: transparent;'>Tv</button>
+			<button class='__outline txt-500' style='--bg: transparent;'>Web</button>
+			<button class='__outline txt-500' style='--bg: transparent;'
+				>Tablet</button
+			>
+			<button class='__outline txt-500' style='--bg: transparent;'
+				>Mobile</button
+			>
+			<button class='__outline txt-500' style='--bg: transparent;'>Watch</button
+			>
 		</ly-flex>
 	</header>
 	{
-		Elements.map(({alias, summary, snippets}) => (
+		Elements.map(({ tagname, props, snippets }) => (
 			<>
-				<h3>{ alias }</h3>
-				{
-					(summary && summary.length > 0) 
-					&& (
-						<blockquote>
-							<dl class="grid gy-sm bg-primary p-xl radius-3xs">
-								{
-									summary.map(({ name, description }) => (
-										<dt>{name}</dt>
-										<dd class="clr-subtext offt-sm">{description}</dd>
-									))
-								}
-							</dl>
-						</blockquote>
-					)
-				}
-				<ly-grid tmpl='4' class="g-sm" style="grid-auto-rows: 1fr;" tmpl-expand>
-					{
-						snippets.map((snippet) => (
-							<article class="grid g-xl outln outln-primary overflow-clip place-center[items] px-sm py-5xl radius-3xs h-100">
-								<Fragment set:html={ snippet } />
-							</article>
-						))
-					}
+				<h3 class='my-5xl'>{tagname}</h3>
+				{props && props.length > 0 && (
+					<ly-grid tmpl='2' class='g-sm'>
+						{props.map(({ target, classes }) => (
+							<ly-group class='g-sm'>
+								<span class='block clr-subtext txt-500 txt-capitalize'>
+									- {target}
+								</span>
+								<blockquote>
+									<dl>
+										{classes &&
+											classes.length > 0 &&
+											classes.map(({ name, description }) => (
+												<>
+													<dt class='txt-600'>{name}</dt>
+													<dd class='clr-subtext'>{description}</dd>
+												</>
+											))}
+									</dl>
+								</blockquote>
+							</ly-group>
+						))}
+					</ly-grid>
+				)}
+				<ly-grid
+					tmpl='4'
+					class='g-sm mt-5xl outln outln-primary py-5xl'
+					style='grid-auto-rows: 1fr;'
+					tmpl-expand>
+					{snippets.map((snippet) => (
+						<article class='flex flex-col outln outln-primary radius-3xs h-100'>
+							<header class='place-end p-sm w-100'>
+								<nav class='__tabs'>
+									<button>
+										<span>result</span>
+									</button>
+									<button>
+										<span>code</span>
+									</button>
+								</nav>
+							</header>
+							<hr class='__divider-x' />
+							<ly-group class='place-center place-center[items] p-5xl grow'>
+								<Fragment set:html={snippet} />
+							</ly-group>
+						</article>
+					))}
 				</ly-grid>
 			</>
 		))

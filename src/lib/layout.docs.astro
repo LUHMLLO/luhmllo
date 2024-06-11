@@ -26,7 +26,6 @@ const { className, overrides = '', scheme = 'auto' } = Astro.props;
 	}
 
 	ly-app {
-		row-gap: calc(var(--scale-5xl) * 1);
 		scrollbar-width: 0;
 
 		&::-webkit-scrollbar {
@@ -40,12 +39,12 @@ const { className, overrides = '', scheme = 'auto' } = Astro.props;
 			color: var(--clr-subtext);
 		}
 
-		& > :global(:where(h1, h2, h3):not(:first-child)) {
+		/* & > :global(:where(h1, h2, h3):not(:first-child)) {
 			margin-bottom: -1.5rem;
 		}
 
 		& > :global(:not(footer):last-child) {
 			margin-bottom: calc(var(--scale-5xl) * 2);
-		}
+		} */
 	}
 </style>
