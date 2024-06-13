@@ -54,10 +54,11 @@ export default [
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     {
         tagname: 'Buttons',
+        description: 'Buttons allow users to perform an action or to navigate to another page. They have multiple styles for various needs, and are ideal for calling attention to where a user needs to do something in order to move forward in a flow.',
         props: [
             {
                 target: 'self',
-                classes: [ __fab,__outline ],
+                classes: [ __fab, __outline ],
             },
             {
                 target: 'children',

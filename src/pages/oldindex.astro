@@ -1,0 +1,62 @@
+---
+import Layout from 'src/lib/layout.docs.astro';
+import Elements from 'src/lib/shared/docu-elements.ts';
+---
+
+<Layout scheme='dark'>
+	{
+		Elements.map(({ tagname, props, snippets }) => (
+			<>
+				<h3>{tagname}</h3>
+				{props && props.length > 0 && (
+					<ly-grid tmpl='2' class='g-sm'>
+						{props.map(({ target, classes }) => (
+							<ly-group class='g-sm'>
+								<span class='block clr-subtext txt-500 txt-capitalize'>
+									- {target}
+								</span>
+								<blockquote>
+									<dl>
+										{classes &&
+											classes.length > 0 &&
+											classes.map(({ name, description }) => (
+												<>
+													<dt class='txt-600'>{name}</dt>
+													<dd class='clr-subtext'>{description}</dd>
+												</>
+											))}
+									</dl>
+								</blockquote>
+							</ly-group>
+						))}
+					</ly-grid>
+				)}
+				<ly-grid
+					tmpl='4'
+					class='g-sm'
+					style='grid-auto-rows: 1fr;'
+					tmpl-expand>
+					{snippets.map((snippet) => (
+						<article class='flex flex-col outln outln-primary hover:outln-subtext radius-3xs h-100' style="transition: all var(--animDefaults);">
+							<header class='place-end p-sm w-100'>
+								<nav class='__tabs'>
+									<button>
+										<span>result</span>
+									</button>
+									<button>
+										<span>code</span>
+									</button>
+								</nav>
+							</header>
+							<hr class='__divider-x' />
+							<ly-group class='place-center place-center[items] p-5xl grow'>
+								<Fragment set:html={snippet} />
+							</ly-group>
+						</article>
+					))}
+				</ly-grid>
+				<hr class='__divider-x' />
+			</>
+		))
+	}
+</Layout>

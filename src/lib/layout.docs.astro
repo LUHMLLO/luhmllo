@@ -1,5 +1,6 @@
 ---
-import HTML_Layout from 'src/lib/layout.html.astro';
+import HTML_Layout from './layout.html.astro';
+import Header from './layout.docs.header.astro';
 
 interface Props {
 	className?: string;
@@ -13,6 +14,7 @@ const { className, overrides = '', scheme = 'auto' } = Astro.props;
 <HTML_Layout title='Lilys' {scheme} {overrides}>
 	<ly-layer stacked='under'></ly-layer>
 	<ly-app tmpl='container' class={className}>
+		<Header />
 		<slot />
 	</ly-app>
 	<ly-layer stacked='over'></ly-layer>
@@ -32,19 +34,25 @@ const { className, overrides = '', scheme = 'auto' } = Astro.props;
 			display: none;
 		}
 
-		& > :global(h1, h2, h3) {
+		& > :global(:where(h1, h2, h3, h4, h5, h6)) {
 			text-transform: capitalize;
-		}
-		& > :global(:where(h1, h2, h3) + p) {
-			color: var(--clr-subtext);
+
+			&:not(:first-child) {
+				margin-top: var(--scale-5xl);
+			}
+
+			& :global(+ p) {
+				color: var(--clr-subtext);
+				margin-top: var(--scale-3xs);
+			}
 		}
 
-		/* & > :global(:where(h1, h2, h3):not(:first-child)) {
-			margin-bottom: -1.5rem;
+		& > :global(:where(*):not(header, :where(h1, h2, h3, h4, h5, h6) + p)) {
+			margin-top: var(--scale-nm);
 		}
 
 		& > :global(:not(footer):last-child) {
 			margin-bottom: calc(var(--scale-5xl) * 2);
-		} */
+		}
 	}
 </style>

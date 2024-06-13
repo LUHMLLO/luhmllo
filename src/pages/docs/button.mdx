@@ -1,0 +1,112 @@
+---
+# layout: '../../lib/layout.docs.astro'
+---
+
+## Button
+
+Buttons allow users to perform an action or to navigate to another page.
+They have multiple styles for various needs and are ideal for calling attention to
+where a user needs to do something in order to move forward in a flow.
+
+<grid class='grid cols-2 outln outln-primary radius-3xs'>
+	```html
+	<button>
+      <span>button</span>
+	</button>
+	```
+	<column class='flex place-center p-5xl'>
+		<button>
+			<span>button</span>
+		</button>
+	</column>
+</grid>
+
+### parentElement <small class="clr-subtext txt-sm"> PROPS </small>
+
+| prop        | description                      | requires |
+| ----------- | -------------------------------- | -------- |
+| - - outline | sets outline style               |          |
+| - - fab     | changes style to look like a FAB |          |
+
+<grid class="grid cols-2 g-sm">
+    <column class="grid outln outln-primary radius-3xs">
+        ```html
+        <button data-props="--outline">
+          <span>button</span>
+        </button>
+        ```
+
+        <div class="flex place-center p-5xl">
+            <button data-props='--outline'>
+                <span>button</span>
+            </button>
+        </div>
+
+    </column>
+
+    <column class="grid outln outln-primary radius-3xs">
+        ```html
+        <button data-props="--fab">
+          <span>button</span>
+        </button>
+        ```
+
+        <div class="flex place-center p-5xl">
+            <button data-props='--fab'><span>button</span></button>
+        </div>
+
+    </column>
+
+</grid>
+
+### childrenElements <small class="clr-subtext txt-sm"> PROPS </small>
+
+| prop      | description            | required for                   |
+| --------- | ---------------------- | ------------------------------ |
+| - - lead  | set’s as leading item  | left side optical corrections  |
+| - - trail | set’s as trailing item | right side optical corrections |
+
+<grid class="grid cols-2 g-sm">
+    <column class="grid outln outln-primary radius-3xs">
+        ```html
+        <button>
+          <icon data-props="--lead">
+            add_circle
+          </icon>
+          <span>button</span>
+        </button>
+        ```
+
+        <div class="flex place-center p-5xl">
+            <button>
+                <icon data-props="--lead">
+                    add_circle
+                </icon>
+                <span>button</span>
+            </button>
+        </div>
+
+    </column>
+
+    <column class="grid outln outln-primary radius-3xs">
+        ```html
+        <button>
+          <span>button</span>
+          <icon data-props="--trail">
+            add_circle
+          </icon>
+        </button>
+        ```
+
+        <div class="flex place-center p-5xl">
+            <button>
+                <span>button</span>
+                <icon data-props="--trail">
+                    add_circle
+                </icon>
+            </button>
+        </div>
+
+    </column>
+
+</grid>

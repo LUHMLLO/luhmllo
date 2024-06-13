@@ -1,0 +1,36 @@
+<header
+	class='bg-primary g-5xl place-between py-5xl [min]h-75[vh] radius-3xs'
+	tmpl-expand>
+	<nav class='g-sm place-between wrap w-100'>
+		<figure class='aspect-[1/1] h-5xl w-max'>
+			<img src='/icon.png' alt='logo' style='filter: invert(1);' />
+		</figure>
+
+		<nav class='g-sm place-safe-end wrap'>
+			<a href='/' class='clr-inherit'>Get Started</a>
+			<a href='/examples' class='clr-inherit'>Examples</a>
+			<a
+				href='#'
+				class='__button __outline clr-subtext'
+				style='--bg:transparent; pointer-events: none;'
+				>Playground (not available)</a
+			>
+		</nav>
+	</nav>
+	<ly-group>
+		<h1 style='font-size: calc(var(--scale-5xl) * 2);'>Lily's</h1>
+		<h2>Human Interface's <br />&amp; Mood Styling <br />Guidelines</h2>
+		<p class='clr-subtext txt-500' --outline>
+			Powered by dead simple CSS props and conventions.
+		</p>
+	</ly-group>
+	<ly-flex class='g-sm wrap'>
+		<button class='__outline txt-500' style='--bg: transparent;'>Tv</button>
+		<button class='__outline txt-500' style='--bg: transparent;'>Web</button>
+		<button class='__outline txt-500' style='--bg: transparent;'>Tablet</button>
+		<button --outline class='__outline txt-500' style='--bg: transparent;'
+			>Mobile</button
+		>
+		<button class='__outline txt-500' style='--bg: transparent;'>Watch</button>
+	</ly-flex>
+</header>

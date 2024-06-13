@@ -111,7 +111,7 @@
 		}
 
 		&:is(button, :is(a, summary).__button) {
-			--bg: var(--clr-background);
+			--bg: transparent;
 			height: var(--size);
 		}
 
@@ -398,15 +398,14 @@
 		width: fit-content;
 
 		&:is(.__tabs) {
-			--bg: var(--clr-background);
+			--bg: inherit;
 			--radius: var(--scale-5xl);
 
 			background-color: var(--bg);
 			border-radius: var(--radius);
 			overflow: clip;
 
-			& > :where(button) {
-			}
+			& > :where(button) {}
 		}
 	}
 }
@@ -476,6 +475,8 @@
 		& thead {
 			& > tr {
 				& > th {
+					font-weight: 500;
+
 					&:not(:last-child) {
 						border-right: solid var(--bg--lighter);
 					}
@@ -501,6 +502,62 @@
 					}
 				}
 			}
+		}
+
+		&:where(.__simple) {
+			display: block;
+			overflow-x: auto;
+			table-layout: fixed;
+			white-space: nowrap;
+			width: fit-content;
+		}
+	}
+}
+
+@layer normalize {
+	:where(pre) {
+		border-radius: var(--scale-3xs);
+		margin: 0;
+		padding: var(--scale-xl);
+
+		& > code {
+			margin: 0;
+			padding: 0;
+
+			&.line:empty {
+				display: none;
+			}
+
+			& span {
+				display: contents;
+				white-space: pre-wrap;
+			}
+		}
+	}
+}
+
+@layer normalize {
+	:where(icon) {
+		--fill: 0;
+
+		aspect-ratio: 1/1;
+		display: inline-grid;
+		flex-grow: 0;
+		flex-shrink: 0;
+		font-family: var(--prefers-iconFontFamily);
+		font-feature-settings: 'liga';
+		font-size: calc(var(--prefers-iconScale) * 0.75);
+		font-variation-settings: 'FILL' var(--fill), 'wght' 400, 'GRAD' 400, 'opsz' 48;
+		height: var(--prefers-iconScale);
+		overflow: clip;
+		place-content: center center;
+		shape-margin: var(--scale-5xs);
+		shape-outside: circle(50%);
+		user-select: none;
+		width: auto;
+
+		&[solid] {
+			--fill: 1;
 		}
 	}
 }

@@ -1,21 +1,26 @@
-import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel/static';
-
-import svelte from "@astrojs/svelte";
+import { defineConfig } from 'astro/config'
+import vercel from '@astrojs/vercel/static'
+import svelte from '@astrojs/svelte'
+import mdx from '@astrojs/mdx'
 
 // https://astro.build/config
 export default defineConfig({
   adapter: vercel(),
   build: {
     format: 'file',
-    inlineStylesheets: 'auto'
+    inlineStylesheets: 'auto',
   },
   compressHTML: true,
   outDir: './dist/app',
   output: 'static',
   prefetch: {
-    prefetchAll: true
+    prefetchAll: true,
   },
   scopedStyleStrategy: 'where',
-  integrations: [svelte()]
-});
+  integrations: [
+    svelte(),
+    mdx({
+      shikiConfig: { theme: 'vitesse-dark' },
+    }),
+  ],
+})
