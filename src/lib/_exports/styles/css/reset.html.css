@@ -1,239 +1,239 @@
 @layer reset {
-	:is(html) {
-		background-color: var(--clr-background);
-		color: var(--clr-text);
+  :is(html) {
+    background-color: var(--clr-background);
+    color: var(--clr-text);
 
-		font-display: swap;
-		font-kerning: auto;
-		font-family: var(--baseFontFamily);
-		font-size: var(--baseFontSize);
+    font-display: swap;
+    font-kerning: auto;
+    font-family: var(--baseFontFamily);
+    font-size: var(--baseFontSize);
 
-		-moz-osx-font-smoothing: grayscale;
-		-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 
-		font-style: normal;
-		font-variant-ligatures: normal;
-		font-optical-sizing: auto;
-		font-stretch: normal;
-		font-weight: var(--baseFontWeight);
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-optical-sizing: auto;
+    font-stretch: normal;
+    font-weight: var(--baseFontWeight);
 
-		hanging-punctuation: first last;
+    hanging-punctuation: first last;
 
-		letter-spacing: 0.0125rem;
+    letter-spacing: 0.0125rem;
 
-		line-height: var(--baseLineHeight);
-		text-align: left;
-		text-rendering: optimizeLegibility;
+    line-height: var(--baseLineHeight);
+    text-align: left;
+    text-rendering: optimizeLegibility;
 
-		word-spacing: 0.0625rem;
-	}
+    word-spacing: 0.0625rem;
+  }
 
-	:is(html, body) {
-		height: 100dvh;
-		overflow-x: clip;
-		overflow-y: auto;
-		position: fixed;
-		width: 100dvw;
+  :is(html, body) {
+    height: 100dvh;
+    overflow-x: clip;
+    overflow-y: auto;
+    position: fixed;
+    width: 100dvw;
 
-		&:has(ly-app, #app) {
-			isolation: isolate;
-			display: contents;
-			overflow-x: clip;
-			overflow-y: clip;
-		}
-	}
+    &:has(ly-app, #app) {
+      isolation: isolate;
+      display: contents;
+      overflow-x: clip;
+      overflow-y: clip;
+    }
+  }
 
-	:where(h1, h2, h3, h4, h5, h6) {
-		display: block;
-		font-weight: 500;
-		text-wrap: balance;
+  :where(h1, h2, h3, h4, h5, h6) {
+    display: block;
+    font-weight: 500;
+    text-wrap: balance;
 
-		&:is(h1) {
-			font-size: var(--scale-5xl);
-		}
+    &:is(h1) {
+      font-size: var(--scale-5xl);
+    }
 
-		&:is(h2) {
-			font-size: var(--scale-4xl);
-		}
+    &:is(h2) {
+      font-size: var(--scale-4xl);
+    }
 
-		&:is(h3) {
-			font-size: var(--scale-3xl);
-		}
+    &:is(h3) {
+      font-size: var(--scale-3xl);
+    }
 
-		&:is(h4) {
-			font-size: var(--scale-2xl);
-		}
+    &:is(h4) {
+      font-size: var(--scale-2xl);
+    }
 
-		&:is(h5) {
-			font-size: var(--scale-xl);
-		}
+    &:is(h5) {
+      font-size: var(--scale-xl);
+    }
 
-		&:is(h6) {
-			font-size: var(--scale-nm);
-		}
-	}
+    &:is(h6) {
+      font-size: var(--scale-nm);
+    }
+  }
 
-	:where(ol, ul) {
-		list-style-position: inside;
+  :where(ol, ul) {
+    list-style-position: inside;
 
-		& > li {
-			font-size: var(--scale-md);
-			text-wrap: pretty;
-			width: min(72ch, 100%);
-		}
+    & > li {
+      font-size: var(--scale-md);
+      text-wrap: pretty;
+      width: min(72ch, 100%);
+    }
 
-		& :where(ol, ul) {
-			margin-left: var(--scale-sm);
-		}
+    & :where(ol, ul) {
+      margin-left: var(--scale-sm);
+    }
 
-		&:is(ol) {
-			counter-reset: li;
+    &:is(ol) {
+      counter-reset: li;
 
-			& li {
-				counter-increment: li;
+      & li {
+        counter-increment: li;
 
-				&::marker {
-					content: counter(li)'. ';
-				}
+        &::marker {
+          content: counter(li)'. ';
+        }
 
-				&:is(.__counter) {
-					&::marker {
-						content: none;
-						display: none;
-					}
-				}
-			}
+        &:is(.__counter) {
+          &::marker {
+            content: none;
+            display: none;
+          }
+        }
+      }
 
-			& .__counter {
-				counter-increment: li;
-				font-style: normal;
-				font-variant-numeric: slashed-zero;
+      & .__counter {
+        counter-increment: li;
+        font-style: normal;
+        font-variant-numeric: slashed-zero;
 
-				&::before,
-				&::after {
-					clear: both;
-					display: inline-block;
-					margin-inline: 0.5rem;
-				}
+        &::before,
+        &::after {
+          clear: both;
+          display: inline-block;
+          margin-inline: 0.5rem;
+        }
 
-				&:is(.__lead)::before {
-					content: counter(li)'. ';
-				}
+        &:is([data-props~=--lead])::before {
+          content: counter(li)'. ';
+        }
 
-				&:is(.__trail)::after {
-					content: ' .' counter(li);
-				}
-			}
-		}
+        &:is([data-props~=--trail])::after {
+          content: ' .' counter(li);
+        }
+      }
+    }
 
-		&:is(ul) {
-			& li {
-				&::marker {
-					clear: both;
-					content: '- ';
-					display: inline-block;
-					margin-inline: 0.5rem;
-				}
-			}
-		}
-	}
+    &:is(ul) {
+      & li {
+        &::marker {
+          clear: both;
+          content: '- ';
+          display: inline-block;
+          margin-inline: 0.5rem;
+        }
+      }
+    }
+  }
 
-	:where(blockquote, q) {
-		border-left: 0.125rem solid var(--clr-subtext);
-		font-size: var(--scale-sm);
-		padding: var(--scale-sm) 0 var(--scale-sm) var(--scale-sm);
-	}
+  :where(blockquote, q) {
+    border-left: 0.125rem solid var(--clr-subtext);
+    font-size: var(--scale-sm);
+    padding: var(--scale-sm) 0 var(--scale-sm) var(--scale-sm);
+  }
 
-	:where(cite) {
-		font-size: 88%;
-		font-style: italic;
-		font-weight: 500;
-		text-wrap: pretty;
-		width: min(72ch, 100%);
-	}
+  :where(cite) {
+    font-size: 88%;
+    font-style: italic;
+    font-weight: 500;
+    text-wrap: pretty;
+    width: min(72ch, 100%);
+  }
 
-	:where(p) {
-		display: block;
-		font-size: var(--scale-md);
-		text-wrap: pretty;
-		width: min(72ch, 100%);
-	}
+  :where(p) {
+    display: block;
+    font-size: var(--scale-md);
+    text-wrap: pretty;
+    width: min(72ch, 100%);
+  }
 
-	:where(caption, figcaption, legend) {
-		display: inline-flex;
-		font-size: var(--scale-md);
-		font-weight: 500;
-	}
+  :where(caption, figcaption, legend) {
+    display: inline-flex;
+    font-size: var(--scale-md);
+    font-weight: 500;
+  }
 
-	:where(small) {
-		font-size: clamp(72%, 0.5vw, 88%);
-	}
+  :where(small) {
+    font-size: clamp(72%, 0.5vw, 88%);
+  }
 
-	:where(audio, button, figure, i, iframe, img, picture, svg, video) {
-		-webkit-user-select: none;
-		user-select: none;
-	}
+  :where(audio, button, figure, i, iframe, img, picture, svg, video) {
+    -webkit-user-select: none;
+    user-select: none;
+  }
 
-	:where(figure) {
-		border-radius: var(--scale-3xs);
-		display: inline-grid;
-		flex-shrink: 0;
-		overflow: clip;
+  :where(figure) {
+    border-radius: var(--scale-3xs);
+    display: inline-grid;
+    flex-shrink: 0;
+    overflow: clip;
 
-		> img,
-		> object,
-		> picture,
-		> svg {
-			height: 100%;
-			object-fit: cover;
-			object-position: center;
-			width: 100%;
-		}
-	}
+    > img,
+    > object,
+    > picture,
+    > svg {
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+    }
+  }
 
-	:where(footer, header) {
-		display: flex;
-		flex-direction: column;
-	}
+  :where(footer, header) {
+    display: flex;
+    flex-direction: column;
+  }
 
-	:where(aside, fieldset, form, main, section) {
-		--gap: var(--scale-sm);
+  :where(aside, fieldset, form, main, section) {
+    --gap: var(--scale-sm);
 
-		display: flex;
-		flex-direction: column;
-		gap: var(--gap);
-	}
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+  }
 
-	:where(hr) {
-		--bg: var(--clr-primary);
-		background-color: var(--bg);
+  :where(hr) {
+    --bg: var(--clr-primary);
+    background-color: var(--bg);
 
-		&:is(.__divider-y) {
-			height: 100%;
-			width: calc(var(--scale-5xs) * 0.1625);
-		}
+    &:is([data-props~=--x]) {
+      height: calc(var(--scale-5xs) * 0.1625);
+      width: 100%;
+    }
 
-		&:is(.__divider-x) {
-			height: calc(var(--scale-5xs) * 0.1625);
-			width: 100%;
-		}
-	}
+    &:is([data-props~=--y]) {
+      height: 100%;
+      width: calc(var(--scale-5xs) * 0.1625);
+    }
+  }
 
-	:where(dl) {
-		gap: var(--scale-5xs);
+  :where(dl) {
+    gap: var(--scale-5xs);
 
-		& > dt {
-			font-size: var(--scale-md);
-			font-weight: 500;
-		}
+    & > dt {
+      font-size: var(--scale-md);
+      font-weight: 500;
+    }
 
-		& > dd {
-			font-size: var(--scale-md);
-			padding-left: var(--scale-sm);
-		}
-	}
+    & > dd {
+      font-size: var(--scale-md);
+      padding-left: var(--scale-sm);
+    }
+  }
 }
 
 :where(address) {
-	font-size: var(--scale-md);
+  font-size: var(--scale-md);
 }

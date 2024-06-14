@@ -8,11 +8,18 @@
 	<nav class='g-sm place-end'>
 		<a href='/' class='clr-inherit'>Get Started</a>
 		<a href='/examples' class='clr-inherit'>Examples</a>
+		<a
+			href='#'
+			data-props='--button --outline'
+			class='clr-subtext'
+			style='pointer-events: none;'>
+			Playground (not available)
+		</a>
 	</nav>
 </nav>
 
 <header
-	class='bg- [min]h-50[ch] offb-5xl py-5xl place-center radius-3xs'
+	class='[min]h-50[ch] offb-5xl py-5xl place-center radius-3xs'
 	tmpl-expand>
 	<h1>Lily's</h1>
 	<h2>Human Interface's <br />&amp; Mood Styling<br />Guidelines</h2>
@@ -22,11 +29,11 @@
 </header>
 
 <nav class='g-sm outln outln-primary py-xl w-100' tmpl-expand>
-	<button class='__outline txt-500'>Tv</button>
-	<button class='__outline txt-500'>Web</button>
-	<button class='__outline txt-500'>Tablet</button>
-	<button class='__outline txt-500'>Mobile</button>
-	<button class='__outline txt-500'>Watch</button>
+	<button data-props='--outline' class='txt-500'>Tv</button>
+	<button data-props='--outline' class='txt-500'>Web</button>
+	<button data-props='--outline' class='txt-500'>Tablet</button>
+	<button data-props='--outline' class='txt-500'>Mobile</button>
+	<button data-props='--outline' class='txt-500'>Watch</button>
 </nav>
 
 <style lang='css' scoped>
