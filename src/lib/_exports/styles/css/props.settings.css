@@ -1,21 +1,21 @@
 @layer props {
-	:root {
-		--prefers-colorSpace: srgb;
+  :root {
+    --prefers-colorSpace: srgb;
 
-		--prefers-containerOutterWidth: var(--scale-2xl);
-		--prefers-containerWidth: 72rem;
+    --prefers-containerOutterWidth: var(--scale-2xl);
+    --prefers-containerWidth: 72rem;
 
-		--prefers-iconFontFamily: 'Material Symbols Outlined',
-			'Material Symbols Rounded', 'Material Symbols Sharp', sans-serif;
-		--prefers-iconScale: clamp(var(--scale-5xs), 24pt, var(--scale-5xl));
+    --prefers-iconFontFamily: 'Material Symbols Outlined',
+      'Material Symbols Rounded', 'Material Symbols Sharp', sans-serif;
+    --prefers-iconScale: clamp(var(--scale-5xs), 24pt, var(--scale-5xl));
 
-		--prefers-borderWidth: 1.625pt;
-		--prefers-outlineWidth: 1.625pt;
+    --prefers-borderWidth: 1.625pt;
+    --prefers-outlineWidth: 1.625pt;
 
-		--prefers-shadow: 0 var(--scale-5xs) var(--scale-sm) hsla(0, 0%, 0%, 0.125);
+    --prefers-shadow: 0 var(--scale-5xs) var(--scale-sm) hsla(0, 0%, 0%, 0.125);
 
-		--prefers-spacing: clamp(min(100%, var(--scale-5xs)),
-				16vmin,
-				var(--scale-5xl));
-	}
+    --prefers-spacing: clamp(min(100%, var(--scale-5xs)),
+        16vmin,
+        var(--scale-5xl));
+  }
 }

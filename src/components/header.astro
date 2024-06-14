@@ -1,32 +1,47 @@
-<nav class='bg-primary g-sm place-between w-100 py-xl' tmpl-expand>
-  <figure class='aspect-[1/1] h-5xl w-max'>
-    <img src='/icon.png' alt='logo' style='filter: invert(1);' />
-  </figure>
+<nav
+	class='g-sm place-between p-xl w-100 ps-fixed z-3'
+	tmpl-expand='uncontained'>
+	<figure class='aspect-[1/1] h-5xl w-max'>
+		<img src='/icon.png' alt='logo' style='filter: invert(1);' />
+	</figure>
 
-  <nav class='g-sm place-safe-end wrap'>
-    <a href='/' class='clr-inherit'>Get Started</a>
-    <a href='/examples' class='clr-inherit'>Examples</a>
-    <a
-      href='#'
-      class='__button __outline clr-subtext'
-      style='--bg:transparent; pointer-events: none;'>
-      Playground (not available)
-    </a>
-  </nav>
+	<nav class='g-sm place-end'>
+		<a href='/' class='clr-inherit'>Get Started</a>
+		<a href='/examples' class='clr-inherit'>Examples</a>
+	</nav>
 </nav>
 
-<header class='bg-primary g-5xl offy-5xl py-5xl place-between radius-3xs' tmpl-expand>
-  <h1>Lily's</h1>
-  <h2>Human Interface's <br />&amp; Mood Styling<br />Guidelines</h2>
-  <p class='clr-subtext txt-500'>
-    Powered by dead simple CSS props and conventions.
-  </p>
+<header
+	class='bg- [min]h-50[ch] offb-5xl py-5xl place-center radius-3xs'
+	tmpl-expand>
+	<h1>Lily's</h1>
+	<h2>Human Interface's <br />&amp; Mood Styling<br />Guidelines</h2>
+	<p class='clr-subtext txt-500'>
+		Powered by dead simple CSS props and conventions.
+	</p>
 </header>
 
-<nav class='bg-primary g-sm w-100 py-xl' tmpl-expand>
-  <button class='__outline txt-500' style='--bg: transparent;'>Tv</button>
-  <button class='__outline txt-500' style='--bg: transparent;'>Web</button>
-  <button class='__outline txt-500' style='--bg: transparent;'>Tablet</button>
-  <button class='__outline txt-500' style='--bg: transparent;'>Mobile</button>
-  <button class='__outline txt-500' style='--bg: transparent;'>Watch</button>
+<nav class='g-sm outln outln-primary py-xl w-100' tmpl-expand>
+	<button class='__outline txt-500'>Tv</button>
+	<button class='__outline txt-500'>Web</button>
+	<button class='__outline txt-500'>Tablet</button>
+	<button class='__outline txt-500'>Mobile</button>
+	<button class='__outline txt-500'>Watch</button>
 </nav>
+
+<style lang='css' scoped>
+	nav:first-child {
+		z-index: 3;
+
+		&::after {
+			background-color: var(--clr-background);
+			mask: linear-gradient(black 4%, transparent 96%);
+			padding-block: calc(var(--scale-5xl) * 2);
+			content: '';
+			height: 100%;
+			inset: 0;
+			position: absolute;
+			z-index: -1;
+		}
+	}
+</style>
