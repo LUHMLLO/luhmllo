@@ -2,10 +2,143 @@
 layout: 'src/layouts/docs.astro'
 ---
 
-## `<a/>` <small class="clr-subtext txt-sm"> (anchor, link) </small>
+##  Anchor <small class="clr-subtext txt-nm txt-lowercase"> `<a/>` </small>
 
-`<a>` elements in web development create hyperlinks, which are used to
+`<a/>` elements in web development create hyperlinks, which are used to
 navigate to other pages, sections within a page, or external resources.
 They can be styled to look like buttons or other interactive elements,
 making them versatile for navigation and linking purposes. Anchors are
 essential for creating a connected and interactive web experience.
+
+<grid class='grid cols-2 outln outln-primary radius-3xs'>
+  ```html
+  <a>
+    <span>
+      anchor
+    </span>
+  </a>
+  ```
+  <column class='align-center[items] flex place-center p-5xl'>
+    <a>
+      <span>
+        anchor
+      </span>
+    </a>
+  </column>
+</grid>
+
+<grid class='grid cols-2 outln outln-primary radius-3xs'>
+  ```html
+  <a href="#">
+    <span>
+      anchor
+    </span>
+  </a>
+  ```
+  <column class='align-center[items] flex place-center p-5xl'>
+    <a href="#anchor--a">
+      <span>
+        anchor
+      </span>
+    </a>
+  </column>
+</grid>
+
+### -- parentElement <small class="clr-subtext txt-sm"> PROPS </small>
+
+| prop        | description                         | requires   |
+| ----------- | ----------------------------------- | ---------- |
+| - - button  | changes style to look like a button | -          |
+| - - outline | sets outline style                  | - - button |
+| - - fab     | changes style to look like a FAB    | - - button |
+
+<grid class="grid cols-2 g-sm">
+    <column class="grid outln outln-primary radius-3xs">
+        ```html
+        <a data-props="--button --outline">
+          <span>
+            anchor
+          </span>
+        </a>
+        ```
+
+        <div class="flex place-center p-5xl">
+            <a data-props='--button --outline'>
+              <span>anchor</span>
+            </a>
+        </div>
+
+    </column>
+
+    <column class="grid outln outln-primary radius-3xs">
+        ```html
+        <a data-props="--button --outline --fab">
+          <icon>
+            add_circle
+          </icon>
+        </a>
+        ```
+
+        <div class="flex place-center p-5xl">
+            <a data-props='--button --outline --fab'>
+              <icon>
+                add_circle
+              </icon>
+            </a>
+        </div>
+
+    </column>
+
+</grid>
+
+### -- childrenElements <small class="clr-subtext txt-sm"> PROPS </small>
+
+| prop      | description            | purpose                        |
+| --------- | ---------------------- | ------------------------------ |
+| - - lead  | set’s as leading item  | left side optical corrections  |
+| - - trail | set’s as trailing item | right side optical corrections |
+
+<grid class="grid cols-2 g-sm">
+    <column class="grid outln outln-primary radius-3xs">
+        ```html
+        <a data-props="--button --outline">
+          <icon data-props="--lead">
+            add_circle
+          </icon>
+          <span>anchor</span>
+        </a>
+        ```
+
+        <div class="flex place-center p-5xl">
+          <a data-props="--button --outline">
+            <icon data-props="--lead">
+              add_circle
+            </icon>
+            <span>anchor</span>
+          </a>
+        </div>
+
+    </column>
+
+    <column class="grid outln outln-primary radius-3xs">
+        ```html
+        <a data-props="--button --outline">
+          <span>anchor</span>
+          <icon data-props="--trail">
+            add_circle
+          </icon>
+        </a>
+        ```
+
+        <div class="flex place-center p-5xl">
+            <a data-props="--button --outline">
+                <span>anchor</span>
+                <icon data-props="--trail">
+                    add_circle
+                </icon>
+            </a>
+        </div>
+
+    </column>
+
+</grid>

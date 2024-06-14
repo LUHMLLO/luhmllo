@@ -4,7 +4,7 @@ layout: 'src/layouts/docs.astro'
 
 ## Button <small class="clr-subtext txt-nm txt-lowercase"> `<button/>` </small>
 
-Buttons in web development allow users to perform actions or navigate to other pages.
+`<button/>` in web development allow users to perform actions or navigate to other pages.
 They come in various styles to suit different needs and are effective for prompting
 users to take action to progress within an interface.
 
@@ -14,7 +14,7 @@ users to take action to progress within an interface.
     <span>button</span>
   </button>
   ```
-  <column class='flex place-center p-5xl'>
+  <column class='align-center[items] flex place-center p-5xl'>
     <button>
       <span>button</span>
     </button>
@@ -23,12 +23,10 @@ users to take action to progress within an interface.
 
 ### -- parentElement <small class="clr-subtext txt-sm"> PROPS </small>
 
-<ly-slider tmpl-expand>
-  | prop        | description                      | requires |
-  | ----------- | -------------------------------- | -------- |
-  | - - outline | sets outline style               | -        |
-  | - - fab     | changes style to look like a FAB | -        |
-</ly-slider>
+| prop        | description                      | requires |
+| ----------- | -------------------------------- | -------- |
+| - - outline | sets outline style               | -        |
+| - - fab     | changes style to look like a FAB | -        |
 
 <grid class="grid cols-2 g-sm">
     <column class="grid outln outln-primary radius-3xs">
@@ -48,13 +46,13 @@ users to take action to progress within an interface.
 
     <column class="grid outln outln-primary radius-3xs">
         ```html
-        <button data-props="--fab">
+        <button data-props="--outline --fab">
           <span>button</span>
         </button>
         ```
 
         <div class="flex place-center p-5xl">
-            <button data-props='--fab'><span>button</span></button>
+            <button data-props='--outline --fab'><span>button</span></button>
         </div>
 
     </column>
@@ -63,17 +61,15 @@ users to take action to progress within an interface.
 
 ### -- childrenElements <small class="clr-subtext txt-sm"> PROPS </small>
 
-<ly-slider tmpl-expand>
-  | prop      | description            | required for                   |
-  | --------- | ---------------------- | ------------------------------ |
-  | - - lead  | set’s as leading item  | left side optical corrections  |
-  | - - trail | set’s as trailing item | right side optical corrections |
-</ly-slider>
+| prop      | description            | purpose                        |
+| --------- | ---------------------- | ------------------------------ |
+| - - lead  | set’s as leading item  | left side optical corrections  |
+| - - trail | set’s as trailing item | right side optical corrections |
 
 <grid class="grid cols-2 g-sm">
     <column class="grid outln outln-primary radius-3xs">
         ```html
-        <button>
+        <button data-props="--outline">
           <icon data-props="--lead">
             add_circle
           </icon>
@@ -82,19 +78,19 @@ users to take action to progress within an interface.
         ```
 
         <div class="flex place-center p-5xl">
-            <button>
-                <icon data-props="--lead">
-                    add_circle
-                </icon>
-                <span>button</span>
-            </button>
+          <button data-props="--outline">
+            <icon data-props="--lead">
+              add_circle
+            </icon>
+            <span>button</span>
+          </button>
         </div>
 
     </column>
 
     <column class="grid outln outln-primary radius-3xs">
         ```html
-        <button>
+        <button data-props="--outline">
           <span>button</span>
           <icon data-props="--trail">
             add_circle
@@ -103,7 +99,7 @@ users to take action to progress within an interface.
         ```
 
         <div class="flex place-center p-5xl">
-            <button>
+            <button data-props="--outline">
                 <span>button</span>
                 <icon data-props="--trail">
                     add_circle
