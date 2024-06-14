@@ -169,15 +169,6 @@
 		font-size: clamp(72%, 0.5vw, 88%);
 	}
 
-	:where(span) {
-		display: inline-flex;
-		color: inherit;
-		font: inherit;
-		overflow: clip;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-	}
-
 	:where(audio, button, figure, i, iframe, img, picture, svg, video) {
 		-webkit-user-select: none;
 		user-select: none;

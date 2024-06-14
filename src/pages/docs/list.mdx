@@ -1,112 +1,27 @@
 ---
-# layout: '../../lib/layout.docs.astro'
+layout: 'src/layouts/docs.astro'
 ---
 
-## Button
+## `<dl/>` <small class="clr-subtext txt-sm"> (Definition list) </small>
 
-Buttons allow users to perform an action or to navigate to another page.
-They have multiple styles for various needs and are ideal for calling attention to
-where a user needs to do something in order to move forward in a flow.
+Description lists in web development are used to group terms and their
+corresponding descriptions. The `<dl>` element contains pairs of `<dt>`
+(definition term) and `<dd>` (definition description) elements, making it
+ideal for displaying lists of terms and their definitions, such as glossaries
+or metadata.
 
-<grid class='grid cols-2 outln outln-primary radius-3xs'>
-	```html
-	<button>
-      <span>button</span>
-	</button>
-	```
-	<column class='flex place-center p-5xl'>
-		<button>
-			<span>button</span>
-		</button>
-	</column>
-</grid>
+## Ordered list <small class="clr-subtext txt-lowercase"> `<ol/>` </small>
 
-### parentElement <small class="clr-subtext txt-sm"> PROPS </small>
+Ordered lists in web development are used to create lists of items that
+are presented in a specific order. The `<ol>` element contains `<li>` (list item)
+elements, which are automatically numbered. Ordered lists are ideal for
+displaying steps in a process, rankings, or any content where order is
+significant.
 
-| prop        | description                      | requires |
-| ----------- | -------------------------------- | -------- |
-| - - outline | sets outline style               |          |
-| - - fab     | changes style to look like a FAB |          |
+## `<ul/>` <small class="clr-subtext txt-sm"> (Unordered list) </small>
 
-<grid class="grid cols-2 g-sm">
-    <column class="grid outln outln-primary radius-3xs">
-        ```html
-        <button data-props="--outline">
-          <span>button</span>
-        </button>
-        ```
-
-        <div class="flex place-center p-5xl">
-            <button data-props='--outline'>
-                <span>button</span>
-            </button>
-        </div>
-
-    </column>
-
-    <column class="grid outln outln-primary radius-3xs">
-        ```html
-        <button data-props="--fab">
-          <span>button</span>
-        </button>
-        ```
-
-        <div class="flex place-center p-5xl">
-            <button data-props='--fab'><span>button</span></button>
-        </div>
-
-    </column>
-
-</grid>
-
-### childrenElements <small class="clr-subtext txt-sm"> PROPS </small>
-
-| prop      | description            | required for                   |
-| --------- | ---------------------- | ------------------------------ |
-| - - lead  | set’s as leading item  | left side optical corrections  |
-| - - trail | set’s as trailing item | right side optical corrections |
-
-<grid class="grid cols-2 g-sm">
-    <column class="grid outln outln-primary radius-3xs">
-        ```html
-        <button>
-          <icon data-props="--lead">
-            add_circle
-          </icon>
-          <span>button</span>
-        </button>
-        ```
-
-        <div class="flex place-center p-5xl">
-            <button>
-                <icon data-props="--lead">
-                    add_circle
-                </icon>
-                <span>button</span>
-            </button>
-        </div>
-
-    </column>
-
-    <column class="grid outln outln-primary radius-3xs">
-        ```html
-        <button>
-          <span>button</span>
-          <icon data-props="--trail">
-            add_circle
-          </icon>
-        </button>
-        ```
-
-        <div class="flex place-center p-5xl">
-            <button>
-                <span>button</span>
-                <icon data-props="--trail">
-                    add_circle
-                </icon>
-            </button>
-        </div>
-
-    </column>
-
-</grid>
+Unordered lists in web development are used to create lists of items that
+do not require a specific order. The `<ul>` element contains `<li>` (list item)
+elements, which are typically rendered with bullet points. Unordered lists
+are ideal for presenting collections of related items where sequence is not
+important.

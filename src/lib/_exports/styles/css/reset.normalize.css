@@ -69,7 +69,13 @@
 
 		/* text must be wrapped */
 		& > span {
+			display: inline-flex;
+			color: inherit;
 			flex: 1;
+			font: inherit;
+			overflow: clip;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 		}
 
 		& > figure {
@@ -424,7 +430,6 @@
 		background-color: var(--bg);
 		border-collapse: collapse;
 		table-layout: auto;
-		width: 100%;
 
 		& caption {
 			inset: auto 0 0;
@@ -515,24 +520,22 @@
 }
 
 @layer normalize {
+	:where(code) {
+		display: inline;
+		font-family: monospace;
+		text-wrap: nowrap;
+		white-space-collapse: preserve;
+	}
+
 	:where(pre) {
 		border-radius: var(--scale-3xs);
-		margin: 0;
+		display: block;
+		font-family: monospace;
+		overflow-x: auto;
 		padding: var(--scale-xl);
-
-		& > code {
-			margin: 0;
-			padding: 0;
-
-			&.line:empty {
-				display: none;
-			}
-
-			& span {
-				display: contents;
-				white-space: pre-wrap;
-			}
-		}
+		text-wrap: nowrap;
+		white-space: pre;
+		white-space-collapse: preserve;
 	}
 }
 
