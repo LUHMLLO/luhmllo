@@ -325,6 +325,15 @@
       &:is([type='file']) {
         display: none;
       }
+
+      &:where([data-props~='--part']){
+        --bg: transparent;
+        --px: 0;
+        --py: 0;
+        --radius: 0;
+        height: auto;
+        outline: none;
+      }
     }
 
     /* textarea only */
