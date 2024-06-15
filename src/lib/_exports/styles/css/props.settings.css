@@ -5,10 +5,6 @@
     --prefers-containerOutterWidth: var(--scale-2xl);
     --prefers-containerWidth: 72rem;
 
-    --prefers-iconFontFamily: 'Material Symbols Outlined',
-      'Material Symbols Rounded', 'Material Symbols Sharp', sans-serif;
-    --prefers-iconScale: clamp(var(--scale-5xs), 24pt, var(--scale-5xl));
-
     --prefers-borderWidth: 1.625pt;
     --prefers-outlineWidth: 1.625pt;
 

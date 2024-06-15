@@ -73,70 +73,7 @@
     }
   }
 
-  :where(ol, ul) {
-    list-style-position: inside;
 
-    & > li {
-      font-size: var(--scale-md);
-      text-wrap: pretty;
-      width: min(72ch, 100%);
-    }
-
-    & :where(ol, ul) {
-      margin-left: var(--scale-sm);
-    }
-
-    &:is(ol) {
-      counter-reset: li;
-
-      & li {
-        counter-increment: li;
-
-        &::marker {
-          content: counter(li)'. ';
-        }
-
-        &:is(.__counter) {
-          &::marker {
-            content: none;
-            display: none;
-          }
-        }
-      }
-
-      & .__counter {
-        counter-increment: li;
-        font-style: normal;
-        font-variant-numeric: slashed-zero;
-
-        &::before,
-        &::after {
-          clear: both;
-          display: inline-block;
-          margin-inline: 0.5rem;
-        }
-
-        &:is([data-props~=--lead])::before {
-          content: counter(li)'. ';
-        }
-
-        &:is([data-props~=--trail])::after {
-          content: ' .' counter(li);
-        }
-      }
-    }
-
-    &:is(ul) {
-      & li {
-        &::marker {
-          clear: both;
-          content: '- ';
-          display: inline-block;
-          margin-inline: 0.5rem;
-        }
-      }
-    }
-  }
 
   :where(blockquote, q) {
     border-left: 0.125rem solid var(--clr-subtext);
@@ -202,35 +139,6 @@
     display: flex;
     flex-direction: column;
     gap: var(--gap);
-  }
-
-  :where(hr) {
-    --bg: var(--clr-primary);
-    background-color: var(--bg);
-
-    &:is([data-props~=--x]) {
-      height: calc(var(--scale-5xs) * 0.1625);
-      width: 100%;
-    }
-
-    &:is([data-props~=--y]) {
-      height: 100%;
-      width: calc(var(--scale-5xs) * 0.1625);
-    }
-  }
-
-  :where(dl) {
-    gap: var(--scale-5xs);
-
-    & > dt {
-      font-size: var(--scale-md);
-      font-weight: 500;
-    }
-
-    & > dd {
-      font-size: var(--scale-md);
-      padding-left: var(--scale-sm);
-    }
   }
 }
 

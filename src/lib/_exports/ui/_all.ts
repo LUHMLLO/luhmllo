@@ -1,7 +1,6 @@
 export { App } from './app.ts'
 export { Dropdown } from './dropdown.ts'
 export { Fragment } from './fragment.ts'
-export { Icon } from './icon.ts'
 export { Layer } from './layer.ts'
 export { Flex, Grid, Group } from './layout.ts'
 export { Slider } from './slider.ts'

@@ -1,4 +1,35 @@
 @layer normalize {
+  :where(hr) {
+    --bg: var(--clr-primary);
+    background-color: var(--bg);
+
+    &:is([data-props~=--x]) {
+      height: calc(var(--scale-5xs) * 0.1625);
+      width: 100%;
+    }
+
+    &:is([data-props~=--y]) {
+      height: 100%;
+      width: calc(var(--scale-5xs) * 0.1625);
+    }
+  }
+}
+
+@layer normalize {
+  :where(dl) {
+    gap: var(--scale-5xs);
+
+    & > dt {
+      font-size: var(--scale-md);
+      font-weight: 500;
+    }
+
+    & > dd {
+      font-size: var(--scale-md);
+      padding-left: var(--scale-sm);
+    }
+  }
+
   :where(dl) {
     display: grid;
     gap: var(--scale-sm);
@@ -7,6 +38,71 @@
 
     & > dd {
       margin-top: calc(var(--scale-sm) * -1);
+    }
+  }
+
+  :where(ol, ul) {
+    list-style-position: inside;
+
+    & > li {
+      font-size: var(--scale-md);
+      text-wrap: pretty;
+      width: min(72ch, 100%);
+    }
+
+    & :where(ol, ul) {
+      margin-left: var(--scale-sm);
+    }
+
+    &:is(ol) {
+      counter-reset: li;
+
+      & li {
+        counter-increment: li;
+
+        &::marker {
+          content: counter(li)'. ';
+        }
+
+        &:is(.__counter) {
+          &::marker {
+            content: none;
+            display: none;
+          }
+        }
+      }
+
+      & .__counter {
+        counter-increment: li;
+        font-style: normal;
+        font-variant-numeric: slashed-zero;
+
+        &::before,
+        &::after {
+          clear: both;
+          display: inline-block;
+          margin-inline: 0.5rem;
+        }
+
+        &:is([data-props~=--lead])::before {
+          content: counter(li)'. ';
+        }
+
+        &:is([data-props~=--trail])::after {
+          content: ' .' counter(li);
+        }
+      }
+    }
+
+    &:is(ul) {
+      & li {
+        &::marker {
+          clear: both;
+          content: '- ';
+          display: inline-block;
+          margin-inline: 0.5rem;
+        }
+      }
     }
   }
 }
@@ -19,14 +115,14 @@
     width: fit-content;
 
     & > summary {
-      & [data-props~=--animate] {
+      & :is([data-props~=--animate]) {
         transition: rotate var(--animDefaults);
       }
     }
 
     &[open] {
       & > summary {
-        & [data-props~=--animate] {
+        & :is([data-props~=--animate]) {
           rotate: -180deg;
         }
       }
@@ -91,17 +187,17 @@
     }
 
     /* No icons */
-    &:not(:has(:where([data-props~=--lead]):first-child)):not(:has(:where([data-props~=--trail]):last-child)) {
+    &:not(:has(:where(:is([data-props~=--lead])):first-child)):not(:has(:where(:is([data-props~=--trail])):last-child)) {
       --px: calc(var(--spacing) * 2.75);
     }
 
     /* Left icon only */
-    &:has(:where([data-props~=--lead]):first-child):is(:not(:has(:where([data-props~=--trail]):last-child))) {
+    &:has(:where(:is([data-props~=--lead])):first-child):is(:not(:has(:where(:is([data-props~=--trail])):last-child))) {
       padding-inline-end: calc(var(--spacing) * 2);
     }
 
     /* Right icon only */
-    &:has(:where([data-props~=--trail]):last-child):is(:not(:has(:where([data-props~=--lead]):first-child))) {
+    &:has(:where(:is([data-props~=--trail])):last-child):is(:not(:has(:where(:is([data-props~=--lead])):first-child))) {
       padding-inline-start: calc(var(--spacing) * 2);
     }
 
@@ -109,25 +205,25 @@
       --clr: var(--clr-accent);
     }
 
-    &:not(button, :is(a, summary)[data-props~=--button]) {
+    &:not(button, :is(a, summary):is([data-props~=--button])) {
       --radius: var(--scale-sm);
 
       height: max-content;
       padding: 0;
     }
 
-    &:is(button, :is(a, summary)[data-props~=--button]) {
+    &:is(button, :is(a, summary):is([data-props~=--button])) {
       --bg: transparent;
       height: var(--size);
     }
 
-    &:is(button, [data-props~=--button])[data-props~=--outline] {
+    &:is(button, :is([data-props~=--button])):is([data-props~=--outline]) {
       outline-color: color-mix(in var(--prefers-colorSpace, srgb),
           var(--outln),
           gray 16%);
     }
 
-    &:is(button, [data-props~=--button])[data-props~=--fab] {
+    &:is(button, :is([data-props~=--button])):is([data-props~=--fab]) {
       --px: 0;
       --py: 0;
       aspect-ratio: 1/1;
@@ -145,7 +241,7 @@
             var(--clr),
             gray 16%);
 
-        &:is(button, [data-props~=--button])[data-props~=--outline] {
+        &:is(button, :is([data-props~=--button])):is([data-props~=--outline]) {
           outline-color: color-mix(in var(--prefers-colorSpace, srgb),
               var(--outln),
               gray 16%);
@@ -161,7 +257,7 @@
           var(--clr),
           darkgray 16%);
 
-      &:is(button, [data-props~=--button])[data-props~=--outline] {
+      &:is(button, :is([data-props~=--button])):is([data-props~=--outline]) {
         outline-color: color-mix(in var(--prefers-colorSpace, srgb),
             var(--outln),
             darkgray 16%);
@@ -251,40 +347,32 @@
 
       &:is([type='checkbox'], [type='radio']) {
         --bg: transparent;
+        --family: 'Material Symbols Outlined',
+          'Material Symbols Rounded', 'Material Symbols Sharp', sans-serif;
         --px: 0;
-        --size: 1.5lh;
+        --py: 0;
+        --size: 1lh;
 
-        --iconOff: '';
-        --iconOn: 'check';
-
-        aspect-ratio: 1/1;
         appearance: none;
-        display: inline-block;
+        aspect-ratio: 1/1;
+        background-color: var(--bg);
+        display: inline-grid;
+        flex-grow: 0;
+        flex-shrink: 0;
+        font-family: var(--family);
+        font-feature-settings: 'liga';
+        font-size: calc(var(--size) / var(--scale-2xl));
+        font-variation-settings: 'FILL' var(--fill), 'wght' 400, 'GRAD' 400, 'opsz' 48;
         height: var(--size);
-        position: relative;
-        vertical-align: middle;
-        width: var(--size);
-
-        &::after {
-          aspect-ratio: 1/1;
-          content: var(--iconOff);
-          display: block;
-          font-family: var(--prefers-iconFontFamily);
-          font-size: 100%;
-          line-height: var(--size);
-          margin: auto;
-          pointer-events: none;
-          text-align: center;
-          transition: background-color var(--animDefaults),
-            color var(--animDefaults), margin var(--animDefaults),
-            outline-color var(--animDefaults);
-        }
+        overflow: clip;
+        place-content: center center;
+        shape-margin: var(--scale-5xs);
+        shape-outside: circle(50%);
+        user-select: none;
+        width: auto;
 
         &:checked {
-          &::after {
-            background-color: var(--clr-accent);
-            content: var(--iconOn);
-          }
+          --bg: var(--clr-accent);
         }
 
         &:is([type='checkbox']:not([data-props~=--switch])) {
@@ -296,27 +384,29 @@
         }
 
         &:is([data-props~=--switch]) {
-          --iconOff: '';
-          --iconOn: '';
-
-          display: inline-flex;
+          display: inline-grid;
+          place-content: center center;
           width: calc(var(--size) * 2);
 
           &::after {
+            aspect-ratio: 1/1;
             background-color: color-mix(in var(--prefers-colorSpace, srgb),
                 var(--bg),
                 darkgray 16%);
             border-radius: 50%;
-            height: calc(var(--size) / 2);
-            margin-block: auto;
-            margin-left: calc(var(--prefers-outlineWidth) + 1%);
-            width: calc(var(--size) / 2);
+            content: '';
+            height: calc(var(--size) - 25%);
+            transition: translate var(--animDefaults);
+            translate: -50% 0%;
+            width: auto;
           }
 
           &:checked {
+            --bg: transparent;
+
             &::after {
-              background-color: var(--clr-accent);
-              margin-left: calc(calc(99% - calc(var(--size) / 2) - var(--prefers-outlineWidth)));
+              --bg: var(--clr-accent);
+              translate: calc(100% - var(--prefers-outlineWidth)) 0%;
             }
           }
         }
@@ -326,7 +416,7 @@
         display: none;
       }
 
-      &:where([data-props~='--part']){
+      &:where(:is([data-props~='--part'])) {
         --bg: transparent;
         --px: 0;
         --py: 0;
@@ -389,7 +479,7 @@
       grid-template-columns: minmax(0, 1fr);
       width: 100%;
 
-      & > :where([data-props~=--label]) {
+      & > :where(:is([data-props~=--label])) {
         font-size: var(--scale-md);
       }
 
@@ -397,7 +487,7 @@
         width: 100%;
       }
 
-      & > :where([data-props~=--caption]) {
+      & > :where(:is([data-props~=--caption])) {
         color: var(--clr-subtext);
         font-size: var(--scale-sm);
       }
@@ -518,7 +608,7 @@
       }
     }
 
-    &:where([data-props~=--simple]) {
+    &:where(:is([data-props~=--simple])) {
       display: block;
       overflow-x: auto;
       table-layout: fixed;
@@ -550,17 +640,20 @@
 
 @layer normalize {
   :where(icon) {
+    --family: 'Material Symbols Outlined',
+      'Material Symbols Rounded', 'Material Symbols Sharp', sans-serif;
     --fill: 0;
+    --size: 1lh;
 
     aspect-ratio: 1/1;
     display: inline-grid;
     flex-grow: 0;
     flex-shrink: 0;
-    font-family: var(--prefers-iconFontFamily);
+    font-family: var(--family);
     font-feature-settings: 'liga';
-    font-size: calc(var(--prefers-iconScale) * 0.75);
+    font-size: calc(var(--size) / var(--scale-2xl));
     font-variation-settings: 'FILL' var(--fill), 'wght' 400, 'GRAD' 400, 'opsz' 48;
-    height: var(--prefers-iconScale);
+    height: var(--size);
     overflow: clip;
     place-content: center center;
     shape-margin: var(--scale-5xs);
@@ -568,7 +661,13 @@
     user-select: none;
     width: auto;
 
-    &[solid] {
+    & > * {
+      display: inline;
+      line-height: inherit;
+      margin: auto;
+    }
+
+    &:is([data-props~=--solid]) {
       --fill: 1;
     }
   }
