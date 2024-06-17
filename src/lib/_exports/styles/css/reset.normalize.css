@@ -351,7 +351,7 @@
           'Material Symbols Rounded', 'Material Symbols Sharp', sans-serif;
         --px: 0;
         --py: 0;
-        --size: 1lh;
+        --size: 0.88lh;
 
         appearance: none;
         aspect-ratio: 1/1;
@@ -361,7 +361,7 @@
         flex-shrink: 0;
         font-family: var(--family);
         font-feature-settings: 'liga';
-        font-size: calc(var(--size) / var(--scale-2xl));
+        font-size: var(--size);
         font-variation-settings: 'FILL' var(--fill), 'wght' 400, 'GRAD' 400, 'opsz' 48;
         height: var(--size);
         overflow: clip;
@@ -369,6 +369,7 @@
         shape-margin: var(--scale-5xs);
         shape-outside: circle(50%);
         user-select: none;
+        vertical-align: middle;
         width: auto;
 
         &:checked {
@@ -384,8 +385,9 @@
         }
 
         &:is([data-props~=--switch]) {
-          display: inline-grid;
-          place-content: center center;
+          --radius: var(--scale-5xl);
+
+          position: relative;
           width: calc(var(--size) * 2);
 
           &::after {
@@ -396,8 +398,11 @@
             border-radius: 50%;
             content: '';
             height: calc(var(--size) - 25%);
-            transition: translate var(--animDefaults);
-            translate: -50% 0%;
+            inset: 0 calc(var(--prefers-outlineWidth) * 1.75);
+            margin-block: auto;
+            margin-inline: 0 auto;
+            position: absolute;
+            transition: margin var(--animDefaults);
             width: auto;
           }
 
@@ -406,7 +411,8 @@
 
             &::after {
               --bg: var(--clr-accent);
-              translate: calc(100% - var(--prefers-outlineWidth)) 0%;
+
+              margin-inline: 50% auto;
             }
           }
         }
@@ -651,7 +657,7 @@
     flex-shrink: 0;
     font-family: var(--family);
     font-feature-settings: 'liga';
-    font-size: calc(var(--size) / var(--scale-2xl));
+    font-size: var(--size);
     font-variation-settings: 'FILL' var(--fill), 'wght' 400, 'GRAD' 400, 'opsz' 48;
     height: var(--size);
     overflow: clip;
@@ -662,9 +668,10 @@
     width: auto;
 
     & > * {
-      display: inline;
-      line-height: inherit;
+      display: contents;
+      line-height: 1lh;
       margin: auto;
+      vertical-align: -webkit-baseline-middle;
     }
 
     &:is([data-props~=--solid]) {
