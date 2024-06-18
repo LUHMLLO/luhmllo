@@ -1,0 +1,103 @@
+---
+layout: 'src/layouts/docs.astro'
+---
+
+export const filters = [
+  {
+    icon: 'box',
+    name: 'Category',
+  },
+  {
+    icon: 'calendar_today',
+    name: 'Date',
+  },
+  {
+    icon: 'calendar_clock',
+    name: 'Created At',
+  },
+  {
+    icon: 'calendar_clock',
+    name: 'Modified At',
+  },
+  {
+    icon: 'tag',
+    name: 'Quantity',
+  },
+  {
+    icon: 'account_circle',
+    name: 'Ownership',
+  },
+  {
+    icon: 'attach_money',
+    name: 'Price',
+  },
+  {
+    icon: 'format_shapes',
+    name: 'Type',
+  },
+  {
+    icon: 'lasso_select',
+    name: 'Status',
+  },
+  {
+    icon: 'keyboard_command_key',
+    name: 'Actions',
+  },
+]
+
+## Table <small class="clr-subtext txt-nm txt-lowercase"> native </small>
+
+`<table/>` element in web development is used to create a structured 
+grid layout for displaying tabular data. It consists of one or more 
+`<tr/>` (table row) elements, each containing one or more `<td/>` (table data) 
+or `<th/>` (table header) elements. Tables are essential for presenting 
+data in a structured and organized manner.
+
+<grid class='grid cols-2 outln outln-primary radius-3xs'>
+  ```html
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John Doe</td>
+        <td>30</td>
+        <td>New York</td>
+      </tr>
+      <tr>
+        <td>Jane Smith</td>
+        <td>25</td>
+        <td>Los Angeles</td>
+      </tr>
+    </tbody>
+  </table>
+  ```
+  <column class='align-center[items] flex place-center p-5xl'>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John Doe</td>
+          <td>30</td>
+          <td>New York</td>
+        </tr>
+        <tr>
+          <td>Jane Smith</td>
+          <td>25</td>
+          <td>Los Angeles</td>
+        </tr>
+      </tbody>
+    </table>
+  </column>
+</grid>

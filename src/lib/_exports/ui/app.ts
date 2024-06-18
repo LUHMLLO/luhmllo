@@ -57,20 +57,20 @@ export class App extends LitElement {
 			display: grid;
 			grid-auto-rows: max-content;
 			grid-template-columns:
-				[expand-start] minmax(var(--prefers-containerOutterWidth), 1fr)
-				[contain-start] minmax(0, var(--prefers-containerWidth))
-				[contain-end] minmax(var(--prefers-containerOutterWidth), 1fr)
-				[expand-end];
+				[grid-expand-start] minmax(var(--prefers-containerOutterWidth), 1fr)
+				[grid-contain-start] minmax(0, var(--prefers-containerWidth))
+				[grid-contain-end] minmax(var(--prefers-containerOutterWidth), 1fr)
+				[grid-expand-end];
 			overflow-x: clip;
 			overflow-y: auto;
 		}
 
 		:host(:is(ly-app[tmpl='container'])) ::slotted(*) {
-			grid-column: contain;
+			grid-column: grid-contain;
 		}
 
 		:host(:is(ly-app[tmpl='container'])) ::slotted([tmpl-expand]) {
-			grid-column: expand;
+			grid-column: grid-expand;
 		}
 
 		:host(:is(ly-app[tmpl='container']))
@@ -85,7 +85,7 @@ export class App extends LitElement {
 		:host(:is(ly-app[tmpl='container'])) ::slotted([tmpl-subgrid]) {
 			grid-auto-rows: inherit;
 			grid-template-columns: subgrid;
-			grid-column: expand;
+			grid-column: grid-expand;
 		}
 
 		:host(:is(ly-app[tmpl='row'])) {

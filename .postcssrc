@@ -33,6 +33,9 @@
 					"normalizeUrl": true,
 					"normalizeWhitespace": true,
 					"orderedValues": true,
+          "reduceIdents": {
+            "gridTemplate": false
+          },
 					"reduceInitial": true,
 					"reduceTransforms": true,
 					"uniqueSelectors": true

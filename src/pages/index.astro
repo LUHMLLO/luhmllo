@@ -1,0 +1,30 @@
+---
+import Layout from 'src/layouts/docs.astro';
+
+const contents = [
+	{ name: 'anchor' },
+	{ name: 'button' },
+	{ name: 'details' },
+	{ name: 'input' },
+	{ name: 'label' },
+	{ name: 'list' },
+	{ name: 'textarea' },
+];
+---
+
+<Layout>
+	<h1>Get Started</h1>
+
+	<grid class='grid cols-4'>
+		{
+			contents.map(({ name }) => (
+				<article>
+					<figure>
+						<img src='' />
+						<figcaption>{name}</figcaption>
+					</figure>
+				</article>
+			))
+		}
+	</grid>
+</Layout>

@@ -4,10 +4,10 @@ import { ViewTransitions } from 'astro:transitions';
 interface Props {
 	overrides?: string;
 	scheme?: string;
-	title: string;
+	title?: string;
 }
 
-const { overrides, scheme, title } = Astro.props;
+const { overrides = '', scheme = 'auto', title = 'LiLys' } = Astro.props;
 
 const anim = {
 	old: {

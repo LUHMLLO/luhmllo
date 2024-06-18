@@ -1,5 +1,5 @@
 ---
-import Layout from 'src/lib/layout.uis.astro';
+import CoreHTML from 'src/layouts/_html.astro';
 import Module from './_lib/paletter.svelte';
 
 const overrides = `
@@ -12,9 +12,9 @@ const overrides = `
 `;
 ---
 
-<Layout scheme='dark' {overrides}>
+<CoreHTML scheme='dark' {overrides}>
 	<Module client:only='svelte' />
-</Layout>
+</CoreHTML>
 
 <style lang='css'>
 	:root {

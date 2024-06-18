@@ -69,17 +69,17 @@
 
   :where(.grid).container {
     grid-auto-rows: max-content;
-    grid-template-columns: [expand-start] minmax(var(--prefers-containerOutterWidth),
-        1fr) [contain-start] minmax(0, var(--prefers-containerWidth)) [contain-end] minmax(var(--prefers-containerOutterWidth),
-        1fr) [expand-end];
+    grid-template-columns: [grid-expand-start] minmax(var(--prefers-containerOutterWidth),
+        1fr) [grid-contain-start] minmax(0, var(--prefers-containerWidth)) [grid-contain-end] minmax(var(--prefers-containerOutterWidth),
+        1fr) [grid-expand-end];
   }
 
   :where(.grid).container > * {
-    grid-column: contain;
+    grid-column: grid-contain;
   }
 
   :where(.grid).container > [tmpl-expand] {
-    grid-column: expand;
+    grid-column: grid-expand;
   }
 
   :where(.grid).container > [tmpl-expand] > *:not([tmpl-expand='uncontained']) {
@@ -91,7 +91,7 @@
   :where(.grid).container > [tmpl-subgrid] {
     grid-auto-rows: inherit;
     grid-template-columns: 1/-1;
-    grid-column: expand;
+    grid-column: grid-expand;
   }
 
   :where(.grid).container > [tmpl='row'] {

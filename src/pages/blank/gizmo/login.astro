@@ -1,5 +1,5 @@
 ---
-import Layout from './_lib/layout.auth.astro';
+import CoreHTML from 'src/layouts/_html.astro';
 ---
 
 <script is:inline type='module'>
@@ -57,7 +57,7 @@ import Layout from './_lib/layout.auth.astro';
 	};
 </script>
 
-<Layout>
+<CoreHTML>
 	<aside>
 		<ul class='indicators'>
 			<li class='indicator active'></li>
@@ -72,7 +72,7 @@ import Layout from './_lib/layout.auth.astro';
 				<object data='/assets/media/hytech/favicon.svg'></object>
 			</figure>
 			<a href={void 0}>
-				<ly-icon>eco</ly-icon>
+				<icon>eco</icon>
 				Join Us
 			</a>
 		</header>
@@ -127,7 +127,7 @@ import Layout from './_lib/layout.auth.astro';
 		</p>
 		<small>@Copyright 2023 Gizmo LLC | All Rights Reserved</small>
 	</aside>
-</Layout>
+</CoreHTML>
 
 <style lang='css'>
 	aside {

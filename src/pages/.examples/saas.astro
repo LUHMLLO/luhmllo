@@ -1,5 +1,5 @@
 ---
-import Layout from 'src/layouts/docs.astro';
+import CoreHTML from 'src/layouts/_html.astro';
 
 const overrides = `
 	<style>
@@ -57,12 +57,14 @@ const foundersArticles = [
 ];
 ---
 
-<Layout scheme='light' {overrides}>
-	<section class='bg-primary place-center[all] [min]h-100[vh]' tmpl-subgrid>
-		<ly-grid tmpl='container' class='grow place-between[all] w-100'>
+<CoreHTML scheme='light' {overrides}>
+	<container>
+		<section
+			class='bg-primary place-center[all] [min]h-100[vh]'
+			data-props='--expand'>
 			<nav class='clr-text place-between pt-5xl w-100'>
 				<a href='#' class='clr-inherit'>
-					<ly-icon> blur_on </ly-icon>
+					<icon> blur_on </icon>
 				</a>
 				<nav class='g-5xl'>
 					<a href='#' class='clr-inherit'>Process</a>
@@ -90,7 +92,7 @@ const foundersArticles = [
 				</button>
 			</header>
 
-			<ly-flex id='logoslider' class='g-5xl pb-5xl' expand>
+			<flex id='logoslider' class='g-5xl pb-5xl' data-props='--expand'>
 				{
 					logos.map((i) => (
 						<figure class='aspect-[21/9] radius-3xs noshrink w-16[ch]'>
@@ -98,46 +100,39 @@ const foundersArticles = [
 						</figure>
 					))
 				}
-			</ly-flex>
-		</ly-grid>
-	</section>
-	<section class='g-5xl py-5xl place-center[all] [min]h-75[vh]'>
-		<header class='place-center[all] txt-center'>
-			<small>THE PROCESS</small>
-			<h2>Built by founds, for founders</h2>
-		</header>
-		<ly-grid tmpl='4' class='g-sm'>
-			{
-				foundersArticles.map((article, index) => (
-					<ly-flex axis='y' class='bg-primary g-5xl p-sm radius-3xs'>
-						<ly-flex class='align-center[items] place-between'>
-							<var class='inline-flex place-center[all] txt-normal w-5xl bg-accent aspect-[1/1] radius-3xs'>
-								{index}
-							</var>
-							<small>week {index}</small>
-						</ly-flex>
-						<ly-group>
-							<h6>{article.heading}</h6>
-							<p>{article.paragraph}</p>
-						</ly-group>
-					</ly-flex>
-				))
-			}
-		</ly-grid>
-	</section>
-</Layout>
+			</flex>
+		</section>
+
+		<section class='g-5xl py-5xl place-center[all] [min]h-75[vh]'>
+			<header class='place-center[all] txt-center'>
+				<small>THE PROCESS</small>
+				<h2>Built by founds, for founders</h2>
+			</header>
+			<grid data-props='--4' class='g-sm'>
+				{
+					foundersArticles.map((article, index) => (
+						<article class='bg-primary p-sm radius-3xs'>
+							<flex class='align-center[items] place-between'>
+								<var class='inline-flex place-center[all] txt-normal w-5xl bg-accent aspect-[1/1] radius-3xs'>
+									{index}
+								</var>
+								<small>week {index}</small>
+							</flex>
+							<group data-props='--y'>
+								<h6>{article.heading}</h6>
+								<p>{article.paragraph}</p>
+							</group>
+						</article>
+					))
+				}
+			</grid>
+		</section>
+	</container>
+</CoreHTML>
 
 <style lang='css'>
 	:root {
 		--baseFontFamily: 'Clash Display', sans-serif;
-	}
-
-	:global(ly-app) {
-		padding-block: 0;
-
-		& > *:first-child {
-			margin-top: 0;
-		}
 	}
 
 	#logoslider {
