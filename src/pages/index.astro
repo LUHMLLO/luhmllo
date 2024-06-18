@@ -1,29 +1,21 @@
 ---
 import Layout from 'src/layouts/docs.astro';
 
-const contents = [
-	{ name: 'anchor' },
-	{ name: 'button' },
-	{ name: 'details' },
-	{ name: 'input' },
-	{ name: 'label' },
-	{ name: 'list' },
-	{ name: 'textarea' },
-];
+const routes = await Astro.glob('src/pages/docs/*').then((files) => {
+	return files.map((file) => file.url);
+});
 ---
 
 <Layout>
 	<h1>Get Started</h1>
 
-	<grid class='grid cols-4'>
+	<grid data-props='--4' class='g-sm'>
 		{
-			contents.map(({ name }) => (
-				<article>
-					<figure>
-						<img src='' />
-						<figcaption>{name}</figcaption>
-					</figure>
-				</article>
+			routes.map((route) => (
+				<a href={route} class='bg-primary clr-inherit p-xl w-100'>
+					<icon data-props='--lead'>asterisk</icon>
+					<span> {route.replace('/docs/', '')} </span>
+				</a>
 			))
 		}
 	</grid>
