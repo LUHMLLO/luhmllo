@@ -140,7 +140,7 @@
     --outln: var(--bg);
     --px: var(--spacing);
     --py: 0;
-    --radius: var(--scale-5xl);
+    --radius: 0;
     --spacing: var(--scale-5xs);
     --size: clamp(24pt, 2lh, var(--scale-5xl));
 
@@ -206,14 +206,13 @@
     }
 
     &:not(button, :is(a, summary):is([data-props~=--button])) {
-      --radius: var(--scale-sm);
-
       height: max-content;
       padding: 0;
     }
 
     &:is(button, :is(a, summary):is([data-props~=--button])) {
       --bg: transparent;
+      --radius: var(--scale-5xl);
       height: var(--size);
     }
 
