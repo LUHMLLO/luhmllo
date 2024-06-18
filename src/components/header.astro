@@ -1,3 +1,9 @@
+---
+const routes = await Astro.glob('src/pages/docs/*').then((files) => {
+	return files.map((file) => file.url);
+});
+---
+
 <nav
 	class='g-sm place-between p-xl w-100 ps-fixed z-3'
 	tmpl-expand='uncontained'>
@@ -7,7 +13,7 @@
 
 	<nav class='g-sm place-end'>
 		<a href='/' class='clr-inherit'>Get Started</a>
-		<a href='/examples' class='clr-inherit'>Examples</a>
+		<a href='/html' class='clr-inherit'>HTML Test Page</a>
 		<a
 			href='#'
 			data-props='--button --outline'
@@ -28,13 +34,21 @@
 	</p>
 </header>
 
-<nav class='g-sm outln outln-primary py-xl w-100' tmpl-expand>
-	<button data-props='--outline' class='txt-500'>Tv</button>
-	<button data-props='--outline' class='txt-500'>Web</button>
-	<button data-props='--outline' class='txt-500'>Tablet</button>
-	<button data-props='--outline' class='txt-500'>Mobile</button>
-	<button data-props='--outline' class='txt-500'>Watch</button>
-</nav>
+<ly-slider class='g-sm outln outln-primary py-xl w-100' tmpl-expand>
+	{
+		routes.map((route) => (
+			<a
+				href={route}
+				data-props='--button --outline'
+				class={
+					'clr-inherit txt-500 ' +
+					(Astro.url.pathname === route ? 'bg-accent' : '')
+				}>
+				<span>{route.replace('/docs/', '')}</span>
+			</a>
+		))
+	}
+</ly-slider>
 
 <style lang='css' scoped>
 	nav:first-child {
