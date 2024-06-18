@@ -7,9 +7,11 @@ const routes = await Astro.glob('src/pages/docs/*').then((files) => {
 <nav
 	class='g-sm place-between p-xl w-100 ps-fixed z-3'
 	tmpl-expand='uncontained'>
-	<figure class='aspect-[1/1] h-5xl w-max'>
-		<img src='/icon.png' alt='logo' style='filter: invert(1);' />
-	</figure>
+	<a href='/'>
+		<figure class='aspect-[1/1] h-5xl w-max'>
+			<img src='/icon.png' alt='logo' style='filter: invert(1);' />
+		</figure>
+	</a>
 
 	<nav class='g-sm place-end'>
 		<a href='/' class='clr-inherit'>Get Started</a>
