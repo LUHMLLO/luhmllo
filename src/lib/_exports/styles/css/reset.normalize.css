@@ -17,7 +17,10 @@
 
 @layer normalize {
   :where(dl) {
-    gap: var(--scale-5xs);
+    display: grid;
+    gap: var(--scale-sm);
+    min-height: 0;
+    position: relative;
 
     & > dt {
       font-size: var(--scale-md);
@@ -26,18 +29,8 @@
 
     & > dd {
       font-size: var(--scale-md);
-      padding-left: var(--scale-sm);
-    }
-  }
-
-  :where(dl) {
-    display: grid;
-    gap: var(--scale-sm);
-    min-height: 0;
-    position: relative;
-
-    & > dd {
       margin-top: calc(var(--scale-sm) * -1);
+      padding-left: var(--scale-sm);
     }
   }
 
