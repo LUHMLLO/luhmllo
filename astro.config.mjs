@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config'
-import vercel from '@astrojs/vercel/static'
+import vercel from '@astrojs/vercel/serverless'
 import svelte from '@astrojs/svelte'
 import mdx from '@astrojs/mdx'
 
@@ -12,7 +12,7 @@ export default defineConfig({
   },
   compressHTML: true,
   outDir: './dist/app',
-  output: 'static',
+  output: 'hybrid',
   prefetch: {
     prefetchAll: true,
   },

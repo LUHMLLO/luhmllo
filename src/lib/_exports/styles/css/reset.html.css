@@ -73,8 +73,6 @@
     }
   }
 
-
-
   :where(blockquote, q) {
     border-left: 0.125rem solid var(--clr-subtext);
     font-size: var(--scale-sm);
