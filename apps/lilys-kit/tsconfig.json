@@ -47,7 +47,7 @@
     "jsx": "preserve" // Preserve JSX syntax
   },
   "include": [
-    "src",
+    "src", "../dcoms",
   ], // Include source files in compilation
   "exclude": [ // Exclude specific files and folders from compilation
     "dist", // Exclude distribution folder
