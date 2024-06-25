@@ -1,8 +1,3 @@
-
-
-
-
-
 export const prerender = false;
 
 import type { APIContext, APIRoute } from 'astro';
@@ -11,7 +6,7 @@ import {
     insertNewUser,
     type NewUser,
     type User,
-} from '../../_lib/db/schemas/users';
+} from '../../../db/schemas/users'
 
 //create new users
 export const POST: APIRoute = async (context: APIContext): Promise<Response> => {
@@ -29,8 +24,8 @@ export const POST: APIRoute = async (context: APIContext): Promise<Response> => 
                 },
             });
         }
-
-        const newUser: NewUser = { ...body.entries() };
+        console.log(body)
+        const newUser: NewUser = { ...body };
         const result = await insertNewUser(newUser);
 
         console.log(result)
