@@ -1,0 +1,60 @@
+{
+    "author": "luhmllo",
+    "description": "props powered css lib",
+    "homepage": "https://lilys-kit.vercel.app/",
+    "license": "MIT",
+    "main": "build/index.js",
+    "name": "lilys",
+    "type": "module",
+    "version": "0.0.18",
+    "browserslist": [
+        "defaults",
+        "not op_mini all"
+    ],
+    "devDependencies": {
+        "@floating-ui/dom": "^1.6.5",
+		"@github/catalyst": "^1.6.0",
+        "cssnano": "^7.0.2",
+        "cssnano-preset-advanced": "^7.0.2",
+        "postcss": "^8.4.38",
+        "postcss-cli": "^11.0.0",
+        "postcss-fail-on-warn": "^0.2.1",
+        "postcss-import": "^16.1.0",
+        "sass": "^1.77.5"
+    },
+    "scripts": {
+        "gen:scss": "sass --color --no-source-map --stop-on-error --unicode --update ./src/sass/:./src/css/",
+        "gen:postcss": "postcss ./src/css/*.css -d ./build/css/ --config ./.postcssrc"
+    },
+    "exports": {
+        ".": {
+            "import": "./index.js",
+            "require": "./index.js",
+            "browser": "./index.js",
+            "umd": "./index.js"
+        }
+    },
+    "files": [
+        "build/",
+        "index.js"
+    ],
+    "keywords": [
+        "agnostic",
+        "css",
+        "custom elements",
+        "library",
+        "ui",
+        "web components",
+        "minimal",
+        "modular",
+        "props"
+    ],
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/LUHMLLO/lilys.git"
+    }
+}
