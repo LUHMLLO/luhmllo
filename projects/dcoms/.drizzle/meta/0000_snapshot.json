@@ -1,11 +1,11 @@
 {
-  "id": "dd4ae025-f429-4ef1-922b-11fff40513e3",
+  "id": "81315f68-5a5c-4f10-bf33-bab13c74583e",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "public.roles": {
-      "name": "roles",
+    "public.categories": {
+      "name": "categories",
       "schema": "",
       "columns": {
         "id": {
@@ -24,7 +24,65 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {
+        "categories_name_unique": {
+          "name": "categories_name_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "name"
+          ]
+        }
+      }
+    },
+    "public.packages": {
+      "name": "packages",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "code": {
+          "name": "code",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(59)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "undefined": {
+          "name": "undefined",
+          "type": "package_type",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "packages_code_unique": {
+          "name": "packages_code_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "code"
+          ]
+        },
+        "packages_name_unique": {
+          "name": "packages_name_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "name"
+          ]
+        }
+      }
     },
     "public.users": {
       "name": "users",
@@ -40,20 +98,26 @@
           "name": "name",
           "type": "varchar(59)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "phone": {
           "name": "phone",
           "type": "varchar(15)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(59)",
+          "primaryKey": false,
+          "notNull": true
         },
         "technician": {
           "name": "technician",
-          "type": "role",
+          "type": "user_role",
           "typeSchema": "public",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         }
       },
       "indexes": {},
@@ -73,18 +137,33 @@
           "columns": [
             "phone"
           ]
+        },
+        "users_email_unique": {
+          "name": "users_email_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "email"
+          ]
         }
       }
     }
   },
   "enums": {
-    "public.role": {
-      "name": "role",
+    "public.package_type": {
+      "name": "package_type",
+      "schema": "public",
+      "values": [
+        "residential",
+        "commercial",
+        "undefined"
+      ]
+    },
+    "public.user_role": {
+      "name": "user_role",
       "schema": "public",
       "values": [
         "technician",
-        "administrator",
-        "root"
+        "administrator"
       ]
     }
   },

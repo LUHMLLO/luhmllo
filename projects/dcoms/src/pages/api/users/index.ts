@@ -2,7 +2,7 @@ export const prerender = false;
 
 import type { APIContext, APIRoute } from 'astro';
 import {
-    getAllUsers,
+    getUsers,
     insertNewUser,
     type NewUser,
     type User,
@@ -10,7 +10,6 @@ import {
 
 //create new users
 export const POST: APIRoute = async (context: APIContext): Promise<Response> => {
-
     const { request } = context;
 
     try {
@@ -24,11 +23,9 @@ export const POST: APIRoute = async (context: APIContext): Promise<Response> => 
                 },
             });
         }
-        console.log(body)
+
         const newUser: NewUser = { ...body };
         const result = await insertNewUser(newUser);
-
-        console.log(result)
 
         return new Response(JSON.stringify({ payload: result }), {
             status: 201,
@@ -54,7 +51,7 @@ export const POST: APIRoute = async (context: APIContext): Promise<Response> => 
 
 //read all users
 export const GET: APIRoute = async (_context: APIContext): Promise<Response> => {
-    const users: User[] = await getAllUsers();
+    const users: User[] = await getUsers();
 
     if (!users || users.length <= 0) {
         return new Response(JSON.stringify({ message: 'No users available' }), {
