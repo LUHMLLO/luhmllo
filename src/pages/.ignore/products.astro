@@ -1,0 +1,76 @@
+---
+import Layout from '@astro/layouts/docs.astro';
+---
+
+<Layout>
+	<!--  -->
+	<h1>Products</h1>
+	<p>
+		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit, impedit
+		officiis laborum quibusdam alias illo dolores ad maxime repudiandae incidunt
+		non asperiores voluptas, saepe iste corporis! Doloribus nam asperiores
+		numquam!
+	</p>
+	<!--  -->
+	<grid data-props="--3" class='g-sm'>
+		{
+			[...Array(4).keys()].map((i) => (
+				<article class='inline-grid outln outln-primary g-sm p-sm radius-sm' style=`${i < 1 && 'grid-column: 1/-1;'}`>
+					<figure class='w-100'>
+						<img
+							src='https://cdn.dribbble.com/userupload/14856095/file/original-2054c6980b03637f35168d04410351b8.jpg?resize=1024x768'
+							alt='thumbnail'
+						/>
+						<ly-dropdown class='ps-absolute top right mt-5xs mr-5xs'>
+							<summary slot='summary' class='radius-3xs __button __outline' style="--bg: transparent; mix-blend-mode: difference;">
+								<icon> more_vert </icon>
+							</summary>
+							<button>
+								<span>option</span>
+							</button>
+							<button>
+								<span>option</span>
+							</button>
+							<button>
+								<span>option</span>
+							</button>
+						</ly-dropdown>
+					</figure>
+					<ly-group class='g-3xs px-sm'>
+						<figure
+							class='aspect-[1/1] bord bord-background radius-sm w-max'
+							style='height: calc(var(--scale-5xl) * 2); margin-top: calc(calc(var(--scale-5xl) * 1.5) * -1);'>
+							<img
+								src='https://cdn.dribbble.com/userupload/14856095/file/original-2054c6980b03637f35168d04410351b8.jpg?resize=1024x768'
+								alt='thumbvatar'
+							/>
+						</figure>
+						<ly-flex axis='x' class='align-center[items] g-sm place-between  wrap'>
+							<h6>Product Name</h6>
+							<small class='inline-block bg-subtext clr-text px-sm py-3xs radius-3xs txt-truncate'>
+								Product Tag
+							</small>
+						</ly-flex>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit.
+							Necessitatibus debitis, expedita vitae molestias autem eaque
+							aperiam aut ab labore et temporibus repudiandae cum sint quas
+							officia enim a incidunt aliquam.
+						</p>
+					</ly-group>
+
+					<hr class='h-1[pt]' />
+
+					<footer class='align-center[items] flex-row g-sm place-between wrap'>
+						<button class='__outline'> Call to action </button>
+						<a>
+							<icon>cloud_download</icon>
+							<span> 3,000 finished </span>
+						</a>
+					</footer>
+				</article>
+			))
+		}
+	</grid>
+	<!--  -->
+</Layout>

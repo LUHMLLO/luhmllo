@@ -1,0 +1,39 @@
+---
+import Footer from '@astro/components/footer.astro';
+import Header from '@astro/components/header.astro';
+import Layout from '@astro/layouts/html.astro';
+---
+
+<Layout>
+	<container class='container'>
+		<Header />
+		<slot />
+		<Footer />
+	</container>
+</Layout>
+
+<style lang='css' is:global>
+	@layer props {
+		:root {
+			--baseFontFamily: 'Clash Display', sans-serif;
+		}
+	}
+
+	container {
+		row-gap: var(--scale-5xl);
+		scrollbar-width: 0;
+
+		& > :where(h1, h2, h3, h4, h5, h6) {
+			text-transform: capitalize;
+
+			&:not(:first-child) {
+				margin-top: var(--scale-5xl);
+				margin-bottom: calc(var(--scale-5xl) * -0.75);
+			}
+
+			& + p {
+				color: var(--clr-subtext);
+			}
+		}
+	}
+</style>

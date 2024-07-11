@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@astro/*": [
+        "src/lib/astro/*"
+      ],
+      "@packages/*": [
+        "src/lib/packages/*"
+      ],
+      "@shared/*": [
+        "src/lib/shared/*"
+      ],
+    }
+  },
+  "include": [
+    "src",
+  ],
+  "exclude": [
+    "dist",
+    "node_modules",
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "author": "luhmllo",
+  "description": "Minimalism Meets Modularity for Effortless UI Development",
+  "homepage": "https://uwc.vercel.app/",
+  "license": "MIT",
+  "name": "lilys",
+  "type": "module",
+  "version": "0.0.18",
+  "browserslist": [
+    "defaults",
+    "not op_mini all"
+  ],
+  "dependencies": {
+    "@astrojs/check": "^0.7.0",
+    "@astrojs/mdx": "^3.1.0",
+    "@astrojs/svelte": "^5.5.0",
+    "@astrojs/vercel": "^7.7.0",
+    "@github/catalyst": "^1.6.0",
+    "astro": "^4.10.2",
+    "svelte": "^4.2.18",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "cssnano": "^7.0.2",
+    "cssnano-preset-advanced": "^7.0.2",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "postcss-fail-on-warn": "^0.2.1",
+    "postcss-import": "^16.1.0",
+    "sass": "^1.77.5",
+    "vite": "^5.3.1"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/designsystem",
+      "require": "./dist/designsystem",
+      "browser": "./dist/designsystem",
+      "umd": "./dist/designsystem"
+    }
+  },
+  "files": [
+    "dist/"
+  ],
+  "keywords": [
+    "agnostic",
+    "css",
+    "custom elements",
+    "library",
+    "ui",
+    "web components",
+    "minimal",
+    "modular",
+    "props"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LUHMLLO/lilys.git"
+  },
+  "scripts": {
+    "astro": "astro",
+    "build": "pnpm build:css && pnpm astro build",
+    "build:css": "sass --color --no-source-map --stop-on-error --unicode --update ./src/lib/packages/designsystem/sass/:./src/lib/packages/designsystem/css/ && postcss ./src/lib/packages/designsystem/css/*.css -d ./dist/designsystem/ --config ./.postcssrc",
+    "check": "tsc && astro check",
+    "dev": "astro dev",
+    "preview": "astro preview",
+    "start": "astro dev"
+  }
+}
