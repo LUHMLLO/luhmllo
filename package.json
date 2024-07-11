@@ -32,10 +32,10 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/designsystem",
-      "require": "./dist/designsystem",
-      "browser": "./dist/designsystem",
-      "umd": "./dist/designsystem"
+      "import": "./dist/designsystem/all.css",
+      "require": "./dist/designsystem/all.css",
+      "browser": "./dist/designsystem/all.css",
+      "umd": "./dist/designsystem/all.css"
     }
   },
   "files": [
