@@ -5,7 +5,7 @@
   "license": "MIT",
   "name": "lilys",
   "type": "module",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "browserslist": [
     "defaults",
     "not op_mini all"
