@@ -1,3 +1,6 @@
+---
+import 'lilys'
+---
 <!doctype html>
 <html lang='en' ly-scheme='dark'>
 	<head>
@@ -9,15 +12,6 @@
 		<meta name='generator' content={Astro.generator} />
 
 		<title>Lily's</title>
-
-		<link
-			rel='stylesheet'
-			:href={async () => import('../../packages/designsystem/css/all.css')}
-		/>
-
-		<script is:inline type='module'>
-			import '../../../../dist/webcomponents';
-		</script>
 
 		<link
 			rel='stylesheet'
