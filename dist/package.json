@@ -5,7 +5,7 @@
   "license": "MIT",
   "name": "lilys",
   "type": "module",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "browserslist": [
     "defaults",
     "not op_mini all"
@@ -16,6 +16,18 @@
       "require": "./index.js",
       "browser": "./index.js",
       "umd": "./index.js"
+    },
+    "./designsystem": {
+      "import": "./designsystem/all.css",
+      "require": "./designsystem/all.css",
+      "browser": "./designsystem/all.css",
+      "umd": "./designsystem/all.css"
+    },
+    "./webcomponents": {
+      "import": "./webcomponents.js",
+      "require": "./webcomponents.js",
+      "browser": "./webcomponents.js",
+      "umd": "./webcomponents.js"
     }
   },
   "files": [
