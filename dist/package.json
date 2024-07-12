@@ -1,0 +1,46 @@
+{
+  "author": "luhmllo",
+  "description": "Powered by dead simple CSS props and a mix of common convention rules.",
+  "homepage": "https://lilys-kit.vercel.app/",
+  "license": "MIT",
+  "name": "lilys",
+  "type": "module",
+  "version": "0.0.20",
+  "browserslist": [
+    "defaults",
+    "not op_mini all"
+  ],
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./index.js",
+      "browser": "./index.js",
+      "umd": "./index.js"
+    }
+  },
+  "files": [
+    "./designsystem",
+    "./index.js",
+    "./package.json",
+    "./webcomponents.js"
+  ],
+  "keywords": [
+    "agnostic",
+    "css",
+    "custom elements",
+    "library",
+    "ui",
+    "web components",
+    "minimal",
+    "modular",
+    "props"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LUHMLLO/lilys.git"
+  }
+}

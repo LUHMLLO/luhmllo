@@ -6,6 +6,7 @@ import mdx from '@astrojs/mdx'
 export default defineConfig({
   adapter: vercel(),
   compressHTML: true,
+  outDir: './www/',
   output: 'static',
   prefetch: {
     prefetchAll: true,

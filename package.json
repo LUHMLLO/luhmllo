@@ -1,68 +1,35 @@
 {
-  "author": "luhmllo",
-  "description": "Minimalism Meets Modularity for Effortless UI Development",
-  "homepage": "https://uwc.vercel.app/",
-  "license": "MIT",
-  "name": "lilys",
+  "name": "lilysrepo",
   "type": "module",
-  "version": "0.0.18",
   "browserslist": [
     "defaults",
     "not op_mini all"
   ],
   "dependencies": {
-    "@astrojs/check": "^0.7.0",
-    "@astrojs/mdx": "^3.1.0",
-    "@astrojs/svelte": "^5.5.0",
-    "@astrojs/vercel": "^7.7.0",
+    "@astrojs/check": "^0.8.1",
+    "@astrojs/mdx": "^3.1.2",
+    "@astrojs/svelte": "^5.6.0",
+    "@astrojs/vercel": "^7.7.2",
+    "@floating-ui/dom": "^1.6.7",
     "@github/catalyst": "^1.6.0",
-    "astro": "^4.10.2",
+    "astro": "^4.11.5",
+    "lit": "^3.1.4",
     "svelte": "^4.2.18",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.3"
   },
   "devDependencies": {
-    "cssnano": "^7.0.2",
-    "cssnano-preset-advanced": "^7.0.2",
-    "postcss": "^8.4.38",
+    "cssnano": "^7.0.4",
+    "cssnano-preset-advanced": "^7.0.4",
+    "postcss": "^8.4.39",
     "postcss-cli": "^11.0.0",
     "postcss-fail-on-warn": "^0.2.1",
     "postcss-import": "^16.1.0",
-    "sass": "^1.77.5",
-    "vite": "^5.3.1"
-  },
-  "exports": {
-    ".": {
-      "import": "./dist/designsystem/all.css",
-      "require": "./dist/designsystem/all.css",
-      "browser": "./dist/designsystem/all.css",
-      "umd": "./dist/designsystem/all.css"
-    }
-  },
-  "files": [
-    "dist/"
-  ],
-  "keywords": [
-    "agnostic",
-    "css",
-    "custom elements",
-    "library",
-    "ui",
-    "web components",
-    "minimal",
-    "modular",
-    "props"
-  ],
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/LUHMLLO/lilys.git"
+    "sass": "^1.77.8",
+    "vite": "^5.3.3"
   },
   "scripts": {
     "astro": "astro",
-    "build": "pnpm build:css && pnpm astro build",
+    "build": "pnpm build:css && pnpm vite build --config ./vite.lib.config --emptyOutDir=false && pnpm astro build --emptyOutDir=false",
     "build:css": "sass --color --no-source-map --stop-on-error --unicode --update ./src/lib/packages/designsystem/sass/:./src/lib/packages/designsystem/css/ && postcss ./src/lib/packages/designsystem/css/*.css -d ./dist/designsystem/ --config ./.postcssrc",
     "check": "tsc && astro check",
     "dev": "astro dev",
