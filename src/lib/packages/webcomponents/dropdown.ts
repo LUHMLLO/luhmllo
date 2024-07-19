@@ -13,9 +13,9 @@ import {
   shift,
   detectOverflow,
   autoPlacement,
-  type Alignment,
   size,
   hide,
+  type Alignment,
 } from '@floating-ui/dom'
 
 @customElement( 'ly-dropdown' )

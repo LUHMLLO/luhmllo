@@ -1,2 +1,2 @@
 import './designsystem/all.css'
-import './webcomponents.js'
+export * as webcomponents from './webcomponents.js'
