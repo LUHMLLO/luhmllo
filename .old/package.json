@@ -1,0 +1,40 @@
+{
+  "name": "lilysrepo",
+  "type": "module",
+  "browserslist": [
+    "defaults",
+    "not op_mini all"
+  ],
+  "dependencies": {
+    "@astrojs/check": "^0.9.3",
+    "@astrojs/mdx": "^3.1.7",
+    "@astrojs/svelte": "^5.7.1",
+    "@astrojs/vercel": "^7.8.1",
+    "@floating-ui/dom": "^1.6.11",
+    "@github/catalyst": "^1.6.0",
+    "astro": "^4.15.8",
+    "lilys": "^0.0.22",
+    "lit": "^3.2.0",
+    "svelte": "^4.2.19",
+    "typescript": "^5.6.2"
+  },
+  "devDependencies": {
+    "cssnano": "^7.0.6",
+    "cssnano-preset-advanced": "^7.0.6",
+    "postcss": "^8.4.47",
+    "postcss-cli": "^11.0.0",
+    "postcss-fail-on-warn": "^0.2.1",
+    "postcss-import": "^16.1.0",
+    "sass": "^1.79.3",
+    "vite": "^5.4.7"
+  },
+  "scripts": {
+    "astro": "astro",
+    "build": "pnpm build:css && pnpm vite build --config ./vite.lib.config --emptyOutDir=false && pnpm astro build --emptyOutDir=false",
+    "build:css": "sass --color --no-source-map --stop-on-error --unicode --update ./src/lib/packages/designsystem/sass/:./src/lib/packages/designsystem/css/ && postcss ./src/lib/packages/designsystem/css/*.css -d ./dist/designsystem/ --config ./.postcssrc",
+    "check": "tsc && astro check",
+    "dev": "astro dev",
+    "preview": "astro preview",
+    "start": "astro dev"
+  }
+}

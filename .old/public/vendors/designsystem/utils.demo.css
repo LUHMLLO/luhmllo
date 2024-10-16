@@ -1,0 +1,10 @@
+@layer utils {
+  .demo-card {
+    outline: dashed var(--clr-primary);
+    padding: var(--scale-sm);
+    place-items: center center;
+    place-content: center center;
+  }
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9saWIvcGFja2FnZXMvZGVzaWduc3lzdGVtL2Nzcy91dGlscy5kZW1vLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJ1dGlscy5kZW1vLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBsYXllciB1dGlscyB7XG5cdC5kZW1vLWNhcmQge1xuXHRcdG91dGxpbmU6IGRhc2hlZCB2YXIoLS1jbHItcHJpbWFyeSk7XG5cdFx0cGFkZGluZzogdmFyKC0tc2NhbGUtc20pO1xuXHRcdHBsYWNlLWl0ZW1zOiBjZW50ZXIgY2VudGVyO1xuXHRcdHBsYWNlLWNvbnRlbnQ6IGNlbnRlciBjZW50ZXI7XG5cdH1cbn1cbiJdfQ== */

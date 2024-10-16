@@ -1,0 +1,41 @@
+@layer utils {
+  .block {
+    display: block;
+  }
+  .inline {
+    display: inline;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+  .flex {
+    display: flex;
+  }
+  .inline-flex {
+    display: inline-flex;
+  }
+  .grid {
+    display: grid;
+  }
+  .inline-grid {
+    display: inline-grid;
+  }
+  .flow-root {
+    display: flow-root;
+  }
+  .none {
+    display: none;
+  }
+  .contents {
+    display: contents;
+  }
+  .table {
+    display: table;
+  }
+  .table-row {
+    display: table-row;
+  }
+  .list-item {
+    display: list-item;
+  }
+}

@@ -1,9 +1,0 @@
-@layer utils {
-    @for $i from 0 to 11 {
-        .z {
-            &-#{$i} {
-                z-index: #{$i};
-            }
-        }
-    }
-}

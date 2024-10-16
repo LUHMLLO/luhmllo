@@ -1,0 +1,8 @@
+@layer utils {
+  .demo-card {
+    outline: dashed var(--clr-primary);
+    padding: var(--scale-sm);
+    place-items: center center;
+    place-content: center center;
+  }
+}

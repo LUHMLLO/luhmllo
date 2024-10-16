@@ -1,0 +1,11 @@
+@layer utils {
+  .fit {
+    &-contain {
+      object-fit: contain;
+    }
+
+    &-cover {
+      object-fit: cover;
+    }
+  }
+}

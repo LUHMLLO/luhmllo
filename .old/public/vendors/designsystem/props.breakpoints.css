@@ -1,0 +1,8 @@
+@layer props {
+  :root {
+    --breakpoint-compact: 600px;
+    --breakpoint-medium: 840px;
+    --breakpoint-expanded: 1200px;
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9saWIvcGFja2FnZXMvZGVzaWduc3lzdGVtL2Nzcy9wcm9wcy5icmVha3BvaW50cy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoicHJvcHMuYnJlYWtwb2ludHMuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGxheWVyIHByb3BzIHtcblx0OnJvb3Qge1xuXHRcdC0tYnJlYWtwb2ludC1jb21wYWN0OiA2MDBweDtcblx0XHQtLWJyZWFrcG9pbnQtbWVkaXVtOiA4NDBweDtcblx0XHQtLWJyZWFrcG9pbnQtZXhwYW5kZWQ6IDEyMDBweDtcblx0fVxufSJdfQ== */

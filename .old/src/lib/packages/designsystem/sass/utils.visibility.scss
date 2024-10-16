@@ -1,0 +1,7 @@
+@layer utils {
+  @each $v in (visible, hidden) {
+    .#{$v} {
+      visibility: #{$v};
+    }
+  }
+}

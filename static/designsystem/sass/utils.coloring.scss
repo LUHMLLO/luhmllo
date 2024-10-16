@@ -1,0 +1,231 @@
+@layer utils {
+  .bg {
+    &-inherit {
+      background-color: inherit;
+    }
+
+    @each $v
+      in (
+        accent,
+        context,
+        background,
+        text,
+        subtext,
+        primary,
+        secondary,
+        tertiary,
+        debug,
+        error,
+        info,
+        success,
+        warning,
+      ) {
+      &-#{$v} {
+        --bg: var(--clr-#{$v});
+        background-color: var(--bg);
+      }
+    }
+  }
+
+  .hover\:bg {
+    @media (hover: hover) {
+      &-inherit:hover {
+        background-color: inherit;
+      }
+
+      @each $v
+        in (
+          accent,
+          context,
+          background,
+          text,
+          subtext,
+          primary,
+          secondary,
+          tertiary,
+          debug,
+          error,
+          info,
+          success,
+          warning,
+        ) {
+        &-#{$v}:hover {
+          --bg: var(--clr-#{$v});
+          background-color: var(--bg);
+        }
+      }
+    }
+  }
+
+  .bord {
+    &-inherit {
+      border-color: inherit;
+    }
+
+    @each $v
+      in (
+        accent,
+        context,
+        background,
+        text,
+        subtext,
+        primary,
+        secondary,
+        tertiary,
+        debug,
+        error,
+        info,
+        success,
+        warning,
+      ) {
+      &-#{$v} {
+        --clr: var(--clr-#{$v});
+        border-color: var(--clr);
+      }
+    }
+  }
+
+  .hover\:bord {
+    @media (hover: hover) {
+      &-inherit:hover {
+        background-color: inherit;
+      }
+
+      @each $v
+        in (
+          accent,
+          context,
+          background,
+          text,
+          subtext,
+          primary,
+          secondary,
+          tertiary,
+          debug,
+          error,
+          info,
+          success,
+          warning,
+        ) {
+        &-#{$v}:hover {
+          --clr: var(--clr-#{$v});
+          border-color: var(--clr);
+        }
+      }
+    }
+  }
+
+  .clr {
+    &-inherit {
+      color: inherit;
+    }
+
+    @each $v
+      in (
+        accent,
+        context,
+        background,
+        text,
+        subtext,
+        primary,
+        secondary,
+        tertiary,
+        debug,
+        error,
+        info,
+        success,
+        warning,
+      ) {
+      &-#{$v} {
+        --clr: var(--clr-#{$v});
+        color: var(--clr);
+      }
+    }
+  }
+
+  .hover\:clr {
+    @media (hover: hover) {
+      &-inherit:hover {
+        background-color: inherit;
+      }
+
+      @each $v
+        in (
+          accent,
+          context,
+          background,
+          text,
+          subtext,
+          primary,
+          secondary,
+          tertiary,
+          debug,
+          error,
+          info,
+          success,
+          warning,
+        ) {
+        &-#{$v}:hover {
+          --clr: var(--clr-#{$v});
+          color: var(--clr);
+        }
+      }
+    }
+  }
+
+  .outln {
+    &-inherit {
+      outline-color: inherit;
+    }
+
+    @each $v
+      in (
+        accent,
+        context,
+        background,
+        text,
+        subtext,
+        primary,
+        secondary,
+        tertiary,
+        debug,
+        error,
+        info,
+        success,
+        warning,
+      ) {
+      &-#{$v} {
+        outline-color: var(--clr-#{$v});
+      }
+    }
+  }
+
+  .hover\:outln {
+    @media (hover: hover) {
+      &-inherit:hover {
+        background-color: inherit;
+      }
+
+      @each $v
+        in (
+          accent,
+          context,
+          background,
+          text,
+          subtext,
+          primary,
+          secondary,
+          tertiary,
+          debug,
+          error,
+          info,
+          success,
+          warning,
+        ) {
+        &-#{$v}:hover {
+          outline-color: var(--clr-#{$v});
+        }
+      }
+    }
+  }
+}

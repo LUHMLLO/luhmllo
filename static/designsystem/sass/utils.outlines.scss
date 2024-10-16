@@ -1,0 +1,37 @@
+@layer utils {
+  .outln {
+    @each $v
+      in (
+        accent,
+        context,
+        background,
+        text,
+        subtext,
+        primary,
+        secondary,
+        tertiary,
+        debug,
+        error,
+        info,
+        success,
+        warning,
+      ) {
+      &-#{$v} {
+        outline-color: var(--clr-#{$v});
+      }
+    }
+
+    @each $v in (solid, dashed, dotted, double, groove, inset, outset, ridge) {
+      &-#{$v} {
+        outline-style: #{$v};
+      }
+    }
+
+    @each $v
+      in (5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+      &-#{$v} {
+        outline-width: var(--scale-#{$v});
+      }
+    }
+  }
+}

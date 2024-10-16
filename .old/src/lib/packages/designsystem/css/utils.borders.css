@@ -1,0 +1,64 @@
+@layer utils {
+  .bord {
+    border-style: solid;
+  }
+  .outln {
+    outline-style: solid;
+  }
+  .radius-5xs {
+    --radius: var(--scale-5xs);
+    border-radius: var(--radius);
+  }
+  .radius-4xs {
+    --radius: var(--scale-4xs);
+    border-radius: var(--radius);
+  }
+  .radius-3xs {
+    --radius: var(--scale-3xs);
+    border-radius: var(--radius);
+  }
+  .radius-2xs {
+    --radius: var(--scale-2xs);
+    border-radius: var(--radius);
+  }
+  .radius-xs {
+    --radius: var(--scale-xs);
+    border-radius: var(--radius);
+  }
+  .radius-sm {
+    --radius: var(--scale-sm);
+    border-radius: var(--radius);
+  }
+  .radius-md {
+    --radius: var(--scale-md);
+    border-radius: var(--radius);
+  }
+  .radius-nm {
+    --radius: var(--scale-nm);
+    border-radius: var(--radius);
+  }
+  .radius-lg {
+    --radius: var(--scale-lg);
+    border-radius: var(--radius);
+  }
+  .radius-xl {
+    --radius: var(--scale-xl);
+    border-radius: var(--radius);
+  }
+  .radius-2xl {
+    --radius: var(--scale-2xl);
+    border-radius: var(--radius);
+  }
+  .radius-3xl {
+    --radius: var(--scale-3xl);
+    border-radius: var(--radius);
+  }
+  .radius-4xl {
+    --radius: var(--scale-4xl);
+    border-radius: var(--radius);
+  }
+  .radius-5xl {
+    --radius: var(--scale-5xl);
+    border-radius: var(--radius);
+  }
+}

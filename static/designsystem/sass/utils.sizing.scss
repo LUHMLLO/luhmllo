@@ -1,0 +1,127 @@
+@layer utils {
+  @each $class, $property in (h: height, w: width) {
+    @each $variant in (min, "", max) {
+      @if $variant != "" {
+        .\[#{$variant}\]#{$class} {
+          @each $v
+            in (
+              5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl
+            ) {
+            &-#{$v} {
+              #{$variant}-#{$property}: var(--scale-#{$v});
+            }
+          }
+
+          @each $k, $v
+            in ("min": min-content, "fit": fit-content, "max": max-content) {
+            &-#{$k} {
+              #{$variant}-#{$property}: #{$v};
+            }
+          }
+
+          @for $i from 0 through 100 {
+            &-#{$i} {
+              #{$variant}-#{$property}: #{$i + "%"};
+            }
+          }
+
+          @for $i from 0 through 100 {
+            &-#{$i}\[vh\] {
+              #{$variant}-#{$property}: #{$i + "dvh"};
+            }
+          }
+
+          @for $i from 0 through 100 {
+            &-#{$i}\[vmax\] {
+              #{$variant}-#{$property}: #{$i + "dvmax"};
+            }
+          }
+
+          @for $i from 0 through 100 {
+            &-#{$i}\[vmin\] {
+              #{$variant}-#{$property}: #{$i + "dvmin"};
+            }
+          }
+
+          @for $i from 0 through 100 {
+            &-#{$i}\[vw\] {
+              #{$variant}-#{$property}: #{$i + "dvw"};
+            }
+          }
+
+          @for $i from 0 through 100 {
+            &-#{$i}\[ch\] {
+              #{$variant}-#{$property}: #{$i + "ch"};
+            }
+          }
+
+          @for $i from 0 through 100 {
+            &-#{$i}\[pt\] {
+              #{$variant}-#{$property}: #{$i + "pt"};
+            }
+          }
+        }
+      } @else {
+        .#{$class} {
+          @each $v
+            in (
+              5xs, 4xs, 3xs, 2xs, xs, sm, md, nm, lg, xl, 2xl, 3xl, 4xl, 5xl
+            ) {
+            &-#{$v} {
+              #{$property}: var(--scale-#{$v});
+            }
+          }
+
+          @each $k, $v
+            in ("min": min-content, "fit": fit-content, "max": max-content) {
+            &-#{$k} {
+              #{$property}: #{$v};
+            }
+          }
+
+          @for $i from 0 through 100 {
+            &-#{$i} {
+              #{$property}: #{$i + "%"};
+            }
+          }
+
+          @for $i from 0 through 100 {
+            &-#{$i}\[vh\] {
+              #{$property}: #{$i + "dvh"};
+            }
+          }
+
+          @for $i from 0 through 100 {
+            &-#{$i}\[vmin\] {
+              #{$property}: #{$i + "dvmax"};
+            }
+          }
+
+          @for $i from 0 through 100 {
+            &-#{$i}\[vmax\] {
+              #{$property}: #{$i + "dvmin"};
+            }
+          }
+
+          @for $i from 0 through 100 {
+            &-#{$i}\[vw\] {
+              #{$property}: #{$i + "dvw"};
+            }
+          }
+
+          @for $i from 0 through 100 {
+            &-#{$i}\[ch\] {
+              #{$property}: #{$i + "ch"};
+            }
+          }
+
+          @for $i from 0 through 100 {
+            &-#{$i}\[pt\] {
+              #{$property}: #{$i + "pt"};
+            }
+          }
+        }
+      }
+    }
+  }
+}
