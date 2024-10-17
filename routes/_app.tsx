@@ -10,6 +10,7 @@ export default function App({ Component }: PageProps) {
       </head>
       <body>
         <Component />
+        <script type="module" src="wc.esm.js"></script>
       </body>
     </html>
   );

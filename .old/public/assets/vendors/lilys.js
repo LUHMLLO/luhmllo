@@ -1585,7 +1585,8 @@ function E(e) {
 }
 function T(e) {
   var t;
-  return (t = (le(e) ? e.ownerDocument : e.document) || globalThis.document) == null
+  return (t = (le(e) ? e.ownerDocument : e.document) || globalThis.document) ==
+      null
     ? void 0
     : t.documentElement;
 }
