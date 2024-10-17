@@ -161,7 +161,7 @@ export class Dropdown extends LitElement {
   }
 
   private _roundByDPR(value: number) {
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = globalThis.devicePixelRatio || 1;
     return Math.round(value * dpr) / dpr;
   }
 

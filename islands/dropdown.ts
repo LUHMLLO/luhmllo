@@ -1,10 +1,10 @@
-import { css, html, LitElement, nothing } from "lit";
+import { css, html, LitElement, nothing } from "npm:lit";
 import {
   customElement,
   property,
   query,
   queryAssignedElements,
-} from "lit/decorators.js";
+} from "npm:lit/decorators.js";
 
 import {
   type Alignment,
@@ -16,7 +16,7 @@ import {
   offset,
   shift,
   size,
-} from "@floating-ui/dom";
+} from "npm:@floating-ui/dom";
 
 @customElement("ly-dropdown")
 export class Dropdown extends LitElement {
@@ -161,7 +161,7 @@ export class Dropdown extends LitElement {
   }
 
   private _roundByDPR(value: number) {
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = globalThis.devicePixelRatio || 1;
     return Math.round(value * dpr) / dpr;
   }
 

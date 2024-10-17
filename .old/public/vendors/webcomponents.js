@@ -1643,7 +1643,7 @@ function E(e) {
 }
 function T(e) {
   var t;
-  return (t = (ue(e) ? e.ownerDocument : e.document) || window.document) == null
+  return (t = (ue(e) ? e.ownerDocument : e.document) || globalThis.document) == null
     ? void 0
     : t.documentElement;
 }
@@ -2272,7 +2272,7 @@ let k = class extends I {
     this._cleanup && this._cleanup(), this.open = !this.open;
   }
   _roundByDPR(e) {
-    const t = window.devicePixelRatio || 1;
+    const t = globalThis.devicePixelRatio || 1;
     return Math.round(e * t) / t;
   }
   _handleFloatingStyles() {

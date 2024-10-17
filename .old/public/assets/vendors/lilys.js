@@ -1585,7 +1585,7 @@ function E(e) {
 }
 function T(e) {
   var t;
-  return (t = (le(e) ? e.ownerDocument : e.document) || window.document) == null
+  return (t = (le(e) ? e.ownerDocument : e.document) || globalThis.document) == null
     ? void 0
     : t.documentElement;
 }
@@ -2212,7 +2212,7 @@ let U = class extends V {
     this._cleanup && this._cleanup(), this.open = !this.open;
   }
   _roundByDPR(e) {
-    const t = window.devicePixelRatio || 1;
+    const t = globalThis.devicePixelRatio || 1;
     return Math.round(e * t) / t;
   }
   _handleFloatingStyles() {
