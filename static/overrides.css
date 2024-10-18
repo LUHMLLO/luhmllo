@@ -6,6 +6,20 @@
 
 @layer overrides {
   #app {
-    
+    isolation: isolate;
+    grid-template-rows: max-content minmax(0, 1fr) max-content;
+
+    & > #appbar {
+      background-color: hsla(0, 0, 0, 0.75%);
+      backdrop-filter: blur(25px);
+      grid-column: grid-expand;
+      position: sticky;
+      top: 0;
+      z-index: 3;
+    }
+
+    & > #body {
+      z-index: 1;
+    }
   }
 }

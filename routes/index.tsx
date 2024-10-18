@@ -5,7 +5,9 @@ export default function Home() {
     <main id="app" className="container">
       <Appbar />
       <div id="body" className="overflow-y-auto">
-        <article className="flex gap-xs py-nm">
+        {[...Array(7)].map(article=> {
+          return (
+            <article className="flex gap-xs py-nm">
           <aside className="shrink-0">
             <figure className="w-[40px]">
               <img
@@ -47,6 +49,8 @@ export default function Home() {
             </icon>
           </aside>
         </article>
+          )
+        })}
       </div>
     </main>
   );
