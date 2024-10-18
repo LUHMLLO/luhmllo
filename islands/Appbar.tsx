@@ -7,10 +7,10 @@ interface CounterProps {
 
 export default function Counter(props: CounterProps) {
   return (
-    <flex data-props="--x" className="align-center[items]">
+    <nav data-props="--x" className="">
       <Button onClick={() => props.count.value -= 1}>-1</Button>
-      <p className="text-xl tabular-nums">{props.count}</p>
+      <p className="">{props.count}</p>
       <Button onClick={() => props.count.value += 1}>+1</Button>
-    </flex>
+    </nav>
   );
 }

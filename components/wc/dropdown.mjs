@@ -53,7 +53,7 @@ if (typeof window !== "undefined") {
     }
 
     render() {
-      const styles = `
+      const styles = css`
       :host {
         display: inline-flex;
         min-height: 0;

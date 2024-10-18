@@ -7,6 +7,8 @@ import * as $_app from "./routes/_app.tsx";
 import * as $examples_api_joke from "./routes/examples/api/joke.ts";
 import * as $examples_greet_name_ from "./routes/examples/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
+import * as $Appbar from "./islands/Appbar.tsx";
+import * as $Bottombar from "./islands/Bottombar.tsx";
 import * as $Counter from "./islands/Counter.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
@@ -19,6 +21,8 @@ const manifest = {
     "./routes/index.tsx": $index,
   },
   islands: {
+    "./islands/Appbar.tsx": $Appbar,
+    "./islands/Bottombar.tsx": $Bottombar,
     "./islands/Counter.tsx": $Counter,
   },
   baseUrl: import.meta.url,
