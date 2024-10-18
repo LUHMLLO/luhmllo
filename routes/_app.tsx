@@ -7,6 +7,7 @@ export default function App({ Component }: PageProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>lilys</title>
         <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="overrides.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -17,7 +18,10 @@ export default function App({ Component }: PageProps) {
           href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
           rel="stylesheet"
         />
- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
       </head>
       <body>
         <Component />
