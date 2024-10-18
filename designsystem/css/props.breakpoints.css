@@ -1,7 +1,0 @@
-@layer props {
-  :root {
-    --breakpoint-compact: 600px;
-    --breakpoint-medium: 840px;
-    --breakpoint-expanded: 1200px;
-  }
-}

@@ -1,43 +1,42 @@
-import { useSignal } from "@preact/signals";
-import Counter from "../islands/Counter.tsx";
+import Appbar from "../islands/Appbar.tsx";
 
 export default function Home() {
-  const count = useSignal(3);
-
   return (
-    <div id="app">
-      <div className="container">
-        <img
-          src="/logo.svg"
-          alt="the Fresh logo: a sliced lemon dripping with juice"
-        />
-        <h1>Welcome to Fresh</h1>
-        <Counter count={count} />
-        <ly-dropdown>
-          <summary
-            slot="summary"
-            className="rounded-[var(--scale-xl)]"
-            style="--bg: transparent;"
-          >
-            <figure className="aspect-[1/1] flex-shrink-0 content-center p-0 w-auto h-[var(--scale-xl)] rounded-[var(--scale-xl)]">
+    <main id="app" className="container">
+      <Appbar />
+      <div id="body">
+        <article className="flex gap-xs py-nm">
+          <aside>
+            <figure className="w-[40px]">
               <img
-                src="https://images.unsplash.com/photo-1704895598909-dd19e72fc3ae?q=80&amp;w=1160&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="https://cdn.dribbble.com/users/71720/avatars/normal/1a484c634c93683bdc5dc91afa3e9067.png?1714739541"
                 alt="avatar"
               />
             </figure>
-            <flex data-props="--y">
-              <span>username</span>
-              <small className="clr-context">
-                email@address.com
-              </small>
-            </flex>
-          </summary>
-          <button>option</button>
-          <button>option</button>
-          <button>option</button>
-          <button>option</button>
-        </ly-dropdown>
+            <hr className="grow h-full shrink-1" />
+          </aside>
+          <div className="grow">
+            <header>
+              <h3>title</h3>
+              <span>subtitle</span>
+            </header>
+          </div>
+          <aside>
+            <ly-dropdown>
+              <summary slot="summary">
+                <icon className="icon">
+                  more_horiz
+                </icon>
+              </summary>
+              <button>
+                <icon className="icon">
+                  settings
+                </icon>
+              </button>
+            </ly-dropdown>
+          </aside>
+        </article>
       </div>
-    </div>
+    </main>
   );
 }

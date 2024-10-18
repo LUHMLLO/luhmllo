@@ -1,63 +1,64 @@
-@tailwind utilities;
-
-@layer props {
+@layer root {
   :root {
+    /* typography */
+    --rootRatio: 1.256;
+    --rootSize: calc(
+      var(--rootRatio)
+        * clamp(clamp(14px, 15px, 16px), 0.0625dvw, clamp(15px, 100dvw, 15pt))
+    );
+    /* for font calculations, gaps, paddings, . . . */
+    --scale-xs: calc(var(--rootSize) / pow(var(--rootRatio), 3));
+    --scale-sm: calc(var(--rootSize) / pow(var(--rootRatio), 2));
+    --scale-md: calc(var(--rootSize) / pow(var(--rootRatio), 1));
+    --scale-nm: calc(var(--rootSize) * pow(var(--rootRatio), 1));
+    --scale-lg: calc(var(--rootSize) * pow(var(--rootRatio), 2));
+    --scale-xl: calc(var(--rootSize) * pow(var(--rootRatio), 3));
+    /* transitions and animations properties */
     --animDefaults: var(--animDuration) var(--animTiming);
     --animDuration: 360ms;
     --animTiming: cubic-bezier(0.2, 0, 0, 1);
-  }
-}
-
-@layer props {
-  :root {
-    --breakpoint-compact: 600px;
-    --breakpoint-medium: 840px;
-    --breakpoint-expanded: 1200px;
-  }
-}
-
-@layer props {
-  :root {
+    /* media breakpoints */
+    --breakpoint-compact: 430px;
+    --breakpoint-medium: 768px;
+    --breakpoint-expanded: 1280px;
+    /* general configs */
     --config-colorSpace: srgb;
-
-    --config-containerOutterWidth: var(--scale-2xl);
+    --config-containerOutterWidth: var(--scale-nm);
     --config-containerWidth: 72rem;
-
     --config-borderWidth: 1.625pt;
+    --config-fontFamily:
+      system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --config-fontWeight: 400;
+    --config-lineHeight: clamp(1, 1.25, 1.5);
     --config-outlineWidth: 1.625pt;
-
-    --config-shadow: 0 var(--scale-5xs) var(--scale-sm) hsla(0, 0%, 0%, 0.125);
-
+    --config-shadow: 0 var(--scale-xs) var(--scale-sm) hsla(0, 0%, 0%, 0.125);
     --config-spacing: clamp(
-      min(100%, var(--scale-5xs)),
+      min(100%, var(--scale-xs)),
       16vmin,
-      var(--scale-5xl)
+      var(--scale-xl)
     );
-  }
-}
-
-@layer theming {
-  :root {
+    /* accent colors */
     --clr-accent--1: hsl(154, 31%, 48%);
     --clr-accent--2: hsl(154, 31%, 40%);
     --clr-accent--3: hsl(154, 31%, 32%);
     --clr-accent--4: hsl(154, 31%, 24%);
-
+    /* contextual colors */
     --clr-context--1: hsl(24, 31%, 48%);
     --clr-context--2: hsl(24, 31%, 40%);
     --clr-context--3: hsl(24, 31%, 32%);
     --clr-context--4: hsl(24, 31%, 24%);
-
+    /* font, contents and so on... colors */
     --clr-content--1: hsl(0, 0%, 100%);
     --clr-content--2: hsl(0, 0%, 90%);
     --clr-content--3: hsl(0, 0%, 80%);
     --clr-content--4: hsl(0, 0%, 70%);
-
+    /* surface colors */
     --clr-surface--1: hsl(0, 0%, 0%);
     --clr-surface--2: hsl(0, 0%, 5%);
     --clr-surface--3: hsl(0, 0%, 10%);
     --clr-surface--4: hsl(0, 0%, 15%);
-
+    /* utility colors */
     --clr-debug: hsl(330, 32%, 56%);
     --clr-error: hsl(359, 50%, 32%);
     --clr-info: hsl(197, 40%, 48%);
@@ -66,58 +67,38 @@
   }
 }
 
-@layer props {
-  :root {
-    /* typography */
-    --baseFontFamily:
-      system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    --baseFontSize: calc(
-      var(--typescaleRatio)
-        * clamp(
-        clamp(0.72rem, 1rem, 0.88rem),
-        0.0625dvw,
-        clamp(1rem, 1vw, 16pt)
-      )
-    );
-    --baseFontWeight: 400;
-    --baseLineHeight: clamp(1, 1.25, 1.5);
+@layer reset {
+  :where(*) {
+    /* This will avoid Flash of Unstyled Content (FOUC), but beware it will also disable improperly used custom elements */
+    transition: opacity var(--animDefaults);
+    transition-delay: 0.0ms;
 
-    /* for typescale calcs */
-    --typescaleRatio: 1.256;
+    &:not(:defined) {
+      opacity: 0;
+    }
+  }
 
-    /* for font calculations, gaps, paddings, . . . */
-    --scale-xs: calc(var(--baseFontSize) / pow(var(--typescaleRatio), 3));
-    --scale-sm: calc(var(--baseFontSize) / pow(var(--typescaleRatio), 2));
-    --scale-md: calc(var(--baseFontSize) / pow(var(--typescaleRatio), 1));
-    --scale-nm: calc(var(--baseFontSize) * pow(var(--typescaleRatio), 1));
-    --scale-lg: calc(var(--baseFontSize) * pow(var(--typescaleRatio), 2));
-    --scale-xl: calc(var(--baseFontSize) * pow(var(--typescaleRatio), 3));
+  :where(*) {
+    -moz-leading-trim: both;
+    -webkit-leading-trim: both;
+    leading-trim: both;
+    -moz-text-box-edge: cap alphabetic;
+    -webkit-text-box-edge: cap alphabetic;
+    text-box-edge: cap alphabetic;
+    -moz-text-box-trim: trim-both;
+    -webkit-text-box-trim: trim-both;
+    text-box-trim: trim-both;
+    -moz-vertical-trim: trim;
+    -webkit-vertical-trim: trim;
+    vertical-trim: trim;
+    -moz-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
   }
 }
 
 @layer reset {
   :where(*) {
-    -moz-leading-trim: both;
-    -webkit-leading-trim: both;
-    leading-trim: both;
-
-    -moz-text-box-edge: cap alphabetic;
-    -webkit-text-box-edge: cap alphabetic;
-    text-box-edge: cap alphabetic;
-
-    -moz-text-box-trim: trim-both;
-    -webkit-text-box-trim: trim-both;
-    text-box-trim: trim-both;
-
-    -moz-vertical-trim: trim;
-    -webkit-vertical-trim: trim;
-    vertical-trim: trim;
-
-    -moz-tap-highlight-color: transparent;
-    -webkit-tap-highlight-color: transparent;
-    tap-highlight-color: transparent;
-
     border: none;
     border-width: var(--config-borderWidth);
     box-sizing: border-box;
@@ -161,29 +142,51 @@
   }
 }
 
-/*
 @layer reset {
   :where(*) {
-    //This will avoid Flash of Unstyled Content (FOUC), but beware it will also disable improperly used custom elements
-    transition: opacity var(--animDefaults);
-    transition-delay: 0ms;
+    --bar-color: trasparent;
+    --bar-size: var(--scale-xs);
+    --bar-radius: var(--scale-xs);
 
-    &:not(:defined) {
-      opacity: 0;
+    --thumb-color: color-mix(
+      in var(--config-colorSpace, srgb),
+      var(--clr-tertiary),
+      transparent 56%
+    );
+    --thumb-size: var(--scale-xs);
+    --thumb-radius: var(--scale-xs);
+
+    scrollbar-color: var(--thumb-color) var(--bar-color);
+    scrollbar-width: auto;
+
+    &::-webkit-scrollbar {
+      width: var(--bar-size);
+      height: var(--bar-size);
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: var(--bar-color);
+      border-radius: var(--bar-radius);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--thumb-color);
+      border-radius: var(--thumb-radius);
+      width: var(--thumb-size);
+      height: var(--thumb-size);
     }
   }
 }
-*/
 
 @layer reset {
   :is(html) {
-    background-color: var(--clr-background);
-    color: var(--clr-text);
+    background-color: var(--clr-surface--1);
+    color: var(--clr-content--1);
 
     font-display: swap;
     font-kerning: auto;
-    font-family: var(--baseFontFamily);
-    font-size: var(--baseFontSize);
+    font-family: var(--config-fontFamily);
+    font-size: var(--rootSize);
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -192,13 +195,13 @@
     font-variant-ligatures: normal;
     font-optical-sizing: auto;
     font-stretch: normal;
-    font-weight: var(--baseFontWeight);
+    font-weight: var(--config-fontWeight);
 
     hanging-punctuation: first last;
 
     letter-spacing: 0.0125rem;
 
-    line-height: var(--baseLineHeight);
+    line-height: var(--config-lineHeight);
     text-align: left;
     text-rendering: optimizeLegibility;
 
@@ -226,33 +229,33 @@
     text-wrap: balance;
 
     &:is(h1) {
-      font-size: var(--scale-5xl);
-    }
-
-    &:is(h2) {
-      font-size: var(--scale-4xl);
-    }
-
-    &:is(h3) {
-      font-size: var(--scale-3xl);
-    }
-
-    &:is(h4) {
-      font-size: var(--scale-2xl);
-    }
-
-    &:is(h5) {
       font-size: var(--scale-xl);
     }
 
-    &:is(h6) {
+    &:is(h2) {
+      font-size: var(--scale-lg);
+    }
+
+    &:is(h3) {
       font-size: var(--scale-nm);
+    }
+
+    &:is(h4) {
+      font-size: var(--scale-md);
+    }
+
+    &:is(h5) {
+      font-size: var(--scale-sm);
+    }
+
+    &:is(h6) {
+      font-size: var(--scale-xs);
     }
   }
 
   :where(blockquote, q) {
     border-left: 0.125rem solid var(--clr-subtext);
-    font-size: var(--scale-sm);
+    font-size: var(--scale-md);
     padding: var(--scale-sm) 0 var(--scale-sm) var(--scale-sm);
   }
 
@@ -287,7 +290,7 @@
   }
 
   :where(figure) {
-    border-radius: var(--scale-3xs);
+    border-radius: var(--scale-xs);
     display: inline-grid;
     flex-shrink: 0;
     overflow: clip;
@@ -309,31 +312,28 @@
   }
 
   :where(aside, fieldset, form, main, section) {
-    --gap: var(--scale-sm);
-
     display: flex;
     flex-direction: column;
-    gap: var(--gap);
   }
 }
 
-:where(address) {
-  font-size: var(--scale-md);
-}
-
 @layer normalize {
+  :where(address) {
+    font-size: var(--scale-md);
+  }
+
   :where(hr) {
     --bg: var(--clr-primary);
     background-color: var(--bg);
 
     &:is([data-props~="--x"]) {
-      height: calc(var(--scale-5xs) * 0.1625);
+      height: calc(var(--scale-xs) * 0.1625);
       width: 100%;
     }
 
     &:is([data-props~="--y"]) {
       height: 100%;
-      width: calc(var(--scale-5xs) * 0.1625);
+      width: calc(var(--scale-xs) * 0.1625);
     }
   }
 }
@@ -457,8 +457,8 @@
     --px: var(--spacing);
     --py: 0;
     --radius: 0;
-    --spacing: var(--scale-5xs);
-    --size: clamp(24pt, 2lh, var(--scale-5xl));
+    --spacing: var(--scale-xs);
+    --size: clamp(24pt, 2lh, var(--scale-xl));
 
     align-items: center;
     background-color: var(--bg);
@@ -536,7 +536,7 @@
 
     &:is(button, :is(a, summary):is([data-props~="--button"])) {
       --bg: transparent;
-      --radius: var(--scale-5xl);
+      --radius: var(--scale-xl);
       height: var(--size);
     }
 
@@ -674,18 +674,18 @@
       &:is([type="color"]) {
         appearance: none;
         aspect-ratio: 1/1;
-        border-radius: var(--scale-3xs);
+        border-radius: var(--scale-xs);
         height: auto;
         overflow: hidden;
-        padding: 0 !important;
-        width: var(--scale-5xl);
+        padding: 0;
+        width: var(--scale-xl);
 
         &::-webkit-color-swatch-wrapper {
-          padding: 0 !important;
+          padding: 0;
         }
 
         &::-webkit-color-swatch {
-          border: none !important;
+          border: none;
         }
       }
 
@@ -715,7 +715,7 @@
         height: var(--size);
         overflow: clip;
         place-content: center center;
-        shape-margin: var(--scale-5xs);
+        shape-margin: var(--scale-xs);
         shape-outside: circle(50%);
         user-select: none;
         vertical-align: middle;
@@ -734,7 +734,7 @@
         }
 
         &:is([data-props~="--switch"]) {
-          --radius: var(--scale-5xl);
+          --radius: var(--scale-xl);
 
           position: relative;
           width: calc(var(--size) * 2);
@@ -790,7 +790,7 @@
       display: block;
       field-sizing: content;
       height: max-content;
-      min-height: calc(var(--scale-5xl) * 1.75);
+      min-height: calc(var(--scale-xl) * 1.75);
       overflow: auto;
       resize: both;
       text-wrap: pretty;
@@ -829,7 +829,7 @@
 @layer normalize {
   :where(label) {
     --clr: inherit;
-    --gap: var(--scale-5xs);
+    --gap: var(--scale-xs);
 
     display: inline-block;
     color: var(--clr);
@@ -865,9 +865,13 @@
     place-items: center center;
     width: fit-content;
 
+    &:is([data-props~="--y"]) {
+      flex-direction: column;
+    }
+
     &:is([data-props~="--tabs"]) {
       --bg: inherit;
-      --radius: var(--scale-5xl);
+      --radius: var(--scale-xl);
 
       background-color: var(--bg);
       border-radius: var(--radius);
@@ -932,7 +936,7 @@
         width: auto;
 
         & > * {
-          line-height: var(--baseLineHeight);
+          line-height: var(--config-lineHeight);
         }
 
         & > .marker {
@@ -990,7 +994,7 @@
   }
 
   :where(pre) {
-    border-radius: var(--scale-3xs);
+    border-radius: var(--scale-xs);
     display: block;
     font-family: monospace;
     overflow-x: auto;
@@ -1024,7 +1028,7 @@
     height: var(--size);
     overflow: clip;
     place-content: center center;
-    shape-margin: var(--scale-5xs);
+    shape-margin: var(--scale-xs);
     shape-outside: circle(50%);
     user-select: none;
     width: auto;
@@ -1210,38 +1214,4 @@
   }
 }
 
-@layer reset {
-  :where(*) {
-    --bar-color: trasparent;
-    --bar-size: var(--scale-5xs);
-    --bar-radius: var(--scale-3xs);
-
-    --thumb-color: color-mix(
-      in var(--config-colorSpace, srgb),
-      var(--clr-tertiary),
-      transparent 56%
-    );
-    --thumb-size: var(--scale-5xs);
-    --thumb-radius: var(--scale-3xs);
-
-    scrollbar-color: var(--thumb-color) var(--bar-color);
-    scrollbar-width: auto;
-
-    &::-webkit-scrollbar {
-      width: var(--bar-size);
-      height: var(--bar-size);
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: var(--bar-color);
-      border-radius: var(--bar-radius);
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: var(--thumb-color);
-      border-radius: var(--thumb-radius);
-      width: var(--thumb-size);
-      height: var(--thumb-size);
-    }
-  }
-}
+@tailwind utilities;

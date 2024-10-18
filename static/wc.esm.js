@@ -956,7 +956,7 @@ if (typeof window < "u") {
         --gap: 0;
         --outln-clr: var(--bg);
         --radius: var(--scale-sm);
-        --spacing: var(--scale-5xs);
+        --spacing: var(--scale-xs);
 
         background-color: var(--bg);
         border-radius: var(--radius);
@@ -965,7 +965,7 @@ if (typeof window < "u") {
         grid-template-rows: 1fr;
         height: max-content;
         isolation: isolate;
-        max-height: calc(clamp(16dvh, 25dvh, 32dvh) + var(--scale-5xl));
+        max-height: calc(clamp(16dvh, 25dvh, 32dvh) + var(--scale-xl));
         max-width: calc(100dvw - var(--scale-sm));
         min-height: max-content;
         min-width: max-content;
