@@ -2,10 +2,7 @@
   :root {
     /* typography */
     --rootRatio: 1.125;
-    --rootSize: calc(
-      var(--rootRatio)
-        * clamp(10px, 5dvw, 15px)
-    );
+    --rootSize: calc(var(--rootRatio) * clamp(10px, 5dvw, 15px));
     /* for font calculations, gaps, paddings, . . . */
     --scale-xs: calc(var(--rootSize) / pow(var(--rootRatio), 3));
     --scale-sm: calc(var(--rootSize) / pow(var(--rootRatio), 2));
@@ -239,18 +236,18 @@
 
   :where(p) {
     display: block;
-    font-size: var(--scale-nm);
+    font-size: var(--scale-md);
     text-wrap: pretty;
     width: min(72ch, 100%);
   }
 
   :where(span) {
-    font-size: var(--scale-nm);
+    font-size: var(--scale-md);
   }
 
   :where(caption, figcaption, legend) {
     display: inline-flex;
-    font-size: var(--scale-md);
+    font-size: var(--scale-sm);
     font-weight: 500;
   }
 
@@ -293,12 +290,11 @@
 
 @layer normalize {
   :where(address) {
-    font-size: var(--scale-nm);
+    font-size: var(--scale-md);
   }
 
   :where(hr) {
-    --bg: var(--clr-primary);
-    background-color: var(--bg);
+    background-color: var(--clr-surface--2);
 
     &:is([data-props~="--x"]) {
       height: calc(var(--scale-xs) * 0.1625);
@@ -325,7 +321,7 @@
     }
 
     & > dd {
-      font-size: var(--scale-nm);
+      font-size: var(--scale-md);
       margin-top: calc(var(--scale-sm) * -1);
       padding-left: var(--scale-sm);
     }
@@ -440,7 +436,7 @@
     color: var(--clr);
     cursor: pointer;
     display: inline-flex;
-    font-size: var(--scale-nm);
+    font-size: var(--scale-md);
     font-weight: 400;
     gap: var(--gap);
     margin: var(--my) var(--mx);

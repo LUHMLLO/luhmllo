@@ -53,7 +53,7 @@ if (typeof window !== "undefined") {
     }
 
     render() {
-      const styles = css`
+      const styles = `
       :host {
         display: inline-flex;
         min-height: 0;
@@ -67,11 +67,11 @@ if (typeof window !== "undefined") {
       }
 
       [part="dropmenu"] {
-        --bg: var(--clr-background);
+        --bg: var(--clr-surface--1);
         --gap: 0;
         --outln-clr: var(--bg);
         --radius: var(--scale-sm);
-        --spacing: var(--scale-5xs);
+        --spacing: var(--scale-xs);
 
         background-color: var(--bg);
         border-radius: var(--radius);
@@ -80,11 +80,11 @@ if (typeof window !== "undefined") {
         grid-template-rows: 1fr;
         height: max-content;
         isolation: isolate;
-        max-height: calc(clamp(16dvh, 25dvh, 32dvh) + var(--scale-5xl));
+        max-height: calc(clamp(16dvh, 25dvh, 32dvh) + var(--scale-xl));
         max-width: calc(100dvw - var(--scale-sm));
         min-height: max-content;
         min-width: max-content;
-        outline: solid color-mix(in var(--prefers-colorSpace, srgb), var(--outln-clr), gray 16%);
+        outline: solid color-mix(in var(--config-colorSpace, srgb), var(--outln-clr), gray 16%);
         overflow: clip;
         padding: var(--spacing);
         place-content: center;

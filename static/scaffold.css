@@ -29,7 +29,7 @@
       }
     }
 
-    & > #body {
+    & > #views {
       z-index: 1;
     }
   }
