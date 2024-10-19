@@ -6,7 +6,10 @@ export default function App({ Component }: PageProps) {
     <html lang="en">
       <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
         <title>lilys</title>
         <link rel="stylesheet" href="lilys.css" />
         <link rel="stylesheet" href="scaffold.css" />
@@ -32,6 +35,7 @@ export default function App({ Component }: PageProps) {
           <Component />
           <Bottombar />
         </main>
+        <span id="cursor" />
         <script type="module" src="wc.esm.js"></script>
       </body>
     </html>
