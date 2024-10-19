@@ -1,8 +1,11 @@
 @layer root {
   :root {
     /* typography */
-    --rootRatio: 1.256;
-    --rootSize: calc(var(--rootRatio) * clamp(clamp(14px, 15px, 16px), 0.0625dvw, clamp(15px, 100dvw, 15pt)));
+    --rootRatio: 1.125;
+    --rootSize: calc(
+      var(--rootRatio)
+        * clamp(10px, 5dvw, 15px)
+    );
     /* for font calculations, gaps, paddings, . . . */
     --scale-xs: calc(var(--rootSize) / pow(var(--rootRatio), 3));
     --scale-sm: calc(var(--rootSize) / pow(var(--rootRatio), 2));
@@ -20,8 +23,8 @@
     --breakpoint-expanded: 1280px;
     /* general configs */
     --config-colorSpace: srgb;
-    --config-containerOutterWidth: var(--scale-nm);
-    --config-containerWidth: 72rem;
+    --config-containerOutterWidth: var(--scale-xs);
+    --config-containerWidth: 768px;
     --config-borderWidth: 1.625pt;
     --config-fontFamily:
       system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -30,9 +33,11 @@
     --config-lineHeight: clamp(1, 1.25, 1.5);
     --config-outlineWidth: 1.625pt;
     --config-shadow: 0 var(--scale-xs) var(--scale-sm) hsla(0, 0%, 0%, 0.125);
-    --config-spacing: clamp(min(100%, var(--scale-xs)),
-        16vmin,
-        var(--scale-xl));
+    --config-spacing: clamp(
+      min(100%, var(--scale-xs)),
+      16vmin,
+      var(--scale-xl)
+    );
     /* accent colors */
     --clr-accent--1: hsl(154, 31%, 48%);
     --clr-accent--2: hsl(154, 31%, 40%);
@@ -100,7 +105,7 @@
     line-height: inherit;
     margin: 0;
     max-width: 100%;
-    min-height: min-content;
+    min-height: 0;
     min-width: 0;
     outline: none;
     outline-offset: calc(var(--config-outlineWidth) * -1);
@@ -133,40 +138,6 @@
         cursor: not-allowed;
         filter: sepia(56%) hue-rotate(348deg);
       }
-    }
-  }
-}
-
-@layer reset {
-  :where(*) {
-    --bar-color: trasparent;
-    --bar-size: var(--scale-xs);
-    --bar-radius: var(--scale-xs);
-
-    --thumb-color: color-mix(in var(--config-colorSpace, srgb),
-        var(--clr-tertiary),
-        transparent 56%);
-    --thumb-size: var(--scale-xs);
-    --thumb-radius: var(--scale-xs);
-
-    scrollbar-color: var(--thumb-color) var(--bar-color);
-    scrollbar-width: auto;
-
-    &::-webkit-scrollbar {
-      width: var(--bar-size);
-      height: var(--bar-size);
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: var(--bar-color);
-      border-radius: var(--bar-radius);
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: var(--thumb-color);
-      border-radius: var(--thumb-radius);
-      width: var(--thumb-size);
-      height: var(--thumb-size);
     }
   }
 }
@@ -212,10 +183,11 @@
       isolation: isolate;
       display: contents;
       overflow: clip;
+      overscroll-behavior: contain;
 
       & > #app {
         height: 100dvh;
-        overflow: auto;
+        overflow: clip;
         width: 100dvw;
       }
     }
@@ -253,12 +225,12 @@
 
   :where(blockquote, q) {
     border-left: 0.125rem solid var(--clr-subtext);
-    font-size: var(--scale-md);
+    font-size: var(--scale-nm);
     padding: var(--scale-sm) 0 var(--scale-sm) var(--scale-sm);
   }
 
   :where(cite) {
-    font-size: 88%;
+    font-size: 75%;
     font-style: italic;
     font-weight: 500;
     text-wrap: pretty;
@@ -267,13 +239,13 @@
 
   :where(p) {
     display: block;
-    font-size: var(--scale-md);
+    font-size: var(--scale-nm);
     text-wrap: pretty;
     width: min(72ch, 100%);
   }
 
   :where(span) {
-    font-size: var(--scale-md);
+    font-size: var(--scale-nm);
   }
 
   :where(caption, figcaption, legend) {
@@ -283,7 +255,7 @@
   }
 
   :where(small) {
-    font-size: clamp(72%, 0.5vw, 88%);
+    font-size: 75%;
   }
 
   :where(audio, button, figure, i, iframe, img, picture, svg, video) {
@@ -321,7 +293,7 @@
 
 @layer normalize {
   :where(address) {
-    font-size: var(--scale-md);
+    font-size: var(--scale-nm);
   }
 
   :where(hr) {
@@ -348,12 +320,12 @@
     position: relative;
 
     & > dt {
-      font-size: var(--scale-md);
+      font-size: var(--scale-nm);
       font-weight: 500;
     }
 
     & > dd {
-      font-size: var(--scale-md);
+      font-size: var(--scale-nm);
       margin-top: calc(var(--scale-sm) * -1);
       padding-left: var(--scale-sm);
     }
@@ -363,13 +335,13 @@
     list-style-position: inside;
 
     & > li {
-      font-size: var(--scale-md);
+      font-size: var(--scale-nm);
       text-wrap: pretty;
       width: min(72ch, 100%);
     }
 
     & :where(ol, ul) {
-      margin-left: var(--scale-sm);
+      margin-left: var(--scale-xs);
     }
 
     &:is(ol) {
@@ -468,7 +440,7 @@
     color: var(--clr);
     cursor: pointer;
     display: inline-flex;
-    font-size: var(--scale-md);
+    font-size: var(--scale-nm);
     font-weight: 400;
     gap: var(--gap);
     margin: var(--my) var(--mx);
@@ -507,17 +479,23 @@
     }
 
     /* No icons */
-    &:not(:has(:where(:is([data-props~="--lead"])):first-child)):not( :has(:where(:is([data-props~="--trail"])):last-child)) {
+    &:not(:has(:where(:is([data-props~="--lead"])):first-child)):not(
+      :has(:where(:is([data-props~="--trail"])):last-child)
+    ) {
       --px: calc(var(--spacing) * 2.75);
     }
 
     /* Left icon only */
-    &:has(:where(:is([data-props~="--lead"])):first-child):is( :not(:has(:where(:is([data-props~="--trail"])):last-child))) {
+    &:has(:where(:is([data-props~="--lead"])):first-child):is(
+      :not(:has(:where(:is([data-props~="--trail"])):last-child))
+    ) {
       padding-inline-end: calc(var(--spacing) * 2);
     }
 
     /* Right icon only */
-    &:has(:where(:is([data-props~="--trail"])):last-child):is( :not(:has(:where(:is([data-props~="--lead"])):first-child))) {
+    &:has(:where(:is([data-props~="--trail"])):last-child):is(
+      :not(:has(:where(:is([data-props~="--lead"])):first-child))
+    ) {
       padding-inline-start: calc(var(--spacing) * 2);
     }
 
@@ -537,9 +515,11 @@
     }
 
     &:is(button, :is([data-props~="--button"])):is([data-props~="--outline"]) {
-      outline-color: color-mix(in var(--config-colorSpace, srgb),
-          var(--outln),
-          gray 16%);
+      outline-color: color-mix(
+        in var(--config-colorSpace, srgb),
+        var(--outln),
+        gray 16%
+      );
     }
 
     &:is(button, :is([data-props~="--button"])):is([data-props~="--fab"]) {
@@ -553,41 +533,59 @@
     /* Micro Interactions */
     @media (hover: hover) {
       &:hover {
-        background-color: color-mix(in var(--config-colorSpace, srgb),
-            var(--bg),
-            gray 16%);
-        color: color-mix(in var(--config-colorSpace, srgb),
-            var(--clr),
-            gray 16%);
+        background-color: color-mix(
+          in var(--config-colorSpace, srgb),
+          var(--bg),
+          gray 16%
+        );
+        color: color-mix(
+          in var(--config-colorSpace, srgb),
+          var(--clr),
+          gray 16%
+        );
 
-        &:is(button, :is([data-props~="--button"])):is([data-props~="--outline"]) {
-          outline-color: color-mix(in var(--config-colorSpace, srgb),
-              var(--outln),
-              gray 16%);
+        &:is(button, :is([data-props~="--button"])):is(
+          [data-props~="--outline"]
+        ) {
+          outline-color: color-mix(
+            in var(--config-colorSpace, srgb),
+            var(--outln),
+            gray 16%
+          );
         }
       }
     }
 
     &:active {
-      background-color: color-mix(in var(--config-colorSpace, srgb),
-          var(--bg),
-          darkgray 16%);
-      color: color-mix(in var(--config-colorSpace, srgb),
-          var(--clr),
-          darkgray 16%);
+      background-color: color-mix(
+        in var(--config-colorSpace, srgb),
+        var(--bg),
+        darkgray 16%
+      );
+      color: color-mix(
+        in var(--config-colorSpace, srgb),
+        var(--clr),
+        darkgray 16%
+      );
 
-      &:is(button, :is([data-props~="--button"])):is([data-props~="--outline"]) {
-        outline-color: color-mix(in var(--config-colorSpace, srgb),
-            var(--outln),
-            darkgray 16%);
+      &:is(button, :is([data-props~="--button"])):is(
+        [data-props~="--outline"]
+      ) {
+        outline-color: color-mix(
+          in var(--config-colorSpace, srgb),
+          var(--outln),
+          darkgray 16%
+        );
       }
     }
 
     &:focus-visible {
       --outln: var(--clr-accent);
-      outline-color: color-mix(in var(--config-colorSpace, srgb),
-          var(--outln),
-          transparent 56%);
+      outline-color: color-mix(
+        in var(--config-colorSpace, srgb),
+        var(--outln),
+        transparent 56%
+      );
     }
   }
 }
@@ -610,7 +608,7 @@
     border-radius: var(--radius);
     color: var(--clr);
     cursor: pointer;
-    font-size: var(--scale-sm);
+    font-size: var(--scale-nm);
     font-weight: 400;
     gap: var(--gap);
     margin: var(--my) var(--mx);
@@ -633,7 +631,6 @@
 
     /* input only */
     &:is(input) {
-
       &::-webkit-inner-spin-button,
       &::-webkit-outer-spin-button {
         display: none;
@@ -718,9 +715,11 @@
 
           &::after {
             aspect-ratio: 1/1;
-            background-color: color-mix(in var(--config-colorSpace, srgb),
-                var(--bg),
-                darkgray 16%);
+            background-color: color-mix(
+              in var(--config-colorSpace, srgb),
+              var(--bg),
+              darkgray 16%
+            );
             border-radius: 50%;
             content: "";
             height: calc(var(--size) - 25%);
@@ -775,22 +774,28 @@
     /* Micro Interactions */
     @media (hover: hover) {
       &:hover {
-        outline-color: color-mix(in var(--config-colorSpace, srgb),
-            var(--outln),
-            darkgray 16%) !important;
+        outline-color: color-mix(
+          in var(--config-colorSpace, srgb),
+          var(--outln),
+          darkgray 16%
+        ) !important;
       }
     }
 
     &:active {
-      outline-color: color-mix(in var(--config-colorSpace, srgb),
-          var(--outln),
-          darkgray 8%) !important;
+      outline-color: color-mix(
+        in var(--config-colorSpace, srgb),
+        var(--outln),
+        darkgray 8%
+      ) !important;
     }
 
     &:focus-visible {
-      outline-color: color-mix(in var(--config-colorSpace, srgb),
-          var(--clr-accent),
-          transparent 56%) !important;
+      outline-color: color-mix(
+        in var(--config-colorSpace, srgb),
+        var(--clr-accent),
+        transparent 56%
+      ) !important;
     }
   }
 }
@@ -821,7 +826,7 @@
 
       & > :where(:is([data-props~="--caption"])) {
         color: var(--clr-subtext);
-        font-size: var(--scale-sm);
+        font-size: var(--scale-md);
       }
     }
   }
@@ -854,9 +859,11 @@
 @layer normalize {
   :where(table) {
     --bg: var(--clr-background);
-    --bg--lighter: color-mix(in var(--config-colorSpace, srgb),
-        var(--bg),
-        darkgray 6%);
+    --bg--lighter: color-mix(
+      in var(--config-colorSpace, srgb),
+      var(--bg),
+      darkgray 6%
+    );
     --clr: var(--clr-text);
     --gap: 0;
     --radius: 0;
@@ -888,7 +895,7 @@
 
       & > th,
       & > td {
-        font-size: var(--scale-md);
+        font-size: var(--scale-nm);
         font-weight: 400;
         height: var(--scale-5xl);
         line-height: 0;
@@ -934,9 +941,11 @@
 
         @media (hover: hover) {
           &:hover {
-            background-color: color-mix(in var(--config-colorSpace, srgb),
-                var(--bg),
-                darkgray 1%);
+            background-color: color-mix(
+              in var(--config-colorSpace, srgb),
+              var(--bg),
+              darkgray 1%
+            );
           }
         }
 
@@ -1037,9 +1046,13 @@
     display: grid;
     gap: var(--gap);
     grid-template-columns:
-      repeat(var(--count),
-        minmax(max(var(--track_min), 100% / var(--cols) - var(--gap)),
-          var(--track_max)));
+      repeat(
+      var(--count),
+      minmax(
+        max(var(--track_min), 100% / var(--cols) - var(--gap)),
+        var(--track_max)
+      )
+    );
     width: 100%;
 
     &:is([data-props~="--2"]) {
@@ -1089,18 +1102,26 @@
     &:is(.container) {
       grid-auto-rows: max-content;
       grid-template-columns:
-        [grid-expand-start] minmax(var(--config-containerOutterWidth),
-          1fr) [grid-contain-start] minmax(0,
-          var(--config-containerWidth)) [grid-contain-end] minmax(var(--config-containerOutterWidth),
-          1fr) [grid-expand-end];
+        [grid-expand-start] minmax(
+        var(--config-containerOutterWidth),
+        1fr
+      ) [grid-contain-start] minmax(
+        0,
+        var(--config-containerWidth)
+      ) [grid-contain-end] minmax(
+        var(--config-containerOutterWidth),
+        1fr
+      ) [grid-expand-end];
 
       & > * {
         grid-column: grid-contain;
 
         &:is([data-props~="--expand"]:not([data-props~="--propagate"])) {
           grid-column: grid-expand;
-          padding-inline: max((100% - var(--config-containerWidth)) / 2,
-              var(--config-containerOutterWidth) + 1px);
+          padding-inline: max(
+            (100% - var(--config-containerWidth)) / 2,
+            var(--config-containerOutterWidth) + 1px
+          );
         }
       }
     }
@@ -1112,18 +1133,30 @@
     display: grid;
     grid-auto-rows: max-content;
     grid-template-columns:
-      [grid-expand-start] minmax(var(--config-containerOutterWidth),
-        1fr) [grid-contain-start] minmax(0,
-        var(--config-containerWidth)) [grid-contain-end] minmax(var(--config-containerOutterWidth),
-        1fr) [grid-expand-end];
+      [grid-expand-start] minmax(
+      var(--config-containerOutterWidth),
+      1fr
+    ) [grid-contain-start] minmax(
+      0,
+      var(--config-containerWidth)
+    ) [grid-contain-end] minmax(
+      var(--config-containerOutterWidth),
+      1fr
+    ) [grid-expand-end];
 
     & > * {
       grid-column: grid-contain;
 
-      &:is([data-props~="--expand"]:not([data-props~="--propagate"])) {
+      &:is([data-props~="--expand"]) {
         grid-column: grid-expand;
-        padding-inline: max((100% - var(--config-containerWidth)) / 2,
-            var(--config-containerOutterWidth) + 1px);
+        padding-inline: max(
+          (100% - var(--config-containerWidth)) / 2,
+          var(--config-containerOutterWidth) + 1px
+        );
+
+        &:is([data-props~="--propagate"]) {
+          padding-inline: 0;
+        }
       }
     }
   }
@@ -1158,5 +1191,3 @@
     }
   }
 }
-
-@tailwind utilities;

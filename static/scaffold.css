@@ -1,10 +1,10 @@
-@layer overrides {
+@layer config {
   :root {
-    --config-fontFamily: 'Space Grotesk', serif;
+    --config-fontFamily: "Space Grotesk", serif;
   }
 }
 
-@layer overrides {
+@layer scaffold {
   #app {
     isolation: isolate;
     grid-template-rows: max-content minmax(0, 1fr) max-content;
@@ -12,10 +12,21 @@
     & > #appbar {
       background-color: hsla(0, 0, 0, 0.75%);
       backdrop-filter: blur(25px);
+      outline: solid 2px var(--clr-surface--2);
       grid-column: grid-expand;
       position: sticky;
       top: 0;
       z-index: 3;
+
+      & > #viewsbar {
+        & > button {
+          border-radius: 0;
+
+          &:is(.currentView) {
+            border-bottom: solid 2px var(--clr-content--1);
+          }
+        }
+      }
     }
 
     & > #body {

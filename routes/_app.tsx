@@ -1,4 +1,6 @@
 import { type PageProps } from "$fresh/server.ts";
+import Appbar from "../islands/Appbar.tsx";
+import Bottombar from "../islands/Bottombar.tsx";
 export default function App({ Component }: PageProps) {
   return (
     <html lang="en">
@@ -6,8 +8,9 @@ export default function App({ Component }: PageProps) {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>lilys</title>
-        <link rel="stylesheet" href="styles.css" />
-        <link rel="stylesheet" href="overrides.css" />
+        <link rel="stylesheet" href="lilys.css" />
+        <link rel="stylesheet" href="scaffold.css" />
+        <link rel="stylesheet" href="tailwind.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -24,7 +27,11 @@ export default function App({ Component }: PageProps) {
         />
       </head>
       <body>
-        <Component />
+        <main id="app" className="container">
+          <Appbar />
+          <Component />
+          <Bottombar />
+        </main>
         <script type="module" src="wc.esm.js"></script>
       </body>
     </html>

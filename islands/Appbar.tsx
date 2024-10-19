@@ -1,7 +1,14 @@
 export default function Appbar() {
   return (
-    <nav id="appbar" data-props="--y" className="w-full">
-      <div className="flex grow h-[50px] w-full">
+    <nav
+      id="appbar"
+      data-props="--y --expand --propagate"
+      className="container w-full"
+    >
+      <div
+        data-props="--expand --propagate"
+        className="flex grow h-[50px] w-full"
+      >
         <div data-props="--x" className="flex-1"></div>
         <div data-props="--x" className="flex flex-1 justify-center items-end">
           <figure className="aspect-[1/1] h-[35px] w-[35px]">
@@ -13,8 +20,12 @@ export default function Appbar() {
         </div>
         <div data-props="--x" className="flex-1"></div>
       </div>
-      <div className="flex grow h-[50px] w-full">
-        <button className="place-content-center grow h-full border-b-4 border-indigo-500 flex-1">
+      <div
+        id="viewsbar"
+        data-props="--expand --propagate"
+        className="flex grow h-[50px] w-full"
+      >
+        <button className="place-content-center grow h-full flex-1 currentView">
           Popular
         </button>
         <button className="place-content-center grow h-full flex-1">
