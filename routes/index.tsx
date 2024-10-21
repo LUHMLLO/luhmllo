@@ -47,9 +47,9 @@ export default function Home() {
               <aside className="shrink-0">
                 <ly-dropdown>
                   <summary slot="summary">
-                    <ly-icon className="icon">
+                    <span className="icon">
                       more_horiz
-                    </ly-icon>
+                    </span>
                   </summary>
                   <button>
                     option

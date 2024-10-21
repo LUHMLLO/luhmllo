@@ -13,10 +13,11 @@ export default function App({ Component }: PageProps) {
         />
         <meta name="description" content="lilys desing system and ui kit" />
         <title>lilys</title>
-        <link rel="stylesheet" href="styles/lilys.css" />
+        <link rel="stylesheet" href="styles/01.root.css" />
+        <link rel="stylesheet" href="styles/02.reset.css" />
+        <link rel="stylesheet" href="styles/03.customs.css" />
         <link rel="stylesheet" href="styles/scaffold.css" />
         <link rel="stylesheet" href="styles/tailwind.css" />
-        <link rel="stylesheet" href="styles/extras.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

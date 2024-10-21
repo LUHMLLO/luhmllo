@@ -1,0 +1,188 @@
+@layer wc {
+  :is(.icon, .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp) {
+    --fill: 0;
+    --size: 1lh;
+
+    aspect-ratio: 1/1;
+    display: inline-grid;
+    font-family: "Material Symbols Outlined", "Material Symbols Rounded",
+      "Material Symbols Sharp";
+    font-feature-settings: "liga";
+    font-size: var(--size);
+    font-variation-settings:
+      "FILL" var(--fill),
+      "wght" 400,
+      "GRAD" 400,
+      "opsz" 48;
+    height: var(--size);
+    overflow: clip;
+    place-content: center center;
+    shape-margin: var(--scale-xs);
+    shape-outside: circle(50%);
+    user-select: none;
+    width: auto;
+
+    & > * {
+      display: contents;
+      line-height: 1lh;
+      margin: auto;
+      vertical-align: -webkit-baseline-middle;
+    }
+
+    &:is([data-props~="--solid"]) {
+      --fill: 1;
+    }
+  }
+}
+
+@layer wc {
+  :where(.flex, .group) {
+    display: flex;
+
+    &:is([data-props~="--x"]) {
+      flex-direction: row;
+    }
+
+    &:is([data-props~="--y"]) {
+      flex-direction: column;
+    }
+  }
+}
+
+@layer wc {
+  :where(.grid) {
+    --cols: 1;
+    --gap: 0px;
+
+    --count: auto-fill;
+    --track_min: clamp(6rem, 8rem, 12rem);
+    --track_max: 1fr;
+
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns:
+      repeat(var(--count),
+        minmax(max(var(--track_min), 100% / var(--cols) - var(--gap)),
+          var(--track_max)));
+    width: 100%;
+
+    &:is([data-props~="--2"]) {
+      --cols: 2;
+    }
+
+    &:is([data-props~="--3"]) {
+      --cols: 3;
+    }
+
+    &:is([data-props~="--4"]) {
+      --cols: 4;
+    }
+
+    &:is([data-props~="--5"]) {
+      --cols: 5;
+    }
+
+    &:is([data-props~="--6"]) {
+      --cols: 6;
+    }
+
+    &:is([data-props~="--7"]) {
+      --cols: 7;
+    }
+
+    &:is([data-props~="--8"]) {
+      --cols: 8;
+    }
+
+    &:is([data-props~="--9"]) {
+      --cols: 9;
+    }
+
+    &:is([data-props~="--10"]) {
+      --cols: 10;
+    }
+
+    &:is([data-props~="--11"]) {
+      --cols: 11;
+    }
+
+    &:is([data-props~="--12"]) {
+      --cols: 12;
+    }
+
+    &:is(.container) {
+      grid-auto-rows: max-content;
+      grid-template-columns:
+        [grid-expand-start] minmax(var(--config-containerOutterWidth),
+          1fr) [grid-contain-start] minmax(0,
+          var(--config-containerWidth)) [grid-contain-end] minmax(var(--config-containerOutterWidth),
+          1fr) [grid-expand-end];
+
+      & > * {
+        grid-column: grid-contain;
+
+        &:is([data-props~="--expand"]:not([data-props~="--propagate"])) {
+          grid-column: grid-expand;
+          padding-inline: max((100% - var(--config-containerWidth)) / 2,
+              var(--config-containerOutterWidth) + 1px);
+        }
+      }
+    }
+  }
+}
+
+@layer wc {
+  :where(.container) {
+    display: grid;
+    grid-auto-rows: max-content;
+    grid-template-columns:
+      [grid-expand-start] minmax(var(--config-containerOutterWidth),
+        1fr) [grid-contain-start] minmax(0,
+        var(--config-containerWidth)) [grid-contain-end] minmax(var(--config-containerOutterWidth),
+        1fr) [grid-expand-end];
+
+    & > * {
+      grid-column: grid-contain;
+
+      &:is([data-props~="--expand"]) {
+        grid-column: grid-expand;
+        padding-inline: max((100% - var(--config-containerWidth)) / 2,
+            var(--config-containerOutterWidth) + 1px);
+
+        &:is([data-props~="--propagate"]) {
+          padding-inline: 0;
+        }
+      }
+    }
+  }
+}
+
+@layer wc {
+  :where(.slider) {
+    display: grid;
+    height: max-content;
+    /*scroll-snap-padding-block: var(--gap);*/
+
+    & > * {
+      min-height: max-content;
+      min-width: max-content;
+      /*scroll-snap-align: start;*/
+    }
+
+    &:is([data-props~="--x"]) {
+      grid-auto-flow: column;
+      grid-auto-columns: max-content;
+      overflow-x: auto;
+      overflow-y: visible;
+      /*scroll-snap-type: x proximity;*/
+    }
+
+    &:is([data-props~="--y"]) {
+      grid-auto-flow: row;
+      grid-auto-rows: max-content;
+      overflow-x: visible;
+      overflow-y: auto;
+      /*scroll-snap-type: y proximity;*/
+    }
+  }
+}

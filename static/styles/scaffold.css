@@ -1,10 +1,10 @@
-@layer config {
+@layer locals {
   :root {
     --config-fontFamily: "Space Grotesk", serif;
   }
 }
 
-@layer scaffold {
+@layer locals {
   #app {
     isolation: isolate;
     grid-template-rows: minmax(0, 1fr);
@@ -41,5 +41,27 @@
         scroll-snap-align: start;
       }
     }
+  }
+}
+
+@layer locals {
+  #cursor {
+    aspect-ratio: 1/1;
+    backdrop-filter: blur(var(--scale-xl));
+    background-color: hsla(0, 0%, 100%, 0.50);
+    border-radius: 50%;
+    cursor: none;
+    mix-blend-mode: difference;
+    outline: solid 2px hsla(0, 0%, 100%, 0.50);
+    outline-offset: 2px;
+    pointer-events: none;
+    position: fixed;
+    transition:
+      background var(--animDefaults),
+      box-shadow var(--animDefaults),
+      translate var(--animDefaults);
+    user-select: none;
+    width: var(--scale-xl);
+    z-index: auto;
   }
 }
