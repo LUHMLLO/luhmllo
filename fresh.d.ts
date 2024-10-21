@@ -1,8 +1,11 @@
+import type { JSX } from "preact";
+
 declare module "preact" {
   namespace JSX {
     interface IntrinsicElements {
-      "ly-dropdown": preact.JSX.HTMLAttributes<HTMLElement>;
-      "ly-flex": preact.JSX.HTMLAttributes<HTMLElement>;
+      "ly-dropdown": JSX.HTMLAttributes<HTMLElement>;
+      "ly-flex": JSX.HTMLAttributes<HTMLElement>;
+      "ly-icon": JSX.HTMLAttributes<HTMLElement>;
     }
   }
 }
