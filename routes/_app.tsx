@@ -11,6 +11,7 @@ export default function App({ Component }: PageProps) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
+        <meta name="description" content="lilys desing system and ui kit" />
         <title>lilys</title>
         <link rel="stylesheet" href="styles/lilys.css" />
         <link rel="stylesheet" href="styles/scaffold.css" />

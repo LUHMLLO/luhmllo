@@ -38,8 +38,8 @@ export default function Home() {
                 <div className="flex g-xs py-xs">
                   <figure className="bg-surface--2 w-full">
                     <img
-                      src="https://cdn.dribbble.com/userupload/7433663/file/original-c95ecd504412daf4a12626361ebfcd45.png?resize=1024x768"
-                      alt=""
+                      src="https://images.unsplash.com/photo-1728926125424-9b0eb80b9d86?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      alt="articlethumbnail"
                     />
                   </figure>
                 </div>
