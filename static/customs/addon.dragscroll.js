@@ -1,0 +1,40 @@
+// deno-lint-ignore-file
+var e, l = !1, r, p, d, u, f;
+function L(t) {
+  e = document.getElementById(t),
+    e.addEventListener("touchstart", a),
+    e.addEventListener("touchend", o),
+    e.addEventListener("touchcancel", o),
+    e.addEventListener("touchmove", c),
+    e.addEventListener("mousedown", a),
+    document.addEventListener("mouseup", o),
+    e.addEventListener("mouseleave", o),
+    e.addEventListener("mousemove", c);
+}
+function a(t) {
+  l = !0;
+  let n = t.pageX || t.touches[0].pageX, s = t.pageY || t.touches[0].pageY;
+  r = n - e.offsetLeft,
+    p = s - e.offsetTop,
+    d = e.scrollLeft,
+    u = e.scrollTop,
+    e.style.userSelect = "none",
+    f = e.style.scrollSnapType,
+    e.style.scrollSnapType = "none";
+}
+function o() {
+  l = !1, e.style.userSelect = "", e.style.scrollSnapType = f;
+}
+function c(t) {
+  if (!l) return;
+  t.preventDefault();
+  let n = t.pageX || t.touches[0].pageX,
+    s = t.pageY || t.touches[0].pageY,
+    i = n - e.offsetLeft,
+    g = s - e.offsetTop,
+    v = (i - r) * 2,
+    h = (g - p) * 2;
+  e.scrollTo({ left: d + 10 - v, top: u + 10 - h, behavior: "smooth" });
+}
+var y = L;
+export { y as default };

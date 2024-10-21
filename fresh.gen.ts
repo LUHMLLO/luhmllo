@@ -10,7 +10,6 @@ import * as $examples_webcomponents_dropdown from "./routes/examples/webcomponen
 import * as $index from "./routes/index.tsx";
 import * as $Appbar from "./islands/Appbar.tsx";
 import * as $Bottombar from "./islands/Bottombar.tsx";
-import * as $Counter from "./islands/Counter.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -26,7 +25,6 @@ const manifest = {
   islands: {
     "./islands/Appbar.tsx": $Appbar,
     "./islands/Bottombar.tsx": $Bottombar,
-    "./islands/Counter.tsx": $Counter,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;
