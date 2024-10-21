@@ -12,7 +12,6 @@
     & > #appbar {
       background-color: hsla(0, 0, 0, 0.75%);
       backdrop-filter: blur(var(--scale-xl));
-      outline: solid 2px var(--clr-surface--2);
       grid-column: grid-expand;
       position: fixed;
       top: 0;
@@ -39,6 +38,22 @@
       & > * {
         scroll-margin: 5dvh;
         scroll-snap-align: start;
+      }
+    }
+
+    & > #bottombar {
+      background-color: hsla(0, 0, 0, 0.75%);
+      backdrop-filter: blur(var(--scale-xl));
+      gap: calc(var(--scale-xl) * 1.7);
+      grid-column: grid-expand;
+      padding: var(--scale-nm) calc(var(--scale-xl) * 2);
+      place-content: center;
+      position: fixed;
+      bottom: 0;
+      z-index: 2;
+
+      & .icon {
+        --size: var(--scale-xl);
       }
     }
   }

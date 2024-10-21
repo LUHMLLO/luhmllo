@@ -1,12 +1,21 @@
 @layer wc {
-  :is(.icon, .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp) {
+  :is(
+    .icon,
+    .material-symbols-outlined,
+    .material-symbols-rounded,
+    .material-symbols-sharp
+  ) {
     --fill: 0;
     --size: 1lh;
 
     aspect-ratio: 1/1;
     display: inline-grid;
-    font-family: "Material Symbols Outlined", "Material Symbols Rounded",
-      "Material Symbols Sharp";
+    flex-shrink: 0;
+    font-family:
+      "Material Symbols Outlined",
+      "Material Symbols Rounded",
+      "Material Symbols Sharp",
+      sans-serif;
     font-feature-settings: "liga";
     font-size: var(--size);
     font-variation-settings:
@@ -61,9 +70,13 @@
     display: grid;
     gap: var(--gap);
     grid-template-columns:
-      repeat(var(--count),
-        minmax(max(var(--track_min), 100% / var(--cols) - var(--gap)),
-          var(--track_max)));
+      repeat(
+      var(--count),
+      minmax(
+        max(var(--track_min), 100% / var(--cols) - var(--gap)),
+        var(--track_max)
+      )
+    );
     width: 100%;
 
     &:is([data-props~="--2"]) {
@@ -113,18 +126,26 @@
     &:is(.container) {
       grid-auto-rows: max-content;
       grid-template-columns:
-        [grid-expand-start] minmax(var(--config-containerOutterWidth),
-          1fr) [grid-contain-start] minmax(0,
-          var(--config-containerWidth)) [grid-contain-end] minmax(var(--config-containerOutterWidth),
-          1fr) [grid-expand-end];
+        [grid-expand-start] minmax(
+        var(--config-containerOutterWidth),
+        1fr
+      ) [grid-contain-start] minmax(
+        0,
+        var(--config-containerWidth)
+      ) [grid-contain-end] minmax(
+        var(--config-containerOutterWidth),
+        1fr
+      ) [grid-expand-end];
 
       & > * {
         grid-column: grid-contain;
 
         &:is([data-props~="--expand"]:not([data-props~="--propagate"])) {
           grid-column: grid-expand;
-          padding-inline: max((100% - var(--config-containerWidth)) / 2,
-              var(--config-containerOutterWidth) + 1px);
+          padding-inline: max(
+            (100% - var(--config-containerWidth)) / 2,
+            var(--config-containerOutterWidth) + 1px
+          );
         }
       }
     }
@@ -136,18 +157,26 @@
     display: grid;
     grid-auto-rows: max-content;
     grid-template-columns:
-      [grid-expand-start] minmax(var(--config-containerOutterWidth),
-        1fr) [grid-contain-start] minmax(0,
-        var(--config-containerWidth)) [grid-contain-end] minmax(var(--config-containerOutterWidth),
-        1fr) [grid-expand-end];
+      [grid-expand-start] minmax(
+      var(--config-containerOutterWidth),
+      1fr
+    ) [grid-contain-start] minmax(
+      0,
+      var(--config-containerWidth)
+    ) [grid-contain-end] minmax(
+      var(--config-containerOutterWidth),
+      1fr
+    ) [grid-expand-end];
 
     & > * {
       grid-column: grid-contain;
 
       &:is([data-props~="--expand"]) {
         grid-column: grid-expand;
-        padding-inline: max((100% - var(--config-containerWidth)) / 2,
-            var(--config-containerOutterWidth) + 1px);
+        padding-inline: max(
+          (100% - var(--config-containerWidth)) / 2,
+          var(--config-containerOutterWidth) + 1px
+        );
 
         &:is([data-props~="--propagate"]) {
           padding-inline: 0;

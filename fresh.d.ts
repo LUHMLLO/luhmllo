@@ -5,7 +5,6 @@ declare module "preact" {
     interface IntrinsicElements {
       "ly-dropdown": JSX.HTMLAttributes<HTMLElement>;
       "ly-flex": JSX.HTMLAttributes<HTMLElement>;
-      "ly-icon": JSX.HTMLAttributes<HTMLElement>;
     }
   }
 }

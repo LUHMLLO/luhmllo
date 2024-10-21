@@ -1,11 +1,21 @@
 export default function Bottombar() {
   return (
-    <nav id="bottombar" data-props="--y" className="w-full overflow-clip">
-      <button>
-        <ly-icon>
-          home
-        </ly-icon>
-      </button>
+    <nav id="bottombar" className="w-full overflow-clip">
+      <span className="icon">
+        home
+      </span>
+      <span className="icon">
+        search
+      </span>
+      <span className="icon">
+        edit_square
+      </span>
+      <span className="icon">
+        favorite
+      </span>
+      <span className="icon">
+        person
+      </span>
     </nav>
   );
 }
