@@ -6,7 +6,6 @@ import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $examples_api_joke from "./routes/examples/api/joke.ts";
 import * as $examples_greet_name_ from "./routes/examples/greet/[name].tsx";
-import * as $examples_webcomponents_dropdown from "./routes/examples/webcomponents/dropdown.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $Appbar from "./islands/Appbar.tsx";
 import * as $Bottombar from "./islands/Bottombar.tsx";
@@ -18,8 +17,6 @@ const manifest = {
     "./routes/_app.tsx": $_app,
     "./routes/examples/api/joke.ts": $examples_api_joke,
     "./routes/examples/greet/[name].tsx": $examples_greet_name_,
-    "./routes/examples/webcomponents/dropdown.tsx":
-      $examples_webcomponents_dropdown,
     "./routes/index.tsx": $index,
   },
   islands: {

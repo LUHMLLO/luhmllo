@@ -12,7 +12,7 @@ export default function Home() {
               <aside className="items-center gap-nm shrink-0">
                 <figure className="w-[35px]">
                   <img
-                    src="https://cdn.dribbble.com/users/71720/avatars/normal/1a484c634c93683bdc5dc91afa3e9067.png?1714739541"
+                    src="https://cdn.dribbble.com/users/71720/avatars/normal/1a484c634c93683bdc5dc91afa3e9067.png"
                     alt="avatar"
                   />
                 </figure>
@@ -38,7 +38,7 @@ export default function Home() {
                 <div className="flex g-xs py-xs">
                   <figure className="bg-surface--2 w-full">
                     <img
-                      src="https://images.unsplash.com/photo-1728926125424-9b0eb80b9d86?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      src="https://images.unsplash.com/photo-1728926125424-9b0eb80b9d86?q=80&w=512&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                       alt="articlethumbnail"
                     />
                   </figure>
