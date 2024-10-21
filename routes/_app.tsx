@@ -7,17 +7,20 @@ export default function App({ Component }: PageProps) {
     <html lang="en">
       <head>
         <meta charset="utf-8" />
+        <meta name="description" content="lilys desing system and ui kit" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
-        <meta name="description" content="lilys desing system and ui kit" />
+
         <title>lilys</title>
+
         <link rel="stylesheet" href="styles/01.root.css" />
         <link rel="stylesheet" href="styles/02.reset.css" />
         <link rel="stylesheet" href="styles/03.customs.css" />
         <link rel="stylesheet" href="styles/scaffold.css" />
         <link rel="stylesheet" href="styles/tailwind.css" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -39,7 +42,9 @@ export default function App({ Component }: PageProps) {
           <Component />
           <Bottombar />
         </main>
-        <span id="cursor"></span>
+
+        <span id="cursor" />
+
         <script type="module" src="customs/element.dropdown.js" />
         <script type="module" src="customs/_init.js" />
       </body>
