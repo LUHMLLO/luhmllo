@@ -3,8 +3,8 @@ import { denoPlugins } from "jsr:@luca/esbuild-deno-loader@^0.10.3";
 
 await esbuild.build({
   plugins: [...denoPlugins()],
-  entryPoints: ["./customs/*.mjs"],
-  outdir: "./static/customs",
+  entryPoints: ["./src/**/*.mjs"],
+  outdir: "./build/",
   bundle: true,
   minify: true,
   banner: { js: "// deno-lint-ignore-file" },

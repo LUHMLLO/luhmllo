@@ -1,0 +1,9 @@
+{
+  "lock": false,
+  "tasks": {
+    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "build": "deno run -A build.wc.ts",
+    "update": "deno run -A -r https://fresh.deno.dev/update ."
+  },
+  "nodeModulesDir": "auto"
+}
