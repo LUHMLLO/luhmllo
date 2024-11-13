@@ -67,7 +67,7 @@ for await (
     match: [/\.css$/],
   })
 ) {
-  const relativePath = entry.path.slice(inputDir.length);
+  const relativePath = entry.path.slice(inputDir.length + 1);
   const outputPath = join(outputDir, relativePath);
 
   try {
