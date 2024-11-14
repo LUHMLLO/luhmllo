@@ -1,9 +1,10 @@
 {
   "license": "MIT",
   "name": "@luhmllo/lilycat",
-  "version": "0.1.1",
-  "exports": "./css/all.css",
+  "version": "0.1.2",
+  "exports": "./mod.ts",
   "include": [
+    "./mod.ts",
     "./css/"
   ]
 }
