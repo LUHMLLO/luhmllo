@@ -1,8 +1,8 @@
-import { dirname, fromFileUrl } from "jsr:@std/path";
+import { dirname, fromFileUrl } from "jsr:@std/path@1.0.6";
 
-const __dirname = dirname(fromFileUrl(import.meta.url));
+const __dirname: string = dirname(fromFileUrl(import.meta.url));
 
-export const allCSS = `${__dirname}/dist/all.css`;
-export const resetCSS = `${__dirname}/dist/reset.css`;
-export const customsCSS = `${__dirname}/dist/customs.css`;
-export const rootCSS = `${__dirname}/dist/root.css`;
+export const allCSS: string = `${__dirname}/dist/all.css`;
+export const resetCSS: string = `${__dirname}/dist/reset.css`;
+export const customsCSS: string = `${__dirname}/dist/customs.css`;
+export const rootCSS: string = `${__dirname}/dist/root.css`;
