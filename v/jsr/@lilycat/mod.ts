@@ -1,6 +1,8 @@
-// styles.ts
+import { dirname, fromFileUrl } from "jsr:@std/path";
 
-export const allCSS = "jsr:@luhmllo/lilycat/all.css";
-export const resetCSS = "jsr:@luhmllo/lilycat/reset.css";
-export const customsCSS = "jsr:@luhmllo/lilycat/customs.css";
-export const rootCSS = "jsr:@luhmllo/lilycat/root.css";
+const __dirname = dirname(fromFileUrl(import.meta.url));
+
+export const allCSS = `${__dirname}/dist/all.css`;
+export const resetCSS = `${__dirname}/dist/reset.css`;
+export const customsCSS = `${__dirname}/dist/customs.css`;
+export const rootCSS = `${__dirname}/dist/root.css`;
