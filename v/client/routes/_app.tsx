@@ -1,16 +1,7 @@
 import { type PageProps } from "$fresh/server.ts";
 import Appbar from "../islands/Appbar.tsx";
 import Bottombar from "../islands/Bottombar.tsx";
-// Import the CSS path
-import { allCSS } from "jsr:@luhmllo/lilycat";
-
-// Method 1: Load it dynamically in browser
-function loadCSS() {
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = allCSS;
-  document.head.appendChild(link);
-}
+import { allCSS } from "jsr:@luhmllo/lilycat"
 
 export default function App({ Component }: PageProps) {
   return (
@@ -25,9 +16,7 @@ export default function App({ Component }: PageProps) {
 
         <title>lilys</title>
 
-        <script type="module" src="">
-          loadCSS()
-        </script>
+        {String(allCSS)}
 
         <link rel="stylesheet" href="styles/scaffold.css" />
         <link rel="stylesheet" href="styles/tailwind.css" />
