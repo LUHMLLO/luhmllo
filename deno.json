@@ -2,8 +2,8 @@
   "lock": false,
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
-    "build:postcss": "deno run -A build.postcss.ts",
-    "build:wc": "deno run -A build.wc.ts",
+    "buildCSS": "deno run -A ./v/jsr/@lilycat/build.ts",
+    "buildWC": "deno run -A build.wc.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update ."
   },
   "nodeModulesDir": "auto"

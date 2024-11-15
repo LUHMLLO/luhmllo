@@ -55,8 +55,8 @@ const processor = postcss([
 ]);
 
 // Process all CSS files
-const inputDir = "./src/lilycat";
-const outputDir = "./build/lilycat/css";
+const inputDir = "./v/jsr/@lilycat/css";
+const outputDir = "./v/jsr/@lilycat/dist";
 
 console.log(`Processing CSS files from ${inputDir} to ${outputDir}...`);
 
