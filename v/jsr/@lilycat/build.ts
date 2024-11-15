@@ -1,4 +1,4 @@
-import { dirname, join } from "jsr:@std/path";
+import { dirname, fromFileUrl, join } from "jsr:@std/path";
 import { ensureDir } from "jsr:@std/fs";
 import { walk } from "jsr:@std/fs/walk";
 
@@ -8,6 +8,7 @@ import postcssImport from "npm:postcss-import";
 import postcssFailOnWarn from "npm:postcss-fail-on-warn";
 import "npm:cssnano-preset-advanced@^7.0.6";
 
+// Initialize PostCSS with plugins
 const processor = postcss([
   postcssImport(),
   cssnano({
@@ -24,7 +25,7 @@ const processor = postcss([
         },
         calc: true,
         colormin: true,
-        discardComments: true,
+        discardComments: { removeAll: true },
         discardEmpty: true,
         discardDuplicates: true,
         mergeIdents: true,
@@ -54,22 +55,25 @@ const processor = postcss([
   postcssFailOnWarn(),
 ]);
 
+// Resolve paths based on the script's location
+const __dirname = dirname(fromFileUrl(import.meta.url));
+const entryPath = join(__dirname, "css");
+const outPath = join(__dirname, "dist");
+
+console.log(`Processing CSS files from ${entryPath} to ${outPath}...`);
+
+// Ensure output directory exists
+await ensureDir(outPath);
+
 // Process all CSS files
-const inputDir = "./v/jsr/@lilycat/css";
-const outputDir = "./v/jsr/@lilycat/dist";
-
-console.log(`Processing CSS files from ${inputDir} to ${outputDir}...`);
-
-await ensureDir(outputDir);
-
 for await (
-  const entry of walk(inputDir, {
+  const entry of walk(entryPath, {
     includeDirs: false,
     match: [/\.css$/],
   })
 ) {
-  const relativePath = entry.path.slice(inputDir.length + 1);
-  const outputPath = join(outputDir, relativePath);
+  const relativePath = entry.path.slice(entryPath.length + 1);
+  const outputPath = join(outPath, relativePath);
 
   try {
     // Ensure the output directory exists
@@ -84,10 +88,9 @@ for await (
 
     await Deno.writeTextFile(outputPath, result.css);
 
-    console.log(`✓ ${relativePath}`);
+    console.log(`✓ Processed: ${relativePath}`);
   } catch (error) {
     console.error(`✗ Error processing ${relativePath}:`, error);
-    Deno.exit(1);
   }
 }
 
