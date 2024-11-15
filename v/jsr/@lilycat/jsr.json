@@ -2,9 +2,9 @@
   "license": "MIT",
   "name": "@luhmllo/lilycat",
   "version": "0.1.3",
-  "exports": "./v/jsr/@lilycat/dist/mod.ts",
+  "exports": "./mod.ts",
   "include": [
-    "./v/jsr/@lilycat/mod.ts",
-    "./v/jsr/@lilycat/dist/**/*.css"
+    "./mod.ts",
+    "./dist"
   ]
 }
