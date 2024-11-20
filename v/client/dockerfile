@@ -1,0 +1,13 @@
+FROM denoland/deno
+
+EXPOSE 8000
+
+WORKDIR /app
+
+ADD . /app
+
+# Install the Deno application with necessary permissions
+RUN deno install --allow-net --allow-read --allow-write --allow-env --entrypoint ./main.ts
+
+# Build the application and then run it for production
+CMD ["sh", "-c", "deno task build && deno task preview"]
