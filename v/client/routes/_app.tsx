@@ -1,7 +1,7 @@
 import { type PageProps } from "$fresh/server.ts";
 import Appbar from "../islands/Appbar.tsx";
 import Bottombar from "../islands/Bottombar.tsx";
-import { allCSS } from "jsr:@luhmllo/lilycat";
+import styles from "jsr:@luhmllo/lilycat" with { type: "css" }; // Import your published package with assertion
 
 export default function App({ Component }: PageProps) {
   return (
@@ -16,7 +16,8 @@ export default function App({ Component }: PageProps) {
 
         <title>lilys</title>
 
-        {String(allCSS)}
+        {/* css must load here */}
+        <link rel="stylesheet" href={styles} />
 
         <link rel="stylesheet" href="styles/scaffold.css" />
         <link rel="stylesheet" href="styles/tailwind.css" />
