@@ -264,5 +264,5 @@ if (typeof window !== "undefined") {
     }
   }
 
-  customElements.define("ly-dropdown", Dropdown);
+  customElements.define("cat-dropdown", Dropdown);
 }
