@@ -1,8 +1,6 @@
 // mod.ts
-export const styles: string = await Deno.readTextFile(
-  new URL("./dist/all.css", import.meta.url),
-).catch(() => ""); // Handle potential file read errors
+import { fromFileUrl } from "https://deno.land/std@0.224.0/path/mod.ts";
 
-// Ensure it's type-safe for JSR
-export type StylesType = typeof styles;
+const cssPath = fromFileUrl(new URL("./dist/all.css", import.meta.url));
+export const styles: string = await Deno.readTextFile(cssPath);
 export default styles;

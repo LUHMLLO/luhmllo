@@ -1,7 +1,7 @@
 import { type PageProps } from "$fresh/server.ts";
 import Appbar from "../islands/Appbar.tsx";
 import Bottombar from "../islands/Bottombar.tsx";
-import styles from "jsr:@luhmllo/lilycat" with { type: "css" };
+import {styles} from "../../jsr/@lilycat/mod.ts";
 
 export default function App({ Component }: PageProps) {
   return (
@@ -16,8 +16,8 @@ export default function App({ Component }: PageProps) {
 
         <title>lilys</title>
 
-        {/* css must load here */}
-        <link rel="stylesheet" href={styles} />
+        {/* Use the imported styles directly in a style tag */}
+        <style>{styles}</style>
 
         <link rel="stylesheet" href="styles/scaffold.css" />
         <link rel="stylesheet" href="styles/tailwind.css" />
