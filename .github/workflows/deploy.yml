@@ -29,7 +29,7 @@ jobs:
           node-version: lts/*
 
       - name: Install step
-        run: "cd ./v/client && deno install"
+        run: "deno install"
 
       - name: Build step
         run: "deno task build"
@@ -39,6 +39,6 @@ jobs:
         with:
           project: "lilys"
           entrypoint: "main.tsx"
-          root: "."
+          root: "./v/client"
           
           
