@@ -39,6 +39,6 @@ jobs:
         with:
           project: "lilys"
           entrypoint: "main.tsx"
-          root: "./v/client"
+          root: ""
           
           
