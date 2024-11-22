@@ -6,7 +6,7 @@
     "buildCSS": "deno run -A ./v/jsr/@lilycat/build.ts",
     "buildWC": "deno run -A ./v/jsr/@webcomponents/build.ts",
     "build": "deno task buildFeats && deno task buildWC && deno task buildCSS",
-    "publishLilyCat": "deno run -A ./v/jsr/@lilycat/publish.ts",
+    "publish": "deno run -A ./v/jsr/@lilycat/publish.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update ."
   },
   "nodeModulesDir": "auto"
