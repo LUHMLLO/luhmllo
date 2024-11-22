@@ -1,7 +1,7 @@
 import { type PageProps } from "$fresh/server.ts";
 import Appbar from "../islands/Appbar.tsx";
 import Bottombar from "../islands/Bottombar.tsx";
-import styles from "jsr:@luhmllo/lilycat";
+import styles from "jsr:@luhmllo/lilycat" with { type: "css" };
 
 export default function App({ Component }: PageProps) {
   return (
