@@ -21,15 +21,7 @@ jobs:
       - name: Install Deno
         uses: denoland/setup-deno@v2
         with:
-          deno-version: v1.x
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-
-      - name: Install step
-        run: "deno install"
+          deno-version: v2.x
 
       - name: Build step
         run: "deno task build"
@@ -38,7 +30,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "lilys"
-          entrypoint: "v/client/main.ts"
+          entrypoint: "main.tsx"
           root: "./v/client/"
           
           
