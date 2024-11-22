@@ -46,7 +46,7 @@ export default function App({ Component }: PageProps) {
 
         <span id="cursor" />
 
-        <script type="module" src="customs/element.dropdown.js" />
+        {/* <script type="module" src="customs/dropdown.min.js" /> */}
         <script type="module" src="customs/_init.js" />
       </body>
     </html>

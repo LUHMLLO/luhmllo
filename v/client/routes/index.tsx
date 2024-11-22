@@ -45,7 +45,7 @@ export default function Home() {
                 </div>
               </div>
               <aside className="shrink-0">
-                <ly-dropdown>
+                <cat-dropdown>
                   <summary slot="summary">
                     <span className="icon">
                       more_horiz
@@ -63,7 +63,7 @@ export default function Home() {
                   <button>
                     option
                   </button>
-                </ly-dropdown>
+                </cat-dropdown>
               </aside>
             </article>
 
