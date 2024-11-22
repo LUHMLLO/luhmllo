@@ -1,5 +1,6 @@
 {
   "lock": false,
+  "nodeModulesDir": "auto",
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
     "buildFeats": "deno run -A ./v/jsr/@features/build.ts",
@@ -8,6 +9,5 @@
     "build": "deno task buildFeats && deno task buildWC && deno task buildCSS",
     "publish": "deno run -A ./v/jsr/@lilycat/publish.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update ."
-  },
-  "nodeModulesDir": "auto"
+  }
 }

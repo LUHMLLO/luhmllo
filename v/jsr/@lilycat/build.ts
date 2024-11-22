@@ -97,13 +97,13 @@ for await (
 
     console.log(`✓ Processed: ${relativePath}`);
 
-    // Escape backticks and add export to mod.ts
+    // Escape backticks and preserve raw CSS
     const varName = relativePath
       .replace(/\//g, "_")
       .replace(/\.css$/, "")
       .replace(/[^a-zA-Z0-9_]/g, "_"); // Ensure valid JS variable names
 
-    const safeCSS = result.css.replace(/`/g, "\\`"); // Escape backticks
+    const safeCSS = result.css.replace(/`/g, "\\`"); // Only escape backticks
     modExports += `export const ${varName}: string = \`${safeCSS}\`;\n`;
 
     processedFiles.push(relativePath);
