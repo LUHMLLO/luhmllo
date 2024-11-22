@@ -38,7 +38,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "lilys"
-          entrypoint: "../v/client/main.ts"
-          root: ""
+          entrypoint: "main.ts"
+          root: "./v/client/"
           
           
