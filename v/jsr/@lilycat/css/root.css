@@ -1,7 +1,7 @@
 @layer root {
   :root {
     /* typography */
-    --rootRatio: 1.125;
+    --rootRatio: 1.5;
     --rootSize: calc(var(--rootRatio) * clamp(10px, 5dvw, 15px));
     /* for font calculations, gaps, paddings, . . . */
     --scale-xs: calc(var(--rootSize) / pow(var(--rootRatio), 3));

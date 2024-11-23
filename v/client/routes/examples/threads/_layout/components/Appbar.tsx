@@ -13,7 +13,7 @@ export default function Appbar() {
         <div data-props="--x" className="flex flex-1 justify-center items-end">
           <figure className="aspect-[1/1] h-[35px] w-[35px]">
             <img
-              src="img/logo.svg"
+              src="/img/logo.svg"
               alt="the Fresh logo: a sliced lemon dripping with juice"
             />
           </figure>

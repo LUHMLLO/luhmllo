@@ -6,9 +6,13 @@ import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $examples_api_joke from "./routes/examples/api/joke.ts";
 import * as $examples_greet_name_ from "./routes/examples/greet/[name].tsx";
+import * as $examples_saas from "./routes/examples/saas.tsx";
+import * as $examples_threads_layout from "./routes/examples/threads/_layout.tsx";
+import * as $examples_threads_layout_components_Appbar from "./routes/examples/threads/_layout/components/Appbar.tsx";
+import * as $examples_threads_layout_components_Bottombar from "./routes/examples/threads/_layout/components/Bottombar.tsx";
+import * as $examples_threads_index from "./routes/examples/threads/index.tsx";
 import * as $index from "./routes/index.tsx";
-import * as $Appbar from "./islands/Appbar.tsx";
-import * as $Bottombar from "./islands/Bottombar.tsx";
+
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -17,12 +21,16 @@ const manifest = {
     "./routes/_app.tsx": $_app,
     "./routes/examples/api/joke.ts": $examples_api_joke,
     "./routes/examples/greet/[name].tsx": $examples_greet_name_,
+    "./routes/examples/saas.tsx": $examples_saas,
+    "./routes/examples/threads/_layout.tsx": $examples_threads_layout,
+    "./routes/examples/threads/_layout/components/Appbar.tsx":
+      $examples_threads_layout_components_Appbar,
+    "./routes/examples/threads/_layout/components/Bottombar.tsx":
+      $examples_threads_layout_components_Bottombar,
+    "./routes/examples/threads/index.tsx": $examples_threads_index,
     "./routes/index.tsx": $index,
   },
-  islands: {
-    "./islands/Appbar.tsx": $Appbar,
-    "./islands/Bottombar.tsx": $Bottombar,
-  },
+  islands: {},
   baseUrl: import.meta.url,
 } satisfies Manifest;
 
