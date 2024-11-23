@@ -1,0 +1,60 @@
+@layer locals {
+  :root {
+    --config-fontFamily: "Space Grotesk", serif;
+  }
+}
+
+@layer locals {
+  #app {
+    isolation: isolate;
+    grid-template-rows: minmax(0, 1fr);
+
+    & > #appbar {
+      background-color: hsla(0, 0, 0, 0.75%);
+      backdrop-filter: blur(var(--scale-xl));
+      grid-column: grid-expand;
+      position: fixed;
+      top: 0;
+      z-index: 2;
+
+      & > #viewsbar {
+        & > button {
+          border-radius: 0;
+
+          &:is(.currentView) {
+            border-bottom: solid 2px var(--clr-content--1);
+          }
+        }
+      }
+    }
+
+    & > #views {
+      overflow: auto;
+      padding-block: 100px;
+      scroll-padding-block: 100px;
+      /* scroll-snap-type: both proximity; */
+      z-index: 1;
+
+      & > * {
+        scroll-margin: 5dvh;
+        scroll-snap-align: start;
+      }
+    }
+
+    & > #bottombar {
+      background-color: hsla(0, 0, 0, 0.75%);
+      backdrop-filter: blur(var(--scale-xl));
+      gap: calc(var(--scale-xl) * 1.7);
+      grid-column: grid-expand;
+      padding: var(--scale-nm) calc(var(--scale-xl) * 2);
+      place-content: center;
+      position: fixed;
+      bottom: 0;
+      z-index: 2;
+
+      & .icon {
+        --size: var(--scale-xl);
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-// routes/_layout.tsx
+import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
 import Appbar from "./_layout/components/Appbar.tsx";
 import Bottombar from "./_layout/components/Bottombar.tsx";
@@ -6,6 +6,15 @@ import Bottombar from "./_layout/components/Bottombar.tsx";
 export default function Layout({ Component }: PageProps) {
   return (
     <>
+      <Head>
+        <style
+          lang="css"
+          dangerouslySetInnerHTML={{
+            __html: `css`,
+          }}
+        />
+      </Head>
+
       <main id="app" className="container">
         <Appbar />
         <Component />
@@ -25,10 +34,3 @@ export default function Layout({ Component }: PageProps) {
     </>
   );
 }
-
-// Optional: Add a route handler if needed
-// export const handler: Handlers = {
-//   GET(req, ctx) {
-//     return ctx.render();
-//   },
-// };
