@@ -67,7 +67,7 @@ if (typeof window !== "undefined") {
       }
 
       [part="dropmenu"] {
-        --bg: var(--clr-surface--1);
+        --bg: var(--clr-surface-1);
         --gap: 0;
         --outln-clr: var(--bg);
         --radius: var(--scale-sm);

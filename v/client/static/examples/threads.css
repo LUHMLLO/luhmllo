@@ -22,7 +22,7 @@
           border-radius: 0;
 
           &:is(.currentView) {
-            border-bottom: solid 2px var(--clr-content--1);
+            border-bottom: solid 2px var(--clr-content-1);
           }
         }
       }

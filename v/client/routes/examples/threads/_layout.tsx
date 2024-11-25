@@ -7,12 +7,7 @@ export default function Layout({ Component }: PageProps) {
   return (
     <>
       <Head>
-        <style
-          lang="css"
-          dangerouslySetInnerHTML={{
-            __html: `css`,
-          }}
-        />
+        <link rel="stylesheet" href="/examples/threads.css" />
       </Head>
 
       <main id="app" className="container">

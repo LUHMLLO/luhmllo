@@ -73,8 +73,8 @@
 
 @layer reset {
   :is(html) {
-    background-color: var(--clr-surface--1);
-    color: var(--clr-content--1);
+    background-color: var(--clr-surface-1);
+    color: var(--clr-content-1);
 
     font-display: swap;
     font-kerning: auto;
@@ -226,7 +226,7 @@
   }
 
   :where(hr) {
-    background-color: var(--clr-surface--2);
+    background-color: var(--clr-surface-2);
 
     &:is([data-props~="--x"]) {
       height: calc(var(--scale-xs) * 0.1625);

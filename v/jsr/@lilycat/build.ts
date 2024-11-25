@@ -5,12 +5,18 @@ import { walk } from "jsr:@std/fs/walk";
 import postcss from "https://deno.land/x/postcss@8.4.16/mod.js";
 import cssnano from "npm:cssnano";
 import postcssImport from "npm:postcss-import";
+import postcssMixins from "npm:postcss-mixins";
+import postcssNested from "npm:postcss-nested";
+import postcssCustomMedia from "npm:postcss-custom-media";
 import postcssFailOnWarn from "npm:postcss-fail-on-warn";
 import "npm:cssnano-preset-advanced@^7.0.6";
 
 // Initialize PostCSS with plugins
 const processor = postcss([
   postcssImport(),
+  postcssMixins(),
+  postcssNested(),
+  postcssCustomMedia(),
   cssnano({
     preset: [
       "default",
