@@ -44,7 +44,7 @@
     & > #bottombar {
       background-color: hsla(0, 0, 0, 0.75%);
       backdrop-filter: blur(var(--scale-xl));
-      gap: calc(var(--scale-xl) * 1.7);
+      gap: calc(var(--scale-lg));
       grid-column: grid-expand;
       padding: var(--scale-nm) calc(var(--scale-xl) * 2);
       place-content: center;
@@ -53,7 +53,7 @@
       z-index: 2;
 
       & .icon {
-        --size: var(--scale-xl);
+        --size: clamp(var(--scale-nm), 15vw, var(--scale-lg));
       }
     }
   }
