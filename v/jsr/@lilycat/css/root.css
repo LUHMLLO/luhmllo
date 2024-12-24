@@ -2,8 +2,19 @@
   :root {
     /* typography */
     --rootRatio: 1.5;
-    --rootSize: clamp(0.125rem, 0.125vw + 15vmin, 0.95rem);
-    --rootSize: clamp(0.125rem, 0.125vw + 15vmin, 0.95rem);
+
+    --rootSize: calc(
+      var(--rootRatio)
+        * clamp(
+        0.125rem,
+        0.125vw + 16vmin,
+        0.96rem
+      )
+    );
+
+    @media screen and (max-width: 430px) {
+      --rootSize: clamp(0.125rem, 0.125vw + 15vmin, 0.95rem);
+    }
 
     /* for font calculations, gaps, paddings, . . . */
     --scale-xs: calc(var(--rootSize) / pow(var(--rootRatio), 3));
