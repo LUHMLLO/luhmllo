@@ -1,23 +1,22 @@
 import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
 import Appbar from "./_layout/components/Appbar.tsx";
-import Bottombar from "./_layout/components/Bottombar.tsx";
 
 export default function Layout({ Component }: PageProps) {
   return (
     <>
       <Head>
         {/* local styles */}
-        <link rel="stylesheet" href="/examples/threads.css" />
+        <link rel="stylesheet" href="/examples/inmov.css" />
         {/* google fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
+          crossOrigin="true"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Rufina:wght@400;700&display=swap"
           rel="stylesheet"
         />
         <link
@@ -29,11 +28,7 @@ export default function Layout({ Component }: PageProps) {
       <main id="app" className="container">
         <Appbar />
         <Component />
-        <Bottombar />
       </main>
-
-      <span id="cursor" />
-      <script type="module" src="/customs/_init.js" />
     </>
   );
 }

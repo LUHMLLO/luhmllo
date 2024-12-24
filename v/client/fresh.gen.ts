@@ -6,6 +6,9 @@ import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $examples_api_joke from "./routes/examples/api/joke.ts";
 import * as $examples_greet_name_ from "./routes/examples/greet/[name].tsx";
+import * as $examples_inmov_layout from "./routes/examples/inmov/_layout.tsx";
+import * as $examples_inmov_layout_components_Appbar from "./routes/examples/inmov/_layout/components/Appbar.tsx";
+import * as $examples_inmov_index from "./routes/examples/inmov/index.tsx";
 import * as $examples_saas from "./routes/examples/saas.tsx";
 import * as $examples_threads_layout from "./routes/examples/threads/_layout.tsx";
 import * as $examples_threads_layout_components_Appbar from "./routes/examples/threads/_layout/components/Appbar.tsx";
@@ -21,6 +24,10 @@ const manifest = {
     "./routes/_app.tsx": $_app,
     "./routes/examples/api/joke.ts": $examples_api_joke,
     "./routes/examples/greet/[name].tsx": $examples_greet_name_,
+    "./routes/examples/inmov/_layout.tsx": $examples_inmov_layout,
+    "./routes/examples/inmov/_layout/components/Appbar.tsx":
+      $examples_inmov_layout_components_Appbar,
+    "./routes/examples/inmov/index.tsx": $examples_inmov_index,
     "./routes/examples/saas.tsx": $examples_saas,
     "./routes/examples/threads/_layout.tsx": $examples_threads_layout,
     "./routes/examples/threads/_layout/components/Appbar.tsx":

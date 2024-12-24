@@ -44,17 +44,17 @@
     & > #bottombar {
       background-color: hsla(0, 0, 0, 0.75%);
       backdrop-filter: blur(var(--scale-xl));
-      gap: clamp(var(--scale-lg), 15vw, var(--scale-xl));
+      gap: var(--scale-nm);
       grid-column: grid-expand;
-      padding: var(--scale-nm) calc(var(--scale-xl) * 2);
+      padding: var(--scale-nm) var(--scale-xl);
       place-content: center;
       position: fixed;
       bottom: 0;
       z-index: 2;
 
-      & .icon {
-        --size: clamp(var(--scale-nm), 15vw, var(--scale-lg));
-      }
+      /* & .icon {
+        --size: clamp(var(--scale-nm), 1vw, var(--scale-lg));
+      } */
     }
   }
 }

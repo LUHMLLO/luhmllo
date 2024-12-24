@@ -2,7 +2,8 @@
   :root {
     /* typography */
     --rootRatio: 1.5;
-    --rootSize: calc(var(--rootRatio) * clamp(10px, 5dvw, 15px));
+    --rootSize: clamp(0.125rem, 0.125vw + 15vmin, 0.95rem);
+    --rootSize: clamp(0.125rem, 0.125vw + 15vmin, 0.95rem);
 
     /* for font calculations, gaps, paddings, . . . */
     --scale-xs: calc(var(--rootSize) / pow(var(--rootRatio), 3));
@@ -43,8 +44,7 @@
 }
 
 @layer root {
-  /* Define mixins for themes with the provided palette */
-  @define-mixin dark {
+  :root {
     --clr-accent-1: hsl(267, 85%, 45%);
     --clr-accent-2: hsl(267, 85%, 35%);
     --clr-accent-3: hsl(267, 85%, 25%);
@@ -70,55 +70,5 @@
     --clr-info: hsl(200, 80%, 50%);
     --clr-success: hsl(120, 80%, 50%);
     --clr-warning: hsl(40, 80%, 50%);
-  }
-
-  @define-mixin light {
-    --clr-accent-1: hsl(267, 85%, 75%);
-    --clr-accent-2: hsl(267, 85%, 65%);
-    --clr-accent-3: hsl(267, 85%, 55%);
-    --clr-accent-4: hsl(267, 85%, 45%);
-
-    --clr-context-1: hsl(27, 85%, 75%);
-    --clr-context-2: hsl(27, 85%, 65%);
-    --clr-context-3: hsl(27, 85%, 55%);
-    --clr-context-4: hsl(27, 85%, 45%);
-
-    --clr-content-1: hsl(267, 15%, 10%);
-    --clr-content-2: hsl(267, 15%, 25%);
-    --clr-content-3: hsl(267, 15%, 40%);
-    --clr-content-4: hsl(267, 15%, 55%);
-
-    --clr-surface-1: hsl(267, 25%, 95%);
-    --clr-surface-2: hsl(267, 25%, 90%);
-    --clr-surface-3: hsl(267, 25%, 85%);
-    --clr-surface-4: hsl(267, 25%, 80%);
-
-    --clr-debug: hsl(330, 80%, 50%);
-    --clr-error: hsl(0, 80%, 50%);
-    --clr-info: hsl(200, 80%, 50%);
-    --clr-success: hsl(120, 80%, 50%);
-    --clr-warning: hsl(40, 80%, 50%);
-  }
-
-  /* Apply mixins based on the user's preferred color scheme */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      @mixin dark;
-    }
-  }
-
-  @media (prefers-color-scheme: light) {
-    :root {
-      @mixin light;
-    }
-  }
-
-  /* Allow manual override with the `ly-scheme` attribute */
-  html[ly-scheme="dark"] {
-    @mixin dark;
-  }
-
-  html[ly-scheme="light"] {
-    @mixin light;
   }
 }
