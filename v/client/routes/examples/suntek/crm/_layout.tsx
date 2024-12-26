@@ -8,7 +8,7 @@ export default function Layout({ Component }: PageProps) {
     <>
       <Head>
         {/* local styles */}
-        <link rel="stylesheet" href="/examples/threads.css" />
+        <link rel="stylesheet" href="/examples/suntek.css" />
         {/* google fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -26,7 +26,7 @@ export default function Layout({ Component }: PageProps) {
         />
       </Head>
 
-      <main id="app" className="container">
+      <main id="app">
         <Appbar />
         <Component />
         <Bottombar />

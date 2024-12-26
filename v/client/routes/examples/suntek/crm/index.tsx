@@ -5,7 +5,7 @@ export default function Route() {
       data-props="--expand"
       className="overflow-y-auto"
     >
-      
+      hello world crm
     </div>
   );
 }

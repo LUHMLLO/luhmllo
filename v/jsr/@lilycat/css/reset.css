@@ -10,18 +10,17 @@
   }
 
   :where(*) {
-    -moz-leading-trim: both;
-    -webkit-leading-trim: both;
-    leading-trim: both;
-    -moz-text-box-edge: cap alphabetic;
-    -webkit-text-box-edge: cap alphabetic;
-    text-box-edge: cap alphabetic;
     -moz-text-box-trim: trim-both;
+    -moz-text-box-edge: cap alphabetic;
+
     -webkit-text-box-trim: trim-both;
+    -webkit-text-box-edge: cap alphabetic;
+
     text-box-trim: trim-both;
-    -moz-vertical-trim: trim;
-    -webkit-vertical-trim: trim;
-    vertical-trim: trim;
+    text-box-edge: cap alphabetic;
+  }
+
+  :where(*) {
     -moz-tap-highlight-color: transparent;
     -webkit-tap-highlight-color: transparent;
     tap-highlight-color: transparent;
@@ -120,6 +119,10 @@
         width: 100dvw;
       }
     }
+  }
+
+  :where(div) {
+    display: block;
   }
 
   :where(h1, h2, h3, h4, h5, h6) {
@@ -328,6 +331,7 @@
 @layer normalize {
   :where(details) {
     display: inline-flex;
+    flex-direction: column;
     min-height: 0;
     position: relative;
     width: fit-content;
