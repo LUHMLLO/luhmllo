@@ -14,14 +14,11 @@ export default function App({ Component }: PageProps) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
-
         <title>lilys</title>
-
         <style
           lang="css"
           dangerouslySetInnerHTML={{ __html: all }}
         />
-
         <link rel="stylesheet" href="/styles/tailwind.css" />
       </head>
       <body>
