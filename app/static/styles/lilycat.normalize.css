@@ -1,0 +1,114 @@
+:where(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6
+) {
+  display: block;
+
+  &:where(h1) {
+    font-size: var(--type-xl, 65px);
+  }
+  &:where(h2) {
+    font-size: var(--type-lg, 55px);
+  }
+  &:where(h3) {
+    font-size: var(--type-nm, 45px);
+  }
+  &:where(h4) {
+    font-size: var(--type-md, 35px);
+  }
+  &:where(h5) {
+    font-size: var(--type-sm, 25px);
+  }
+  &:where(h6) {
+    font-size: var(--type-xs, 20px);
+  }
+}
+
+:where(
+  caption,
+  figcaption,
+  li,
+  p
+) {
+  max-width: 56ch;
+}
+
+:where(figure) {
+  width: clamp(auto, 1fr, 100%);
+}
+
+:where(
+  audio,
+  canvas,
+  iframe,
+  img,
+  video
+) {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+:where(
+  ul,
+  ol,
+  li
+) {
+  padding: revert;
+}
+
+html {
+  background-color: var(--clr-surface);
+  color: var(--clr-content);
+}
+
+a {
+  color: var(--clr-accent--3);
+
+  &:focus {
+    color: var(--clr-accent--1);
+  }
+
+  &:hover {
+    color: var(--clr-accent--2);
+  }
+
+  &:active {
+    color: var(--clr-accent--4);
+  }
+}
+
+a:visited {
+  color: var(--clr-context--3);
+
+  &:focus {
+    color: var(--clr-context--1);
+  }
+
+  &:hover {
+    color: var(--clr-context--2);
+  }
+
+  &:active {
+    color: var(--clr-context--4);
+  }
+}
+
+/* for demo */
+stack {
+  display: flex;
+  gap: 10pt;
+
+  &[axis~="--y"] {
+    flex-direction: column;
+  }
+}
+
+group {
+  display: inherit;
+  flex-direction: inherit;
+}

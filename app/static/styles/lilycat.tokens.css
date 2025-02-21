@@ -1,0 +1,105 @@
+/* colors */
+@property --clr-surface {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0, 0, 5);
+}
+@property --clr-content {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0, 0, 95);
+}
+@property --clr-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0, 50, 50);
+}
+@property --clr-context {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(10, 50, 50);
+}
+@property --clr-debug {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f5f4f4;
+}
+@property --clr-error {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #201d1d;
+}
+@property --clr-info {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #d7ead9;
+}
+@property --clr-success {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #eff2cf;
+}
+
+/* sizing */
+@property --xs {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 5px;
+}
+@property --sm {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 10px;
+}
+@property --md {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 15px;
+}
+@property --nm {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 20px;
+}
+@property --lg {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 25px;
+}
+@property --xl {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 30px;
+}
+
+/* typescaling */
+@property --type-xs {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 20px;
+}
+@property --type-sm {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 25px;
+}
+@property --type-md {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 35px;
+}
+@property --type-nm {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 45px;
+}
+@property --type-lg {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 55px;
+}
+@property --type-xl {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 65px;
+}

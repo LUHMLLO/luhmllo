@@ -1,0 +1,52 @@
+* {
+  accent-color: var(--clr-accent);
+  box-sizing: border-box;
+  border: 0;
+  height: auto;
+  margin: 0;
+  max-width: 100%;
+  min-height: 0;
+  outline: 0;
+  padding: 0;
+  position: relative;
+  /* text-box: trim-both ex alphabetic; */
+  text-decoration: none;
+  z-index: auto;
+
+  &::after, &::before {
+    accent-color: var(--clr-accent);
+    box-sizing: inherit;
+    clear: both;
+  }
+}
+
+html {
+  display: contents;
+  font-family: sans-serif;
+  font-size: clamp(15px, 100dvw, 15pt);
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: clamp(0.01em, 0.03em, 0.05em);
+  line-height: clamp(75%, 1.5, 115%);
+  position: static;
+
+  & > body {
+    inset: 0;
+    min-height: 100dvh;
+    overflow: clip auto;
+    width: 100dvw;
+  }
+}
+
+&:where(h1, h2, h3, h4, h5, h6) {
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+&:where(caption, figcaption, li, p) {
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+:where(#root, #__next) {
+  isolation: isolate;
+}

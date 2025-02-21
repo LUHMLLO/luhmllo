@@ -30,9 +30,9 @@
     --animTiming: cubic-bezier(0.2, 0, 0, 1);
 
     /* media breakpoints */
-    --breakpoint-compact: 430px;
+    --breakpoint-compact: 440px;
     --breakpoint-medium: 768px;
-    --breakpoint-expanded: 1280px;
+    --breakpoint-expanded: 1024px;
 
     /* general configs */
     --config-colorSpace: srgb;

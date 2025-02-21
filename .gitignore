@@ -7,7 +7,8 @@
 
 # Fresh build directory
 _fresh/
-# npm dependencies
+
+# NPM dependencies
 */node_modules
 node_modules
 node_modules/*

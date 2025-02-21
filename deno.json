@@ -8,7 +8,7 @@
     "build:wc": "deno run -A ./v/jsr/@webcomponents/build.ts",
     "build:jsr": "deno task buildFeats && deno task buildWC && deno task buildCSS",
     "publish:jsr": "deno run -A ./v/jsr/@lilycat/publish.ts",
-    "update": "deno run -A -r https://fresh.deno.dev/update .",
-    "start:client": "deno run -A ./v/client/main.ts"
+    "start:client": "deno run -A ./v/client/main.ts",
+    "update": "deno run -A -r https://fresh.deno.dev/update ."
   }
 }
