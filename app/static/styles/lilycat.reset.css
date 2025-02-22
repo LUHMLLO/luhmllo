@@ -2,6 +2,7 @@
   accent-color: var(--clr-accent);
   box-sizing: border-box;
   border: 0;
+  -webkit-font-smoothing: inherit;
   height: auto;
   margin: 0;
   max-width: 100%;
@@ -26,13 +27,13 @@ html {
   font-size: clamp(15px, 100dvw, 15pt);
   -webkit-font-smoothing: antialiased;
   letter-spacing: clamp(0.01em, 0.03em, 0.05em);
-  line-height: clamp(75%, 1.5, 115%);
+  line-height: 1.25;
   position: static;
 
   & > body {
     inset: 0;
     min-height: 100dvh;
-    overflow: clip auto;
+    /* overflow: clip auto; */
     width: 100dvw;
   }
 }
@@ -45,6 +46,7 @@ html {
 &:where(caption, figcaption, li, p) {
   overflow-wrap: break-word;
   text-wrap: pretty;
+  word-break: break-word;
 }
 
 :where(#root, #__next) {
