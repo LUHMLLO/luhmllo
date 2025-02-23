@@ -14,13 +14,13 @@
 @property --clr-accent {
   syntax: "<color>";
   inherits: true;
-  initial-value: hsl(0deg, 50%, 50%);
+  initial-value: hsl(215deg, 50%, 50%);
 }
 
 @property --clr-context {
   syntax: "<color>";
   inherits: true;
-  initial-value: hsl(10deg, 50%, 50%);
+  initial-value: hsl(250deg, 50%, 50%);
 }
 
 @property --clr-debug {

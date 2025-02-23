@@ -684,7 +684,7 @@ export default function Home() {
               <h2>IFrame</h2>
             </header>
             <div>
-              <iframe src="index.html" title="index.html" height="300"></iframe>
+              <iframe src="/" title="index.html" height="300"></iframe>
             </div>
             <footer>
               <p>
@@ -697,7 +697,7 @@ export default function Home() {
               <h2>Embed</h2>
             </header>
             <div>
-              <embed src="index.html" height="300" />
+              <embed src="/" height="300" />
             </div>
             <footer>
               <p>
@@ -710,7 +710,7 @@ export default function Home() {
               <h2>Object</h2>
             </header>
             <div>
-              <object data="index.html" height="300">
+              <object data="/" height="300">
                 this object represents its own index.html file
               </object>
             </div>
