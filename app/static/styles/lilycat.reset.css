@@ -27,10 +27,11 @@ html {
   font-size: clamp(15px, 100dvw, 15pt);
   -webkit-font-smoothing: antialiased;
   letter-spacing: clamp(0.01em, 0.03em, 0.05em);
-  line-height: 1.25;
+  line-height: 1.2em;
   position: static;
 
   & > body {
+    background-color: var(--clr-surface);
     inset: 0;
     min-height: 100dvh;
     /* overflow: clip auto; */
@@ -38,12 +39,13 @@ html {
   }
 }
 
-&:where(h1, h2, h3, h4, h5, h6) {
+:where(h1, h2, h3, h4, h5, h6) {
+  line-height: clamp(100%, 115%, 125%);
   overflow-wrap: break-word;
   text-wrap: balance;
 }
 
-&:where(caption, figcaption, li, p) {
+:where(caption, figcaption, li, p) {
   overflow-wrap: break-word;
   text-wrap: pretty;
   word-break: break-word;
