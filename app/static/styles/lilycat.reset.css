@@ -6,6 +6,7 @@
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   /* text-box: trim-both ex alphabetic; */
+  vertical-align: baseline;
 }
 
 * {
@@ -42,7 +43,7 @@
   font-size: clamp(15px, 100dvw, 15pt);
   hanging-punctuation: first last;
   letter-spacing: clamp(0.01em, 0.03em, 0.05em);
-  line-height: 1.2em;
+  line-height: 1.25em;
   position: static;
 
   & > :where(body) {
@@ -52,6 +53,22 @@
     /* overflow: clip auto; */
     width: 100dvw;
   }
+}
+
+:where(
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section
+) {
+  display: block;
 }
 
 :where(
@@ -80,6 +97,11 @@
   height: 35px;
 }
 
+:where(table) {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 :where(
   form,
   fieldset,
@@ -104,14 +126,22 @@
   input,
   select,
   textarea,
-  pre
+  pre,
+  blockquote,
+  q,
+  cite
 ) {
   font-family: inherit;
   font-weight: 300;
   overflow-wrap: break-word;
   text-overflow: ellipsis;
-  transition: color 800ms cubic-bezier(0.47, 0, 0.23, 1.38) allow-discrete;
   word-break: break-word;
+
+  &:where(blockquote) {
+    border-left: solid 5px;
+    margin: 1.25em;
+    padding: 1.25em;
+  }
 
   &:is(h1, h2, h3, h4, h5, h6) {
     line-height: clamp(100%, 115%, 125%);
@@ -161,6 +191,6 @@
 @media (prefers-reduced-motion: no-preference) {
   :has(:target) {
     scroll-behavior: smooth;
-    scroll-padding-top: 1.2em;
+    scroll-padding-top: 1.25em;
   }
 }
