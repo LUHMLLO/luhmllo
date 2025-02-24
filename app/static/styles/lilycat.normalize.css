@@ -57,8 +57,19 @@ a {
 }
 
 :where(button, input, select, textarea) {
+  background-color: transparent;
+  color: var(--clr-content);
   height: 45px;
+  outline: solid 1px var(--clr-content);
   padding: 15px;
+
+  &:is(button, select, [type="button"], [type="submit"], [type="reset"]) {
+    cursor: pointer;
+  }
+
+  &:is([type="disabled"], [disabled]) {
+    cursor: auto;
+  }
 
   &:is([type="color"]) {
     padding: 0;
