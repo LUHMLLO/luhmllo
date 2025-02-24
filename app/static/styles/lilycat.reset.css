@@ -1,10 +1,14 @@
 :root {
+  accent-color: var(--clr-accent);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  /* text-box: trim-both ex alphabetic; */
 }
 
 * {
-  accent-color: var(--clr-accent);
   box-sizing: border-box;
   border: 0;
   -webkit-font-smoothing: inherit;
@@ -16,7 +20,6 @@
   outline: none;
   padding: 0;
   position: relative;
-  /* text-box: trim-both ex alphabetic; */
   z-index: auto;
 
   &::after,
@@ -32,10 +35,12 @@
 }
 
 :where(html) {
+  background-color: var(--clr-surface);
+  color: var(--clr-content);
   display: contents;
   font-family: sans-serif;
   font-size: clamp(15px, 100dvw, 15pt);
-  -webkit-font-smoothing: antialiased;
+  hanging-punctuation: first last;
   letter-spacing: clamp(0.01em, 0.03em, 0.05em);
   line-height: 1.2em;
   position: static;
@@ -46,6 +51,22 @@
     min-height: 100dvh;
     /* overflow: clip auto; */
     width: 100dvw;
+  }
+}
+
+:where(
+  audio,
+  canvas,
+  figure,
+  iframe,
+  img,
+  video
+) {
+  display: block;
+  width: fit-content;
+
+  &:is(img) {
+    object-fit: cover;
   }
 }
 
@@ -66,6 +87,7 @@
   figcaption,
   ul,
   ol,
+  dl,
   li,
   p,
   button,
@@ -74,8 +96,10 @@
   textarea,
   pre
 ) {
+  font-family: inherit;
   overflow-wrap: break-word;
   text-overflow: ellipsis;
+  transition: color 800ms cubic-bezier(0.47, 0, 0.23, 1.38) allow-discrete;
   word-break: break-word;
 
   &:is(h1, h2, h3, h4, h5, h6) {
@@ -91,7 +115,13 @@
     white-space: pre-line;
   }
 
+  &:is(a, area, button, input, label, select, summary, textarea) {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+  }
+
   &:is(button, input, select, textarea) {
+    font-size: inherit;
     overflow: clip;
     white-space: nowrap;
   }
@@ -114,5 +144,12 @@
         content: "• ";
       }
     }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :has(:target) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 1.2em;
   }
 }

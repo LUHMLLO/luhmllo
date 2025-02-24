@@ -533,7 +533,7 @@ export default function Home() {
               </h3>
               <p>
                 <img
-                  src="https://placekitten.com/480/480"
+                  src="/media/cat.webp"
                   alt="kitten"
                 />
               </p>
@@ -543,7 +543,7 @@ export default function Home() {
               </h3>
               <figure>
                 <img
-                  src="https://placekitten.com/420/420"
+                  src="/media/cat.webp"
                   alt="kitten"
                 />
               </figure>
@@ -555,7 +555,7 @@ export default function Home() {
               </h3>
               <figure>
                 <img
-                  src="https://placekitten.com/420/420"
+                  src="/media/cat.webp"
                   alt="kitten"
                 />
                 <figcaption>Here is a caption for this image.</figcaption>
@@ -567,11 +567,11 @@ export default function Home() {
               <figure>
                 <picture>
                   <source
-                    srcSet="https://placekitten.com/800/800"
+                    srcSet="/media/cat.webp"
                     media="(min-width: 800px)"
                   />
                   <img
-                    src="https://placekitten.com/420/420"
+                    src="/media/cat.webp"
                     alt="kitten"
                   />
                 </picture>
@@ -587,7 +587,13 @@ export default function Home() {
             <header>
               <h2>Background images</h2>
             </header>
-            <div style="background-image:url('https://placekitten.com/300/300'); width:300px; height: 300px;">
+            <div style="
+              background-image:url('../media/cat.webp'); 
+              background-position: center;
+              background-size: cover;
+              width:300px; 
+              height: 300px; 
+              ">
             </div>
             <footer>
               <p>
@@ -600,7 +606,7 @@ export default function Home() {
               <h2>Audio</h2>
             </header>
             <div>
-              <audio controls>
+              <audio controls src="/media/trex.mp3">
                 <track kind="captions" />
               </audio>
             </div>
@@ -615,7 +621,7 @@ export default function Home() {
               <h2>Video</h2>
             </header>
             <div>
-              <video controls>
+              <video controls src="/media/flower.webm">
                 <track kind="captions" />
               </video>
             </div>

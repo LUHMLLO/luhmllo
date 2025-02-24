@@ -6,8 +6,6 @@
   h5,
   h6
 ) {
-  display: block;
-
   &:where(h1) {
     font-size: var(--type-xl, 65px);
   }
@@ -34,33 +32,11 @@
   li,
   p
 ) {
-  max-width: 56ch;
-}
-
-:where(figure) {
-  width: clamp(auto, 1fr, 100%);
-}
-
-:where(
-  audio,
-  canvas,
-  iframe,
-  img,
-  video
-) {
-  display: block;
-  object-fit: cover;
-  width: 100%;
-}
-
-html {
-  background-color: var(--clr-surface);
-  color: var(--clr-content);
+  width: clamp(50ch, 100%, 75%);
 }
 
 a {
   color: var(--clr-accent);
-  transition: color;
 
   &:visited {
     color: var(--clr-context);
