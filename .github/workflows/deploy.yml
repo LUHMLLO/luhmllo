@@ -29,14 +29,16 @@ jobs:
           node-version: lts/*
 
       - name: Install step
-        run: "cd ./v/client/ &&  deno install"
+        run: "cd ./app/ &&  deno install"
 
       - name: Build step
-        run: "cd ./v/client/ && deno task build"
+        run: "cd ./app/ && deno task build"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "lilys"
           entrypoint: "main.ts"
-          root: "./v/client/"
+          root: "./app/"
+          
+          
