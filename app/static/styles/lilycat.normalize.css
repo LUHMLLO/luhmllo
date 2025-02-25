@@ -61,6 +61,7 @@ a {
   color: var(--clr-content);
   height: 45px;
   outline: solid 1px var(--clr-content);
+  outline-offset: -1px;
   padding: 15px;
 
   &:is(button, select, [type="button"], [type="submit"], [type="reset"]) {
