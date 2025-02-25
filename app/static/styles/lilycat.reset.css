@@ -60,12 +60,10 @@
   aside,
   details,
   figcaption,
-  figure,
   footer,
   header,
   hgroup,
   menu,
-  nav,
   section
 ) {
   display: block;
@@ -85,6 +83,12 @@
   &:is(audio) {
     height: 50px;
     width: clamp(250px, 100%, 350px);
+  }
+
+  &:is(figure > img) {
+    display: block;
+    height: 100%;
+    width: 100%;
   }
 
   &:is(img) {
