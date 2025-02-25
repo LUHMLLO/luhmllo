@@ -3,10 +3,9 @@
   "nodeModulesDir": "auto",
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
-    "build:feats": "deno run -A ./v/jsr/@features/build.ts",
     "build:css": "deno run -A ./v/jsr/@lilycat/build.ts",
+    "build:plugs": "deno run -A ./v/jsr/@plugins/build.ts",
     "build:wc": "deno run -A ./v/jsr/@webcomponents/build.ts",
-    "build:jsr": "deno task buildFeats && deno task buildWC && deno task buildCSS",
     "publish:jsr": "deno run -A ./v/jsr/@lilycat/publish.ts",
     "start:client": "deno run -A ./v/client/main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update ."
