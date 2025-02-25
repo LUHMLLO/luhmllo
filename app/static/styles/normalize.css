@@ -41,9 +41,9 @@ a {
     color: var(--clr-context);
   }
 
-  &:focus {
+  /* &:focus {
     color: hsl(from var(--clr-accent) h calc(s + 5%) l);
-  }
+  } */
 
   &:hover {
     color: color-mix(in hsl, var(--clr-accent), white 25%);

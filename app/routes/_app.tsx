@@ -14,9 +14,9 @@ export default function App({ Component }: PageProps) {
           content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
         <title>lilys</title>
-        <link rel="stylesheet" href="/styles/lilycat.tokens.css" />
-        <link rel="stylesheet" href="/styles/lilycat.reset.css" />
-        <link rel="stylesheet" href="/styles/lilycat.normalize.css" />
+        <link rel="stylesheet" href="/styles/tokens.css" />
+        <link rel="stylesheet" href="/styles/reset.css" />
+        <link rel="stylesheet" href="/styles/normalize.css" />
         <link rel="stylesheet" href="/styles/tailwind.css" />
       </head>
       <body>

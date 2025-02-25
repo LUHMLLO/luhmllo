@@ -48,7 +48,7 @@ export default function Appbar() {
         <details data-props="--dropdown">
           <summary>
             <figure className="rounded">
-              <img src="/img/avatar.png" alt="avatar" />
+              <img src="/media/avatar.png" alt="avatar" />
             </figure>
             <div>
               <p>Robert O'Conner</p>

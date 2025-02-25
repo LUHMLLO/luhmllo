@@ -20,9 +20,9 @@
     --animDefaults: var(--animDuration) var(--animTiming);
     --animDuration: 360ms;
     --animTiming: cubic-bezier(0.2, 0, 0, 1);
-    --breakpoint-compact: 430px;
+    --breakpoint-compact: 440px;
     --breakpoint-medium: 768px;
-    --breakpoint-expanded: 1280px;
+    --breakpoint-expanded: 1024px;
     --config-colorSpace: srgb;
     --config-containerOutterWidth: var(--scale-xs);
     --config-containerWidth: 768px;
