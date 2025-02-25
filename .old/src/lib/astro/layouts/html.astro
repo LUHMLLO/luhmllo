@@ -1,5 +1,5 @@
 ---
-import 'lilys/designsystem';
+import '../../packages/designsystem';
 ---
 
 <!doctype html>
@@ -13,11 +13,6 @@ import 'lilys/designsystem';
 		<meta name='generator' content={Astro.generator} />
 
 		<title>Lily's</title>
-
-		<script is:inline type='module'>
-			const { Dropdown } = import( 'lilys/webcomponents');
-			customElements.define('ly-dropdown', Dropdown);
-		</script>
 
 		<link
 			rel='stylesheet'

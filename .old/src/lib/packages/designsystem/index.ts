@@ -1,1 +1,1 @@
-import "@packages/designsystem/css/all.css";
+import "./css/all.css";

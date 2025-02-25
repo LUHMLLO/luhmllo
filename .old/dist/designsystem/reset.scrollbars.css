@@ -1,0 +1,37 @@
+@layer reset {
+  :where(*) {
+    --bar-color: trasparent;
+    --bar-size: var(--scale-5xs);
+    --bar-radius: var(--scale-3xs);
+
+    --thumb-color: color-mix(
+      in var(--prefers-colorSpace, srgb),
+      var(--clr-tertiary),
+      transparent 56%
+    );
+    --thumb-size: var(--scale-5xs);
+    --thumb-radius: var(--scale-3xs);
+
+    scrollbar-color: var(--thumb-color) var(--bar-color);
+    scrollbar-width: auto;
+
+    &::-webkit-scrollbar {
+      width: var(--bar-size);
+      height: var(--bar-size);
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: var(--bar-color);
+      border-radius: var(--bar-radius);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--thumb-color);
+      border-radius: var(--thumb-radius);
+      width: var(--thumb-size);
+      height: var(--thumb-size);
+    }
+  }
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9saWIvcGFja2FnZXMvZGVzaWduc3lzdGVtL2Nzcy9yZXNldC5zY3JvbGxiYXJzLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJyZXNldC5zY3JvbGxiYXJzLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBsYXllciByZXNldCB7XG4gIDp3aGVyZSgqKSB7XG4gICAgLS1iYXItY29sb3I6IHRyYXNwYXJlbnQ7XG4gICAgLS1iYXItc2l6ZTogdmFyKC0tc2NhbGUtNXhzKTtcbiAgICAtLWJhci1yYWRpdXM6IHZhcigtLXNjYWxlLTN4cyk7XG5cbiAgICAtLXRodW1iLWNvbG9yOiBjb2xvci1taXgoXG4gICAgICBpbiB2YXIoLS1wcmVmZXJzLWNvbG9yU3BhY2UsIHNyZ2IpLFxuICAgICAgdmFyKC0tY2xyLXRlcnRpYXJ5KSxcbiAgICAgIHRyYW5zcGFyZW50IDU2JVxuICAgICk7XG4gICAgLS10aHVtYi1zaXplOiB2YXIoLS1zY2FsZS01eHMpO1xuICAgIC0tdGh1bWItcmFkaXVzOiB2YXIoLS1zY2FsZS0zeHMpO1xuXG4gICAgc2Nyb2xsYmFyLWNvbG9yOiB2YXIoLS10aHVtYi1jb2xvcikgdmFyKC0tYmFyLWNvbG9yKTtcbiAgICBzY3JvbGxiYXItd2lkdGg6IGF1dG87XG5cbiAgICAmOjotd2Via2l0LXNjcm9sbGJhciB7XG4gICAgICB3aWR0aDogdmFyKC0tYmFyLXNpemUpO1xuICAgICAgaGVpZ2h0OiB2YXIoLS1iYXItc2l6ZSk7XG4gICAgfVxuXG4gICAgJjo6LXdlYmtpdC1zY3JvbGxiYXItdHJhY2sge1xuICAgICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tYmFyLWNvbG9yKTtcbiAgICAgIGJvcmRlci1yYWRpdXM6IHZhcigtLWJhci1yYWRpdXMpO1xuICAgIH1cblxuICAgICY6Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iIHtcbiAgICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXRodW1iLWNvbG9yKTtcbiAgICAgIGJvcmRlci1yYWRpdXM6IHZhcigtLXRodW1iLXJhZGl1cyk7XG4gICAgICB3aWR0aDogdmFyKC0tdGh1bWItc2l6ZSk7XG4gICAgICBoZWlnaHQ6IHZhcigtLXRodW1iLXNpemUpO1xuICAgIH1cbiAgfVxufVxuIl19 */
