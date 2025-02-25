@@ -27,8 +27,6 @@
 }
 
 :where(
-  caption,
-  figcaption,
   li,
   p
 ) {
@@ -63,6 +61,7 @@ a {
   outline: solid 1px var(--clr-content);
   outline-offset: -1px;
   padding: 15px;
+  width: fit-content;
 
   &:is(button, select, [type="button"], [type="submit"], [type="reset"]) {
     cursor: pointer;
@@ -73,7 +72,16 @@ a {
   }
 
   &:is([type="color"]) {
+    aspect-ratio: 1/1;
     padding: 0;
+  }
+
+  &:is([type="checkbox"], [type="radio"]) {
+    height: auto;
+  }
+
+  &:is([type="radio"]) {
+    border-radius: 50%;
   }
 
   &:is(textarea) {
@@ -82,5 +90,20 @@ a {
     min-height: 75px;
     resize: both;
     white-space: normal;
+  }
+}
+
+:where(table) {
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  :where(caption) {
+    text-align: center;
+  }
+
+  :where(th, td) {
+    border: solid 1px;
+    min-height: 75px;
+    padding: 15px;
   }
 }
