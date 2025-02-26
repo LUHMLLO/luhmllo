@@ -3,6 +3,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -moz-text-size-adjust: none;
+  position: relative;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   /* text-box: trim-both ex alphabetic; */
@@ -21,7 +22,6 @@
   min-inline-size: 0;
   outline: none;
   padding: 0;
-  position: relative;
   z-index: auto;
 
   &::after,

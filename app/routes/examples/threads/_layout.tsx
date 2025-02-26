@@ -8,7 +8,7 @@ export default function Layout({ Component }: PageProps) {
     <>
       <Head>
         {/* local styles */}
-        <link rel="stylesheet" href="/examples/threads.css" />
+        <link rel="stylesheet" href="/styles/examples/threads.css" />
         {/* google fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -33,7 +33,34 @@ export default function Layout({ Component }: PageProps) {
       </main>
 
       <span id="cursor" />
-      <script type="module" src="/customs/_init.js" />
+
+      <script
+        type="module"
+        // deno-lint-ignore react-no-danger
+        dangerouslySetInnerHTML={{
+          __html: `
+            import initCursor from "/vendors/cursor.min.js";
+            document.addEventListener('DOMContentLoaded', () => {
+              initCursor("cursor");
+            });
+          `,
+        }}
+      >
+      </script>
+
+      <script
+        type="module"
+        // deno-lint-ignore react-no-danger
+        dangerouslySetInnerHTML={{
+          __html: `
+            import initDragScroll from "/vendors/drag2scroll.min.js";
+            document.addEventListener('DOMContentLoaded', () => {
+              initDragScroll("views");
+            });
+          `,
+        }}
+      >
+      </script>
     </>
   );
 }

@@ -7,7 +7,7 @@ export default function Layout({ Component }: PageProps) {
     <>
       <Head>
         {/* local styles */}
-        <link rel="stylesheet" href="/examples/inmov.css" />
+        <link rel="stylesheet" href="/styles/examples/inmov.css" />
         {/* google fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

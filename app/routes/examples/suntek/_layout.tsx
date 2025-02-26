@@ -8,7 +8,7 @@ export default function Layout({ Component }: PageProps) {
     <>
       <Head>
         {/* local styles */}
-        <link rel="stylesheet" href="/examples/suntek.css" />
+        <link rel="stylesheet" href="/styles/examples/suntek.css" />
         {/* google fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
