@@ -4,7 +4,7 @@ import { crypto } from "https://deno.land/std@0.122.0/crypto/mod.ts";
 import type { BuildOptions } from "npm:esbuild@0.21.3";
 
 const __dirname = new URL(".", import.meta.url).pathname;
-const entryPath = `${__dirname}**/*.mjs`;
+const entryPath = `${__dirname}/src/**/*.mjs`;
 const outPath = `${__dirname}dist/`;
 
 // Common build options with additional optimizations

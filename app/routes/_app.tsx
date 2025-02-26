@@ -1,4 +1,5 @@
 import { type PageProps } from "$fresh/server.ts";
+import { normalize, reset, tokens } from "../../jsr/@lilycat/v3/dist/mod.ts";
 
 export default function App({ Component }: PageProps) {
   return (
@@ -14,9 +15,18 @@ export default function App({ Component }: PageProps) {
           content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
         <title>lilys</title>
-        <link rel="stylesheet" href="/styles/tokens.css" />
-        <link rel="stylesheet" href="/styles/reset.css" />
-        <link rel="stylesheet" href="/styles/normalize.css" />
+        <style
+          lang="css"
+          dangerouslySetInnerHTML={{ __html: tokens }}
+        />
+        <style
+          lang="css"
+          dangerouslySetInnerHTML={{ __html: reset }}
+        />
+        <style
+          lang="css"
+          dangerouslySetInnerHTML={{ __html: normalize }}
+        />
         <link rel="stylesheet" href="/styles/tailwind.css" />
       </head>
       <body>
