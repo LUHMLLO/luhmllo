@@ -1,5 +1,5 @@
 import { type PageProps } from "$fresh/server.ts";
-import { normalize, reset, tokens } from "../../jsr/@lilycat/v3/dist/mod.ts";
+import { normalize, reset, tokens } from "@lilycat";
 
 export default function App({ Component }: PageProps) {
   return (
