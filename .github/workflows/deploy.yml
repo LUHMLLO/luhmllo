@@ -39,6 +39,7 @@ jobs:
         with:
           project: "lilys"
           entrypoint: "main.ts"
-          root: "./app/"
+          root: "./app/",
+          include: ["./jsr/@lilycat/v3/dist/mod.ts"]
           
           
