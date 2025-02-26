@@ -40,3 +40,5 @@ jobs:
           project: "lilys"
           entrypoint: "main.ts"
           root: "./app/"
+          
+          
