@@ -1,18 +1,19 @@
 :root {
   accent-color: var(--clr-accent);
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -moz-text-size-adjust: none;
+  -moz-text-size-adjust: 100%;
   position: relative;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   /* text-box: trim-both ex alphabetic; */
   vertical-align: baseline;
 }
 
 * {
-  box-sizing: border-box;
+  backface-visibility: inherit;
   border: 0;
+  box-sizing: border-box;
   -webkit-font-smoothing: inherit;
   height: auto;
   margin: 0;
@@ -26,6 +27,7 @@
 
   &::after,
   &::before {
+    backface-visibility: inherit;
     box-sizing: inherit;
     clear: both;
   }
@@ -52,6 +54,7 @@
     min-height: 100dvh;
     /* overflow: clip auto; */
     width: 100dvw;
+    will-change: background-color, color;
   }
 }
 
