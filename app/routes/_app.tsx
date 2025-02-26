@@ -17,14 +17,17 @@ export default function App({ Component }: PageProps) {
         <title>lilys</title>
         <style
           lang="css"
+          // deno-lint-ignore react-no-danger
           dangerouslySetInnerHTML={{ __html: tokens }}
         />
         <style
           lang="css"
+          // deno-lint-ignore react-no-danger
           dangerouslySetInnerHTML={{ __html: reset }}
         />
         <style
           lang="css"
+          // deno-lint-ignore react-no-danger
           dangerouslySetInnerHTML={{ __html: normalize }}
         />
         <link rel="stylesheet" href="/styles/tailwind.css" />
