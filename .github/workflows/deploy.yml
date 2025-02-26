@@ -40,6 +40,6 @@ jobs:
           project: "lilys"
           entrypoint: "main.ts"
           root: "./app/",
-          include: ["./jsr/@lilycat/v3/dist/mod.ts"]
+          include: ["./jsr/@lilycat/v3/dist/mod.ts"
           
           
