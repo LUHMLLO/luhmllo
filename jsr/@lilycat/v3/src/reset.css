@@ -44,7 +44,7 @@
   font-family: sans-serif;
   font-size: clamp(15px, 100dvw, 15pt);
   hanging-punctuation: first last;
-  letter-spacing: clamp(0.01em, 0.03em, 0.05em);
+  letter-spacing: -0.03em;
   line-height: 1.25em;
   position: static;
 
@@ -114,6 +114,7 @@
 }
 
 :where(
+  a,
   form,
   fieldset,
   div,

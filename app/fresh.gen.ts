@@ -12,7 +12,6 @@ import * as $examples_inmov_index from "./routes/examples/inmov/index.tsx";
 import * as $examples_saas from "./routes/examples/saas.tsx";
 import * as $examples_suntek_layout from "./routes/examples/suntek/_layout.tsx";
 import * as $examples_suntek_layout_components_Appbar from "./routes/examples/suntek/_layout/components/Appbar.tsx";
-import * as $examples_suntek_layout_components_Bottombar from "./routes/examples/suntek/_layout/components/Bottombar.tsx";
 import * as $examples_suntek_index from "./routes/examples/suntek/index.tsx";
 import * as $examples_threads_layout from "./routes/examples/threads/_layout.tsx";
 import * as $examples_threads_layout_components_Appbar from "./routes/examples/threads/_layout/components/Appbar.tsx";
@@ -36,8 +35,6 @@ const manifest = {
     "./routes/examples/suntek/_layout.tsx": $examples_suntek_layout,
     "./routes/examples/suntek/_layout/components/Appbar.tsx":
       $examples_suntek_layout_components_Appbar,
-    "./routes/examples/suntek/_layout/components/Bottombar.tsx":
-      $examples_suntek_layout_components_Bottombar,
     "./routes/examples/suntek/index.tsx": $examples_suntek_index,
     "./routes/examples/threads/_layout.tsx": $examples_threads_layout,
     "./routes/examples/threads/_layout/components/Appbar.tsx":
