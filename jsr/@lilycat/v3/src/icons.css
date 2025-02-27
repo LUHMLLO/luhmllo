@@ -19,9 +19,9 @@
   font-size: clamp(100%, 100dvw, var(--size));
   font-variation-settings:
     "FILL" var(--fill),
-    "wght" 100,
+    "wght" 250,
     "GRAD" 200,
-    "opsz" 48;
+    "opsz" 45;
   height: var(--size);
   overflow: clip;
   place-content: center center;
