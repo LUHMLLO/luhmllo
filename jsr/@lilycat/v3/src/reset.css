@@ -72,7 +72,7 @@
   display: block;
 }
 
-:where(nav){
+:where(nav) {
   display: flex;
 }
 
