@@ -15,8 +15,8 @@ export default function App({ Component }: PageProps) {
           content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
 
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="icon" type="mage/svg+xml" sizes="any" href="/logo.svg" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" sizes="any" href="/logo.svg" />
 
         <title>lilys</title>
 

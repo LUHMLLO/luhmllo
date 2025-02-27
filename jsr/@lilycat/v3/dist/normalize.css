@@ -17,7 +17,7 @@
   font-size: var(--type-xs, 20px);
 }
 :where(li, p) {
-  width: clamp(50ch, 100%, 75%);
+  width: clamp(50ch, 100%, 75ch);
 }
 a {
   color: var(--clr-accent);

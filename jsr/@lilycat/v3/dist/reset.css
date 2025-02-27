@@ -74,7 +74,6 @@
   width: clamp(250px, 100%, 350px);
 }
 :where(audio, canvas, figure, iframe, img, video):is(figure > img) {
-  display: block;
   height: 100%;
   width: 100%;
 }

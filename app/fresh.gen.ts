@@ -18,6 +18,8 @@ import * as $examples_threads_layout_components_Appbar from "./routes/examples/t
 import * as $examples_threads_layout_components_Bottombar from "./routes/examples/threads/_layout/components/Bottombar.tsx";
 import * as $examples_threads_index from "./routes/examples/threads/index.tsx";
 import * as $index from "./routes/index.tsx";
+import * as $tests_1 from "./routes/tests/1.tsx";
+import * as $tests_2 from "./routes/tests/2.tsx";
 
 import type { Manifest } from "$fresh/server.ts";
 
@@ -43,6 +45,8 @@ const manifest = {
       $examples_threads_layout_components_Bottombar,
     "./routes/examples/threads/index.tsx": $examples_threads_index,
     "./routes/index.tsx": $index,
+    "./routes/tests/1.tsx": $tests_1,
+    "./routes/tests/2.tsx": $tests_2,
   },
   islands: {},
   baseUrl: import.meta.url,

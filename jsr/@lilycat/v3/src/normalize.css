@@ -30,7 +30,7 @@
   li,
   p
 ) {
-  width: clamp(50ch, 100%, 75%);
+  width: clamp(50ch, 100%, 75ch);
 }
 
 a {

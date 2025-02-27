@@ -3,7 +3,7 @@ interface FoundersArticle {
   paragraph: string;
 }
 
-export default function LandingPage() {
+export default function Route() {
   const logos: string[] = [
     "https://cdn.freebiesupply.com/logos/large/2x/apple-logo-png-transparent.png",
     "https://cdn.freebiesupply.com/logos/large/2x/microsoft-logo-png-transparent.png",
