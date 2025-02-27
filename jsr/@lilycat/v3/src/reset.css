@@ -72,6 +72,10 @@
   display: block;
 }
 
+:where(nav){
+  display: flex;
+}
+
 :where(
   audio,
   canvas,

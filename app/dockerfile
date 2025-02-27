@@ -4,10 +4,16 @@ EXPOSE 8000
 
 WORKDIR /app
 
-ADD . /app
+# Prefer not to run as root.
+USER deno
 
-# Install the Deno application with necessary permissions
-RUN deno install --allow-net --allow-read --allow-write --allow-env --entrypoint ./main.ts
+# These steps will be re-run upon each file change in your working directory:
+COPY . .
 
-# Build the application and then run it for production
-CMD ["sh", "-c", "deno task build && deno task preview"]
+# Compile the main app so that it doesn't need to be compiled each startup/entry.
+RUN deno cache main.ts
+
+# Warmup caches
+RUN timeout 10s deno -A main.ts || [ $? -eq 124 ] || exit 1
+
+CMD ["run", "--allow-net", "main.ts"]
