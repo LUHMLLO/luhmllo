@@ -22,6 +22,8 @@ export default function Layout({ Component }: PageProps) {
         <Bottombar />
       </main>
 
+      <script type="module" src="/vendors/dropdown.min.js" />
+
       <span id="cursor" />
 
       <script
