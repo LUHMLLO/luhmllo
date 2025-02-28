@@ -4,8 +4,8 @@ import { dirname, fromFileUrl, join } from "jsr:@std/path";
 
 import postcss from "https://deno.land/x/postcss@8.4.16/mod.js";
 import postcssRelativeColorSyntax from "npm:@csstools/postcss-relative-color-syntax";
-import cssnano from "npm:cssnano";
 import "npm:cssnano-preset-advanced@^7.0.6";
+import cssnano from "npm:cssnano@^7.0.6";
 // import postcssCalc from "npm:postcss-calc";
 import postcssCustomMedia from "npm:postcss-custom-media";
 import postcssFailOnWarn from "npm:postcss-fail-on-warn";
