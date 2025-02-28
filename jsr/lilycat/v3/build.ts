@@ -10,13 +10,13 @@ import cssnano from "npm:cssnano@^7.0.6";
 import postcssCustomMedia from "npm:postcss-custom-media";
 import postcssFailOnWarn from "npm:postcss-fail-on-warn";
 import postcssImport from "npm:postcss-import";
-import postcssMixins from "npm:postcss-mixins";
+// import postcssMixins from "npm:postcss-mixins";
 import postcssNested from "npm:postcss-nested";
 
 // Initialize PostCSS with plugins
 const processor = postcss([
   postcssImport(),
-  postcssMixins(),
+  // postcssMixins(),
   postcssNested(),
   // postcssCalc({ preserve: true, warnWhenCannotResolve: true }),
   postcssCustomMedia(),
