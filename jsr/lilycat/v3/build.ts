@@ -33,7 +33,7 @@ const processor = postcss([
           remove: false,
           supports: true,
         },
-        calc: false,
+        calc: false, /* if true, relative color syntax will break */
         colormin: true,
         discardComments: { removeAll: true },
         discardEmpty: true,
