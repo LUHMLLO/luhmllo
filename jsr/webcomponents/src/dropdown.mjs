@@ -82,7 +82,7 @@ if (typeof window !== "undefined") {
         max-width: calc(100dvw - var(--sm));
         min-height: max-content;
         min-width: max-content;
-        outline: solid color-mix(in var(--config-colorSpace, srgb), var(--outln-clr), gray 16%);
+        outline: solid hsl(from var(--clr-surface), h s calc(l + 5));
         overflow: clip;
         padding: var(--spacing);
         place-content: center;
