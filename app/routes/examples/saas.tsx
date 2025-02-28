@@ -55,15 +55,15 @@ export default function Route() {
       <div className="bg-lime-100 min-h-screen flex flex-col items-center justify-center">
         <nav className="text-gray-800 flex justify-between items-center w-full pt-8 px-6">
           <a href="{void:0}" className="text-inherit">
-            <span className="material-icons">blur_on</span>
+            <span className="icon">blur_on</span>
           </a>
-          <div className="flex gap-8 items-center">
+          <div className="flex gap-sm items-center">
             <a href="{void:0}" className="text-inherit">Process</a>
             <a href="{void:0}" className="text-inherit">Projects</a>
             <a href="{void:0}" className="text-inherit">FAQ</a>
             <a
               href="{void:0}"
-              className="text-inherit border border-current px-4 py-2 rounded text-sm flex items-center"
+              className="text-inherit border border-current px-md rounded text-sm flex items-center"
             >
               Packages
             </a>
@@ -78,7 +78,10 @@ export default function Route() {
             Helping founders bring their product to life, attract early users,
             and validate their idea.
           </p>
-          <button className="bg-lime-300 text-lime-900 rounded px-6 py-3 font-semibold">
+          <button
+            type="button"
+            className="bg-lime-300 text-lime-900 rounded px-6 py-3 font-semibold"
+          >
             See available packages
           </button>
         </header>
@@ -128,16 +131,17 @@ export default function Route() {
 
       <style
         lang="css"
+        // deno-lint-ignore react-no-danger
         dangerouslySetInnerHTML={{
           __html: `
-        @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-100%); }
-        }
-        .animate-scroll {
-          animation: scroll 30s linear infinite;
-        }
-      `,
+            @keyframes scroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-100%); }
+            }
+            .animate-scroll {
+              animation: scroll 30s linear infinite;
+            }
+          `,
         }}
       />
     </div>

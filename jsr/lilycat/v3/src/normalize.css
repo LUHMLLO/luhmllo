@@ -43,14 +43,15 @@ a {
 
   /* &:focus {
     color: hsl(from var(--clr-accent) h calc(s + 5%) l);
+    color: hsl(from var(--clr-accent) h s calc(l + 15));
   } */
 
   &:hover {
-    color: color-mix(in hsl, var(--clr-accent), white 25%);
+    color: hsl(from var(--clr-accent) h calc(s + 10) calc(l + 5));
   }
 
   &:active {
-    color: color-mix(in hsl, var(--clr-accent), black 25%);
+    color: hsl(from var(--clr-accent) h calc(s - 5) calc(l - 10));
   }
 }
 

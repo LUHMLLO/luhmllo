@@ -25,10 +25,16 @@ export default function Appbar() {
         data-props="--expand --propagate"
         className="flex grow h-[50px] w-full"
       >
-        <button className="place-content-center grow h-full flex-1 currentView">
+        <button
+          type="button"
+          className="place-content-center grow h-full flex-1 currentView"
+        >
           Popular
         </button>
-        <button className="place-content-center grow h-full flex-1">
+        <button
+          type="button"
+          className="place-content-center grow h-full flex-1"
+        >
           Me
         </button>
       </div>

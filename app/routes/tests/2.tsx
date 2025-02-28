@@ -661,7 +661,7 @@ export default function Route() {
             </header>
             <div>
               <p>
-                <font color="red" face="Arial" size="5">
+                <font color="red" face="Arial" size={5}>
                   This is text with the font tag
                 </font>
               </p>

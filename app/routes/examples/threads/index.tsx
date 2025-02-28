@@ -51,16 +51,16 @@ export default function Route() {
                       more_horiz
                     </span>
                   </summary>
-                  <button>
+                  <button type="button">
                     option
                   </button>
-                  <button>
+                  <button type="button">
                     option
                   </button>
-                  <button>
+                  <button type="button">
                     option
                   </button>
-                  <button>
+                  <button type="button">
                     option
                   </button>
                 </cat-dropdown>

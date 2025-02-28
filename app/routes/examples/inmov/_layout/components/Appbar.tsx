@@ -5,7 +5,7 @@ export default function Appbar() {
         <a href="void(0)">
           <i className="material-symbols-outlined">roofing</i>
         </a>
-        <button data-props="--outline">
+        <button type="button" data-props="--outline">
           Explore
         </button>
       </nav>

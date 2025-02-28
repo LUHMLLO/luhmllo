@@ -1,7 +1,7 @@
-import * as esbuild from "npm:esbuild@0.21.3";
-import { denoPlugins } from "jsr:@luca/esbuild-deno-loader@^0.10.3";
 import { crypto } from "https://deno.land/std@0.122.0/crypto/mod.ts";
+import { denoPlugins } from "jsr:@luca/esbuild-deno-loader@^0.10.3";
 import type { BuildOptions } from "npm:esbuild@0.21.3";
+import * as esbuild from "npm:esbuild@0.21.3";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 const entryPath = `${__dirname}/src/**/*.mjs`;

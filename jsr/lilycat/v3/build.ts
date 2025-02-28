@@ -1,22 +1,26 @@
-import { dirname, fromFileUrl, join } from "jsr:@std/path";
 import { ensureDir } from "jsr:@std/fs";
 import { walk } from "jsr:@std/fs/walk";
+import { dirname, fromFileUrl, join } from "jsr:@std/path";
 
 import postcss from "https://deno.land/x/postcss@8.4.16/mod.js";
+import postcssRelativeColorSyntax from "npm:@csstools/postcss-relative-color-syntax";
 import cssnano from "npm:cssnano";
+import "npm:cssnano-preset-advanced@^7.0.6";
+// import postcssCalc from "npm:postcss-calc";
+import postcssCustomMedia from "npm:postcss-custom-media";
+import postcssFailOnWarn from "npm:postcss-fail-on-warn";
 import postcssImport from "npm:postcss-import";
 import postcssMixins from "npm:postcss-mixins";
 import postcssNested from "npm:postcss-nested";
-import postcssCustomMedia from "npm:postcss-custom-media";
-import postcssFailOnWarn from "npm:postcss-fail-on-warn";
-import "npm:cssnano-preset-advanced@^7.0.6";
 
 // Initialize PostCSS with plugins
 const processor = postcss([
   postcssImport(),
   postcssMixins(),
   postcssNested(),
+  // postcssCalc({ preserve: true, warnWhenCannotResolve: true }),
   postcssCustomMedia(),
+  postcssRelativeColorSyntax(),
   cssnano({
     preset: [
       "default",
@@ -29,7 +33,7 @@ const processor = postcss([
           remove: false,
           supports: true,
         },
-        calc: true,
+        calc: false,
         colormin: true,
         discardComments: { removeAll: true },
         discardEmpty: true,
@@ -63,9 +67,9 @@ const processor = postcss([
 
 // Resolve paths based on the script's location
 const __dirname = dirname(fromFileUrl(import.meta.url));
-const entryPath = join(__dirname, "css");
+const entryPath = join(__dirname, "src");
 const outPath = join(__dirname, "dist");
-const modPath = join(__dirname, "mod.ts");
+const modPath = join(__dirname, "dist/mod.ts");
 
 console.log(`Processing CSS files from ${entryPath} to ${outPath}...`);
 
