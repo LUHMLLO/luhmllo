@@ -1,4 +1,4 @@
-export function Route() {
+export default function Route() {
   return (
     <>
       <h2>
@@ -6,9 +6,7 @@ export function Route() {
       </h2>
 
       <p>
-        <code lang="html">
-          <a />
-        </code>{" "}
+        <code lang="html" className="text-accent">{`<a/>`}</code>{" "}
         elements in web development create hyperlinks, which are used to
         navigate to other pages, sections within a page, or external resources.
         They can be styled to look like buttons or other interactive elements,
@@ -16,7 +14,10 @@ export function Route() {
         essential for creating a connected and interactive web experience.
       </p>
 
-      <div data-props="--2" class="grid outln outln-primary radius-3xs">
+      <div
+        data-props="--2"
+        class="grid grid-cols-2 outline"
+      >
         <code lang="html">
           <a>
             <span>
@@ -24,7 +25,7 @@ export function Route() {
             </span>
           </a>
         </code>
-        <div class="align-center[items] flex flex-col place-center p-5xl">
+        <div class="align-center[items] flex flex-col place-center p-xl">
           <a>
             <span>
               anchor
@@ -33,7 +34,10 @@ export function Route() {
         </div>
       </div>
 
-      <div data-props="--2" class="grid outln outln-primary radius-3xs">
+      <div
+        data-props="--2"
+        class="grid grid-cols-2 outline"
+      >
         <code lang="html">
           <a href="#">
             <span>
@@ -41,7 +45,7 @@ export function Route() {
             </span>
           </a>
         </code>
-        <div class="align-center[items] flex flex-col place-center p-5xl">
+        <div class="align-center[items] flex flex-col place-center p-xl">
           <a href="#anchor--a">
             <span>
               anchor
@@ -54,13 +58,37 @@ export function Route() {
         -- parentElement <small class="clr-subtext txt-sm">PROPS</small>
       </h3>
 
-      | prop | description | requires | | ----------- |
-      ----------------------------------- | ---------- | | - - button | changes
-      style to look like a button | - | | - - outline | sets outline style | - -
-      button | | - - fab | changes style to look like a FAB | - - button |
+      <table>
+        <thead>
+          <tr>
+            <th>prop</th>
+            <th>description</th>
+            <th>requires</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>--button</td>
+            <td>changes style to look like a button</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>--outline</td>
+            <td>sets outline style</td>
+            <td>--button</td>
+          </tr>
+          <tr>
+            <td>--fab</td>
+            <td>changes style to look like a FAB</td>
+            <td>
+              <span>--button</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-      <div data-props="--2" class="grid g-sm">
-        <div class="grid outln outln-primary radius-3xs">
+      <div data-props="--2" class="grid grid-cols-2 g-sm">
+        <div class="grid outlne">
           <code lang="html">
             <a data-props="--button --outline">
               <span>
@@ -69,14 +97,14 @@ export function Route() {
             </a>
           </code>
 
-          <div class="flex place-center p-5xl">
+          <div class="flex place-center p-xl">
             <a data-props="--button --outline">
               <span>anchor</span>
             </a>
           </div>
         </div>
 
-        <div class="grid outln outln-primary radius-3xs">
+        <div class="grid outline">
           <code lang="html">
             <a href="javascript:void(0)" data-props="--button --outline --fab">
               <span className="icon">
@@ -85,7 +113,7 @@ export function Route() {
             </a>
           </code>
 
-          <div class="flex place-center p-5xl">
+          <div class="flex place-center p-xl">
             <a data-props="--button --outline --fab">
               <span className="icon">
                 add_circle
@@ -102,8 +130,8 @@ export function Route() {
       side optical corrections | | - - trail | set’s as trailing item | right
       side optical corrections |
 
-      <div data-props="--2" class="grid g-sm">
-        <div class="grid outln outln-primary radius-3xs">
+      <div data-props="--2" class="grid grid-cols-2 g-sm">
+        <div class="grid outline">
           <code lang="html">
             <a data-props="--button --outline">
               <span className="icon" data-props="--lead">
@@ -123,7 +151,7 @@ export function Route() {
           </div>
         </div>
 
-        <div class="grid outln outln-primary radius-3xs">
+        <div class="grid outline">
           <code lang="html">
             <a data-props="--button --outline">
               <span>anchor</span>

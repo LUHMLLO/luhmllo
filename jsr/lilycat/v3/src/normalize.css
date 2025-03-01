@@ -103,9 +103,14 @@ a {
   }
 
   :where(th, td) {
+    box-sizing: border-box;
     border: solid 1px;
     min-height: 75px;
     overflow: clip;
     padding: clamp(0px, 100%, var(--md, 15px));
+    white-space: nowrap;
+    & > * {
+      white-space: nowrap;
+    }
   }
 }
