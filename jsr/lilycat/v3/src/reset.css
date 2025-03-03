@@ -3,6 +3,7 @@
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
   -moz-text-size-adjust: 100%;
+  interpolate-size: allow-keywords;
   position: relative;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
