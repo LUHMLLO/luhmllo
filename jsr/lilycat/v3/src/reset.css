@@ -189,7 +189,7 @@
 
   &:is(ul) {
     & > :where(li) {
-      ::marker {
+      &::marker {
         content: "• ";
       }
     }
