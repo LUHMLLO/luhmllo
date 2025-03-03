@@ -33,7 +33,7 @@
     vertical-align: -webkit-baseline-middle middle;
   }
 
-  :is([data-props~="--solid"]) {
+  &:is([data-props~="--solid"]) {
     --fill: 1;
   }
 }
