@@ -72,10 +72,9 @@ html {
   outline-offset: 2px;
   pointer-events: none;
   position: fixed;
-  transition:
-    background var(--animDefaults),
-    box-shadow var(--animDefaults),
-    translate var(--animDefaults);
+  transition-property: background, box-shadow, translate;
+  transition-duration: var(--animDuration);
+  transition-timing-function: var(--animTiming);
   user-select: none;
   width: var(--xl);
   z-index: auto;

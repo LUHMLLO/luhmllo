@@ -53,7 +53,7 @@ if (typeof window !== "undefined") {
     }
 
     render() {
-      const styles = `
+      const styles = css`
       :host {
         display: inline-flex;
         min-height: 0;
@@ -67,12 +67,7 @@ if (typeof window !== "undefined") {
       }
 
       [part="dropmenu"] {
-        --bg: var(--clr-surface);
-        --gap: 0;
-        --outln-clr: var(--bg);
-        --spacing: var(--xs);
-
-        background-color: var(--bg);
+        background-color: var(--clr-surface);
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
@@ -82,20 +77,21 @@ if (typeof window !== "undefined") {
         max-width: calc(100dvw - var(--sm));
         min-height: max-content;
         min-width: max-content;
-        outline: solid hsl(from var(--clr-surface), h s calc(l + 5));
+        outline: solid hsl(from var(--clr-surface) h s calc(l + 5));
         overflow: clip;
-        padding: var(--spacing);
+        padding: var(--xs);
         place-content: center;
         position: fixed;
-        transition: top var(--animDefaults), bottom var(--animDefaults),
-          opacity var(--animDefaults), visibility var(--animDefaults);
+        transition-property: top, bottom, opacity, visibility;
+        transition-duration: var(--animDuration);
+        transition-timing-function: var(--animTiming);
         z-index: 1000000;
       }
 
       [part="dropmenu__inner"] {
         --percent: 16%;
 
-        background-color: var(--bg);
+        background-color: var(--clr-surface);
         display: grid;
         grid-auto-flow: row;
         grid-auto-rows: max-content;

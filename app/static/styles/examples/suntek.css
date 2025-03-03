@@ -7,7 +7,7 @@ html {
 
 #appbar {
   align-items: center;
-  border-bottom: solid 1px hsl(from var(--clr-surface), h s calc(l + 5));
+  border-bottom: solid 1px hsl(from var(--clr-surface) h s calc(l + 5));
   gap: var(--md, 15px);
   height: 50px;
   padding: 0 var(--md, 15px);
@@ -23,7 +23,7 @@ html {
   }
 
   & > :where(hr) {
-    background-color: hsl(from var(--clr-surface), h s calc(l + 5));
+    background-color: hsl(from var(--clr-surface) h s calc(l + 5));
     flex: 0 0 auto;
     height: 100%;
     width: 1px;

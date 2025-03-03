@@ -1,1 +1,195 @@
-@layer wc{:is(.icon,.material-symbols-outlined,.material-symbols-rounded,.material-symbols-sharp){--fill:0;--size:1lh;aspect-ratio:1/1;display:inline-grid;flex-shrink:0;font-family:Material Symbols Outlined,Material Symbols Rounded,Material Symbols Sharp,sans-serif;font-feature-settings:"liga";font-size:var(--size);font-variation-settings:"FILL" var(--fill),"wght" 400,"GRAD" 400,"opsz" 48;height:var(--size);overflow:clip;place-content:center center;shape-margin:var(--scale-xs);shape-outside:circle(50%);user-select:none;width:auto}:is(.icon,.material-symbols-outlined,.material-symbols-rounded,.material-symbols-sharp)>*{display:contents;line-height:1lh;margin:auto;vertical-align:-webkit-baseline-middle}:is(.icon,.material-symbols-outlined,.material-symbols-rounded,.material-symbols-sharp):is([data-props~="--solid"]){--fill:1}}@layer wc{:where(.flex,.group){display:flex}:where(.flex,.group):is([data-props~="--x"]){flex-direction:row}:where(.flex,.group):is([data-props~="--y"]){flex-direction:column}}@layer wc{:where(.grid){--cols:1;--gap:0px;--count:auto-fill;--track_min:clamp(6rem,8rem,12rem);--track_max:1fr;display:grid;gap:var(--gap);grid-template-columns:repeat(var(--count),minmax(max(var(--track_min),100%/var(--cols) - var(--gap)),var(--track_max)));width:100%}:where(.grid):is([data-props~="--2"]){--cols:2}:where(.grid):is([data-props~="--3"]){--cols:3}:where(.grid):is([data-props~="--4"]){--cols:4}:where(.grid):is([data-props~="--5"]){--cols:5}:where(.grid):is([data-props~="--6"]){--cols:6}:where(.grid):is([data-props~="--7"]){--cols:7}:where(.grid):is([data-props~="--8"]){--cols:8}:where(.grid):is([data-props~="--9"]){--cols:9}:where(.grid):is([data-props~="--10"]){--cols:10}:where(.grid):is([data-props~="--11"]){--cols:11}:where(.grid):is([data-props~="--12"]){--cols:12}:where(.grid):is(.container){grid-auto-rows:max-content;grid-template-columns:[grid-expand-start] minmax(var(--config-containerOutterWidth),1fr) [grid-contain-start] minmax(0,var(--config-containerWidth)) [grid-contain-end] minmax(var(--config-containerOutterWidth),1fr) [grid-expand-end]}:where(.grid):is(.container)>*{grid-column:grid-contain}:where(.grid):is(.container)>:is([data-props~="--expand"]:not([data-props~="--propagate"])){grid-column:grid-expand;padding-inline:max((100% - var(--config-containerWidth))/2,var(--config-containerOutterWidth) + 1px)}}@layer wc{:where(.container){display:grid;grid-auto-rows:max-content;grid-template-columns:[grid-expand-start] minmax(var(--config-containerOutterWidth),1fr) [grid-contain-start] minmax(0,var(--config-containerWidth)) [grid-contain-end] minmax(var(--config-containerOutterWidth),1fr) [grid-expand-end]}:where(.container)>*{grid-column:grid-contain}:where(.container)>:is([data-props~="--expand"]){grid-column:grid-expand;padding-inline:max((100% - var(--config-containerWidth))/2,var(--config-containerOutterWidth) + 1px)}:where(.container)>:is([data-props~="--expand"]):is([data-props~="--propagate"]){padding-inline:0}}@layer wc{:where(.slider){display:grid;height:max-content}:where(.slider)>*{min-height:max-content;min-width:max-content}:where(.slider):is([data-props~="--x"]){grid-auto-columns:max-content;grid-auto-flow:column;overflow-x:auto;overflow-y:visible}:where(.slider):is([data-props~="--y"]){grid-auto-flow:row;grid-auto-rows:max-content;overflow-x:visible;overflow-y:auto}}
+@layer wc {
+  :is(
+    .icon,
+    .material-symbols-outlined,
+    .material-symbols-rounded,
+    .material-symbols-sharp
+  ) {
+    --fill: 0;
+    --size: 1lh;
+    aspect-ratio: 1/1;
+    display: inline-grid;
+    flex-shrink: 0;
+    font-family:
+      Material Symbols Outlined,
+      Material Symbols Rounded,
+      Material Symbols Sharp,
+      sans-serif;
+    font-feature-settings: "liga";
+    font-size: var(--size);
+    font-variation-settings:
+      "FILL" var(--fill),
+      "wght" 400,
+      "GRAD" 400,
+      "opsz" 48;
+    height: var(--size);
+    overflow: clip;
+    place-content: center center;
+    shape-margin: var(--scale-xs);
+    shape-outside: circle(50%);
+    user-select: none;
+    width: auto;
+  }
+  :is(
+    .icon,
+    .material-symbols-outlined,
+    .material-symbols-rounded,
+    .material-symbols-sharp
+  )
+    > * {
+    display: contents;
+    line-height: 1lh;
+    margin: auto;
+    vertical-align: -webkit-baseline-middle;
+  }
+  :is(
+    .icon,
+    .material-symbols-outlined,
+    .material-symbols-rounded,
+    .material-symbols-sharp
+  ):is([data-props~="--solid"]) {
+    --fill: 1;
+  }
+}
+@layer wc {
+  :where(.flex, .group) {
+    display: flex;
+  }
+  :where(.flex, .group):is([data-props~="--x"]) {
+    flex-direction: row;
+  }
+  :where(.flex, .group):is([data-props~="--y"]) {
+    flex-direction: column;
+  }
+}
+@layer wc {
+  :where(.grid) {
+    --cols: 1;
+    --gap: 0px;
+    --count: auto-fill;
+    --track_min: clamp(6rem, 8rem, 12rem);
+    --track_max: 1fr;
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns:
+      repeat(
+      var(--count),
+      minmax(
+        max(var(--track_min), 100% / var(--cols) - var(--gap)),
+        var(--track_max)
+      )
+    );
+    width: 100%;
+  }
+  :where(.grid):is([data-props~="--2"]) {
+    --cols: 2;
+  }
+  :where(.grid):is([data-props~="--3"]) {
+    --cols: 3;
+  }
+  :where(.grid):is([data-props~="--4"]) {
+    --cols: 4;
+  }
+  :where(.grid):is([data-props~="--5"]) {
+    --cols: 5;
+  }
+  :where(.grid):is([data-props~="--6"]) {
+    --cols: 6;
+  }
+  :where(.grid):is([data-props~="--7"]) {
+    --cols: 7;
+  }
+  :where(.grid):is([data-props~="--8"]) {
+    --cols: 8;
+  }
+  :where(.grid):is([data-props~="--9"]) {
+    --cols: 9;
+  }
+  :where(.grid):is([data-props~="--10"]) {
+    --cols: 10;
+  }
+  :where(.grid):is([data-props~="--11"]) {
+    --cols: 11;
+  }
+  :where(.grid):is([data-props~="--12"]) {
+    --cols: 12;
+  }
+  :where(.grid):is(.container) {
+    grid-auto-rows: max-content;
+    grid-template-columns:
+      [grid-expand-start] minmax(
+      var(--config-containerOutterWidth),
+      1fr
+    ) [grid-contain-start] minmax(
+      0,
+      var(--config-containerWidth)
+    ) [grid-contain-end] minmax(
+      var(--config-containerOutterWidth),
+      1fr
+    ) [grid-expand-end];
+  }
+  :where(.grid):is(.container) > * {
+    grid-column: grid-contain;
+  }
+  :where(.grid):is(.container)
+    > :is([data-props~="--expand"]:not([data-props~="--propagate"])) {
+    grid-column: grid-expand;
+    padding-inline: max(
+      (100% - var(--config-containerWidth)) / 2,
+      var(--config-containerOutterWidth) + 1px
+    );
+  }
+}
+@layer wc {
+  :where(.container) {
+    display: grid;
+    grid-auto-rows: max-content;
+    grid-template-columns:
+      [grid-expand-start] minmax(
+      var(--config-containerOutterWidth),
+      1fr
+    ) [grid-contain-start] minmax(
+      0,
+      var(--config-containerWidth)
+    ) [grid-contain-end] minmax(
+      var(--config-containerOutterWidth),
+      1fr
+    ) [grid-expand-end];
+  }
+  :where(.container) > * {
+    grid-column: grid-contain;
+  }
+  :where(.container) > :is([data-props~="--expand"]) {
+    grid-column: grid-expand;
+    padding-inline: max(
+      (100% - var(--config-containerWidth)) / 2,
+      var(--config-containerOutterWidth) + 1px
+    );
+  }
+  :where(.container)
+    > :is([data-props~="--expand"]):is([data-props~="--propagate"]) {
+    padding-inline: 0;
+  }
+}
+@layer wc {
+  :where(.slider) {
+    display: grid;
+    height: max-content;
+  }
+  :where(.slider) > * {
+    min-height: max-content;
+    min-width: max-content;
+  }
+  :where(.slider):is([data-props~="--x"]) {
+    grid-auto-columns: max-content;
+    grid-auto-flow: column;
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+  :where(.slider):is([data-props~="--y"]) {
+    grid-auto-flow: row;
+    grid-auto-rows: max-content;
+    overflow-x: visible;
+    overflow-y: auto;
+  }
+}

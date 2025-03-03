@@ -120,3 +120,16 @@
   inherits: true;
   initial-value: 65px;
 }
+
+/* transitions */
+@property --animDuration {
+  syntax: "<time>";
+  inherits: true;
+  initial-value: 800ms;
+}
+
+@property --animTiming {
+  syntax: "*";
+  inherits: true;
+  initial-value: cubic-bezier(0.47, 0, 0.23, 1.38);
+}
