@@ -621,7 +621,7 @@ export default function Route() {
                 (This is Arabic text that will go right to left)
               </p>
               <p>
-                Text direction override:
+                Text direction override:{" "}
                 <bdo dir="rtl">This text will go right-to-left</bdo>
               </p>
             </div>
@@ -679,6 +679,42 @@ export default function Route() {
               </p>
               <p>
                 <tt>This is teletype text</tt>
+              </p>
+              <p>
+                <basefont color="blue" face="Courier" size={3}>
+                  This demonstrates the basefont tag (sets default font)
+                </basefont>
+              </p>
+              <p>
+                <dir>
+                  <li>Directory list item 1</li>
+                  <li>Directory list item 2</li>
+                </dir>
+              </p>
+              <p>
+                <nobr>
+                  This text will not automatically wrap to the next line
+                </nobr>
+              </p>
+              <p>
+                <blink>
+                  This text would blink (if browsers still supported it)
+                </blink>
+              </p>
+              {/* Note: isindex is completely deprecated and not easily demonstrated in React */}
+              <p>
+                <marquee behavior="scroll" direction="right">
+                  This is a scrolling marquee text
+                </marquee>
+              </p>
+              <p>
+                <acronym title="HyperText Markup Language">HTML</acronym>{" "}
+                (Deprecated acronym tag)
+              </p>
+              <p>
+                <applet code="MyApplet.class" width="320" height="200">
+                  Applet content (completely obsolete)
+                </applet>
               </p>
             </div>
             <footer>
