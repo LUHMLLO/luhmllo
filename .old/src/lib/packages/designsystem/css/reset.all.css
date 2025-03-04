@@ -7,7 +7,7 @@
     line-height: inherit;
     margin: 0;
     max-width: 100%;
-    /* min-height: min-content; */
+    min-height: 0;
     min-width: 0;
     outline: none;
     outline-offset: calc(var(--prefers-outlineWidth) * -1) !important;
