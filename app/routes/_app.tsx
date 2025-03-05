@@ -28,22 +28,9 @@ export default function App({ Component }: PageProps) {
         <style
           lang="css"
           // deno-lint-ignore react-no-danger
-          dangerouslySetInnerHTML={{ __html: tokens }}
-        />
-        <style
-          lang="css"
-          // deno-lint-ignore react-no-danger
-          dangerouslySetInnerHTML={{ __html: reset }}
-        />
-        <style
-          lang="css"
-          // deno-lint-ignore react-no-danger
-          dangerouslySetInnerHTML={{ __html: normalize }}
-        />
-        <style
-          lang="css"
-          // deno-lint-ignore react-no-danger
-          dangerouslySetInnerHTML={{ __html: icons }}
+          dangerouslySetInnerHTML={{
+            __html: `${tokens}${reset}${normalize}${icons}`,
+          }}
         />
 
         {/* tailwind utilities */}
