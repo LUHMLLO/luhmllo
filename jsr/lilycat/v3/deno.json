@@ -11,13 +11,9 @@
     "publish": "deno run -A ./publish.ts"
   },
   "include": [
-    "./dist/mod.ts"
+    "dist/*"
   ],
   "exclude": [
-    "./node_modules",
-    "./src",
-    "./css",
-    "./build.ts",
-    "./publish.ts"
+    "*"
   ]
 }
