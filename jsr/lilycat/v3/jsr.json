@@ -1,0 +1,16 @@
+{
+  "license": "MIT",
+  "name": "@luhmllo/lilycat",
+  "version": "0.1.15",
+  "exports": "./dist/mod.ts",
+  "include": [
+    "./dist/mod.ts"
+  ],
+  "exclude": [
+    "./node_modules",
+    "./src",
+    "./css",
+    "./build.ts",
+    "./publish.ts"
+  ]
+}
