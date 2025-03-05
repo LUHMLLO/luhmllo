@@ -1,6 +1,6 @@
 {
   "name": "@luhmllo/lilycat",
-  "version": "0.1.15-documented",
+  "version": "0.1.15",
   "exports": "./dist/mod.ts",
   "license": "MIT",
   "lock": false,
