@@ -1,4 +1,8 @@
 {
+  "name": "@luhmllo/lilycat",
+  "version": "0.1.15",
+  "exports": "./dist/mod.ts",
+  "license": "MIT",
   "lock": false,
   "nodeModulesDir": "auto",
   "tasks": {
@@ -6,20 +10,14 @@
     "build": "deno run -A ./build.ts",
     "publish": "deno run -A ./publish.ts"
   },
-  "jsr": {
-    "license": "MIT",
-    "name": "@luhmllo/lilycat",
-    "version": "0.1.15",
-    "exports": "./dist/mod.ts",
-    "include": [
-      "./dist/mod.ts"
-    ],
-    "exclude": [
-      "./node_modules",
-      "./src",
-      "./css",
-      "./build.ts",
-      "./publish.ts"
-    ]
-  }
+  "include": [
+    "./dist/mod.ts"
+  ],
+  "exclude": [
+    "./node_modules",
+    "./src",
+    "./css",
+    "./build.ts",
+    "./publish.ts"
+  ]
 }
