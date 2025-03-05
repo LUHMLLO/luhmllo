@@ -1,13 +1,18 @@
 # Lilycat 🐱✨
 
-Lilycat is a modern, lightweight CSS library and UI kit designed to simplify frontend development with elegant, complex-looking components, leveraging native HTML tags for maximum flexibility.
+Lilycat is a modern, lightweight CSS library and UI kit designed to simplify
+frontend development with elegant, complex-looking components, leveraging native
+HTML tags for maximum flexibility.
 
 ## 🌟 Features
 
-- **Design Tokens**: Advanced CSS variables using `@property` syntax for consistent, reusable styling across the entire library
+- **Design Tokens**: Advanced CSS variables using `@property` syntax for
+  consistent, reusable styling across the entire library
 - **CSS Reset**: Provides a clean, consistent baseline across different browsers
-- **CSS Normalization**: Ensures uniform rendering and cross-browser compatibility
-- **Icon Utilities**: Easy-to-use `.icon` class for integrating Material Symbols (note: Material Symbols not included)
+- **CSS Normalization**: Ensures uniform rendering and cross-browser
+  compatibility
+- **Icon Utilities**: Easy-to-use `.icon` class for integrating Material Symbols
+  (note: Material Symbols not included)
 
 ## 🚀 Installation
 

@@ -1,8 +1,19 @@
 {
   "name": "@luhmllo/lilycat",
-  "version": "0.1.16",
-  "exports": "./dist/mod.ts",
+  "version": "0.1.17",
+  "description": "A modern, lightweight CSS library and UI kit for simplifying frontend development with elegant, native HTML-based components",
+  "keywords": [
+    "css",
+    "ui-kit",
+    "design-system",
+    "frontend",
+    "styling",
+    "tokens",
+    "components"
+  ],
+  "homepage": "https://github.com/LUHMLLO/lilycat",
   "license": "MIT",
+  "exports": "./dist/mod.ts",
   "lock": false,
   "nodeModulesDir": "auto",
   "tasks": {
@@ -12,5 +23,11 @@
   },
   "include": [
     "dist/*"
+  ],
+  "exclude": [
+    "./node_modules",
+    "./src",
+    "./build.ts",
+    "./publish.ts"
   ]
 }
