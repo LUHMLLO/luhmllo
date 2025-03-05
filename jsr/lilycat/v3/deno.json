@@ -5,5 +5,21 @@
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
     "build": "deno run -A ./build.ts",
     "publish": "deno run -A ./publish.ts"
+  },
+  "jsr": {
+    "license": "MIT",
+    "name": "@luhmllo/lilycat",
+    "version": "0.1.15",
+    "exports": "./dist/mod.ts",
+    "include": [
+      "./dist/mod.ts"
+    ],
+    "exclude": [
+      "./node_modules",
+      "./src",
+      "./css",
+      "./build.ts",
+      "./publish.ts"
+    ]
   }
 }
