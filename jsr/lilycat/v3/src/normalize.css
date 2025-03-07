@@ -88,6 +88,8 @@ a {
   }
 
   &:is(textarea) {
+    -moz-field-sizing: content;
+    -webkit-field-sizing: content;
     field-sizing: content;
     height: auto;
     min-height: 75px;
@@ -97,18 +99,26 @@ a {
 }
 
 :where(table) {
+  display: block;
   border-collapse: collapse;
   border-spacing: 0;
+  overflow-x: auto;
+  table-layout: fixed;
+  width: fit-content;
 
   :where(caption) {
     text-align: center;
   }
 
   :where(th, td) {
-    box-sizing: border-box;
     border: solid 1px;
-    min-height: 75px;
+    height: auto;
+    max-width: none;
+    min-height: 45px;
+    min-width: max-content;
     overflow: clip;
-    padding: clamp(0px, 100%, var(--md, 15px));
+    padding: var(--md, 15px);
+    white-space: nowrap;
+    width: auto;
   }
 }
