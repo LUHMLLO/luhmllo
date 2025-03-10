@@ -19,13 +19,10 @@ export default function Route() {
         class="grid grid-cols-2 border border-solid"
       >
         <code lang="html">
-          {`
-          <a>
-            <span>
-              anchor
-            </span>
-          </a>
-          `}
+          {`html
+<a>
+  <span>anchor</span>
+</a>`}
         </code>
         <div class="align-center[items] flex flex-col place-center p-xl">
           <a>

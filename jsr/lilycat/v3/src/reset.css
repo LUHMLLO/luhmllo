@@ -113,8 +113,11 @@
   display: block;
   overflow-x: auto;
   white-space: pre;
-  white-space-collapse: preserve-breaks;
   word-break: keep-all;
+
+  &:is(pre){
+    white-space-collapse: preserve-breaks;
+  }
 }
 
 :where(
