@@ -1,4 +1,64 @@
 :where(
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  
+  /* Text content */
+  p,
+  blockquote,
+  q,
+  cite,
+  
+  /* Lists */
+  ul,
+  ol,
+  dl,
+  dt,
+  dd,
+  li,
+  
+  /* Containers and semantic elements */
+  a,
+  div,
+  span,
+  details,
+  summary,
+  figure,
+  figcaption,
+  caption,
+  address,
+  main,
+  section,
+  article,
+  aside,
+  header,
+  footer,
+  nav,
+  
+  /* Form elements */
+  form,
+  fieldset,
+  legend,
+  label,
+  button,
+  input,
+  select,
+  textarea,
+  optgroup,
+  option
+) {
+  font-family: inherit;
+  font-weight: 300;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+
+:where(
   article,
   aside,
   details,
@@ -51,44 +111,6 @@
   height: 35px;
 }
 
-:where(
-  a,
-  form,
-  fieldset,
-  div,
-  span,
-  details,
-  summary,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  caption,
-  figcaption,
-  ul,
-  ol,
-  dl,
-  dt,
-  dd,
-  li,
-  p,
-  button,
-  input,
-  select,
-  textarea,
-  blockquote,
-  q,
-  cite
-) {
-  font-family: inherit;
-  font-weight: 300;
-  overflow-wrap: break-word;
-  text-overflow: ellipsis;
-  word-break: break-word;
-}
-
 :where(code, pre) {
   overflow-x: auto;
   white-space: pre;
@@ -104,9 +126,9 @@
 }
 
 :where(blockquote) {
-  border-left: solid 5px;
-  margin: min(5%, 1em);
-  padding: min(5%, 1em);
+  border-left: solid var(--xs, 5px);
+  margin: min(5%, var(--sm, 10px));
+  padding: min(5%, var(--sm, 10px));
 }
 
 :where(caption, figcaption, li, p, span, div) {
@@ -165,22 +187,22 @@
   text-wrap: balance;
 
   &:is(h1) {
-    font-size: var(--type-xl, 65px);
+    font-size: var(--type-xl, 60px);
   }
   &:is(h2) {
-    font-size: var(--type-lg, 55px);
+    font-size: var(--type-lg, 50px);
   }
   &:is(h3) {
-    font-size: var(--type-nm, 45px);
+    font-size: var(--type-nm, 40px);
   }
   &:is(h4) {
     font-size: var(--type-md, 35px);
   }
   &:is(h5) {
-    font-size: var(--type-sm, 25px);
+    font-size: var(--type-sm, 30px);
   }
   &:is(h6) {
-    font-size: var(--type-xs, 20px);
+    font-size: var(--type-xs, 25px);
   }
 }
 
@@ -223,7 +245,7 @@ a {
   outline: solid 1px var(--clr-content);
   outline-offset: -1px;
   overflow: clip;
-  padding: 15px;
+  padding: var(--md, 15px);
   white-space: nowrap;
   width: fit-content;
   
