@@ -102,6 +102,8 @@ a {
   display: block;
   border-collapse: collapse;
   border-spacing: 0;
+  outline: solid 1px;
+  outline-offset: -1px;
   overflow-x: auto;
   table-layout: fixed;
   width: fit-content;

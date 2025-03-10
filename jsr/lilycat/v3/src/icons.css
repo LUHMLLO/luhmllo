@@ -16,6 +16,7 @@
     sans-serif;
   font-feature-settings: "liga";
   font-size: clamp(100%, 100dvw, var(--size));
+  font-style: normal;
   font-variation-settings:
     "FILL" var(--fill),
     "wght" 250,

@@ -2,7 +2,7 @@ export default function Route() {
   return (
     <>
       <h2>
-        Anchor <small class="clr-subtext txt-nm txt-lowercase">native</small>
+        Anchor
       </h2>
 
       <p>
@@ -16,14 +16,16 @@ export default function Route() {
 
       <div
         data-props="--2"
-        class="grid grid-cols-2 outline"
+        class="grid grid-cols-2 border border-solid"
       >
         <code lang="html">
+          {`
           <a>
             <span>
               anchor
             </span>
           </a>
+          `}
         </code>
         <div class="align-center[items] flex flex-col place-center p-xl">
           <a>
@@ -36,14 +38,16 @@ export default function Route() {
 
       <div
         data-props="--2"
-        class="grid grid-cols-2 outline"
+        class="grid grid-cols-2 border border-solid"
       >
         <code lang="html">
+          {`
           <a href="#">
             <span>
               anchor
             </span>
           </a>
+          `}
         </code>
         <div class="align-center[items] flex flex-col place-center p-xl">
           <a href="#anchor--a">
@@ -55,7 +59,7 @@ export default function Route() {
       </div>
 
       <h3>
-        -- parentElement <small class="clr-subtext txt-sm">PROPS</small>
+        Parent Element
       </h3>
 
       <table>
@@ -88,13 +92,15 @@ export default function Route() {
       </table>
 
       <div data-props="--2" class="grid grid-cols-2 g-sm">
-        <div class="grid outlne">
+        <div class="grid border border-solid">
           <code lang="html">
+            {`
             <a data-props="--button --outline">
               <span>
                 anchor
               </span>
             </a>
+            `}
           </code>
 
           <div class="flex place-center p-xl">
@@ -104,69 +110,92 @@ export default function Route() {
           </div>
         </div>
 
-        <div class="grid outline">
+        <div class="grid border border-solid">
           <code lang="html">
+            {`
             <a href="javascript:void(0)" data-props="--button --outline --fab">
-              <span className="icon">
+              <i className="icon">
                 add_circle
-              </span>
+              </i>
             </a>
+            `}
           </code>
 
           <div class="flex place-center p-xl">
             <a data-props="--button --outline --fab">
-              <span className="icon">
+              <i className="icon">
                 add_circle
-              </span>
+              </i>
             </a>
           </div>
         </div>
       </div>
 
-      ### -- childrenElements <small class="clr-subtext txt-sm">PROPS</small>
+      <h3>Children Elements</h3>
 
-      | prop | description | purpose | | --------- | ---------------------- |
-      ------------------------------ | | - - lead | set’s as leading item | left
-      side optical corrections | | - - trail | set’s as trailing item | right
-      side optical corrections |
+      <table>
+        <thead>
+          <tr>
+            <th>prop</th>
+            <th>description</th>
+            <th>purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>- - lead</td>
+            <td>set's as leading item</td>
+            <td>left side optical corrections</td>
+          </tr>
+          <tr>
+            <td>- - trail</td>
+            <td>set's as trailing item</td>
+            <td>right side optical corrections</td>
+          </tr>
+        </tbody>
+      </table>
 
       <div data-props="--2" class="grid grid-cols-2 g-sm">
-        <div class="grid outline">
+        <div class="grid border border-solid">
           <code lang="html">
+            {`
             <a data-props="--button --outline">
-              <span className="icon" data-props="--lead">
+              <i className="icon" data-props="--lead">
                 add_circle
-              </span>
+              </i>
               <span>anchor</span>
             </a>
+            `}
           </code>
 
-          <div class="flex place-center p-5xl">
+          <div class="flex place-center p-xl">
             <a data-props="--button --outline">
-              <span className="icon" data-props="--lead">
+              <i className="icon" data-props="--lead">
                 add_circle
-              </span>
+              </i>
               <span>anchor</span>
             </a>
           </div>
         </div>
 
-        <div class="grid outline">
+        <div class="grid border border-solid">
           <code lang="html">
+            {`
             <a data-props="--button --outline">
               <span>anchor</span>
-              <span className="icon" data-props="--trail">
+              <i className="icon" data-props="--trail">
                 add_circle
-              </span>
+              </i>
             </a>
+            `}
           </code>
 
-          <div class="flex place-center p-5xl">
+          <div class="flex place-center p-xl">
             <a data-props="--button --outline">
               <span>anchor</span>
-              <span className="icon" data-props="--trail">
+              <i className="icon" data-props="--trail">
                 add_circle
-              </span>
+              </i>
             </a>
           </div>
         </div>

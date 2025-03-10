@@ -109,6 +109,14 @@
   height: 35px;
 }
 
+:where(code, pre) {
+  display: block;
+  overflow-x: auto;
+  white-space: pre;
+  white-space-collapse: preserve-breaks;
+  word-break: keep-all;
+}
+
 :where(
   a,
   form,
@@ -134,7 +142,6 @@
   input,
   select,
   textarea,
-  pre,
   blockquote,
   q,
   cite
@@ -147,8 +154,8 @@
 
   &:is(blockquote) {
     border-left: solid 5px;
-    margin: 1.25em;
-    padding: 1.25em;
+    margin: min(5%, 1.25em);
+    padding: min(5%, 1.25em);
   }
 
   &:is(h1, h2, h3, h4, h5, h6) {
@@ -156,12 +163,8 @@
     text-wrap: balance;
   }
 
-  &:is(caption, figcaption, li, p) {
+  &:is(caption, figcaption, li, p, span, div) {
     text-wrap: pretty;
-  }
-
-  &:is(pre) {
-    white-space: pre-line;
   }
 
   &:is(a, area, button, input, label, select, summary, textarea) {
