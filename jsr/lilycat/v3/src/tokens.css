@@ -8,43 +8,49 @@
 @property --clr-content {
   syntax: "<color>";
   inherits: true;
-  initial-value: hsl(0deg, 0%, 95%);
+  initial-value: hsl(0, 0%, 90%);
 }
 
 @property --clr-accent {
   syntax: "<color>";
   inherits: true;
-  initial-value: hsl(215deg, 50%, 50%);
+  initial-value: hsl(250, 75%, 65%);
 }
 
-@property --clr-context {
+@property --clr-complementary {
   syntax: "<color>";
   inherits: true;
-  initial-value: hsl(250deg, 50%, 50%);
+  initial-value: hsl(70deg, 65%, 50%);
 }
 
 @property --clr-debug {
   syntax: "<color>";
   inherits: true;
-  initial-value: hsl(300deg, 50%, 50%);
+  initial-value: hsl(340deg, 50%, 50%);
 }
 
 @property --clr-error {
   syntax: "<color>";
   inherits: true;
-  initial-value: hsl(0deg, 50%, 150%);
+  initial-value: hsl(0deg, 50%, 50%)
 }
 
 @property --clr-info {
   syntax: "<color>";
   inherits: true;
-  initial-value: hsl(126deg, 50%, 50%);
+  initial-value: hsl(215deg, 50%, 50%);
 }
 
 @property --clr-success {
   syntax: "<color>";
   inherits: true;
-  initial-value: hsl(65deg, 50%, 50%);
+  initial-value: hsl(145deg, 50%, 50%);
+}
+
+@property --clr-warning {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(50deg, 50%, 50%);
 }
 
 /* sizing */
@@ -88,13 +94,13 @@
 @property --type-xs {
   syntax: "<length>";
   inherits: true;
-  initial-value: 20px;
+  initial-value: 25px;
 }
 
 @property --type-sm {
   syntax: "<length>";
   inherits: true;
-  initial-value: 25px;
+  initial-value: 30px;
 }
 
 @property --type-md {
@@ -106,19 +112,19 @@
 @property --type-nm {
   syntax: "<length>";
   inherits: true;
-  initial-value: 45px;
+  initial-value: 40px;
 }
 
 @property --type-lg {
   syntax: "<length>";
   inherits: true;
-  initial-value: 55px;
+  initial-value: 50px;
 }
 
 @property --type-xl {
   syntax: "<length>";
   inherits: true;
-  initial-value: 65px;
+  initial-value: 60px;
 }
 
 /* transitions */
