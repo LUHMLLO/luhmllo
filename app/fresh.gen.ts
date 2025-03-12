@@ -4,20 +4,16 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $demos_api_joke from "./routes/demos/api/joke.ts";
+import * as $demos_greet_name_ from "./routes/demos/greet/[name].tsx";
+import * as $demos_inmov_layout from "./routes/demos/inmov/_layout.tsx";
+import * as $demos_inmov_index from "./routes/demos/inmov/index.tsx";
+import * as $demos_saas from "./routes/demos/saas.tsx";
+import * as $demos_suntek_layout from "./routes/demos/suntek/_layout.tsx";
+import * as $demos_suntek_index from "./routes/demos/suntek/index.tsx";
+import * as $demos_threads_layout from "./routes/demos/threads/_layout.tsx";
+import * as $demos_threads_index from "./routes/demos/threads/index.tsx";
 import * as $docs_anchor from "./routes/docs/anchor.tsx";
-import * as $examples_api_joke from "./routes/examples/api/joke.ts";
-import * as $examples_greet_name_ from "./routes/examples/greet/[name].tsx";
-import * as $examples_inmov_layout from "./routes/examples/inmov/_layout.tsx";
-import * as $examples_inmov_layout_components_Appbar from "./routes/examples/inmov/_layout/components/Appbar.tsx";
-import * as $examples_inmov_index from "./routes/examples/inmov/index.tsx";
-import * as $examples_saas from "./routes/examples/saas.tsx";
-import * as $examples_suntek_layout from "./routes/examples/suntek/_layout.tsx";
-import * as $examples_suntek_layout_components_Appbar from "./routes/examples/suntek/_layout/components/Appbar.tsx";
-import * as $examples_suntek_index from "./routes/examples/suntek/index.tsx";
-import * as $examples_threads_layout from "./routes/examples/threads/_layout.tsx";
-import * as $examples_threads_layout_components_Appbar from "./routes/examples/threads/_layout/components/Appbar.tsx";
-import * as $examples_threads_layout_components_Bottombar from "./routes/examples/threads/_layout/components/Bottombar.tsx";
-import * as $examples_threads_index from "./routes/examples/threads/index.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $tests_1 from "./routes/tests/1.tsx";
 import * as $tests_2 from "./routes/tests/2.tsx";
@@ -28,24 +24,16 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/demos/api/joke.ts": $demos_api_joke,
+    "./routes/demos/greet/[name].tsx": $demos_greet_name_,
+    "./routes/demos/inmov/_layout.tsx": $demos_inmov_layout,
+    "./routes/demos/inmov/index.tsx": $demos_inmov_index,
+    "./routes/demos/saas.tsx": $demos_saas,
+    "./routes/demos/suntek/_layout.tsx": $demos_suntek_layout,
+    "./routes/demos/suntek/index.tsx": $demos_suntek_index,
+    "./routes/demos/threads/_layout.tsx": $demos_threads_layout,
+    "./routes/demos/threads/index.tsx": $demos_threads_index,
     "./routes/docs/anchor.tsx": $docs_anchor,
-    "./routes/examples/api/joke.ts": $examples_api_joke,
-    "./routes/examples/greet/[name].tsx": $examples_greet_name_,
-    "./routes/examples/inmov/_layout.tsx": $examples_inmov_layout,
-    "./routes/examples/inmov/_layout/components/Appbar.tsx":
-      $examples_inmov_layout_components_Appbar,
-    "./routes/examples/inmov/index.tsx": $examples_inmov_index,
-    "./routes/examples/saas.tsx": $examples_saas,
-    "./routes/examples/suntek/_layout.tsx": $examples_suntek_layout,
-    "./routes/examples/suntek/_layout/components/Appbar.tsx":
-      $examples_suntek_layout_components_Appbar,
-    "./routes/examples/suntek/index.tsx": $examples_suntek_index,
-    "./routes/examples/threads/_layout.tsx": $examples_threads_layout,
-    "./routes/examples/threads/_layout/components/Appbar.tsx":
-      $examples_threads_layout_components_Appbar,
-    "./routes/examples/threads/_layout/components/Bottombar.tsx":
-      $examples_threads_layout_components_Bottombar,
-    "./routes/examples/threads/index.tsx": $examples_threads_index,
     "./routes/index.tsx": $index,
     "./routes/tests/1.tsx": $tests_1,
     "./routes/tests/2.tsx": $tests_2,

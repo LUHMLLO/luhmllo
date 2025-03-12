@@ -1,14 +1,14 @@
 import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
-import Appbar from "./_layout/components/Appbar.tsx";
-import Bottombar from "./_layout/components/Bottombar.tsx";
+import Appbar from "../../../components/threads/Appbar.tsx";
+import Bottombar from "../../../components/threads/Bottombar.tsx";
 
 export default function Layout({ Component }: PageProps) {
   return (
     <>
       <Head>
         {/* local styles */}
-        <link rel="stylesheet" href="/styles/examples/threads.css" />
+        <link rel="stylesheet" href="/styles/demos/threads.css" />
         {/* google fonts */}
         <link
           href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
