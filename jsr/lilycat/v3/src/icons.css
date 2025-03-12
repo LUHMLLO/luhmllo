@@ -2,8 +2,11 @@
   .material-symbols-outlined,
   .material-symbols-rounded,
   .material-symbols-sharp) {
-  --fill: 0;
   --size: var(--type-xs, 20px);
+  --fill: 0;
+  --grad: 0;
+  --opsz: 50;
+  --wght: 300;
   aspect-ratio: 1/1;
   display: inline-grid;
   flex: 0 0 max-content;
@@ -17,13 +20,17 @@
   font-style: normal;
   font-variation-settings:
     "FILL" var(--fill),
-    "wght" 200,
-    "GRAD" -25,
-    "opsz" 48;
+    "wght" var(--wght),
+    "GRAD" var(--grad),
+    "opsz" var(--opsz);
   height: var(--size);
   overflow: clip;
   place-content: center center;
   place-items: center center;
+  transition-property: color, height, font-size, font-variation-settings, width;
+  transition-duration: var(--animDuration);
+  transition-timing-function: var(--animTiming);
+  transition-behavior: allow-discrete;
   user-select: none;
   width: var(--size);
 
