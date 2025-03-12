@@ -1,7 +1,7 @@
 import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
-import Appbar from "../../../components/threads/Appbar.tsx";
-import Bottombar from "../../../components/threads/Bottombar.tsx";
+import Appbar from "$components/demos/threads/Appbar.tsx";
+import Bottombar from "$components/demos/threads/Bottombar.tsx";
 
 export default function Layout({ Component }: PageProps) {
   return (
