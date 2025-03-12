@@ -1,4 +1,4 @@
-import { Head } from "$fresh/runtime.ts";
+import { asset, Head } from "$fresh/runtime.ts";
 
 export default function Error404() {
   return (
@@ -7,7 +7,7 @@ export default function Error404() {
         <title>404 - Page not found</title>
       </Head>
       <img
-        src="/media/logo.svg"
+        src={asset("/media/logo.svg")}
         width="128"
         height="128"
         alt="the Fresh logo: a sliced lemon dripping with juice"

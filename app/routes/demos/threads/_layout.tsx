@@ -1,4 +1,4 @@
-import { Head } from "$fresh/runtime.ts";
+import { asset, Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
 import Appbar from "$components/demos/threads/Appbar.tsx";
 import Bottombar from "$components/demos/threads/Bottombar.tsx";
@@ -8,7 +8,7 @@ export default function Layout({ Component }: PageProps) {
     <>
       <Head>
         {/* local styles */}
-        <link rel="stylesheet" href="/styles/demos/threads.css" />
+        <link rel="stylesheet" href={asset("/styles/demos/threads.css")} />
         {/* google fonts */}
         <link
           href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
@@ -22,7 +22,7 @@ export default function Layout({ Component }: PageProps) {
         <Bottombar />
       </main>
 
-      <script type="module" src="/vendors/dropdown.min.js" />
+      <script type="module" src={asset("/vendors/dropdown.min.js")} />
 
       <span id="cursor" />
 

@@ -19,7 +19,7 @@ html {
     gap: inherit;
 
     &:where(nav) {
-      overflow: clip;
+      overflow: clip visible;
 
       :where(a:not(:hover, :active, :focus)) {
         color: inherit;

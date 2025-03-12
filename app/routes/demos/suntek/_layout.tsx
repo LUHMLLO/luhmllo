@@ -1,4 +1,4 @@
-import { Head } from "$fresh/runtime.ts";
+import { asset, Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
 import Appbar from "$components/demos/suntek/Appbar.tsx";
 
@@ -7,7 +7,7 @@ export default function Layout({ Component }: PageProps) {
     <>
       <Head>
         {/* local styles */}
-        <link rel="stylesheet" href="/styles/demos/suntek.css" />
+        <link rel="stylesheet" href={asset("/styles/demos/suntek.css")} />
         {/* google fonts */}
         <link
           href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"

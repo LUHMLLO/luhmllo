@@ -1,3 +1,5 @@
+import { asset } from "$fresh/runtime.ts";
+
 export default function Route() {
   return (
     <div id="top">
@@ -738,7 +740,7 @@ export default function Route() {
               </h3>
               <p>
                 <img
-                  src="/media/cat.webp"
+                  src={asset("/media/cat.webp")}
                   alt="kitten"
                 />
               </p>
@@ -748,7 +750,7 @@ export default function Route() {
               </h3>
               <figure>
                 <img
-                  src="/media/cat.webp"
+                  src={asset("/media/cat.webp")}
                   alt="kitten"
                 />
               </figure>
@@ -760,7 +762,7 @@ export default function Route() {
               </h3>
               <figure>
                 <img
-                  src="/media/cat.webp"
+                  src={asset("/media/cat.webp")}
                   alt="kitten"
                 />
                 <figcaption>Here is a caption for this image.</figcaption>
@@ -769,9 +771,18 @@ export default function Route() {
                 <code>&lt;picture&gt;</code> element
               </h3>
               <picture>
-                <source srcSet="/media/cat.webp" media="(min-width: 800px)" />
-                <source srcSet="/media/cat.webp" media="(min-width: 400px)" />
-                <img src="/media/cat.webp" alt="kitten" />
+                <source
+                  srcSet={asset("/media/cat.webp")}
+                  media="(min-width: 800px)"
+                />
+                <source
+                  srcSet={asset("/media/cat.webp")}
+                  media="(min-width: 400px)"
+                />
+                <img
+                  src={asset("/media/cat.webp")}
+                  alt="kitten"
+                />
               </picture>
             </div>
             <footer>
@@ -785,7 +796,11 @@ export default function Route() {
               <h2>Image Maps</h2>
             </header>
             <div>
-              <img src="/media/cat.webp" alt="kitten" usemap="#catmap" />
+              <img
+                src={asset("/media/cat.webp")}
+                alt="kitten"
+                usemap="#catmap"
+              />
               <map name="catmap">
                 <area
                   shape="rect"
@@ -830,7 +845,7 @@ export default function Route() {
               <h2>Audio</h2>
             </header>
             <div>
-              <audio controls src="/media/trex.mp3">
+              <audio controls src={asset("/media/trex.mp3")}>
                 <track kind="captions" />
               </audio>
             </div>
@@ -845,7 +860,7 @@ export default function Route() {
               <h2>Video</h2>
             </header>
             <div>
-              <video controls src="/media/flower.webm">
+              <video controls src={asset("/media/flower.webm")}>
                 <track kind="captions" />
               </video>
             </div>

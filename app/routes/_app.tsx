@@ -1,12 +1,10 @@
 import { type PageProps } from "$fresh/server.ts";
-import {
-  icons,
-  normalize,
-  reset,
-  tokens,
-} from "../../jsr/lilycat/v3/dist/mod.ts";
+import { icons, normalize, reset, tokens } from "@lilycat";
+import { asset } from "$fresh/runtime.ts";
 
-export default function App({ Component }: PageProps) {
+export default function App({ Component, url }: PageProps) {
+  const canonicalUrl = new URL(url.pathname, url.origin).href;
+
   return (
     <html lang="en">
       <head>
@@ -20,8 +18,15 @@ export default function App({ Component }: PageProps) {
           content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
 
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/svg+xml" sizes="any" href="/logo.svg" />
+        <link rel="canonical" href={canonicalUrl} />
+
+        <link rel="icon" type="image/x-icon" href={asset("/favicon.ico")} />
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          sizes="any"
+          href={asset("/logo.svg")}
+        />
 
         <title>lilys</title>
 
@@ -34,7 +39,7 @@ export default function App({ Component }: PageProps) {
         />
 
         {/* tailwind utilities */}
-        <link rel="stylesheet" href="/styles/tailwind.css" />
+        <link rel="stylesheet" href={asset("/styles/tailwind.css")} />
 
         {/* google fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

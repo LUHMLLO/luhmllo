@@ -226,8 +226,18 @@ a {
   }
 
   &:focus {
-    outline: solid 1px var(--clr-accent);
-    outline-offset: -1px;
+    color: currentColor;
+    text-decoration: underline;
+  }
+
+  @supports selector(:focus-visible) {
+    &:focus {
+      text-decoration: none;
+    }
+
+    &:focus-visible {
+      text-decoration: underline;
+    }
   }
 
   &:hover {
@@ -236,6 +246,10 @@ a {
 
   &:active {
     color: hsl(from var(--clr-accent) h calc(s - 5) calc(l - 10));
+  }
+
+  &:where(:not([href="#"]), [href="#"], [href="javascript:void(0)"]) {
+    text-decoration: none;
   }
 
   &[data-props="--wrapper"] {
