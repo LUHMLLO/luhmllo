@@ -1,11 +1,9 @@
-:is(
-  .icon,
+:is(.icon,
   .material-symbols-outlined,
   .material-symbols-rounded,
-  .material-symbols-sharp
-) {
+  .material-symbols-sharp) {
   --fill: 0;
-  --size: var(--type-sm, 25px);
+  --size: var(--type-xs, 20px);
   aspect-ratio: 1/1;
   display: inline-grid;
   flex: 0 0 max-content;
@@ -19,9 +17,9 @@
   font-style: normal;
   font-variation-settings:
     "FILL" var(--fill),
-    "wght" 250,
-    "GRAD" 200,
-    "opsz" 45;
+    "wght" 200,
+    "GRAD" -25,
+    "opsz" 48;
   height: var(--size);
   overflow: clip;
   place-content: center center;

@@ -1,6 +1,7 @@
 :root {
   --clr-accent: hsl(118, 34.80%, 54.90%);
 }
+
 html {
   font-family: "Figtree", serif;
 }
@@ -17,14 +18,16 @@ html {
     align-items: inherit;
     gap: inherit;
 
-    &:where(div) {
+    &:where(nav) {
       overflow: clip;
+
+      :where(a:not(:hover, :active, :focus)) {
+        color: inherit;
+      }
     }
   }
 
   & > :where(hr) {
-    background-color: hsl(from var(--clr-surface) h s calc(l + 5));
-    flex: 0 0 auto;
     height: 100%;
     width: 1px;
   }

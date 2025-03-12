@@ -7,42 +7,39 @@ export default function Appbar() {
 
       <hr />
 
-      <div className="flex">
-        <a href="javascript:void(0)">Dashboard</a>
-        <a href="javascript:void(0)">Hub</a>
-        <a href="javascript:void(0)">Resources</a>
-      </div>
+      <nav className="flex">
+        <a href={void 0}>Calendar</a>
+        <a href={void 0}>Dashboard</a>
+        <a href={void 0}>Pipelines</a>
+      </nav>
 
       <hr />
 
-      <div className="flex flex-grow flex-shrink">
+      <nav className="flex flex-grow flex-shrink">
         {[
+          "Contacts",
           "Leads",
           "Opportunities",
-          "Solar Project",
-          "Energy Efficiency",
-          "Properties",
-          "Contacts",
-          "Reps",
-          "Telemarketers",
+          "Quotes",
+          "Reports",
         ].map((link, i) => {
-          return <a href="javascript:void(0)" key={i}>{link}</a>;
+          return <a href={void 0} key={i + link}>{link}</a>;
         })}
-        <span className="icon">more_horiz</span>
-      </div>
+        <i className="icon">more_horiz</i>
+      </nav>
 
       <hr />
 
-      <div className="flex">
-        <span className="icon">search</span>
-        <span className="icon">add_2</span>
-        <span className="icon">notifications</span>
-        <span className="icon">settings</span>
+      <nav className="flex">
+        <i className="icon">search</i>
+        <i className="icon">add_2</i>
+        <i className="icon">notifications</i>
+        <i className="icon">settings</i>
         <figure className="aspect-[1] h-xl shrink-0 rounded w-xl">
           <img src="/media/avatar.png" alt="avatar" />
         </figure>
-        <span className="icon">apps</span>
-      </div>
+        <i className="icon">apps</i>
+      </nav>
     </nav>
   );
 }
