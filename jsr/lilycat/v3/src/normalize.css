@@ -237,6 +237,11 @@ a {
   &:active {
     color: hsl(from var(--clr-accent) h calc(s - 5) calc(l - 10));
   }
+
+  &[data-props="--wrapper"] {
+    display: contents;
+    transition: none;
+  }
 }
 
 :where(button, input, select, textarea) {

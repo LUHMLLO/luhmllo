@@ -25,8 +25,10 @@ html {
         color: inherit;
       }
 
-      :where(.icon:hover) {
-        --opsz: 25;
+      :where(.icon) {
+        &:hover {
+          --opsz: 25;
+        }
       }
     }
   }
