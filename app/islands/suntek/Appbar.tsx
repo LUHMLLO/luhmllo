@@ -11,36 +11,28 @@ export default function Appbar(): JSX.Element {
 
       <hr />
 
-      <nav id="menu" className="flex-grow flex-shrink">
-        <nav class="flex">
+      <nav id="menu">
           <a href="#">Calendars</a>
           <a href="#">Dashboards</a>
-        </nav>
 
         <hr />
 
-        <nav class="flex">
           <a href="#">Pipelines</a>
           <a href="#">Tasks</a>
           <a href="#">Workflows</a>
-        </nav>
 
         <hr />
 
-        <nav class="flex">
           <a href="#">Campaigns</a>
           <a href="#">Contacts</a>
           <a href="#">Projects</a>
-        </nav>
 
         <hr />
 
-        <nav class="flex">
           <a href="#">Leads</a>
           <a href="#">Opportunities</a>
           <a href="#">Quotes</a>
           <a href="#">Sales</a>
-        </nav>
       </nav>
 
       <hr />
@@ -50,12 +42,10 @@ export default function Appbar(): JSX.Element {
         <summary
           slot="summary"
           type="button"
-          class="flex items-center justify-center"
-          aria-label="More menu items"
         >
           <i class="icon">more_horiz</i>
         </summary>
-        <div class="c-menu" ></div>
+        <div class="more__menu" ></div>
       </cat-dropdown>
 
       <hr />

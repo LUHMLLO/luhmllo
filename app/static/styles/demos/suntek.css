@@ -18,12 +18,18 @@
 
 
   :where(nav) {
-    display: flex;
-    overflow: clip visible;
+    flex: 1 1 auto;
+    gap: inherit;
+    overflow: clip;
+    white-space: nowrap;
 
-    :where(nav > nav) {
+    &:last-child {
+      flex: 0 0 auto;
+    }
+
+    :where(a) {
       flex-shrink: 0;
-      gap: inherit;
+      min-width: max-content;
     }
 
     :where(a:not(:hover, :active, :focus)) {

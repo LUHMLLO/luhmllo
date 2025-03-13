@@ -19,8 +19,6 @@ export default function App({ Component, url }: PageProps) {
         />
 
         <link rel="canonical" href={canonicalUrl} />
-
-        <link rel="icon" type="image/x-icon" href={asset("/media/favicon.ico")} />
         <link
           rel="icon"
           type="image/svg+xml"
