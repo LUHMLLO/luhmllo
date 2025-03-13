@@ -53,7 +53,7 @@ if (typeof window !== "undefined") {
     }
 
     render() {
-      const styles = css`
+      const styles = `
       :host {
         display: inline-flex;
         min-height: 0;
@@ -66,38 +66,25 @@ if (typeof window !== "undefined") {
         visibility: visible;
       }
 
-      [part="dropmenu"] {
+      :host > [part="dropmenu"] {
         background-color: var(--clr-surface);
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
+        display: flex;
+        flex-direction: column;
         height: max-content;
         isolation: isolate;
-        max-height: calc(clamp(16dvh, 25dvh, 32dvh) + var(--xl));
-        max-width: calc(100dvw - var(--sm));
-        min-height: max-content;
-        min-width: max-content;
-        outline: solid hsl(from var(--clr-surface) h s calc(l + 5));
-        overflow: clip;
-        padding: var(--xs);
-        place-content: center;
+        max-height: calc-size(clamp(16dvh, 25dvh, 32dvh) + var(--xl)), size);
+        max-width: calc(100dvw - var(--sm, 10px));
+        min-height: calc-size(max-content, size);
+        min-width: calc-size(max-content, size);
+        outline: solid hsl(from var(--clr-surface) h s calc(l + 10));
+        overflow-x: clip;
+        overflow-y: auto;
+        padding: var(--xs, 5px);
         position: fixed;
         transition-property: top, bottom, opacity, visibility;
         transition-duration: var(--animDuration);
         transition-timing-function: var(--animTiming);
         z-index: 1000000;
-      }
-
-      [part="dropmenu__inner"] {
-        --percent: 16%;
-
-        background-color: var(--clr-surface);
-        display: grid;
-        grid-auto-flow: row;
-        grid-auto-rows: max-content;
-        overflow-x: clip;
-        overflow-y: auto;
-        transition-delay: var(--animDuration);
       }
 
       div::-webkit-scrollbar {
@@ -121,9 +108,7 @@ if (typeof window !== "undefined") {
         this.open
           ? `
         <div part="dropmenu">
-          <div part="dropmenu__inner">
             <slot></slot>
-          </div>
         </div>
       `
           : ""

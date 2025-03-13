@@ -2,7 +2,6 @@ import { asset } from "$fresh/runtime.ts";
 import { JSX } from "preact";
 
 export default function Appbar(): JSX.Element {
-
   return (
     <nav id="appBar" class="flex items-center justify-between w-full">
       <figure class="h-xl shrink-0">
@@ -12,27 +11,27 @@ export default function Appbar(): JSX.Element {
       <hr />
 
       <nav id="menu">
-          <a href="#">Calendars</a>
-          <a href="#">Dashboards</a>
+        <a href="#">Calendars</a>
+        <a href="#">Dashboards</a>
 
         <hr />
 
-          <a href="#">Pipelines</a>
-          <a href="#">Tasks</a>
-          <a href="#">Workflows</a>
+        <a href="#">Pipelines</a>
+        <a href="#">Tasks</a>
+        <a href="#">Workflows</a>
 
         <hr />
 
-          <a href="#">Campaigns</a>
-          <a href="#">Contacts</a>
-          <a href="#">Projects</a>
+        <a href="#">Campaigns</a>
+        <a href="#">Contacts</a>
+        <a href="#">Projects</a>
 
         <hr />
 
-          <a href="#">Leads</a>
-          <a href="#">Opportunities</a>
-          <a href="#">Quotes</a>
-          <a href="#">Sales</a>
+        <a href="#">Leads</a>
+        <a href="#">Opportunities</a>
+        <a href="#">Quotes</a>
+        <a href="#">Sales</a>
       </nav>
 
       <hr />
@@ -45,7 +44,29 @@ export default function Appbar(): JSX.Element {
         >
           <i class="icon">more_horiz</i>
         </summary>
-        <div class="more__menu" ></div>
+        <div class="more__menu">
+          <a href="#">Calendars</a>
+          <a href="#">Dashboards</a>
+
+          <hr />
+
+          <a href="#">Pipelines</a>
+          <a href="#">Tasks</a>
+          <a href="#">Workflows</a>
+
+          <hr />
+
+          <a href="#">Campaigns</a>
+          <a href="#">Contacts</a>
+          <a href="#">Projects</a>
+
+          <hr />
+
+          <a href="#">Leads</a>
+          <a href="#">Opportunities</a>
+          <a href="#">Quotes</a>
+          <a href="#">Sales</a>
+        </div>
       </cat-dropdown>
 
       <hr />

@@ -23,12 +23,21 @@
     overflow: clip;
     white-space: nowrap;
 
-    &:last-child {
+    :where(#menu) {
+      flex: 1 0 auto;
+    }
+
+    #more__menu {
+      background-color: red;
+    }
+
+    #actions {
       flex: 0 0 auto;
     }
 
     :where(a) {
       flex-shrink: 0;
+      flex-grow: 1;
       min-width: max-content;
     }
 
