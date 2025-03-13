@@ -56,6 +56,7 @@ if (typeof window !== "undefined") {
       const styles = `
       :host {
         display: inline-flex;
+        flex-direction: column;
         min-height: 0;
         position: relative;
         width: fit-content;
@@ -72,7 +73,7 @@ if (typeof window !== "undefined") {
         flex-direction: column;
         height: max-content;
         isolation: isolate;
-        max-height: calc-size(clamp(16dvh, 25dvh, 32dvh) + var(--xl)), size);
+        max-height:calc(clamp(16dvh, 25dvh, 32dvh) + var(--xl)));
         max-width: calc(100dvw - var(--sm, 10px));
         min-height: calc-size(max-content, size);
         min-width: calc-size(max-content, size);
@@ -87,13 +88,8 @@ if (typeof window !== "undefined") {
         z-index: 1000000;
       }
 
-      div::-webkit-scrollbar {
-        display: none;
-      }
-
-      ::slotted(button) {
-        --radius: calc(var(--sm) / 2) !important;
-        width: 100% !important;
+      ::slotted(> *) {
+        width: 100%;
       }
     `;
 

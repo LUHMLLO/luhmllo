@@ -18,26 +18,10 @@
 
 
   :where(nav) {
-    flex: 1 1 auto;
-    gap: inherit;
     overflow: clip;
-    white-space: nowrap;
-
-    :where(#menu) {
-      flex: 1 0 auto;
-    }
-
-    #more__menu {
-      background-color: red;
-    }
-
-    #actions {
-      flex: 0 0 auto;
-    }
 
     :where(a) {
       flex-shrink: 0;
-      flex-grow: 1;
       min-width: max-content;
     }
 
@@ -50,17 +34,34 @@
         --opsz: 25;
       }
     }
+
+    & > #menu {
+      flex: 1 1 100%;
+
+      & > #more {
+        & > #more__menu {
+          display: flex;
+          flex-direction: column;
+
+          :where(a) {
+            flex: 1 1 auto;
+          }
+        }
+      }
+    }
   }
 
-  & > :where(hr) {
+  :where(hr) {
     flex-grow: 0;
+    flex-shrink: 0;
     height: 100%;
     width: 1px;
   }
 
 
-  #menu {
-    white-space: nowrap;
+  & > #menu {
+    flex: 1 1 auto;
+    height: 100%;
   }
 
   /* Figure elements */
