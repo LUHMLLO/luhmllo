@@ -17,7 +17,7 @@ import * as $docs_anchor from "./routes/docs/anchor.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $tests_1 from "./routes/tests/1.tsx";
 import * as $tests_2 from "./routes/tests/2.tsx";
-
+import * as $suntek_Appbar from "./islands/suntek/Appbar.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -38,7 +38,9 @@ const manifest = {
     "./routes/tests/1.tsx": $tests_1,
     "./routes/tests/2.tsx": $tests_2,
   },
-  islands: {},
+  islands: {
+    "./islands/suntek/Appbar.tsx": $suntek_Appbar,
+  },
   baseUrl: import.meta.url,
 } satisfies Manifest;
 

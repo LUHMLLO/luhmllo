@@ -1,12 +1,9 @@
+/* AppBar Enhanced Styles - Using nesting and modern CSS features */
 :root {
   --clr-accent: hsl(118, 34.80%, 54.90%);
 }
 
-html {
-  font-family: "Figtree", serif;
-}
-
-#appbar {
+#appBar {
   align-items: center;
   border-bottom: solid 1px hsl(from var(--clr-surface) h s calc(l + 5));
   gap: var(--md, 15px);
@@ -17,24 +14,61 @@ html {
   & > * {
     align-items: inherit;
     gap: inherit;
+  }
 
-    &:where(nav) {
-      overflow: clip visible;
 
-      :where(a:not(:hover, :active, :focus)) {
-        color: inherit;
-      }
+  :where(nav) {
+    display: flex;
+    overflow: clip visible;
 
-      :where(.icon) {
-        &:hover {
-          --opsz: 25;
-        }
+    :where(nav > nav) {
+      flex-shrink: 0;
+      gap: inherit;
+    }
+
+    :where(a:not(:hover, :active, :focus)) {
+      color: inherit;
+    }
+
+    :where(.icon) {
+      &:hover {
+        --opsz: 25;
       }
     }
   }
 
   & > :where(hr) {
+    flex-grow: 0;
     height: 100%;
     width: 1px;
+  }
+
+
+  #menu {
+    white-space: nowrap;
+  }
+
+  /* Figure elements */
+  figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+}
+
+/* Support for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  #appBar a,
+  #appBar .c-menu {
+    transition: none;
   }
 }

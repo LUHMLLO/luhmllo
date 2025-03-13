@@ -20,12 +20,12 @@ export default function App({ Component, url }: PageProps) {
 
         <link rel="canonical" href={canonicalUrl} />
 
-        <link rel="icon" type="image/x-icon" href={asset("/favicon.ico")} />
+        <link rel="icon" type="image/x-icon" href={asset("/media/favicon.ico")} />
         <link
           rel="icon"
           type="image/svg+xml"
           sizes="any"
-          href={asset("/logo.svg")}
+          href={asset("/media/logo.svg")}
         />
 
         <title>lilys</title>
@@ -55,6 +55,7 @@ export default function App({ Component, url }: PageProps) {
       </head>
       <body>
         <Component />
+        <script type="module" src={asset("/vendors/dropdown.min.js")} />
       </body>
     </html>
   );

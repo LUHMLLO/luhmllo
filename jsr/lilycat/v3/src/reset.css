@@ -1,66 +1,125 @@
-:root {
-  accent-color: var(--clr-accent);
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: subpixel-antialiased;
-  interpolate-size: allow-keywords;
-  position: relative;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  vertical-align: baseline;
-}
+/**
+ * Reset
+ */
 
-* {
-  backface-visibility: inherit;
-  border: 0;
-  box-sizing: border-box;
-  -webkit-font-smoothing: inherit;
-  height: auto;
-  margin: 0;
-  max-width: 100%;
-  min-block-size: 0;
-  min-height: 0;
-  min-inline-size: 0;
-  outline: none;
-  padding: 0;
-  z-index: auto;
+@layer base {
 
-  &::after,
-  &::before {
+  /* Root level defaults */
+  :root {
+    /* System preferences */
+    accent-color: var(--clr-accent, currentColor);
+    color-scheme: light dark;
+
+    /* Font rendering */
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-size-adjust: 100%;
+
+    /* Modern properties */
+    interpolate-size: allow-keywords;
+    text-wrap: pretty;
+
+    /* Baseline positioning */
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  /* Universal selector for consistent defaults */
+  * {
+    /* Box model reset */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+
+    /* Size constraints */
+    max-width: 100%;
+    height: auto;
+    min-block-size: 0;
+    min-inline-size: 0;
+
+    /* Visual properties */
     backface-visibility: inherit;
+    -webkit-font-smoothing: inherit;
+    outline: none;
+    z-index: auto;
+  }
+
+  /* Pseudo-elements inherit box model */
+  *::before,
+  *::after {
     box-sizing: inherit;
+    backface-visibility: inherit;
     clear: both;
   }
-}
 
-:where(#root, #__next) {
-  isolation: isolate;
-}
-
-:where(html) {
-  background-color: var(--clr-surface);
-  color: var(--clr-content);
-  display: contents;
-  font-family: sans-serif;
-  font-size: clamp(var(--md), 100% + 1rem, var(--nm));
-  font-variant-numeric: tabular-nums;
-  hanging-punctuation: first last;
-  letter-spacing: -0.03em;
-  line-height: 1.25em;
-  position: static;
-
-  & > :where(body) {
-    background-color: var(--clr-surface);
-    inset: 0;
-    min-height: 100dvh;
-    width: 100dvw;
-    will-change: background-color, color;
+  /* Application root containers */
+  :where(#root, #__next, [data-app-root]) {
+    isolation: isolate;
+    display: contents;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  :has(:target) {
-    scroll-behavior: smooth;
-    scroll-padding-top: 1.25em;
+  /* HTML & Body base styling */
+  :where(html) {
+    /* Core text styling */
+    color: var(--clr-content);
+    background-color: var(--clr-surface);
+    font-family: system-ui, sans-serif;
+    font-size: clamp(var(--md, 1rem), 100% + 0.5vw, var(--nm, 1.25rem));
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+
+    /* Typography enhancements */
+    font-variant-numeric: tabular-nums;
+    hanging-punctuation: first last;
+    text-underline-offset: 0.2em;
+
+    /* Structure */
+    display: contents;
+    position: static;
+  }
+
+  /* Body fills viewport */
+  html > :where(body) {
+    background-color: var(--clr-surface);
+    color: var(--clr-content);
+    inset: 0;
+    width: 100%;
+    min-height: 100dvh;
+
+    /* Optimize animations */
+    will-change: background-color, color;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Smooth scrolling only when no motion preferences are set */
+  @media (prefers-reduced-motion: no-preference) {
+    :has(:target) {
+      scroll-behavior: smooth;
+      scroll-padding-block-start: 1.25em;
+    }
+  }
+
+  /* Media query for high contrast mode */
+  @media (forced-colors: active) {
+    :root {
+      forced-color-adjust: auto;
+    }
+
+    html,
+    body {
+      background-color: Canvas;
+      color: CanvasText;
+    }
+  }
+
+  /* Remove focus outline for mouse users, keep for keyboard */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--clr-accent, currentColor);
+    outline-offset: 2px;
   }
 }

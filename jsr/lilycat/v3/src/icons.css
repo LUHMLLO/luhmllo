@@ -1,45 +1,92 @@
-:is(.icon,
-  .material-symbols-outlined,
-  .material-symbols-rounded,
-  .material-symbols-sharp) {
-  --size: var(--type-xs, 20px);
-  --fill: 0;
-  --grad: 0;
-  --opsz: 50;
-  --wght: 300;
-  aspect-ratio: 1/1;
-  display: inline-grid;
-  flex: 0 0 max-content;
-  font-family:
-    Material Symbols Outlined,
-    Material Symbols Rounded,
-    Material Symbols Sharp,
-    sans-serif;
-  font-feature-settings: "liga";
-  font-size: clamp(100%, 100dvw, var(--size));
-  font-style: normal;
-  font-variation-settings:
-    "FILL" var(--fill),
-    "wght" var(--wght),
-    "GRAD" var(--grad),
-    "opsz" var(--opsz);
-  height: var(--size);
-  overflow: clip;
-  place-content: center center;
-  place-items: center center;
-  transition-property: color, height, font-size, font-variation-settings, width;
-  transition-duration: var(--animDuration);
-  transition-timing-function: var(--animTiming);
-  transition-behavior: allow-discrete;
-  user-select: none;
-  width: var(--size);
+/**
+ * Material Symbols Icons
+ */
 
-  & > * {
-    display: contents;
-    vertical-align: -webkit-baseline-middle middle;
+@layer components {
+
+  /* Target all Material Symbols icon classes with :where() for zero specificity */
+  :where(.icon,
+    .material-symbols-outlined,
+    .material-symbols-rounded,
+    .material-symbols-sharp) {
+    /* Use logical properties and more modern defaults */
+    --icon-size: var(--type-xs, 1.25rem);
+    --icon-fill: 0;
+    --icon-grad: 0;
+    --icon-opsz: 50;
+    --icon-wght: 300;
+
+    aspect-ratio: 1;
+    display: grid;
+    inline-size: var(--icon-size);
+    block-size: var(--icon-size);
+    place-items: center;
+    overflow: clip;
+
+    font: normal var(--icon-size)/1 "Material Symbols Outlined",
+      "Material Symbols Rounded",
+      "Material Symbols Sharp",
+      sans-serif;
+    font-feature-settings: "liga";
+    font-size-adjust: from-font;
+    font-variation-settings:
+      "FILL" var(--icon-fill),
+      "wght" var(--icon-wght),
+      "GRAD" var(--icon-grad),
+      "opsz" var(--icon-opsz);
+
+    /* Animation with @property support */
+    transition:
+      color var(--animDuration, 300ms) var(--animTiming, ease),
+      inline-size var(--animDuration, 300ms) var(--animTiming, ease),
+      block-size var(--animDuration, 300ms) var(--animTiming, ease),
+      font-size var(--animDuration, 300ms) var(--animTiming, ease),
+      font-variation-settings var(--animDuration, 300ms) var(--animTiming, ease);
+
+    /* Better accessibility and performance */
+    touch-action: manipulation;
+    user-select: none;
+    contain: content;
   }
 
-  &:is([data-props~="--solid"]) {
-    --fill: 1;
+  /* Child element styling */
+  :where(.icon,
+    .material-symbols-outlined,
+    .material-symbols-rounded,
+    .material-symbols-sharp) > * {
+    display: contents;
+    vertical-align: middle;
+  }
+
+  /* Use attribute selectors more efficiently */
+  [data-props*="--solid"]:where(.icon,
+    .material-symbols-outlined,
+    .material-symbols-rounded,
+    .material-symbols-sharp) {
+    --icon-fill: 1;
+  }
+
+  /* Add size variants for convenience */
+  :where(.icon-sm) {
+    --icon-size: 1rem;
+  }
+
+  :where(.icon-lg) {
+    --icon-size: 1.5rem;
+  }
+
+  :where(.icon-xl) {
+    --icon-size: 2rem;
+  }
+
+  /* Add support for high-contrast modes */
+  @media (forced-colors: active) {
+
+    :where(.icon,
+      .material-symbols-outlined,
+      .material-symbols-rounded,
+      .material-symbols-sharp) {
+      forced-color-adjust: none;
+    }
   }
 }

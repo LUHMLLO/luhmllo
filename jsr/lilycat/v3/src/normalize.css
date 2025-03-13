@@ -1,319 +1,296 @@
-:where(
-  /* Headings */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
+/**
+ * Modern Normalize.css
+ * Optimized with current CSS best practices
+ */
 
-  /* Text content */
-  p,
-  blockquote,
-  q,
-  cite,
+@layer normalize {
+  /* 
+   * Base typography and text handling
+   * Uses :where() for zero-specificity selectors
+   * Groups related elements for better maintenance
+   */
+  :where(
 
-  /* Lists */
-  ul,
-  ol,
-  dl,
-  dt,
-  dd,
-  li,
+    /* Headings */
+    h1, h2, h3, h4, h5, h6,
+    /* Text content */
+    p, blockquote, q, cite,
+    /* Lists */
+    ul, ol, dl, dt, dd, li,
+    /* Containers and semantic elements */
+    a, div, span, details, summary, figure, figcaption, caption,
+    address, main, section, article, aside, header, footer, nav,
+    /* Form elements */
+    form, fieldset, legend, label, button, input, select, textarea, optgroup, option) {
+    font-family: inherit;
+    font-weight: 300;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+    word-break: break-word;
+  }
 
-  /* Containers and semantic elements */
-  a,
-  div,
-  span,
-  details,
-  summary,
-  figure,
-  figcaption,
-  caption,
-  address,
-  main,
-  section,
-  article,
-  aside,
-  header,
-  footer,
-  nav,
+  /* Define block elements */
+  :where(article, aside, details, figcaption, footer, header, hgroup, menu, section) {
+    display: block;
+  }
 
-  /* Form elements */
-  form,
-  fieldset,
-  legend,
-  label,
-  button,
-  input,
-  select,
-  textarea,
-  optgroup,
-  option) {
-  font-family: inherit;
-  font-weight: 300;
-  overflow-wrap: break-word;
-  text-overflow: ellipsis;
-  word-break: break-word;
-}
+  /* Horizontal rule styling */
+  hr {
+    background-color: color-mix(in srgb, var(--clr-surface), white 5%);
+    flex: 0 0 1px;
+    height: 1px;
+    width: 100%;
+  }
 
-:where(article,
-  aside,
-  details,
-  figcaption,
-  footer,
-  header,
-  hgroup,
-  menu,
-  section) {
-  display: block;
-}
+  /* Highlighted text */
+  mark {
+    background-color: var(--clr-warning);
+  }
 
-:where(hr) {
-  background-color: hsl(from var(--clr-surface) h s calc(l + 5));
-  flex: 0 0 auto;
-  height: 1px;
-  width: 100%;
-}
+  /* Navigation container */
+  nav {
+    display: flex;
+  }
 
-:where(mark) {
-  background-color: var(--clr-warning);
-}
+  /* Media elements */
+  :where(audio, canvas, figure, iframe, img, video) {
+    display: inline-block;
+    width: fit-content;
+  }
 
-:where(nav) {
-  display: flex;
-}
-
-:where(audio,
-  canvas,
-  figure,
-  iframe,
-  img,
-  video) {
-  display: inline-block;
-  width: fit-content;
-
-  &:is(audio) {
+  /* Audio-specific styles */
+  audio {
     height: 50px;
     width: clamp(250px, 100%, 350px);
   }
 
-  &:is(figure > img) {
+  /* Nested image in figure */
+  figure > img {
     height: 100%;
     width: 100%;
   }
 
-  &:is(img) {
+  /* Base image styling */
+  img {
     object-fit: cover;
   }
-}
 
-:where(meter, progress) {
-  display: inline-block;
-  height: 35px;
-}
+  /* Meter and progress elements */
+  :where(meter, progress) {
+    display: inline-block;
+    height: 35px;
+  }
 
-:where(code, pre) {
-  overflow-x: auto;
-  white-space: pre;
-  word-break: keep-all;
+  /* Code and preformatted text */
+  :where(code, pre) {
+    overflow-x: auto;
+    white-space: pre;
+    word-break: keep-all;
+  }
 
-  &:is(code) {
+  code {
     color: var(--clr-debug);
   }
 
-  &:is(pre) {
+  pre {
     white-space-collapse: preserve-breaks;
   }
-}
 
-:where(blockquote) {
-  border-left: solid var(--xs, 5px);
-  margin: min(5%, var(--sm, 10px));
-  padding: min(5%, var(--sm, 10px));
-}
-
-:where(caption, figcaption, li, p, span, div) {
-  text-wrap: pretty;
-}
-
-:where(a, area, button, input, label, select, summary, textarea) {
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-}
-
-:where(textarea) {
-  width: 100%;
-}
-
-:where(ul,
-  ol) {
-  list-style-position: inside;
-  padding-left: 0.5em;
-
-  &:is(ul) {
-    & > :where(li) {
-      &::marker {
-        content: "• ";
-      }
-    }
+  /* Block quotes */
+  blockquote {
+    border-left: solid var(--xs, 5px);
+    margin: min(5%, var(--sm, 10px));
+    padding: min(5%, var(--sm, 10px));
   }
-}
 
-:where(dl) {
-  display: block;
+  /* Text wrapping for better readability */
+  :where(caption, figcaption, li, p, span, div) {
+    text-wrap: pretty;
+  }
 
-  :where(dt) {
-    color: hsl(from var(--clr-content) h s calc(l + 10));
+  /* Touch action for interactive elements */
+  :where(a, area, button, input, label, select, summary, textarea) {
+    touch-action: manipulation;
+  }
+
+  /* Textarea base styling */
+  textarea {
+    width: 100%;
+  }
+
+  /* List styling */
+  :where(ul, ol) {
+    list-style-position: inside;
+    padding-left: 0.5em;
+  }
+
+  /* Custom bullet styling */
+  ul > li::marker {
+    content: "• ";
+  }
+
+  /* Definition lists */
+  dl {
+    display: block;
+  }
+
+  dt {
+    color: color-mix(in srgb, var(--clr-content), white 10%);
     font-weight: 600;
   }
 
-  :where(dd) {
+  dd {
     font-weight: 300;
     padding-left: 0.5em;
   }
-}
 
-:where(h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6) {
-  color: hsl(from var(--clr-content) h s calc(l + 10));
-  line-height: clamp(100%, 115%, 125%);
-  text-wrap: balance;
+  /* Heading styles with modern text balance */
+  :where(h1, h2, h3, h4, h5, h6) {
+    color: color-mix(in srgb, var(--clr-content), white 10%);
+    line-height: clamp(100%, 115%, 125%);
+    text-wrap: balance;
+  }
 
-  &:is(h1) {
+  /* Individual heading sizes */
+  h1 {
     font-size: var(--type-xl, 60px);
   }
 
-  &:is(h2) {
+  h2 {
     font-size: var(--type-lg, 50px);
   }
 
-  &:is(h3) {
+  h3 {
     font-size: var(--type-nm, 40px);
   }
 
-  &:is(h4) {
+  h4 {
     font-size: var(--type-md, 35px);
   }
 
-  &:is(h5) {
+  h5 {
     font-size: var(--type-sm, 30px);
   }
 
-  &:is(h6) {
+  h6 {
     font-size: var(--type-xs, 25px);
   }
-}
 
-:where(li,
-  p) {
-  width: clamp(50ch, 100%, 75ch);
-}
-
-a {
-  color: var(--clr-accent);
-  cursor: pointer;
-  transition: color var(--animDuration) var(--animTiming);
-  text-decoration-thickness: from-font;
-  text-underline-offset: 3px;
-
-  &:visited {
-    color: hsl(from var(--clr-accent) h calc(s - 30) calc(l - 30));
+  /* Paragraph and list item width for readability */
+  :where(li, p) {
+    width: clamp(50ch, 100%, 75ch);
   }
 
-  &:focus {
+  /* Link styling with modern transitions */
+  a {
+    color: var(--clr-accent);
+    cursor: pointer;
+    transition: color var(--animDuration) var(--animTiming);
+    text-decoration-thickness: from-font;
+    text-underline-offset: 3px;
+  }
+
+  a:visited {
+    color: color-mix(in srgb, var(--clr-accent), black 30%);
+  }
+
+  a:focus {
     color: currentColor;
     text-decoration: underline;
   }
 
+  /* Using focus-visible for better accessibility */
   @supports selector(:focus-visible) {
-    &:focus {
+    a:focus {
       text-decoration: none;
     }
 
-    &:focus-visible {
+    a:focus-visible {
       text-decoration: underline;
     }
   }
 
-  &:hover {
-    color: hsl(from var(--clr-accent) h calc(s + 10) calc(l + 5));
+  a:hover {
+    color: color-mix(in srgb, var(--clr-accent), white 5%);
   }
 
-  &:active {
-    color: hsl(from var(--clr-accent) h calc(s - 5) calc(l - 10));
+  a:active {
+    color: color-mix(in srgb, var(--clr-accent), black 10%);
   }
 
-  &:where(:not([href="#"]), [href="#"], [href="javascript:void(0)"]) {
+  /* Links without underlines */
+  a:where(:not([href="#"]), [href="#"], [href="javascript:void(0)"]) {
     text-decoration: none;
   }
 
-  &[data-props="--wrapper"] {
+  /* Wrapper links */
+  a[data-props="--wrapper"] {
     display: contents;
     transition: none;
   }
-}
 
-:where(button, input, select, textarea) {
-  background-color: transparent;
-  color: var(--clr-content);
-  font-size: inherit;
-  height: 45px;
-  outline: solid 1px var(--clr-content);
-  outline-offset: -1px;
-  overflow: clip;
-  padding: var(--md, 15px);
-  white-space: nowrap;
-  width: fit-content;
+  /* Form controls */
+  :where(button, input, select, textarea) {
+    background-color: transparent;
+    color: var(--clr-content);
+    font-size: inherit;
+    height: 45px;
+    outline: solid 1px var(--clr-content);
+    outline-offset: -1px;
+    overflow: clip;
+    padding: var(--md, 15px);
+    white-space: nowrap;
+    width: fit-content;
+  }
 
-
-  &:is(button, select, [type="button"], [type="submit"], [type="reset"]) {
+  /* Clickable form elements */
+  :is(button, select, [type="button"], [type="submit"], [type="reset"]) {
     cursor: pointer;
   }
 
-  &:is([type="disabled"], [disabled]) {
+  /* Disabled elements */
+  :is([type="disabled"], [disabled]) {
     cursor: auto;
   }
 
-  &:is([type="color"]) {
+  /* Color input special handling */
+  [type="color"] {
     aspect-ratio: 1/1;
     padding: 0;
   }
 
-  &:is([type="checkbox"], [type="radio"]) {
+  /* Checkbox and radio buttons */
+  :is([type="checkbox"], [type="radio"]) {
     height: auto;
   }
 
-  &:is([type="radio"]) {
+  /* Radio button shape */
+  [type="radio"] {
     border-radius: 50%;
   }
 
-  &:is(textarea) {
-    -moz-field-sizing: content;
-    -webkit-field-sizing: content;
+  /* Textarea specific styles */
+  textarea {
     field-sizing: content;
     height: auto;
     min-height: 75px;
     resize: both;
     white-space: normal;
   }
-}
 
-:where(table) {
-  display: block;
-  border-collapse: collapse;
-  border-spacing: 0;
-  outline: solid 1px;
-  outline-offset: -1px;
-  overflow-x: auto;
-  table-layout: auto;
-  width: fit-content;
+  /* Table styling */
+  table {
+    display: block;
+    border-collapse: collapse;
+    border-spacing: 0;
+    outline: solid 1px;
+    outline-offset: -1px;
+    overflow-x: auto;
+    table-layout: auto;
+    width: fit-content;
+  }
 
-  :where(caption) {
+  caption {
     text-align: center;
   }
 
