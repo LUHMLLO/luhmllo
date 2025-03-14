@@ -11,11 +11,6 @@ export default function Appbar(): JSX.Element {
       <hr />
 
       <nav id="menu">
-        <a href="#">Calendars</a>
-        <a href="#">Dashboards</a>
-
-        <hr />
-
         <a href="#">Pipelines</a>
         <a href="#">Tasks</a>
         <a href="#">Workflows</a>
@@ -32,6 +27,13 @@ export default function Appbar(): JSX.Element {
         <a href="#">Opportunities</a>
         <a href="#">Quotes</a>
         <a href="#">Sales</a>
+
+        <hr />
+
+        <a href="#">Inventories</a>
+        <a href="#">Products</a>
+        <a href="#">Properties</a>
+        <a href="#">Services</a>
 
         <hr />
 
@@ -78,10 +80,13 @@ export default function Appbar(): JSX.Element {
           <i class="icon">add_2</i>
         </a>
         <a href="#inbox" aria-label="Inbox" data-props="--wrapper">
-          <i class="icon">markunread_mailbox</i>
+          <i class="icon">group</i>
         </a>
         <a href="#inbox" aria-label="Inbox" data-props="--wrapper">
-          <i class="icon">early_on</i>
+          <i class="icon">calendar_today</i>
+        </a>
+        <a href="#settings" aria-label="Settings" data-props="--wrapper">
+          <i class="icon">notifications</i>
         </a>
         <a href="#settings" aria-label="Settings" data-props="--wrapper">
           <i class="icon">settings</i>
