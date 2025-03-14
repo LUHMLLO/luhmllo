@@ -1,5 +1,5 @@
 import { type PageProps } from "$fresh/server.ts";
-import { icons, normalize, reset, tokens } from "@lilycat";
+import { icons, normalize, props, reset, tokens } from "@lilycat";
 import { asset } from "$fresh/runtime.ts";
 
 export default function App({ Component, url }: PageProps) {
@@ -32,7 +32,7 @@ export default function App({ Component, url }: PageProps) {
           lang="css"
           // deno-lint-ignore react-no-danger
           dangerouslySetInnerHTML={{
-            __html: `${tokens}${reset}${normalize}${icons}`,
+            __html: `${tokens}${reset}${normalize}${icons}${props}`,
           }}
         />
 

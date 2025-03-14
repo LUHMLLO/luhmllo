@@ -36,11 +36,10 @@ export default function Appbar(): JSX.Element {
         <hr />
 
         <cat-dropdown id="more">
-          <summary
-            slot="summary"
-            type="button"
-          >
-            <i class="icon">more_horiz</i>
+          <summary slot="summary">
+            <a href={void 0} data-props="--wrapper">
+              <i class="icon">more_horiz</i>
+            </a>
           </summary>
           <div id="more__menu">
             <a href="#">Calendars</a>
@@ -72,22 +71,25 @@ export default function Appbar(): JSX.Element {
 
       {/* User controls */}
       <nav id="actions">
-        <a href="#search" aria-label="Search">
+        <a href="#search" aria-label="Search" data-props="--wrapper">
           <i class="icon">search</i>
         </a>
-        <a href="#new" aria-label="Add new">
+        <a href="#new" aria-label="Add new" data-props="--wrapper">
           <i class="icon">add_2</i>
         </a>
-        <a href="#inbox" aria-label="Inbox">
-          <i class="icon">inbox</i>
+        <a href="#inbox" aria-label="Inbox" data-props="--wrapper">
+          <i class="icon">markunread_mailbox</i>
         </a>
-        <a href="#settings" aria-label="Settings">
+        <a href="#inbox" aria-label="Inbox" data-props="--wrapper">
+          <i class="icon">early_on</i>
+        </a>
+        <a href="#settings" aria-label="Settings" data-props="--wrapper">
           <i class="icon">settings</i>
         </a>
         <figure class="aspect-square h-xl shrink-0 rounded">
           <img src={asset("/media/suntek/avatar.png")} alt="avatar" />
         </figure>
-        <a href="#apps" aria-label="Apps">
+        <a href="#apps" aria-label="Apps" data-props="--wrapper">
           <i class="icon">apps</i>
         </a>
       </nav>
