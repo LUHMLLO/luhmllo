@@ -1,7 +1,12 @@
 import { asset } from "$fresh/runtime.ts";
-import { JSX } from "preact";
+import { useEffect } from "preact/hooks";
 
-export default function Appbar(): JSX.Element {
+export default function Appbar() {
+  useEffect(() => {
+    return () => {
+    };
+  }, []);
+
   return (
     <nav id="appBar">
       <figure class="h-xl shrink-0">
