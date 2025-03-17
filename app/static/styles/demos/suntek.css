@@ -61,7 +61,4 @@ html {
     }
   }
 
-  :where(#actions) {
-    flex-shrink: 0;
-  }
 }
