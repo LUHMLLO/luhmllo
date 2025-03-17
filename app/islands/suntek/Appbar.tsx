@@ -5,15 +5,45 @@ function handleResize(
   menuRef: MutableRef<HTMLElement | null>,
   moreRef: MutableRef<HTMLElement | null>,
 ) {
-  console.log(`menu: ${menuRef.current}`);
-  console.log(`more: ${moreRef.current}`);
+  if (!menuRef.current || !moreRef.current) {
+    return console.error("missing required elements");
+  }
 
+  // check if menu has any children on it
   if (!menuRef.current?.children) {
     return console.warn("menu has no items in it");
   }
 
-  for (const element of menuRef.current.children) {
-    console.log(element);
+  const menuRec = menuRef.current.getBoundingClientRect();
+  const moreRec = moreRef.current.getBoundingClientRect();
+
+  // Get all items that might need to be moved
+  const menuChildren = [...menuRef.current.children].filter((child) =>
+    !child.classList.contains("active")
+  );
+
+  // Step 1: Check if any menu items need to move to "more" dropdown
+  if (moreRec.right > menuRec.right) {
+    // Sort items by reverse order (start from the end)
+    menuChildren.sort((a, b) => {
+      const orderA = parseInt((a as HTMLElement).dataset.order || "0", 10);
+      const orderB = parseInt((b as HTMLElement).dataset.order || "0", 10);
+      return orderB - orderA; // Reverse order (highest first)
+    });
+
+    // Move items to "more" dropdown in reverse order until no more clipping
+    for (const child of menuChildren) {
+      const childRec = child.getBoundingClientRect();
+      const isChildClipping =
+        childRec.right + (childRec.right - menuRec.right) >= menuRec.right;
+
+      if (isChildClipping) {
+        moreRef.current.prepend(child);
+      } else {
+        // If this item doesn't clip, no need to check others with lower order
+        break;
+      }
+    }
   }
 }
 
@@ -26,20 +56,17 @@ export default function Appbar() {
     menuRef.current = document.getElementById("menu");
     moreRef.current = document.getElementById("more");
 
+    const resizeHandler = () => handleResize(menuRef, moreRef);
+
     if (menuRef.current && moreRef.current) {
       // Run handler on first render
-      handleResize(menuRef, moreRef);
+      resizeHandler();
 
-      // Run handler on window resize
-      globalThis.addEventListener(
-        "resize",
-        () => handleResize(menuRef, moreRef),
-      );
+      // Use a more efficient resize listener with proper cleanup
+      globalThis.addEventListener("resize", resizeHandler);
+
       return () => {
-        globalThis.removeEventListener(
-          "resize",
-          () => handleResize(menuRef, moreRef),
-        );
+        globalThis.removeEventListener("resize", resizeHandler);
       };
     }
   }, []);
@@ -53,29 +80,29 @@ export default function Appbar() {
       <hr />
 
       <nav id="menu">
-        <a href="#">Pipelines</a>
-        <a href="#">Tasks</a>
-        <a href="#">Workflows</a>
+        <a href="#" data-order="1">Pipelines</a>
+        <a href="#" data-order="2">Tasks</a>
+        <a href="#" data-order="3">Workflows</a>
 
-        <hr />
+        <hr data-order="4" />
 
-        <a href="#">Campaigns</a>
-        <a href="#">Contacts</a>
-        <a href="#">Projects</a>
+        <a href="#" data-order="5">Campaigns</a>
+        <a href="#" data-order="6">Contacts</a>
+        <a href="#" data-order="7">Projects</a>
 
-        <hr />
+        <hr data-order="8" />
 
-        <a href="#">Leads</a>
-        <a href="#">Opportunities</a>
-        <a href="#">Quotes</a>
-        <a href="#">Sales</a>
+        <a href="#" data-order="9">Leads</a>
+        <a href="#" data-order="10">Opportunities</a>
+        <a href="#" data-order="11">Quotes</a>
+        <a href="#" data-order="12">Sales</a>
 
-        <hr />
+        <hr data-order="13" />
 
-        <a href="#">Inventories</a>
-        <a href="#">Products</a>
-        <a href="#">Properties</a>
-        <a href="#">Services</a>
+        <a href="#" data-order="14">Inventories</a>
+        <a href="#" data-order="15">Products</a>
+        <a href="#" data-order="16">Properties</a>
+        <a href="#" data-order="17">Services</a>
       </nav>
 
       <hr />
@@ -86,30 +113,6 @@ export default function Appbar() {
             <i class="icon">more_horiz</i>
           </a>
         </summary>
-
-        <a href="#">Pipelines</a>
-        <a href="#">Tasks</a>
-        <a href="#">Workflows</a>
-
-        <hr />
-
-        <a href="#">Campaigns</a>
-        <a href="#">Contacts</a>
-        <a href="#">Projects</a>
-
-        <hr />
-
-        <a href="#">Leads</a>
-        <a href="#">Opportunities</a>
-        <a href="#">Quotes</a>
-        <a href="#">Sales</a>
-
-        <hr />
-
-        <a href="#">Inventories</a>
-        <a href="#">Products</a>
-        <a href="#">Properties</a>
-        <a href="#">Services</a>
       </cat-dropdown>
 
       <hr />
