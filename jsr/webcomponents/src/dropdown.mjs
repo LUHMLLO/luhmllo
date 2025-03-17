@@ -54,17 +54,31 @@ if (typeof window !== "undefined") {
 
     render() {
       const styles = `
+      :root {
+        interpolate-size: allow-keywords;
+      }
+      
       :host {
-        display: inline-flex;
-        flex-direction: column;
+        height: calc-size(max-content, size);
         min-height: 0;
+        min-width: 0;
         position: relative;
-        width: fit-content;
-        visibility: hidden;
+        transition-property: height, width;
+        transition-duration: var(--animDuration);
+        transition-timing-function: var(--animTiming);
+        width: calc-size(max-content, size);
+        z-index: auto;
       }
 
-      :host > * {
-        visibility: visible;
+      ::slotted(summary) {
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+    
+        &::marker {
+          content: "";
+          display: none;
+        }
       }
 
       :host > [part="dropmenu"] {
@@ -73,7 +87,7 @@ if (typeof window !== "undefined") {
         flex-direction: column;
         height: max-content;
         isolation: isolate;
-        max-height:calc(clamp(16dvh, 25dvh, 32dvh) + var(--xl)));
+        max-height: calc(clamp(16dvh, 25dvh, 32dvh) + var(--xl));
         max-width: calc(100dvw - var(--sm, 10px));
         min-height: calc-size(max-content, size);
         min-width: calc-size(max-content, size);
@@ -88,7 +102,7 @@ if (typeof window !== "undefined") {
         z-index: 1000000;
       }
 
-      ::slotted(> *) {
+      ::slotted(*) {
         width: 100%;
       }
     `;

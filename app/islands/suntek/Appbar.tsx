@@ -1,10 +1,30 @@
 import { asset } from "$fresh/runtime.ts";
-import { useEffect } from "preact/hooks";
+import { useEffect, useRef } from "preact/hooks";
 
 export default function Appbar() {
+  const menuRef = useRef<HTMLElement | null>(null);
+  const moreRef = useRef<HTMLElement | null>(null);
+
+  const handleResize = () => {
+    console.log(`menu: ${menuRef.current}`);
+    console.log(`more: ${moreRef.current}`);
+  };
+
   useEffect(() => {
-    return () => {
-    };
+    // Initialize refs after component mounts
+    menuRef.current = document.getElementById("menu");
+    moreRef.current = document.getElementById("more");
+
+    if (menuRef.current && moreRef.current) {
+      // Run handler on first render
+      handleResize();
+
+      // Run handler on window resize
+      globalThis.addEventListener("resize", handleResize);
+      return () => {
+        globalThis.removeEventListener("resize", handleResize);
+      };
+    }
   }, []);
 
   return (
@@ -39,67 +59,45 @@ export default function Appbar() {
         <a href="#">Products</a>
         <a href="#">Properties</a>
         <a href="#">Services</a>
-
-        <hr />
-
-        <cat-dropdown id="more">
-          <summary slot="summary">
-            <a href={void 0} data-props="--wrapper">
-              <i class="icon">more_horiz</i>
-            </a>
-          </summary>
-          <div id="more__menu">
-            <a href="#">Calendars</a>
-            <a href="#">Dashboards</a>
-
-            <hr />
-
-            <a href="#">Pipelines</a>
-            <a href="#">Tasks</a>
-            <a href="#">Workflows</a>
-
-            <hr />
-
-            <a href="#">Campaigns</a>
-            <a href="#">Contacts</a>
-            <a href="#">Projects</a>
-
-            <hr />
-
-            <a href="#">Leads</a>
-            <a href="#">Opportunities</a>
-            <a href="#">Quotes</a>
-            <a href="#">Sales</a>
-          </div>
-        </cat-dropdown>
       </nav>
+
+      <hr />
+
+      <cat-dropdown id="more">
+        <summary slot="summary">
+          <a href="javascript:void(0)" data-props="--wrapper">
+            <i class="icon">more_horiz</i>
+          </a>
+        </summary>
+        {/* Items will be added here dynamically */}
+      </cat-dropdown>
 
       <hr />
 
       {/* User controls */}
       <nav id="actions">
-        <a href="#search" aria-label="Search" data-props="--wrapper">
+        <a href="#search" data-props="--wrapper">
           <i class="icon">search</i>
         </a>
-        <a href="#new" aria-label="Add new" data-props="--wrapper">
+        <a href="#new" data-props="--wrapper">
           <i class="icon">add_2</i>
         </a>
-        <a href="#inbox" aria-label="Inbox" data-props="--wrapper">
+        <a href="#inbox" data-props="--wrapper">
           <i class="icon">group</i>
         </a>
-        <a href="#inbox" aria-label="Inbox" data-props="--wrapper">
+        <a href="#inbox" data-props="--wrapper">
           <i class="icon">calendar_today</i>
         </a>
-        <a href="#settings" aria-label="Settings" data-props="--wrapper">
+        <a href="#settings" data-props="--wrapper">
           <i class="icon">notifications</i>
         </a>
-        <a href="#settings" aria-label="Settings" data-props="--wrapper">
+        <a href="#settings" data-props="--wrapper">
           <i class="icon">settings</i>
         </a>
         <figure class="aspect-square h-xl shrink-0 rounded">
           <img src={asset("/media/suntek/avatar.png")} alt="avatar" />
         </figure>
-        <a href="#apps" aria-label="Apps" data-props="--wrapper">
+        <a href="#apps" data-props="--wrapper">
           <i class="icon">apps</i>
         </a>
       </nav>

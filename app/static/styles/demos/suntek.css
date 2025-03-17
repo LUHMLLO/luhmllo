@@ -28,10 +28,6 @@ html {
       min-width: max-content;
     }
 
-    :where(a:not(:hover, :active, :focus)) {
-      color: inherit;
-    }
-
     :where(.icon) {
       &:hover {
         --opsz: 25;
@@ -52,6 +48,10 @@ html {
         }
       }
     }
+  }
+
+  :where(a:not(:hover, :active, :focus)) {
+    color: inherit;
   }
 
   :where(hr) {
