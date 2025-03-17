@@ -16,7 +16,7 @@ export default function Layout({ Component }: PageProps) {
         />
       </Head>
 
-      <main id="app" className="container">
+      <main id="app">
         <Appbar />
         <Component />
         <Bottombar />
@@ -38,7 +38,8 @@ export default function Layout({ Component }: PageProps) {
       >
       </script>
 
-      <script
+      {
+        /* <script
         type="module"
         // deno-lint-ignore react-no-danger
         dangerouslySetInnerHTML={{
@@ -50,7 +51,8 @@ export default function Layout({ Component }: PageProps) {
           `,
         }}
       >
-      </script>
+      </script> */
+      }
     </>
   );
 }

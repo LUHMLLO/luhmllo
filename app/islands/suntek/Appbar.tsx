@@ -1,14 +1,25 @@
 import { asset } from "$fresh/runtime.ts";
-import { useEffect, useRef } from "preact/hooks";
+import { MutableRef, useEffect, useRef } from "preact/hooks";
+
+function handleResize(
+  menuRef: MutableRef<HTMLElement | null>,
+  moreRef: MutableRef<HTMLElement | null>,
+) {
+  console.log(`menu: ${menuRef.current}`);
+  console.log(`more: ${moreRef.current}`);
+
+  if (!menuRef.current?.children) {
+    return console.warn("menu has no items in it");
+  }
+
+  for (const element of menuRef.current.children) {
+    console.log(element);
+  }
+}
 
 export default function Appbar() {
   const menuRef = useRef<HTMLElement | null>(null);
   const moreRef = useRef<HTMLElement | null>(null);
-
-  const handleResize = () => {
-    console.log(`menu: ${menuRef.current}`);
-    console.log(`more: ${moreRef.current}`);
-  };
 
   useEffect(() => {
     // Initialize refs after component mounts
@@ -17,12 +28,18 @@ export default function Appbar() {
 
     if (menuRef.current && moreRef.current) {
       // Run handler on first render
-      handleResize();
+      handleResize(menuRef, moreRef);
 
       // Run handler on window resize
-      globalThis.addEventListener("resize", handleResize);
+      globalThis.addEventListener(
+        "resize",
+        () => handleResize(menuRef, moreRef),
+      );
       return () => {
-        globalThis.removeEventListener("resize", handleResize);
+        globalThis.removeEventListener(
+          "resize",
+          () => handleResize(menuRef, moreRef),
+        );
       };
     }
   }, []);
