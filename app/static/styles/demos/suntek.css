@@ -33,21 +33,6 @@ html {
         --opsz: 25;
       }
     }
-
-    & > #menu {
-      flex: 1 1 100%;
-
-      & > #more {
-        & > #more__menu {
-          display: flex;
-          flex-direction: column;
-
-          :where(a) {
-            flex: 1 1 auto;
-          }
-        }
-      }
-    }
   }
 
   :where(a:not(:hover, :active, :focus)) {
@@ -61,8 +46,23 @@ html {
     width: 1px;
   }
 
-  & > #menu {
-    flex: 1 1 auto;
+  :where(#menu) {
+    flex: 1 1 100%;
     height: 100%;
+  }
+
+  :where(#more) {
+    &::part(dropmenu) {
+      gap: var(--xs, 5px);
+    }
+
+    & > hr {
+      height: 1px;
+      width: 100%;
+    }
+  }
+
+  :where(#actions) {
+    flex-shrink: 0;
   }
 }

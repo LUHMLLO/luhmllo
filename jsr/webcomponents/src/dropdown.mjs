@@ -6,7 +6,6 @@ import {
   hide,
   offset,
   shift,
-  size,
 } from "https://esm.sh/@floating-ui/dom@1.6.11";
 
 if (typeof window !== "undefined") {
@@ -59,6 +58,7 @@ if (typeof window !== "undefined") {
       }
       
       :host {
+        flex-shrink: 0;
         height: calc-size(max-content, size);
         min-height: 0;
         min-width: 0;
@@ -70,10 +70,11 @@ if (typeof window !== "undefined") {
         z-index: auto;
       }
 
-      ::slotted(summary) {
+      ::slotted(:where(summary,[slot="summary"])) {
         align-items: center;
         cursor: pointer;
         display: flex;
+        flex-shrink: 0;
     
         &::marker {
           content: "";
@@ -81,16 +82,16 @@ if (typeof window !== "undefined") {
         }
       }
 
-      :host > [part="dropmenu"] {
+      :host:where([part="dropmenu"]) {
         background-color: var(--clr-surface);
         display: flex;
         flex-direction: column;
-        height: max-content;
+        height: calc-size(max-content, size);
         isolation: isolate;
-        max-height: calc(clamp(16dvh, 25dvh, 32dvh) + var(--xl));
+        max-height: clamp(40dvh,150px, 70dvh);
         max-width: calc(100dvw - var(--sm, 10px));
-        min-height: calc-size(max-content, size);
-        min-width: calc-size(max-content, size);
+        min-height: 0;
+        min-width: 0;
         outline: solid hsl(from var(--clr-surface) h s calc(l + 10));
         overflow-x: clip;
         overflow-y: auto;
@@ -99,10 +100,12 @@ if (typeof window !== "undefined") {
         transition-property: top, bottom, opacity, visibility;
         transition-duration: var(--animDuration);
         transition-timing-function: var(--animTiming);
+        width: calc-size(max-content, size);
         z-index: 1000000;
       }
 
       ::slotted(*) {
+        flex-shrink: 0;
         width: 100%;
       }
     `;
@@ -193,13 +196,6 @@ if (typeof window !== "undefined") {
                     crossAxis: true,
                     mainAxis: true,
                     padding: 3,
-                  }),
-                  size({
-                    apply({ rects, elements }) {
-                      Object.assign(elements.floating.style, {
-                        width: `${rects.reference.width}px`,
-                      });
-                    },
                   }),
                   {
                     name: "detectOverflow",

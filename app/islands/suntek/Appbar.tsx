@@ -69,7 +69,30 @@ export default function Appbar() {
             <i class="icon">more_horiz</i>
           </a>
         </summary>
-        {/* Items will be added here dynamically */}
+
+        <a href="#">Pipelines</a>
+        <a href="#">Tasks</a>
+        <a href="#">Workflows</a>
+
+        <hr />
+
+        <a href="#">Campaigns</a>
+        <a href="#">Contacts</a>
+        <a href="#">Projects</a>
+
+        <hr />
+
+        <a href="#">Leads</a>
+        <a href="#">Opportunities</a>
+        <a href="#">Quotes</a>
+        <a href="#">Sales</a>
+
+        <hr />
+
+        <a href="#">Inventories</a>
+        <a href="#">Products</a>
+        <a href="#">Properties</a>
+        <a href="#">Services</a>
       </cat-dropdown>
 
       <hr />
