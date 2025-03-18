@@ -6,7 +6,7 @@ import {
   hide,
   offset,
   shift,
-} from "https://esm.sh/@floating-ui/dom@1.6.11";
+} from "https://esm.sh/@floating-ui/dom@1.6.13";
 
 if (typeof window !== "undefined") {
   class Dropdown extends HTMLElement {
@@ -70,7 +70,8 @@ if (typeof window !== "undefined") {
         z-index: auto;
       }
 
-      ::slotted(:where(summary,[slot="summary"])) {
+      ::slotted(summary),
+      ::slotted([slot="summary"]) {
         align-items: center;
         cursor: pointer;
         display: flex;
@@ -82,14 +83,14 @@ if (typeof window !== "undefined") {
         }
       }
 
-      :host:where([part="dropmenu"]) {
+      [part="dropmenu"] {
         background-color: var(--clr-surface);
         display: flex;
         flex-direction: column;
         height: calc-size(max-content, size);
         isolation: isolate;
-        max-height: clamp(40dvh,150px, 70dvh);
-        max-width: calc(100dvw - var(--sm, 10px));
+        max-height: clamp(40dvh, 150px, 70dvh);
+        max-width: calc(100dvw - var(--md, 15px));
         min-height: 0;
         min-width: 0;
         outline: solid hsl(from var(--clr-surface) h s calc(l + 10));

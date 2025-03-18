@@ -14,8 +14,14 @@ const commonOptions: BuildOptions = {
   bundle: true,
   format: "esm" as const,
   minify: true,
+  // mangleProps: /^./, // Mangles all properties
   mangleProps: /^_/, // mangles all private-like properties starting with "_"
+  minifyIdentifiers: true,
+  minifySyntax: true,
+  keepNames: false, // Ensures names are obfuscated
+  treeShaking: true, // Eliminates dead code
   drop: ["console"], // removes all console statements
+  pure: ["console.log"], // Removes unnecessary function calls
   banner: { js: "// deno-lint-ignore-file" },
 };
 
