@@ -13,6 +13,8 @@ import * as $demos_suntek_layout from "./routes/demos/suntek/_layout.tsx";
 import * as $demos_suntek_index from "./routes/demos/suntek/index.tsx";
 import * as $demos_threads_layout from "./routes/demos/threads/_layout.tsx";
 import * as $demos_threads_index from "./routes/demos/threads/index.tsx";
+import * as $demos_vhenz_layout from "./routes/demos/vhenz/_layout.tsx";
+import * as $demos_vhenz_index from "./routes/demos/vhenz/index.tsx";
 import * as $docs_anchor from "./routes/docs/anchor.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $tests_1 from "./routes/tests/1.tsx";
@@ -33,6 +35,8 @@ const manifest = {
     "./routes/demos/suntek/index.tsx": $demos_suntek_index,
     "./routes/demos/threads/_layout.tsx": $demos_threads_layout,
     "./routes/demos/threads/index.tsx": $demos_threads_index,
+    "./routes/demos/vhenz/_layout.tsx": $demos_vhenz_layout,
+    "./routes/demos/vhenz/index.tsx": $demos_vhenz_index,
     "./routes/docs/anchor.tsx": $docs_anchor,
     "./routes/index.tsx": $index,
     "./routes/tests/1.tsx": $tests_1,
