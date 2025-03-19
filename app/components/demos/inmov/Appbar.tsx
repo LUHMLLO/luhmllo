@@ -1,6 +1,6 @@
 export default function Appbar() {
   return (
-    <nav id="appbar" data-props="--y --expand --propagate">
+    <nav id="appbar">
       <nav>
         <a href="void(0)">
           <i className="material-symbols-outlined">roofing</i>

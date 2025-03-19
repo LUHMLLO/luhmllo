@@ -1,5 +1,5 @@
 import { asset, Head } from "$fresh/runtime.ts";
-import { PageProps } from "$fresh/server.ts";
+import { type PageProps } from "$fresh/server.ts";
 import Appbar from "$components/demos/inmov/Appbar.tsx";
 
 export default function Layout({ Component }: PageProps) {
