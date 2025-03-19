@@ -1,4 +1,4 @@
-export default function Route() {
+export default function Page() {
   return (
     <div
       id="views"
