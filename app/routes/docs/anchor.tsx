@@ -1,6 +1,9 @@
-export default function Route() {
+import { PageProps } from "$fresh/server.ts";
+
+export default function Page(props: PageProps) {
   return (
     <>
+      <code>{props.url.pathname}</code>
       <h2>
         Anchor
       </h2>

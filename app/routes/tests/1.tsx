@@ -1,10 +1,14 @@
 import { asset } from "$fresh/runtime.ts";
+import { PageProps } from "$fresh/server.ts";
 
-export default function Route() {
+export default function Page(props: PageProps) {
   return (
     <div id="top">
+      <code>{props.url.pathname}</code>
       <header>
-        <h1>HTML5 Test Page</h1>
+        <h1>
+          HTML5
+        </h1>
         <p>
           This is a test page filled with common HTML elements to be used to
           provide visual feedback whilst building CSS systems and frameworks.
