@@ -226,6 +226,41 @@
   &:is([type="radio"]) {
     border-radius: 50%;
   }
+
+  &:is([type="range"]) {
+    --track-height: .5ex;
+    --track-fill: 10%;
+    --thumb-size: 3ex;
+    --thumb-offset: -1.25ex;
+    --thumb-highlight-size: 0px;
+
+    appearance: none;
+    background: transparent;
+    display: block;
+    inline-size: 100%;
+    margin: 1ex 0;
+    outline: none;
+    padding: 0;
+
+    &::-webkit-slider-runnable-track {
+      appearance: none;
+      background-color: var(--clr-content);
+      block-size: var(--track-height);
+      border-radius: 5ex;
+      cursor: pointer;
+    }
+
+    &::-webkit-slider-thumb {
+      appearance: none;
+      background-color: var(--clr-content);
+      block-size: var(--thumb-size);
+      border: 5px solid var(--clr-surface);
+      border-radius: 50%;
+      cursor: ew-resize;
+      inline-size: var(--thumb-size);
+      margin-top: var(--thumb-offset);
+    }
+  }
 }
 
 :where(button, select, [type="button"], [type="submit"], [type="reset"]) {
