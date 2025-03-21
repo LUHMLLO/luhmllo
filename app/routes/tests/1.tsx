@@ -1100,7 +1100,6 @@ export default function Page(props: PageProps) {
             <fieldset id="forms__textareas">
               <legend>Textareas</legend>
               <p>
-                <label htmlFor="textarea">Textarea</label>
                 <textarea
                   id="textarea"
                   rows={8}
