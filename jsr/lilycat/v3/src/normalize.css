@@ -93,10 +93,6 @@
   touch-action: manipulation;
 }
 
-:where(textarea) {
-  width: 100%;
-}
-
 :where(ul,
   ol) {
   list-style-position: inside;
@@ -215,12 +211,43 @@
   }
 
   &:is([type="color"]) {
+    --size: var(--xl);
+    appearance: none;
     aspect-ratio: 1/1;
+    height: var(--size);
     padding: 0;
+    width: var(--size);
+
+    &::-webkit-color-swatch-wrapper {
+      padding: 0;
+    }
+
+    &::-webkit-color-swatch {
+      border: none;
+    }
   }
 
   &:is([type="checkbox"], [type="radio"]) {
-    height: auto;
+    --size: var(--md, 15px);
+    appearance: none;
+    aspect-ratio: 1/1;
+    background-color: var(--clr-surface);
+    contain: content;
+    display: inline-grid;
+    flex: 0 0 max-content;
+    height: var(--size);
+    padding: 0;
+    touch-action: manipulation;
+    transition-property: color, height, font-size, width;
+    transition-duration: var(--animDuration);
+    transition-timing-function: var(--animTiming);
+    transition-behavior: allow-discrete;
+    user-select: none;
+    width: var(--size);
+
+    &:checked {
+      background-color: var(--clr-accent);
+    }
   }
 
   &:is([type="radio"]) {
@@ -237,7 +264,6 @@
     background: transparent;
     display: block;
     inline-size: 100%;
-    margin: 1ex 0;
     outline: none;
     padding: 0;
 
@@ -262,7 +288,7 @@
   }
 }
 
-:where(button, select, [type="button"], [type="submit"], [type="reset"]) {
+:where(button, select, [type="button"], [type="checkbox"], [type="radio"], [type="reset"], [type="submit"]) {
   cursor: pointer;
 }
 
@@ -274,6 +300,7 @@
   min-height: 75px;
   resize: both;
   white-space: normal;
+  width: 100%;
 }
 
 :where(table) {
@@ -287,7 +314,13 @@
   width: fit-content;
 
   :where(caption) {
+    font-size: var(--md, 15px);
+    padding: var(--sm, 10px);
     text-align: center;
+
+    > * {
+      vertical-align: middle;
+    }
   }
 
   :where(th, td) {
