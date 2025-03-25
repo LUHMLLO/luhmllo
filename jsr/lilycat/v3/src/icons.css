@@ -30,7 +30,7 @@
   place-content: center center;
   place-items: center center;
   touch-action: manipulation;
-  transition-property: color, height, font-size, font-variation-settings, width;
+  transition-property: color, height, font, width;
   transition-duration: var(--animDuration);
   transition-timing-function: var(--animTiming);
   transition-behavior: allow-discrete;

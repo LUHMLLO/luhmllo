@@ -5,6 +5,14 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $demos_api_joke from "./routes/demos/api/joke.ts";
+import * as $demos_dcoms_app_categories from "./routes/demos/dcoms/app/categories.tsx";
+import * as $demos_dcoms_app_dashboard from "./routes/demos/dcoms/app/dashboard.tsx";
+import * as $demos_dcoms_app_packages from "./routes/demos/dcoms/app/packages.tsx";
+import * as $demos_dcoms_app_prices from "./routes/demos/dcoms/app/prices.tsx";
+import * as $demos_dcoms_app_users from "./routes/demos/dcoms/app/users.tsx";
+import * as $demos_dcoms_index from "./routes/demos/dcoms/index.tsx";
+import * as $demos_dcoms_login from "./routes/demos/dcoms/login.tsx";
+import * as $demos_dcoms_logout from "./routes/demos/dcoms/logout.ts";
 import * as $demos_greet_name_ from "./routes/demos/greet/[name].tsx";
 import * as $demos_inmov_layout from "./routes/demos/inmov/_layout.tsx";
 import * as $demos_inmov_index from "./routes/demos/inmov/index.tsx";
@@ -17,6 +25,8 @@ import * as $demos_vhenz_layout from "./routes/demos/vhenz/_layout.tsx";
 import * as $demos_vhenz_index from "./routes/demos/vhenz/index.tsx";
 import * as $docs_anchor from "./routes/docs/anchor.tsx";
 import * as $index from "./routes/index.tsx";
+import * as $shots_layout from "./routes/shots/_layout.tsx";
+import * as $shots_index from "./routes/shots/index.tsx";
 import * as $tests_1 from "./routes/tests/1.tsx";
 import * as $tests_2 from "./routes/tests/2.tsx";
 import * as $suntek_Appbar from "./islands/suntek/Appbar.tsx";
@@ -27,6 +37,14 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/demos/api/joke.ts": $demos_api_joke,
+    "./routes/demos/dcoms/app/categories.tsx": $demos_dcoms_app_categories,
+    "./routes/demos/dcoms/app/dashboard.tsx": $demos_dcoms_app_dashboard,
+    "./routes/demos/dcoms/app/packages.tsx": $demos_dcoms_app_packages,
+    "./routes/demos/dcoms/app/prices.tsx": $demos_dcoms_app_prices,
+    "./routes/demos/dcoms/app/users.tsx": $demos_dcoms_app_users,
+    "./routes/demos/dcoms/index.tsx": $demos_dcoms_index,
+    "./routes/demos/dcoms/login.tsx": $demos_dcoms_login,
+    "./routes/demos/dcoms/logout.ts": $demos_dcoms_logout,
     "./routes/demos/greet/[name].tsx": $demos_greet_name_,
     "./routes/demos/inmov/_layout.tsx": $demos_inmov_layout,
     "./routes/demos/inmov/index.tsx": $demos_inmov_index,
@@ -39,6 +57,8 @@ const manifest = {
     "./routes/demos/vhenz/index.tsx": $demos_vhenz_index,
     "./routes/docs/anchor.tsx": $docs_anchor,
     "./routes/index.tsx": $index,
+    "./routes/shots/_layout.tsx": $shots_layout,
+    "./routes/shots/index.tsx": $shots_index,
     "./routes/tests/1.tsx": $tests_1,
     "./routes/tests/2.tsx": $tests_2,
   },

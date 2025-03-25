@@ -26,6 +26,7 @@
     "$std/": "https://deno.land/std@0.216.0/",
     "$components/": "./components/",
     "$islands/": "./islands/",
+    "$lib/": "./lib/",
     "@lilycat": "../jsr/lilycat/v3/dist/mod.ts",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",

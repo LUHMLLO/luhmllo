@@ -1,9 +1,9 @@
 import { type PageProps } from "$fresh/server.ts";
 
-export default function Page(props: PageProps) {
+export default function Page(_props: PageProps) {
   return (
     <div id="views">
-      hello world <code>{props.url.pathname}</code>
+      hello world <code>{_props.url.pathname}</code>
     </div>
   );
 }

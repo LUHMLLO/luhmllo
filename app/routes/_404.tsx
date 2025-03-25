@@ -1,7 +1,7 @@
 import { asset, Head } from "$fresh/runtime.ts";
 import { type PageProps } from "$fresh/server.ts";
 
-export default function Page(props: PageProps) {
+export default function Page(_props: PageProps) {
   return (
     <>
       <Head>
@@ -15,7 +15,7 @@ export default function Page(props: PageProps) {
       />
       <h1>404 - Page not found</h1>
       <p>
-        The page <code>{props.url.pathname}</code> doesn't exist.
+        The page <code>{_props.url.pathname}</code> doesn't exist.
       </p>
       <a href="/">Go back home</a>
     </>
