@@ -23,7 +23,7 @@
 }
 
 :where(hr) {
-  background-color: hsl(from var(--clr-surface) h s calc(l + 5));
+  background-color: hsl(from var(--clr-text) h s calc(l + 50));
   flex: 0 0 1px;
   height: 1px;
   width: 100%;
@@ -110,7 +110,7 @@
 }
 
 :where(dt) {
-  color: hsl(from var(--clr-content) h s calc(l + 10));
+  color: hsl(from var(--clr-text) h s calc(l + 10));
   font-weight: 600;
 }
 
@@ -120,7 +120,7 @@
 }
 
 :where(h1, h2, h3, h4, h5, h6) {
-  color: hsl(from var(--clr-content) h s calc(l + 10));
+  color: hsl(from var(--clr-text) h s calc(l + 10));
   line-height: clamp(100%, 115%, 125%);
   text-wrap: balance;
 }
@@ -153,9 +153,12 @@
   width: clamp(50ch, 100%, 75ch);
 }
 
+:where(a, button, select, [type="button"], [type="checkbox"], [type="radio"], [type="reset"], [type="submit"]) {
+  cursor: pointer;
+}
+
 :where(a) {
   color: var(--clr-accent);
-  cursor: pointer;
   transition: color var(--animDuration) var(--animTiming);
   text-decoration-thickness: from-font;
 
@@ -192,26 +195,40 @@
   }
 }
 
-:where(button, input, select, textarea) {
-  background-color: transparent;
-  color: var(--clr-content);
+:where(button) {
+  align-items: center;
+  background-color: var(--clr-primary);
+  border-radius: var(--xs, 5px);
+  color: var(--clr-text);
+  display: inline-flex;
   font-size: inherit;
   height: 45px;
-  outline: solid 1px var(--clr-content, currentColor);
+  outline: solid 1px var(--clr-text, currentColor);
   outline-offset: -1px;
   overflow: clip;
-  padding: var(--md, 15px);
+  padding: 0 var(--md, 15px);
   white-space: nowrap;
   width: fit-content;
 }
 
 :where(input) {
+  background-color: var(--clr-background);
+  font-size: inherit;
+  height: 45px;
+  padding: 0 var(--md, 15px);
+  outline: solid 1px var(--clr-text, currentColor);
+  outline-offset: -1px;
+  overflow: clip;
+  white-space: nowrap;
+  width: fit-content;
+
   &:is([type="disabled"], [disabled]) {
     cursor: auto;
   }
 
   &:is([type="color"]) {
     --size: var(--xl);
+
     appearance: none;
     aspect-ratio: 1/1;
     height: var(--size);
@@ -229,9 +246,10 @@
 
   &:is([type="checkbox"], [type="radio"]) {
     --size: var(--md, 15px);
+
     appearance: none;
     aspect-ratio: 1/1;
-    background-color: var(--clr-surface);
+    background-color: var(--clr-background);
     contain: content;
     display: inline-grid;
     flex: 0 0 max-content;
@@ -269,7 +287,7 @@
 
     &::-webkit-slider-runnable-track {
       appearance: none;
-      background-color: var(--clr-content);
+      background-color: var(--clr-text);
       block-size: var(--track-height);
       border-radius: 5ex;
       cursor: pointer;
@@ -277,9 +295,9 @@
 
     &::-webkit-slider-thumb {
       appearance: none;
-      background-color: var(--clr-content);
+      background-color: var(--clr-text);
       block-size: var(--thumb-size);
-      border: 5px solid var(--clr-surface);
+      border: 5px solid var(--clr-background);
       border-radius: 50%;
       cursor: ew-resize;
       inline-size: var(--thumb-size);
@@ -288,18 +306,17 @@
   }
 }
 
-:where(button, select, [type="button"], [type="checkbox"], [type="radio"], [type="reset"], [type="submit"]) {
-  cursor: pointer;
-}
-
 :where(textarea) {
   -moz-field-sizing: content;
   -webkit-field-sizing: content;
   field-sizing: content;
   height: auto;
   min-height: 75px;
+  outline: solid 1px var(--clr-text, currentColor);
+  outline-offset: -1px;
+  overflow: clip;
+  padding: var(--md, 15px);
   resize: both;
-  white-space: normal;
   width: 100%;
 }
 
@@ -307,7 +324,7 @@
   display: block;
   border-collapse: collapse;
   border-spacing: 0;
-  outline: solid 1px var(--clr-content, currentColor);
+  outline: solid 1px var(--clr-text, currentColor);
   outline-offset: -1px;
   overflow-x: auto;
   table-layout: auto;

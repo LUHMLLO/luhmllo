@@ -1,6 +1,6 @@
 :root {
   accent-color: var(--clr-accent);
-  color-scheme: dark light;
+  /* color-scheme: dark light; */
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: subpixel-antialiased;
   interpolate-size: allow-keywords;
@@ -40,8 +40,6 @@
 }
 
 :where(html) {
-  background-color: var(--clr-surface);
-  color: var(--clr-content);
   display: contents;
   font-family: sans-serif;
   font-size: clamp(var(--md), 100% + 1rem, var(--nm));
@@ -54,8 +52,8 @@
 }
 
 :where(body) {
-  background-color: var(--clr-surface);
-  color: var(--clr-content);
+  background-color: var(--clr-background);
+  color: var(--clr-text);
   inset: 0;
   min-height: 100dvh;
   transition-property: background-color, color;
