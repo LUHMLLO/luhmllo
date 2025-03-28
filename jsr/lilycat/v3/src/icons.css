@@ -30,11 +30,12 @@
   place-content: center center;
   place-items: center center;
   touch-action: manipulation;
-  transition-property: color, height, font, width;
+  transition-property: height, font, width;
   transition-duration: var(--animDuration);
   transition-timing-function: var(--animTiming);
   transition-behavior: allow-discrete;
   user-select: none;
+  vertical-align: bottom;
   width: var(--size);
 
   & > * {

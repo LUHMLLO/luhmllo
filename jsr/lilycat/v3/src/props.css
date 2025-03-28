@@ -1,5 +1,4 @@
 :where([data-props~="--wrapper"]) {
   display: contents;
   isolation: isolate;
-  transition: none;
 }

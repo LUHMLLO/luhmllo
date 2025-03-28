@@ -636,7 +636,7 @@ export default function Page(_props: PageProps) {
                 <a href="#!">This is a text link</a>.
               </p>
               <p>
-                <a href="javascript:void(0)">
+                <a>
                   This is a text link without href
                 </a>.
               </p>

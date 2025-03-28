@@ -1,0 +1,35 @@
+import { type PageProps } from "$fresh/server.ts";
+
+export default function Page(_props: PageProps) {
+  return (
+    <>
+      <a>
+        <i className="icon">asterisk</i>lead icon
+      </a>
+      <a href={"#" + crypto.randomUUID()}>
+        <span className="icon">asterisk</span>lead icon
+      </a>
+
+      <a>no icons</a>
+      <a href={"#" + crypto.randomUUID()}>no icons</a>
+
+      <a>
+        <i className="icon">asterisk</i>both icons<i className="icon">
+          asterisk
+        </i>
+      </a>
+      <a href={"#" + crypto.randomUUID()}>
+        <i className="icon">asterisk</i>both icons<i className="icon">
+          asterisk
+        </i>
+      </a>
+
+      <a>
+        trail icon<i className="icon">asterisk</i>
+      </a>
+      <a href={"#" + crypto.randomUUID()}>
+        trail icon<span className="icon">asterisk</span>
+      </a>
+    </>
+  );
+}

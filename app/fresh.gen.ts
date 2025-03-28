@@ -24,6 +24,8 @@ import * as $demos_threads_index from "./routes/demos/threads/index.tsx";
 import * as $demos_vhenz_layout from "./routes/demos/vhenz/_layout.tsx";
 import * as $demos_vhenz_index from "./routes/demos/vhenz/index.tsx";
 import * as $docs_anchor from "./routes/docs/anchor.tsx";
+import * as $el_layout from "./routes/el/_layout.tsx";
+import * as $el_a from "./routes/el/a.tsx";
 import * as $el_button from "./routes/el/button.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $shots_layout from "./routes/shots/_layout.tsx";
@@ -57,6 +59,8 @@ const manifest = {
     "./routes/demos/vhenz/_layout.tsx": $demos_vhenz_layout,
     "./routes/demos/vhenz/index.tsx": $demos_vhenz_index,
     "./routes/docs/anchor.tsx": $docs_anchor,
+    "./routes/el/_layout.tsx": $el_layout,
+    "./routes/el/a.tsx": $el_a,
     "./routes/el/button.tsx": $el_button,
     "./routes/index.tsx": $index,
     "./routes/shots/_layout.tsx": $shots_layout,

@@ -36,6 +36,9 @@ export default function App({ Component, url }: PageProps) {
           }}
         />
 
+        {/* global styles */}
+        <link rel="stylesheet" href={asset("/styles/app.css")} />
+
         {/* tailwind utilities */}
         <link rel="stylesheet" href={asset("/styles/tailwind.css")} />
 

@@ -158,28 +158,27 @@
 }
 
 :where(a) {
+  align-items: center;
   color: var(--clr-accent);
-  transition: color var(--animDuration) var(--animTiming);
+  display: inline-block;
+  gap: var(--xs, 5px);
+  outline: solid 2px transparent;
+  outline-offset: -2px;
+  transition-property: color;
+  transition-duration: var(--animDuration);
+  transition-timing-function: var(--animTiming);
   text-decoration-thickness: from-font;
+  /* vertical-align: middle; */
+  width: fit-content;
 
   &:visited {
     color: hsl(from var(--clr-accent) h calc(s - 30) calc(l - 30));
   }
 
-  &:focus {
-    color: currentColor;
+  &:focus-visible {
+    outline-color: var(--background);
+    outline-offset: 2px;
     text-decoration: underline;
-  }
-
-  @supports selector(:focus-visible) {
-    &:focus {
-      text-decoration: none;
-    }
-
-    &:focus-visible {
-      outline: none;
-      text-decoration: underline;
-    }
   }
 
   &:hover {
@@ -193,22 +192,50 @@
   &:where(:not([href="#"]), [href="#"], [href="javascript:void(0)"]) {
     text-decoration: none;
   }
+
+  &:where(:not([href])) {
+    color: inherit;
+  }
 }
 
 :where(button) {
+  --background: var(--clr-primary);
+
   align-items: center;
-  background-color: var(--clr-primary);
+  background-color: var(--background);
   border-radius: var(--xs, 5px);
   color: var(--clr-text);
   display: inline-flex;
   font-size: inherit;
-  height: 45px;
-  outline: solid 1px var(--clr-text, currentColor);
-  outline-offset: -1px;
+  gap: var(--xs, 5px);
+
+  height: 50px;
+
+  outline: solid 2px hsla(from var(--clr-text, currentColor) h s l / 0.15);
+  outline-offset: -2px;
   overflow: clip;
   padding: 0 var(--md, 15px);
+
+  transition-property: background-color, color, outline, outline-offset;
+  transition-duration: var(--animDuration);
+  transition-timing-function: var(--animTiming);
+
   white-space: nowrap;
   width: fit-content;
+
+  &:focus-visible {
+    outline-color: var(--background);
+    outline-offset: 2px;
+  }
+
+  &:hover {
+    background-color: hsl(from var(--background) h calc(s + 10) calc(l + 5));
+  }
+
+  &:active {
+    background-color: hsl(from var(--background) h calc(s - 5) calc(l - 10));
+    outline-color: hsl(from var(--background) h calc(s - 5) calc(l - 10));
+  }
 }
 
 :where(input) {

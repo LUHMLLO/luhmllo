@@ -7,7 +7,6 @@
   position: relative;
   text-size-adjust: 100%;
   text-wrap: pretty;
-  vertical-align: baseline;
 }
 
 * {
@@ -34,9 +33,8 @@
 }
 
 /* Application root containers */
-:where(#root, #__next, [data-app-root]) {
+:where(#root, #__next, [data-app-root], #app) {
   isolation: isolate;
-  display: contents;
 }
 
 :where(html) {
@@ -82,7 +80,7 @@
   }
 }
 
-@supports selector(:focus-visible) {
+/* @supports selector(:focus-visible) {
   :focus:not(:focus-visible) {
     outline: none;
   }
@@ -91,4 +89,4 @@
     outline: 1px solid var(--clr-accent, currentColor);
     outline-offset: -1px;
   }
-}
+} */
