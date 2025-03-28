@@ -211,7 +211,7 @@
 
   height: 50px;
 
-  outline: solid 2px hsla(from var(--clr-text, currentColor) h s l / 0.15);
+  outline: solid 2px transparent;
   outline-offset: -2px;
   overflow: clip;
   padding: 0 var(--md, 15px);
