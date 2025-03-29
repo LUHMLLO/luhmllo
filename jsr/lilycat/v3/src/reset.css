@@ -53,7 +53,9 @@
   background-color: var(--clr-background);
   color: var(--clr-text);
   inset: 0;
+  max-height: max-content;
   min-height: 100dvh;
+  position: inherit;
   transition-property: background-color, color;
   transition-duration: var(--animDuration);
   transition-timing-function: var(--animTiming);

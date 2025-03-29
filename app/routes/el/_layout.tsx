@@ -14,10 +14,10 @@ export default function Layout({ Component }: PageProps) {
         />
       </Head>
 
-      <main id="app">
+      <main id="app" className="min-h-[100dvh]">
         <div className="gridlines fixed inset-0 w-[100dvw] h-[100dvh] pointer-events-none -z-10" />
         <div
-          className="grid auto-rows-max gap-sm w-100 h-[100dvh]"
+          className="grid auto-rows-max gap-sm p-xl min-h-[100dvh]"
           style="place-content: safe center;"
         >
           <Component />
