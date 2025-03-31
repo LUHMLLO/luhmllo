@@ -29,14 +29,14 @@ jobs:
           node-version: lts/*
 
       - name: Install step
-        run: "cd ./app/ && deno cache ."
+        run: "cd ./app/docs/ && deno cache ."
 
       - name: Build step
-        run: "cd ./app/ && deno task build"
+        run: "cd ./app/docs/ && deno task build"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "lilys"
-          entrypoint: "./app/main.ts"
+          entrypoint: "./app/docs/main.ts"
           root: "./"
