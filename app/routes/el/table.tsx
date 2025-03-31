@@ -69,7 +69,7 @@ export default function Page(_props: PageProps) {
         <tbody>
           <tr>
             <td>
-              <var>001</var>
+              001
             </td>
             <td>
               This is a very long description that should test how the cell
@@ -89,7 +89,7 @@ export default function Page(_props: PageProps) {
           </tr>
           <tr>
             <td>
-              <var>002</var>
+              002
             </td>
             <td>
               Another lengthy description that includes technical specifications
@@ -108,7 +108,7 @@ export default function Page(_props: PageProps) {
           </tr>
           <tr>
             <td>
-              <var>003</var>
+              003
             </td>
             <td>
               Short description
@@ -125,7 +125,7 @@ export default function Page(_props: PageProps) {
           </tr>
           <tr>
             <td>
-              <var>004</var>
+              004
             </td>
             <td>
               Medium length description with some details about the item that
