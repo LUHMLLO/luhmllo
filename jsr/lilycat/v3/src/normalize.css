@@ -290,7 +290,7 @@
 }
 
 :where(input[type="checkbox"], input[type="radio"]) {
-  --size: var(--md, 15px);
+  --size: var(--nm, 20px);
 
   appearance: none;
   aspect-ratio: 1/1;
@@ -304,7 +304,6 @@
   transition-property: color, height, font-size, width;
   transition-duration: var(--animDuration);
   transition-timing-function: var(--animTiming);
-  transition-behavior: allow-discrete;
   user-select: none;
   width: var(--size);
 
@@ -351,47 +350,78 @@
 }
 
 :where(textarea) {
+  background-color: var(--clr-background);
+  border-radius: var(--xs, 5px);
+  color: var(--clr-text);
+  display: inline-block;
+
   -moz-field-sizing: content;
   -webkit-field-sizing: content;
   field-sizing: content;
-  height: auto;
+
+  font-size: inherit;
+
   min-height: 75px;
-  outline: solid 1px var(--clr-text, currentColor);
-  outline-offset: -1px;
+
+  outline: solid 2px hsl(from var(--clr-background) h calc(s - 5) calc(l - 10));
+  outline-offset: -2px;
   overflow: clip;
   padding: var(--md, 15px);
   resize: both;
+
+  transition-property: background-color, color, outline, outline-offset;
+  transition-duration: var(--animDuration);
+  transition-timing-function: var(--animTiming);
   width: 100%;
+
+  &:focus-visible {
+    outline-color: var(--clr-accent);
+    outline-offset: 2px;
+  }
 }
 
 :where(table) {
   display: block;
+  background-color: var(--clr-background);
   border-collapse: collapse;
   border-spacing: 0;
-  outline: solid 1px var(--clr-text, currentColor);
+  outline: solid 1px hsl(from var(--clr-background) h calc(s - 5) calc(l - 10));
   outline-offset: -1px;
   overflow-x: auto;
+  position: relative;
   table-layout: auto;
   width: fit-content;
 
   :where(caption) {
-    font-size: var(--md, 15px);
+    background-color: var(--clr-background);
+    font-size: inherit;
+    overflow: clip;
     padding: var(--sm, 10px);
     text-align: center;
+    width: 100%;
 
     > * {
       vertical-align: middle;
     }
   }
 
+  :where(th) {
+    min-height: 100px;
+    padding: var(--lg, 25px) var(--xl, 30px) var(--lg, 25px);
+  }
+
+  :where(td) {
+    min-height: 75px;
+    padding: var(--nm, 20px) var(--xl, 30px) var(--lg, 25px);
+  }
+
   :where(th, td) {
-    border: solid 1px;
-    height: auto;
+    border: solid 1px hsl(from var(--clr-background) h calc(s - 5) calc(l - 10));
+    font: inherit;
     max-width: none;
-    min-height: 45px;
     min-width: max-content;
     overflow: clip;
-    padding: var(--md, 15px);
+    text-align: left;
     vertical-align: baseline;
     white-space: nowrap;
     width: auto;
