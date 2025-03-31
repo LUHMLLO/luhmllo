@@ -27,6 +27,7 @@ import * as $docs_anchor from "./routes/docs/anchor.tsx";
 import * as $el_layout from "./routes/el/_layout.tsx";
 import * as $el_a from "./routes/el/a.tsx";
 import * as $el_button from "./routes/el/button.tsx";
+import * as $el_details from "./routes/el/details.tsx";
 import * as $el_input from "./routes/el/input.tsx";
 import * as $el_table from "./routes/el/table.tsx";
 import * as $index from "./routes/index.tsx";
@@ -64,6 +65,7 @@ const manifest = {
     "./routes/el/_layout.tsx": $el_layout,
     "./routes/el/a.tsx": $el_a,
     "./routes/el/button.tsx": $el_button,
+    "./routes/el/details.tsx": $el_details,
     "./routes/el/input.tsx": $el_input,
     "./routes/el/table.tsx": $el_table,
     "./routes/index.tsx": $index,

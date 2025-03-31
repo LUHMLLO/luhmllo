@@ -1,0 +1,69 @@
+import { type PageProps } from "$fresh/server.ts";
+
+export default function Page(_props: PageProps) {
+  return (
+    <>
+      <details open>
+        <summary>About This Page</summary>
+        <p>
+          This page demonstrates the use of the <code>&lt;details&gt;</code> and
+          {" "}
+          <code>&lt;summary&gt;</code> elements to create expandable sections.
+        </p>
+      </details>
+
+      <hr />
+
+      <details>
+        <summary>Frequently Asked Questions</summary>
+        <details>
+          <summary>What is Fresh?</summary>
+          <p>
+            Fresh is a modern web framework for Deno that focuses on speed and
+            simplicity.
+          </p>
+        </details>
+        <details>
+          <summary>How do I install Fresh?</summary>
+          <p>
+            You can install Fresh by running{" "}
+            <code>deno run -A https://deno.land/x/fresh/init.ts</code>.
+          </p>
+        </details>
+      </details>
+
+      <details>
+        <summary>System Requirements</summary>
+        <ul>
+          <li>Operating System: Windows, macOS, or Linux</li>
+          <li>Memory: At least 8GB RAM recommended</li>
+          <li>Storage: Minimum 100MB free space</li>
+          <li>Input Device: Keyboard and mouse</li>
+          <li>Output Device: Monitor or screen</li>
+        </ul>
+      </details>
+
+      <hr />
+
+      <details name="reqs">
+        <summary>Graduation Requirements</summary>
+        <p>To graduate, students must:</p>
+        <ul>
+          <li>Complete 40 credits</li>
+          <li>Pass core subjects: Health, Geography, History, and Economics</li>
+          <li>Complete a final project</li>
+        </ul>
+      </details>
+      <details name="reqs">
+        <summary>Job Requirements</summary>
+        <p>The following skills are needed for this position:</p>
+        <ul>
+          <li>Proficiency in HTML, CSS, and JavaScript</li>
+          <li>Understanding of web accessibility and performance</li>
+          <li>Knowledge of privacy and security best practices</li>
+          <li>Internationalization and localization experience</li>
+        </ul>
+      </details>
+    </>
+  );
+}
