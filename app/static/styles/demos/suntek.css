@@ -1,4 +1,6 @@
 :root {
+  --clr-background: hsl(0deg, 0%, 5%);
+  --clr-text: hsl(0deg, 0%, 95%);
   --clr-accent: hsl(118, 34.80%, 54.90%);
 }
 
@@ -20,8 +22,6 @@ html {
   }
 
   :where(nav) {
-    overflow: clip;
-
     :where(a) {
       flex-shrink: 0;
       min-width: max-content;
@@ -39,8 +39,6 @@ html {
   }
 
   :where(hr) {
-    flex-grow: 0;
-    flex-shrink: 0;
     height: 100%;
     width: 1px;
   }

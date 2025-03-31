@@ -23,7 +23,7 @@
 }
 
 :where(hr) {
-  background-color: hsl(from var(--clr-text) h s calc(l + 50));
+  background-color: hsl(from var(--clr-background) h s calc(l + 5));
   flex: 0 0 1px;
   height: 1px;
   width: 100%;
@@ -171,7 +171,7 @@
   /* vertical-align: middle; */
   width: fit-content;
 
-  &:visited {
+  &:visited:not(:focus-visible, :hover, :active) {
     color: hsl(from var(--clr-accent) h calc(s - 30) calc(l - 30));
   }
 

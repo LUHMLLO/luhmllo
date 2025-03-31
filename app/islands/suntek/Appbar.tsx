@@ -118,29 +118,29 @@ export default function Appbar() {
       <hr />
 
       <nav id="menu">
-        <a href="#" data-order="1">Pipelines</a>
-        <a href="#" data-order="2">Tasks</a>
-        <a href="#" data-order="3">Workflows</a>
+        <a href={"#" + crypto.randomUUID()} data-order="1">Pipelines</a>
+        <a href={"#" + crypto.randomUUID()} data-order="2">Tasks</a>
+        <a href={"#" + crypto.randomUUID()} data-order="3">Workflows</a>
 
         <hr data-order="4" />
 
-        <a href="#" data-order="5">Campaigns</a>
-        <a href="#" data-order="6">Contacts</a>
-        <a href="#" data-order="7">Projects</a>
+        <a href={"#" + crypto.randomUUID()} data-order="5">Campaigns</a>
+        <a href={"#" + crypto.randomUUID()} data-order="6">Contacts</a>
+        <a href={"#" + crypto.randomUUID()} data-order="7">Projects</a>
 
         <hr data-order="8" />
 
-        <a href="#" data-order="9">Leads</a>
-        <a href="#" data-order="10">Opportunities</a>
-        <a href="#" data-order="11">Quotes</a>
-        <a href="#" data-order="12">Sales</a>
+        <a href={"#" + crypto.randomUUID()} data-order="9">Leads</a>
+        <a href={"#" + crypto.randomUUID()} data-order="10">Opportunities</a>
+        <a href={"#" + crypto.randomUUID()} data-order="11">Quotes</a>
+        <a href={"#" + crypto.randomUUID()} data-order="12">Sales</a>
 
         <hr data-order="13" />
 
-        <a href="#" data-order="14">Inventories</a>
-        <a href="#" data-order="15">Products</a>
-        <a href="#" data-order="16">Properties</a>
-        <a href="#" data-order="17">Services</a>
+        <a href={"#" + crypto.randomUUID()} data-order="14">Inventories</a>
+        <a href={"#" + crypto.randomUUID()} data-order="15">Products</a>
+        <a href={"#" + crypto.randomUUID()} data-order="16">Properties</a>
+        <a href={"#" + crypto.randomUUID()} data-order="17">Services</a>
       </nav>
 
       <hr />
