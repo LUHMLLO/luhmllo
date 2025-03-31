@@ -23,7 +23,6 @@ import * as $demos_threads_layout from "./routes/demos/threads/_layout.tsx";
 import * as $demos_threads_index from "./routes/demos/threads/index.tsx";
 import * as $demos_vhenz_layout from "./routes/demos/vhenz/_layout.tsx";
 import * as $demos_vhenz_index from "./routes/demos/vhenz/index.tsx";
-import * as $docs_anchor from "./routes/docs/anchor.tsx";
 import * as $el_layout from "./routes/el/_layout.tsx";
 import * as $el_a from "./routes/el/a.tsx";
 import * as $el_article from "./routes/el/article.tsx";
@@ -70,7 +69,6 @@ const manifest = {
     "./routes/demos/threads/index.tsx": $demos_threads_index,
     "./routes/demos/vhenz/_layout.tsx": $demos_vhenz_layout,
     "./routes/demos/vhenz/index.tsx": $demos_vhenz_index,
-    "./routes/docs/anchor.tsx": $docs_anchor,
     "./routes/el/_layout.tsx": $el_layout,
     "./routes/el/a.tsx": $el_a,
     "./routes/el/article.tsx": $el_article,
