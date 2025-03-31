@@ -26,6 +26,7 @@ import * as $demos_vhenz_index from "./routes/demos/vhenz/index.tsx";
 import * as $docs_anchor from "./routes/docs/anchor.tsx";
 import * as $el_layout from "./routes/el/_layout.tsx";
 import * as $el_a from "./routes/el/a.tsx";
+import * as $el_article from "./routes/el/article.tsx";
 import * as $el_button from "./routes/el/button.tsx";
 import * as $el_details from "./routes/el/details.tsx";
 import * as $el_input_checkbox from "./routes/el/input/checkbox.tsx";
@@ -34,6 +35,7 @@ import * as $el_input_datalist from "./routes/el/input/datalist.tsx";
 import * as $el_input_index from "./routes/el/input/index.tsx";
 import * as $el_input_radio from "./routes/el/input/radio.tsx";
 import * as $el_input_range from "./routes/el/input/range.tsx";
+import * as $el_label from "./routes/el/label.tsx";
 import * as $el_select from "./routes/el/select.tsx";
 import * as $el_table from "./routes/el/table.tsx";
 import * as $el_textarea from "./routes/el/textarea.tsx";
@@ -71,6 +73,7 @@ const manifest = {
     "./routes/docs/anchor.tsx": $docs_anchor,
     "./routes/el/_layout.tsx": $el_layout,
     "./routes/el/a.tsx": $el_a,
+    "./routes/el/article.tsx": $el_article,
     "./routes/el/button.tsx": $el_button,
     "./routes/el/details.tsx": $el_details,
     "./routes/el/input/checkbox.tsx": $el_input_checkbox,
@@ -79,6 +82,7 @@ const manifest = {
     "./routes/el/input/index.tsx": $el_input_index,
     "./routes/el/input/radio.tsx": $el_input_radio,
     "./routes/el/input/range.tsx": $el_input_range,
+    "./routes/el/label.tsx": $el_label,
     "./routes/el/select.tsx": $el_select,
     "./routes/el/table.tsx": $el_table,
     "./routes/el/textarea.tsx": $el_textarea,
