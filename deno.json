@@ -2,6 +2,7 @@
   "lock": false,
   "nodeModulesDir": "auto",
   "workspace": [
+    "./apps/.old",
     "./apps/dcoms",
     "./apps/docs",
     "./apps/suntek",

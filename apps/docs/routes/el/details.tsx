@@ -12,8 +12,6 @@ export default function Page(_props: PageProps) {
         </p>
       </details>
 
-      <hr />
-
       <details>
         <summary>Frequently Asked Questions</summary>
         <details>
@@ -42,8 +40,6 @@ export default function Page(_props: PageProps) {
           <li>Output Device: Monitor or screen</li>
         </ul>
       </details>
-
-      <hr />
 
       <details name="reqs">
         <summary>Graduation Requirements</summary>

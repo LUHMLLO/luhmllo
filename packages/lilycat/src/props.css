@@ -2,3 +2,13 @@
   display: contents;
   isolation: isolate;
 }
+
+:where(hr[data-props~="--x"]) {
+  height: 1px;
+  width: 100%;
+}
+
+:where(hr[data-props~="--y"]) {
+  height: 100%;
+  width: 1px;
+}

@@ -1,6 +1,7 @@
 import { asset } from "$fresh/runtime.ts";
 import { type PageProps } from "$fresh/server.ts";
 import {
+  customs,
   icons,
   normalize,
   props,
@@ -40,7 +41,7 @@ export default function App({ Component, url }: PageProps) {
           lang="css"
           // deno-lint-ignore react-no-danger
           dangerouslySetInnerHTML={{
-            __html: `${tokens}${reset}${normalize}${icons}${props}`,
+            __html: `${tokens}${reset}${normalize}${icons}${props}${customs}`,
           }}
         />
 
@@ -67,27 +68,9 @@ export default function App({ Component, url }: PageProps) {
         />
       </head>
       <body>
-        <main id="app">
-          <Appbar />
-          <Component />
-          <Bottombar />
-        </main>
-
-        <span id="cursor" />
-
-        <script
-          type="module"
-          // deno-lint-ignore react-no-danger
-          dangerouslySetInnerHTML={{
-            __html: `
-      import initCursor from "/vendors/cursor.min.js";
-      document.addEventListener('DOMContentLoaded', () => {
-        initCursor("cursor");
-      });
-    `,
-          }}
-        >
-        </script>
+        <Appbar />
+        <Component />
+        <Bottombar />
         <script type="module" src={asset("/vendors/dropdown.min.js")} />
       </body>
     </html>

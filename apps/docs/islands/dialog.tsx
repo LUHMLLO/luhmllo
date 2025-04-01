@@ -24,12 +24,16 @@ export default function DialogDemostration() {
           </button>
         </x-flex>
 
-        <input
-          type="text"
-          className="rounded-none w-full"
-          name="searchbar"
-          placeholder="Type in to filter list"
-        />
+        <label htmlFor="searchbar" className="flex">
+          <i className="icon">search</i>
+          <input
+            type="text"
+            className="rounded-none w-full"
+            name="searchbar"
+            placeholder="Type in to filter list"
+          />
+          <i className="icon">close</i>
+        </label>
 
         <x-grid className="gap-md place-items-center p-xl text-center">
           <i className="icon">block</i>

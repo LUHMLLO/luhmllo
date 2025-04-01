@@ -172,7 +172,7 @@
   width: fit-content;
 
   &:visited:not(:focus-visible, :hover, :active) {
-    color: hsl(from var(--clr-accent) h calc(s - 30) calc(l - 30));
+    color: hsl(from var(--clr-accent) h s calc(l - 30));
   }
 
   &:focus-visible {
@@ -182,11 +182,11 @@
   }
 
   &:hover {
-    color: hsl(from var(--clr-accent) h calc(s + 10) calc(l + 5));
+    color: hsl(from var(--clr-accent) h s calc(l + 5));
   }
 
   &:active {
-    color: hsl(from var(--clr-accent) h calc(s - 5) calc(l - 10));
+    color: hsl(from var(--clr-accent) h s calc(l - 10));
   }
 
   &:where(:not([href="#"]), [href="#"], [href="javascript:void(0)"]) {
@@ -227,17 +227,17 @@
   }
 
   &:hover {
-    background-color: hsl(from var(--background) h calc(s + 10) calc(l + 5));
+    background-color: hsl(from var(--background) h s calc(l + 5));
   }
 
   &:active {
-    background-color: hsl(from var(--background) h calc(s - 5) calc(l - 10));
+    background-color: hsl(from var(--background) h s calc(l - 10));
   }
 }
 
 :where(button[type="disabled"], button[disabled]) {
-  background-color: hsl(from var(--clr-background) h calc(s - 15) calc(l - 15));
-  color: hsl(from var(--clr-background) h calc(s - 30) calc(l - 35));
+  background-color: hsl(from var(--clr-background) h s calc(l - 15));
+  color: hsl(from var(--clr-background) h s calc(l - 35));
   cursor: auto;
   pointer-events: none;
 }
@@ -250,7 +250,7 @@
   font-size: inherit;
   height: 50px;
 
-  outline: solid 2px hsl(from var(--clr-background) h calc(s - 5) calc(l - 10));
+  outline: solid 2px hsl(from var(--clr-background) h s calc(l - 10));
   outline-offset: -2px;
   overflow: clip;
   padding: 0 var(--md, 15px);
@@ -268,8 +268,8 @@
 }
 
 :where(input[type="disabled"], input[disabled]) {
-  background-color: hsl(from var(--clr-background) h calc(s - 15) calc(l - 15));
-  color: hsl(from var(--clr-background) h calc(s - 30) calc(l - 35));
+  background-color: hsl(from var(--clr-background) h s calc(l - 15));
+  color: hsl(from var(--clr-background) h s calc(l - 35));
   cursor: auto;
   pointer-events: none;
 }
@@ -323,7 +323,6 @@
   --track-height: .5ex;
   --thumb-size: 3ex;
   --thumb-offset: -1.25ex;
-  --thumb-highlight-size: 0px;
 
   appearance: none;
   background: transparent;
@@ -334,7 +333,7 @@
 
   &::-webkit-slider-runnable-track {
     appearance: none;
-    background-color: hsl(from var(--clr-background) h calc(s - 5) calc(l - 10));
+    background-color: hsl(from var(--clr-background) h s calc(l - 10));
     block-size: var(--track-height);
     border-radius: 5ex;
     cursor: pointer;
@@ -366,7 +365,7 @@
 
   min-height: 75px;
 
-  outline: solid 2px hsl(from var(--clr-background) h calc(s - 5) calc(l - 10));
+  outline: solid 2px hsl(from var(--clr-background) h s calc(l - 10));
   outline-offset: -2px;
   overflow: clip;
   padding: var(--md, 15px);
@@ -387,7 +386,7 @@
   background-color: var(--clr-background);
   border-collapse: collapse;
   border-spacing: 0;
-  outline: solid 1px hsl(from var(--clr-background) h calc(s - 5) calc(l - 10));
+  outline: solid 1px hsl(from var(--clr-background) h s calc(l - 10));
   outline-offset: -1px;
   overflow-x: auto;
   position: relative;
@@ -418,7 +417,7 @@
   }
 
   :where(th, td) {
-    border: solid 1px hsl(from var(--clr-background) h calc(s - 5) calc(l - 10));
+    border: solid 1px hsl(from var(--clr-background) h s calc(l - 10));
     font: inherit;
     max-width: none;
     min-width: max-content;
@@ -435,12 +434,12 @@
   height: max-content;
   inset: 0;
   margin: auto;
-  outline: solid 2px hsl(from var(--clr-background) h calc(s - 5) calc(l - 10));
+  outline: solid 2px hsl(from var(--clr-background) h s calc(l - 10));
   outline-offset: -2px;
   position: absolute;
 
   &::backdrop {
-    background-color: hsla(from var(--clr-background) h calc(s - 50) calc(l - 75)/25%);
+    background-color: hsla(from var(--clr-background) h s calc(l - 75)/25%);
     backdrop-filter: blur(var(--xs, 5px));
   }
 }
