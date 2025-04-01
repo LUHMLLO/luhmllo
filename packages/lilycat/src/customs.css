@@ -1,5 +1,4 @@
-underlay {
-  container: underlay / inline-size;
+:where(x-overlay, x-underlay) {
   display: grid;
   height: 100dvh;
   top: 0;
@@ -10,5 +9,26 @@ underlay {
   margin: 0;
   position: fixed;
   width: 100dvw;
-  z-index: -1;
+}
+
+:where(x-overlay) {
+  container: overlay / block-size;
+  z-index: 100;
+}
+
+:where(x-underlay) {
+  container: underlay / block-size;
+  z-index: -100;
+}
+
+:where(x-grid) {
+  display: grid;
+}
+
+:where(x-flex) {
+  display: flex;
+}
+
+:where(x-block) {
+  display: block;
 }

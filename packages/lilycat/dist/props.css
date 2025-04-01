@@ -1,4 +1,1 @@
-:where([data-props~="--wrapper"]) {
-  display: contents;
-  isolation: isolate;
-}
+:where([data-props~="--wrapper"]){display:contents;isolation:isolate}

@@ -63,13 +63,13 @@ export default function Appbar() {
 
       <hr />
 
-      <cat-dropdown id="more">
+      <x-dropdown id="more">
         <summary slot="summary">
           <a href="javascript:void(0)">
             <i class="icon">more_horiz</i>
           </a>
         </summary>
-      </cat-dropdown>
+      </x-dropdown>
 
       <hr />
 

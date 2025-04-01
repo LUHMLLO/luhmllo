@@ -1,14 +1,1 @@
-underlay {
-  bottom: 0;
-  container: underlay/inline-size;
-  display: grid;
-  height: 100dvh;
-  isolation: isolate;
-  left: 0;
-  margin: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 100dvw;
-  z-index: -1;
-}
+:where(x-overlay,x-underlay){bottom:0;display:grid;height:100dvh;isolation:isolate;left:0;margin:0;position:fixed;right:0;top:0;width:100dvw}:where(x-overlay){container:overlay/block-size;z-index:100}:where(x-underlay){container:underlay/block-size;z-index:-100}:where(x-grid){display:grid}:where(x-flex){display:flex}:where(x-block){display:block}

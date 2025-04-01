@@ -45,7 +45,7 @@ export default function Page() {
                 </div>
               </div>
               <aside className="shrink-0">
-                <cat-dropdown>
+                <x-dropdown>
                   <summary slot="summary">
                     <span className="icon">
                       more_horiz
@@ -63,7 +63,7 @@ export default function Page() {
                   <button type="button">
                     option
                   </button>
-                </cat-dropdown>
+                </x-dropdown>
               </aside>
             </article>
 

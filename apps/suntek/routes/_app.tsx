@@ -70,7 +70,9 @@ export default function App({ Component, url }: PageProps) {
         <main id="app">
           <Appbar />
           <Component />
-          <PaneNotifications />
+          <x-overlay>
+            <PaneNotifications />
+          </x-overlay>
         </main>
         <script type="module" src={asset("/vendors/dropdown.min.js")} />
       </body>

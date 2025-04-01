@@ -1,6 +1,7 @@
 import { asset } from "$fresh/runtime.ts";
 import { type PageProps } from "$fresh/server.ts";
 import {
+  customs,
   icons,
   normalize,
   props,
@@ -38,7 +39,7 @@ export default function App({ Component, url }: PageProps) {
           lang="css"
           // deno-lint-ignore react-no-danger
           dangerouslySetInnerHTML={{
-            __html: `${tokens}${reset}${normalize}${icons}${props}`,
+            __html: `${tokens}${reset}${normalize}${icons}${props}${customs}`,
           }}
         />
 

@@ -84,7 +84,7 @@ if (typeof window !== "undefined") {
       }
 
       [part="dropmenu"] {
-        background-color: var(--clr-surface);
+        background-color: var(--clr-background);
         display: flex;
         flex-direction: column;
         height: calc-size(max-content, size);
@@ -93,7 +93,7 @@ if (typeof window !== "undefined") {
         max-width: calc(100dvw - var(--md, 15px));
         min-height: 0;
         min-width: 0;
-        outline: solid hsl(from var(--clr-surface) h s calc(l + 10));
+        outline: solid hsl(from var(--clr-background) h s calc(l + 5));
         overflow-x: clip;
         overflow-y: auto;
         padding: var(--xs, 5px);
@@ -249,5 +249,5 @@ if (typeof window !== "undefined") {
     }
   }
 
-  customElements.define("cat-dropdown", Dropdown);
+  customElements.define("x-dropdown", Dropdown);
 }

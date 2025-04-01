@@ -8,8 +8,8 @@ export default function NotificationsPane() {
       <div className="place-items-center flex h-[50px] gap-xs px-md">
         <p>Notifications</p>
         <button
+          className="contents"
           type="button"
-          data-props="--wrapper"
           onClick={() => (isNotificationsPaneActive.value = false)}
         >
           <i className="icon">close_small</i>
