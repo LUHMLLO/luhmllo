@@ -20,7 +20,6 @@ import * as $el_select from "./routes/el/select.tsx";
 import * as $el_table from "./routes/el/table.tsx";
 import * as $el_textarea from "./routes/el/textarea.tsx";
 import * as $index from "./routes/index.tsx";
-import * as $legacytags from "./routes/legacytags.tsx";
 
 import type { Manifest } from "$fresh/server.ts";
 
@@ -44,7 +43,6 @@ const manifest = {
     "./routes/el/table.tsx": $el_table,
     "./routes/el/textarea.tsx": $el_textarea,
     "./routes/index.tsx": $index,
-    "./routes/legacytags.tsx": $legacytags,
   },
   islands: {},
   baseUrl: import.meta.url,
