@@ -1,5 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { getSession } from "$lib/functions/session.ts";
+import { getSession } from "#lib/functions/session.ts";
 
 export const handler: Handlers = {
   GET(req, ctx) {

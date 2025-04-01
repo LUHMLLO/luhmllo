@@ -5,7 +5,17 @@
 
   background-attachment: fixed;
   background-blend-mode: difference;
-  background-image: linear-gradient(to right, var(--grid-line-color) var(--grid-line-width), transparent var(--grid-line-width)), linear-gradient(to bottom, var(--grid-line-color) var(--grid-line-width), transparent var(--grid-line-width));
+  background-image:
+    linear-gradient(
+      to right,
+      var(--grid-line-color) var(--grid-line-width),
+      transparent var(--grid-line-width)
+    ),
+    linear-gradient(
+    to bottom,
+    var(--grid-line-color) var(--grid-line-width),
+    transparent var(--grid-line-width)
+  );
   background-position: center;
   background-size: var(--grid-size) var(--grid-size);
 }

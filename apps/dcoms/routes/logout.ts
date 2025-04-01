@@ -1,5 +1,5 @@
 import { Handlers } from "$fresh/server.ts";
-import { destroySession } from "$lib/functions/session.ts";
+import { destroySession } from "#lib/functions/session.ts";
 
 export const handler: Handlers = {
   POST() {

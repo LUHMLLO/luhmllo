@@ -1,0 +1,14 @@
+underlay {
+  container: underlay / inline-size;
+  display: grid;
+  height: 100dvh;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  isolation: isolate;
+  margin: 0;
+  position: fixed;
+  width: 100dvw;
+  z-index: -1;
+}

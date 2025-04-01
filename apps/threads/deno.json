@@ -1,5 +1,8 @@
 {
-  "lock": false,
+  "name": "@luhmllo:apps/threads",
+  "exports": {
+    ".": "./"
+  },
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
     "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
@@ -20,14 +23,12 @@
   "exclude": [
     "**/_fresh/*"
   ],
-  "nodeModulesDir": "auto",
   "imports": {
+    "#components/": "./components/",
+    "#islands/": "./islands/",
+    "#lib/": "./lib/",
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",
     "$std/": "https://deno.land/std@0.216.0/",
-    "$components/": "./components/",
-    "$islands/": "./islands/",
-    "$lib/": "./lib/",
-    "@lilycat": "../../packages/lilycat/dist/mod.ts",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
     "@std/fs": "jsr:@std/fs@^1.0.4",

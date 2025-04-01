@@ -14,8 +14,6 @@
   "homepage": "https://github.com/LUHMLLO/lilycat",
   "license": "MIT",
   "exports": "./dist/mod.ts",
-  "lock": false,
-  "nodeModulesDir": "auto",
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
     "build": "deno run -A ./build.ts",

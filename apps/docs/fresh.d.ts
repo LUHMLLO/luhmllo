@@ -58,6 +58,7 @@ declare module "preact" {
       };
 
       // Additional Custom Elements (if needed)
+      "underlay": JSX.HTMLAttributes<HTMLElement>;
       "cat-dropdown": JSX.HTMLAttributes<HTMLElement>;
       "ly-flex": JSX.HTMLAttributes<HTMLElement>;
     }

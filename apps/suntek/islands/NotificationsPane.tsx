@@ -1,4 +1,4 @@
-import { isNotificationsPaneActive } from "$lib/stores/notificationsPane.ts";
+import { isNotificationsPaneActive } from "#lib/stores/notificationsPane.ts";
 
 export default function NotificationsPane() {
   if (!isNotificationsPaneActive.value) return null;

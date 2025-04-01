@@ -1,0 +1,38 @@
+{
+  "lock": false,
+  "nodeModulesDir": "auto",
+  "workspace": [
+    "./apps/dcoms",
+    "./apps/docs",
+    "./apps/suntek",
+    "./apps/threads",
+    "./packages/lilycat",
+    "./packages/plugins",
+    "./packages/webcomponents"
+  ],
+  "tasks": {
+    "start:dcoms": "deno run -A --watch=apps/dcoms/static/,apps/dcoms/routes/ apps/dcoms/dev.ts",
+    "build:dcoms": "deno run -A apps/dcoms/dev.ts build",
+    "preview:dcoms": "deno run -A apps/dcoms/main.ts",
+    "start:docs": "deno run -A --watch=apps/docs/static/,apps/docs/routes/ apps/docs/dev.ts",
+    "build:docs": "deno run -A apps/docs/dev.ts build",
+    "preview:docs": "deno run -A apps/docs/main.ts",
+    "start:suntek": "deno run -A --watch=apps/suntek/static/,apps/suntek/routes/ apps/suntek/dev.ts",
+    "build:suntek": "deno run -A apps/suntek/dev.ts build",
+    "preview:suntek": "deno run -A apps/suntek/main.ts",
+    "start:threads": "deno run -A --watch=apps/threads/static/,apps/threads/routes/ apps/threads/dev.ts",
+    "build:threads": "deno run -A apps/threads/dev.ts build",
+    "preview:threads": "deno run -A apps/threads/main.ts",
+    "build:lilycat": "deno run -A packages/lilycat/build.ts",
+    "build:plugins": "deno run -A packages/plugins/build.ts",
+    "build:webcomponents": "deno run -A packages/webcomponents/build.ts"
+  },
+  "imports": {
+    "@luhmllo:packages/lilycat": "./packages/lilycat/dist/mod.ts",
+    "preact": "https://esm.sh/preact@10.22.0",
+    "preact/": "https://esm.sh/preact@10.22.0/",
+    "tailwindcss": "npm:tailwindcss@3.4.1",
+    "tailwindcss/": "npm:/tailwindcss@3.4.1/",
+    "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js"
+  }
+}

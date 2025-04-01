@@ -1,8 +1,14 @@
 import { asset } from "$fresh/runtime.ts";
 import { type PageProps } from "$fresh/server.ts";
-import { icons, normalize, props, reset, tokens } from "@lilycat";
-import Appbar from "$islands/Appbar.tsx";
-import PaneNotifications from "$islands/NotificationsPane.tsx";
+import {
+  icons,
+  normalize,
+  props,
+  reset,
+  tokens,
+} from "@luhmllo:packages/lilycat";
+import Appbar from "#islands/Appbar.tsx";
+import PaneNotifications from "#islands/NotificationsPane.tsx";
 
 export default function App({ Component, url }: PageProps) {
   const canonicalUrl = new URL(url.pathname, url.origin).href;

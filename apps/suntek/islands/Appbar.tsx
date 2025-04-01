@@ -1,7 +1,7 @@
 import { asset } from "$fresh/runtime.ts";
 import { useEffect, useRef } from "preact/hooks";
-import { isNotificationsPaneActive } from "$lib/stores/notificationsPane.ts";
-import { handleResize } from "$lib/functions/handleResize.ts";
+import { isNotificationsPaneActive } from "#lib/stores/notificationsPane.ts";
+import { handleResize } from "#lib/functions/handleResize.ts";
 
 export default function Appbar() {
   const menuRef = useRef<HTMLElement | null>(null);
