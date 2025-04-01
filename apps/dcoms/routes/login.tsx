@@ -1,5 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { createSession, setSessionCookie } from "$lib/session.ts";
+import { createSession, setSessionCookie } from "$lib/functions/session.ts";
 
 export const handler: Handlers = {
   async POST(req) {
