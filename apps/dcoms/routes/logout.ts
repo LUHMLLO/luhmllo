@@ -5,7 +5,7 @@ export const handler: Handlers = {
   POST() {
     const headers = new Headers();
     destroySession(headers);
-    headers.set("Location", "/login"); // Redirect after logout
+    headers.set("Location", "/"); // Redirect after logout
     return new Response(null, { status: 302, headers });
   },
 };

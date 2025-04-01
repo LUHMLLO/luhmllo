@@ -40,7 +40,7 @@
 :where(html) {
   display: contents;
   font-family: sans-serif;
-  font-size: clamp(var(--md), 100% + 1rem, var(--nm));
+  font-size: clamp(15px, 100% - 3ex, 20px);
   font-variant-numeric: tabular-nums;
   hanging-punctuation: first last;
   letter-spacing: -0.03em;

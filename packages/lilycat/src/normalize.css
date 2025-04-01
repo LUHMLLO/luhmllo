@@ -12,7 +12,7 @@
   /* Form elements */
   form, fieldset, legend, label, button, input, select, textarea, optgroup, option) {
   font-family: inherit;
-  font-weight: 300;
+  font-weight: 400;
   overflow-wrap: break-word;
   text-overflow: ellipsis;
   word-break: break-word;
@@ -115,13 +115,13 @@
 }
 
 :where(dd) {
-  font-weight: 300;
+  font-weight: 400;
   padding-left: 0.5em;
 }
 
 :where(h1, h2, h3, h4, h5, h6) {
   color: hsl(from var(--clr-text) h s calc(l + 10));
-  line-height: clamp(100%, 115%, 125%);
+  line-height: 1.5em;
   text-wrap: balance;
 }
 
@@ -208,7 +208,7 @@
   display: inline-flex;
   font-size: inherit;
   gap: var(--xs, 5px);
-  height: 50px;
+  height: 45px;
 
   outline: solid 2px transparent;
   outline-offset: -4px;

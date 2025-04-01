@@ -7,7 +7,7 @@ export const handler: Handlers = {
     if (!session) {
       return new Response(null, {
         status: 302,
-        headers: { Location: "/login" }, // Redirect to login if no session
+        headers: { Location: "/" }, // Redirect to login if no session
       });
     }
     return ctx.render({ username: atob(session).split(":")[0] });

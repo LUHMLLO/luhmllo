@@ -19,7 +19,7 @@ export default function App({ Component, url }: PageProps) {
         <meta charset="utf-8" />
         <meta
           name="description"
-          content="suntek crm"
+          content="silklead crm by suntek"
         />
         <meta
           name="viewport"
@@ -34,7 +34,7 @@ export default function App({ Component, url }: PageProps) {
           href={asset("/media/suntek.png")}
         />
 
-        <title>lilys</title>
+        <title>silklead by suntek</title>
 
         <style
           lang="css"

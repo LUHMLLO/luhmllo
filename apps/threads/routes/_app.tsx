@@ -19,7 +19,7 @@ export default function App({ Component, url }: PageProps) {
         <meta charset="utf-8" />
         <meta
           name="description"
-          content="lilys desing system and ui kit"
+          content="threads clone"
         />
         <meta
           name="viewport"
@@ -34,7 +34,7 @@ export default function App({ Component, url }: PageProps) {
           href={asset("/media/logo.svg")}
         />
 
-        <title>lilys</title>
+        <title>threads</title>
 
         <style
           lang="css"

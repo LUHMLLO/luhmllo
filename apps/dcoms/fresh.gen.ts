@@ -10,7 +10,6 @@ import * as $app_packages from "./routes/app/packages.tsx";
 import * as $app_prices from "./routes/app/prices.tsx";
 import * as $app_users from "./routes/app/users.tsx";
 import * as $index from "./routes/index.tsx";
-import * as $login from "./routes/login.tsx";
 import * as $logout from "./routes/logout.ts";
 
 import type { Manifest } from "$fresh/server.ts";
@@ -25,7 +24,6 @@ const manifest = {
     "./routes/app/prices.tsx": $app_prices,
     "./routes/app/users.tsx": $app_users,
     "./routes/index.tsx": $index,
-    "./routes/login.tsx": $login,
     "./routes/logout.ts": $logout,
   },
   islands: {},
