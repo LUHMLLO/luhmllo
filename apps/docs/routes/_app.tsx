@@ -56,7 +56,6 @@ export default function App({ Component, url }: PageProps) {
       </head>
       <body>
         <Component />
-        <script type="module" src={asset("/vendors/dropdown.min.js")} />
       </body>
     </html>
   );

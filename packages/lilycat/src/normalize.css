@@ -238,6 +238,13 @@
   }
 }
 
+:where(button[type="disabled"], button[disabled]) {
+  background-color: hsl(from var(--clr-background) h calc(s - 15) calc(l - 15));
+  color: hsl(from var(--clr-background) h calc(s - 30) calc(l - 35));
+  cursor: auto;
+  pointer-events: none;
+}
+
 :where(input) {
   background-color: var(--clr-background);
   border-radius: var(--xs, 5px);
@@ -269,6 +276,7 @@
   background-color: hsl(from var(--clr-background) h calc(s - 15) calc(l - 15));
   color: hsl(from var(--clr-background) h calc(s - 30) calc(l - 35));
   cursor: auto;
+  pointer-events: none;
 }
 
 :where(input[type="color"]) {
