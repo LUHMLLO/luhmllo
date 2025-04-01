@@ -429,3 +429,18 @@
     width: auto;
   }
 }
+
+:where(dialog) {
+  background-color: var(--clr-background);
+  height: max-content;
+  inset: 0;
+  margin: auto;
+  outline: solid 2px hsl(from var(--clr-background) h calc(s - 5) calc(l - 10));
+  outline-offset: -2px;
+  position: absolute;
+
+  &::backdrop {
+    background-color: hsla(from var(--clr-background) h calc(s - 50) calc(l - 75)/25%);
+    backdrop-filter: blur(var(--xs, 5px));
+  }
+}
