@@ -6,7 +6,7 @@ import {
   props,
   reset,
   tokens,
-} from "@luhmllo:packages/lilycat";
+} from "../../../packages/lilycat/dist/mod.ts";
 import Appbar from "#islands/Appbar.tsx";
 import PaneNotifications from "#islands/NotificationsPane.tsx";
 
