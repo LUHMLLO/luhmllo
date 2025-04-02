@@ -41,7 +41,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "lilys"
-          entrypoint: "apps/docs/main.ts"
+          entrypoint: "main.ts"
           root: "apps/docs"
 
   deploy-suntek:
@@ -78,5 +78,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "suntek"
-          entrypoint: "apps/suntek/main.ts"
+          entrypoint: "main.ts"
           root: "apps/suntek"
