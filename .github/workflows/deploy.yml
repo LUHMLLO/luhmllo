@@ -41,5 +41,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "lilys"
-          entrypoint: "main.ts"
-          root: "./docs/"
+          entrypoint: "docs/main.ts"
+          root: "./"
