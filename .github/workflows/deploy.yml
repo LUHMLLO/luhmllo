@@ -30,7 +30,7 @@ jobs:
           node-version: lts/*
 
       - name: Cache dependencies
-        run: deno cache main.ts
+        run: deno cache --import-map=../../deno.json main.ts
         working-directory: apps/docs
 
       - name: Build Project
@@ -41,8 +41,9 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "lilys"
-          entrypoint: "apps/docs/main.ts"
+          entrypoint: "./apps/docs/main.ts"
           root: "."
+          import-map: "./deno.json"
 
   deploy-suntek:
     name: Deploy Suntek
@@ -67,7 +68,7 @@ jobs:
           node-version: lts/*
 
       - name: Cache dependencies
-        run: deno cache main.ts
+        run: deno cache --import-map=../../deno.json main.ts
         working-directory: apps/suntek
 
       - name: Build Project
@@ -78,5 +79,6 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "suntek"
-          entrypoint: "apps/suntek/main.ts"
+          entrypoint: "./apps/suntek/main.ts"
           root: "."
+          import-map: "./deno.json"
