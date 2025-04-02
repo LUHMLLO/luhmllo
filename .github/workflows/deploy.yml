@@ -41,7 +41,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "lilys"
-          entrypoint: "./apps/docs/main.ts"
+          entrypoint: "apps/docs/main.ts"
           root: "."
           import-map: "./deno.json"
 
@@ -79,6 +79,6 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "suntek"
-          entrypoint: "./apps/suntek/main.ts"
+          entrypoint: "apps/suntek/main.ts"
           root: "."
           import-map: "./deno.json"
