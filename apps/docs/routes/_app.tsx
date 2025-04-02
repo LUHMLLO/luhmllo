@@ -7,7 +7,7 @@ import {
   props,
   reset,
   tokens,
-} from "../../packages/lilycat/dist/mod.ts";
+} from "../../../packages/lilycat/dist/mod.ts";
 
 export default function App({ Component, url }: PageProps) {
   const canonicalUrl = new URL(url.pathname, url.origin).href;
