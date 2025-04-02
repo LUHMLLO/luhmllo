@@ -1,0 +1,12 @@
+{
+  "lock": false,
+  "nodeModulesDir": "auto",
+  "name": "@luhmllo/drag2scroll",
+  "exports": {
+    ".": "./dist"
+  },
+  "tasks": {
+    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "build": "deno run -A ./build.ts"
+  }
+}

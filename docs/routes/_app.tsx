@@ -7,7 +7,7 @@ import {
   props,
   reset,
   tokens,
-} from "../../../packages/lilycat/dist/mod.ts";
+} from "../../css/dist/mod.ts";
 
 export default function App({ Component, url }: PageProps) {
   const canonicalUrl = new URL(url.pathname, url.origin).href;
@@ -39,7 +39,13 @@ export default function App({ Component, url }: PageProps) {
           lang="css"
           // deno-lint-ignore react-no-danger
           dangerouslySetInnerHTML={{
-            __html: `${tokens}${reset}${normalize}${icons}${props}${customs}`,
+            __html: `
+            ${tokens}
+            ${reset}
+            ${normalize}
+            ${customs}
+            ${icons}
+            ${props}`,
           }}
         />
 
