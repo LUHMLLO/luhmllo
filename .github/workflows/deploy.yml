@@ -31,15 +31,15 @@ jobs:
 
       - name: Cache dependencies
         run: deno cache main.ts
-        working-directory: docs
+        working-directory: apps/docs
 
       - name: Build Project
         run: deno task build
-        working-directory: docs
+        working-directory: apps/docs
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "lilys"
-          entrypoint: "docs/main.ts"
+          entrypoint: "apps/docs/main.ts"
           root: "./"
