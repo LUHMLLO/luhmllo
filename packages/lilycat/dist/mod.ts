@@ -18,7 +18,7 @@ export const icons: string = `:is(.icon,.material-symbols-outlined,.material-sym
 * @type {string}
 * @returns {string} Minified CSS ready for injection
 */
-export const customs: string = `:where(x-overlay,x-underlay){bottom:0;display:grid;height:100dvh;isolation:isolate;left:0;margin:0;position:fixed;right:0;top:0;width:100dvw}:where(x-overlay){container:overlay/block-size;z-index:100}:where(x-underlay){container:underlay/block-size;z-index:-100}:where(x-grid){display:grid}:where(x-flex){display:flex}:where(x-block){display:block}`;
+export const customs: string = `:where(x-surlayer,x-sublayer){bottom:0;display:grid;height:100dvh;isolation:isolate;left:0;margin:0;position:fixed;right:0;top:0;visibility:hidden;width:100dvw}:where(x-surlayer,x-sublayer)>*{visibility:visible}:where(x-sublayer){container:sublayer/size;z-index:-100}:where(x-surlayer){container:surlayer/size;z-index:100}:where(x-grid){display:grid}:where(x-flex,x-row){display:flex}:where(x-wrap){display:flex;flex-wrap:wrap}:where(x-col,x-column,x-group,x-stack){display:flex;flex-direction:column}:where(x-block){display:block}`;
 /**
 * Provides minified CSS as a string constant.
 * @type {string}
