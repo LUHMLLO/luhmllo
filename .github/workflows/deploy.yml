@@ -30,7 +30,7 @@ jobs:
           node-version: lts/*
 
       - name: Cache dependencies
-        run: deno cache --import-map=../../deno.json main.ts
+        run: deno cache main.ts
         working-directory: apps/docs
 
       - name: Build Project
@@ -67,7 +67,7 @@ jobs:
           node-version: lts/*
 
       - name: Cache dependencies
-        run: deno cache --import-map=../../deno.json main.ts
+        run: deno cache main.ts
         working-directory: apps/suntek
 
       - name: Build Project
