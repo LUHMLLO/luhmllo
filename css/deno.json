@@ -2,8 +2,8 @@
   "lock": false,
   "nodeModulesDir": "auto",
   "name": "@luhmllo/lilycat",
-  "version": "0.1.20",
-  "description": "A modern, lightweight CSS library and UI kit for simplifying frontend development with elegant, native HTML-based components",
+  "version": "0.1.21",
+  "description": "A minimalist CSS library that keeps HTML clean and styling efficient, embracing the power of native CSS while avoiding utility class bloat.",
   "keywords": [
     "css",
     "ui-kit",
@@ -11,7 +11,12 @@
     "frontend",
     "styling",
     "tokens",
-    "components"
+    "components",
+    "minimalist",
+    "clean-html",
+    "utility-css",
+    "native-css",
+    "opinionated"
   ],
   "homepage": "https://github.com/LUHMLLO/lilycat",
   "license": "MIT",
@@ -25,10 +30,8 @@
     "dist/*"
   ],
   "exclude": [
-    "./.old",
     "./node_modules",
     "./src",
-    "./build.ts",
-    "./publish.ts"
+    "./build.ts"
   ]
 }
