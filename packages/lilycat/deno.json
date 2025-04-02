@@ -1,6 +1,8 @@
 {
+  "lock": false,
+  "nodeModulesDir": "auto",
   "name": "@luhmllo/lilycat",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "description": "A modern, lightweight CSS library and UI kit for simplifying frontend development with elegant, native HTML-based components",
   "keywords": [
     "css",

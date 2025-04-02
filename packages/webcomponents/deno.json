@@ -1,4 +1,6 @@
 {
+  "lock": false,
+  "nodeModulesDir": "auto",
   "name": "@luhmllo/webcomponents",
   "exports": {
     ".": "./dist"
