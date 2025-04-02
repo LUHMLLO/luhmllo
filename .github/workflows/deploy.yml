@@ -43,6 +43,7 @@ jobs:
           project: "lilys"
           entrypoint: "main.ts"
           root: "apps/docs"
+          import-map: "deno.json"
 
   deploy-suntek:
     name: Deploy Suntek
@@ -80,3 +81,4 @@ jobs:
           project: "suntek"
           entrypoint: "main.ts"
           root: "apps/suntek"
+          import-map: "deno.json"
