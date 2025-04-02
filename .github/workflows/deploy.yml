@@ -7,7 +7,7 @@ on:
     branches: ["main"]
 
 jobs:
-  deploy-docs:
+  deploy:
     name: Deploy Docs
     runs-on: ubuntu-latest
 
@@ -31,52 +31,15 @@ jobs:
 
       - name: Cache dependencies
         run: deno cache main.ts
-        working-directory: apps/docs
+        working-directory: docs
 
       - name: Build Project
         run: deno task build
-        working-directory: apps/docs
+        working-directory: docs
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "lilys"
-          entrypoint: "apps/docs/main.ts"
-          root: "."
-
-  deploy-suntek:
-    name: Deploy Suntek
-    runs-on: ubuntu-latest
-
-    permissions:
-      id-token: write # Needed for auth with Deno Deploy
-      contents: read # Needed to clone the repository
-
-    steps:
-      - name: Clone repository
-        uses: actions/checkout@v4
-
-      - name: Install Deno
-        uses: denoland/setup-deno@v2
-        with:
-          deno-version: 2.x
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-
-      - name: Cache dependencies
-        run: deno cache main.ts
-        working-directory: apps/suntek
-
-      - name: Build Project
-        run: deno task build
-        working-directory: apps/suntek
-
-      - name: Upload to Deno Deploy
-        uses: denoland/deployctl@v1
-        with:
-          project: "suntek"
-          entrypoint: "apps/suntek/main.ts"
-          root: "."
+          entrypoint: "main.ts"
+          root: "./docs/"
