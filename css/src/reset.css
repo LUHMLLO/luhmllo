@@ -38,6 +38,7 @@
 }
 
 :where(html) {
+  color-scheme: dark light;
   display: contents;
   font-family: sans-serif;
   font-size: clamp(15px, 100% - 3ex, 20px);
