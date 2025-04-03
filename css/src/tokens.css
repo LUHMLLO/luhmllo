@@ -1,32 +1,32 @@
 /* colors */
-@property --clr-text {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(21, 50%, 5%);
-}
-
 @property --clr-background {
   syntax: "<color>";
   inherits: true;
-  initial-value: hsl(24, 56%, 98%);
+  initial-value: hsl(0deg, 0%, 5%);
+}
+
+@property --clr-text {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg, 0%, 95%);
 }
 
 @property --clr-primary {
   syntax: "<color>";
   inherits: true;
-  initial-value: hsl(21, 63%, 50%);
+  initial-value: hsl(0deg, 0%, 10%);
 }
 
 @property --clr-secondary {
   syntax: "<color>";
   inherits: true;
-  initial-value: hsl(21, 72%, 72%);
+  initial-value: hsl(0deg, 0%, 15%);
 }
 
 @property --clr-accent {
   syntax: "<color>";
   inherits: true;
-  initial-value: hsl(21, 80%, 62%);
+  initial-value: hsl(255, 55%, 70%);
 }
 
 @property --clr-debug {
@@ -57,6 +57,19 @@
   syntax: "<color>";
   inherits: true;
   initial-value: hsl(50deg, 50%, 50%);
+}
+
+/* color modulation amounts */
+@property --ratio-backgrounds {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 1.618;
+}
+
+@property --ratio-texts {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 3.618;
 }
 
 /* sizing */

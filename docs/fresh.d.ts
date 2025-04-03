@@ -58,6 +58,7 @@ declare module "preact" {
       };
 
       // Additional Custom Elements (if needed)
+      "x-card": JSX.HTMLAttributes<HTMLElement>;
       "x-surlayer": JSX.HTMLAttributes<HTMLElement>;
       "x-sublayer": JSX.HTMLAttributes<HTMLElement>;
       "x-grid": JSX.HTMLAttributes<HTMLElement>;

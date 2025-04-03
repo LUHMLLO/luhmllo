@@ -1,3 +1,4 @@
+/* general text handling */
 :where(
 
   /* Headings */
@@ -12,18 +13,24 @@
   /* Form elements */
   form, fieldset, legend, label, button, input, select, textarea, optgroup, option) {
   font-family: inherit;
-  font-weight: 400;
+  font-weight: normal;
   overflow-wrap: break-word;
   text-overflow: ellipsis;
+  text-wrap: pretty;
   word-break: break-word;
 }
 
+/* general block */
 :where(article, aside, details, figcaption, footer, header, hgroup, menu, section) {
   display: block;
 }
 
+:where(nav) {
+  display: flex;
+}
+
 :where(hr) {
-  background-color: hsl(from var(--clr-background) h s calc(l + 5));
+  background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-backgrounds)));
   flex: 0 0 1px;
   height: 1px;
   width: 100%;
@@ -33,10 +40,7 @@
   background-color: var(--clr-warning);
 }
 
-:where(nav) {
-  display: flex;
-}
-
+/* media */
 :where(audio, canvas, figure, iframe, img, video) {
   display: inline-block;
   width: fit-content;
@@ -56,11 +60,13 @@
   object-fit: cover;
 }
 
+/* meter & progress */
 :where(meter, progress) {
   display: inline-block;
   height: 35px;
 }
 
+/* code and pre wrapping */
 :where(code, pre) {
   display: inline-block;
   overflow-x: auto;
@@ -78,21 +84,20 @@
   white-space-collapse: preserve-breaks;
 }
 
+/* quotes */
 :where(blockquote) {
   border-left: solid var(--xs, 5px);
   margin: min(5%, var(--sm, 10px));
   padding: min(5%, var(--sm, 10px));
 }
 
-:where(caption, figcaption, li, p, span, div) {
-  text-wrap: pretty;
-}
-
+/* general clickable items */
 :where(a, area, button, input, label, select, summary, textarea) {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
 }
 
+/* organized & unorganized lists */
 :where(ul,
   ol) {
   list-style-position: inside;
@@ -105,22 +110,23 @@
   }
 }
 
+/* description list */
 :where(dl) {
   display: block;
 }
 
 :where(dt) {
-  color: hsl(from var(--clr-text) h s calc(l + 10));
-  font-weight: 600;
+  color: hsl(from var(--clr-text) h s calc(l + var(--ratio-texts)));
 }
 
 :where(dd) {
-  font-weight: 400;
   padding-left: 0.5em;
 }
 
+/* headings */
 :where(h1, h2, h3, h4, h5, h6) {
-  color: hsl(from var(--clr-text) h s calc(l + 10));
+  color: hsl(from var(--clr-text) h s calc(l + var(--ratio-texts)));
+  font-weight: medium;
   line-height: 1.5em;
   text-wrap: balance;
 }
@@ -157,6 +163,7 @@
   cursor: pointer;
 }
 
+/* links */
 :where(a) {
   align-items: center;
   color: var(--clr-accent);
@@ -168,11 +175,10 @@
   transition-duration: var(--animDuration);
   transition-timing-function: var(--animTiming);
   text-decoration-thickness: from-font;
-  /* vertical-align: middle; */
   width: fit-content;
 
   &:visited:not(:focus-visible, :hover, :active) {
-    color: hsl(from var(--clr-accent) h s calc(l - 30));
+    color: hsl(from var(--clr-accent) h calc(s - 15.618) calc(l - 15.618));
   }
 
   &:focus-visible {
@@ -182,11 +188,11 @@
   }
 
   &:hover {
-    color: hsl(from var(--clr-accent) h s calc(l + 5));
+    color: hsl(from var(--clr-accent) h s calc(l + var(--ratio-texts)));
   }
 
   &:active {
-    color: hsl(from var(--clr-accent) h s calc(l - 10));
+    color: hsl(from var(--clr-accent) h s calc(l - var(--ratio-texts)));
   }
 
   &:where(:not([href="#"]), [href="#"], [href="javascript:void(0)"]) {
@@ -198,6 +204,7 @@
   }
 }
 
+/* buttons */
 :where(button) {
   --background: var(--clr-primary);
 
@@ -227,21 +234,23 @@
   }
 
   &:hover {
-    background-color: hsl(from var(--background) h s calc(l + 5));
+    background-color: hsl(from var(--background) h s calc(l + var(--ratio-backgrounds)));
   }
 
   &:active {
-    background-color: hsl(from var(--background) h s calc(l - 10));
+    background-color: hsl(from var(--background) h s calc(l - var(--ratio-backgrounds)));
   }
 }
 
 :where(button[type="disabled"], button[disabled]) {
-  background-color: hsl(from var(--clr-background) h s calc(l - 15));
-  color: hsl(from var(--clr-background) h s calc(l - 35));
+  background-color: hsl(from color-mix(in hsl, var(--clr-background) 90%, hsl(0deg, 0%, 50%)) h s calc(l - var(--ratio-backgrounds)));
+  color: hsl(from color-mix(in hsl, var(--clr-text) 10%, hsl(0deg, 0%, 50%)) h s calc(l - var(--ratio-texts)));
   cursor: auto;
+  isolation: isolate;
   pointer-events: none;
 }
 
+/* inputs */
 :where(input) {
   background-color: var(--clr-background);
   border-radius: var(--xs, 5px);
@@ -250,7 +259,7 @@
   font-size: inherit;
   height: 50px;
 
-  outline: solid 2px hsl(from var(--clr-background) h s calc(l - 10));
+  outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
   outline-offset: -2px;
   overflow: clip;
   padding: 0 var(--md, 15px);
@@ -268,9 +277,11 @@
 }
 
 :where(input[type="disabled"], input[disabled]) {
-  background-color: hsl(from var(--clr-background) h s calc(l - 15));
-  color: hsl(from var(--clr-background) h s calc(l - 35));
+  background-color: hsl(from color-mix(in hsl, var(--clr-background) 90%, hsl(0deg, 0%, 50%)) h s calc(l - var(--ratio-backgrounds)));
+  color: hsl(from color-mix(in hsl, var(--clr-text) 10%, hsl(0deg, 0%, 50%)) h s calc(l - var(--ratio-texts)));
   cursor: auto;
+  isolation: isolate;
+  outline-color: transparent;
   pointer-events: none;
 }
 
@@ -333,7 +344,7 @@
 
   &::-webkit-slider-runnable-track {
     appearance: none;
-    background-color: hsl(from var(--clr-background) h s calc(l - 10));
+    background-color: hsl(from var(--clr-background) h s calc(l - var(--ratio-backgrounds)));
     block-size: var(--track-height);
     border-radius: 5ex;
     cursor: pointer;
@@ -351,6 +362,7 @@
   }
 }
 
+/* textarea */
 :where(textarea) {
   background-color: var(--clr-background);
   border-radius: var(--xs, 5px);
@@ -365,7 +377,7 @@
 
   min-height: 75px;
 
-  outline: solid 2px hsl(from var(--clr-background) h s calc(l - 10));
+  outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
   outline-offset: -2px;
   overflow: clip;
   padding: var(--md, 15px);
@@ -381,13 +393,14 @@
   }
 }
 
+/* table */
 :where(table) {
   display: block;
   background-color: var(--clr-background);
   border-collapse: collapse;
   border-spacing: 0;
-  outline: solid 1px hsl(from var(--clr-background) h s calc(l - 10));
-  outline-offset: -1px;
+  outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
+  outline-offset: -2px;
   overflow-x: auto;
   position: relative;
   table-layout: auto;
@@ -417,7 +430,7 @@
   }
 
   :where(th, td) {
-    border: solid 1px hsl(from var(--clr-background) h s calc(l - 10));
+    border: solid 1px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
     font: inherit;
     max-width: none;
     min-width: max-content;
@@ -429,17 +442,18 @@
   }
 }
 
+/* dialog */
 :where(dialog) {
   background-color: var(--clr-background);
   height: max-content;
   inset: 0;
   margin: auto;
-  outline: solid 2px hsl(from var(--clr-background) h s calc(l - 10));
+  outline: solid 2px hsl(from var(--clr-background) h s calc(l - var(--ratio-texts)));
   outline-offset: -2px;
   position: absolute;
 
   &::backdrop {
-    background-color: hsla(from var(--clr-background) h s calc(l - 75)/25%);
+    background-color: hsla(from var(--clr-background) h s calc(l - var(--ratio-backgrounds))/25%);
     backdrop-filter: blur(var(--xs, 5px));
   }
 }

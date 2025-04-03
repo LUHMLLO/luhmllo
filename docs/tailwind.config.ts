@@ -6,10 +6,11 @@ export default {
   ],
   theme: {
     colors: {
+      "background": "var(--clr-background)",
+      "text": "var(--clr-text)",
+      "primary": "var(--clr-primary)",
+      "secondary": "var(--clr-secondary)",
       "accent": "var(--clr-accent)",
-      "context": "var(--clr-context)",
-      "content": "var(--clr-content)",
-      "surface": "var(--clr-surface)",
 
       "debug": "var(--clr-debug)",
       "error": "var(--clr-error)",

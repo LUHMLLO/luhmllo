@@ -47,3 +47,10 @@
 :where(x-block) {
   display: block;
 }
+
+:where(x-card){
+  background-color: var(--clr-secondary);
+  display: flex;
+  flex-direction: column;
+  padding: var(--xs, 5px);
+}

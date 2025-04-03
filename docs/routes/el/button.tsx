@@ -18,6 +18,10 @@ export default function Page(_props: PageProps) {
       <button type="button">
         trail icon<i className="icon">asterisk</i>
       </button>
+
+      <button type="button" disabled>
+        disabled<i className="icon">block</i>
+      </button>
     </>
   );
 }
