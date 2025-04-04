@@ -5,6 +5,7 @@
   -webkit-font-smoothing: subpixel-antialiased;
   interpolate-size: allow-keywords;
   position: relative;
+  -webkit-tap-highlight-color: transparent;
   text-size-adjust: 100%;
   text-wrap: pretty;
 }
