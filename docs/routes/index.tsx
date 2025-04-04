@@ -16,6 +16,10 @@ const routes = [
 export default function Page(_props: PageProps) {
   return (
     <>
+      <header>
+        <h1>Lilycat</h1>
+        <p>Keeping styling where it belongs</p>
+      </header>
       <span>Native Elements</span>
       <h2>Learn their behaviour</h2>
       <x-grid className="gap-md grid-cols-2">

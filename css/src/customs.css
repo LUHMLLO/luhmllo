@@ -28,6 +28,7 @@
 
 :where(x-grid) {
   display: grid;
+  grid-auto-rows: max-content;
 }
 
 :where(x-flex, x-row) {

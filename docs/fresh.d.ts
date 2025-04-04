@@ -61,6 +61,8 @@ declare module "preact" {
       "x-card": JSX.HTMLAttributes<HTMLElement>;
       "x-surlayer": JSX.HTMLAttributes<HTMLElement>;
       "x-sublayer": JSX.HTMLAttributes<HTMLElement>;
+      "x-group": JSX.HTMLAttributes<HTMLElement>;
+      "x-stack": JSX.HTMLAttributes<HTMLElement>;
       "x-grid": JSX.HTMLAttributes<HTMLElement>;
       "x-flex": JSX.HTMLAttributes<HTMLElement>;
       "x-block": JSX.HTMLAttributes<HTMLElement>;

@@ -137,13 +137,13 @@
 @property --type-lg {
   syntax: "<length>";
   inherits: true;
-  initial-value: 50px;
+  initial-value: 45px;
 }
 
 @property --type-xl {
   syntax: "<length>";
   inherits: true;
-  initial-value: 60px;
+  initial-value: 50px;
 }
 
 /* transitions */
