@@ -26,7 +26,6 @@ export default function Page(_props: PageProps) {
                 <span>
                   {path}
                 </span>
-
                 <span>
                   <i className="icon">
                     north_east

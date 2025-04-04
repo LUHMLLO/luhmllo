@@ -13,7 +13,7 @@
   /* Form elements */
   form, fieldset, legend, label, button, input, select, textarea, optgroup, option) {
   font-family: inherit;
-  font-weight: normal;
+  font-weight: 400;
   overflow-wrap: break-word;
   text-overflow: ellipsis;
   text-wrap: pretty;
@@ -126,8 +126,8 @@
 /* headings */
 :where(h1, h2, h3, h4, h5, h6) {
   color: hsl(from var(--clr-text) h s calc(l + var(--ratio-texts)));
-  font-weight: medium;
-  line-height: 1.5em;
+  font-weight: 500;
+  line-height: clamp(1.25ex,100%,1.5em);
   text-wrap: balance;
 }
 
