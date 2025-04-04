@@ -445,6 +445,7 @@
 /* dialog */
 :where(dialog) {
   background-color: var(--clr-background);
+  border-radius: var(--xs, 5px);
   height: max-content;
   inset: 0;
   margin: auto;
