@@ -9,9 +9,8 @@
   position: fixed;
   z-index: 10;
 
-  @media screen and (min-width: 440px){
-
-  flex-direction: column;
+  @media screen and (min-width: 440px) {
+    flex-direction: row;
   }
 
   .icon {
@@ -24,11 +23,17 @@
     backdrop-filter: blur(var(--xs, 5px));
     border-radius: var(--xs, 5px);
     flex-shrink: 0;
+    gap: inherit;
     height: 50px;
     overflow: clip;
     padding: var(--md, 15px);
     width: 100%;
 
+    @media screen and (min-width: 440px) {
+      flex-direction: column;
+      height: 100%;
+      width: max-content;
+    }
 
     #logo {
       aspect-ratio: 1/1;
@@ -37,11 +42,15 @@
       width: 20px;
     }
 
-
     #menu-icons {
       align-items: inherit;
       gap: var(--md, 15px);
       place-content: end;
+
+      @media screen and (min-width: 440px) {
+        flex-direction: column;
+        place-content: start;
+      }
 
       :where(a:not(:hover, :focus, :active)) {
         color: inherit;
@@ -50,8 +59,12 @@
       hr {
         height: 50px;
         width: 1px;
-      }
 
+        @media screen and (min-width: 440px) {
+          height: 1px;
+          width: 100%;
+        }
+      }
 
       button {
         --background: inherit;
@@ -81,10 +94,16 @@
     width: 100%;
     z-index: 10;
 
-    &[open]{
+    &[open] {
       opacity: 1;
       pointer-events: revert;
       visibility: visible;
+    }
+
+    @media screen and (min-width: 440px) {
+      place-content: start;
+      height: 100%;
+      width: min(300px, 100%);
     }
 
     > * {
