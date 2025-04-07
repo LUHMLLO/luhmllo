@@ -1,6 +1,5 @@
 #navigation {
   align-items: center;
-  color: var(--clr-background);
   flex-direction: column-reverse;
   gap: var(--md, 15px);
   inset: 0;
@@ -10,22 +9,25 @@
   position: fixed;
   z-index: 10;
 
+  @media screen and (min-width: 440px){
+
+  flex-direction: column;
+  }
+
   .icon {
     --size: var(--xl);
   }
 
   #rail {
     align-items: inherit;
-    background-color: hsla(from var(--clr-text) h s l/95%);
-    flex: 1 0;
-    max-height: 50px;
-    overflow: auto;
+    background-color: hsla(from var(--clr-secondary) h s l/50%);
+    backdrop-filter: blur(var(--xs, 5px));
+    border-radius: var(--xs, 5px);
+    flex-shrink: 0;
+    height: 50px;
+    overflow: clip;
     padding: var(--md, 15px);
     width: 100%;
-
-    > * {
-      flex-shrink: 0;
-    }
 
 
     #logo {
@@ -62,20 +64,43 @@
 
 
   #drawer {
-    background-color: hsla(from var(--clr-text) h s l/95%);
+    background-color: hsla(from var(--clr-secondary) h s l/50%);
+    backdrop-filter: blur(var(--xs, 5px));
+    border-radius: var(--xs, 5px);
+    display: flex;
+    flex-direction: column;
     gap: var(--md, 15px);
+    margin: 0;
+    opacity: 0;
+    overflow: auto;
     padding: var(--md, 15px);
     place-content: space-between;
+    pointer-events: none;
+    position: relative;
+    visibility: hidden;
     width: 100%;
     z-index: 10;
+
+    &[open]{
+      opacity: 1;
+      pointer-events: revert;
+      visibility: visible;
+    }
+
+    > * {
+      flex-shrink: 0;
+    }
 
     a {
       align-items: center;
       display: flex;
-      flex: 1 0;
       font-size: var(--lg, 25px);
       gap: var(--xs, 5px);
       width: 100%;
+
+      &:where(:not(:hover, :focus, :active)) {
+        color: inherit;
+      }
 
       span {
         flex-grow: 1;

@@ -5,6 +5,23 @@ export default function Page(_props: PageProps) {
   return (
     <>
       <link rel="stylesheet" href={asset("/styles/sidebar.css")} />
+      <script
+        // deno-lint-ignore react-no-danger
+        dangerouslySetInnerHTML={{
+          __html: `
+      document.addEventListener("DOMContentLoaded", () => {
+        const button = document.getElementById("menu-button");
+        const dialog = document.getElementById("drawer");
+
+        if (button && dialog instanceof HTMLDialogElement) {
+          button.addEventListener("click", () => {
+            dialog.open ? dialog.close() : dialog.show();
+          });
+        }
+      });
+    `,
+        }}
+      />
       <x-stack id="navigation">
         <nav id="rail">
           <a href="#">
@@ -34,7 +51,7 @@ export default function Page(_props: PageProps) {
               </i>
             </a>
             <hr />
-            <button type="button">
+            <button id="menu-button" type="button">
               <i className="icon">
                 menu
               </i>
@@ -42,7 +59,7 @@ export default function Page(_props: PageProps) {
           </x-flex>
         </nav>
 
-        <x-group id="drawer">
+        <dialog id="drawer">
           <span>label</span>
           <a href="#">
             <i className="icon">
@@ -86,6 +103,7 @@ export default function Page(_props: PageProps) {
             <span>home</span>
           </a>
           <hr />
+          <span>label</span>
           <a href="#">
             <i className="icon">
               home
@@ -98,7 +116,7 @@ export default function Page(_props: PageProps) {
             </i>
             <span>home</span>
           </a>
-        </x-group>
+        </dialog>
       </x-stack>
     </>
   );
