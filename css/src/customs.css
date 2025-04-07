@@ -35,6 +35,12 @@
   display: flex;
 }
 
+:where(nav) {
+  :where(x-flex){
+    flex: 1 1;
+  }
+}
+
 :where(x-wrap) {
   display: flex;
   flex-wrap: wrap;

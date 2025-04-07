@@ -1,0 +1,85 @@
+#navigation {
+  align-items: center;
+  color: var(--clr-background);
+  flex-direction: column-reverse;
+  gap: var(--md, 15px);
+  inset: 0;
+  margin: var(--md, 15px);
+  max-width: 100%;
+  min-width: 0;
+  position: fixed;
+  z-index: 10;
+
+  .icon {
+    --size: var(--xl);
+  }
+
+  #rail {
+    align-items: inherit;
+    background-color: hsla(from var(--clr-text) h s l/95%);
+    flex: 1 0;
+    max-height: 50px;
+    overflow: auto;
+    padding: var(--md, 15px);
+    width: 100%;
+
+    > * {
+      flex-shrink: 0;
+    }
+
+
+    #logo {
+      aspect-ratio: 1/1;
+      flex-shrink: 1;
+      height: 20px;
+      width: 20px;
+    }
+
+
+    #menu-icons {
+      align-items: inherit;
+      gap: var(--md, 15px);
+      place-content: end;
+
+      :where(a:not(:hover, :focus, :active)) {
+        color: inherit;
+      }
+
+      hr {
+        height: 50px;
+        width: 1px;
+      }
+
+
+      button {
+        --background: inherit;
+        border-radius: 0;
+        color: inherit;
+        padding: 0;
+      }
+    }
+  }
+
+
+  #drawer {
+    background-color: hsla(from var(--clr-text) h s l/95%);
+    gap: var(--md, 15px);
+    padding: var(--md, 15px);
+    place-content: space-between;
+    width: 100%;
+    z-index: 10;
+
+    a {
+      align-items: center;
+      display: flex;
+      flex: 1 0;
+      font-size: var(--lg, 25px);
+      gap: var(--xs, 5px);
+      width: 100%;
+
+      span {
+        flex-grow: 1;
+      }
+    }
+  }
+}
