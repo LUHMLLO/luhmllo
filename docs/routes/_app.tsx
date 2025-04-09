@@ -1,13 +1,6 @@
 import { asset } from "$fresh/runtime.ts";
 import { type PageProps } from "$fresh/server.ts";
-import {
-  customs,
-  icons,
-  normalize,
-  props,
-  reset,
-  tokens,
-} from "../../css/dist/mod.ts";
+import { all } from "../../css/dist/mod.ts";
 
 export default function App({ Component, url }: PageProps) {
   const canonicalUrl = new URL(url.pathname, url.origin).href;
@@ -40,14 +33,18 @@ export default function App({ Component, url }: PageProps) {
           // deno-lint-ignore react-no-danger
           dangerouslySetInnerHTML={{
             __html: `
-            ${tokens}
-            ${reset}
-            ${normalize}
-            ${customs}
-            ${icons}
-            ${props}`,
+            ${all}`,
           }}
         />
+
+        {
+          /* <script type="module">
+          const sheet = new CSSStyleSheet(); document.adoptedStyleSheets = [
+          ...document.adoptedStyleSheets,
+          (sheet.replaceSync(`${tokens}${reset}${normalize}${customs}${icons}${props}`),
+          sheet) ];
+        </script> */
+        }
 
         {/* global styles */}
         <link rel="stylesheet" href={asset("/styles/app.css")} />

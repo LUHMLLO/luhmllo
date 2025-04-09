@@ -22,37 +22,37 @@ export default function Page(_props: PageProps) {
     `,
         }}
       />
+
       <x-stack id="navigation">
         <nav id="rail">
           <a href="#">
-            <i className="icon" style="--fill: 1;">
+            <i class="icon" style="--fill: 1;">
               health_metrics
             </i>
           </a>
-          <x-flex id="menu-icons" className="items-center content-end">
+          <x-flex id="menu-icons">
             <a href="#">
-              <i className="icon">
+              <i class="icon">
                 search
               </i>
             </a>
             <a href="#">
-              <i className="icon">
+              <i class="icon">
                 co_present
               </i>
             </a>
             <a href="#">
-              <i className="icon">
+              <i class="icon">
                 docs
               </i>
             </a>
             <a href="#">
-              <i className="icon">
+              <i class="icon">
                 smart_display
               </i>
             </a>
-            <hr />
             <button id="menu-button" type="button">
-              <i className="icon">
+              <i class="icon">
                 menu
               </i>
             </button>
@@ -62,13 +62,13 @@ export default function Page(_props: PageProps) {
         <dialog id="drawer">
           <span>label</span>
           <a href="#">
-            <i className="icon">
+            <i class="icon">
               home
             </i>
             <span>home</span>
           </a>
           <a href="#">
-            <i className="icon">
+            <i class="icon">
               search
             </i>
             <span>search</span>
@@ -79,25 +79,25 @@ export default function Page(_props: PageProps) {
           <hr />
           <span>label</span>
           <a href="#">
-            <i className="icon">
+            <i class="icon">
               home
             </i>
             <span>home</span>
           </a>
           <a href="#">
-            <i className="icon">
+            <i class="icon">
               home
             </i>
             <span>home</span>
           </a>
           <a href="#">
-            <i className="icon">
+            <i class="icon">
               home
             </i>
             <span>home</span>
           </a>
           <a href="#">
-            <i className="icon">
+            <i class="icon">
               home
             </i>
             <span>home</span>
@@ -105,19 +105,29 @@ export default function Page(_props: PageProps) {
           <hr />
           <span>label</span>
           <a href="#">
-            <i className="icon">
+            <i class="icon">
               home
             </i>
             <span>home</span>
           </a>
           <a href="#">
-            <i className="icon">
+            <i class="icon">
               home
             </i>
             <span>home</span>
           </a>
         </dialog>
       </x-stack>
+
+      <main>
+        <h1>hello world</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam
+          inventore, quasi corporis ad amet a, architecto hic doloremque illo
+          error voluptatum eum. Alias neque nesciunt, incidunt ullam voluptas
+          officia ex.
+        </p>
+      </main>
     </>
   );
 }

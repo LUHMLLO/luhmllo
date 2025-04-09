@@ -1,20 +1,23 @@
-#navigation {
-  align-items: center;
+body {
+  display: flex;
   flex-direction: column-reverse;
   gap: var(--md, 15px);
-  inset: 0;
-  margin: var(--md, 15px);
-  max-width: 100%;
-  min-width: 0;
-  position: fixed;
-  z-index: 10;
+  height: 100dvh;
+  padding: var(--md, 15px);
 
   @media screen and (min-width: 440px) {
     flex-direction: row;
   }
+}
 
-  .icon {
-    --size: var(--xl);
+#navigation {
+  align-items: center;
+  flex-direction: column-reverse;
+  flex-shrink: 0;
+  gap: var(--md, 15px);
+
+  @media screen and (min-width: 440px) {
+    flex-direction: row;
   }
 
   #rail {
@@ -32,7 +35,7 @@
     @media screen and (min-width: 440px) {
       flex-direction: column;
       height: 100%;
-      width: max-content;
+      width: 50px;
     }
 
     #logo {
@@ -44,65 +47,57 @@
 
     #menu-icons {
       align-items: inherit;
+      flex-grow: 1;
+      flex-wrap: nowrap;
       gap: var(--md, 15px);
       place-content: end;
 
       @media screen and (min-width: 440px) {
         flex-direction: column;
-        place-content: start;
       }
 
       :where(a:not(:hover, :focus, :active)) {
         color: inherit;
       }
 
-      hr {
-        height: 50px;
-        width: 1px;
-
-        @media screen and (min-width: 440px) {
-          height: 1px;
-          width: 100%;
-        }
-      }
-
       button {
         --background: inherit;
+        aspect-ratio: 1/1;
         border-radius: 0;
         color: inherit;
+        height: auto;
         padding: 0;
       }
     }
   }
 
-
   #drawer {
     background-color: hsla(from var(--clr-secondary) h s l/50%);
     backdrop-filter: blur(var(--xs, 5px));
     border-radius: var(--xs, 5px);
-    display: flex;
     flex-direction: column;
     gap: var(--md, 15px);
-    margin: 0;
-    opacity: 0;
+    inset: auto 0 calc(50px + var(--md, 15px)) 0;
+    margin: var(--md, 15px);
+    max-height: calc(100% - calc(var(--md, 15px) * 3 + 50px));
+    max-width: calc(100% - calc(var(--md, 15px) * 2));
+    min-height: 0;
+    min-width: 0;
+    outline: none;
     overflow: auto;
     padding: var(--md, 15px);
     place-content: space-between;
-    pointer-events: none;
-    position: relative;
-    visibility: hidden;
     width: 100%;
-    z-index: 10;
 
     &[open] {
-      opacity: 1;
-      pointer-events: revert;
-      visibility: visible;
+      display: flex;
     }
 
     @media screen and (min-width: 440px) {
-      place-content: start;
       height: 100%;
+      inset: 0 0 0 calc(50px + var(--md, 15px));
+      max-height: calc(100% - calc(var(--md, 15px) * 2));
+      place-content: start;
       width: min(300px, 100%);
     }
 
@@ -113,7 +108,6 @@
     a {
       align-items: center;
       display: flex;
-      font-size: var(--lg, 25px);
       gap: var(--xs, 5px);
       width: 100%;
 
