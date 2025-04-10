@@ -1,0 +1,65 @@
+html {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  --grid-line-color: hsla(0deg, 0%, 50%, 0.15);
+  --grid-line-width: 1px;
+  --grid-size: 100px;
+
+  background-attachment: fixed;
+  background-blend-mode: difference;
+  background-image: linear-gradient(to right,
+      var(--grid-line-color) var(--grid-line-width),
+      transparent var(--grid-line-width)),
+    linear-gradient(to bottom,
+      var(--grid-line-color) var(--grid-line-width),
+      transparent var(--grid-line-width));
+  background-position: center;
+  background-size: var(--grid-size) var(--grid-size);
+}
+
+#notification {
+  background-color: var(--clr-background);
+  border-radius: var(--xs, 5px);
+  height: max-content;
+  inset: 0;
+  margin: auto;
+  outline: solid 2px var(--clr-primary);
+  outline-offset: -2px;
+  position: fixed;
+  width: min(90%, 530px);
+
+  & > x-row {
+    align-items: center;
+    gap: var(--md, 15px);
+    padding: var(--lg, 25px);
+
+    & > figure {
+      aspect-ratio: 1/1;
+      border-radius: var(--xs, 5px);
+      flex-shrink: 0;
+      height: calc(var(--xl, 35px) * 2.5);
+      overflow: clip;
+    }
+
+    & > x-group {
+      gap: var(--xs, 5px);
+      width: fit-content;
+
+      & > span {
+        color: #808080;
+      }
+    }
+
+    & > p {
+      width: 100%;
+    }
+
+    & > button {
+      flex-grow: 1;
+      min-width: max-content;
+      place-content: center;
+    }
+  }
+}

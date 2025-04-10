@@ -245,9 +245,6 @@
 :where(button[type="disabled"], button[disabled]) {
   background-color: hsl(from color-mix(in hsl, var(--clr-background) 90%, hsl(0deg, 0%, 50%)) h s calc(l - var(--ratio-backgrounds)));
   color: hsl(from color-mix(in hsl, var(--clr-text) 10%, hsl(0deg, 0%, 50%)) h s calc(l - var(--ratio-texts)));
-  cursor: auto;
-  isolation: isolate;
-  pointer-events: none;
 }
 
 /* inputs */
@@ -279,10 +276,7 @@
 :where(input[type="disabled"], input[disabled]) {
   background-color: hsl(from color-mix(in hsl, var(--clr-background) 90%, hsl(0deg, 0%, 50%)) h s calc(l - var(--ratio-backgrounds)));
   color: hsl(from color-mix(in hsl, var(--clr-text) 10%, hsl(0deg, 0%, 50%)) h s calc(l - var(--ratio-texts)));
-  cursor: auto;
-  isolation: isolate;
   outline-color: transparent;
-  pointer-events: none;
 }
 
 :where(input[type="color"]) {

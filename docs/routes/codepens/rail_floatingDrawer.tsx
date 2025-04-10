@@ -4,7 +4,7 @@ import { asset } from "$fresh/runtime.ts";
 export default function Page(_props: PageProps) {
   return (
     <>
-      <link rel="stylesheet" href={asset("/styles/sidebar.css")} />
+      <link rel="stylesheet" href={asset("/styles/codepens/rail_floatingDrawer.css")} />
       <script
         // deno-lint-ignore react-no-danger
         dangerouslySetInnerHTML={{
@@ -27,7 +27,7 @@ export default function Page(_props: PageProps) {
         <nav id="rail">
           <a href="#">
             <i class="icon" style="--fill: 1;">
-              health_metrics
+              asterisk
             </i>
           </a>
           <x-flex id="menu-icons">
@@ -61,21 +61,15 @@ export default function Page(_props: PageProps) {
 
         <dialog id="drawer">
           <span>label</span>
-          <a href="#">
-            <i class="icon">
-              home
-            </i>
-            <span>home</span>
-          </a>
-          <a href="#">
+          <x-flex data-props="--input-wrapper">
             <i class="icon">
               search
             </i>
-            <span>search</span>
+            <input type="text" placeholder="search" />
             <i class="icon">
               keyboard_command_key
             </i>
-          </a>
+          </x-flex>
           <hr />
           <span>label</span>
           <a href="#">

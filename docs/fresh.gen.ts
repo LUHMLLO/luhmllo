@@ -4,6 +4,8 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $codepens_rail_floatingDrawer from "./routes/codepens/rail_floatingDrawer.tsx";
+import * as $codepens_saasNotification from "./routes/codepens/saasNotification.tsx";
 import * as $el_layout from "./routes/el/_layout.tsx";
 import * as $el_a from "./routes/el/a.tsx";
 import * as $el_article from "./routes/el/article.tsx";
@@ -21,7 +23,6 @@ import * as $el_select from "./routes/el/select.tsx";
 import * as $el_table from "./routes/el/table.tsx";
 import * as $el_textarea from "./routes/el/textarea.tsx";
 import * as $index from "./routes/index.tsx";
-import * as $sidebar_index from "./routes/sidebar/index.tsx";
 import * as $test from "./routes/test.tsx";
 import * as $dialog from "./islands/dialog.tsx";
 import type { Manifest } from "$fresh/server.ts";
@@ -30,6 +31,8 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/codepens/rail_floatingDrawer.tsx": $codepens_rail_floatingDrawer,
+    "./routes/codepens/saasNotification.tsx": $codepens_saasNotification,
     "./routes/el/_layout.tsx": $el_layout,
     "./routes/el/a.tsx": $el_a,
     "./routes/el/article.tsx": $el_article,
@@ -47,7 +50,6 @@ const manifest = {
     "./routes/el/table.tsx": $el_table,
     "./routes/el/textarea.tsx": $el_textarea,
     "./routes/index.tsx": $index,
-    "./routes/sidebar/index.tsx": $sidebar_index,
     "./routes/test.tsx": $test,
   },
   islands: {

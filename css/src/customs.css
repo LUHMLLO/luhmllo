@@ -36,7 +36,7 @@
 }
 
 :where(nav) {
-  :where(x-flex){
+  :where(x-flex) {
     flex: 1 1;
   }
 }
@@ -55,7 +55,7 @@
   display: block;
 }
 
-:where(x-card){
+:where(x-card) {
   background-color: var(--clr-secondary);
   display: flex;
   flex-direction: column;

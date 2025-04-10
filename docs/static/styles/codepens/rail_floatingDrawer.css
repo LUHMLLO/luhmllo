@@ -22,7 +22,7 @@ body {
 
   #rail {
     align-items: inherit;
-    background-color: hsla(from var(--clr-secondary) h s l/50%);
+    background-color: hsla(from var(--clr-primary) h s l/95%);
     backdrop-filter: blur(var(--xs, 5px));
     border-radius: var(--xs, 5px);
     flex-shrink: 0;
@@ -72,14 +72,14 @@ body {
   }
 
   #drawer {
-    background-color: hsla(from var(--clr-secondary) h s l/50%);
+    background-color: hsla(from var(--clr-primary) h s l/95%);
     backdrop-filter: blur(var(--xs, 5px));
     border-radius: var(--xs, 5px);
     flex-direction: column;
     gap: var(--md, 15px);
     inset: auto 0 calc(50px + var(--md, 15px)) 0;
     margin: var(--md, 15px);
-    max-height: calc(100% - calc(var(--md, 15px) * 3 + 50px));
+    max-height: calc(100% - calc(var(--md, 15px) * 2) - 50px - 15px);
     max-width: calc(100% - calc(var(--md, 15px) * 2));
     min-height: 0;
     min-width: 0;
@@ -119,5 +119,42 @@ body {
         flex-grow: 1;
       }
     }
+
+    hr {
+      background-color: hsl(from var(--clr-primary) h s calc(l + var(--ratio-texts)));
+    }
+  }
+}
+
+:where([data-props~="--input-wrapper"]) {
+  align-items: center;
+  border-radius: var(--xs, 5px);
+  gap: var(--xs, 5px);
+  height: 45px;
+  outline: solid 2px hsl(from var(--clr-primary) h s calc(l + var(--ratio-texts)));
+  outline-offset: -2px;
+  padding: 0 var(--md, 15px);
+  transition-duration: var(--animDuration);
+  transition-property: background-color, color, outline, outline-offset;
+  transition-timing-function: var(--animTiming);
+
+  &:has(:focus) {
+    outline-color: var(--clr-accent);
+  }
+
+  & > input {
+    background-color: transparent;
+    height: auto;
+    outline: none;
+    padding: 0;
+    width: 100%;
+  }
+
+  &:has(:first-child:is(.icon)) {
+    padding-left: var(--sm, 10px);
+  }
+
+  &:has(:last-child:is(.icon)) {
+    padding-right: var(--sm, 10px);
   }
 }
