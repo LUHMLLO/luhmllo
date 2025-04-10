@@ -127,7 +127,10 @@
 :where(h1, h2, h3, h4, h5, h6) {
   color: hsl(from var(--clr-text) h s calc(l + var(--ratio-texts)));
   font-weight: 500;
-  line-height: clamp(1.5ex, 100%, 1.5em);
+  line-height: 1em;
+  /* overflow: clip; */
+  /* text-box: trim-both cap alphabetic; */
+  text-box: trim-both;
   text-wrap: balance;
 }
 

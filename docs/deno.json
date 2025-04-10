@@ -32,10 +32,7 @@
     "@std/fs": "jsr:@std/fs@^1.0.4",
     "lucide": "npm:lucide@^0.487.0",
     "preact": "https://esm.sh/preact@10.22.0",
-    "preact/": "https://esm.sh/preact@10.22.0/",
-    "tailwindcss": "npm:tailwindcss@3.4.1",
-    "tailwindcss/": "npm:/tailwindcss@3.4.1/",
-    "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js"
+    "preact/": "https://esm.sh/preact@10.22.0/"
   },
   "compilerOptions": {
     "jsx": "react-jsx",

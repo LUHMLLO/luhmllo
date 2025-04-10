@@ -7,7 +7,7 @@ export default function Page(_props: PageProps) {
         <i className="icon">asterisk</i>lead icon
       </a>
       <a href={"#" + crypto.randomUUID()}>
-        <span className="icon">asterisk</span>lead icon
+        <i className="icon">asterisk</i>span
       </a>
 
       <a>no icons</a>

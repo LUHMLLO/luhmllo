@@ -1,6 +1,6 @@
 import { asset } from "$fresh/runtime.ts";
 import { type PageProps } from "$fresh/server.ts";
-import { all } from "../../css/dist/mod.ts";
+import * as lilycat from "../../css/dist/mod.ts";
 
 export default function App({ Component, url }: PageProps) {
   const canonicalUrl = new URL(url.pathname, url.origin).href;
@@ -31,26 +31,11 @@ export default function App({ Component, url }: PageProps) {
         <style
           lang="css"
           // deno-lint-ignore react-no-danger
-          dangerouslySetInnerHTML={{
-            __html: `
-            ${all}`,
-          }}
+          dangerouslySetInnerHTML={{ __html: lilycat.all }}
         />
-
-        {
-          /* <script type="module">
-          const sheet = new CSSStyleSheet(); document.adoptedStyleSheets = [
-          ...document.adoptedStyleSheets,
-          (sheet.replaceSync(`${tokens}${reset}${normalize}${customs}${icons}${props}`),
-          sheet) ];
-        </script> */
-        }
 
         {/* global styles */}
         <link rel="stylesheet" href={asset("/styles/app.css")} />
-
-        {/* tailwind utilities */}
-        <link rel="stylesheet" href={asset("/styles/tailwind.css")} />
 
         {/* google fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -3,8 +3,8 @@ import { type PageProps } from "$fresh/server.ts";
 
 export default function Page(_props: PageProps) {
   return (
-    <x-flex className="h-[100dvh] overflow-clip w-full">
-      <aside className="h-100 overflow-auto p-xl shrink-0">
+    <x-flex style="height: 100dvh; overflow: auto; width: 100%;">
+      <aside style="height: 100%; overflow: auto; padding: var(--xl, 30px) var(--md, 15px); flex-shrink: 0;">
         <nav>
           <ul>
             <li>
@@ -113,7 +113,7 @@ export default function Page(_props: PageProps) {
         </nav>
       </aside>
 
-      <x-grid className="gap-xl h-100 overflow-auto p-xl">
+      <x-grid style="gap: var(--xl, 30px); height: 100%; overflow: auto; padding: var(--xl, 30px) var(--md, 15px);">
         <header id="top">
           <h1>
             HTML5
@@ -124,11 +124,8 @@ export default function Page(_props: PageProps) {
           </p>
         </header>
 
-        <x-stack className="gap-xl">
-          <section
-            id="text"
-            className="border border-solid border-primary p-xl"
-          >
+        <x-stack>
+          <section id="text">
             <header>
               <h1>Text</h1>
             </header>
@@ -795,10 +792,7 @@ export default function Page(_props: PageProps) {
 
           <hr />
 
-          <section
-            id="embedded"
-            className="flex flex-col gap-xl border border-solid border-primary p-xl"
-          >
+          <section id="embedded">
             <header>
               <h2>Embedded content</h2>
             </header>
@@ -1004,10 +998,7 @@ export default function Page(_props: PageProps) {
 
           <hr />
 
-          <section
-            id="forms"
-            className="flex flex-col gap-xl border border-solid border-primary p-xl"
-          >
+          <section id="forms">
             <header>
               <h2>Form elements</h2>
             </header>
