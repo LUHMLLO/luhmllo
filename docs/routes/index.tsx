@@ -23,9 +23,9 @@ export default function Page(_props: PageProps) {
           </figure>
         </a>
 
-        <x-row style="place-content: end;">
-          <a href="/" className="text-inherit">Get Started</a>
-          <a href="/test" className="text-inherit">HTML Tags</a>
+        <x-row style="gap: var(--md, 15px); place-content: end; place-items: center; width: 100%;">
+          <a href="/" style="color: inherit;">Get Started</a>
+          <a href="/test" style="color: inherit;">HTML Tags</a>
           <button type="button" disabled>
             Playground (not available)
           </button>
@@ -43,10 +43,9 @@ export default function Page(_props: PageProps) {
         </p>
       </header>
 
-      
-      <x-grid className="gap-md grid-cols-2">
+      <x-grid style="grid-template-columns: repeat(auto-fit, minmax(0, 1fr);">
         {routes.map((path) => (
-          <a href={"/el/" + path} className="w-full">
+          <a href={"/el/" + path}>
             <x-card>
               <x-flex>
                 <span>
