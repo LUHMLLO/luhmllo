@@ -240,6 +240,28 @@
   &:active {
     background-color: hsl(from var(--background) h s calc(l - var(--ratio-backgrounds)));
   }
+
+  /* Icon at the start */
+  &:has(> .icon:first-child):not(:has(> .icon:last-child)) {
+    padding-left: var(--sm, 10px);
+  }
+
+  /* Icon at the end */
+  &:has(> .icon:last-child):not(:has(> .icon:first-child)) {
+    padding-right: var(--sm, 10px);
+  }
+
+  /* Icons on both sides */
+  &:has(> .icon:first-child):has(> .icon:last-child) {
+    padding-left: var(--sm, 10px);
+    padding-right: var(--sm, 10px);
+  }
+
+  &:has(> .icon:only-child) {
+    aspect-ratio: 1/1;
+    padding: 0;
+    place-content: center;
+  }
 }
 
 :where(button[type="disabled"], button[disabled]) {

@@ -125,36 +125,3 @@ body {
     }
   }
 }
-
-:where([data-props~="--input-wrapper"]) {
-  align-items: center;
-  border-radius: var(--xs, 5px);
-  gap: var(--xs, 5px);
-  height: 45px;
-  outline: solid 2px hsl(from var(--clr-primary) h s calc(l + var(--ratio-texts)));
-  outline-offset: -2px;
-  padding: 0 var(--md, 15px);
-  transition-duration: var(--animDuration);
-  transition-property: background-color, color, outline, outline-offset;
-  transition-timing-function: var(--animTiming);
-
-  &:has(:focus) {
-    outline-color: var(--clr-accent);
-  }
-
-  & > input {
-    background-color: transparent;
-    height: auto;
-    outline: none;
-    padding: 0;
-    width: 100%;
-  }
-
-  &:has(:first-child:is(.icon)) {
-    padding-left: var(--sm, 10px);
-  }
-
-  &:has(:last-child:is(.icon)) {
-    padding-right: var(--sm, 10px);
-  }
-}
