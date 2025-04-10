@@ -3,8 +3,8 @@ import { type PageProps } from "$fresh/server.ts";
 
 export default function Page(_props: PageProps) {
   return (
-    <x-flex className="gap-xl h-[100dvh] overflow-clip p-xl w-full">
-      <aside className="h-100 overflow-auto shrink-0">
+    <x-flex className="h-[100dvh] overflow-clip w-full">
+      <aside className="h-100 overflow-auto p-xl shrink-0">
         <nav>
           <ul>
             <li>
@@ -113,7 +113,7 @@ export default function Page(_props: PageProps) {
         </nav>
       </aside>
 
-      <x-grid className="gap-xl h-100 overflow-auto">
+      <x-grid className="gap-xl h-100 overflow-auto p-xl">
         <header id="top">
           <h1>
             HTML5
