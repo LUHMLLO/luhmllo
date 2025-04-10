@@ -1,8 +1,3 @@
-:where([data-props~="--wrapper"]) {
-  display: contents;
-  isolation: isolate;
-}
-
 :where(hr[data-props~="--x"]) {
   height: 1px;
   width: 100%;
@@ -15,10 +10,11 @@
 
 :where([data-props~="--input"]) {
   align-items: center;
+  background-color: var(--clr-background);
   border-radius: var(--xs, 5px);
   gap: var(--xs, 5px);
-  height: 45px;
-  outline: solid 2px hsl(from var(--clr-primary) h s calc(l + var(--ratio-texts)));
+  height: 50px;
+  outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
   outline-offset: -2px;
   padding: 0 var(--md, 15px);
   transition-duration: var(--animDuration);
@@ -37,11 +33,19 @@
     width: 100%;
   }
 
-  &:has(:first-child:is(.icon)) {
+  /* Icon at the start */
+  &:has(> .icon:first-child):not(:has(> .icon:last-child)) {
     padding-left: var(--sm, 10px);
   }
 
-  &:has(:last-child:is(.icon)) {
+  /* Icon at the end */
+  &:has(> .icon:last-child):not(:has(> .icon:first-child)) {
+    padding-right: var(--sm, 10px);
+  }
+
+  /* Icons on both sides */
+  &:has(> .icon:first-child):has(> .icon:last-child) {
+    padding-left: var(--sm, 10px);
     padding-right: var(--sm, 10px);
   }
 }

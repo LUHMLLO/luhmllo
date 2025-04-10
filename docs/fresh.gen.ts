@@ -18,6 +18,7 @@ import * as $el_input_datalist from "./routes/el/input/datalist.tsx";
 import * as $el_input_index from "./routes/el/input/index.tsx";
 import * as $el_input_radio from "./routes/el/input/radio.tsx";
 import * as $el_input_range from "./routes/el/input/range.tsx";
+import * as $el_input_wrapper from "./routes/el/input/wrapper.tsx";
 import * as $el_label from "./routes/el/label.tsx";
 import * as $el_select from "./routes/el/select.tsx";
 import * as $el_table from "./routes/el/table.tsx";
@@ -45,6 +46,7 @@ const manifest = {
     "./routes/el/input/index.tsx": $el_input_index,
     "./routes/el/input/radio.tsx": $el_input_radio,
     "./routes/el/input/range.tsx": $el_input_range,
+    "./routes/el/input/wrapper.tsx": $el_input_wrapper,
     "./routes/el/label.tsx": $el_label,
     "./routes/el/select.tsx": $el_select,
     "./routes/el/table.tsx": $el_table,

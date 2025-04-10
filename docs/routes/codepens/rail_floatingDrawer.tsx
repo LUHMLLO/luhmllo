@@ -61,7 +61,7 @@ export default function Page(_props: PageProps) {
 
         <dialog id="drawer">
           <span>label</span>
-          <x-flex data-props="--input-wrapper">
+          <x-flex data-props="--input">
             <i class="icon">
               search
             </i>
