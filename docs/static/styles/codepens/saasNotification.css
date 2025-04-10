@@ -44,7 +44,6 @@ body {
     }
 
     & > x-group {
-      gap: var(--xs, 5px);
       width: fit-content;
 
       & > span {

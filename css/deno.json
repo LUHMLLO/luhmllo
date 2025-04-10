@@ -2,7 +2,7 @@
   "lock": false,
   "nodeModulesDir": "auto",
   "name": "@luhmllo/lilycat",
-  "version": "0.1.25",
+  "version": "0.1.26",
   "description": "A minimalist CSS library that keeps HTML clean and styling efficient, embracing the power of native CSS while avoiding utility class bloat.",
   "keywords": [
     "css",

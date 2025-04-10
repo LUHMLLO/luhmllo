@@ -27,6 +27,7 @@
 
   & > input {
     background-color: transparent;
+    border-radius: 0;
     height: auto;
     outline: none;
     padding: 0;
