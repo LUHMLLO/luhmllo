@@ -364,7 +364,7 @@
 
   &::-webkit-slider-runnable-track {
     appearance: none;
-    background-color: hsl(from var(--clr-background) h s calc(l - var(--ratio-backgrounds)));
+    background-color: hsl(from var(--clr-primary) h s calc(l - var(--ratio-backgrounds)));
     block-size: var(--track-height);
     border-radius: 5ex;
     cursor: pointer;
@@ -374,11 +374,22 @@
     appearance: none;
     background-color: var(--clr-primary);
     block-size: var(--thumb-size);
-    border: 5px solid var(--clr-background);
+    border: 2px solid var(--clr-background);
     border-radius: 50%;
     cursor: ew-resize;
     inline-size: var(--thumb-size);
     margin-top: var(--thumb-offset);
+    transition-property: background-color;
+    transition-duration: var(--animDuration);
+    transition-timing-function: var(--animTiming);
+
+    &:hover {
+      background-color: hsl(from var(--clr-primary) h s calc(l + var(--ratio-backgrounds)));
+    }
+
+    &:active {
+      background-color: hsl(from var(--clr-primary) h s calc(l - var(--ratio-backgrounds)));
+    }
   }
 }
 
