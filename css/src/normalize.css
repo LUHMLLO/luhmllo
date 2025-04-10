@@ -169,6 +169,7 @@
   color: var(--clr-accent);
   display: inline-block;
   gap: var(--xs, 5px);
+  height: max-content;
   outline: solid 2px transparent;
   outline-offset: -2px;
   transition-property: color;
