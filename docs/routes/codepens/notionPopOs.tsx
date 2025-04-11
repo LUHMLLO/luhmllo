@@ -9,7 +9,7 @@ export default function Page(_props: PageProps) {
         href={asset("/styles/codepens/notionPopOS.css")}
       />
 
-      <aside style="background-color: var(--clr-primary); gap: var(--lg); height: 100%; isolation: isolate; padding: var(--sm, 10px); position: relative; overflow: auto; width: 250px;">
+      <aside style="background-color: var(--clr-primary); gap: var(--lg); height: 100%; isolation: isolate; outline: solid 2px var(--clr-secondary); outline-offset: -2px; padding: var(--sm, 10px); position: relative; overflow: auto; width: 250px;">
         <x-flex
           data-props="--highlight"
           style="align-items: center; background-color: inherit; border-radius: var(--xl); box-shadow: 0 -15vmax 15vmax 15vmax var(--clr-primary); gap: var(--xs, 5px); position: sticky; top: 0; z-index: 5;"
