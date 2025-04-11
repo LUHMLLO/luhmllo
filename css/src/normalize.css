@@ -307,6 +307,11 @@
   &:focus-visible {
     outline-color: var(--clr-accent);
   }
+
+  /* &::placeholder {
+    color: hsl(from var(--clr-text) h s calc(l - var(--ratio-texts)));
+    mix-blend-mode: color-burn;
+  } */
 }
 
 :where(input[type="disabled"], input[disabled]) {
