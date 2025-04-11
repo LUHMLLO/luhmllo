@@ -20,6 +20,10 @@
   word-break: break-word;
 }
 
+:where(a, button, caption, figcaption, h1, h2, h3, h4, h5, h6, input, label, legend, select, small, summary) {
+  text-box: trim-both;
+}
+
 :where(aside) {
   display: flex;
   flex-direction: column;
@@ -137,9 +141,6 @@
   color: hsl(from var(--clr-text) h s calc(l + var(--ratio-texts)));
   font-weight: 500;
   line-height: 1em;
-  /* overflow: clip; */
-  /* text-box: trim-both cap alphabetic; */
-  text-box: trim-both;
   text-wrap: balance;
 }
 
@@ -500,6 +501,5 @@
   &::backdrop {
     background-color: hsla(from var(--clr-background) h s calc(l - var(--ratio-backgrounds))/25%);
     backdrop-filter: blur(var(--md, 15px));
-    mask-image: radial-gradient(circle, hsla(0deg, 0%, 0%, 0.75), hsla(0deg, 0%, 0%, 0.95));
   }
 }
