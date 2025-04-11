@@ -12,7 +12,7 @@ export default function Page(_props: PageProps) {
       <aside style="background-color: var(--clr-primary); gap: var(--lg); height: 100%; isolation: isolate; padding: var(--sm); position: relative; overflow: auto; width: 250px;">
         <x-flex
           data-props="--highlight"
-          style="align-items:center; gap: var(--sm); padding: var(--xs);"
+          style="align-items: center; background-color: inherit; border-radius: var(--xl); box-shadow: 0 -15vmax 15vmax 15vmax var(--clr-primary); gap: var(--sm); position: sticky; top: 0; z-index: 5;"
         >
           <button
             type="button"
@@ -20,8 +20,7 @@ export default function Page(_props: PageProps) {
           >
             <figure data-props="--squircle">
               <img
-                class="photo"
-                alt="Luis R. Melo"
+                alt="Photo: Luis R. Melo"
                 src="https://cdn.dribbble.com/users/2246724/avatars/normal/733a7307a4408930f70132c7436077f1.jpg?1742320251"
               />
             </figure>
@@ -31,7 +30,7 @@ export default function Page(_props: PageProps) {
             <i className="icon">keyboard_arrow_down</i>
           </button>
 
-          <x-flex data-props="--button-group" style="flex-shrink: 0;">
+          <x-flex data-props="--segmented-controls" style="flex-shrink: 0;">
             <button type="button">
               <i className="icon" style="--size: 15px;">left_panel_close</i>
             </button>
@@ -40,10 +39,13 @@ export default function Page(_props: PageProps) {
             </button>
           </x-flex>
         </x-flex>
+
+        <hr />
+
         <x-group>
           <button
             type="button"
-            style="--background: transparent; border-radius: 0; width: 100%;"
+            style="width: 100%;"
           >
             <i class="icon">
               search
@@ -53,30 +55,27 @@ export default function Page(_props: PageProps) {
               keyboard_command_key
             </i>
           </button>
-
           <button
             type="button"
-            style="--background: transparent; border-radius: 0; width: 100%;"
+            style="width: 100%;"
           >
             <i class="icon">
               stars_2
             </i>
             <span style="flex: 1 1; text-align: left;">AI Assistant</span>
           </button>
-
           <button
             type="button"
-            style="--background: transparent; border-radius: 0; width: 100%;"
+            style="width: 100%;"
           >
             <i class="icon">
               home
             </i>
             <span style="flex: 1 1; text-align: left;">Home</span>
           </button>
-
           <button
             type="button"
-            style="--background: transparent; border-radius: 0; width: 100%;"
+            style="width: 100%;"
           >
             <i class="icon">
               inbox
@@ -84,12 +83,14 @@ export default function Page(_props: PageProps) {
             <span style="flex: 1 1; text-align: left;">Inbox</span>
           </button>
         </x-group>
+
         <hr />
+
         <x-group>
           <span>Favorites</span>
           <button
             type="button"
-            style="--background: transparent; border-radius: 0; width: 100%;"
+            style="width: 100%;"
           >
             <i class="icon">
               asterisk
@@ -98,7 +99,7 @@ export default function Page(_props: PageProps) {
           </button>
           <button
             type="button"
-            style="--background: transparent; border-radius: 0; width: 100%;"
+            style="width: 100%;"
           >
             <i class="icon">
               asterisk
@@ -107,34 +108,7 @@ export default function Page(_props: PageProps) {
           </button>
           <button
             type="button"
-            style="--background: transparent; border-radius: 0; width: 100%;"
-          >
-            <i class="icon">
-              asterisk
-            </i>
-            <span style="flex: 1 1; text-align: left;">Page Name</span>
-          </button>
-          <button
-            type="button"
-            style="--background: transparent; border-radius: 0; width: 100%;"
-          >
-            <i class="icon">
-              asterisk
-            </i>
-            <span style="flex: 1 1; text-align: left;">Page Name</span>
-          </button>
-          <button
-            type="button"
-            style="--background: transparent; border-radius: 0; width: 100%;"
-          >
-            <i class="icon">
-              asterisk
-            </i>
-            <span style="flex: 1 1; text-align: left;">Page Name</span>
-          </button>
-          <button
-            type="button"
-            style="--background: transparent; border-radius: 0; width: 100%;"
+            style="width: 100%;"
           >
             <i class="icon">
               asterisk
@@ -143,14 +117,133 @@ export default function Page(_props: PageProps) {
           </button>
         </x-group>
 
-        <dialog
-          open
-          style="bottom: 0; margin: auto auto 0 auto; padding: var(--xl); position: sticky; width: 100%; z-index: 5;"
-        >
-          <i className="icon">
-            event
-          </i>
-        </dialog>
+        <hr />
+
+        <x-group>
+          <span>Shared</span>
+          <button
+            type="button"
+            style="width: 100%;"
+          >
+            <i class="icon">
+              asterisk
+            </i>
+            <span style="flex: 1 1; text-align: left;">Page Name</span>
+          </button>
+        </x-group>
+
+        <hr />
+
+        <x-group>
+          <span>Private</span>
+          <button
+            type="button"
+            style="width: 100%;"
+          >
+            <i class="icon">
+              asterisk
+            </i>
+            <span style="flex: 1 1; text-align: left;">Page Name</span>
+          </button>
+          <button
+            type="button"
+            style="width: 100%;"
+          >
+            <i class="icon">
+              asterisk
+            </i>
+            <span style="flex: 1 1; text-align: left;">Page Name</span>
+          </button>
+          <button
+            type="button"
+            style="width: 100%;"
+          >
+            <i class="icon">
+              asterisk
+            </i>
+            <span style="flex: 1 1; text-align: left;">Page Name</span>
+          </button>
+          <button
+            type="button"
+            style="width: 100%;"
+          >
+            <i class="icon">
+              asterisk
+            </i>
+            <span style="flex: 1 1; text-align: left;">Page Name</span>
+          </button>
+          <button
+            type="button"
+            style="width: 100%;"
+          >
+            <i class="icon">
+              asterisk
+            </i>
+            <span style="flex: 1 1; text-align: left;">Page Name</span>
+          </button>
+          <button
+            type="button"
+            style="width: 100%;"
+          >
+            <i class="icon">
+              asterisk
+            </i>
+            <span style="flex: 1 1; text-align: left;">Page Name</span>
+          </button>
+        </x-group>
+
+        <hr />
+
+        <x-group>
+          <button
+            type="button"
+            style="width: 100%;"
+          >
+            <i class="icon">
+              settings
+            </i>
+            <span style="flex: 1 1; text-align: left;">Settings</span>
+          </button>
+          <button
+            type="button"
+            style="width: 100%;"
+          >
+            <i class="icon">
+              browse
+            </i>
+            <span style="flex: 1 1; text-align: left;">Templates</span>
+          </button>
+          <button
+            type="button"
+            style="width: 100%;"
+          >
+            <i class="icon">
+              delete
+            </i>
+            <span style="flex: 1 1; text-align: left;">Trash</span>
+          </button>
+        </x-group>
+
+        <hr />
+
+        <x-flex style="align-items: center; background-color: var(--clr-background); border-radius: var(--xs, 5px); box-shadow: 0 15vmax 15vmax 15vmax var(--clr-primary); gap: var(--sm, 15px); inset: auto auto 0 auto; margin: auto auto 0 auto; padding: var(--md); position: sticky; width: 100%; z-index: 5;">
+          <button type="button" style="display: contents;">
+            <i className="icon">
+              calendar_today
+            </i>
+          </button>
+          <button type="button" style="display: contents;">
+            <i className="icon">
+              email
+            </i>
+          </button>
+          <hr style="background-color: transparent; flex: 1 1;" />
+          <button type="button" style="display: contents;">
+            <i className="icon">
+              help
+            </i>
+          </button>
+        </x-flex>
       </aside>
 
       <main>

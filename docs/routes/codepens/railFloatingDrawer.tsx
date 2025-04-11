@@ -4,7 +4,10 @@ import { asset } from "$fresh/runtime.ts";
 export default function Page(_props: PageProps) {
   return (
     <>
-      <link rel="stylesheet" href={asset("/styles/codepens/rail_floatingDrawer.css")} />
+      <link
+        rel="stylesheet"
+        href={asset("/styles/codepens/rail_floatingDrawer.css")}
+      />
       <script
         // deno-lint-ignore react-no-danger
         dangerouslySetInnerHTML={{

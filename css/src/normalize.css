@@ -22,8 +22,11 @@
 
 :where(aside) {
   display: flex;
-  grid-template-columns: 1fr;
-  grid-auto-rows: max-content;
+  flex-direction: column;
+
+  & > * {
+    flex-shrink: 0;
+  }
 }
 
 /* general block */
@@ -252,22 +255,22 @@
   }
 
   /* Icon at the start */
-  &:has(> .icon:first-child):not(:has(> .icon:last-child)) {
+  &:has(> :where(.icon, figure):first-child):not(:has(> :where(.icon, figure):last-child)) {
     padding-left: var(--sm, 10px);
   }
 
   /* Icon at the end */
-  &:has(> .icon:last-child):not(:has(> .icon:first-child)) {
+  &:has(> :where(.icon, figure):last-child):not(:has(> :where(.icon, figure):first-child)) {
     padding-right: var(--sm, 10px);
   }
 
   /* Icons on both sides */
-  &:has(> .icon:first-child):has(> .icon:last-child) {
+  &:has(> :where(.icon, figure):first-child):has(> :where(.icon, figure):last-child) {
     padding-left: var(--sm, 10px);
     padding-right: var(--sm, 10px);
   }
 
-  &:has(> .icon:only-child) {
+  &:has(> :where(.icon, figure):only-child) {
     aspect-ratio: 1/1;
     padding: 0;
     place-content: center;

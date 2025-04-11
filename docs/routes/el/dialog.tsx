@@ -8,25 +8,32 @@ export default function Page(_props: PageProps) {
         dangerouslySetInnerHTML={{
           __html: `
   document.addEventListener("DOMContentLoaded", () => {
-    const button = document.getElementById("modalTrigger");
-    const dialog = document.getElementById("modal");
+    const buttonOpen = document.getElementById("modalOpen");
+    const buttonClose = document.getElementById("modalClose");
+    const modalDialog = document.getElementById("modal");
 
-    if (button && dialog instanceof HTMLDialogElement) {
-      dialog.showModal();
+    if (buttonOpen && buttonClose && modalDialog instanceof HTMLDialogElement) {      
+          buttonOpen.addEventListener("click", () => {
+            modalDialog.showModal();
+          });        
+      
+          buttonClose.addEventListener("click", () => {
+            modalDialog.close();
+          });
     }
   });
 `,
         }}
       />
 
-      <button id="modalTrigger" type="button">
+      <button id="modalOpen" type="button">
         open modal
       </button>
 
       <dialog id="modal">
         <x-flex style="place-items:center; padding-inline: var(--md, 15px); height: 50px;">
           <p>Service clients</p>
-          <button type="button" style="display: contents;">
+          <button id="modalClose" type="button" style="display: contents;">
             <i className="icon">close_small</i>
           </button>
         </x-flex>
@@ -34,7 +41,7 @@ export default function Page(_props: PageProps) {
         <label
           htmlFor="searchbar"
           data-props="--input"
-          style="border-radius: 0;"
+          style="margin-inline: var(--sm, 10px);"
         >
           <i class="icon">
             search
