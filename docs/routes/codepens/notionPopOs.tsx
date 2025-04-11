@@ -24,7 +24,7 @@ export default function Page(_props: PageProps) {
                 src="https://cdn.dribbble.com/users/2246724/avatars/normal/733a7307a4408930f70132c7436077f1.jpg?1742320251"
               />
             </figure>
-            <span style="flex: 1 1 100%; overflow: clip; text-overflow: ellipsis; white-space: nowrap; max-width: fit-content;">
+            <span style="flex: 1 1 100%; overflow: clip; text-overflow: ellipsis; white-space: nowrap;">
               Luis R. Melo
             </span>
             <i className="icon">keyboard_arrow_down</i>

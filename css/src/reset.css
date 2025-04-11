@@ -44,6 +44,12 @@
     &[not-allowed] {
       cursor: not-allowed;
     }
+
+    &::-webkit-scrollbar {
+      height: 5px;
+      scrollbar-width: thin;
+      width: 5px;
+    }
   }
 
   /* Application root containers */
