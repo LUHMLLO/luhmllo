@@ -1,0 +1,59 @@
+body {
+  display: flex;
+  height: 100dvh;
+  overflow: clip;
+}
+
+
+html body :where([data-props~="--squircle"]) {
+  aspect-ratio: 1;
+  border-radius: var(--xl);
+  overflow: clip;
+  width: 40px;
+}
+
+html body :where([data-props~="--button-group"]) {
+  background-color: hsl(from var(--clr-primary) h s calc(l - var(--ratio-backgrounds)));
+  border-radius: var(--xl);
+  gap: calc(var(--xs) / 5);
+  outline: solid 2px hsl(from var(--clr-primary) h s calc(l - var(--ratio-backgrounds)));
+  outline-offset: -2px;
+  overflow: clip;
+  padding: calc(var(--xs) / 2);
+
+  & * {
+    --background: hsl(from var(--clr-primary) h s l);
+    border-radius: 0;
+    flex-shrink: 0;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+html body :where([data-props~="--highlight"]) {
+  background-color: transparent;
+  isolation: isolate;
+  position: relative;
+
+  &::before {
+    background-color: hsla(from var(--clr-secondary) h s l);
+    border-radius: var(--xs);
+    content: "";
+    display: inline-flex;
+    height: 100%;
+    inset: 50%;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    transition-duration: opacity;
+    transition-duration: var(--animDuration);
+    transition-timing-function: var(--animTiming);
+    translate: -50% -50%;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}

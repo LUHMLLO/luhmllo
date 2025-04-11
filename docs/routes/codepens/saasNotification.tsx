@@ -3,7 +3,11 @@ import { asset } from "$fresh/runtime.ts";
 
 export default function Page(_props: PageProps) {
   return (
-    <>      <link rel="stylesheet" href={asset("/styles/codepens/saasNotification.css")} />
+    <>
+      <link
+        rel="stylesheet"
+        href={asset("/styles/codepens/saasNotification.css")}
+      />
 
       <x-block id="notification">
         <x-row style="flex-wrap: wrap;">
@@ -36,8 +40,8 @@ export default function Page(_props: PageProps) {
         <hr />
 
         <x-row style="flex-wrap: wrap;">
-          <button>Turn Off</button>
-          <button>Leave On</button>
+          <button type="button">Turn Off</button>
+          <button type="button">Leave On</button>
         </x-row>
       </x-block>
     </>

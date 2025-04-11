@@ -4,6 +4,7 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $codepens_notionPopOs from "./routes/codepens/notionPopOs.tsx";
 import * as $codepens_railFloatingDrawer from "./routes/codepens/railFloatingDrawer.tsx";
 import * as $codepens_saasNotification from "./routes/codepens/saasNotification.tsx";
 import * as $el_layout from "./routes/el/_layout.tsx";
@@ -32,6 +33,7 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/codepens/notionPopOs.tsx": $codepens_notionPopOs,
     "./routes/codepens/railFloatingDrawer.tsx": $codepens_railFloatingDrawer,
     "./routes/codepens/saasNotification.tsx": $codepens_saasNotification,
     "./routes/el/_layout.tsx": $el_layout,
