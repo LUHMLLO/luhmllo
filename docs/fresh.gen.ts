@@ -25,7 +25,7 @@ import * as $el_table from "./routes/el/table.tsx";
 import * as $el_textarea from "./routes/el/textarea.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $test from "./routes/test.tsx";
-import * as $dialog from "./islands/dialog.tsx";
+
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -54,9 +54,7 @@ const manifest = {
     "./routes/index.tsx": $index,
     "./routes/test.tsx": $test,
   },
-  islands: {
-    "./islands/dialog.tsx": $dialog,
-  },
+  islands: {},
   baseUrl: import.meta.url,
 } satisfies Manifest;
 

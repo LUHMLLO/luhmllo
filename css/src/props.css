@@ -12,6 +12,7 @@
   align-items: center;
   background-color: var(--clr-background);
   border-radius: var(--xs, 5px);
+  display: flex;
   gap: var(--xs, 5px);
   height: 50px;
   outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
