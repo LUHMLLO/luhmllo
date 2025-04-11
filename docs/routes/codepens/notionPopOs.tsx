@@ -9,10 +9,10 @@ export default function Page(_props: PageProps) {
         href={asset("/styles/codepens/notionPopOS.css")}
       />
 
-      <aside style="background-color: var(--clr-primary); gap: var(--lg); height: 100%; isolation: isolate; padding: var(--sm); position: relative; overflow: auto; width: 250px;">
+      <aside style="background-color: var(--clr-primary); gap: var(--lg); height: 100%; isolation: isolate; padding: var(--sm, 10px); position: relative; overflow: auto; width: 250px;">
         <x-flex
           data-props="--highlight"
-          style="align-items: center; background-color: inherit; border-radius: var(--xl); box-shadow: 0 -15vmax 15vmax 15vmax var(--clr-primary); gap: var(--sm); position: sticky; top: 0; z-index: 5;"
+          style="align-items: center; background-color: inherit; border-radius: var(--xl); box-shadow: 0 -15vmax 15vmax 15vmax var(--clr-primary); gap: var(--xs, 5px); position: sticky; top: 0; z-index: 5;"
         >
           <button
             type="button"
@@ -25,7 +25,7 @@ export default function Page(_props: PageProps) {
               />
             </figure>
             <span style="flex: 1 1 100%; overflow: clip; text-overflow: ellipsis; white-space: nowrap; max-width: fit-content;">
-              @Username/Fullname
+              Luis R. Melo
             </span>
             <i className="icon">keyboard_arrow_down</i>
           </button>
