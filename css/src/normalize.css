@@ -360,6 +360,7 @@
     transition-duration: var(--animDuration);
     transition-timing-function: var(--animTiming);
     user-select: none;
+    vertical-align: text-bottom;
     width: var(--size);
 
     &:checked {
