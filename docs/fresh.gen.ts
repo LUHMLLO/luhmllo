@@ -8,6 +8,7 @@ import * as $codepens_homeExploration from "./routes/codepens/homeExploration.ts
 import * as $codepens_notionPopOs from "./routes/codepens/notionPopOs.tsx";
 import * as $codepens_railFloatingDrawer from "./routes/codepens/railFloatingDrawer.tsx";
 import * as $codepens_saasNotification from "./routes/codepens/saasNotification.tsx";
+import * as $codepens_uasd from "./routes/codepens/uasd.tsx";
 import * as $el_layout from "./routes/el/_layout.tsx";
 import * as $el_a from "./routes/el/a.tsx";
 import * as $el_article from "./routes/el/article.tsx";
@@ -38,6 +39,7 @@ const manifest = {
     "./routes/codepens/notionPopOs.tsx": $codepens_notionPopOs,
     "./routes/codepens/railFloatingDrawer.tsx": $codepens_railFloatingDrawer,
     "./routes/codepens/saasNotification.tsx": $codepens_saasNotification,
+    "./routes/codepens/uasd.tsx": $codepens_uasd,
     "./routes/el/_layout.tsx": $el_layout,
     "./routes/el/a.tsx": $el_a,
     "./routes/el/article.tsx": $el_article,

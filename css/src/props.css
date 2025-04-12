@@ -100,14 +100,17 @@
   }
 
   :where([data-props~="--input"]) {
+    --inputBackground: var(--clr-background);
+
     align-items: center;
-    background-color: var(--clr-background);
+    background-color: var(--inputBackground);
     border-radius: var(--xs, 5px);
     display: flex;
     gap: var(--xs, 5px);
-    height: 50px;
-    outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
+    height: 45px;
+    outline: solid 2px hsl(from var(--inputBackground) h s calc(l + var(--ratio-texts)));
     outline-offset: -2px;
+    overflow: clip;
     padding: 0 var(--md, 15px);
     transition-duration: var(--animDuration);
     transition-property: background-color, color, outline, outline-offset;
@@ -126,20 +129,53 @@
       width: 100%;
     }
 
-    /* Icon at the start */
-    &:has(> .icon:first-child):not(:has(> .icon:last-child)) {
+    & > :where(.icon, button, figure) {
+      flex-shrink: 0;
+    }
+
+    /* Icon & Figure at the start */
+    &:has(> :where(.icon, figure):first-child):not(:has(> :where(.icon, figure):last-child)) {
       padding-left: var(--sm, 10px);
     }
 
-    /* Icon at the end */
-    &:has(> .icon:last-child):not(:has(> .icon:first-child)) {
+    /* Icon & Figure at the end */
+    &:has(> :where(.icon, button, figure):last-child):not(:has(> :where(.icon, figure):first-child)) {
       padding-right: var(--sm, 10px);
     }
 
-    /* Icons on both sides */
-    &:has(> .icon:first-child):has(> .icon:last-child) {
+    /* Icons & Figures on both sides */
+    &:has(> :where(.icon, figure):first-child):has(> :where(.icon, figure):last-child) {
       padding-left: var(--sm, 10px);
       padding-right: var(--sm, 10px);
+    }
+
+    /* Button at the start */
+    &:has(> :where(button):first-child):not(:has(> :where(button):last-child)) {
+      padding-left: 0;
+
+      & > button {
+        outline-color: var(--inputBackground);
+      }
+    }
+
+    /* Button at the end */
+    &:has(> :where(button):last-child):not(:has(> :where(button):first-child)) {
+      padding-right: 0;
+
+      & > button {
+        outline: solid 6px var(--inputBackground);
+        outline-offset: -4px;
+      }
+    }
+
+    /* Button on both sides */
+    &:has(> :where(button):first-child):has(> :where(button):last-child) {
+      padding-left: 0;
+      padding-right: 0;
+
+      & > button {
+        outline-color: var(--inputBackground);
+      }
     }
   }
 

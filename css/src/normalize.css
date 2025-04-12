@@ -296,7 +296,7 @@
     color: var(--clr-text);
     display: inline-block;
     font-size: inherit;
-    height: 50px;
+    height: 45px;
 
     outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
     outline-offset: -2px;
