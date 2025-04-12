@@ -247,8 +247,8 @@
     width: fit-content;
 
     &:focus-visible {
-      outline: solid 3px hsl(from var(--background) h s calc(l + var(--ratio-texts)));
       outline-offset: -2.75px;
+      outline-width: 3.5px;
     }
 
     &:hover {
