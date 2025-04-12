@@ -28,12 +28,7 @@ declare module "preact" {
       // Deprecated Text Behavior Tags
       "nobr": JSX.HTMLAttributes<HTMLElement>;
       "blink": JSX.HTMLAttributes<HTMLElement>;
-      "marquee": JSX.HTMLAttributes<HTMLMarqueeElement> & {
-        behavior?: "scroll" | "slide" | "alternate";
-        direction?: "left" | "right" | "up" | "down";
-        scrollamount?: number;
-        scrolldelay?: number;
-      };
+      "marquee": JSX.HTMLAttributes<HTMLMarqueeElement>;
 
       // Deprecated Semantic Tags
       "acronym": JSX.HTMLAttributes<HTMLElement> & {
@@ -69,27 +64,7 @@ declare module "preact" {
       "x-row": JSX.HTMLAttributes<HTMLElement>;
       "x-block": JSX.HTMLAttributes<HTMLElement>;
       "x-dropdown": JSX.HTMLAttributes<HTMLElement>;
+      "x-wrap": JSX.HTMLAttributes<HTMLElement>;
     }
   }
 }
-
-// Optional: Export for clarity
-export type DeprecatedHTMLElements =
-  | "font"
-  | "basefont"
-  | "center"
-  | "big"
-  | "small"
-  | "strike"
-  | "s"
-  | "tt"
-  | "dir"
-  | "menu"
-  | "nobr"
-  | "blink"
-  | "marquee"
-  | "acronym"
-  | "applet"
-  | "listing"
-  | "xmp"
-  | "isindex";

@@ -1,160 +1,309 @@
-/* colors */
-@property --clr-background {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(0deg, 0%, 5%);
-}
+@layer tokens {
 
-@property --clr-text {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(0deg, 0%, 95%);
-}
+  /* colors */
+  @property --clr-background {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: light-dark(hsl(0deg, 0%, 95%), hsl(0deg, 0%, 5%));
+  }
 
-@property --clr-primary {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(0deg, 0%, 10%);
-}
+  :root {
+    --clr-background: light-dark(hsl(0deg, 0%, 95%), hsl(0deg, 0%, 5%));
+  }
 
-@property --clr-secondary {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(0deg, 0%, 15%);
-}
+  @property --clr-text {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: light-dark(hsl(0deg, 0%, 25%), hsl(0deg, 0%, 85%));
+  }
 
-@property --clr-accent {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(255, 55%, 70%);
-}
+  :root {
+    --clr-text: light-dark(hsl(0deg, 0%, 25%), hsl(0deg, 0%, 85%));
+  }
 
-@property --clr-debug {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(340deg, 50%, 50%);
-}
+  /* lowest most neutral */
+  @property --clr-text-sub {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: light-dark(hsl(0deg, 0%, 50%), hsl(0deg, 0%, 50%));
+  }
 
-@property --clr-error {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(0deg, 50%, 50%)
-}
+  :root {
+    --clr-text-sub: light-dark(hsl(0deg, 0%, 50%), hsl(0deg, 0%, 50%));
+  }
 
-@property --clr-info {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(215deg, 50%, 50%);
-}
+  /* highest in intensity */
+  @property --clr-text-sup {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: light-dark(hsl(0deg, 0%, 95%), hsl(0deg, 0%, 95%));
+  }
 
-@property --clr-success {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(145deg, 50%, 50%);
-}
+  :root {
+    --clr-text-sup: light-dark(hsl(0deg, 0%, 95%), hsl(0deg, 0%, 95%));
+  }
 
-@property --clr-warning {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(50deg, 50%, 50%);
-}
+  @property --clr-primary {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: light-dark(hsl(0deg, 0%, 90%), hsl(0deg, 0%, 10%));
+  }
 
-/* color modulation amounts */
-@property --ratio-backgrounds {
-  syntax: "<number>";
-  inherits: false;
-  initial-value: 1.618;
-}
+  :root {
+    --clr-primary: light-dark(hsl(0deg, 0%, 90%), hsl(0deg, 0%, 10%));
+  }
 
-@property --ratio-texts {
-  syntax: "<number>";
-  inherits: false;
-  initial-value: 3.618;
-}
+  @property --clr-secondary {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: light-dark(hsl(0deg, 0%, 75%), hsl(0deg, 0%, 15%));
+  }
 
-/* sizing */
-@property --xs {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 5px;
-}
+  :root {
+    --clr-secondary: light-dark(hsl(0deg, 0%, 75%), hsl(0deg, 0%, 15%));
+  }
 
-@property --sm {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 10px;
-}
+  @property --clr-tertiary {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: light-dark(hsl(0deg, 0%, 80%), hsl(0deg, 0%, 20%));
+  }
 
-@property --md {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 15px;
-}
+  :root {
+    --clr-tertiary: light-dark(hsl(0deg, 0%, 80%), hsl(0deg, 0%, 20%));
+  }
 
-@property --nm {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 20px;
-}
+  @property --clr-accent {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: light-dark(hsl(240, 55%, 60%), hsl(240, 55%, 65%));
+  }
 
-@property --lg {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 25px;
-}
+  :root {
+    --clr-accent: light-dark(hsl(240, 55%, 60%), hsl(240, 55%, 65%));
+  }
 
-@property --xl {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 30px;
-}
+  @property --clr-context {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: light-dark(hsl(75, 56%, 70%), hsl(75, 56%, 40%));
+  }
 
-/* typescaling */
-@property --type-xs {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 25px;
-}
+  :root {
+    --clr-context: light-dark(hsl(75, 56%, 70%), hsl(75, 56%, 40%));
+  }
 
-@property --type-sm {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 30px;
-}
+  @property --clr-debug {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: hsl(340deg, 50%, 50%);
+  }
 
-@property --type-md {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 35px;
-}
+  :root {
+    --clr-debug: hsl(340deg, 50%, 50%);
+  }
 
-@property --type-nm {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 40px;
-}
+  @property --clr-error {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: hsl(0deg, 50%, 50%);
+  }
 
-@property --type-lg {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 45px;
-}
+  :root {
+    --clr-error: hsl(0deg, 50%, 50%);
+  }
 
-@property --type-xl {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 50px;
-}
+  @property --clr-info {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: hsl(215deg, 50%, 50%);
+  }
 
-/* transitions */
-@property --animDuration {
-  syntax: "<time>";
-  inherits: true;
-  initial-value: 325ms;
-}
+  :root {
+    --clr-info: hsl(215deg, 50%, 50%);
+  }
 
-@property --animTiming {
-  syntax: "*";
-  inherits: true;
-  initial-value: cubic-bezier(0.45, 0, 0.25, 1.35);
+  @property --clr-success {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: hsl(145deg, 50%, 50%);
+  }
+
+  :root {
+    --clr-success: hsl(145deg, 50%, 50%);
+  }
+
+  @property --clr-warning {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: hsl(50deg, 50%, 50%);
+  }
+
+  :root {
+    --clr-warning: hsl(50deg, 50%, 50%);
+  }
+
+  /* color modulation amounts */
+  @property --ratio-backgrounds {
+    syntax: "<number>";
+    inherits: false;
+    initial-value: 1.618;
+  }
+
+  :root {
+    --ratio-backgrounds: 1.618;
+  }
+
+  @property --ratio-texts {
+    syntax: "<number>";
+    inherits: false;
+    initial-value: 3.618;
+  }
+
+  :root {
+    --ratio-texts: 3.618;
+  }
+
+  /* sizing */
+  @property --xs {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 5px;
+  }
+
+  :root {
+    --xs: 5px;
+  }
+
+  @property --sm {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 10px;
+  }
+
+  :root {
+    --sm: 10px;
+  }
+
+  @property --md {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 15px;
+  }
+
+  :root {
+    --md: 15px;
+  }
+
+  @property --nm {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 20px;
+  }
+
+  :root {
+    --nm: 20px;
+  }
+
+  @property --lg {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 25px;
+  }
+
+  :root {
+    --lg: 25px;
+  }
+
+  @property --xl {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 30px;
+  }
+
+  :root {
+    --xl: 30px;
+  }
+
+  /* typescaling */
+  @property --type-xs {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 25px;
+  }
+
+  :root {
+    --type-xs: 25px;
+  }
+
+  @property --type-sm {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 30px;
+  }
+
+  :root {
+    --type-sm: 30px;
+  }
+
+  @property --type-md {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 35px;
+  }
+
+  :root {
+    --type-md: 35px;
+  }
+
+  @property --type-nm {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 40px;
+  }
+
+  :root {
+    --type-nm: 40px;
+  }
+
+  @property --type-lg {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 45px;
+  }
+
+  :root {
+    --type-lg: 45px;
+  }
+
+  @property --type-xl {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 50px;
+  }
+
+  :root {
+    --type-xl: 50px;
+  }
+
+  /* transitions */
+  @property --animDuration {
+    syntax: "<time>";
+    inherits: true;
+    initial-value: 325ms;
+  }
+
+  :root {
+    --animDuration: 325ms;
+  }
+
+  @property --animTiming {
+    syntax: "*";
+    inherits: true;
+    initial-value: cubic-bezier(0.45, 0, 0.25, 1.35);
+  }
+
+  :root {
+    --animTiming: cubic-bezier(0.45, 0, 0.25, 1.35);
+  }
 }

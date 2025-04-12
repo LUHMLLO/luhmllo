@@ -4,11 +4,32 @@
     -webkit-font-smoothing: subpixel-antialiased;
     -webkit-tap-highlight-color: transparent;
     accent-color: var(--clr-accent);
-    color-scheme: dark light;
+    color-scheme: light dark;
     interpolate-size: allow-keywords;
     scroll-behavior: smooth;
     text-size-adjust: 100%;
     text-wrap: pretty;
+    will-change: background, color, outline;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: light;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+    }
+  }
+
+  html[scheme="light"] {
+    color-scheme: light;
+  }
+
+  html[scheme="dark"] {
+    color-scheme: dark;
   }
 
   * {
@@ -80,7 +101,6 @@
     transition-duration: var(--animDuration);
     transition-timing-function: var(--animTiming);
     width: 100dvw;
-    will-change: background-color, color;
   }
 
   @media (prefers-reduced-motion: no-preference) {
