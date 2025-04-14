@@ -17,13 +17,13 @@ export default function Page(_props: PageProps) {
   return (
     <>
       <x-stack style="gap: var(--nm); padding: var(--md, 15px);">
-        <nav style="place-items: center; position: sticky; top: 0; z-index: 10;">
+        <nav id="docs-appbar" style="place-items: center; position: sticky; top: 0; z-index: 10;">
           <a
             href="/"
             style=" text-box: none; "
           >
-            <figure style="aspect-ratio: 1/1; width: 95px;">
-              <img src="/media/logo.svg" alt="logo" />
+            <figure style="aspect-ratio: 1/1; width: 50px;">
+              <img src="/media/lilycat.png" alt="logo" />
             </figure>
           </a>
 
@@ -34,16 +34,6 @@ export default function Page(_props: PageProps) {
               </i>
             </button>
           </x-row>
-
-          {
-            /* <x-row style="gap: var(--md, 15px); place-content: end; place-items: center; width: 100%;">
-          <a href="/" style="color: inherit;">Get Started</a>
-          <a href="/test" style="color: inherit;">HTML Tags</a>
-          <button type="button" disabled>
-            Playground (not available)
-          </button>
-        </x-row> */
-          }
         </nav>
 
         <header>

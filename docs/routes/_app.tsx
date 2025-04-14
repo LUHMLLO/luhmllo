@@ -25,7 +25,7 @@ export default function Apps({ Component, url }: PageProps) {
           rel="icon"
           type="image/svg+xml"
           sizes="any"
-          href={asset("/media/logo.svg")}
+          href={asset("/media/lilycat.png")}
         />
 
         <title>lilys</title>

@@ -8,7 +8,7 @@ export default function Page(_props: PageProps) {
         <title>404 - Page not found</title>
       </Head>
       <img
-        src={asset("/media/logo.svg")}
+        src={asset("/media/lilycat.png")}
         width="128"
         height="128"
         alt="the Fresh logo: a sliced lemon dripping with juice"

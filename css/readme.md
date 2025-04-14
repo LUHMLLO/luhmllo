@@ -57,7 +57,7 @@ export default function App({ Component, url }: PageProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
         <link rel="canonical" href={canonicalUrl} />
-        <link rel="icon" type="image/svg+xml" href={asset("/media/logo.svg")} />
+        <link rel="icon" type="image/svg+xml" href={asset("/media/lilycat.png")} />
 
         <title>Lilycat</title>
 
