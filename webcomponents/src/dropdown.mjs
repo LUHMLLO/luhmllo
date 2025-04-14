@@ -6,35 +6,35 @@ import {
   hide,
   offset,
   shift,
-} from "https://esm.sh/@floating-ui/dom@1.6.13";
+} from "https://esm.sh/@floating-ui/dom@1.6.13"
 
-if (typeof window !== "undefined") {
+if (typeof window !== "undefined" && !customElements.get("x-dropdown")) {
   class Dropdown extends HTMLElement {
-    constructor() {
-      super();
-      this.attachShadow({ mode: "open", delegatesFocus: true });
-      this.open = false;
-      this._cleanup = null;
+    constructor () {
+      super()
+      this.attachShadow({ mode: "open", delegatesFocus: true })
+      this.open = false
+      this._cleanup = null
     }
 
     static get observedAttributes() {
-      return ["open"];
+      return [ "open" ]
     }
 
     connectedCallback() {
-      this.render();
-      this.addEventListener("focus", () => this.focus());
-      document.addEventListener("click", this.clickOutsideHandler.bind(this));
+      this.render()
+      this.addEventListener("focus", () => this.focus())
+      document.addEventListener("click", this.clickOutsideHandler.bind(this))
     }
 
     disconnectedCallback() {
-      this.removeEventListener("focus", () => this.focus());
+      this.removeEventListener("focus", () => this.focus())
       document.removeEventListener(
         "click",
         this.clickOutsideHandler.bind(this),
-      );
+      )
       if (this._cleanup) {
-        this._cleanup();
+        this._cleanup()
       }
     }
 
@@ -45,9 +45,9 @@ if (typeof window !== "undefined") {
      */
     attributeChangedCallback(name, _oldValue, newValue) {
       if (name === "open") {
-        this.open = newValue !== null;
-        this.render();
-        this._handleFloatingStyles();
+        this.open = newValue !== null
+        this.render()
+        this._handleFloatingStyles()
       }
     }
 
@@ -109,56 +109,55 @@ if (typeof window !== "undefined") {
         flex-shrink: 0;
         width: 100%;
       }
-    `;
+    `
 
       if (!this.shadowRoot) {
-        throw Error("shadowroot is null");
+        throw Error("shadowroot is null")
       }
 
       this.shadowRoot.innerHTML = `
-      <style>${styles}</style>
+      <style>${ styles }</style>
       <slot name="summary" tabindex="0"></slot>
-      ${
-        this.open
+      ${ this.open
           ? `
         <div part="dropmenu">
             <slot></slot>
         </div>
       `
           : ""
-      }
-    `;
+        }
+    `
 
       this.shadowRoot.querySelector('slot[name="summary"]').addEventListener(
         "click",
         this._toggleOpen.bind(this),
-      );
+      )
     }
 
     /**
      * @param {{ composedPath: () => any[]; }} event
      */
     clickOutsideHandler(event) {
-      const target = event.composedPath()[0];
+      const target = event.composedPath()[ 0 ]
       const isOutside = !this.shadowRoot.contains(target) &&
-        !this.contains(target);
+        !this.contains(target)
 
       if (this.open && isOutside) {
-        this.open = false;
-        this.removeAttribute("open");
+        this.open = false
+        this.removeAttribute("open")
       }
     }
 
     _toggleOpen() {
       if (this._cleanup) {
-        this._cleanup();
+        this._cleanup()
       }
 
-      this.open = !this.open;
+      this.open = !this.open
       if (this.open) {
-        this.setAttribute("open", "");
+        this.setAttribute("open", "")
       } else {
-        this.removeAttribute("open");
+        this.removeAttribute("open")
       }
     }
 
@@ -166,14 +165,14 @@ if (typeof window !== "undefined") {
      * @param {number} value
      */
     _roundByDPR(value) {
-      const dpr = globalThis.devicePixelRatio || 1;
-      return Math.round(value * dpr) / dpr;
+      const dpr = globalThis.devicePixelRatio || 1
+      return Math.round(value * dpr) / dpr
     }
 
     _handleFloatingStyles() {
       const summary = this.shadowRoot.querySelector('slot[name="summary"]')
-        .assignedElements()[0];
-      const menu = this.shadowRoot.querySelector('[part="dropmenu"]');
+        .assignedElements()[ 0 ]
+      const menu = this.shadowRoot.querySelector('[part="dropmenu"]')
 
       if (summary && menu && this.open) {
         this._cleanup = autoUpdate(
@@ -188,7 +187,7 @@ if (typeof window !== "undefined") {
                   autoPlacement({
                     autoAlignment: true,
                     alignment: "bottom",
-                    allowedPlacements: ["top", "bottom"],
+                    allowedPlacements: [ "top", "bottom" ],
                     crossAxis: true,
                     padding: 3,
                   }),
@@ -212,8 +211,8 @@ if (typeof window !== "undefined") {
                           width: document.documentElement.clientWidth,
                           height: document.documentElement.clientHeight,
                         },
-                      });
-                      return {};
+                      })
+                      return {}
                     },
                   },
                   hide(),
@@ -221,7 +220,7 @@ if (typeof window !== "undefined") {
                 placement: "bottom",
                 strategy: "fixed",
               },
-            );
+            )
 
             if (middlewareData.hide) {
               Object.assign(menu.style, {
@@ -229,25 +228,29 @@ if (typeof window !== "undefined") {
                 pointerEvents: middlewareData.hide.referenceHidden
                   ? "none"
                   : "initial",
-              });
+              })
             }
             Object.assign(menu.style, {
               left: "0",
               top: "0",
-              transform: `translate(${this._roundByDPR(x)}px, ${
-                this._roundByDPR(y)
-              }px)`,
-            });
+              transform: `translate(${ this._roundByDPR(x) }px, ${ this._roundByDPR(y)
+                }px)`,
+            })
           },
           { animationFrame: true },
-        );
+        )
       } else if (this._cleanup) {
-        console.log("cleaning");
-        this._cleanup();
-        this._cleanup = null;
+        console.log("cleaning")
+        this._cleanup()
+        this._cleanup = null
       }
     }
   }
 
-  customElements.define("x-dropdown", Dropdown);
+  customElements.define("x-dropdown", Dropdown)
+}
+
+// Register only once
+if (typeof window !== "undefined" && !customElements.get("x-dropdown")) {
+  customElements.define("x-dropdown", XDropdown)
 }

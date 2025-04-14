@@ -1,13 +1,15 @@
-import { asset } from "$fresh/runtime.ts";
-import { type PageProps } from "$fresh/server.ts";
-import * as lilycat from "../../css/dist/mod.ts";
+import { asset } from "$fresh/runtime.ts"
+import { type PageProps } from "$fresh/server.ts"
+import * as lilycat from "../../css/dist/mod.ts"
 
-export default function App({ Component, url }: PageProps) {
+import { Head } from "$fresh/runtime.ts"
+
+export default function Apps({ Component, url }: PageProps) {
   const canonicalUrl = new URL(url.pathname, url.origin).href;
 
   return (
     <html lang="en">
-      <head>
+      <Head>
         <meta charset="utf-8" />
         <meta
           name="description"
@@ -48,9 +50,10 @@ export default function App({ Component, url }: PageProps) {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         />
-      </head>
+      </Head>
       <body>
         <Component />
+        <script type="module" src="/vendors/dropdown.min.js"></script>
       </body>
     </html>
   );

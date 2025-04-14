@@ -179,13 +179,13 @@
 
   /* links */
   :where(a) {
-    align-items: center;
     color: var(--clr-accent);
     display: inline-block;
     gap: var(--xs, 5px);
     height: max-content;
     outline: solid 2px transparent;
     outline-offset: -2px;
+    place-items: center;
     transition-property: color;
     transition-duration: var(--animDuration);
     transition-timing-function: var(--animTiming);
