@@ -62,8 +62,23 @@
     display: flex;
     flex-direction: column;
     flex: 1 1;
-    gap: var(--nm,20px);
+    gap: var(--nm, 20px);
     padding: var(--nm, 20px);
+    width: 100%;
+  }
+
+  :where(x-window) {
+    --background: var(--clr-bacground);
+
+    background-color: hsl(from var(--background) h s calc(l + var(--ratio-backgrounds))/25%);
+    backdrop-filter: blur(var(--sm, 10px));
+    border-radius: var(--xl);
+    height: 100%;
+    isolation: isolate;
+    outline: solid 2px hsl(from var(--clr-text) h s calc(l + var(--ratio-text)));
+    outline-offset: -2px;
+    overflow: clip;
+    padding: var(--xl);
     width: 100%;
   }
 }

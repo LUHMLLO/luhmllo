@@ -1183,16 +1183,16 @@ export default function Page(_props: PageProps) {
 
       <dialog id="chaptersModal" data-props="--bottomsheet">
         <x-flex style="place-items: center;">
-          <h6 style="flex: 1 1;">Chapters</h6>
-          <button id="chaptersClose" type="button" style="display: contents;">
+          <span style="flex: 1 1; font-size: var(--xl);">Chapters</span>
+          <button id="chaptersClose" type="button" style="">
             <i className="icon">close</i>
           </button>
         </x-flex>
 
         <hr />
 
-        <ul>
-          <li>
+        <x-stack style="gap: var(--nm, 20px);">
+          <x-group>
             <a href="#text">Text</a>
             <ul>
               <li>
@@ -1229,8 +1229,9 @@ export default function Page(_props: PageProps) {
                 <a href="#text__comments">HTML Comments</a>
               </li>
             </ul>
-          </li>
-          <li>
+          </x-group>
+
+          <x-group>
             <a href="#embedded">Embedded content</a>
             <ul>
               <li>
@@ -1267,8 +1268,9 @@ export default function Page(_props: PageProps) {
                 <a href="#embedded__object">Object</a>
               </li>
             </ul>
-          </li>
-          <li>
+          </x-group>
+
+          <x-group>
             <a href="#forms">Form elements</a>
             <ul>
               <li>
@@ -1293,8 +1295,8 @@ export default function Page(_props: PageProps) {
                 <a href="#forms__action">Action buttons</a>
               </li>
             </ul>
-          </li>
-        </ul>
+          </x-group>
+        </x-stack>
       </dialog>
 
       <button id="chaptersOpen" type="button" data-props="--fab">

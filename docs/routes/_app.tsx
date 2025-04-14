@@ -38,6 +38,7 @@ export default function Apps({ Component, url }: PageProps) {
 
         {/* global styles */}
         <link rel="stylesheet" href={asset("/styles/app.css")} />
+        <link rel="stylesheet" href={asset("/styles/utils.css")} />
 
         {/* google fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -52,7 +53,7 @@ export default function Apps({ Component, url }: PageProps) {
         />
       </Head>
       <body>
-        <div id="app" data-safearea="block">
+        <div id="app" data-safearea="top">
           <nav id="appbar">
             <a href="/">
               <figure>

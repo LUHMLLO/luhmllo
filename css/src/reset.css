@@ -109,6 +109,7 @@
       gap: var(--nm, 20px);
       grid-template-columns: subgrid;
       grid-column: inner;
+      width: 100%;
 
       &:where([data-safearea~="top"]) {
          padding-top: 100px;
