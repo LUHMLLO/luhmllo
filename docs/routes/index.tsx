@@ -50,11 +50,8 @@ export default function Page(_props: PageProps) {
           <h1>Lilycat</h1>
           <p>
             For better human interfaces &amp; user experiences while keeping
-            styling where it belongs
-          </p>
-          <p>
-            Powered by dead simple CSS props and a mix of common convention
-            rules.
+            styling where it belongs. Powered by dead simple CSS props and a mix
+            of common convention rules.
           </p>
         </header>
 
