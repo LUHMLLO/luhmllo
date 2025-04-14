@@ -84,7 +84,7 @@
     font-size: clamp(15px, 100% - 3ex, 20px);
     font-variant-numeric: tabular-nums;
     hanging-punctuation: first last;
-    letter-spacing: -.125ex;
+    letter-spacing: -.03em;
     line-height: 2ex;
     position: static;
     text-underline-offset: 3px;

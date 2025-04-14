@@ -146,27 +146,27 @@
   }
 
   :where(h1) {
-    font-size: var(--type-xl, 60px);
+    font-size: calc(60px * 0.0625rem);
   }
 
   :where(h2) {
-    font-size: var(--type-lg, 50px);
+    font-size: calc(50px * 0.0625rem);
   }
 
   :where(h3) {
-    font-size: var(--type-nm, 40px);
+    font-size: calc(40px * 0.0625rem);
   }
 
   :where(h4) {
-    font-size: var(--type-md, 35px);
+    font-size: calc(35px * 0.0625rem);
   }
 
   :where(h5) {
-    font-size: var(--type-sm, 30px);
+    font-size: calc(30px * 0.0625rem);
   }
 
   :where(h6) {
-    font-size: var(--type-xs, 25px);
+    font-size: calc(25px * 0.0625rem);
   }
 
   :where(p) {

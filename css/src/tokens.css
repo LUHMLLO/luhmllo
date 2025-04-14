@@ -168,122 +168,61 @@
   @property --xs {
     syntax: "<length>";
     inherits: true;
-    initial-value: 5px;
+    initial-value: 5ch;
   }
 
   :root {
-    --xs: 5px;
+    --xs: calc(5 * 0.0625rem);
   }
 
   @property --sm {
     syntax: "<length>";
     inherits: true;
-    initial-value: 10px;
+    initial-value: 10ch;
   }
 
   :root {
-    --sm: 10px;
+    --sm: calc(10 * 0.0625rem);
   }
 
   @property --md {
     syntax: "<length>";
     inherits: true;
-    initial-value: 15px;
+    initial-value: 15ch;
   }
 
   :root {
-    --md: 15px;
+    --md: calc(15 * 0.0625rem);
   }
 
   @property --nm {
     syntax: "<length>";
     inherits: true;
-    initial-value: 20px;
+    initial-value: 20ch;
   }
 
   :root {
-    --nm: 20px;
+    --nm: calc(20 * 0.0625rem);
   }
 
   @property --lg {
     syntax: "<length>";
     inherits: true;
-    initial-value: 25px;
+    initial-value: 25ch;
   }
 
   :root {
-    --lg: 25px;
+    --lg: calc(25 * 0.0625rem);
   }
 
   @property --xl {
     syntax: "<length>";
     inherits: true;
-    initial-value: 30px;
+    initial-value: 30ch;
   }
 
   :root {
-    --xl: 30px;
-  }
-
-  /* typescaling */
-  @property --type-xs {
-    syntax: "<length>";
-    inherits: true;
-    initial-value: 25px;
-  }
-
-  :root {
-    --type-xs: 25px;
-  }
-
-  @property --type-sm {
-    syntax: "<length>";
-    inherits: true;
-    initial-value: 30px;
-  }
-
-  :root {
-    --type-sm: 30px;
-  }
-
-  @property --type-md {
-    syntax: "<length>";
-    inherits: true;
-    initial-value: 35px;
-  }
-
-  :root {
-    --type-md: 35px;
-  }
-
-  @property --type-nm {
-    syntax: "<length>";
-    inherits: true;
-    initial-value: 40px;
-  }
-
-  :root {
-    --type-nm: 40px;
-  }
-
-  @property --type-lg {
-    syntax: "<length>";
-    inherits: true;
-    initial-value: 45px;
-  }
-
-  :root {
-    --type-lg: 45px;
-  }
-
-  @property --type-xl {
-    syntax: "<length>";
-    inherits: true;
-    initial-value: 50px;
-  }
-
-  :root {
-    --type-xl: 50px;
+    --xl: calc(30 * 0.0625rem);
   }
 
   /* transitions */
