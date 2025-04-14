@@ -104,7 +104,7 @@
     font-size: clamp(72%, 0.5vw, 88%);
   }
 
-  :where(audio, button, figure, i, iframe, img, picture, svg, video) {
+  :where(audio, button, [type="button"], figure, i, iframe, img, picture, svg, video) {
     -webkit-user-select: none;
     user-select: none;
   }

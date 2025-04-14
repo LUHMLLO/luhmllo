@@ -57,9 +57,13 @@
   }
 
   :where(x-card) {
-    background-color: var(--clr-secondary);
+    --background: var(--clr-primary);
+    background-color: hsl(from var(--background) h s calc(l + var(--ratio-backgrounds)));
     display: flex;
     flex-direction: column;
-    padding: var(--xs, 5px);
+    flex: 1 1;
+    gap: var(--nm,20px);
+    padding: var(--nm, 20px);
+    width: 100%;
   }
 }

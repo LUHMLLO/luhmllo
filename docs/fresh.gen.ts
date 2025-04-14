@@ -8,6 +8,7 @@ import * as $codepens_homeExploration from "./routes/codepens/homeExploration.ts
 import * as $codepens_notionPopOs from "./routes/codepens/notionPopOs.tsx";
 import * as $codepens_railFloatingDrawer from "./routes/codepens/railFloatingDrawer.tsx";
 import * as $codepens_saasNotification from "./routes/codepens/saasNotification.tsx";
+import * as $codepens_smartHomeHub from "./routes/codepens/smartHomeHub.tsx";
 import * as $codepens_suburban from "./routes/codepens/suburban.tsx";
 import * as $codepens_uasd from "./routes/codepens/uasd.tsx";
 import * as $el_layout from "./routes/el/_layout.tsx";
@@ -40,6 +41,7 @@ const manifest = {
     "./routes/codepens/notionPopOs.tsx": $codepens_notionPopOs,
     "./routes/codepens/railFloatingDrawer.tsx": $codepens_railFloatingDrawer,
     "./routes/codepens/saasNotification.tsx": $codepens_saasNotification,
+    "./routes/codepens/smartHomeHub.tsx": $codepens_smartHomeHub,
     "./routes/codepens/suburban.tsx": $codepens_suburban,
     "./routes/codepens/uasd.tsx": $codepens_uasd,
     "./routes/el/_layout.tsx": $el_layout,

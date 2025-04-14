@@ -84,8 +84,8 @@
     font-size: clamp(15px, 100% - 3ex, 20px);
     font-variant-numeric: tabular-nums;
     hanging-punctuation: first last;
-    letter-spacing: -0.03em;
-    line-height: 1.25em;
+    letter-spacing: -.125ex;
+    line-height: 2ex;
     position: static;
     text-underline-offset: 3px;
   }
@@ -93,6 +93,8 @@
   :where(body) {
     background-color: var(--clr-background);
     color: var(--clr-text);
+    display: grid;
+    grid-template-columns: [expand-start] minmax(1rem, 1fr) [inner-start] minmax(0, 80rem) [inner-end] minmax(1rem, 1fr) [expand-end];
     inset: 0;
     max-height: max-content;
     min-height: 100dvh;
@@ -101,6 +103,25 @@
     transition-duration: var(--animDuration);
     transition-timing-function: var(--animTiming);
     width: 100dvw;
+
+    :where(app, #app) {
+      display: grid;
+      gap: var(--nm, 20px);
+      grid-template-columns: subgrid;
+      grid-column: inner;
+
+      &:where([data-safearea~="top"]) {
+         padding-top: 100px;
+      }
+
+      &:where([data-safearea~="bottom"]) {
+         padding-bottom: 100px;
+      }
+
+      &:where([data-safearea~="block"]) {
+         padding-block: 100px;
+      }
+    }
   }
 
   @media (prefers-reduced-motion: no-preference) {

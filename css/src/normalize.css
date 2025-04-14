@@ -12,7 +12,7 @@
     a, div, span, details, summary, figure, figcaption, caption,
     address, main, section, article, aside, header, footer, nav,
     /* Form elements */
-    form, fieldset, legend, label, button, input, select, textarea, optgroup, option) {
+    form, fieldset, legend, label, button, [type="button"], input, select, textarea, optgroup, option) {
     font-family: inherit;
     font-weight: 400;
     overflow-wrap: break-word;
@@ -21,7 +21,7 @@
     word-break: break-word;
   }
 
-  :where(a, button, caption, figcaption, h1, h2, h3, h4, h5, h6, input, label, legend, select, small, summary) {
+  :where(a, button, [type="button"], caption, figcaption, h1, h2, h3, h4, h5, h6, input, label, legend, select, small, span, summary) {
     text-box: trim-both;
   }
 
@@ -106,7 +106,7 @@
   }
 
   /* general clickable items */
-  :where(a, area, button, input, label, select, summary, textarea) {
+  :where(a, area, button, [type="button"], input, label, select, summary, textarea) {
     -ms-touch-action: manipulation;
     touch-action: manipulation;
   }
@@ -220,7 +220,7 @@
   }
 
   /* buttons */
-  :where(button) {
+  :where(button, [type="button"]) {
     --background: var(--clr-background);
     --hover: hsl(from var(--background) h s calc(l + var(--ratio-backgrounds)));
     --active: hsl(from var(--background) h s calc(l - var(--ratio-backgrounds)));

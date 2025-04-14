@@ -1,8 +1,8 @@
-import { asset } from "$fresh/runtime.ts"
-import { type PageProps } from "$fresh/server.ts"
-import * as lilycat from "../../css/dist/mod.ts"
+import { asset } from "$fresh/runtime.ts";
+import { type PageProps } from "$fresh/server.ts";
+import * as lilycat from "../../css/dist/mod.ts";
 
-import { Head } from "$fresh/runtime.ts"
+import { Head } from "$fresh/runtime.ts";
 
 export default function Apps({ Component, url }: PageProps) {
   const canonicalUrl = new URL(url.pathname, url.origin).href;
@@ -52,7 +52,24 @@ export default function Apps({ Component, url }: PageProps) {
         />
       </Head>
       <body>
-        <Component />
+        <div id="app" data-safearea="block">
+          <nav id="appbar">
+            <a href="/">
+              <figure>
+                <img src="/media/lilycat.png" alt="logo" />
+              </figure>
+            </a>
+
+            <x-row style="gap: var(--md, 15px); place-content: end; place-items: center; width: 100%;">
+              <x-dropdown id="more">
+                <summary slot="summary" type="button">
+                  menu
+                </summary>
+              </x-dropdown>
+            </x-row>
+          </nav>
+          <Component />
+        </div>
         <script type="module" src="/vendors/dropdown.min.js"></script>
       </body>
     </html>

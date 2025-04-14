@@ -15,21 +15,7 @@ const routes = [
 
 export default function Page(_props: PageProps) {
   return (
-    <div id="docs-app">
-      <nav id="docs-appbar">
-        <a href="/">
-          <figure>
-            <img src="/media/lilycat.png" alt="logo" />
-          </figure>
-        </a>
-
-        <x-row style="gap: var(--md, 15px); place-content: end; place-items: center; width: 100%;">
-          <button type="button" style="display: contents;">
-            menu
-          </button>
-        </x-row>
-      </nav>
-
+    <>    
       <header>
         <h1>Lilycat</h1>
         <p>
@@ -39,9 +25,9 @@ export default function Page(_props: PageProps) {
         </p>
       </header>
 
-      <x-grid style="gap: var(--md); grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+      <x-grid style="gap: var(--md); grid-template-columns: repeat(auto-fit, minmax(clamp(0px, 100px, 150px), 1fr));">
         {routes.map((path) => (
-          <a href={"/el/" + path}>
+          <a href={"/el/" + path} style="display: contents;">
             <x-card>
               <x-flex>
                 <span>
@@ -57,6 +43,6 @@ export default function Page(_props: PageProps) {
           </a>
         ))}
       </x-grid>
-    </div>
+    </>
   );
 }
