@@ -16,9 +16,20 @@
   background-size: var(--grid-size) var(--grid-size);
 }
 
+#docs-app {
+  gap: var(--nm);
+  padding: 75px var(--xs, 5px);
+}
+
 #docs-appbar {
   background-color: transparent;
   backdrop-filter: blur(0px);
+  padding: var(--xs, 5px);
+  place-items: center;
+  position: fixed;
+  inset: 0 0 auto;
+  width: 100%;
+  z-index: 10;
 
   &::before {
     background-color: var(--clr-background);
@@ -33,5 +44,16 @@
     position: absolute;
     width: 100%;
     z-index: -1;
+  }
+
+  & > a {
+    flex-shrink: 0;
+    text-box: none;
+
+    & > figure {
+      aspect-ratio: 1/1;
+      vertical-align: middle;
+      width: 50px;
+    }
   }
 }
