@@ -239,7 +239,7 @@
     border-bottom-right-radius: 0;
     box-shadow: 0 0 25vmax 15vmax black;
     gap: var(--md);
-    height: calc(100dvh - var(--nm));
+    height: calc(100dvw - var(--nm));
     inset: auto 0 0;
     margin: auto;
     outline: solid 2px var(--clr-primary);
