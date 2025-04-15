@@ -2,7 +2,7 @@ import { type PageProps } from "$fresh/server.ts";
 
 export default function Page(_props: PageProps) {
   return (
-    <>
+    <x-grid style="gap: var(--nm, 20px); grid-auto-rows: max-content; min-height: 100dvh; place-content: safe center;">
       <a>
         <i className="icon">asterisk</i>lead icon
       </a>
@@ -30,6 +30,6 @@ export default function Page(_props: PageProps) {
       <a href={"#" + crypto.randomUUID()}>
         trail icon<span className="icon">asterisk</span>
       </a>
-    </>
+    </x-grid>
   );
 }

@@ -2,7 +2,7 @@ import { type PageProps } from "$fresh/server.ts";
 
 export default function Page(_props: PageProps) {
   return (
-    <x-wrap style="gap: var(--nm);">
+    <x-wrap style="gap: var(--nm, 20px); grid-auto-rows: max-content; min-height: 100dvh; place-content: safe center;">
       <x-stack style="gap: var(--md);">
         <button type="button">
           <i className="icon">arrow_left_alt</i>

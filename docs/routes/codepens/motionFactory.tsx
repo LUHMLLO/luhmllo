@@ -7,9 +7,16 @@ export default function Page(_props: PageProps) {
       <Head>
         <link
           rel="stylesheet"
-          href={asset("/codepens/smartHomeHub.css")}
+          href={asset("/codepens/motionFactory.css")}
         />
       </Head>
+
+      <x-window>
+        <aside>
+        </aside>
+        <main>
+        </main>
+      </x-window>
     </>
   );
 }

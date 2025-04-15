@@ -68,16 +68,16 @@
   }
 
   :where(x-window) {
-    --background: var(--clr-background);
-
-    background-color: hsl(from var(--background) h s calc(l + var(--ratio-backgrounds))/25%);
+    background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-backgrounds))/25%);
     backdrop-filter: blur(var(--sm, 10px));
-    border-radius: var(--nm);
+    border-radius: var(--md);
+    display: block;
     height: 100%;
     isolation: isolate;
-    outline: solid 2px hsl(from var(--background) h s calc(l + var(--ratio-texts)));
+    outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
     outline-offset: -2px;
     overflow: clip;
+    position: relative;
     width: 100%;
   }
 }

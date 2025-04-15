@@ -2,7 +2,7 @@ import { type PageProps } from "$fresh/server.ts";
 
 export default function Page(_props: PageProps) {
   return (
-    <>
+    <x-grid style="gap: var(--nm, 20px); grid-auto-rows: max-content; min-height: 100dvh; place-content: safe center;">
       <label htmlFor="radio1">
         <input
           id="radio1"
@@ -20,6 +20,6 @@ export default function Page(_props: PageProps) {
       <label htmlFor="radio3">
         <input id="radio3" name="radio" type="radio" /> Option 3
       </label>
-    </>
+    </x-grid>
   );
 }

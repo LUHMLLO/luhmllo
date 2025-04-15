@@ -1,0 +1,75 @@
+x-window {
+  display: flex;
+
+  #notion__sidebar {
+    background-color: var(--clr-primary);
+    gap: var(--lg);
+    height: 100%;
+    isolation: isolate;
+    outline: solid 2px var(--clr-secondary);
+    outline-offset: -2px;
+    padding: var(--sm, 10px);
+    position: relative;
+    overflow: auto;
+    width: 300px;
+
+    & > x-flex {
+      align-items: center;
+      background-color: var(--clr-primary);
+      border-radius: var(--xl);
+      gap: var(--xs, 5px);
+      position: sticky;
+      width: 100%;
+      z-index: 5;
+
+      &:first-of-type {
+        box-shadow: 0 -15vmax 15vmax 15vmax var(--clr-primary);
+        top: 0;
+
+        & > button {
+          & > span {
+            flex: 1 1 100%;
+            overflow: clip;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+      }
+
+      &:last-of-type {
+        background-color: var(--clr-background);
+        border-radius: var(--xs, 5px);
+        box-shadow: 0 15vmax 15vmax 15vmax var(--clr-primary);
+        gap: var(--sm, 15px);
+        inset: auto auto 0 auto;
+        margin: auto auto 0 auto;
+        padding: var(--md);
+      }
+    }
+
+    & > x-group {
+      & > span {
+        margin-bottom: var(--md);
+      }
+
+      & > button {
+        --background: var(--clr-primary);
+
+        width: 100%;
+
+        &:not(:focus, :focus-visible) {
+          outline-color: transparent;
+        }
+
+        & > span {
+          flex: 1 1;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  #notion__main {
+    width: 100%;
+  }
+}
