@@ -237,11 +237,12 @@
     background-color: var(--clr-background);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    box-shadow: 0 0 25vmax 15vmax black;
+    box-shadow: 0 0 25vmax 25vmax black;
     gap: var(--md);
-    height: calc(100dvw - var(--md, 15px));
+    height: max-content;
     inset: auto 0 0;
     margin: auto;
+    max-height: calc(100% - var(--md, 15px));
     outline: solid 2px var(--clr-primary);
     outline-offset: -2px;
     overflow: auto;

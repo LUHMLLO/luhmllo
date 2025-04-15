@@ -1,37 +1,12 @@
-import { asset } from "$fresh/runtime.ts";
+import { asset, Head } from "$fresh/runtime.ts";
 import { type PageProps } from "$fresh/server.ts";
 
 export default function Page(_props: PageProps) {
   return (
     <>
-      <script
-        // deno-lint-ignore react-no-danger
-        dangerouslySetInnerHTML={{
-          __html: `
-          // Make sure to run after DOM is fully loaded
-          document.addEventListener("DOMContentLoaded", () => {
-            const buttonOpen = document.getElementById("chaptersOpen");
-            const buttonClose = document.getElementById("chaptersClose");
-            const modalDialog = document.getElementById("chaptersModal");
-          
-            // Check if elements exist
-            if (buttonOpen && buttonClose && modalDialog instanceof HTMLDialogElement) {      
-              buttonOpen.addEventListener("click", () => {
-                console.count();
-                modalDialog.show();
-              });        
-            
-              buttonClose.addEventListener("click", () => {
-                modalDialog.close();
-              });
-            } else {
-              console.error("Missing one or more required elements:", 
-                {buttonOpen, buttonClose, modalDialog});
-            }
-          });
-          `,
-        }}
-      />
+      <Head>
+        <script type="module" src="/app.js" />
+      </Head>
 
       <x-grid style="gap: var(--xl, 30px); height: 100%; overflow: auto;">
         <header id="top">

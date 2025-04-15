@@ -35,8 +35,8 @@ export default function Apps({ Component, url }: PageProps) {
         />
 
         {/* global styles */}
-        <link rel="stylesheet" href={asset("/styles/app.css")} />
-        <link rel="stylesheet" href={asset("/styles/utils.css")} />
+        <link rel="stylesheet" href={asset("/app.css")} />
+        <link rel="stylesheet" href={asset("/utils.css")} />
 
         {/* google fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -60,6 +60,7 @@ export default function Apps({ Component, url }: PageProps) {
             </a>
 
             <x-row style="gap: var(--md, 15px); place-content: end; place-items: center; width: 100%;">
+              <a href="/test">docs</a>
               <x-dropdown id="more">
                 <summary slot="summary" type="button">
                   menu

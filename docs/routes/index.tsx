@@ -13,6 +13,17 @@ const routes = [
   "textarea",
 ];
 
+const codepens = [
+  "homeExploration",
+  "motionFactory",
+  "notionPopOs",
+  "railFloatingDrawer",
+  "saasNotification",
+  "smartHomeHub",
+  "suburban",
+  "uasd",
+];
+
 export default function Page(_props: PageProps) {
   return (
     <>
@@ -25,21 +36,32 @@ export default function Page(_props: PageProps) {
         </p>
       </header>
 
-      <x-grid style="gap: var(--md); grid-template-columns: repeat(auto-fit, minmax(clamp(0px, 100px, 150px), 1fr));">
+      <hr />
+
+      <x-grid style="gap: var(--md); grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 100%, 200px), 1fr));">
         {routes.map((path) => (
-          <a href={"/el/" + path} style="display: contents;">
-            <x-card>
-              <x-flex>
-                <span>
-                  {path}
-                </span>
-                <span>
-                  <i className="icon">
-                    north_east
-                  </i>
-                </span>
-              </x-flex>
-            </x-card>
+          <a href={"/el/" + path}>
+            <span>
+              {path}
+            </span>
+            <i className="icon">
+              north_east
+            </i>
+          </a>
+        ))}
+      </x-grid>
+
+      <hr />
+
+      <x-grid style="gap: var(--md); grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 100%, 200px), 1fr));">
+        {codepens.map((path) => (
+          <a href={"/codepens/" + path}>
+            <span>
+              {path}
+            </span>
+            <i className="icon">
+              north_east
+            </i>
           </a>
         ))}
       </x-grid>
