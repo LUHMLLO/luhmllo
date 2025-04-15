@@ -68,17 +68,16 @@
   }
 
   :where(x-window) {
-    --background: var(--clr-bacground);
+    --background: var(--clr-background);
 
     background-color: hsl(from var(--background) h s calc(l + var(--ratio-backgrounds))/25%);
     backdrop-filter: blur(var(--sm, 10px));
-    border-radius: var(--xl);
+    border-radius: var(--nm);
     height: 100%;
     isolation: isolate;
-    outline: solid 2px hsl(from var(--clr-text) h s calc(l + var(--ratio-text)));
+    outline: solid 2px hsl(from var(--background) h s calc(l + var(--ratio-texts)));
     outline-offset: -2px;
     overflow: clip;
-    padding: var(--xl);
     width: 100%;
   }
 }

@@ -121,7 +121,13 @@ main {
     }
 
     hr {
-      background-color: hsl(from var(--clr-primary) h s calc(l + var(--ratio-texts)));
+      background-color: hsl(
+        from
+        var(--clr-primary)
+        h
+        s
+        calc(l + var(--ratio-texts))
+      );
     }
   }
 }

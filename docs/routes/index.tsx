@@ -15,7 +15,7 @@ const routes = [
 
 export default function Page(_props: PageProps) {
   return (
-    <>    
+    <>
       <header>
         <h1>Lilycat</h1>
         <p>
