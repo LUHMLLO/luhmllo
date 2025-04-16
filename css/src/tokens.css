@@ -1,10 +1,16 @@
 @layer tokens {
   :root {
-    --clr-text: light-dark(#120d0d, #f3eeee);
-    --clr-background: light-dark(#f0eaeb, #140e0f);
-    --clr-primary: light-dark(#4b3537, #c9b3b5);
-    --clr-secondary: light-dark(#b9a99d, #615145);
-    --clr-accent: light-dark(#8c7d63, #9a8b72);
+    --clr-text: light-dark(hsl(350, 15%, 10%), hsl(350, 15%, 90%));
+    --clr-background: light-dark(hsl(350, 15%, 90%), hsl(350, 15%, 10%));
+
+    --clr-primary: hsl(355, 25%, 75%);
+    --clr-primary-text: hsl(355, 20%, 25%);
+
+    --clr-secondary: hsl(25, 20%, 35%);
+    --clr-secondary-text: hsl(25, 15%, 85%);
+
+    --clr-accent: hsl(40, 25%, 55%);
+    --clr-accent-text: hsl(40, 20%, 25%);
 
     --clr-debug: hsl(340deg, 50%, 50%);
     --clr-error: hsl(0deg, 50%, 50%);

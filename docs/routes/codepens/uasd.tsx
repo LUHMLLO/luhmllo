@@ -11,12 +11,9 @@ export default function Page(_props: PageProps) {
         />
       </Head>
 
-      <x-stack
-        id="appbar"
-        style="background-color: var(--clr-primary); gap: var(--md, 15px); padding: var(--md, 15px) var(--sm, 10px);"
-      >
-        <x-flex style="gap: var(--sm, 10px); place-items: center;">
-          <button type="button" data-props="--primary">
+      <x-stack id="appbar">
+        <x-flex>
+          <button type="button">
             <i className="icon">arrow_back</i>
           </button>
           <figure style="flex-shrink: 1; width: min(100%, 100px);">
@@ -27,7 +24,7 @@ export default function Page(_props: PageProps) {
             />
           </figure>
 
-          <x-row style="flex: 1 1; gap: inherit; place-content: end; place-items: center; width: 100%;">
+          <x-row id="menu" style="flex: 1 1; gap: inherit; place-content: end; place-items: center; width: 100%;">
             <a href={"#" + crypto.randomUUID()} style="color: inherit;">
               Intranet
             </a>
@@ -53,7 +50,7 @@ export default function Page(_props: PageProps) {
         <label
           htmlFor="searchbar"
           data-props="--input"
-          style="--inputBackground: var(--clr-secondary); border-radius: 1000px;"
+          style="--inputBackground: var(--clr-background); border-radius: var(--xl);"
         >
           <input
             type="text"

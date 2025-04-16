@@ -52,7 +52,7 @@ export default function Apps({ Component, url }: PageProps) {
       </Head>
       <body>
         <div id="app">
-          <nav id="app__topbar">
+          {/* <nav id="app__topbar">
             <a href="/">
               <figure>
                 <img src="/media/lilycat.png" alt="logo" />
@@ -64,7 +64,7 @@ export default function Apps({ Component, url }: PageProps) {
                 <span>Docs</span>
               </a>
             </x-row>
-          </nav>
+          </nav> */}
           <div id="app__content">
             <Component />
           </div>

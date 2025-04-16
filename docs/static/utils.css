@@ -1,6 +1,6 @@
 @layer utils {
   .gridlines {
-    --grid-line-color: hsla(0deg, 0%, 50%, 0.15);
+    --grid-line-color: hsla(0deg, 0%, 50%, 0.05);
     --grid-line-width: 1px;
     --grid-size: 100px;
 

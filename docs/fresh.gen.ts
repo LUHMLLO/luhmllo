@@ -7,7 +7,7 @@ import * as $_app from "./routes/_app.tsx";
 import * as $codepens_layout from "./routes/codepens/_layout.tsx";
 import * as $codepens_homeExploration from "./routes/codepens/homeExploration.tsx";
 import * as $codepens_motionFactory from "./routes/codepens/motionFactory.tsx";
-import * as $codepens_notionPopOs from "./routes/codepens/notionPopOs.tsx";
+import * as $codepens_notionSidebar from "./routes/codepens/notionSidebar.tsx";
 import * as $codepens_railFloatingDrawer from "./routes/codepens/railFloatingDrawer.tsx";
 import * as $codepens_saasNotification from "./routes/codepens/saasNotification.tsx";
 import * as $codepens_smartHomeHub from "./routes/codepens/smartHomeHub.tsx";
@@ -42,7 +42,7 @@ const manifest = {
     "./routes/codepens/_layout.tsx": $codepens_layout,
     "./routes/codepens/homeExploration.tsx": $codepens_homeExploration,
     "./routes/codepens/motionFactory.tsx": $codepens_motionFactory,
-    "./routes/codepens/notionPopOs.tsx": $codepens_notionPopOs,
+    "./routes/codepens/notionSidebar.tsx": $codepens_notionSidebar,
     "./routes/codepens/railFloatingDrawer.tsx": $codepens_railFloatingDrawer,
     "./routes/codepens/saasNotification.tsx": $codepens_saasNotification,
     "./routes/codepens/smartHomeHub.tsx": $codepens_smartHomeHub,

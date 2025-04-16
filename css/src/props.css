@@ -1,8 +1,9 @@
 @layer props {
   :where([data-props~="--background"]) {
-    &:is(button) {
-      --idle: var(--clr-background);
+    --idle: var(--clr-background);
+    --clr: var(--clr-text);
 
+    &:is(button) {
       &:not(:focus, :focus-visible) {
         outline-color: transparent;
       }
@@ -10,9 +11,10 @@
   }
 
   :where([data-props~="--text"]) {
-    &:is(button) {
-      --idle: var(--clr-text);
+    --idle: var(--clr-text);
+    --clr: var(--clr-background);
 
+    &:is(button) {
       &:not(:focus, :focus-visible) {
         outline-color: transparent;
       }
@@ -20,9 +22,10 @@
   }
 
   :where([data-props~="--primary"]) {
-    &:is(button) {
-      --idle: var(--clr-primary);
+    --idle: var(--clr-primary);
+    --clr: var(--clr-primary-text);
 
+    &:is(button) {
       &:not(:focus, :focus-visible) {
         outline-color: transparent;
       }
@@ -30,9 +33,10 @@
   }
 
   :where([data-props~="--secondary"]) {
-    &:is(button) {
-      --idle: var(--clr-secondary);
+    --idle: var(--clr-secondary);
+    --clr: var(--clr-secondary-text);
 
+    &:is(button) {
       &:not(:focus, :focus-visible) {
         outline-color: transparent;
       }
@@ -40,9 +44,10 @@
   }
 
   :where([data-props~="--accent"]) {
-    &:is(button) {
-      --idle: var(--clr-accent);
+    --idle: var(--clr-accent);
+    --clr: var(--clr-accent-text);
 
+    &:is(button) {
       &:not(:focus, :focus-visible) {
         outline-color: transparent;
       }
@@ -147,11 +152,11 @@
   }
 
   :where([data-props~="--segmented-controls"]) {
-    background-color: hsl(from var(--clr-primary) h s calc(l - var(--ratio-backgrounds)));
+    background-color: hsl(from var(--clr-background) h s calc(l - var(--ratio-backgrounds)));
     border-radius: var(--xl);
     gap: calc(var(--xs) / 5);
     height: 45px;
-    outline: solid 2px hsl(from var(--clr-primary) h s calc(l - var(--ratio-backgrounds)));
+    outline: solid 2px hsl(from var(--clr-background) h s calc(l - var(--ratio-backgrounds)));
     outline-offset: -2px;
     overflow: clip;
     padding: calc(var(--xs) / 2);
@@ -171,7 +176,7 @@
     position: relative;
 
     &::before {
-      background-color: hsla(from var(--clr-secondary) h s l);
+      background-color: hsla(from var(--clr-primary) h s l);
       border-radius: inherit;
       content: "";
       display: inline-flex;

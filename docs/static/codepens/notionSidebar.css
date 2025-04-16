@@ -1,0 +1,118 @@
+x-window {
+  display: flex;
+
+  #notion__sidebar {
+    background-color: var(--clr-background);
+    border-right: solid 2px hsl(from var(--clr-primary) h s calc(l + var(--ratio-texts)));
+    gap: var(--lg);
+    height: 100%;
+    isolation: isolate;
+    outline: solid 2px var(--clr-background);
+    outline-offset: -2px;
+    overflow: auto;
+    padding: var(--sm, 10px);
+    position: relative;
+    min-width: 100%;
+
+    @media screen and (min-width: 440px) {
+      min-width: min(100%, 300px);
+    }
+
+    & > x-flex {
+      align-items: center;
+      background-color: hsl(from var(--clr-background) h s l/0.5);
+      backdrop-filter: blur(var(--xs));
+      border-radius: var(--xl);
+      gap: var(--xs, 5px);
+      position: sticky;
+      width: 100%;
+      z-index: 5;
+
+      &:first-of-type {
+        /* box-shadow: 0 -15vmax 100vmax 15vmax hsl(from var(--clr-background) h s calc(l - var(--ratio-backgrounds))); */
+        top: 0;
+
+        & > button {
+          --idle: var(--clr-background);
+          flex: 1 1;
+
+          & > span {
+            flex: 1 1 100%;
+            overflow: clip;
+            text-align: left;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+
+        &::before {
+          background-color: hsla(from var(--clr-primary) h s l);
+          border-radius: inherit;
+          box-shadow: 0 -15vmax 100vmax 15vmax hsl(from var(--clr-background) h s calc(l - var(--ratio-backgrounds)));
+          content: "";
+          display: inline-flex;
+          height: calc(100% + var(--sm));
+          inset: 50%;
+          margin: 0;
+          opacity: 0;
+          position: absolute;
+          transition-duration: opacity;
+          transition-duration: var(--animDuration);
+          transition-timing-function: var(--animTiming);
+          translate: -50% -50%;
+          width: calc(100% + var(--sm));
+          z-index: -1;
+        }
+
+        &:hover::before {
+          opacity: 1;
+        }
+      }
+
+      &:last-of-type {
+        background-color: hsl(from var(--clr-background) h s l/0.5);
+        backdrop-filter: blur(var(--xs));
+        border-radius: var(--xl);
+        box-shadow: 0 15vmax 100vmax 15vmax hsl(from var(--clr-background) h s calc(l - var(--ratio-backgrounds)));
+        gap: var(--xs);
+        inset: auto auto 0 auto;
+        margin: auto auto 0 auto;
+        padding: var(--xs);
+
+        & button {
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    & > x-group {
+      & > span {
+        margin-bottom: var(--md);
+      }
+
+      & :where(button, summary) {
+        --idle: var(--clr-background);
+
+        width: 100%;
+
+        &:not(:focus, :focus-visible) {
+          outline-color: transparent;
+        }
+
+        & > span {
+          flex: 1 1;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  #notion__sidebar--rail{
+    padding: var(--xs);
+    width: 75px;
+  }
+
+  #notion__main {
+    width: 100%;
+  }
+}

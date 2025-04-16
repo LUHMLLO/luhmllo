@@ -16,7 +16,7 @@ const routes = [
 const codepens = [
   "homeExploration",
   "motionFactory",
-  "notionPopOs",
+  "notionSidebar",
   "railFloatingDrawer",
   "saasNotification",
   "smartHomeHub",

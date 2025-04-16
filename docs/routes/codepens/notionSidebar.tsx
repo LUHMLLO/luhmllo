@@ -7,11 +7,15 @@ export default function Page(_props: PageProps) {
       <Head>
         <link
           rel="stylesheet"
-          href={asset("/codepens/notionPopOS.css")}
+          href={asset("/codepens/notionSidebar.css")}
+        />
+        <script
+          type="module"
+          src={asset("/codepens/notionSidebar.js")}
         />
       </Head>
 
-      <aside id="notion__sidebar">
+      <aside id="notion__sidebar" className="expanded">
         <x-flex data-props="--highlight">
           <button type="button">
             <figure data-props="--squircle">
@@ -27,7 +31,7 @@ export default function Page(_props: PageProps) {
           </button>
 
           <x-flex data-props="--segmented-controls" style="flex-shrink: 0;">
-            <button type="button">
+            <button id="sidebar-hide" type="button">
               <i className="icon" style="--size: 15px;">left_panel_close</i>
             </button>
             <button type="button">
@@ -72,12 +76,20 @@ export default function Page(_props: PageProps) {
 
         <x-group>
           <span>Favorites</span>
-          <button type="button">
-            <i class="icon">
-              asterisk
-            </i>
-            <span>Page Name</span>
-          </button>
+          <details>
+            <summary type="button">
+              <i class="icon">
+                asterisk
+              </i>
+              <span>Page Name</span>
+            </summary>
+            <ul>
+              <button type="button">item</button>
+              <button type="button">item</button>
+              <button type="button">item</button>
+              <button type="button">item</button>
+            </ul>
+          </details>
           <button type="button">
             <i class="icon">
               asterisk
@@ -96,54 +108,40 @@ export default function Page(_props: PageProps) {
 
         <x-group>
           <span>Shared</span>
-          <button type="button">
-            <i class="icon">
-              asterisk
-            </i>
-            <span>Page Name</span>
-          </button>
+          <details>
+            <summary type="button">
+              <i class="icon">
+                asterisk
+              </i>
+              <span>Page Name</span>
+            </summary>
+            <ul>
+              <button type="button">item</button>
+              <button type="button">item</button>
+              <button type="button">item</button>
+              <button type="button">item</button>
+            </ul>
+          </details>
         </x-group>
 
         <hr />
 
         <x-group>
           <span>Private</span>
-          <button type="button">
-            <i class="icon">
-              asterisk
-            </i>
-            <span>Page Name</span>
-          </button>
-          <button type="button">
-            <i class="icon">
-              asterisk
-            </i>
-            <span>Page Name</span>
-          </button>
-          <button type="button">
-            <i class="icon">
-              asterisk
-            </i>
-            <span>Page Name</span>
-          </button>
-          <button type="button">
-            <i class="icon">
-              asterisk
-            </i>
-            <span>Page Name</span>
-          </button>
-          <button type="button">
-            <i class="icon">
-              asterisk
-            </i>
-            <span>Page Name</span>
-          </button>
-          <button type="button">
-            <i class="icon">
-              asterisk
-            </i>
-            <span>Page Name</span>
-          </button>
+          <details>
+            <summary type="button">
+              <i class="icon">
+                asterisk
+              </i>
+              <span>Page Name</span>
+            </summary>
+            <ul>
+              <button type="button">item</button>
+              <button type="button">item</button>
+              <button type="button">item</button>
+              <button type="button">item</button>
+            </ul>
+          </details>
         </x-group>
 
         <hr />
@@ -172,18 +170,18 @@ export default function Page(_props: PageProps) {
         <hr />
 
         <x-flex>
-          <button type="button" style="display: contents;">
+          <button type="button">
             <i className="icon">
               calendar_today
             </i>
           </button>
-          <button type="button" style="display: contents;">
+          <button type="button">
             <i className="icon">
               email
             </i>
           </button>
           <hr style="background-color: transparent; flex: 1 1;" />
-          <button type="button" style="display: contents;">
+          <button type="button">
             <i className="icon">
               help
             </i>

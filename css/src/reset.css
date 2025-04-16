@@ -79,6 +79,8 @@
   }
 
   :where(html) {
+    background-color: var(--clr-background);
+    color: var(--clr-text);
     display: contents;
     font-family: sans-serif;
     font-size: clamp(15px, 100% - 3ex, 20px);
@@ -91,8 +93,6 @@
   }
 
   :where(body) {
-    background-color: var(--clr-background);
-    color: var(--clr-text);
     display: grid;
     grid-template-columns: [expand-start] minmax(1rem, 1fr) [inner-start] minmax(0, 80rem) [inner-end] minmax(1rem, 1fr) [expand-end];
     inset: 0;
