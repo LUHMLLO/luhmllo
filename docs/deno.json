@@ -10,17 +10,8 @@
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update ."
   },
-  "lint": {
-    "rules": {
-      "tags": [
-        "fresh",
-        "recommended"
-      ]
-    }
-  },
-  "exclude": [
-    "**/_fresh/*"
-  ],
+  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
+  "exclude": ["**/_fresh/*"],
   "imports": {
     "#components/": "./components/",
     "#islands/": "./islands/",
