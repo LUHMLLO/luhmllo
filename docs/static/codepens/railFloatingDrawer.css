@@ -2,7 +2,7 @@ main {
   display: flex;
   flex-direction: column-reverse;
   gap: var(--md, 15px);
-  height: 100dvh;
+  height: 100%;
   padding: var(--md, 15px);
 
   @media screen and (min-width: 440px) {
@@ -121,13 +121,7 @@ main {
     }
 
     hr {
-      background-color: hsl(
-        from
-        var(--clr-primary)
-        h
-        s
-        calc(l + var(--ratio-texts))
-      );
+      background-color: hsl(from var(--clr-primary) h s calc(l + var(--ratio-texts)));
     }
   }
 }

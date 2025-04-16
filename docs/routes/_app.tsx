@@ -60,17 +60,14 @@ export default function Apps({ Component, url }: PageProps) {
             </a>
 
             <x-row style="gap: var(--md, 15px); place-content: end; place-items: center; width: 100%;">
-              <a href="/test">docs</a>
-              <x-dropdown id="more">
-                <summary slot="summary" type="button">
-                  menu
-                </summary>
-              </x-dropdown>
+              <a href="/test" type="button">
+                <span>Docs</span>
+              </a>
             </x-row>
           </nav>
-          <article id="app__content">
+          <div id="app__content">
             <Component />
-          </article>
+          </div>
         </div>
         <script type="module" src="/vendors/dropdown.min.js"></script>
       </body>

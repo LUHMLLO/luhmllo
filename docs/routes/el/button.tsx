@@ -82,32 +82,6 @@ export default function Page(_props: PageProps) {
       </x-stack>
 
       <x-stack style="gap: var(--md);">
-        <button type="button" data-props="--tertiary">
-          <i className="icon">arrow_left_alt</i>
-          <span>lead icon</span>
-        </button>
-        <button type="button" data-props="--tertiary">no icons</button>
-        <button type="button" data-props="--tertiary">
-          <i className="icon">add_2</i>
-        </button>
-        <button type="button" data-props="--tertiary">
-          <i className="icon">globe</i>
-          <span>both icons</span>
-          <i className="icon">
-            open_in_new
-          </i>
-        </button>
-        <button type="button" data-props="--tertiary">
-          <span>trail icon</span>
-          <i className="icon">arrow_right_alt</i>
-        </button>
-        <button type="button" disabled data-props="--tertiary">
-          <span>disabled</span>
-          <i className="icon">block</i>
-        </button>
-      </x-stack>
-
-      <x-stack style="gap: var(--md);">
         <button type="button" data-props="--accent">
           <i className="icon">arrow_left_alt</i>
           <span>lead icon</span>
@@ -128,32 +102,6 @@ export default function Page(_props: PageProps) {
           <i className="icon">arrow_right_alt</i>
         </button>
         <button type="button" disabled data-props="--accent">
-          <span>disabled</span>
-          <i className="icon">block</i>
-        </button>
-      </x-stack>
-
-      <x-stack style="gap: var(--md);">
-        <button type="button" data-props="--context">
-          <i className="icon">arrow_left_alt</i>
-          <span>lead icon</span>
-        </button>
-        <button type="button" data-props="--context">no icons</button>
-        <button type="button" data-props="--context">
-          <i className="icon">add_2</i>
-        </button>
-        <button type="button" data-props="--context">
-          <i className="icon">globe</i>
-          <span>both icons</span>
-          <i className="icon">
-            open_in_new
-          </i>
-        </button>
-        <button type="button" data-props="--context">
-          <span>trail icon</span>
-          <i className="icon">arrow_right_alt</i>
-        </button>
-        <button type="button" disabled data-props="--context">
           <span>disabled</span>
           <i className="icon">block</i>
         </button>

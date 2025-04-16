@@ -221,20 +221,22 @@
 
   /* buttons */
   :where(button, [type="button"]) {
-    --background: var(--clr-background);
-    --hover: hsl(from var(--background) h s calc(l + var(--ratio-backgrounds)));
-    --active: hsl(from var(--background) h s calc(l - var(--ratio-backgrounds)));
+    --idle: var(--clr-background);
+    --hover: hsl(from var(--idle) h s calc(l + var(--ratio-backgrounds)));
+    --active: hsl(from var(--idle) h s calc(l - var(--ratio-backgrounds)));
+    --ring: hsl(from var(--idle) h s calc(l + var(--ratio-texts)));
+    --clr: color-mix(in hsl, var(--idle) 25%, var(--clr-text) 75%);
 
     align-items: center;
-    background-color: var(--background);
+    background-color: var(--idle);
     border-radius: var(--xl, 30px);
-    color: var(--clr-text);
+    color: var(--clr);
     display: inline-flex;
     font-size: inherit;
     gap: var(--xs, 5px);
     height: 45px;
 
-    outline: solid 2px hsl(from var(--background) h s calc(l + var(--ratio-texts)));
+    outline: solid 2px var(--ring);
     outline-offset: -2px;
     overflow: clip;
     padding: 0 var(--md, 15px);
@@ -257,6 +259,10 @@
 
     &:active {
       background-color: var(--active);
+    }
+
+    & > * {
+      mix-blend-mode: difference;
     }
 
     /* Icon at the start */
@@ -283,9 +289,8 @@
   }
 
   :where(button[type="disabled"], button[disabled]) {
-    background-color: hsl(from color-mix(in hsl, var(--background), hsl(0deg, 0%, 50%) 30%) h s calc(l - var(--ratio-backgrounds)));
-    color: hsl(from color-mix(in hsl, var(--background), hsl(0deg, 0%, 95%) 35%) h s calc(l + var(--ratio-texts)));
-    filter: contrast(95%);
+    background-color: hsl(from color-mix(in hsl, var(--idle), hsl(0deg, 0%, 50%) 30%) h s calc(l - var(--ratio-backgrounds)));
+    filter: contrast(95%) saturate(75%);
     isolation: isolate;
   }
 

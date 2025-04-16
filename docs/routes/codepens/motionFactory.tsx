@@ -11,12 +11,10 @@ export default function Page(_props: PageProps) {
         />
       </Head>
 
-      <x-window>
-        <aside>
-        </aside>
-        <main>
-        </main>
-      </x-window>
+      <aside>
+      </aside>
+      <main>
+      </main>
     </>
   );
 }

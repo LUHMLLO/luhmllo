@@ -1,7 +1,7 @@
 @layer props {
   :where([data-props~="--background"]) {
     &:is(button) {
-      --background: var(--clr-background);
+      --idle: var(--clr-background);
 
       &:not(:focus, :focus-visible) {
         outline-color: transparent;
@@ -11,27 +11,7 @@
 
   :where([data-props~="--text"]) {
     &:is(button) {
-      --background: var(--clr-text);
-
-      &:not(:focus, :focus-visible) {
-        outline-color: transparent;
-      }
-    }
-  }
-
-  :where([data-props~="--text-sub"]) {
-    &:is(button) {
-      --background: var(--clr-text-sub);
-
-      &:not(:focus, :focus-visible) {
-        outline-color: transparent;
-      }
-    }
-  }
-
-  :where([data-props~="--text-sup"]) {
-    &:is(button) {
-      --background: var(--clr-text-sup);
+      --idle: var(--clr-text);
 
       &:not(:focus, :focus-visible) {
         outline-color: transparent;
@@ -41,7 +21,7 @@
 
   :where([data-props~="--primary"]) {
     &:is(button) {
-      --background: var(--clr-primary);
+      --idle: var(--clr-primary);
 
       &:not(:focus, :focus-visible) {
         outline-color: transparent;
@@ -51,17 +31,7 @@
 
   :where([data-props~="--secondary"]) {
     &:is(button) {
-      --background: var(--clr-secondary);
-
-      &:not(:focus, :focus-visible) {
-        outline-color: transparent;
-      }
-    }
-  }
-
-  :where([data-props~="--tertiary"]) {
-    &:is(button) {
-      --background: var(--clr-tertiary);
+      --idle: var(--clr-secondary);
 
       &:not(:focus, :focus-visible) {
         outline-color: transparent;
@@ -71,17 +41,7 @@
 
   :where([data-props~="--accent"]) {
     &:is(button) {
-      --background: var(--clr-accent);
-
-      &:not(:focus, :focus-visible) {
-        outline-color: transparent;
-      }
-    }
-  }
-
-  :where([data-props~="--context"]) {
-    &:is(button) {
-      --background: var(--clr-context);
+      --idle: var(--clr-accent);
 
       &:not(:focus, :focus-visible) {
         outline-color: transparent;

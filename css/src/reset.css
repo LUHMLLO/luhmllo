@@ -106,22 +106,9 @@
 
     :where(app, #app) {
       display: grid;
-      gap: var(--nm, 20px);
       grid-template-columns: subgrid;
-      grid-column: inner;
+      grid-column: expand;
       width: 100%;
-
-      &:where([data-safearea~="top"]) {
-         padding-top: 100px;
-      }
-
-      &:where([data-safearea~="bottom"]) {
-         padding-bottom: 100px;
-      }
-
-      &:where([data-safearea~="block"]) {
-         padding-block: 100px;
-      }
     }
   }
 
