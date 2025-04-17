@@ -28,7 +28,6 @@ main {
   #rail {
     align-items: inherit;
     background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
-    backdrop-filter: blur(var(--xs));
     border-radius: var(--xs);
     flex-shrink: 0;
     gap: inherit;
@@ -78,7 +77,6 @@ main {
 
   #drawer {
     background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
-    backdrop-filter: blur(var(--xs));
     border-radius: var(--xs);
     flex-direction: column;
     gap: var(--md);
@@ -99,7 +97,7 @@ main {
     }
 
     @media screen and (min-width: 440px) {
-      height: calc(100% - 42px);
+      height: 100%;
       inset: 0 0 0 calc(50px + var(--md));
       max-height: calc(100% - calc(var(--md) * 2));
       place-content: start;

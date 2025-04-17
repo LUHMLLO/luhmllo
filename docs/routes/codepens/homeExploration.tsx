@@ -18,7 +18,7 @@ export default function Page(_props: PageProps) {
             alt="background"
           />
         </figure>
-        <x-surlayer style="background-color: hsl(0deg, 0%, 0%, 0.15); backdrop-filter: blur(5px); visibility: visible;" />
+        <x-surlayer style="background-color: hsl(0deg, 0%, 0%, 0.15); backdrop-filter: blur(0.5ex); visibility: visible;" />
       </x-sublayer>
 
       <x-stack style="gap: 15px; height: 100dvh; margin: auto; place-content: center; place-items: center; text-align: center; width: min(100%, 50dvw);">
@@ -31,7 +31,7 @@ export default function Page(_props: PageProps) {
         <label
           htmlFor="search"
           data-props="--input"
-          style="background-color: hsl(from var(--clr-text) h s l / 25%); backdrop-filter: blur(5px); outline-color: transparent; width: 100%;"
+          style="background-color: hsl(from var(--clr-text) h s l / 25%); backdrop-filter: blur(0.5ex); outline-color: transparent; width: 100%;"
         >
           <input
             type="text"

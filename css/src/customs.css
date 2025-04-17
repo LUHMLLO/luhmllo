@@ -69,7 +69,7 @@
 
   :where(x-window) {
     background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-backgrounds))/25%);
-    backdrop-filter: blur(var(--sm));
+    backdrop-filter: blur(0.5ex);
     border-radius: var(--md);
     display: block;
     height: 100%;

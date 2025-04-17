@@ -1,22 +1,26 @@
 #app {
-  /* grid-auto-rows: max-content; */
   height: 100dvh;
-  /* padding-block: 75px 45px; */
+  padding-block: 75px 0px;
+
+  &:not(:has(x-window)) {
+    grid-auto-rows: max-content;
+    padding-block: 75px;
+  }
 
   #app__topbar {
     grid-column: expand;
     height: 75px;
     padding: 0 var(--md);
     place-items: center;
-    position: sticky;
+    position: fixed;
     inset: 0 0 auto;
     isolation: isolate;
     width: 100%;
     z-index: 10;
 
     &::before {
-      background-color: hsl(from var(--clr-background) h s l / 50%);
-      backdrop-filter: saturate(200%) blur(1ex);
+      background-color: hsl(from var(--clr-background) h s l / 25%);
+      backdrop-filter: blur(0.5ex);
       content: "";
       inset: 0;
       position: absolute;
