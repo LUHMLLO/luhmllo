@@ -27,7 +27,7 @@ const codepens = [
 export default function Page(_props: PageProps) {
   return (
     <>
-      <header>
+      <header style="padding: var(--nm);">
         <h1>Lilycat</h1>
         <p>
           For better human interfaces &amp; user experiences while keeping
@@ -36,9 +36,7 @@ export default function Page(_props: PageProps) {
         </p>
       </header>
 
-      <hr />
-
-      <x-grid style="gap: var(--md); grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 100%, 200px), 1fr));">
+      <x-grid style="gap: var(--md); grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 100%, 200px), 1fr)); padding: var(--nm);">
         {routes.map((path) => (
           <a href={"/el/" + path}>
             <span>
@@ -51,9 +49,7 @@ export default function Page(_props: PageProps) {
         ))}
       </x-grid>
 
-      <hr />
-
-      <x-grid style="gap: var(--md); grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 100%, 200px), 1fr));">
+      <x-grid style="gap: var(--md); grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 100%, 200px), 1fr)); padding: var(--nm);">
         {codepens.map((path) => (
           <a href={"/codepens/" + path}>
             <span>

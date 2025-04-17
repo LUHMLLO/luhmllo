@@ -5,6 +5,7 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $codepens_layout from "./routes/codepens/_layout.tsx";
+import * as $codepens_gete from "./routes/codepens/gete.tsx";
 import * as $codepens_homeExploration from "./routes/codepens/homeExploration.tsx";
 import * as $codepens_motionFactory from "./routes/codepens/motionFactory.tsx";
 import * as $codepens_notionSidebar from "./routes/codepens/notionSidebar.tsx";
@@ -13,6 +14,8 @@ import * as $codepens_saasNotification from "./routes/codepens/saasNotification.
 import * as $codepens_smartHomeHub from "./routes/codepens/smartHomeHub.tsx";
 import * as $codepens_suburban from "./routes/codepens/suburban.tsx";
 import * as $codepens_uasd from "./routes/codepens/uasd.tsx";
+import * as $docs_layout from "./routes/docs/_layout.tsx";
+import * as $docs_index from "./routes/docs/index.tsx";
 import * as $el_layout from "./routes/el/_layout.tsx";
 import * as $el_a from "./routes/el/a.tsx";
 import * as $el_article from "./routes/el/article.tsx";
@@ -31,7 +34,8 @@ import * as $el_select from "./routes/el/select.tsx";
 import * as $el_table from "./routes/el/table.tsx";
 import * as $el_textarea from "./routes/el/textarea.tsx";
 import * as $index from "./routes/index.tsx";
-import * as $test from "./routes/test.tsx";
+import * as $test_layout from "./routes/test/_layout.tsx";
+import * as $test_index from "./routes/test/index.tsx";
 
 import type { Manifest } from "$fresh/server.ts";
 
@@ -40,6 +44,7 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/codepens/_layout.tsx": $codepens_layout,
+    "./routes/codepens/gete.tsx": $codepens_gete,
     "./routes/codepens/homeExploration.tsx": $codepens_homeExploration,
     "./routes/codepens/motionFactory.tsx": $codepens_motionFactory,
     "./routes/codepens/notionSidebar.tsx": $codepens_notionSidebar,
@@ -48,6 +53,8 @@ const manifest = {
     "./routes/codepens/smartHomeHub.tsx": $codepens_smartHomeHub,
     "./routes/codepens/suburban.tsx": $codepens_suburban,
     "./routes/codepens/uasd.tsx": $codepens_uasd,
+    "./routes/docs/_layout.tsx": $docs_layout,
+    "./routes/docs/index.tsx": $docs_index,
     "./routes/el/_layout.tsx": $el_layout,
     "./routes/el/a.tsx": $el_a,
     "./routes/el/article.tsx": $el_article,
@@ -66,7 +73,8 @@ const manifest = {
     "./routes/el/table.tsx": $el_table,
     "./routes/el/textarea.tsx": $el_textarea,
     "./routes/index.tsx": $index,
-    "./routes/test.tsx": $test,
+    "./routes/test/_layout.tsx": $test_layout,
+    "./routes/test/index.tsx": $test_index,
   },
   islands: {},
   baseUrl: import.meta.url,

@@ -1,21 +1,28 @@
 #app {
   height: 100dvh;
-  padding-block: 75px 0px;
-
-  &:not(:has(x-window)) {
-    grid-auto-rows: max-content;
-    padding-block: 75px;
-  }
+  padding-top: 75px;
 
   #app__topbar {
-    grid-column: expand;
-    height: 75px;
-    padding: 0 var(--md);
+    border-radius: var(--xl);
+
+    box-shadow: 0 5vmax 100vmax -5vmax hsl(from color-mix(in hsl, var(--clr-text), hsl(0, 0%, 40%)) h s l / 20%);
+
+    @media (prefers-color-scheme: dark) {
+      box-shadow: none;
+    }
+
+    gap: var(--xs);
+    height: max-content;
+    inset: var(--md);
+    margin: 0 auto;
+    max-width: calc(100% - calc(var(--md) * 2));
+    outline: solid 3px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts))/75%);
+    outline-offset: 3px;
+    overflow: clip;
+    padding: var(--xs);
     place-items: center;
     position: fixed;
-    inset: 0 0 auto;
-    isolation: isolate;
-    width: 100%;
+    width: fit-content;
     z-index: 10;
 
     &::before {
@@ -27,24 +34,24 @@
       z-index: -1;
     }
 
-    & > a {
+    a {
+      display: inline-flex;
       flex-shrink: 0;
+      gap: var(--xs);
       text-box: none;
 
       & > figure {
         aspect-ratio: 1/1;
         vertical-align: middle;
-        width: 50px;
+        width: 45px;
       }
     }
   }
 
   #app__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--nm);
     grid-column: inner;
-    width: 100dvw;
+    min-height: 100%;
+    padding-block: 25px;
 
     & > * {
       flex-shrink: 0;
@@ -57,7 +64,7 @@
         box-shadow: none;
       }
 
-      height: calc(100% - 50px);
+      height: 100%;
       margin-block: auto;
       outline: solid 3px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts))/75%);
       outline-offset: 3px;

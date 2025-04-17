@@ -53,23 +53,26 @@ export default function Apps({ Component, url }: PageProps) {
       <body>
         <div id="app">
           <nav id="app__topbar">
-            <a href="/">
+            <a href="/" style="margin-right: var(--md);">
               <figure>
                 <img src="/media/lilycat.png" alt="logo" />
               </figure>
+              <span>Lilycat</span>
             </a>
 
-            <x-row style="gap: var(--md); place-content: end; place-items: center; width: 100%;">
-              <a href="/test" type="button">
-                <span>Docs</span>
-              </a>
-            </x-row>
+            <a href="/docs" type="button">
+              <i className="icon">docs</i>
+            </a>
+            <a href="/test" type="button">
+              <i className="icon">experiment</i>
+            </a>
           </nav>
           <div id="app__content">
             <Component />
           </div>
         </div>
         <script type="module" src="/vendors/dropdown.min.js"></script>
+        <script type="module" src="/app.js"></script>
       </body>
     </html>
   );

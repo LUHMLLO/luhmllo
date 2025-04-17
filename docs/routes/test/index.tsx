@@ -8,7 +8,7 @@ export default function Page(_props: PageProps) {
         <script type="module" src="/app.js" />
       </Head>
 
-      <div>
+      <div style="height: 100%; overflow: auto;">
         <header id="top">
           <h1>
             HTML5
