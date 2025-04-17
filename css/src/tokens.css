@@ -18,8 +18,8 @@
     --clr-success: hsl(145deg, 50%, 50%);
     --clr-warning: hsl(50deg, 50%, 50%);
 
-    --ratio-backgrounds: 1.618;
-    --ratio-texts: 3.618;
+    --ratio-backgrounds: 2;
+    --ratio-texts: 4;
 
     --xs: calc(5 * 0.0625rem);
     --sm: calc(10 * 0.0625rem);

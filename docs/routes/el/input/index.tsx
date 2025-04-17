@@ -2,7 +2,7 @@ import { type PageProps } from "$fresh/server.ts";
 
 export default function Page(_props: PageProps) {
   return (
-    <x-grid style="gap: var(--nm, 20px); grid-auto-rows: max-content; min-height: 100dvh; place-content: safe center;">
+    <x-grid style="gap: var(--nm); grid-auto-rows: max-content; min-height: 100dvh; place-content: safe center;">
       <input id="input__text" type="text" placeholder="Text Input" />
 
       <input

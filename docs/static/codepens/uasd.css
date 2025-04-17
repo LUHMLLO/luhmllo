@@ -1,10 +1,10 @@
 #appbar {
   background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-backgrounds)));
   gap: var(--md);
-  padding: var(--md, 15px) var(--sm, 10px);
+  padding: var(--md) var(--sm);
 
   & > x-flex {
-    gap: var(--sm, 10px);
+    gap: var(--sm);
     place-items: center;
   }
 

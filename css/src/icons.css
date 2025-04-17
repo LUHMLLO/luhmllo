@@ -4,7 +4,7 @@
     .material-symbols-outlined,
     .material-symbols-rounded,
     .material-symbols-sharp) {
-    --size: var(--nm, 20px);
+    --size: var(--nm);
     --fill: 0;
     --grad: 0;
     --opsz: 50;

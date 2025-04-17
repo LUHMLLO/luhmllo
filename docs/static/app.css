@@ -1,34 +1,27 @@
 #app {
+  /* grid-auto-rows: max-content; */
   height: 100dvh;
+  /* padding-block: 75px 45px; */
 
   #app__topbar {
-    /* background-color: transparent;
-    backdrop-filter: blur(var(--md, 15px)); */
+    grid-column: expand;
     height: 75px;
-    overflow: clip;
-    padding: 0 var(--md, 15px);
+    padding: 0 var(--md);
     place-items: center;
-    position: fixed;
+    position: sticky;
     inset: 0 0 auto;
     isolation: isolate;
     width: 100%;
     z-index: 10;
 
-    /* &::before {
-      background-color: var(--clr-background);
-      backdrop-filter: blur(var(--md, 15px));
+    &::before {
+      background-color: hsl(from var(--clr-background) h s l / 50%);
+      backdrop-filter: saturate(200%) blur(1ex);
       content: "";
-      display: block;
-      height: 100%;
       inset: 0;
-      margin: auto;
-      mask: linear-gradient(var(--clr-background) 30%, transparent 90%);
-      pointer-events: none;
       position: absolute;
-      scale: 2;
-      width: 100%;
       z-index: -1;
-    } */
+    }
 
     & > a {
       flex-shrink: 0;
@@ -54,9 +47,15 @@
     }
 
     & > :where(x-window) {
+      box-shadow: 0 5vmax 100vmax -5vmax hsl(from color-mix(in hsl, var(--clr-text), hsl(0, 0%, 40%)) h s l / 20%);
+
+      @media (prefers-color-scheme: dark) {
+        box-shadow: none;
+      }
+
       height: calc(100% - 50px);
       margin-block: auto;
-      outline: solid 3px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
+      outline: solid 3px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts))/75%);
       outline-offset: 3px;
       overflow: hidden;
       place-self: center;

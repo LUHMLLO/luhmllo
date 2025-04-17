@@ -90,13 +90,13 @@ if (typeof window !== "undefined" && !customElements.get("x-dropdown")) {
         height: calc-size(max-content, size);
         isolation: isolate;
         max-height: clamp(40dvh, 150px, 70dvh);
-        max-width: calc(100dvw - var(--md, 15px));
+        max-width: calc(100dvw - var(--md));
         min-height: 0;
         min-width: 0;
         outline: solid hsl(from var(--clr-background) h s calc(l + 5));
         overflow-x: clip;
         overflow-y: auto;
-        padding: var(--xs, 5px);
+        padding: var(--xs);
         position: fixed;
         transition-property: top, bottom, opacity, visibility;
         transition-duration: var(--animDuration);

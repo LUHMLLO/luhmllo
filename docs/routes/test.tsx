@@ -8,7 +8,7 @@ export default function Page(_props: PageProps) {
         <script type="module" src="/app.js" />
       </Head>
 
-      <x-grid style="gap: var(--xl, 30px); height: 100%; overflow: auto;">
+      <div>
         <header id="top">
           <h1>
             HTML5
@@ -38,11 +38,6 @@ export default function Page(_props: PageProps) {
                 <h5>Heading 5</h5>
                 <h6>Heading 6</h6>
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
 
             <article id="text__paragraphs">
@@ -60,11 +55,6 @@ export default function Page(_props: PageProps) {
                   part of formal writing, used to organize longer prose.
                 </p>
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
 
             <article id="text__blockquotes">
@@ -89,11 +79,6 @@ export default function Page(_props: PageProps) {
                   </cite>
                 </blockquote>
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
 
             <article id="text__lists">
@@ -182,11 +167,6 @@ export default function Page(_props: PageProps) {
                   <li>List Item 3</li>
                 </ul>
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
 
             <article id="text__details">
@@ -222,11 +202,6 @@ export default function Page(_props: PageProps) {
                   animi. Quaerat facilis quidem unde eos! Ipsa.
                 </p>
               </details>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
 
             <article id="text__address">
@@ -244,11 +219,6 @@ export default function Page(_props: PageProps) {
                 </a>.You may also want to visit us:Mozilla Foundation331 E
                 Evelyn AveMountain View, CA 94041USA
               </address>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
 
             <article id="text__hr">
@@ -259,11 +229,6 @@ export default function Page(_props: PageProps) {
               <div>
                 <hr />
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
 
             <article id="text__tables">
@@ -529,11 +494,6 @@ export default function Page(_props: PageProps) {
                   </tbody>
                 </table>
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
 
             <article id="text__code">
@@ -564,11 +524,6 @@ export default function Page(_props: PageProps) {
       p q r s t u v w x y z { | } ~
               `}</pre>
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
 
             <article id="text__inline">
@@ -650,11 +605,6 @@ export default function Page(_props: PageProps) {
                   <time dateTime="2013-04-06T12:32+00:00">2 weeks ago</time>
                 </p>
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
 
             <article id="text__comments">
@@ -677,11 +627,6 @@ export default function Page(_props: PageProps) {
               <p><em>This text has added emphasis. But, it should not be displayed in a comment</em></p>--> */
                 }
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
           </section>
 
@@ -740,11 +685,6 @@ export default function Page(_props: PageProps) {
                   </picture>
                 </figure>
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
             <article id="embedded__bgimages">
               <header>
@@ -758,11 +698,6 @@ export default function Page(_props: PageProps) {
               height: 300px; 
               ">
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
             <article id="embedded__audio">
               <header>
@@ -773,11 +708,6 @@ export default function Page(_props: PageProps) {
                   <track kind="captions" />
                 </audio>
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
             <article id="embedded__video">
               <header>
@@ -788,11 +718,6 @@ export default function Page(_props: PageProps) {
                   <track kind="captions" />
                 </video>
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
             <article id="embedded__canvas">
               <header>
@@ -801,11 +726,6 @@ export default function Page(_props: PageProps) {
               <div>
                 <canvas>canvas</canvas>
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
             <article id="embedded__meter">
               <header>
@@ -814,11 +734,6 @@ export default function Page(_props: PageProps) {
               <div>
                 <meter value="2" min="0" max="10">2 out of 10</meter>
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
             <article id="embedded__progress">
               <header>
@@ -827,11 +742,6 @@ export default function Page(_props: PageProps) {
               <div>
                 <progress>progress</progress>
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
             <article id="embedded__svg">
               <header>
@@ -842,11 +752,6 @@ export default function Page(_props: PageProps) {
                   <circle cx="100" cy="100" r="100" fill="#1fa3ec"></circle>
                 </svg>
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
             <article id="embedded__iframe">
               <header>
@@ -855,11 +760,6 @@ export default function Page(_props: PageProps) {
               <div>
                 <iframe src="/" title="index.html" height="300"></iframe>
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
             <article id="embedded__embed">
               <header>
@@ -868,11 +768,6 @@ export default function Page(_props: PageProps) {
               <div>
                 <embed src="/" height="300" />
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
             <article id="embedded__object">
               <header>
@@ -883,11 +778,6 @@ export default function Page(_props: PageProps) {
                   this object represents its own index.html file
                 </object>
               </div>
-              <footer>
-                <p>
-                  <a href="#top">[Top]</a>
-                </p>
-              </footer>
             </article>
           </section>
 
@@ -1154,7 +1044,7 @@ export default function Page(_props: PageProps) {
             Made by <a href="https://www.threads.net/@luhmllo06">@luhmllo06</a>
           </p>
         </footer>
-      </x-grid>
+      </div>
 
       <dialog id="chaptersModal" data-props="--bottomsheet">
         <x-flex style="place-items: center;">
@@ -1166,7 +1056,7 @@ export default function Page(_props: PageProps) {
 
         <hr />
 
-        <x-stack style="gap: var(--nm, 20px);">
+        <x-stack style="gap: var(--nm);">
           <x-group>
             <a href="#text">Text</a>
             <ul>
@@ -1274,9 +1164,25 @@ export default function Page(_props: PageProps) {
         </x-stack>
       </dialog>
 
-      <button id="chaptersOpen" type="button" data-props="--fab">
+      <button
+        id="chaptersOpen"
+        type="button"
+        data-props="--fab"
+        style="bottom: 0; left: 0;"
+      >
         chapters
       </button>
+
+      <a
+        href="#top"
+        type="button"
+        data-props="--fab"
+        style="bottom: 0; right: 0;"
+      >
+        <i className="icon">
+          arrow_upward
+        </i>
+      </a>
     </>
   );
 }

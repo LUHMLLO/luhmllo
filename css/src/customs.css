@@ -62,14 +62,14 @@
     display: flex;
     flex-direction: column;
     flex: 1 1;
-    gap: var(--nm, 20px);
-    padding: var(--nm, 20px);
+    gap: var(--nm);
+    padding: var(--nm);
     width: 100%;
   }
 
   :where(x-window) {
     background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-backgrounds))/25%);
-    backdrop-filter: blur(var(--sm, 10px));
+    backdrop-filter: blur(var(--sm));
     border-radius: var(--md);
     display: block;
     height: 100%;

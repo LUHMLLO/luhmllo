@@ -83,7 +83,7 @@
   /* code and pre wrapping */
   :where(code, pre) {
     display: inline-block;
-    overflow-x: auto;
+    overflow-x: auto clip;
     vertical-align: top;
     white-space: pre;
     word-break: keep-all;
@@ -100,9 +100,9 @@
 
   /* quotes */
   :where(blockquote) {
-    border-left: solid var(--xs, 5px);
-    margin: min(5%, var(--sm, 10px));
-    padding: min(5%, var(--sm, 10px));
+    border-left: solid var(--xs);
+    margin: min(5%, var(--sm));
+    padding: min(5%, var(--sm));
   }
 
   /* general clickable items */
@@ -181,7 +181,7 @@
   :where(a) {
     color: var(--clr-accent);
     display: inline-block;
-    gap: var(--xs, 5px);
+    gap: var(--xs);
     height: max-content;
     outline: solid 2px transparent;
     outline-offset: -2px;
@@ -229,17 +229,17 @@
 
     align-items: center;
     background-color: var(--idle);
-    border-radius: var(--xl, 30px);
+    border-radius: var(--xl);
     color: var(--clr);
     display: inline-flex;
     font-size: inherit;
-    gap: var(--xs, 5px);
+    gap: var(--xs);
     height: 45px;
 
     outline: solid 2px var(--ring);
     outline-offset: -2px;
     overflow: clip;
-    padding: 0 var(--md, 15px);
+    padding: 0 var(--md);
 
     transition-property: background-color, color, outline, outline-offset;
     transition-duration: var(--animDuration);
@@ -263,18 +263,18 @@
 
     /* Icon at the start */
     &:has(> :where(.icon, figure):first-child):not(:has(> :where(.icon, figure):last-child)) {
-      padding-left: var(--sm, 10px);
+      padding-left: var(--sm);
     }
 
     /* Icon at the end */
     &:has(> :where(.icon, figure):last-child):not(:has(> :where(.icon, figure):first-child)) {
-      padding-right: var(--sm, 10px);
+      padding-right: var(--sm);
     }
 
     /* Icons on both sides */
     &:has(> :where(.icon, figure):first-child):has(> :where(.icon, figure):last-child) {
-      padding-left: var(--sm, 10px);
-      padding-right: var(--sm, 10px);
+      padding-left: var(--sm);
+      padding-right: var(--sm);
     }
 
     &:has(> :where(.icon, figure):only-child) {
@@ -284,16 +284,10 @@
     }
   }
 
-  :where(button[type="disabled"], button[disabled]) {
-    background-color: hsl(from color-mix(in hsl, var(--idle), hsl(0deg, 0%, 50%) 30%) h s calc(l - var(--ratio-backgrounds)));
-    filter: contrast(95%) saturate(75%);
-    isolation: isolate;
-  }
-
   /* inputs */
   :where(input) {
     background-color: var(--clr-background);
-    border-radius: var(--xs, 5px);
+    border-radius: var(--xs);
     color: var(--clr-text);
     display: inline-block;
     font-size: inherit;
@@ -302,7 +296,7 @@
     outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
     outline-offset: -2px;
     overflow: clip;
-    padding: 0 var(--md, 15px);
+    padding: 0 var(--md);
 
     transition-property: background-color, color, outline, outline-offset;
     transition-duration: var(--animDuration);
@@ -314,17 +308,6 @@
     &:focus-visible {
       outline-color: var(--clr-accent);
     }
-
-    /* &::placeholder {
-  color: hsl(from var(--clr-text) h s calc(l - var(--ratio-texts)));
-  mix-blend-mode: color-burn;
-} */
-  }
-
-  :where(input[type="disabled"], input[disabled]) {
-    background-color: hsl(from color-mix(in hsl, var(--clr-background) 90%, hsl(0deg, 0%, 50%)) h s calc(l - var(--ratio-backgrounds)));
-    color: hsl(from color-mix(in hsl, var(--clr-text) 10%, hsl(0deg, 0%, 50%)) h s calc(l - var(--ratio-texts)));
-    outline-color: transparent;
   }
 
   :where(input[type="color"]) {
@@ -346,7 +329,7 @@
   }
 
   :where(input[type="checkbox"], input[type="radio"]) {
-    --size: var(--nm, 20px);
+    --size: var(--nm);
 
     appearance: none;
     aspect-ratio: 1/1;
@@ -419,7 +402,7 @@
   /* textarea */
   :where(textarea) {
     background-color: var(--clr-background);
-    border-radius: var(--xs, 5px);
+    border-radius: var(--xs);
     color: var(--clr-text);
     display: inline-block;
 
@@ -434,7 +417,7 @@
     outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
     outline-offset: -2px;
     overflow: clip;
-    padding: var(--md, 15px);
+    padding: var(--md);
     resize: both;
 
     transition-property: background-color, color, outline, outline-offset;
@@ -464,7 +447,7 @@
       background-color: var(--clr-background);
       font-size: inherit;
       overflow: clip;
-      padding: var(--sm, 10px);
+      padding: var(--sm);
       text-align: center;
       width: 100%;
 
@@ -475,12 +458,12 @@
 
     :where(th) {
       min-height: 100px;
-      padding: var(--lg, 25px) var(--xl, 30px) var(--lg, 25px);
+      padding: var(--lg) var(--xl) var(--lg);
     }
 
     :where(td) {
       min-height: 75px;
-      padding: var(--nm, 20px) var(--xl, 30px) var(--lg, 25px);
+      padding: var(--nm) var(--xl) var(--lg);
     }
 
     :where(th, td) {
@@ -499,7 +482,7 @@
   /* dialog */
   :where(dialog) {
     background-color: var(--clr-background);
-    border-radius: var(--xs, 5px);
+    border-radius: var(--xs);
     height: max-content;
     inset: 0;
     margin: auto;
@@ -513,7 +496,7 @@
 
     &::backdrop {
       background-color: hsla(from var(--clr-background) h s calc(l - var(--ratio-backgrounds))/25%);
-      backdrop-filter: blur(var(--md, 15px));
+      backdrop-filter: blur(var(--md));
     }
   }
 }

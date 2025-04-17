@@ -52,19 +52,19 @@ export default function Apps({ Component, url }: PageProps) {
       </Head>
       <body>
         <div id="app">
-          {/* <nav id="app__topbar">
+          <nav id="app__topbar">
             <a href="/">
               <figure>
                 <img src="/media/lilycat.png" alt="logo" />
               </figure>
             </a>
 
-            <x-row style="gap: var(--md, 15px); place-content: end; place-items: center; width: 100%;">
+            <x-row style="gap: var(--md); place-content: end; place-items: center; width: 100%;">
               <a href="/test" type="button">
                 <span>Docs</span>
               </a>
             </x-row>
-          </nav> */}
+          </nav>
           <div id="app__content">
             <Component />
           </div>

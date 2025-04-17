@@ -2,7 +2,7 @@ import { type PageProps } from "$fresh/server.ts";
 
 export default function Page(_props: PageProps) {
   return (
-    <x-grid style="gap: var(--nm, 20px); grid-auto-rows: max-content; min-height: 100dvh; place-content: safe center;">
+    <x-grid style="gap: var(--nm); grid-auto-rows: max-content; min-height: 100dvh; place-content: safe center;">
       <script
         // deno-lint-ignore react-no-danger
         dangerouslySetInnerHTML={{
@@ -31,7 +31,7 @@ export default function Page(_props: PageProps) {
       </button>
 
       <dialog id="modal">
-        <x-flex style="place-items:center; padding-inline: var(--md, 15px); height: 50px;">
+        <x-flex style="place-items:center; padding-inline: var(--md); height: 50px;">
           <p>Service clients</p>
           <button id="modalClose" type="button" style="display: contents;">
             <i className="icon">close_small</i>
@@ -41,7 +41,7 @@ export default function Page(_props: PageProps) {
         <label
           htmlFor="searchbar"
           data-props="--input"
-          style="margin-inline: var(--sm, 10px);"
+          style="margin-inline: var(--sm);"
         >
           <i class="icon">
             search
@@ -57,7 +57,7 @@ export default function Page(_props: PageProps) {
           </i>
         </label>
 
-        <x-stack style="gap: var(--md, 15px); place-items: center; padding: var(--xl, 30px);">
+        <x-stack style="gap: var(--md); place-items: center; padding: var(--xl);">
           <i className="icon" style="--size: 50px;">block</i>
           <x-block style="text-align: center;">
             <p>No service clients found.</p>

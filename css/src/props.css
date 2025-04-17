@@ -69,14 +69,14 @@
 
     align-items: center;
     background-color: var(--inputBackground);
-    border-radius: var(--xs, 5px);
+    border-radius: var(--xs);
     display: flex;
-    gap: var(--xs, 5px);
+    gap: var(--xs);
     height: 45px;
     outline: solid 2px hsl(from var(--inputBackground) h s calc(l + var(--ratio-texts)));
     outline-offset: -2px;
     overflow: clip;
-    padding: 0 var(--md, 15px);
+    padding: 0 var(--md);
     transition-duration: var(--animDuration);
     transition-property: background-color, color, outline, outline-offset;
     transition-timing-function: var(--animTiming);
@@ -100,18 +100,18 @@
 
     /* Icon & Figure at the start */
     &:has(> :where(.icon, figure):first-child):not(:has(> :where(.icon, figure):last-child)) {
-      padding-left: var(--sm, 10px);
+      padding-left: var(--sm);
     }
 
     /* Icon & Figure at the end */
     &:has(> :where(.icon, button, figure):last-child):not(:has(> :where(.icon, figure):first-child)) {
-      padding-right: var(--sm, 10px);
+      padding-right: var(--sm);
     }
 
     /* Icons & Figures on both sides */
     &:has(> :where(.icon, figure):first-child):has(> :where(.icon, figure):last-child) {
-      padding-left: var(--sm, 10px);
-      padding-right: var(--sm, 10px);
+      padding-left: var(--sm);
+      padding-right: var(--sm);
     }
 
     /* Button at the start */
@@ -144,11 +144,16 @@
     }
   }
 
+  :where([data-props~="--circle"]) {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: clip;
+  }
+
   :where([data-props~="--squircle"]) {
     aspect-ratio: 1/1;
     border-radius: 25%;
     overflow: clip;
-    width: 40px;
   }
 
   :where([data-props~="--segmented-controls"]) {
@@ -207,12 +212,12 @@
     height: max-content;
     inset: auto 0 0;
     margin: auto;
-    max-height: calc(100% - var(--md, 15px));
+    max-height: calc(100% - var(--md));
     outline: solid 2px var(--clr-primary);
     outline-offset: -2px;
     overflow: auto;
     overscroll-behavior: contain;
-    padding: 20px var(--md, 15px);
+    padding: 20px var(--md);
     position: fixed;
     width: 100dvw;
     z-index: 20;
@@ -224,8 +229,7 @@
   }
 
   :where([data-props~="--fab"]) {
-    inset: auto 0 0;
-    margin: var(--sm, 10px);
+    margin: var(--sm);
     position: fixed;
     z-index: 1;
   }

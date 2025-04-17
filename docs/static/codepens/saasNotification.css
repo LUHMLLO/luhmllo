@@ -18,14 +18,14 @@ html {
 
   & > x-row {
     align-items: center;
-    gap: var(--md, 15px);
-    padding: var(--lg, 25px);
+    gap: var(--md);
+    padding: var(--lg);
 
     & > figure {
       aspect-ratio: 1/1;
-      border-radius: var(--xs, 5px);
+      border-radius: var(--xs);
       flex-shrink: 0;
-      height: calc(var(--xl, 35px) * 2.5);
+      height: calc(var(--xl) * 2.5);
       overflow: clip;
     }
 

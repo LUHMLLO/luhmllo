@@ -1,10 +1,10 @@
 main {
   display: flex;
   flex-direction: column-reverse;
-  gap: var(--md, 15px);
+  gap: var(--md);
   height: 100%;
   overflow: clip;
-  padding: var(--md, 15px);
+  padding: var(--md);
 
   & > * {
     flex-shrink: 0;
@@ -19,7 +19,7 @@ main {
   align-items: center;
   flex-direction: column-reverse;
   flex-shrink: 0;
-  gap: var(--md, 15px);
+  gap: var(--md);
 
   @media screen and (min-width: 440px) {
     flex-direction: row;
@@ -28,13 +28,13 @@ main {
   #rail {
     align-items: inherit;
     background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
-    backdrop-filter: blur(var(--xs, 5px));
-    border-radius: var(--xs, 5px);
+    backdrop-filter: blur(var(--xs));
+    border-radius: var(--xs);
     flex-shrink: 0;
     gap: inherit;
     height: 50px;
     overflow: clip;
-    padding: var(--md, 15px);
+    padding: var(--md);
     width: 100%;
 
     @media screen and (min-width: 440px) {
@@ -54,7 +54,7 @@ main {
       align-items: inherit;
       flex-grow: 1;
       flex-wrap: nowrap;
-      gap: var(--md, 15px);
+      gap: var(--md);
       place-content: end;
 
       @media screen and (min-width: 440px) {
@@ -79,18 +79,18 @@ main {
   #drawer {
     background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
     backdrop-filter: blur(var(--xs));
-    border-radius: var(--xs, 5px);
+    border-radius: var(--xs);
     flex-direction: column;
-    gap: var(--md, 15px);
-    inset: auto 0 calc(50px + var(--md, 15px)) 0;
-    margin: var(--md, 15px);
-    max-height: calc(100% - calc(var(--md, 15px) * 2) - 50px - 15px);
-    max-width: calc(100% - calc(var(--md, 15px) * 2));
+    gap: var(--md);
+    inset: auto 0 calc(50px + var(--md)) 0;
+    margin: var(--md);
+    max-height: calc(100% - calc(var(--md) * 2) - 50px - 15px);
+    max-width: calc(100% - calc(var(--md) * 2));
     min-height: 0;
     min-width: 0;
     outline: none;
     overflow: auto;
-    padding: var(--md, 15px);
+    padding: var(--md);
     place-content: space-between;
     width: 100%;
 
@@ -100,8 +100,8 @@ main {
 
     @media screen and (min-width: 440px) {
       height: calc(100% - 42px);
-      inset: 0 0 0 calc(50px + var(--md, 15px));
-      max-height: calc(100% - calc(var(--md, 15px) * 2));
+      inset: 0 0 0 calc(50px + var(--md));
+      max-height: calc(100% - calc(var(--md) * 2));
       place-content: start;
       width: min(300px, 100%);
     }
@@ -113,7 +113,7 @@ main {
     a {
       align-items: center;
       display: flex;
-      gap: var(--xs, 5px);
+      gap: var(--xs);
       width: 100%;
 
       &:where(:not(:hover, :focus, :active)) {

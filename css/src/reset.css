@@ -55,23 +55,26 @@
       clear: both;
     }
 
-    &[disabled],
-    &[not-allowed] {
+    &:where([disabled], [not-allowed]) {
       cursor: auto;
       pointer-events: none;
       user-select: none;
+    }
+
+    &:where([type="disabled"], [disabled]) {
+      filter: grayscale(15%) saturate(95%) contrast(90%);
     }
 
     &[not-allowed] {
       cursor: not-allowed;
     }
 
-    /* &::-webkit-scrollbar {
-      height: 5px;
-      scrollbar-width: thin;
-      width: 5px;
-    } */
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in hsl, var(--clr-accent), var(--clr-background)) transparent;
   }
+
+
+
 
   /* Application root containers */
   :where(#root, #__next, [data-app-root], #app) {

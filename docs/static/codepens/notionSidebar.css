@@ -1,16 +1,15 @@
 x-window {
+  background-color: hsl(from var(--clr-background) h s calc(l - var(--ratio-backgrounds)));
   display: flex;
 
   #notion__sidebar {
     background-color: var(--clr-background);
-    border-right: solid 2px hsl(from var(--clr-primary) h s calc(l + var(--ratio-texts)));
     gap: var(--lg);
     height: 100%;
-    isolation: isolate;
     outline: solid 2px var(--clr-background);
     outline-offset: -2px;
     overflow: auto;
-    padding: var(--sm, 10px);
+    padding: var(--sm);
     position: relative;
     min-width: 100%;
 
@@ -23,7 +22,7 @@ x-window {
       background-color: hsl(from var(--clr-background) h s l/0.5);
       backdrop-filter: blur(var(--xs));
       border-radius: var(--xl);
-      gap: var(--xs, 5px);
+      gap: var(--xs);
       position: sticky;
       width: 100%;
       z-index: 5;
@@ -107,7 +106,7 @@ x-window {
     }
   }
 
-  #notion__sidebar--rail{
+  #notion__sidebar--rail {
     padding: var(--xs);
     width: 75px;
   }

@@ -18,7 +18,7 @@ export default function Page(_props: PageProps) {
       <aside id="notion__sidebar" className="expanded">
         <x-flex data-props="--highlight">
           <button type="button">
-            <figure data-props="--squircle">
+            <figure data-props="--circle" style="width: var(--xl);">
               <img
                 alt="Photo: Luis R. Melo"
                 src="https://cdn.dribbble.com/users/2246724/avatars/normal/733a7307a4408930f70132c7436077f1.jpg?1742320251"
