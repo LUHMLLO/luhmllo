@@ -31,11 +31,11 @@ jobs:
 
       - name: Cache dependencies
         run: deno cache main.ts
-        working-directory: docs
+        working-directory: docs/v1
 
       - name: Build Project
         run: deno task build
-        working-directory: docs
+        working-directory: docs/v1
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
