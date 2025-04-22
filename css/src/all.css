@@ -1,8 +1,0 @@
-@import url('./tokens.css');
-@import url('./reset.css');
-@import url('./normalize.css');
-@import url('./icons.css');
-@import url('./customs.css');
-@import url('./props.css');
-
-@layer tokens, reset, normalize, icons, props;
