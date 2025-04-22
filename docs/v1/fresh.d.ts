@@ -66,6 +66,7 @@ declare module "preact" {
       "x-dropdown": JSX.HTMLAttributes<HTMLElement>;
       "x-wrap": JSX.HTMLAttributes<HTMLElement>;
       "x-window": JSX.HTMLAttributes<HTMLElement>;
+      "x-body": JSX.HTMLAttributes<HTMLElement>;
     }
   }
 }

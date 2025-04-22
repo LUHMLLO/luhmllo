@@ -22,6 +22,7 @@ const codepens = [
   "smartHomeHub",
   "suburban",
   "uasd",
+  "xylo",
 ];
 
 export default function Page(_props: PageProps) {

@@ -28,8 +28,20 @@
   }
 
   :where(x-grid) {
+    --cols: 1;
+    --gap: 0px;
+
+    --count: auto-fill;
+    --track_min: 10rem;
+    --track_max: 1fr;
+
     display: grid;
-    grid-auto-rows: max-content;
+    gap: var(--gap);
+    /* grid-auto-rows: max-content; */
+    grid-template-columns:
+      repeat(var(--count),
+        minmax(max(var(--track_min), 100% / var(--cols) - var(--gap)),
+          var(--track_max)));
   }
 
   :where(x-flex, x-row) {
@@ -79,5 +91,18 @@
     overflow: clip;
     position: relative;
     width: 100%;
+  }
+
+  :where(x-body) {
+    display: block;
+    height: 100%;
+    isolation: isolate;
+    overflow: auto;
+    position: relative;
+    width: 100%;
+
+    & > * {
+      flex-shrink: 0;
+    }
   }
 }

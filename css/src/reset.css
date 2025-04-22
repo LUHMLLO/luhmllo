@@ -73,9 +73,6 @@
     scrollbar-color: color-mix(in hsl, var(--clr-accent), var(--clr-background)) transparent;
   }
 
-
-
-
   /* Application root containers */
   :where(#root, #__next, [data-app-root], #app) {
     isolation: isolate;
@@ -90,7 +87,7 @@
     font-variant-numeric: tabular-nums;
     hanging-punctuation: first last;
     letter-spacing: -.03em;
-    line-height: 2ex;
+    line-height: 1.25;
     position: static;
     text-underline-offset: 3px;
   }
