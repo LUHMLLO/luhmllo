@@ -41,5 +41,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "lilycat"
-          entrypoint: "docs/main.ts"
+          entrypoint: "docs/v1/main.ts"
           root: "./"
