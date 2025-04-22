@@ -1,0 +1,58 @@
+@layer icons {
+
+  :is(.icon,
+    .material-symbols-outlined,
+    .material-symbols-rounded,
+    .material-symbols-sharp) {
+    --size: var(--nm);
+    --fill: 0;
+    --grad: 0;
+    --opsz: 50;
+    --wght: 350;
+    aspect-ratio: 1/1;
+    contain: content;
+    display: inline-grid;
+    flex: 0 0 max-content;
+    font-family:
+      Material Symbols Outlined,
+      Material Symbols Rounded,
+      Material Symbols Sharp,
+      sans-serif;
+    font-feature-settings: "liga";
+    font-size: clamp(100%, 100dvw, var(--size));
+    font-size-adjust: from-font;
+    font-style: normal;
+    font-variation-settings:
+      "FILL" var(--fill),
+      "wght" var(--wght),
+      "GRAD" var(--grad),
+      "opsz" var(--opsz);
+    height: var(--size);
+    overflow: clip;
+    place-content: center center;
+    place-items: center center;
+    touch-action: manipulation;
+    transition-property: height, font, width;
+    transition-duration: var(--animDuration);
+    transition-timing-function: var(--animTiming);
+    transition-behavior: allow-discrete;
+    user-select: none;
+    vertical-align: middle;
+    width: var(--size);
+
+    & > * {
+      display: contents;
+      vertical-align: -webkit-baseline-middle middle;
+    }
+  }
+
+  @media (forced-colors: active) {
+
+    :where(.icon,
+      .material-symbols-outlined,
+      .material-symbols-rounded,
+      .material-symbols-sharp) {
+      forced-color-adjust: none;
+    }
+  }
+}

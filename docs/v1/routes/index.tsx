@@ -15,11 +15,9 @@ const routes = [
 
 const codepens = [
   "homeExploration",
-  "motionFactory",
   "notionSidebar",
   "railFloatingDrawer",
   "saasNotification",
-  "smartHomeHub",
   "suburban",
   "uasd",
   "xylo",

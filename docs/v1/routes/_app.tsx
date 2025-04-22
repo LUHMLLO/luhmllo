@@ -1,6 +1,6 @@
 import { asset, Head } from "$fresh/runtime.ts";
 import { type PageProps } from "$fresh/server.ts";
-import * as lilycat from "../../css/dist/mod.ts";
+import * as lilycat from "../../../css/dist/mod.ts";
 
 export default function Apps({ Component, url }: PageProps) {
   const canonicalUrl = new URL(url.pathname, url.origin).href;

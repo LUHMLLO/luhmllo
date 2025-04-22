@@ -6,11 +6,9 @@ import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $codepens_layout from "./routes/codepens/_layout.tsx";
 import * as $codepens_homeExploration from "./routes/codepens/homeExploration.tsx";
-import * as $codepens_motionFactory from "./routes/codepens/motionFactory.tsx";
 import * as $codepens_notionSidebar from "./routes/codepens/notionSidebar.tsx";
 import * as $codepens_railFloatingDrawer from "./routes/codepens/railFloatingDrawer.tsx";
 import * as $codepens_saasNotification from "./routes/codepens/saasNotification.tsx";
-import * as $codepens_smartHomeHub from "./routes/codepens/smartHomeHub.tsx";
 import * as $codepens_suburban from "./routes/codepens/suburban.tsx";
 import * as $codepens_uasd from "./routes/codepens/uasd.tsx";
 import * as $codepens_xylo from "./routes/codepens/xylo.tsx";
@@ -45,11 +43,9 @@ const manifest = {
     "./routes/_app.tsx": $_app,
     "./routes/codepens/_layout.tsx": $codepens_layout,
     "./routes/codepens/homeExploration.tsx": $codepens_homeExploration,
-    "./routes/codepens/motionFactory.tsx": $codepens_motionFactory,
     "./routes/codepens/notionSidebar.tsx": $codepens_notionSidebar,
     "./routes/codepens/railFloatingDrawer.tsx": $codepens_railFloatingDrawer,
     "./routes/codepens/saasNotification.tsx": $codepens_saasNotification,
-    "./routes/codepens/smartHomeHub.tsx": $codepens_smartHomeHub,
     "./routes/codepens/suburban.tsx": $codepens_suburban,
     "./routes/codepens/uasd.tsx": $codepens_uasd,
     "./routes/codepens/xylo.tsx": $codepens_xylo,
