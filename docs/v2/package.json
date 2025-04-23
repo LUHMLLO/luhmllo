@@ -11,8 +11,13 @@
   "dependencies": {
     "@astrojs/mdx": "^4.2.4",
     "@astrojs/svelte": "^7.0.10",
+    "@deno/astro-adapter": "^0.3.0",
     "astro": "^5.7.4",
     "svelte": "^5.28.2",
     "typescript": "^5.8.3"
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "not op_mini all"
+  ]
 }

@@ -35,8 +35,7 @@ const codepens = [
 		</p>
 	</header>
 
-	<x-grid
-		style='gap: var(--md); grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 100%, 200px), 1fr)); padding: var(--nm);'>
+	<x-grid style='--gap: var(--md); --cols: 4; padding: var(--nm);'>
 		{
 			routes.map((path) => (
 				<a href={'/el/' + path}>
@@ -47,8 +46,7 @@ const codepens = [
 		}
 	</x-grid>
 
-	<x-grid
-		style='gap: var(--md); grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 100%, 200px), 1fr)); padding: var(--nm);'>
+	<x-grid style='--gap: var(--md); --cols: 4; padding: var(--nm);'>
 		{
 			codepens.map((path) => (
 				<a href={'/codepens/' + path}>
