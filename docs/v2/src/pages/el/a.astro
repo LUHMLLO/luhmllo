@@ -1,0 +1,36 @@
+---
+import Layout from '../../layouts/test.astro';
+---
+
+<Layout>
+	<x-wrap
+		style='gap: var(--nm); height: 100%; overflow: auto; padding: var(--nm);'>
+		<a>
+			<i class='icon'>asterisk</i>lead icon
+		</a>
+
+		<a href={'#' + crypto.randomUUID()}>
+			<i class='icon'>asterisk</i>span
+		</a>
+
+		<a>no icons</a>
+
+		<a href={'#' + crypto.randomUUID()}>no icons</a>
+
+		<a>
+			<i class='icon'>asterisk</i>both icons<i class='icon'> asterisk </i>
+		</a>
+
+		<a href={'#' + crypto.randomUUID()}>
+			<i class='icon'>asterisk</i>both icons<i class='icon'> asterisk </i>
+		</a>
+
+		<a>
+			trail icon<i class='icon'>asterisk</i>
+		</a>
+
+		<a href={'#' + crypto.randomUUID()}>
+			trail icon<span class='icon'>asterisk</span>
+		</a></x-wrap
+	>
+</Layout>

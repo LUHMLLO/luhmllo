@@ -109,6 +109,10 @@
       grid-template-columns: subgrid;
       grid-column: expand;
       width: 100%;
+
+      & > * {
+        grid-column: expand;
+      }
     }
   }
 

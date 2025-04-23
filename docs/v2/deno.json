@@ -1,29 +1,4 @@
 {
   "lock": false,
-  "nodeModulesDir": "auto",
-  "tasks": {
-    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
-    "manifest": "deno task cli manifest $(pwd)",
-    "start": "deno run -A --watch=static/,views/ main.ts",
-    "build": "deno run -A main.ts build",
-    "preview": "deno run -A main.ts"
-  },
-  "lint": {
-    "rules": {
-      "tags": [
-        "jsx",
-        "recommended"
-      ]
-    }
-  },
-  "imports": {
-    "#components/": "./components/",
-    "#islands/": "./islands/",
-    "#lib/": "./lib/"
-  },
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact",
-    "strict": true
-  }
+  "nodeModulesDir": "auto"
 }
