@@ -26,36 +26,47 @@ const codepens = [
 ---
 
 <Layout>
-	<header>
+	<header
+		style='background-color: var(--clr-primary); border-radius: var(--xs); padding: var(--nm);'>
 		<h1>Lilycat</h1>
 		<p>
-			Powered by dead simple <pre>{`--opinionated`}</pre> CSS props and a mix of
-			common convention rules for better DX &amp; while keeping styling minimal.
+			Powered by dead simple <code>--opinionated</code> CSS props and a mix of common
+			convention rules for better DX &amp; while keeping styling minimal.
 		</p>
 	</header>
 
-	<h2>Elements</h2>
+	<section
+		style='border-radius: var(--xs); outline: dashed 2px var(--clr-text); outline-offset: -2px; padding: var(--nm);'>
+		<h2>Test Page</h2>
+		<a href='/test'>Understand each element behaviour better</a>
+	</section>
 
-	<x-grid style='--gap: var(--md); --cols: 4;'>
-		{
-			routes.map((path) => (
-				<a href={'/el/' + path}>
-					<span>{path}</span>
-					<i class='icon'>north_east</i>
-				</a>
-			))
-		}
-	</x-grid>
+	<section>
+		<h2>Elements</h2>
 
-	<h2>codepens</h2>
-	<x-grid style='--gap: var(--md); --cols: 4;'>
-		{
-			codepens.map((path) => (
-				<a href={'/codepens/' + path}>
-					<span>{path}</span>
-					<i class='icon'>north_east</i>
-				</a>
-			))
-		}
-	</x-grid>
+		<x-grid style='--gap: var(--md); --cols: 4;'>
+			{
+				routes.map((path) => (
+					<a href={'/el/' + path}>
+						<span>{path}</span>
+						<i class='icon'>north_east</i>
+					</a>
+				))
+			}
+		</x-grid>
+	</section>
+
+	<section>
+		<h2>codepens</h2>
+		<x-grid style='--gap: var(--md); --cols: 4;'>
+			{
+				codepens.map((path) => (
+					<a href={'/codepens/' + path}>
+						<span>{path}</span>
+						<i class='icon'>north_east</i>
+					</a>
+				))
+			}
+		</x-grid>
+	</section>
 </Layout>

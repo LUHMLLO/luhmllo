@@ -88,11 +88,12 @@
   /* code and pre wrapping */
   :where(code, pre) {
     color: var(--clr-debug);
-    display: contents;
+    display: inline;
     font: inherit;
     text-box: trim-both ex alphabetic;
     vertical-align: inherit;
-    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
   }
 
   :where(code) {

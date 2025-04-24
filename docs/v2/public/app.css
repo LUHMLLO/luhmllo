@@ -1,9 +1,7 @@
 #app {
-  height: 100dvh;
   grid-auto-rows: max-content;
-  grid-template-rows: max-content 1fr;
+  /* grid-template-rows: max-content 1fr; */
   grid-column: inner;
-  overflow: clip;
   padding-block: var(--nm);
 
   > * {
@@ -16,7 +14,7 @@
     text-box: trim-both ex alphabetic;
   }
 
-  > *:where(:not(:first-child)) {
+  > *:not(:first-child) {
     margin-top: var(--xl);
     margin-bottom: var(--sm);
 
@@ -36,25 +34,27 @@
 
     gap: var(--nm);
     height: max-content;
+    outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts))/75%);
+    outline-offset: 2px;
     overflow: clip;
     place-content: space-between;
     place-items: center;
-    position: relative;
+    position: sticky;
+    top: var(--xl);
     z-index: 10;
 
-    /* &::before {
+    &::before {
       background-color: hsl(from var(--clr-background) h s l / 25%);
       backdrop-filter: blur(0.5ex);
       content: "";
       inset: 0;
       position: absolute;
       z-index: -1;
-    } */
+    }
 
     a {
       display: inline-flex;
-      flex-shrink: 0;
-      gap: var(--xs);
+      gap: clamp(0px, 1dvmax, var(--xs));
       text-box: none;
 
       & > figure {
@@ -63,12 +63,16 @@
         width: 45px;
       }
     }
+
+    :where(a, button) {
+      flex-shrink: 0;
+    }
   }
 
   #app__content {
     display: block;
-    height: calc(100% - var(--xl));
-    overflow: auto;
+    /* height: calc(100% - var(--xl)); */
+    overflow: clip;
     /* padding-block: 25px; */
 
     & > * {
