@@ -2,9 +2,9 @@
 import Layout from '../../layouts/test.astro';
 ---
 
-<Layout>
+<Layout style="overlow: clip;">
 	<link rel='preconnect' href='https://fonts.googleapis.com' />
-	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin='' />
+	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
 	<link
 		href='https://fonts.googleapis.com/css2?family=Oi&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'
 		rel='stylesheet'
@@ -14,7 +14,7 @@ import Layout from '../../layouts/test.astro';
 		<figure style='inset:0; position: absolute; width: 100%;'>
 			<img
 				src='https://images.unsplash.com/photo-1697538022268-c565529e616f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-				alt=''
+				alt='Mass timber architecture background'
 			/>
 		</figure>
 		<span
@@ -23,35 +23,32 @@ import Layout from '../../layouts/test.astro';
 	</x-sublayer>
 
 	<x-body
-		style="display: flex; flex-direction: column;   font-family: 'Poppins', sans-serif; gap: var(--xl); padding: var(--xl);">
+		style="display: flex; flex-direction: column; font-family: 'Poppins', sans-serif; gap: var(--xl); padding: var(--sm);">
 		<nav style='place-content: space-between; place-items: center;'>
 			<button type='button'>
 				<i class='icon'> menu </i>
-				<span> menu </span>
 			</button>
 
 			<h6
 				style="font-family: 'Oi', system-ui; text-align: center; text-box: trim-both cap alphabetic; white-space: nowrap;">
-				Xylo
+				TinkXo
 			</h6>
 
 			<a href={'#' + crypto.randomUUID()} type='button'>
-				<span>Get in touch</span>
-				<i class='icon'> arrow_right_alt </i>
+				<i class='icon'> phone </i>
 			</a>
 		</nav>
 
-		<x-grid style='--gap: var(--nm); --cols: 4;'>
-			<div>
-				<p style='font-size: var(--nm);'>
-					THE DAWN of a NEW ERA in<br />which BUILDINGS are GROWN.
-				</p>
-			</div>
-		</x-grid>
+		<p style='font-size: var(--nm);'>
+			TinkXo ignites a NEW ERA where<br />we don’t just build — we *cultivate*.
+		</p>
 
 		<x-row
-			style='border-bottom: solid 1px var(--clr-text); flex: 1 0 max-content; padding-block: var(--nm); place-content: space-between; place-items: end; flex-wrap: wrap;'>
-			<span style='text-box: trim-both cap alphabetic;'>SCROLL</span>
+			style='border-bottom: solid 1px var(--clr-text); flex: 1 0 max-content; padding-block: var(--nm); place-content: space-between; place-items: end;'>
+			<span
+				style='float: right; flex-shrink: 1; min-width: 0; text-box: trim-both cap alphabetic;'>
+				SCROLL
+			</span>
 			<h1
 				style="font-family: 'Oi', system-ui; text-box: trim-both cap alphabetic;">
 				AMENITIES
@@ -59,46 +56,39 @@ import Layout from '../../layouts/test.astro';
 		</x-row>
 
 		<p style='font-size: var(--nm); place-self: end; text-align: right;'>
-			Timber is more than a material. It is<br />a cornerstoen for athriving
-			future in which<br />the built environment can support.
+			Timber is more than a material—it’s<br />
+			a cornerstone for a thriving, regenerative<br />
+			future in which built spaces breathe and evolve.
 		</p>
 
-		<x-grid style='--gap: var(--nm); --cols: 4;'>
+		<x-grid style='--gap: var(--nm); --cols: 2;'>
 			<div></div>
 			<div></div>
+
 			<x-group style='gap: var(--nm);'>
 				<p>
-					As climate change accelerates, the urgency to rethink how we design
-					and build our workplaces has never been greater. With the building
-					sector responsaible for nearly 40% of global carbon emissions, every
-					decision in design and construction shapes our collective future.
+					At TinkXo, we believe buildings should be more like forests—alive,
+					adaptive, and symbiotic with the world around them. As climate change
+					intensifies, rethinking our spaces is no longer optional. It’s urgent.
 				</p>
 				<p>
-					Timber buildings offer a powerful solution. As a carbon negative
-					material, timber absorbs and stores{' '}
-					<span>
-						CO<sub>2</sub>
-					</span>{' '}
-					throughout its life cycle, making it an essential tool in our fight against
-					climate change. Strong, renewable, and endlessly versatile, timber is starting
-					to replace high-emission materiales like concrete and steel.
+					Mass timber is our medium of transformation. Naturally
+					carbon-negative, it sequesters{' '}
+					<span>CO<sub>2</sub></span> as it grows and continues to store it for decades,
+					turning each structure into a living climate ally.
 				</p>
 			</x-group>
 
 			<x-group style='gap: var(--nm);'>
 				<p>
-					Welcome to a new epoch in which buildings are grown, relationships
-					blossom, and businesses thrive. Across the world, mass timber
-					construction is reducing emissions, enhancing wellbeing, and unifiying
-					nature and tecnology. But what's behind the renaissance of humanity's
-					oldest building material?
+					TinkXo doesn’t just design buildings—we plant ideas. We’re cultivating
+					hubs where people connect, businesses bloom, and nature finds its
+					place again in our urban fabric.
 				</p>
 				<p>
-					The opportunities afforded by the timber structure are compelling from
-					both the embodied carbon perspective, and in terms embodied carbon
-					perspective, and in terms of the human benefits of a building that
-					will bring occupiers into daily contact with the warmth, tactility,
-					beauty and een the scent of timber.
+					From scent and touch to temperature and texture, timber is not just
+					sustainable—it’s sensorial. It's architecture that speaks to the body,
+					the soul, and the future.
 				</p>
 
 				<a href={'#' + crypto.randomUUID()}>

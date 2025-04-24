@@ -181,11 +181,11 @@
     position: relative;
 
     &::before {
-      background-color: hsla(from var(--clr-primary) h s l);
+      background-color: hsla(from var(--clr-accent) h s l/50);
       border-radius: inherit;
       content: "";
       display: inline-flex;
-      height: calc(100% + var(--sm));
+      height: calc(100% + var(--xs));
       inset: 50%;
       margin: 0;
       opacity: 0;
@@ -194,7 +194,7 @@
       transition-duration: var(--animDuration);
       transition-timing-function: var(--animTiming);
       translate: -50% -50%;
-      width: calc(100% + var(--sm));
+      width: calc(100% + var(--xs));
       z-index: -1;
     }
 

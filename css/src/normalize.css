@@ -87,12 +87,12 @@
 
   /* code and pre wrapping */
   :where(code, pre) {
-    display: inline-block;
-    overflow-x: auto clip;
-    vertical-align: top;
+    color: var(--clr-debug);
+    display: contents;
+    font: inherit;
+    text-box: trim-both ex alphabetic;
+    vertical-align: inherit;
     white-space: pre;
-    word-break: keep-all;
-    width: fit-content;
   }
 
   :where(code) {
