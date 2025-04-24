@@ -20,15 +20,15 @@ const experiments = [
 	'railFloatingDrawer',
 	'saasNotification',
 	'suburban',
+	'tinkxo',
 	'uasd',
-	'xylo',
 ];
 ---
 
 <Layout>
-	<x-grid style='--gap: var(--nm); --cols: 2;'>
+	<x-grid style='--gap: var(--md); --cols: 2;'>
 		<section
-			style='background-color: var(--clr-primary); border-radius: var(--xs); padding: clamp(0%, 5dvmax, var(--nm));'>
+			style='background-color: var(--clr-primary); border-radius: var(--xs); padding: clamp(0%, 5dvmax, var(--md));'>
 			<h1>Lilycat</h1>
 			<br />
 			<p>
@@ -38,14 +38,14 @@ const experiments = [
 		</section>
 
 		<section
-			style='border-radius: var(--xs); outline: dashed 2px var(--clr-text); outline-offset: -2px; padding: var(--nm);'>
+			style='border-radius: var(--xs); outline: dashed 2px hsl(from var(--clr-accent) h s calc(l + var(--ratio-texts))/75%); outline-offset: 2px; padding: var(--md);'>
 			<h2>Test Page</h2>
 			<br />
 			<a href='/test'>Understand each element behaviour better</a>
 		</section>
 
 		<section
-			style='background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-backgrounds))); border-radius: var(--xs); padding: var(--nm);'>
+			style='background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-backgrounds))); border-radius: var(--xs); outline: dashed 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts))/75%); outline-offset: 2px; padding: var(--md);'>
 			<h2>Elements</h2>
 			<br />
 			<x-grid style='--gap: var(--md); --cols: 4;'>
@@ -61,7 +61,7 @@ const experiments = [
 		</section>
 
 		<section
-			style='background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-backgrounds))); border-radius: var(--xs); padding: var(--nm);'>
+			style='background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-backgrounds))); border-radius: var(--xs); outline: dashed 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts))/75%); outline-offset: 2px; padding: var(--md);'>
 			<h2>Experiments</h2>
 			<br />
 			<x-grid style='--gap: var(--md); --cols: 4;'>

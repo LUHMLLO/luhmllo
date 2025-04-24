@@ -4,6 +4,12 @@ import Layout from '../../layouts/test.astro';
 
 <Layout>
 	<style is:inline>
+		#app__content {
+			height: calc(calc(100dvh - var(--xl)) - 95px);
+		}
+	</style>
+
+	<style is:inline>
 		main {
 			display: flex;
 			flex-direction: column-reverse;

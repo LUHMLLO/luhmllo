@@ -1,13 +1,12 @@
 ---
 import Layout from './html.astro';
-const { styles = 'height: 100%; overflow: auto !important;' } = Astro.props;
 ---
 
 <Layout>
 	<x-sublayer
 		class='gridlines'
 		style='pointer-events: none; visibility: visible;'></x-sublayer>
-	<x-window bind:styles={styles}>
+	<x-window>
 		<slot />
 	</x-window>
 </Layout>

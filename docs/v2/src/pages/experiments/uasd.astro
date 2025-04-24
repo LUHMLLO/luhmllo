@@ -22,6 +22,10 @@ import Layout from '../../layouts/test.astro';
 				}
 			}
 		}
+
+		#app__content {
+			height: calc(calc(100dvh - var(--xl)) - 95px);
+		}
 	</style>
 
 	<x-stack id='appbar'>
@@ -30,11 +34,7 @@ import Layout from '../../layouts/test.astro';
 				<i class='icon'>arrow_back</i>
 			</button>
 			<figure style='flex-shrink: 1; width: min(100%, 100px);'>
-				<img
-					src='/logo_uasd.svg'
-					alt='logo'
-					style='object-fit: contain;'
-				/>
+				<img src='/logo_uasd.svg' alt='logo' style='object-fit: contain;' />
 			</figure>
 
 			<x-row

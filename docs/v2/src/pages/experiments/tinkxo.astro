@@ -2,7 +2,7 @@
 import Layout from '../../layouts/test.astro';
 ---
 
-<Layout style="overlow: clip;">
+<Layout>
 	<link rel='preconnect' href='https://fonts.googleapis.com' />
 	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
 	<link
@@ -10,8 +10,14 @@ import Layout from '../../layouts/test.astro';
 		rel='stylesheet'
 	/>
 
+	<style is:inline>
+		#app__content {
+			height: calc(calc(100dvh - var(--xl)) - 95px);
+		}
+	</style>
+
 	<x-sublayer>
-		<figure style='inset:0; position: absolute; width: 100%;'>
+		<figure style='height: 100%; inset:0; position: absolute; width: 100%;'>
 			<img
 				src='https://images.unsplash.com/photo-1697538022268-c565529e616f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 				alt='Mass timber architecture background'
