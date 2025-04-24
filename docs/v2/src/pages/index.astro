@@ -29,10 +29,12 @@ const codepens = [
 	<header>
 		<h1>Lilycat</h1>
 		<p>
-			Powered by dead simple <pre>{`--opinionated`}</pre> CSS props and a mix
-			of common convention rules for better DX &amp; while keeping styling minimal.
+			Powered by dead simple <pre>{`--opinionated`}</pre> CSS props and a mix of
+			common convention rules for better DX &amp; while keeping styling minimal.
 		</p>
 	</header>
+
+	<h2>Elements</h2>
 
 	<x-grid style='--gap: var(--md); --cols: 4;'>
 		{
@@ -45,6 +47,7 @@ const codepens = [
 		}
 	</x-grid>
 
+	<h2>codepens</h2>
 	<x-grid style='--gap: var(--md); --cols: 4;'>
 		{
 			codepens.map((path) => (
