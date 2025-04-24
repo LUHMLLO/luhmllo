@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/html.astro';
 
-const routes = [
+const elements = [
 	'a',
 	'article',
 	'button',
@@ -14,7 +14,7 @@ const routes = [
 	'textarea',
 ];
 
-const codepens = [
+const experiments = [
 	'homeExploration',
 	'notionSidebar',
 	'railFloatingDrawer',
@@ -50,8 +50,8 @@ const codepens = [
 			<br />
 			<x-grid style='--gap: var(--md); --cols: 4;'>
 				{
-					routes.map((path) => (
-						<a href={'/el/' + path}>
+					elements.map((path) => (
+						<a href={'/elements/' + path}>
 							<span>{path}</span>
 							<i class='icon'>north_east</i>
 						</a>
@@ -62,12 +62,12 @@ const codepens = [
 
 		<section
 			style='background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-backgrounds))); border-radius: var(--xs); padding: var(--nm);'>
-			<h2>codepens</h2>
+			<h2>Experiments</h2>
 			<br />
 			<x-grid style='--gap: var(--md); --cols: 4;'>
 				{
-					codepens.map((path) => (
-						<a href={'/codepens/' + path}>
+					experiments.map((path) => (
+						<a href={'/experiments/' + path}>
 							<span>{path}</span>
 							<i class='icon'>north_east</i>
 						</a>
