@@ -93,8 +93,10 @@
   }
 
   :where(body) {
+    --container: 80rem;
+    --gutter: 1rem;
     display: grid;
-    grid-template-columns: [expand-start] minmax(1rem, 1fr) [inner-start] minmax(0, 80rem) [inner-end] minmax(1rem, 1fr) [expand-end];
+    grid-template-columns: [expand-start] minmax(var(--gutter), 1fr) [inner-start] minmax(0, var(--container)) [inner-end] minmax(var(--gutter), 1fr) [expand-end];
     inset: 0;
     max-height: max-content;
     min-height: 100dvh;

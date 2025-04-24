@@ -26,47 +26,54 @@ const codepens = [
 ---
 
 <Layout>
-	<header
-		style='background-color: var(--clr-primary); border-radius: var(--xs); padding: var(--nm);'>
-		<h1>Lilycat</h1>
-		<p>
-			Powered by dead simple <code>--opinionated</code> CSS props and a mix of common
-			convention rules for better DX &amp; while keeping styling minimal.
-		</p>
-	</header>
+	<x-grid style='--gap: var(--nm); --cols: 2;'>
+		<section
+			style='background-color: var(--clr-primary); border-radius: var(--xs); padding: clamp(0%, 5dvmax, var(--nm));'>
+			<h1>Lilycat</h1>
+			<br />
+			<p>
+				Powered by dead simple <code>--opinionated</code> CSS props and a mix of
+				common convention rules for better DX &amp; while keeping styling minimal.
+			</p>
+		</section>
 
-	<section
-		style='border-radius: var(--xs); outline: dashed 2px var(--clr-text); outline-offset: -2px; padding: var(--nm);'>
-		<h2>Test Page</h2>
-		<a href='/test'>Understand each element behaviour better</a>
-	</section>
+		<section
+			style='border-radius: var(--xs); outline: dashed 2px var(--clr-text); outline-offset: -2px; padding: var(--nm);'>
+			<h2>Test Page</h2>
+			<br />
+			<a href='/test'>Understand each element behaviour better</a>
+		</section>
 
-	<section>
-		<h2>Elements</h2>
+		<section
+			style='background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-backgrounds))); border-radius: var(--xs); padding: var(--nm);'>
+			<h2>Elements</h2>
+			<br />
+			<x-grid style='--gap: var(--md); --cols: 4;'>
+				{
+					routes.map((path) => (
+						<a href={'/el/' + path}>
+							<span>{path}</span>
+							<i class='icon'>north_east</i>
+						</a>
+					))
+				}
+			</x-grid>
+		</section>
 
-		<x-grid style='--gap: var(--md); --cols: 4;'>
-			{
-				routes.map((path) => (
-					<a href={'/el/' + path}>
-						<span>{path}</span>
-						<i class='icon'>north_east</i>
-					</a>
-				))
-			}
-		</x-grid>
-	</section>
-
-	<section>
-		<h2>codepens</h2>
-		<x-grid style='--gap: var(--md); --cols: 4;'>
-			{
-				codepens.map((path) => (
-					<a href={'/codepens/' + path}>
-						<span>{path}</span>
-						<i class='icon'>north_east</i>
-					</a>
-				))
-			}
-		</x-grid>
-	</section>
+		<section
+			style='background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-backgrounds))); border-radius: var(--xs); padding: var(--nm);'>
+			<h2>codepens</h2>
+			<br />
+			<x-grid style='--gap: var(--md); --cols: 4;'>
+				{
+					codepens.map((path) => (
+						<a href={'/codepens/' + path}>
+							<span>{path}</span>
+							<i class='icon'>north_east</i>
+						</a>
+					))
+				}
+			</x-grid>
+		</section>
+	</x-grid>
 </Layout>
