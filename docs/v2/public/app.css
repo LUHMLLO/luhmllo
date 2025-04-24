@@ -72,7 +72,7 @@
   #app__content {
     display: block;
     /* height: calc(100% - var(--xl)); */
-    overflow: clip;
+    /* overflow: clip; */
     /* padding-block: 25px; */
 
     & > * {
@@ -93,8 +93,8 @@
 
       height: 100%;
       margin-block: auto;
-      outline: solid 3px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts))/75%);
-      outline-offset: 3px;
+      outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts))/75%);
+      outline-offset: 2px;
       overflow: clip;
       place-self: center;
       width: 100%;
