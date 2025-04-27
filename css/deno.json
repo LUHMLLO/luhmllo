@@ -2,8 +2,8 @@
   "lock": false,
   "nodeModulesDir": "auto",
   "name": "@luhmllo/lilycat",
-  "version": "0.1.30",
-  "description": "A minimalist CSS library that keeps HTML clean and styling efficient, embracing the power of native CSS while avoiding utility class bloat.",
+  "version": "0.1.31",
+  "description": "Dead simple, props-powered CSS for developers who build fast and style smart.",
   "keywords": [
     "css",
     "ui-kit",
@@ -16,7 +16,10 @@
     "clean-html",
     "utility-css",
     "native-css",
-    "opinionated"
+    "opinionated",
+    "props",
+    "vars",
+    "inline-css"
   ],
   "homepage": "https://github.com/LUHMLLO/lilycat.css",
   "license": "MIT",
