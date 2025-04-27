@@ -1,5 +1,7 @@
 # Lilycat 🐱✨
 
+> **Dead simple, props-powered CSS — build fast, style clean, and stay native.**
+
 [![Sponsor Lilycat](https://img.shields.io/badge/Sponsor_Lilycat-💖-ff69b4?style=for-the-badge)](https://github.com/sponsors/LUHMLLO)
 
 **Lilycat** is a dead simple, props-powered CSS library built for a streamlined, opinionated development experience.  
