@@ -3,7 +3,7 @@
   "nodeModulesDir": "auto",
   "name": "@luhmllo/lilycat",
   "version": "0.1.31",
-  "description": "Dead simple, props-powered CSS for developers who build fast and style smart.",
+  "description": "Dead simple, props-powered CSS that keeps your HTML clean and your styles native, scalable, and efficient.",
   "keywords": [
     "css",
     "ui-kit",
