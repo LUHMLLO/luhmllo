@@ -1,0 +1,48 @@
+---
+// src/pages/whatsnew.astro
+import Layout from '../../../layouts/test.astro';
+import UpdateEntry from '../../../components/UpdateEntry.astro';
+---
+
+<Layout>
+	<x-grid
+		style='gap: var(--nm); padding: var(--nm); height: 100%; overflow: auto;'>
+		<x-wrap style='gap: var(--nm);'>
+			<h2 style='font-size: var(--text-xl); font-weight: bold;'>Development</h2>
+			<h1 style='font-size: var(--text-2xl); font-weight: bold;'>What's New</h1>
+			<p style='font-size: var(--text-base); color: var(--text-muted);'>
+				The latest updates and improvements to MCP
+			</p>
+		</x-wrap>
+
+		<x-grid style='gap: var(--lg); margin-top: var(--lg);'>
+			<UpdateEntry
+				date='2025-04-10'
+				title='Java SDK 0.9.0 released'
+				version='0.9.0'
+				items={[
+					'Refactored logging system to use exchange mechanism',
+					'Custom Context Paths',
+					'Server Instructions',
+					'CallToolResult Enhancement',
+				]}
+			/>
+
+			<UpdateEntry
+				date='2025-03-26'
+				title='Kotlin SDK 0.4.0 released'
+				version='0.4.0'
+				items={[
+					'Fix issues and cleanup API',
+					'Added binary compatibility tracking to avoid breaking changes',
+					'Drop JDK requirements to JDK8',
+					'Added Claude Desktop integration with sample',
+				]}
+				link={{
+					href: 'https://github.com/modelcontextprotocol/kotlin-sdk/releases/tag/0.4.0',
+					text: 'GitHub Release',
+				}}
+			/>
+		</x-grid>
+	</x-grid>
+</Layout>

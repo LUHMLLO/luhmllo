@@ -1,0 +1,50 @@
+---
+// components/UpdateEntry.astro
+interface Props {
+	date: string;
+	title: string;
+	items: string[];
+	link?: { href: string; text: string };
+	version: string;
+}
+const { date, title, items, link, version } = Astro.props;
+---
+
+<x-grid
+	style='grid-template-columns: auto 1fr; gap: var(--nm); align-items: start;'>
+	<!-- Date -->
+	<time
+		style='background: var(--surface); padding: var(--xs) var(--nm); border-radius: var(--radius-sm); font-weight: bold; white-space: nowrap; font-size: var(--text-sm);'>
+		{date}
+	</time>
+
+	<!-- Entry content -->
+	<x-grid style='gap: var(--xs);'>
+		<!-- Title -->
+		<h3 style='font-size: var(--text-lg); font-weight: bold;'>
+			{title}
+		</h3>
+
+		<!-- List -->
+		<ul
+			style='list-style: disc; padding-left: 1rem; font-size: var(--text-base);'>
+			<li>
+				Version <strong>{version}</strong> of the MCP Java SDK has been released.
+			</li>
+			{items.map((item) => <li>{item}</li>)}
+			{
+				link && (
+					<li>
+						See changelog:
+						<a
+							href={link.href}
+							target='_blank'
+							style='color: var(--accent); text-decoration: underline;'>
+							{link.text}
+						</a>
+					</li>
+				)
+			}
+		</ul>
+	</x-grid>
+</x-grid>
