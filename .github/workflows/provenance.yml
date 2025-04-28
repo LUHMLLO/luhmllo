@@ -1,0 +1,54 @@
+name: Provenance Publish
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  provenance:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: 2.x
+
+      - name: Extract release version
+        id: extract_version
+        run: |
+          echo "RELEASE_TAG=${GITHUB_REF#refs/tags/}" >> "$GITHUB_ENV"
+
+      - name: Verify version matches css/deno.json
+        run: |
+          PACKAGE_VERSION=$(jq -r '.version' css/deno.json)
+          echo "📦 Package version: $PACKAGE_VERSION"
+          echo "🏷 Release tag: $RELEASE_TAG"
+          if [ "v$PACKAGE_VERSION" != "$RELEASE_TAG" ]; then
+            echo "❌ Version mismatch between release tag and css/deno.json"
+            exit 1
+          fi
+          echo "✅ Version match confirmed."
+
+      - name: Build and lint
+        run: |
+          deno check css/build.ts
+          deno lint css/
+
+      - name: Publish to JSR with provenance
+        working-directory: css
+        run: |
+          deno publish --provenance
+
+      - name: Upload provenance metadata (optional but 🔥)
+        uses: actions/upload-artifact@v4
+        with:
+          name: provenance-css
+          path: css/.well-known/provenance.json
