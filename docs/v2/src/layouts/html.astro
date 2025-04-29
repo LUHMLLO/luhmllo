@@ -1,5 +1,5 @@
 ---
-import '../../../../css/dist/all.css';
+import AppModule from '../templates/App.astro';
 ---
 
 <html lang='en'>
@@ -32,30 +32,18 @@ import '../../../../css/dist/all.css';
 			rel='stylesheet'
 		/>
 
-		<style>
+		<style lang='css'>
 			html {
 				font-family: 'Satoshi', sans-serif;
+			}
+
+			body {
+				overflow: clip;
 			}
 		</style>
 	</head>
 	<body>
-		<div id='app'>
-			<nav id='app__topbar'>
-				<a href='/' style='margin-right: var(--md);'>
-					<figure>
-						<img src='/logo.png' alt='logo' />
-					</figure>
-					<span>Lilycat</span>
-				</a>
-
-				<button>
-					<i class='icon'>menu</i>
-				</button>
-			</nav>
-			<div id='app__content'>
-				<slot />
-			</div>
-		</div>
+		<AppModule />
 		<script type='module' src='/dropdown.min.js' is:inline></script>
 	</body>
 </html>

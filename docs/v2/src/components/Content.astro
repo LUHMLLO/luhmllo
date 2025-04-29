@@ -1,0 +1,49 @@
+---
+
+---
+
+<div id='app__content'>
+	<script type='module' is:inline></script>
+
+	<slot />
+
+	<style lang='css' is:inline>
+		@scope {
+			#app__content {
+				display: block;
+				/* height: calc(100% - var(--xl)); */
+				/* overflow: clip; */
+				/* padding-block: 25px; */
+
+				& > * {
+					flex-shrink: 0;
+					height: max-content;
+
+					& + p {
+						color: hsl(from var(--clr-text) h s calc(l - 50) / 1);
+					}
+				}
+
+				& > :where(x-window) {
+					box-shadow: 0 5vmax 100vmax -5vmax hsl(from
+								color-mix(in hsl, var(--clr-text), hsl(0, 0%, 40%)) h s l / 20%);
+
+					@media (prefers-color-scheme: dark) {
+						box-shadow: none;
+					}
+
+					height: 100%;
+					margin-block: auto;
+					outline: solid 2px
+						hsl(
+							from var(--clr-background) h s calc(l + var(--ratio-texts)) / 75%
+						);
+					outline-offset: 2px;
+					overflow: clip;
+					place-self: center;
+					width: 100%;
+				}
+			}
+		}
+	</style>
+</div>
