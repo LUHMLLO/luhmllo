@@ -24,44 +24,42 @@ import Layout from '../../layouts/app.astro';
 			}
 		});
 	</script>
-	<x-block
-		style='height: 100%; overflow: auto; padding: var(--nm); place-content: center;'>
-		<button id='modalOpen' type='button'> open modal </button>
 
-		<dialog id='modal'>
-			<x-flex
-				style='place-items:center; padding-inline: var(--md); height: 50px;'>
-				<p>Service clients</p>
-				<button id='modalClose' type='button' style='display: contents;'>
-					<i class='icon'>close_small</i>
-				</button>
-			</x-flex>
+	<button id='modalOpen' type='button'> open modal </button>
 
-			<label
-				for='searchbar'
-				data-props='--input'
-				style='margin-inline: var(--sm);'>
-				<i class='icon'> search </i>
-				<input
-					type='text'
-					class='rounded-none w-full'
-					name='searchbar'
-					placeholder='Type in to filter list'
-				/>
-				<i class='icon'> keyboard_command_key </i>
-			</label>
+	<dialog id='modal'>
+		<x-flex
+			style='place-items:center; padding-inline: var(--md); height: 50px;'>
+			<p>Service clients</p>
+			<button id='modalClose' type='button' style='display: contents;'>
+				<i class='icon'>close_small</i>
+			</button>
+		</x-flex>
 
-			<x-stack style='gap: var(--md); place-items: center; padding: var(--xl);'>
-				<i class='icon' style='--size: 50px;'>block</i>
-				<x-block style='text-align: center;'>
-					<p>No service clients found.</p>
-					<p>Try another search query or add a new service client.</p>
-				</x-block>
-				<button type='button'>
-					<i class='icon'>add_2</i>
-					<span>Add client</span>
-				</button>
-			</x-stack>
-		</dialog>
-	</x-block>
+		<label
+			for='searchbar'
+			data-props='--input'
+			style='margin-inline: var(--sm);'>
+			<i class='icon'> search </i>
+			<input
+				type='text'
+				class='rounded-none w-full'
+				name='searchbar'
+				placeholder='Type in to filter list'
+			/>
+			<i class='icon'> keyboard_command_key </i>
+		</label>
+
+		<x-stack style='gap: var(--md); place-items: center; padding: var(--xl);'>
+			<i class='icon' style='--size: 50px;'>block</i>
+			<x-block style='text-align: center;'>
+				<p>No service clients found.</p>
+				<p>Try another search query or add a new service client.</p>
+			</x-block>
+			<button type='button'>
+				<i class='icon'>add_2</i>
+				<span>Add client</span>
+			</button>
+		</x-stack>
+	</dialog>
 </Layout>

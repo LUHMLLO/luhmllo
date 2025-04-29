@@ -3,21 +3,18 @@ import Layout from '../../layouts/app.astro';
 ---
 
 <Layout>
-	<x-wrap
-		style='gap: var(--nm); height: 100%; overflow: auto; padding: var(--nm);'>
-		<article>
-			<header>
-				<h1>Artitle Heading</h1>
-				<time>Published on January 1, 2024 by Lily</time>
-			</header>
-			<p>Content of the article goes here...</p>
-			<footer>
-				<p>
-					Tags: <a href={'#' + crypto.randomUUID()}>tag1</a>,{' '}
-					<a href={'#' + crypto.randomUUID()}>tag2</a>,{' '}
-					<a href={'#' + crypto.randomUUID()}>tag3</a>
-				</p>
-			</footer>
-		</article>
-	</x-wrap>
+	<article>
+		<header>
+			<h1>Artitle Heading</h1>
+			<time>Published on January 1, 2024 by Lily</time>
+		</header>
+		<p>Content of the article goes here...</p>
+		<footer>
+			<p>
+				Tags: <a href={'#' + crypto.randomUUID()}>tag1</a>,{' '}
+				<a href={'#' + crypto.randomUUID()}>tag2</a>,{' '}
+				<a href={'#' + crypto.randomUUID()}>tag3</a>
+			</p>
+		</footer>
+	</article>
 </Layout>

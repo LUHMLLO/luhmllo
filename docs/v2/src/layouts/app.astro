@@ -8,34 +8,33 @@ import Sidebar from '../components/Sidebar.astro';
 <Scaffold>
 	<div id='app'>
 		<Sidebar />
-
 		<Content>
 			<slot />
 		</Content>
 	</div>
+
+	<!-- <style lang='css' is:inline>
+    @scope {
+      #app {
+  
+        /* > * {
+          grid-column: inherit;
+        }
+  
+        & > :where(h1, h2, h3, h4, h5, h6) {
+          text-transform: capitalize;
+          text-box: trim-both ex alphabetic;
+        } */
+  
+        /* > *:not(:first-child) {
+          margin-top: var(--xl);
+          margin-bottom: var(--sm);
+  
+          > *:where(:not(:first-child)) {
+            margin-block: inherit;
+          }
+        } */
+      }
+    }
+  </style> -->
 </Scaffold>
-
-<!-- <style lang='css' is:inline>
-	@scope {
-		#app {
-
-			/* > * {
-				grid-column: inherit;
-			}
-
-			& > :where(h1, h2, h3, h4, h5, h6) {
-				text-transform: capitalize;
-				text-box: trim-both ex alphabetic;
-			} */
-
-			/* > *:not(:first-child) {
-				margin-top: var(--xl);
-				margin-bottom: var(--sm);
-
-				> *:where(:not(:first-child)) {
-					margin-block: inherit;
-				}
-			} */
-		}
-	}
-</style> -->

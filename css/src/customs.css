@@ -1,13 +1,14 @@
 @layer customs {
   :where(x-app, #app) {
-    --outter-gutter: minmax(1rem, 1fr);
+    --outter-gutter: 0;
     --outter-columns: minmax(0, max-content);
-    --inner-gutter: 0;
+    --inner-gutter: minmax(1rem, 1fr);
     --inner-column: minmax(0, 80rem);
 
     display: grid;
     grid-template-columns:
-      [expand-start] var(--outter-gutter) [left-start] var(--outter-columns) [left-end] var(--inner-gutter) [inner-start] var(--inner-column) [inner-end] var(--inner-gutter) [right-start] var(--outter-columns) [right-end] var(--outter-gutter) [expand-end];
+      [expand-start] var(--outter-gutter) [left-start] var(--outter-columns) [left-end] 0 [breakout-start] var(--inner-gutter) [inner-start] var(--inner-column) [inner-end] var(--inner-gutter) [breakout-end] 0 [right-start] var(--outter-columns) [right-end] var(--outter-gutter) [expand-end];
+    overflow: clip;
     width: 100%;
 
     & > * {

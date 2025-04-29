@@ -15,12 +15,15 @@ const elements = [
 ];
 
 const experiments = [
+	'dribbble',
 	'homeExploration',
+	'invoice',
 	'notionSidebar',
 	'railFloatingDrawer',
 	'saasNotification',
 	'silklead',
 	'suburban',
+	'thrip',
 	'tinkxo',
 	'uasd',
 	'whatsnew',
@@ -28,7 +31,7 @@ const experiments = [
 ---
 
 <Layout>
-	<x-grid style='--gap: var(--md); --cols: 2;'>
+	<x-grid style='--gap: var(--nm); --cols: 2;'>
 		<section
 			style='background-color: var(--clr-primary); border-radius: var(--xs); outline: dashed 2px hsl(from var(--clr-primary) h s calc(l + var(--ratio-texts))/75%); outline-offset: 2px; padding: var(--md); padding: clamp(0%, 5dvmax, var(--md));'>
 			<h1>Lilycat</h1>
@@ -40,7 +43,7 @@ const experiments = [
 		</section>
 
 		<section
-			style='border-radius: var(--xs); outline: dashed 2px hsl(from var(--clr-accent) h s calc(l + var(--ratio-texts))/75%); outline-offset: 2px; padding: var(--md);'>
+			style='background-color: var(--clr-background); border-radius: var(--xs); outline: dashed 2px hsl(from var(--clr-accent) h s calc(l + var(--ratio-texts))/75%); outline-offset: 2px; padding: var(--md);'>
 			<h2>Test Page</h2>
 			<br />
 			<a href='/test'>Understand each element behaviour better</a>

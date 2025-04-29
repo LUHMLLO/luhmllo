@@ -1,3 +1,20 @@
 <x-window>
 	<slot />
+
+	<style lang='css' is:inline>
+		@scope {
+			:scope {
+				box-shadow: 0 3vmax 100vmax -10vmax hsl(from
+							color-mix(in hsl, var(--clr-text), hsl(0, 0%, 50%)) h s l );
+
+				height: calc(100dvh - calc(var(--xl) * 2));
+				margin-block: auto;
+				outline: solid 2px
+					hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)) / 75%);
+				outline-offset: 2px;
+				place-self: center;
+				width: 100%;
+			}
+		}
+	</style>
 </x-window>

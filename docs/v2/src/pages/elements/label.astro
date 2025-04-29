@@ -3,16 +3,13 @@ import Layout from '../../layouts/app.astro';
 ---
 
 <Layout>
-	<x-wrap
-		style='gap: var(--nm); height: 100%; overflow: auto; padding: var(--nm);'>
-		<label for='example'>
-			im a label example{' '}
-			<input
-				type='text'
-				name='example'
-				placeholder='im just an example'
-				disabled
-			/>
-		</label>
-	</x-wrap>
+	<label for='example'>
+		<span>im a label example</span>
+		<input
+			type='text'
+			name='example'
+			placeholder='im just an example'
+			disabled
+		/>
+	</label>
 </Layout>
