@@ -1,4 +1,20 @@
 @layer customs {
+  :where(x-app, #app) {
+    --outter-gutter: minmax(1rem, 1fr);
+    --outter-columns: minmax(0, max-content);
+    --inner-gutter: 0;
+    --inner-column: minmax(0, 80rem);
+
+    display: grid;
+    grid-template-columns:
+      [expand-start] var(--outter-gutter) [left-start] var(--outter-columns) [left-end] var(--inner-gutter) [inner-start] var(--inner-column) [inner-end] var(--inner-gutter) [right-start] var(--outter-columns) [right-end] var(--outter-gutter) [expand-end];
+    width: 100%;
+
+    & > * {
+      grid-column: inner-start/inner-end;
+    }
+  }
+
   :where(x-surlayer, x-sublayer) {
     display: grid;
     height: 100dvh;

@@ -14,10 +14,9 @@
     display: inline-grid;
     flex: 0 0 max-content;
     font-family:
-      Material Symbols Outlined,
-      Material Symbols Rounded,
-      Material Symbols Sharp,
-      sans-serif;
+      'Material Symbols Outlined',
+      'Material Symbols Rounded',
+      'Material Symbols Sharp';
     font-feature-settings: "liga";
     font-size: clamp(100%, 100dvw, var(--size));
     font-size-adjust: from-font;

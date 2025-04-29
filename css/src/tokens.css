@@ -1,7 +1,7 @@
 @layer tokens {
   :root {
-    --clr-text: light-dark(hsl(350, 15%, 10%), hsl(350, 15%, 90%));
     --clr-background: light-dark(hsl(350, 15%, 90%), hsl(350, 15%, 10%));
+    --clr-text: light-dark(hsl(350, 15%, 10%), hsl(350, 15%, 90%));
 
     --clr-primary: hsl(355, 25%, 75%);
     --clr-primary-text: hsl(355, 20%, 25%);

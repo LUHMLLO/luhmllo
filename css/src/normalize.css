@@ -39,6 +39,19 @@
     }
   }
 
+  :where(kbd) {
+    background-color: var(--clr-secondary);
+    border-radius: var(--xs);
+    display: inline-block;
+    font-family: monospace;
+    font-size: calc(10 * 0.0625rem);
+    height: 25px;
+    padding: 0 var(--sm);
+    place-content: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
   /* general block */
   :where(article, details, figcaption, footer, header, hgroup, menu, section) {
     display: block;
@@ -71,6 +84,7 @@
   }
 
   :where(figure > img) {
+    display: block;
     height: 100%;
     width: 100%;
   }

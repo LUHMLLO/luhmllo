@@ -1,42 +1,41 @@
 ---
 import '../../../../css/dist/all.css';
+import Scaffold from './html.astro';
 import Content from '../components/Content.astro';
 import Sidebar from '../components/Sidebar.astro';
 ---
 
-<div id='app'>
-	<Sidebar />
+<Scaffold>
+	<div id='app'>
+		<Sidebar />
 
-	<Content>
-		<slot />
-	</Content>
-</div>
+		<Content>
+			<slot />
+		</Content>
+	</div>
+</Scaffold>
 
-<style lang='css' is:inline>
+<!-- <style lang='css' is:inline>
 	@scope {
 		#app {
-			grid-auto-rows: max-content;
-			grid-template-rows: 1fr;
-			grid-column: inner;
-			padding-block: var(--nm);
 
-			> * {
+			/* > * {
 				grid-column: inherit;
 			}
 
 			& > :where(h1, h2, h3, h4, h5, h6) {
 				text-transform: capitalize;
 				text-box: trim-both ex alphabetic;
-			}
+			} */
 
-			> *:not(:first-child) {
+			/* > *:not(:first-child) {
 				margin-top: var(--xl);
 				margin-bottom: var(--sm);
 
 				> *:where(:not(:first-child)) {
 					margin-block: inherit;
 				}
-			}
+			} */
 		}
 	}
-</style>
+</style> -->

@@ -1,12 +1,3 @@
----
-import Layout from './html.astro';
----
-
-<Layout>
-	<x-sublayer
-		class='gridlines'
-		style='pointer-events: none; visibility: visible;'></x-sublayer>
-	<x-window>
-		<slot />
-	</x-window>
-</Layout>
+<x-window>
+	<slot />
+</x-window>
