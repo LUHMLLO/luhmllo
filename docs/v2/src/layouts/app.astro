@@ -13,28 +13,13 @@ import Sidebar from '../components/Sidebar.astro';
 		</Content>
 	</div>
 
-	<!-- <style lang='css' is:inline>
-    @scope {
-      #app {
-  
-        /* > * {
-          grid-column: inherit;
-        }
-  
-        & > :where(h1, h2, h3, h4, h5, h6) {
-          text-transform: capitalize;
-          text-box: trim-both ex alphabetic;
-        } */
-  
-        /* > *:not(:first-child) {
-          margin-top: var(--xl);
-          margin-bottom: var(--sm);
-  
-          > *:where(:not(:first-child)) {
-            margin-block: inherit;
-          }
-        } */
-      }
-    }
-  </style> -->
+	<style lang='css' is:inline>
+		@scope {
+			#app {
+				background-color: hsl(
+					from var(--clr-background) h s calc(l - var(--ratio-backgrounds))
+				);
+			}
+		}
+	</style>
 </Scaffold>

@@ -3,7 +3,26 @@
 ---
 
 <aside id='app__sidebar'>
-	<script type='module' is:inline></script>
+	<script is:inline>
+		let sidebar = document.getElementById('app__sidebar');
+		let isOpen = false;
+
+		function Toggle() {
+			isOpen = !isOpen;
+
+			if (sidebar) {
+				if (isOpen) {
+					sidebar.classList.add('float');
+				} else {
+					sidebar.classList.remove('float');
+				}
+			}
+		}
+
+		window.addEventListener('DOMContentLoaded', () => {
+			sidebar = document.getElementById('app__sidebar');
+		});
+	</script>
 
 	<x-row>
 		<a href='/'>
@@ -17,7 +36,7 @@
 			</div>
 		</a>
 
-		<button>
+		<button type='button' onclick='Toggle()'>
 			<i class='icon'> left_panel_close </i>
 		</button>
 	</x-row>
@@ -121,21 +140,27 @@
 	<ul>
 		<li>
 			<a href=''>
-				<i class='icon'> Github </i>
+				<figure>
+					<img src='/icon-github.png' alt='github icon' />
+				</figure>
 				<span>Github Repositry</span>
 				<i class='icon'>arrow_outward</i>
 			</a>
 		</li>
 		<li>
 			<a href=''>
-				<i class='icon'> JSR </i>
+				<figure>
+					<img src='/icon-jsr.png' alt='jsr icon' />
+				</figure>
 				<span>JSR Package</span>
 				<i class='icon'>arrow_outward</i>
 			</a>
 		</li>
 		<li>
 			<a href=''>
-				<i class='icon'> Coffee </i>
+				<figure>
+					<img src='/icon-sponsor.png' alt='sponsor icon' />
+				</figure>
 				<span>Suport US</span>
 				<i class='icon'>arrow_outward</i>
 			</a>
@@ -147,15 +172,26 @@
 			:scope {
 				background-color: var(--clr-background);
 				gap: var(--xl);
-        grid-column: left;
+				grid-column: left;
 				height: 100dvh;
 				inset: 0;
-        outline: solid 2px var(--clr-secondary);
-        outline-offset: 2px;
+				overflow: auto;
 				padding: var(--xl) var(--md);
 				position: sticky;
+				transition-property: transform;
+				transition-duration: var(--animDuration);
+				transition-timing-function: var(--animTiming);
 				width: max(0px, 300px);
 				z-index: 5;
+
+				&.float {
+					position: fixed;
+					transform: translateX(-95%);
+
+					&:hover {
+						transform: translateX(0);
+					}
+				}
 
 				& > x-row {
 					align-items: center;

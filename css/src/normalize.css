@@ -53,8 +53,18 @@
   }
 
   /* general block */
-  :where(article, details, figcaption, footer, header, hgroup, menu, section) {
+  :where(article, figcaption, footer, header, hgroup, menu, section) {
     display: block;
+  }
+
+  :where(details) {
+    display: inline-block;
+  }
+
+  :where(summary) {
+    &::marker {
+      content: none;
+    }
   }
 
   :where(nav) {
@@ -132,15 +142,16 @@
   }
 
   /* organized & unorganized lists */
-  :where(ul,
-    ol) {
-    list-style-position: inside;
-    padding-left: 0.5em;
+  :where(menu, ol, ul) {
+    list-style: none;
+    margin-inline-start: var(--sm);
   }
 
-  :where(ul > li) {
-    &::marker {
-      content: "• ";
+  :where(ul) {
+    & > li {
+      &::marker {
+        content: "• ";
+      }
     }
   }
 

@@ -1,7 +1,7 @@
 @layer tokens {
   :root {
-    --clr-background: light-dark(hsl(350, 15%, 90%), hsl(350, 15%, 10%));
-    --clr-text: light-dark(hsl(350, 15%, 10%), hsl(350, 15%, 90%));
+    --clr-background: light-dark(hsl(350, 15%, 90%), hsl(0, 15%, 5%));
+    --clr-text: light-dark(hsl(350, 15%, 10%), hsl(0, 15%, 95%));
 
     --clr-primary: hsl(355, 25%, 75%);
     --clr-primary-text: hsl(355, 20%, 25%);
@@ -18,8 +18,8 @@
     --clr-success: hsl(145deg, 50%, 50%);
     --clr-warning: hsl(50deg, 50%, 50%);
 
-    --ratio-backgrounds: 2;
-    --ratio-texts: 4;
+    --ratio-backgrounds: 1.125;
+    --ratio-texts: 5;
 
     --xs: clamp(calc(calc(5 * 0.0625rem) / 2), 100dvmax, calc(5 * 0.0625rem));
     --sm: clamp(calc(calc(10 * 0.0625rem) / 2), 100dvmax, calc(10 * 0.0625rem));

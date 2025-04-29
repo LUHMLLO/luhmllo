@@ -8,6 +8,7 @@
     display: grid;
     grid-template-columns:
       [expand-start] var(--outter-gutter) [left-start] var(--outter-columns) [left-end] 0 [breakout-start] var(--inner-gutter) [inner-start] var(--inner-column) [inner-end] var(--inner-gutter) [breakout-end] 0 [right-start] var(--outter-columns) [right-end] var(--outter-gutter) [expand-end];
+    min-height: 100dvh;
     overflow: clip;
     width: 100%;
 
