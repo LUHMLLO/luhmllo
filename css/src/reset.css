@@ -32,6 +32,13 @@
     color-scheme: dark;
   }
 
+  /* 
+  * {
+    outline: solid var(--clr-debug) 1px;
+    outline-offset: -1px;
+  } 
+  */
+
   * {
     backface-visibility: inherit;
     border: 0;

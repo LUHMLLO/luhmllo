@@ -58,12 +58,18 @@
   }
 
   :where(details) {
-    display: inline-block;
+    display: block;
   }
 
   :where(summary) {
     &::marker {
       content: none;
+    }
+
+    display: flex;
+
+    & > span {
+      flex: 1 1;
     }
   }
 
@@ -143,16 +149,21 @@
 
   /* organized & unorganized lists */
   :where(menu, ol, ul) {
+    display: block;
     list-style: none;
     margin-inline-start: var(--sm);
+
+    & > :not(li) {
+      margin-inline-start: calc(var(--sm) * -1);
+    }
   }
 
-  :where(ul) {
-    & > li {
-      &::marker {
-        content: "• ";
-      }
+  :where(li) {
+    &::marker {
+      content: none;
     }
+
+    margin-block: var(--xs);
   }
 
   /* description list */
@@ -210,13 +221,13 @@
 
   /* links */
   :where(a) {
+    align-items: center;
     color: var(--clr-accent);
-    display: inline-block;
+    display: inline-flex;
     gap: var(--xs);
     height: max-content;
     outline: solid 2px transparent;
     outline-offset: -2px;
-    place-items: center;
     transition-property: color;
     transition-duration: var(--animDuration);
     transition-timing-function: var(--animTiming);
@@ -247,6 +258,10 @@
 
     &:where(:not([href])) {
       color: inherit;
+    }
+
+    & > span {
+      flex: 1 1;
     }
   }
 

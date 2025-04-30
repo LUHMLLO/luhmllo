@@ -36,7 +36,7 @@
 			</div>
 		</a>
 
-		<button type='button' onclick='Toggle()'>
+		<button type='button' style='display: contents;' onclick='Toggle()'>
 			<i class='icon'> left_panel_close </i>
 		</button>
 	</x-row>
@@ -49,91 +49,85 @@
 
 	<hr />
 
-	<section>
+	<ul>
 		<p>Get Started</p>
-		<ul>
-			<li>
-				<a href=''><span>Introduction</span></a>
-			</li>
-			<li>
-				<details>
-					<summary>
-						<span>Quickstart</span>
-						<i class='icon'> keyboard_arrow_down </i>
-					</summary>
-					<ul>
-						<li>
-							<a href=''>How to install</a>
-						</li>
-						<li>
-							<a href=''>How to use</a>
-						</li>
-						<li>
-							<a href=''>Tailwind support</a>
-						</li>
-					</ul>
-				</details>
-			</li>
-			<li>
-				<a href=''><span>Examples</span></a>
-			</li>
-			<li>
-				<a href=''><span>FAQs</span></a>
-			</li>
-		</ul>
-	</section>
+		<li>
+			<a href=''><span>Introduction</span></a>
+		</li>
+		<li>
+			<details open>
+				<summary>
+					<span>Quickstart</span>
+					<i class='icon'> keyboard_arrow_down </i>
+				</summary>
+				<ul>
+					<li>
+						<a href=''>How to install</a>
+					</li>
+					<li>
+						<a href=''>How to use</a>
+					</li>
+					<li>
+						<a href=''>Tailwind support</a>
+					</li>
+				</ul>
+			</details>
+		</li>
+		<li>
+			<a href=''><span>Examples</span></a>
+		</li>
+		<li>
+			<a href=''><span>FAQs</span></a>
+		</li>
+	</ul>
 
-	<section>
+	<ul>
 		<p>Concepts</p>
-		<ul>
-			<li>
-				<a href=''><span>Philoshopy</span></a>
-			</li>
-			<li>
-				<details>
-					<summary>
-						<span>Symbols</span>
-						<i class='icon'> keyboard_arrow_down </i>
-					</summary>
-					<ol>
-						<li>
-							<a href='' class='active'>Tokens</a>
-						</li>
-						<li>
-							<a href=''>Reset</a>
-						</li>
-						<li>
-							<a href=''>Normalize</a>
-						</li>
-						<li>
-							<a href=''>Icons</a>
-						</li>
-						<li>
-							<a href=''>Customs</a>
-						</li>
-						<li>
-							<a href=''>Props</a>
-						</li>
-					</ol>
-				</details>
-			</li>
-		</ul>
-	</section>
+		<li>
+			<a href=''><span>Philoshopy</span></a>
+		</li>
+		<li>
+			<details open>
+				<summary>
+					<span>Symbols</span>
+					<i class='icon'> keyboard_arrow_down </i>
+				</summary>
+				<ol>
+					<li class='active'>
+						<a href=''>Tokens</a>
+					</li>
+					<li>
+						<a href=''>Reset</a>
+					</li>
+					<li>
+						<a href=''>Normalize</a>
+					</li>
+					<li>
+						<a href=''>Icons</a>
+					</li>
+					<li>
+						<a href=''>Customs</a>
+					</li>
+					<li>
+						<a href=''>Props</a>
+					</li>
+				</ol>
+			</details>
+		</li>
+	</ul>
 
-	<section>
+	<ul>
 		<p>Development</p>
-		<ul>
-			<li>
-				<a href=''><span>What's new</span></a>
-			</li>
-			<li>
-				<a href=''><span>Roadmap</span></a>
-			</li>
-			<li>
-				<a href=''><span>Contributing</span></a>
-			</li>
-		</ul>
-	</section>
+		<li>
+			<a href=''><span>What's new</span></a>
+		</li>
+		<li>
+			<a href=''><span>Roadmap</span></a>
+		</li>
+		<li>
+			<a href=''><span>Contributing</span></a>
+		</li>
+	</ul>
 
 	<hr />
 
@@ -173,6 +167,7 @@
 				background-color: var(--clr-background);
 				gap: var(--xl);
 				grid-column: left;
+				grid-row: 1;
 				height: 100dvh;
 				inset: 0;
 				overflow: auto;
@@ -198,8 +193,6 @@
 					gap: var(--xs);
 
 					a {
-						align-items: center;
-						display: flex;
 						flex: 1 1 auto;
 
 						& > div {
