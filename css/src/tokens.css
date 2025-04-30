@@ -1,16 +1,16 @@
 @layer tokens {
   :root {
-    --clr-background: light-dark(hsl(350, 15%, 90%), hsl(0, 15%, 5%));
-    --clr-text: light-dark(hsl(350, 15%, 10%), hsl(0, 15%, 95%));
+    --clr-text: light-dark(#0d0d0d, #f2f2f2);
+    --clr-text-5: hsl(from var(--text) h s calc(l + 5));
+    --clr-text-10: hsl(from var(--text) h s calc(l + 10));
 
-    --clr-primary: hsl(355, 25%, 75%);
-    --clr-primary-text: hsl(355, 20%, 25%);
+    --clr-background: light-dark(#f2f2f2, #0D0D0D);
+    --clr-background-5: hsl(from var(--clr-background) h s calc(l + 5));
+    --clr-background-10: hsl(from var(--clr-background) h s calc(l + 10));
 
-    --clr-secondary: hsl(25, 20%, 35%);
-    --clr-secondary-text: hsl(25, 15%, 85%);
-
-    --clr-accent: hsl(40, 25%, 55%);
-    --clr-accent-text: hsl(40, 20%, 25%);
+    --clr-primary: light-dark(hsl(355, 25%, 75%), #cfafb2);
+    --clr-secondary: light-dark(hsl(25, 20%, 35%), #6b5647);
+    --clr-accent: #DC564C;
 
     --clr-debug: hsl(340deg, 50%, 50%);
     --clr-error: hsl(0deg, 50%, 50%);
@@ -28,7 +28,7 @@
     --lg: clamp(calc(calc(25 * 0.0625rem) / 2), 100dvmax, calc(25 * 0.0625rem));
     --xl: clamp(calc(calc(30 * 0.0625rem) / 2), 100dvmax, calc(30 * 0.0625rem));
 
-    --animDuration: 325ms;
+    --animDuration: 350ms;
     --animTiming: cubic-bezier(0.45, 0, 0.25, 1);
   }
 }

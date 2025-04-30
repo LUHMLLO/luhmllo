@@ -87,8 +87,7 @@
   }
 
   :where(x-card) {
-    --background: var(--clr-primary);
-    background-color: hsl(from var(--background) h s calc(l + var(--ratio-backgrounds)));
+    background-color: var(--clr-background-5);
     display: flex;
     flex-direction: column;
     flex: 1 1;
@@ -98,14 +97,15 @@
   }
 
   :where(x-window) {
-    background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-backgrounds))/25%);
+    background-color: var(--clr-background-5);
     backdrop-filter: blur(0.5ex);
     border-radius: var(--md);
+    container: xwindow / size;
     display: block;
     height: 100%;
     isolation: isolate;
-    outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
-    outline-offset: -2px;
+    outline: solid 2px var(--clr-background-10);
+    outline-offset: 0;
     overflow: clip;
     position: relative;
     width: 100%;

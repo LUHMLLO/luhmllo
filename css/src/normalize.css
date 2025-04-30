@@ -59,6 +59,21 @@
 
   :where(details) {
     display: block;
+    overflow: clip;
+
+    &::details-content {
+      block-size: 0;
+      opacity: 0;
+      transition-property: block-size, content-visibility, opacity;
+      transition-duration: var(--animDuration);
+      transition-timing-function: var(--animTiming);
+      transition-behavior: allow-discrete;
+    }
+
+    &[open]::details-content {
+      block-size: auto;
+      opacity: 1;
+    }
   }
 
   :where(summary) {
@@ -78,7 +93,7 @@
   }
 
   :where(hr) {
-    background-color: hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
+    background-color: var(--clr-background-10);
     flex: 0 0 2px;
     height: 2px;
     width: 100%;
@@ -172,7 +187,7 @@
   }
 
   :where(dt) {
-    color: hsl(from var(--clr-text) h s calc(l + var(--ratio-texts)));
+    color: var(--clr-text-5);
   }
 
   :where(dd) {
@@ -339,7 +354,7 @@
     font-size: inherit;
     height: 45px;
 
-    outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
+    outline: solid 2px var(--clr-background-10);
     outline-offset: -2px;
     overflow: clip;
     padding: 0 var(--md);
@@ -460,7 +475,7 @@
 
     min-height: 75px;
 
-    outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
+    outline: solid 2px var(--clr-background-10);
     outline-offset: -2px;
     overflow: clip;
     padding: var(--md);
@@ -482,7 +497,7 @@
     background-color: var(--clr-background);
     border-collapse: collapse;
     border-spacing: 0;
-    outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
+    outline: solid 2px var(--clr-background-10);
     outline-offset: -2px;
     overflow-x: auto;
     position: relative;
@@ -513,7 +528,7 @@
     }
 
     :where(th, td) {
-      border: solid 1px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
+      border: solid 1px var(--clr-background-10);
       font: inherit;
       max-width: none;
       min-width: max-content;
@@ -536,7 +551,7 @@
     position: absolute;
 
     &:modal {
-      outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
+      outline: solid 2px var(--clr-background-10);
       outline-offset: -2px;
     }
 
