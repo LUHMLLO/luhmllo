@@ -84,7 +84,7 @@ if (typeof window !== "undefined" && !customElements.get("x-dropdown")) {
       }
 
       [part="dropmenu"] {
-        background-color: var(--clr-background);
+        background-color: var(--clr-background__base);
         display: flex;
         flex-direction: column;
         height: calc-size(max-content, size);
@@ -93,7 +93,7 @@ if (typeof window !== "undefined" && !customElements.get("x-dropdown")) {
         max-width: calc(100dvw - var(--md));
         min-height: 0;
         min-width: 0;
-        outline: solid 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)));
+        outline: solid 2px var(--clr-border__base);
         outline-offset: -2px;
         overflow-x: clip;
         overflow-y: auto;

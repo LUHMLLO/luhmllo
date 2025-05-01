@@ -9,7 +9,7 @@
     scroll-behavior: smooth;
     text-size-adjust: 100%;
     text-wrap: pretty;
-    will-change: background, color, outline;
+    will-change: background, color, opacity, outline, position, visibility;
   }
 
   @media (prefers-color-scheme: light) {
@@ -77,7 +77,7 @@
     }
 
     scrollbar-width: thin;
-    scrollbar-color: color-mix(in hsl, var(--clr-accent), var(--clr-background)) transparent;
+    scrollbar-color: color-mix(in hsl, var(--clr-accent), var(--clr-background__lowered)) transparent;
   }
 
   /* Application root containers */
@@ -86,8 +86,8 @@
   }
 
   :where(html) {
-    background-color: var(--clr-background);
-    color: var(--clr-text);
+    background-color: var(--clr-background__base);
+    color: var(--clr-text__base);
     display: contents;
     font-family: sans-serif;
     font-size: clamp(15px, 100% - 3ex, 20px);

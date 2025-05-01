@@ -5,31 +5,36 @@ import Layout from '../../layouts/app.astro';
 <Layout>
 	{
 		['--primary', '--secondary', '--accent', '', '--text'].map((prop) => (
-			<x-stack style='gap: var(--md);'>
+			<x-wrap style='gap: var(--nm);'>
 				<button type='button' data-props={`${prop}`}>
 					<i class='icon'>arrow_left_alt</i>
 					<span>lead icon</span>
 				</button>
+
 				<button type='button' data-props={`${prop}`}>
 					<span>no icons</span>
 				</button>
+
 				<button type='button' data-props={`${prop}`}>
 					<i class='icon'>add_2</i>
 				</button>
+
 				<button type='button' data-props={`${prop}`}>
 					<i class='icon'>globe</i>
 					<span>both icons</span>
 					<i class='icon'>open_in_new</i>
 				</button>
+
 				<button type='button' data-props={`${prop}`}>
 					<span>trail icon</span>
 					<i class='icon'>arrow_right_alt</i>
 				</button>
+
 				<button type='button' data-props={`${prop}`} disabled>
 					<span>disabled</span>
 					<i class='icon'>block</i>
 				</button>
-			</x-stack>
+			</x-wrap>
 		))
 	}
 </Layout>

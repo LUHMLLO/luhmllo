@@ -3,31 +3,49 @@ import Layout from '../../layouts/app.astro';
 ---
 
 <Layout>
-	<a>
-		<i class='icon'>asterisk</i>lead icon
-	</a>
+	<x-wrap style='gap: var(--nm);'>
+		<a>
+			<i class='icon'>asterisk</i>
+			<span>lead icon</span>
+		</a>
 
-	<a href={'#' + crypto.randomUUID()}>
-		<i class='icon'>asterisk</i>span
-	</a>
+		<a href={'#' + crypto.randomUUID()}>
+			<i class='icon'>asterisk</i>
+			<span>span</span>
+		</a>
+	</x-wrap>
 
-	<a>no icons</a>
+	<x-wrap style='gap: var(--nm);'>
+		<a><span>no icons</span></a>
 
-	<a href={'#' + crypto.randomUUID()}>no icons</a>
+		<a href={'#' + crypto.randomUUID()}>
+			<span>no icons</span>
+		</a>
+	</x-wrap>
 
-	<a>
-		<i class='icon'>asterisk</i>both icons<i class='icon'> asterisk </i>
-	</a>
+	<x-wrap style='gap: var(--nm);'>
+		<a>
+			<i class='icon'>asterisk</i>
+			<span>both icons</span>
+			<i class='icon'> asterisk </i>
+		</a>
 
-	<a href={'#' + crypto.randomUUID()}>
-		<i class='icon'>asterisk</i>both icons<i class='icon'> asterisk </i>
-	</a>
+		<a href={'#' + crypto.randomUUID()}>
+			<i class='icon'>asterisk</i>
+			<span>both icons</span>
+			<i class='icon'>asterisk</i>
+		</a>
+	</x-wrap>
 
-	<a>
-		trail icon<i class='icon'>asterisk</i>
-	</a>
+	<x-wrap style='gap: var(--nm);'>
+		<a>
+			<span>trail icon</span>
+			<i class='icon'>asterisk</i>
+		</a>
 
-	<a href={'#' + crypto.randomUUID()}>
-		trail icon<span class='icon'>asterisk</span>
-	</a>
+		<a href={'#' + crypto.randomUUID()}>
+			<span>trail icon</span>
+			<i class='icon'>asterisk</i>
+		</a>
+	</x-wrap>
 </Layout>

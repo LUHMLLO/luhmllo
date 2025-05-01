@@ -87,24 +87,27 @@
   }
 
   :where(x-card) {
-    background-color: var(--clr-background-5);
+    background-color: var(--clr-background__raised);
+    border-radius: var(--xs);
     display: flex;
     flex-direction: column;
     flex: 1 1;
     gap: var(--nm);
+    outline: dashed 2px var(--clr-border__base);
+    outline-offset: -2px;
     padding: var(--nm);
     width: 100%;
   }
 
   :where(x-window) {
-    background-color: var(--clr-background-5);
+    background-color: var(--clr-background__base);
     backdrop-filter: blur(0.5ex);
     border-radius: var(--md);
     container: xwindow / size;
     display: block;
     height: 100%;
     isolation: isolate;
-    outline: solid 2px var(--clr-background-10);
+    outline: solid 2px var(--clr-border__base);
     outline-offset: 0;
     overflow: clip;
     position: relative;

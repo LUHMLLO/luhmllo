@@ -32,23 +32,20 @@ const experiments = [
 
 <Layout>
 	<x-grid style='--gap: var(--nm); --cols: 2;'>
-		<section
-			style='background-color: var(--clr-primary); border-radius: var(--xs); outline: dashed 2px hsl(from var(--clr-primary) h s calc(l + var(--ratio-texts))/75%); outline-offset: 2px; padding: var(--md); padding: clamp(0%, 5dvmax, var(--md));'>
+		<x-card style='background-color: var(--clr-primary); outline-offset: 2px;'>
 			<h1>Lilycat</h1>
 			<p>
 				Powered by dead simple <code>--opinionated</code> CSS props and a mix of
 				common convention rules for better DX &amp; while keeping styling minimal.
 			</p>
-		</section>
+		</x-card>
 
-		<section
-			style='background-color: var(--clr-background); border-radius: var(--xs); outline: dashed 2px hsl(from var(--clr-accent) h s calc(l + var(--ratio-texts))/75%); outline-offset: 2px; padding: var(--md);'>
+		<x-card style='outline-offset: 2px;'>
 			<h2>Test Page</h2>
 			<a href='/test' type='button'>Understand each element behaviour better</a>
-		</section>
+		</x-card>
 
-		<section
-			style='background-color: var(--clr-background-5); border-radius: var(--xs); outline: dashed 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts))/75%); outline-offset: 2px; padding: var(--md);'>
+		<x-card style='outline-offset: 2px;'>
 			<h2>Elements</h2>
 			<x-grid style='--gap: var(--md); --cols: 4;'>
 				{
@@ -60,10 +57,9 @@ const experiments = [
 					))
 				}
 			</x-grid>
-		</section>
+		</x-card>
 
-		<section
-			style='background-color: var(--clr-background-5); border-radius: var(--xs); outline: dashed 2px hsl(from var(--clr-background) h s calc(l + var(--ratio-texts))/75%); outline-offset: 2px; padding: var(--md);'>
+		<x-card style='outline-offset: 2px;'>
 			<h2>Experiments</h2>
 			<x-grid style='--gap: var(--md); --cols: 4;'>
 				{
@@ -75,6 +71,6 @@ const experiments = [
 					))
 				}
 			</x-grid>
-		</section>
+		</x-card>
 	</x-grid>
 </Layout>

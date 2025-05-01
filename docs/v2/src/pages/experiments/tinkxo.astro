@@ -13,7 +13,7 @@ import Iframe from '../../layouts/iframe.astro';
 				/>
 			</figure>
 			<span
-				style='background-color: hsl(from var(--clr-text) h s l / 75%); filter: invert(100%); height: 100%; position: absolute; width: 100%;'>
+				style='backdrop-filter: blur(0.5ex); background-color: hsl(from var(--clr-background__lowered) h s l / 75%); height: 100%; position: absolute; width: 100%;'>
 			</span>
 		</x-sublayer>
 
@@ -37,7 +37,7 @@ import Iframe from '../../layouts/iframe.astro';
 		</p>
 
 		<x-row
-			style='border-bottom: solid 1px var(--clr-text); flex: 1 0 max-content; padding-block: var(--nm); place-content: space-between; place-items: end;'>
+			style='border-bottom: solid 1px var(--clr-text__base); flex: 1 0 max-content; padding-block: var(--nm); place-content: space-between; place-items: end;'>
 			<span
 				style='float: right; flex-shrink: 1; min-width: 0; text-box: trim-both cap alphabetic;'>
 				SCROLL

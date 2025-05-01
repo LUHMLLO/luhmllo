@@ -5,138 +5,6 @@ import Iframe from '../../layouts/iframe.astro';
 
 <Layout>
 	<Iframe>
-		<style is:inline>
-			main {
-				display: flex;
-				flex-direction: column-reverse;
-				gap: var(--md);
-				height: 100%;
-				overflow: clip;
-				padding: var(--md);
-
-				& > * {
-					flex-shrink: 0;
-				}
-
-				@media screen and (min-width: 440px) {
-					flex-direction: row;
-				}
-			}
-
-			#navigation {
-				align-items: center;
-				flex-direction: column-reverse;
-				flex-shrink: 0;
-				gap: var(--md);
-
-				@media screen and (min-width: 440px) {
-					flex-direction: row;
-				}
-
-				#rail {
-					align-items: inherit;
-					background-color: hsl(
-						from var(--clr-background) h s calc(l + var(--ratio-texts))
-					);
-					border-radius: var(--xs);
-					flex-shrink: 0;
-					gap: inherit;
-					height: 50px;
-					overflow: clip;
-					padding: var(--md);
-					width: 100%;
-
-					@media screen and (min-width: 440px) {
-						flex-direction: column;
-						height: 100%;
-						width: 50px;
-					}
-
-					#logo {
-						aspect-ratio: 1/1;
-						flex-shrink: 1;
-						height: 20px;
-						width: 20px;
-					}
-
-					#menu-icons {
-						align-items: inherit;
-						flex-grow: 1;
-						flex-wrap: nowrap;
-						gap: var(--md);
-						place-content: end;
-
-						@media screen and (min-width: 440px) {
-							flex-direction: column;
-						}
-
-						:where(a:not(:hover, :focus, :active)) {
-							color: inherit;
-						}
-
-						button {
-							--background: inherit;
-							aspect-ratio: 1/1;
-							border-radius: 0;
-							color: inherit;
-							height: auto;
-							padding: 0;
-						}
-					}
-				}
-
-				#drawer {
-					background-color: hsl(
-						from var(--clr-background) h s calc(l + var(--ratio-texts))
-					);
-					border-radius: var(--xs);
-					flex-direction: column;
-					gap: var(--md);
-					inset: auto 0 calc(50px + var(--md)) 0;
-					margin: var(--md);
-					max-height: calc(100% - calc(var(--md) * 2) - 50px - 15px);
-					max-width: calc(100% - calc(var(--md) * 2));
-					min-height: 0;
-					min-width: 0;
-					outline: none;
-					overflow: auto;
-					padding: var(--md);
-					place-content: space-between;
-					width: 100%;
-
-					&[open] {
-						display: flex;
-					}
-
-					@media screen and (min-width: 440px) {
-						height: 100%;
-						inset: 0 0 0 calc(50px + var(--md));
-						max-height: calc(100% - calc(var(--md) * 2));
-						place-content: start;
-						width: min(300px, 100%);
-					}
-
-					> * {
-						flex-shrink: 0;
-					}
-
-					a {
-						align-items: center;
-						display: flex;
-						gap: var(--xs);
-						width: 100%;
-
-						&:where(:not(:hover, :focus, :active)) {
-							color: inherit;
-						}
-
-						span {
-							flex-grow: 1;
-						}
-					}
-				}
-			}
-		</style>
 		<script type='module' is:inline>
 			document.addEventListener('DOMContentLoaded', () => {
 				const button = document.getElementById('menu-button');
@@ -223,5 +91,142 @@ import Iframe from '../../layouts/iframe.astro';
 				</p>
 			</x-stack>
 		</main>
+
+		<style lang='css' is:inline>
+			@scope {
+				:scope {
+					main {
+						display: flex;
+						flex-direction: column-reverse;
+						gap: var(--md);
+						height: 100%;
+						overflow: clip;
+						padding: var(--md);
+
+						& > * {
+							flex-shrink: 0;
+						}
+
+						@media screen and (min-width: 440px) {
+							flex-direction: row;
+						}
+					}
+
+					#navigation {
+						align-items: center;
+						flex-direction: column-reverse;
+						flex-shrink: 0;
+						gap: var(--md);
+
+						@media screen and (min-width: 440px) {
+							flex-direction: row;
+						}
+
+						#rail {
+							align-items: inherit;
+							background-color: var(--clr-background__raised);
+							border-radius: var(--xs);
+							flex-shrink: 0;
+							gap: inherit;
+							height: 50px;
+							overflow: clip;
+							padding: var(--md);
+							width: 100%;
+
+							@media screen and (min-width: 440px) {
+								flex-direction: column;
+								height: 100%;
+								width: 50px;
+							}
+
+							#logo {
+								aspect-ratio: 1/1;
+								flex-shrink: 1;
+								height: 20px;
+								width: 20px;
+							}
+
+							#menu-icons {
+								align-items: inherit;
+								flex-grow: 1;
+								flex-wrap: nowrap;
+								gap: var(--md);
+								place-content: end;
+
+								@media screen and (min-width: 440px) {
+									flex-direction: column;
+								}
+
+								:where(a:not(:hover, :focus, :active)) {
+									color: inherit;
+								}
+
+								button {
+									--background: inherit;
+									aspect-ratio: 1/1;
+									border-radius: 0;
+									color: inherit;
+									height: auto;
+									padding: 0;
+								}
+							}
+						}
+
+						#drawer {
+							background-color: var(--clr-background__raised);
+							border-radius: var(--xs);
+							flex-direction: column;
+							gap: var(--md);
+							inset: auto 0 calc(50px + var(--md)) 0;
+							margin: var(--md);
+							max-height: calc(100% - calc(var(--md) * 2) - 50px - 15px);
+							max-width: calc(100% - calc(var(--md) * 2));
+							min-height: 0;
+							min-width: 0;
+							outline: none;
+							overflow: auto;
+							padding: var(--md);
+							place-content: space-between;
+							width: 100%;
+
+							&[open] {
+								display: flex;
+							}
+
+							@media screen and (min-width: 440px) {
+								height: 100%;
+								inset: 0 0 0 calc(50px + var(--md));
+								max-height: calc(100% - calc(var(--md) * 2));
+								place-content: start;
+								width: min(300px, 100%);
+							}
+
+							> * {
+								flex-shrink: 0;
+							}
+
+							a {
+								align-items: center;
+								display: flex;
+								gap: var(--xs);
+								width: 100%;
+
+								&:where(:not(:hover, :focus, :active)) {
+									color: inherit;
+								}
+
+								span {
+									flex-grow: 1;
+								}
+							}
+
+							[data-props~='--input'] {
+								background-color: var(--clr-background__raised);
+							}
+						}
+					}
+				}
+			}
+		</style>
 	</Iframe>
 </Layout>

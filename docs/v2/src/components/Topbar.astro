@@ -15,12 +15,10 @@
 	@scope {
 		:scope {
 			border-radius: var(--xl);
-			box-shadow: 0 5vmax 100vmax -5vmax hsl(from
-						color-mix(in hsl, var(--clr-text), hsl(0, 0%, 40%)) h s l / 20%);
+			box-shadow: 0 5vmax 100vmax -5vmax black;
 			gap: var(--nm);
 			height: max-content;
-			outline: solid 2px
-				hsl(from var(--clr-background) h s calc(l + var(--ratio-texts)) / 75%);
+			outline: solid 2px var(--clr-border__base);
 			outline-offset: 2px;
 			overflow: clip;
 			place-content: space-between;
@@ -30,8 +28,8 @@
 			z-index: 10;
 
 			&::before {
-				background-color: hsl(from var(--clr-background) h s l / 25%);
 				backdrop-filter: blur(0.5ex);
+				background-color: hsl(from var(--clr-background__base) h s l / 75%);
 				content: '';
 				inset: 0;
 				position: absolute;

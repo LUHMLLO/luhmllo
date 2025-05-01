@@ -164,8 +164,8 @@
 	<style lang='css' is:inline>
 		@scope {
 			:scope {
-				background-color: var(--clr-background);
-				border-right: solid 2px var(--clr-background-5);
+				background-color: var(--clr-background__raised);
+				border-right: solid 2px var(--clr-border__base);
 				gap: var(--xl);
 				grid-column: left;
 				grid-row: 1;
@@ -174,17 +174,19 @@
 				overflow: auto;
 				padding: var(--xl) var(--md);
 				position: sticky;
-				transition-property: transform;
+				transition-property: opacity, position, transform;
 				transition-duration: var(--animDuration);
 				transition-timing-function: var(--animTiming);
 				width: max(0px, 300px);
 				z-index: 5;
 
 				&.float {
+					opacity: 0;
 					position: fixed;
 					transform: translateX(-95%);
 
 					&:hover {
+						opacity: 1;
 						transform: translateX(0);
 					}
 				}
@@ -201,6 +203,14 @@
 							min-width: 0;
 						}
 					}
+				}
+
+				& > label[data-props~='--input'] {
+					background-color: var(--clr-background__raised);
+				}
+
+				& > hr {
+					background-color: var(--clr-border__raised);
 				}
 			}
 		}
