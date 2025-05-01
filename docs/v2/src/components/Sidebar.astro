@@ -3,27 +3,6 @@
 ---
 
 <aside id='app__sidebar'>
-	<script is:inline>
-		let sidebar = document.getElementById('app__sidebar');
-		let isOpen = false;
-
-		function Toggle() {
-			isOpen = !isOpen;
-
-			if (sidebar) {
-				if (isOpen) {
-					sidebar.classList.add('float');
-				} else {
-					sidebar.classList.remove('float');
-				}
-			}
-		}
-
-		window.addEventListener('DOMContentLoaded', () => {
-			sidebar = document.getElementById('app__sidebar');
-		});
-	</script>
-
 	<x-row>
 		<a href='/'>
 			<figure>
@@ -32,18 +11,18 @@
 
 			<div>
 				<h5>Lilycat</h5>
-				<p>DX-Oriented CSS library.</p>
+				<p style='color: var(--clr-text);'>DX-Oriented CSS library.</p>
 			</div>
 		</a>
 
-		<button type='button' style='display: contents;' onclick='Toggle()'>
+		<button type='button' style='display: contents;' data-toggle-sidebar>
 			<i class='icon'> left_panel_close </i>
 		</button>
 	</x-row>
 
-	<label for='' data-props='--input'>
+	<label for='search' data-props='--input'>
 		<i class='icon'> search </i>
-		<input type='text' name='' id='' />
+		<input type='text' name='search' id='search' />
 		<kbd>Ctrl + K</kbd>
 	</label>
 
@@ -56,7 +35,7 @@
 		</li>
 		<li>
 			<details open>
-				<summary>
+				<summary role='button'>
 					<span>Quickstart</span>
 					<i class='icon'> keyboard_arrow_down </i>
 				</summary>
@@ -84,11 +63,11 @@
 	<ul>
 		<p>Concepts</p>
 		<li>
-			<a href=''><span>Philoshopy</span></a>
+			<a href=''><span>Philosophy</span></a>
 		</li>
 		<li>
 			<details open>
-				<summary>
+				<summary role='button'>
 					<span>Symbols</span>
 					<i class='icon'> keyboard_arrow_down </i>
 				</summary>
@@ -137,7 +116,7 @@
 				<figure>
 					<img src='/icon-github.png' alt='github icon' />
 				</figure>
-				<span>Github Repositry</span>
+				<span>GitHub Repository</span>
 				<i class='icon'>arrow_outward</i>
 			</a>
 		</li>
@@ -155,11 +134,26 @@
 				<figure>
 					<img src='/icon-sponsor.png' alt='sponsor icon' />
 				</figure>
-				<span>Suport US</span>
+				<span>Support Us</span>
 				<i class='icon'>arrow_outward</i>
 			</a>
 		</li>
 	</ul>
+
+	<script type='module' is:inline>
+		window.addEventListener('DOMContentLoaded', () => {
+			const root = document.getElementById('app__sidebar');
+			let isOpen = false;
+
+			const toggleBtn = root.querySelector('[data-toggle-sidebar]');
+			if (toggleBtn) {
+				toggleBtn.addEventListener('click', () => {
+					isOpen = !isOpen;
+					root.classList.toggle('float', isOpen);
+				});
+			}
+		});
+	</script>
 
 	<style lang='css' is:inline>
 		@scope {

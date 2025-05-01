@@ -12,18 +12,18 @@
     --clr-border__base: light-dark(hsl(0, 0%, 85%), hsl(0, 0%, 15%));
     --clr-border__raised: hsl(from var(--clr-border__base) h s calc(l + 5));
 
-    --clr-primary: #61442e;
-    --clr-secondary: #a3701f;
-    --clr-tertiary: #a3701f;
+    --clr-primary: light-dark(hsl(9, 39%, 80%), hsl(25, 30%, 15%));
+    --clr-secondary: light-dark(hsl(50, 30%, 80%), hsl(50, 30%, 15%));
+    --clr-tertiary: light-dark(hsl(75, 30%, 80%), hsl(75, 30%, 15%));
 
-    --clr-accent: #DC564C;
-    --clr-context: #DC564C;
+    --clr-accent: hsl(5, 60%, 55%);
+    --clr-context: hsl(255, 60%, 55%);
 
-    --clr-debug: hsl(340deg, 50%, 50%);
-    --clr-error: hsl(0deg, 50%, 50%);
-    --clr-info: hsl(215deg, 50%, 50%);
-    --clr-success: hsl(145deg, 50%, 50%);
-    --clr-warning: hsl(50deg, 50%, 50%);
+    --clr-debug: hsl(325, 45%, 60%);
+    --clr-error: hsl(0, 45%, 60%);
+    --clr-info: hsl(210, 45%, 60%);
+    --clr-success: hsl(120, 45%, 60%);
+    --clr-warning: hsl(40, 45%, 60%);
 
     --ratio-backgrounds: 1.125;
     --ratio-texts: 5;

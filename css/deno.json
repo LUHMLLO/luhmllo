@@ -2,7 +2,7 @@
   "lock": false,
   "nodeModulesDir": "auto",
   "name": "@luhmllo/lilycat",
-  "version": "0.1.31",
+  "version": "0.1.32",
   "description": "Dead simple, props-powered CSS that keeps your HTML clean and your styles native, scalable, and efficient.",
   "keywords": [
     "css",
