@@ -1,0 +1,263 @@
+---
+import Layout from '../../layouts/app.astro';
+import Iframe from '../../layouts/iframe.astro';
+---
+
+<Layout>
+	<Iframe>
+		<div id='viewport'>
+			<canvas id='canvas'></canvas>
+		</div>
+
+		<script type='module' is:inline>
+			window.addEventListener('DOMContentLoaded', () => {
+				const root = document.getElementById('viewport');
+				const canvas = document.getElementById('canvas');
+				const ctx = canvas.getContext('2d');
+
+				let camera = { x: 0, y: 0, zoom: 1 };
+				let isDragging = false;
+				let start = { x: 0, y: 0 };
+
+				const nodes = [
+					{ id: 1, x: 200, y: 200, w: 120, h: 80 },
+					{ id: 2, x: 500, y: 400, w: 100, h: 100 },
+				];
+
+				let selectedNode = null;
+				let offset = { x: 0, y: 0 };
+
+				/** @type {boolean} */
+				let needsRedraw = true;
+
+				function resize() {
+					canvas.width = root.clientWidth;
+					canvas.height = root.clientHeight;
+					needsRedraw = true;
+				}
+
+				window.addEventListener('resize', resize);
+				resize();
+
+				const snap = (value, spacing = 10) =>
+					Math.round(value / spacing) * spacing;
+
+				root.addEventListener('mousedown', (e) => {
+					const mx = (e.clientX - canvas.width / 2) / camera.zoom + camera.x;
+					const my = (e.clientY - canvas.height / 2) / camera.zoom + camera.y;
+
+					selectedNode = nodes.find(
+						(n) => mx >= n.x && mx <= n.x + n.w && my >= n.y && my <= n.y + n.h,
+					);
+
+					if (selectedNode) {
+						offset.x =
+							e.clientX -
+							(selectedNode.x - camera.x) * camera.zoom -
+							canvas.width / 2;
+						offset.y =
+							e.clientY -
+							(selectedNode.y - camera.y) * camera.zoom -
+							canvas.height / 2;
+						root.style.cursor = 'grabbing';
+					} else {
+						isDragging = true;
+						start = { x: e.clientX, y: e.clientY };
+						root.style.cursor = 'grabbing';
+					}
+				});
+
+				window.addEventListener('mouseup', () => {
+					isDragging = false;
+					selectedNode = null;
+					root.style.cursor = 'grab';
+				});
+
+				window.addEventListener('mousemove', (e) => {
+					if (isDragging) {
+						const dx = e.clientX - start.x;
+						const dy = e.clientY - start.y;
+						camera.x -= dx / camera.zoom;
+						camera.y -= dy / camera.zoom;
+						start = { x: e.clientX, y: e.clientY };
+						needsRedraw = true;
+					}
+
+					if (selectedNode) {
+						selectedNode.x = snap(
+							(e.clientX - offset.x - canvas.width / 2) / camera.zoom +
+								camera.x,
+						);
+						selectedNode.y = snap(
+							(e.clientY - offset.y - canvas.height / 2) / camera.zoom +
+								camera.y,
+						);
+						needsRedraw = true;
+					}
+				});
+
+				root.addEventListener(
+					'wheel',
+					(e) => {
+						e.preventDefault();
+						const scale = e.deltaY < 0 ? 1.1 : 0.9;
+
+						const rect = canvas.getBoundingClientRect();
+						const cx = e.clientX - rect.left;
+						const cy = e.clientY - rect.top;
+
+						const wx = (cx - canvas.width / 2) / camera.zoom + camera.x;
+						const wy = (cy - canvas.height / 2) / camera.zoom + camera.y;
+
+						camera.zoom *= scale;
+						camera.x = wx - (cx - canvas.width / 2) / camera.zoom;
+						camera.y = wy - (cy - canvas.height / 2) / camera.zoom;
+
+						needsRedraw = true;
+					},
+					{ passive: false },
+				);
+
+				function drawGrid() {
+					const spacing = 100;
+					const startX = -canvas.width / 2 / camera.zoom + camera.x - 1000;
+					const endX = canvas.width / 2 / camera.zoom + camera.x + 1000;
+					const startY = -canvas.height / 2 / camera.zoom + camera.y - 1000;
+					const endY = canvas.height / 2 / camera.zoom + camera.y + 1000;
+
+					ctx.strokeStyle = '#e0e0e0';
+					ctx.lineWidth = 1 / camera.zoom;
+
+					for (
+						let x = Math.floor(startX / spacing) * spacing;
+						x < endX;
+						x += spacing
+					) {
+						ctx.beginPath();
+						ctx.moveTo(x, startY);
+						ctx.lineTo(x, endY);
+						ctx.stroke();
+					}
+
+					for (
+						let y = Math.floor(startY / spacing) * spacing;
+						y < endY;
+						y += spacing
+					) {
+						ctx.beginPath();
+						ctx.moveTo(startX, y);
+						ctx.lineTo(endX, y);
+						ctx.stroke();
+					}
+				}
+
+				function drawNodes() {
+					for (const node of nodes) {
+						ctx.fillStyle = '#fff';
+						ctx.strokeStyle = '#333';
+						ctx.lineWidth = 2 / camera.zoom;
+						ctx.beginPath();
+						ctx.rect(node.x, node.y, node.w, node.h);
+						ctx.fill();
+						ctx.stroke();
+					}
+				}
+
+				function drawMinimap() {
+					const mapSize = 160;
+					const scale = mapSize / 2000;
+
+					const mapX = canvas.width - mapSize - 12;
+					const mapY = canvas.height - mapSize - 12;
+
+					ctx.save();
+					ctx.setTransform(1, 0, 0, 1, 0, 0);
+					ctx.clearRect(mapX - 2, mapY - 2, mapSize + 4, mapSize + 4);
+
+					ctx.fillStyle = '#ffffffcc';
+					ctx.strokeStyle = '#888';
+					ctx.fillRect(mapX, mapY, mapSize, mapSize);
+					ctx.strokeRect(mapX, mapY, mapSize, mapSize);
+
+					nodes.forEach((node) => {
+						const x = mapX + node.x * scale;
+						const y = mapY + node.y * scale;
+						const w = node.w * scale;
+						const h = node.h * scale;
+						ctx.fillStyle = '#aaa';
+						ctx.fillRect(x, y, w, h);
+					});
+
+					const viewW = (canvas.width / camera.zoom) * scale;
+					const viewH = (canvas.height / camera.zoom) * scale;
+					const viewX =
+						mapX + (camera.x - canvas.width / 2 / camera.zoom) * scale;
+					const viewY =
+						mapY + (camera.y - canvas.height / 2 / camera.zoom) * scale;
+
+					ctx.strokeStyle = '#222';
+					ctx.lineWidth = 1;
+					ctx.strokeRect(viewX, viewY, viewW, viewH);
+					ctx.restore();
+				}
+
+				/**
+				 * Draw everything on the canvas.
+				 */
+				function draw() {
+					// FULL CLEAR
+					ctx.setTransform(1, 0, 0, 1, 0, 0);
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+					// WORLD TRANSFORM
+					ctx.setTransform(
+						camera.zoom,
+						0,
+						0,
+						camera.zoom,
+						canvas.width / 2,
+						canvas.height / 2,
+					);
+					ctx.translate(-camera.x, -camera.y);
+
+					drawGrid();
+					drawNodes();
+
+					// MINIMAP AND UI OVERLAYS
+					drawMinimap();
+
+					needsRedraw = false;
+				}
+
+				/**
+				 * The render loop driven by requestAnimationFrame.
+				 * Only re-renders when necessary.
+				 */
+				function renderLoop() {
+					if (needsRedraw) draw();
+					requestAnimationFrame(renderLoop);
+				}
+
+				renderLoop();
+			});
+		</script>
+
+		<style lang='css' is:inline>
+			@scope {
+				:scope {
+					#viewport {
+						background: #f8f8f8;
+						cursor: grab;
+						inset: 0;
+						overflow: clip;
+						position: absolute;
+					}
+					#canvas {
+						inset: 0;
+						position: absolute;
+					}
+				}
+			}
+		</style>
+	</Iframe>
+</Layout>
