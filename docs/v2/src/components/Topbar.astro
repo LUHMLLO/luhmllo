@@ -1,56 +1,63 @@
+---
+
+---
+
 <nav id='app__topbar'>
-	<a href='/' style='margin-right: var(--md);'>
+	<a href='/'>
 		<figure>
 			<img src='/logo.png' alt='logo' />
 		</figure>
 		<span>Lilycat</span>
 	</a>
 
-	<button>
+	<button data-toggle-sidebar>
 		<i class='icon'>menu</i>
 	</button>
-</nav>
 
-<style lang='css' is:inline>
-	@scope {
-		:scope {
-			border-radius: var(--xl);
-			box-shadow: 0 5vmax 100vmax -5vmax black;
-			gap: var(--nm);
-			height: max-content;
-			outline: solid 2px var(--clr-border__base);
-			outline-offset: 2px;
-			overflow: clip;
-			place-content: space-between;
-			place-items: center;
-			position: sticky;
-			top: var(--xl);
-			z-index: 10;
+	<style lang='css' is:inline>
+		@scope {
+			:scope {
+				border-radius: var(--xl);
+				box-shadow: 0 5vmax 100vmax -5vmax black;
+				gap: var(--nm);
+				grid-column: inner;
+				grid-row: top;
+				height: max-content;
+				margin-top: var(--xl);
+				outline: solid 2px var(--clr-border__base);
+				outline-offset: 2px;
+				overflow: clip;
+				place-content: space-between;
+				place-items: center;
+				position: sticky;
+				top: var(--xl);
+				z-index: 10;
 
-			&::before {
-				backdrop-filter: blur(0.5ex);
-				background-color: hsl(from var(--clr-background__base) h s l / 75%);
-				content: '';
-				inset: 0;
-				position: absolute;
-				z-index: -1;
-			}
+				&::before {
+					backdrop-filter: blur(0.5ex);
+					background-color: hsl(from var(--clr-background__base) h s l / 75%);
+					content: '';
+					inset: 0;
+					position: absolute;
+					z-index: -1;
+				}
 
-			a {
-				display: inline-flex;
-				gap: clamp(0px, 1dvmax, var(--xs));
-				text-box: none;
+				a {
+					display: inline-flex;
+					gap: clamp(0px, 1dvmax, var(--xs));
+					text-box: none;
 
-				& > figure {
-					aspect-ratio: 1/1;
-					vertical-align: middle;
-					width: 45px;
+					& > figure {
+						aspect-ratio: 1/1;
+						vertical-align: middle;
+						width: 45px;
+					}
+				}
+
+				:where(a, button) {
+					flex-shrink: 0;
 				}
 			}
-
-			:where(a, button) {
-				flex-shrink: 0;
-			}
 		}
-	}
-</style>
+	</style>
+</nav>

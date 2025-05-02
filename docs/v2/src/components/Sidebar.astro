@@ -141,18 +141,13 @@
 	</ul>
 
 	<script type='module' is:inline>
-		window.addEventListener('DOMContentLoaded', () => {
-			const root = document.getElementById('app__sidebar');
-			let isOpen = false;
+		import { listenToSidebarToggle } from '/shared/sidebar.js';
+		window.addEventListener('DOMContentLoaded', listenToSidebarToggle);
+	</script>
 
-			const toggleBtn = root.querySelector('[data-toggle-sidebar]');
-			if (toggleBtn) {
-				toggleBtn.addEventListener('click', () => {
-					isOpen = !isOpen;
-					root.classList.toggle('float', isOpen);
-				});
-			}
-		});
+	<script type='module' is:inline>
+		import { bindSidebarToggles } from '/shared/sidebar.js';
+		window.addEventListener('DOMContentLoaded', bindSidebarToggles);
 	</script>
 
 	<style lang='css' is:inline>
@@ -162,7 +157,7 @@
 				border-right: solid 2px var(--clr-border__base);
 				gap: var(--xl);
 				grid-column: left;
-				grid-row: 1;
+				grid-row: expand;
 				height: 100dvh;
 				inset: 0;
 				overflow: auto;
