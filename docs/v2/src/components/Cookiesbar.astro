@@ -1,0 +1,58 @@
+<x-grid id='app__cookieconsent'>
+	<p>
+		We use cookies to understand how you use the Lilycat docs. No ads, no
+		tracking across sites.<br />You can manage your cookie preferences anytime.
+		<a href='/privacy/'>Privacy Policy</a>
+	</p>
+
+	<x-grid>
+		<button type='button' data-props='--primary'>Accept</button>
+		<button type='button' data-props='--outline'>Reject</button>
+	</x-grid>
+
+	<style lang='css' is:inline>
+		@scope {
+			:scope {
+				--cols: 2;
+				--gap: var(--nm);
+
+				grid-column: expand;
+				grid-row: bottom;
+				inset: 0 0 -0.1px 0;
+				margin-bottom: -0.1px;
+				padding: var(--nm) clamp(var(--nm), 100%, 5dvw);
+				place-content: center;
+				place-items: safe center;
+				position: sticky;
+				z-index: 10;
+
+				&::before {
+					backdrop-filter: blur(0.5ex);
+					background-color: hsl(from var(--clr-text__raised) h s l / 75%);
+					box-shadow: 0 5vmax 100vmax -5vmax black;
+					content: '';
+					inset: 0;
+					position: absolute;
+					z-index: -1;
+				}
+
+				& > p {
+					color: var(--clr-background__lowered);
+					width: 100%;
+				}
+
+				& > x-grid {
+					--cols: 2;
+					--gap: var(--xs);
+
+					flex: 1 1;
+					width: 100%;
+
+					button {
+						width: 100%;
+					}
+				}
+			}
+		}
+	</style>
+</x-grid>

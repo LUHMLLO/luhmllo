@@ -10,24 +10,17 @@ interface Props {
 const { date, title, items, link, version } = Astro.props;
 ---
 
-<x-grid
-	style='grid-template-columns: auto 1fr; gap: var(--nm); align-items: start;'>
-	<!-- Date -->
-	<time
-		style='background: var(--surface); padding: var(--xs) var(--nm); border-radius: var(--radius-sm); font-weight: bold; white-space: nowrap; font-size: var(--text-sm);'>
+<x-flex style='gap: var(--nm);'>
+	<time style='flex-shrink: 0;'>
 		{date}
 	</time>
 
-	<!-- Entry content -->
-	<x-grid style='gap: var(--xs);'>
-		<!-- Title -->
-		<h3 style='font-size: var(--text-lg); font-weight: bold;'>
+	<x-grid style='--gap: var(--xs);'>
+		<h3>
 			{title}
 		</h3>
 
-		<!-- List -->
-		<ul
-			style='list-style: disc; padding-left: 1rem; font-size: var(--text-base);'>
+		<ul>
 			<li>
 				Version <strong>{version}</strong> of the MCP Java SDK has been released.
 			</li>
@@ -36,10 +29,7 @@ const { date, title, items, link, version } = Astro.props;
 				link && (
 					<li>
 						See changelog:
-						<a
-							href={link.href}
-							target='_blank'
-							style='color: var(--accent); text-decoration: underline;'>
+						<a href={link.href} target='_blank'>
 							{link.text}
 						</a>
 					</li>
@@ -47,4 +37,4 @@ const { date, title, items, link, version } = Astro.props;
 			}
 		</ul>
 	</x-grid>
-</x-grid>
+</x-flex>

@@ -36,7 +36,7 @@
     transition-timing-function: var(--animTiming);
     transition-behavior: allow-discrete;
     user-select: none;
-    vertical-align: middle;
+    vertical-align: text-bottom;
     width: var(--size);
 
     & > * {

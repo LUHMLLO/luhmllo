@@ -18,7 +18,7 @@ import Iframe from '../../layouts/iframe.astro';
 		</x-sublayer>
 
 		<nav style='place-content: space-between; place-items: center;'>
-			<button type='button'>
+			<button type='button' data-props='--outline'>
 				<i class='icon'> menu </i>
 			</button>
 
@@ -27,7 +27,7 @@ import Iframe from '../../layouts/iframe.astro';
 				TinkXo
 			</h6>
 
-			<a href={'#' + crypto.randomUUID()} type='button'>
+			<a href={'#' + crypto.randomUUID()} type='button' data-props='--outline'>
 				<i class='icon'> phone </i>
 			</a>
 		</nav>

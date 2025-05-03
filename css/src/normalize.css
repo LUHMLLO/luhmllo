@@ -260,7 +260,7 @@
   /* links */
   :where(a) {
     align-items: center;
-    color: var(--clr-accent);
+    color: var(--clr-accent__base);
     display: inline-flex;
     gap: var(--xs);
     height: max-content;
@@ -276,7 +276,7 @@
 
     &:not([role="none"], [role="presentation"], [role="text"]) {
       &:visited:not(:focus-visible, :hover, :active) {
-        color: hsl(from var(--clr-accent) h calc(s - 15) calc(l - 10));
+        color: hsl(from var(--clr-accent__base) h calc(s - 15) calc(l - 10));
       }
     }
 
@@ -286,11 +286,11 @@
     }
 
     &:hover {
-      color: hsl(from var(--clr-accent) h s calc(l + var(--ratio-texts)));
+      color: hsl(from var(--clr-accent__raised) h s calc(l + var(--ratio-texts)));
     }
 
     &:active {
-      color: hsl(from var(--clr-accent) h s calc(l - var(--ratio-texts)));
+      color: hsl(from var(--clr-accent__lowered) h s calc(l - var(--ratio-texts)));
     }
 
     &:where(:not([href]), [href=""], [href="#"], [href^="javascript:"], [href^="void(0)"]) {
@@ -310,64 +310,99 @@
 
   /* buttons */
   :where(button, [type="button"]) {
-    --idle: var(--clr-background__base);
-    --hover: hsl(from var(--idle) h s calc(l + var(--ratio-backgrounds)));
-    --active: hsl(from var(--idle) h s calc(l - var(--ratio-backgrounds)));
-    --ring: hsl(from var(--idle) h s calc(l + var(--ratio-texts)));
-    --clr: var(--clr-text__base);
-
     align-items: center;
-    background-color: var(--idle);
+    background-color: var(--clr-primary__base);
     border-radius: var(--xl);
-    color: var(--clr);
     display: inline-flex;
-    font-size: inherit;
+    font: inherit;
     gap: var(--xs);
     height: 45px;
     line-height: 1;
-    outline: solid 2px var(--ring);
+    outline: solid 2px transparent;
     outline-offset: -2px;
     overflow: clip;
     padding: 0 var(--md);
-    transition-property: background-color, color, outline, outline-offset;
+    transition-property: background-color, color, filter, outline, outline-color, outline-offset;
     transition-duration: var(--animDuration);
     transition-timing-function: var(--animTiming);
     white-space: nowrap;
     width: fit-content;
 
     &:focus-visible {
-      outline-offset: -2.75px;
-      outline-width: 3.5px;
+      outline-color: var(--clr-accent__base);
     }
 
     &:hover {
-      background-color: var(--hover);
+      background-color: var(--clr-primary__raised);
     }
 
     &:active {
-      background-color: var(--active);
+      background-color: var(--clr-primary__lowered);
     }
 
     /* Icon at the start */
-    &:has(> :where(.icon, figure):first-child):not(:has(> :where(.icon, figure):last-child)) {
+    &:has(> :where(.icon, figure, kbd):first-child):not(:has(> :where(.icon, figure, kbd):last-child)) {
       padding-left: var(--sm);
     }
 
     /* Icon at the end */
-    &:has(> :where(.icon, figure):last-child):not(:has(> :where(.icon, figure):first-child)) {
+    &:has(> :where(.icon, figure, kbd):last-child):not(:has(> :where(.icon, figure, kbd):first-child)) {
       padding-right: var(--sm);
     }
 
     /* Icons on both sides */
-    &:has(> :where(.icon, figure):first-child):has(> :where(.icon, figure):last-child) {
+    &:has(> :where(.icon, figure, kbd):first-child):has(> :where(.icon, figure, kbd):last-child) {
       padding-left: var(--sm);
       padding-right: var(--sm);
     }
 
-    &:has(> :where(.icon, figure):only-child) {
+    &:has(> :where(.icon, figure, kbd):only-child) {
       aspect-ratio: 1/1;
       padding: 0;
       place-content: center;
+    }
+
+    &:where([data-props~="--outline"]) {
+      background-color: transparent;
+      color: var(--clr-primary__base);
+      outline-color: var(--clr-primary__base);
+
+      &:focus-visible {
+        outline-color: var(--clr-primary__base);
+      }
+
+      &:hover {
+        background-color: transparent;
+        color: var(--clr-primary__raised);
+        outline-color: var(--clr-primary__raised);
+      }
+
+      &:active {
+        background-color: transparent;
+        color: var(--clr-primary__lowered);
+        outline-color: var(--clr-primary__lowered);
+      }
+    }
+
+    &:where([data-props~='--flat']) {
+      background-color: inherit;
+      outline-color: transparent;
+
+      &:focus-visible {
+        outline-color: var(--clr-primary__base);
+      }
+
+      &:hover {
+        background-color: transparent;
+        color: var(--clr-primary__raised);
+        outline-color: transparent;
+      }
+
+      &:active {
+        background-color: transparent;
+        color: var(--clr-primary__lowered);
+        outline-color: transparent;
+      }
     }
   }
 
@@ -391,7 +426,7 @@
     width: fit-content;
 
     &:focus-visible {
-      outline-color: var(--clr-accent);
+      outline-color: var(--clr-accent__base);
     }
   }
 
@@ -433,7 +468,7 @@
     width: var(--size);
 
     &:checked {
-      background-color: var(--clr-accent);
+      background-color: var(--clr-accent__base);
     }
   }
 
@@ -455,7 +490,7 @@
 
     &::-webkit-slider-runnable-track {
       appearance: none;
-      background-color: hsl(from var(--clr-primary) h s calc(l - var(--ratio-backgrounds)));
+      background-color: var(--clr-border__base);
       block-size: var(--track-height);
       border-radius: 5ex;
       cursor: pointer;
@@ -463,9 +498,8 @@
 
     &::-webkit-slider-thumb {
       appearance: none;
-      background-color: var(--clr-primary);
+      background-color: var(--clr-primary__base);
       block-size: var(--thumb-size);
-      border: 2px solid var(--clr-border__base);
       border-radius: 50%;
       cursor: ew-resize;
       inline-size: var(--thumb-size);
@@ -475,11 +509,11 @@
       transition-timing-function: var(--animTiming);
 
       &:hover {
-        background-color: hsl(from var(--clr-primary) h s calc(l + var(--ratio-backgrounds)));
+        background-color: hsl(from var(--clr-primary__raised) h s calc(l + var(--ratio-backgrounds)));
       }
 
       &:active {
-        background-color: hsl(from var(--clr-primary) h s calc(l - var(--ratio-backgrounds)));
+        background-color: hsl(from var(--clr-primary__lowered) h s calc(l - var(--ratio-backgrounds)));
       }
     }
   }
@@ -511,7 +545,7 @@
     width: 100%;
 
     &:focus-visible {
-      outline-color: var(--clr-accent);
+      outline-color: var(--clr-accent__base);
     }
   }
 

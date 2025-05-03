@@ -7,41 +7,40 @@ import Iframe from '../../layouts/iframe.astro';
 	<Iframe>
 		<aside id='notion__sidebar' class='expanded'>
 			<x-flex>
-				<button type='button'>
-					<figure data-props='--circle' style='width: var(--xl);'>
-						<img
-							alt='Photo: Luis R. Melo'
-							src='https://cdn.dribbble.com/users/2246724/avatars/normal/733a7307a4408930f70132c7436077f1.jpg?1742320251'
-						/>
+				<button type='button' data-props='--outline'>
+					<figure
+						data-props='--circle'
+						style='background-color: white; height: var(--xl);'>
+						<img alt='Photo: Luis R. Melo' src='/images/luisrmelo.png' />
 					</figure>
 					<span> Luis R. Melo </span>
 					<i class='icon'>keyboard_arrow_down</i>
 				</button>
 				<x-row style='flex-shrink: 0; gap: var(--xs);'>
-					<button id='sidebar-hide' type='button'>
+					<button id='sidebar-hide' type='button' data-props='--outline'>
 						<i class='icon'>left_panel_close</i>
 					</button>
-					<button type='button'>
+					<button type='button' data-props='--outline'>
 						<i class='icon'>add_2</i>
 					</button>
 				</x-row>
 			</x-flex>
 			<hr />
 			<x-group>
-				<button type='button'>
+				<button type='button' data-props='--outline'>
 					<i class='icon'> search </i>
 					<span>Search</span>
 					<i class='icon'> keyboard_command_key </i>
 				</button>
-				<button type='button'>
+				<button type='button' data-props='--outline'>
 					<i class='icon'> stars_2 </i>
 					<span>AI Assistant</span>
 				</button>
-				<button type='button'>
+				<button type='button' data-props='--outline'>
 					<i class='icon'> home </i>
 					<span>Home</span>
 				</button>
-				<button type='button'>
+				<button type='button' data-props='--outline'>
 					<i class='icon'> inbox </i>
 					<span>Inbox</span>
 				</button>
@@ -50,22 +49,22 @@ import Iframe from '../../layouts/iframe.astro';
 			<x-group>
 				<span>Favorites</span>
 				<details>
-					<summary type='button'>
+					<summary type='button' data-props='--outline'>
 						<i class='icon'> asterisk </i>
 						<span>Page Name</span>
 					</summary>
 					<ul>
-						<button type='button'>item</button>
-						<button type='button'>item</button>
-						<button type='button'>item</button>
-						<button type='button'>item</button>
+						<button type='button' data-props='--outline'>item</button>
+						<button type='button' data-props='--outline'>item</button>
+						<button type='button' data-props='--outline'>item</button>
+						<button type='button' data-props='--outline'>item</button>
 					</ul>
 				</details>
-				<button type='button'>
+				<button type='button' data-props='--outline'>
 					<i class='icon'> asterisk </i>
 					<span>Page Name</span>
 				</button>
-				<button type='button'>
+				<button type='button' data-props='--outline'>
 					<i class='icon'> asterisk </i>
 					<span>Page Name</span>
 				</button>
@@ -74,15 +73,15 @@ import Iframe from '../../layouts/iframe.astro';
 			<x-group>
 				<span>Shared</span>
 				<details>
-					<summary type='button'>
+					<summary type='button' data-props='--outline'>
 						<i class='icon'> asterisk </i>
 						<span>Page Name</span>
 					</summary>
 					<ul>
-						<button type='button'>item</button>
-						<button type='button'>item</button>
-						<button type='button'>item</button>
-						<button type='button'>item</button>
+						<button type='button' data-props='--outline'>item</button>
+						<button type='button' data-props='--outline'>item</button>
+						<button type='button' data-props='--outline'>item</button>
+						<button type='button' data-props='--outline'>item</button>
 					</ul>
 				</details>
 			</x-group>
@@ -90,43 +89,43 @@ import Iframe from '../../layouts/iframe.astro';
 			<x-group>
 				<span>Private</span>
 				<details>
-					<summary type='button'>
+					<summary type='button' data-props='--outline'>
 						<i class='icon'> asterisk </i>
 						<span>Page Name</span>
 					</summary>
 					<ul>
-						<button type='button'>item</button>
-						<button type='button'>item</button>
-						<button type='button'>item</button>
-						<button type='button'>item</button>
+						<button type='button' data-props='--outline'>item</button>
+						<button type='button' data-props='--outline'>item</button>
+						<button type='button' data-props='--outline'>item</button>
+						<button type='button' data-props='--outline'>item</button>
 					</ul>
 				</details>
 			</x-group>
 			<hr />
 			<x-group>
-				<button type='button'>
+				<button type='button' data-props='--outline'>
 					<i class='icon'> settings </i>
 					<span>Settings</span>
 				</button>
-				<button type='button'>
+				<button type='button' data-props='--outline'>
 					<i class='icon'> browse </i>
 					<span>Templates</span>
 				</button>
-				<button type='button'>
+				<button type='button' data-props='--outline'>
 					<i class='icon'> delete </i>
 					<span>Trash</span>
 				</button>
 			</x-group>
 			<hr />
 			<x-flex>
-				<button type='button'>
+				<button type='button' data-props='--outline'>
 					<i class='icon'> calendar_today </i>
 				</button>
-				<button type='button'>
+				<button type='button' data-props='--outline'>
 					<i class='icon'> email </i>
 				</button>
 				<hr style='background-color: transparent; flex: 1 1;' />
-				<button type='button'>
+				<button type='button' data-props='--outline'>
 					<i class='icon'> help </i>
 				</button>
 			</x-flex>
@@ -204,7 +203,7 @@ import Iframe from '../../layouts/iframe.astro';
 							}
 
 							& :where(button, summary) {
-								--idle: var(--clr-background__raised);
+								background-color: var(--clr-background__raised);
 								width: 100%;
 
 								&:not(:focus, :focus-visible) {

@@ -37,7 +37,7 @@ import Iframe from '../../layouts/iframe.astro';
 						<a href='#'>
 							<i class='icon'> smart_display </i>
 						</a>
-						<button id='menu-button' type='button'>
+						<button id='menu-button' type='button' style='display: contents;'>
 							<i class='icon'> menu </i>
 						</button>
 					</x-flex>
@@ -159,15 +159,6 @@ import Iframe from '../../layouts/iframe.astro';
 
 								:where(a:not(:hover, :focus, :active)) {
 									color: inherit;
-								}
-
-								button {
-									--background: inherit;
-									aspect-ratio: 1/1;
-									border-radius: 0;
-									color: inherit;
-									height: auto;
-									padding: 0;
 								}
 							}
 						}
