@@ -1,17 +1,13 @@
----
-// import { Image } from 'astro:assets';
----
-
 <aside id='app__sidebar'>
 	<x-row>
-		<a href='/'>
+		<a href='/' role='presentation'>
 			<figure>
 				<img src='/images/logo.png' alt='logo' />
 			</figure>
 
 			<div>
 				<h5>Lilycat</h5>
-				<p style='color: var(--clr-text);'>DX-Oriented CSS library.</p>
+				<p>DX-Oriented CSS library.</p>
 			</div>
 		</a>
 
@@ -163,7 +159,7 @@
 				overflow: auto;
 				padding: var(--xl) var(--md);
 				position: sticky;
-				transition-property: opacity, position, transform;
+				transition-property: opacity, position, transform, translate;
 				transition-duration: var(--animDuration);
 				transition-timing-function: var(--animTiming);
 				width: max(0px, 300px);
