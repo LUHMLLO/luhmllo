@@ -133,7 +133,6 @@
 
   /* code and pre wrapping */
   :where(code, pre) {
-    color: var(--clr-debug);
     display: inline;
     font: inherit;
     text-box: trim-both ex alphabetic;
@@ -166,21 +165,43 @@
   /* organized & unorganized lists */
   :where(menu, ol, ul) {
     display: block;
-    list-style: none;
+    list-style-position: inside;
     margin-inline-start: var(--sm);
     margin-trim: block;
+
+    &[role="list"] {
+      list-style: none;
+    }
+
+    &:is(ul) {
+      &:not([role="list"]) {
+        li::marker {
+          content: none;
+        }
+
+        li::before {
+          color: inherit;
+          content: "* ";
+          display: inline-block;
+          height: 0.5lh;
+          margin-block-start: 0.2lh;
+          margin-inline-start: calc(var(--sm) * -1);
+          pointer-events: none;
+          position: absolute;
+          text-align: center;
+          user-select: none;
+        }
+      }
+    }
+
+    & > li {
+      margin-block: var(--xs);
+      position: relative;
+    }
 
     & > :not(li) {
       margin-inline-start: calc(var(--sm) * -1);
     }
-  }
-
-  :where(li) {
-    &::marker {
-      content: none;
-    }
-
-    margin-block: var(--xs);
   }
 
   /* description list */
@@ -200,7 +221,7 @@
   :where(h1, h2, h3, h4, h5, h6) {
     color: var(--clr-text__raised);
     font-weight: 500;
-    line-height: 1em;
+    line-height: 1;
     text-wrap: balance;
   }
 
@@ -239,12 +260,13 @@
   /* links */
   :where(a) {
     align-items: center;
-    color: var(--clr-accent);
+    color: inherit;
     display: inline-flex;
     gap: var(--xs);
     height: max-content;
-    outline: solid 2px transparent;
-    outline-offset: -2px;
+    outline: solid 1px transparent;
+    outline-offset: 1px;
+    text-decoration-skip-ink: auto;
     transition-property: color;
     transition-duration: var(--animDuration);
     transition-timing-function: var(--animTiming);
@@ -252,7 +274,7 @@
     width: fit-content;
 
     &:visited:not(:focus-visible, :hover, :active) {
-      color: hsl(from var(--clr-accent) h calc(s - 15.618) calc(l - 15.618));
+      color: hsl(from currentColor h s calc(l - 30));
     }
 
     &:focus-visible {
@@ -298,16 +320,14 @@
     font-size: inherit;
     gap: var(--xs);
     height: 45px;
-
+    line-height: 1;
     outline: solid 2px var(--ring);
     outline-offset: -2px;
     overflow: clip;
     padding: 0 var(--md);
-
     transition-property: background-color, color, outline, outline-offset;
     transition-duration: var(--animDuration);
     transition-timing-function: var(--animTiming);
-
     white-space: nowrap;
     width: fit-content;
 
@@ -355,16 +375,14 @@
     display: inline-block;
     font-size: inherit;
     height: 45px;
-
+    line-height: 1;
     outline: solid 2px var(--clr-border__base);
     outline-offset: -2px;
     overflow: clip;
     padding: 0 var(--md);
-
     transition-property: background-color, color, outline, outline-offset;
     transition-duration: var(--animDuration);
     transition-timing-function: var(--animTiming);
-
     white-space: nowrap;
     width: fit-content;
 

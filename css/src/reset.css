@@ -7,7 +7,9 @@
     color-scheme: light dark;
     interpolate-size: allow-keywords;
     scroll-behavior: smooth;
-    text-size-adjust: 100%;
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
     text-wrap: pretty;
     will-change: background, color, opacity, outline, position, visibility;
   }

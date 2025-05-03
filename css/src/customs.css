@@ -2,7 +2,7 @@
   :where(x-app, #app) {
     --outter-gutter: 0;
     --outter-columns: minmax(0, max-content);
-    --inner-gutter: minmax(1rem, 1fr);
+    --inner-gutter: minmax(1.5rem, 1fr);
     --inner-column: minmax(0, 80rem);
 
     display: grid;
@@ -53,7 +53,7 @@
     --gap: 0px;
 
     --count: auto-fill;
-    --track_min: 10rem;
+    --track_min: clamp(5rem, 100%, 15rem);
     --track_max: 1fr;
 
     display: grid;
