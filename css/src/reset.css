@@ -114,7 +114,7 @@
   @media (prefers-reduced-motion: no-preference) {
     :has(:target) {
       scroll-behavior: smooth;
-      scroll-padding-top: 1.25em;
+      scroll-padding-top: 5ex;
     }
   }
 

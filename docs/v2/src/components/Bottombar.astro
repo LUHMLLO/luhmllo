@@ -2,35 +2,32 @@
 // import { Image } from 'astro:assets';
 ---
 
-<nav id='app__topbar'>
-	<a href='/'>
-		<figure>
-			<img src='/images/logo.png' alt='logo' />
-		</figure>
-		<span>Lilycat</span>
-	</a>
-
-	<button data-toggle-sidebar>
-		<i class='icon'>menu</i>
+<nav id='app__bottombar'>
+	<button>
+		<span>footer</span>
 	</button>
+
+	<a href='#top' type='button' role='presentation'>
+		<i class='icon'> arrow_upward </i>
+	</a>
 
 	<style lang='css' is:inline>
 		@scope {
 			:scope {
 				border-radius: var(--xl);
+				bottom: var(--nm);
 				box-shadow: 0 5vmax 100vmax -5vmax black;
 				gap: var(--nm);
 				grid-column: inner;
-				grid-row: top;
+				grid-row: bottom;
 				height: max-content;
-				margin-top: var(--xl);
+				margin-bottom: var(--nm);
 				outline: solid 2px var(--clr-border__base);
 				outline-offset: 2px;
 				overflow: clip;
 				place-content: space-between;
 				place-items: center;
 				position: sticky;
-				top: var(--xl);
 				z-index: 4;
 
 				&::before {

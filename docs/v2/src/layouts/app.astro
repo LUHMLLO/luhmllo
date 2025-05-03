@@ -4,6 +4,7 @@ import Scaffold from './html.astro';
 import Content from '../components/Content.astro';
 import Sidebar from '../components/Sidebar.astro';
 import Topbar from '../components/Topbar.astro';
+import Bottombar from '../components/Bottombar.astro';
 ---
 
 <Scaffold>
@@ -13,6 +14,7 @@ import Topbar from '../components/Topbar.astro';
 		<Content>
 			<slot />
 		</Content>
+		<Bottombar />
 	</div>
 
 	<style lang='css' is:inline>
