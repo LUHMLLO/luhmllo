@@ -620,22 +620,22 @@ import Layout from '../layouts/app.astro';
 					<div>
 						<h3>Plain image element</h3>
 						<p>
-							<img src='/cat.webp' alt='kitten' />
+							<img src='/images/cat.webp' alt='kitten' />
 						</p>
 						<h3>figure element with image element inside</h3>
 						<figure>
-							<img src='/cat.webp' alt='kitten' />
+							<img src='/images/cat.webp' alt='kitten' />
 						</figure>
 						<h3>figure element with image element inside and figcaption</h3>
 						<figure>
-							<img src='/cat.webp' alt='kitten' />
+							<img src='/images/cat.webp' alt='kitten' />
 							<figcaption>Here is a caption for this image.</figcaption>
 						</figure>
 						<h3>figure element with picture element inside</h3>
 						<figure>
 							<picture>
-								<source src='/cat.webp' media='(min-width: 800px)' />
-								<img src='/cat.webp' alt='kitten' />
+								<source src='/images/cat.webp' media='(min-width: 800px)' />
+								<img src='/images/cat.webp' alt='kitten' />
 							</picture>
 						</figure>
 					</div>
@@ -646,7 +646,7 @@ import Layout from '../layouts/app.astro';
 					</header>
 					<div
 						style="
-              background-image:url('../cat.webp'); 
+              background-image:url('/images/cat.webp'); 
               background-position: center;
               background-size: cover;
               width:300px; 
@@ -659,7 +659,7 @@ import Layout from '../layouts/app.astro';
 						<h2>Audio</h2>
 					</header>
 					<div>
-						<audio controls src='/trex.mp3'>
+						<audio controls src='/audios/trex.mp3'>
 							<track kind='captions' />
 						</audio>
 					</div>
@@ -669,7 +669,7 @@ import Layout from '../layouts/app.astro';
 						<h2>Video</h2>
 					</header>
 					<div>
-						<video controls src='/flower.webm'>
+						<video controls src='/videos/flower.webm'>
 							<track kind='captions' />
 						</video>
 					</div>

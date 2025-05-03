@@ -1,11 +1,11 @@
 ---
-
+// import { Image } from 'astro:assets';
 ---
 
 <nav id='app__topbar'>
 	<a href='/'>
 		<figure>
-			<img src='/logo.png' alt='logo' />
+			<img src='/images/logo.png' alt='logo' />
 		</figure>
 		<span>Lilycat</span>
 	</a>
@@ -31,7 +31,7 @@
 				place-items: center;
 				position: sticky;
 				top: var(--xl);
-				z-index: 10;
+				z-index: 4;
 
 				&::before {
 					backdrop-filter: blur(0.5ex);
@@ -43,10 +43,6 @@
 				}
 
 				a {
-					display: inline-flex;
-					gap: clamp(0px, 1dvmax, var(--xs));
-					text-box: none;
-
 					& > figure {
 						aspect-ratio: 1/1;
 						vertical-align: middle;

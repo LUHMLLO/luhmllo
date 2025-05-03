@@ -1,12 +1,12 @@
 ---
-
+// import { Image } from 'astro:assets';
 ---
 
 <aside id='app__sidebar'>
 	<x-row>
 		<a href='/'>
 			<figure>
-				<img src='/figure.png' alt='' />
+				<img src='/images/logo.png' alt='logo' />
 			</figure>
 
 			<div>
@@ -114,7 +114,7 @@
 		<li>
 			<a href=''>
 				<figure>
-					<img src='/icon-github.png' alt='github icon' />
+					<img src='/images/icon-github.png' alt='github icon' />
 				</figure>
 				<span>GitHub Repository</span>
 				<i class='icon'>arrow_outward</i>
@@ -123,7 +123,7 @@
 		<li>
 			<a href=''>
 				<figure>
-					<img src='/icon-jsr.png' alt='jsr icon' />
+					<img src='/images/icon-jsr.png' alt='jsr icon' />
 				</figure>
 				<span>JSR Package</span>
 				<i class='icon'>arrow_outward</i>
@@ -132,7 +132,7 @@
 		<li>
 			<a href=''>
 				<figure>
-					<img src='/icon-sponsor.png' alt='sponsor icon' />
+					<img src='/images/icon-sponsor.png' alt='sponsor icon' />
 				</figure>
 				<span>Support Us</span>
 				<i class='icon'>arrow_outward</i>
@@ -141,12 +141,12 @@
 	</ul>
 
 	<script type='module' is:inline>
-		import { listenToSidebarToggle } from '/shared/sidebar.js';
+		import { listenToSidebarToggle } from '/js/sidebar.js';
 		window.addEventListener('DOMContentLoaded', listenToSidebarToggle);
 	</script>
 
 	<script type='module' is:inline>
-		import { bindSidebarToggles } from '/shared/sidebar.js';
+		import { bindSidebarToggles } from '/js/sidebar.js';
 		window.addEventListener('DOMContentLoaded', bindSidebarToggles);
 	</script>
 
@@ -186,6 +186,14 @@
 
 					a {
 						flex: 1 1 auto;
+						flex-wrap: wrap;
+
+						& > figure {
+							aspect-ratio: 1/1;
+							flex-shrink: 0;
+							vertical-align: middle;
+							width: 45px;
+						}
 
 						& > div {
 							flex: 1 1 auto;
