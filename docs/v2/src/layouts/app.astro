@@ -4,9 +4,9 @@ import Scaffold from './html.astro';
 import Content from '../components/Content.astro';
 import Sidebar from '../components/Sidebar.astro';
 import Topbar from '../components/Topbar.astro';
-// import Bottombar from '../components/Bottombar.astro';
-// import RightPanel from '../components/RightPanel.astro';
-// import Cookiesbar from '../components/Cookiesbar.astro'
+import Bottombar from '../components/Bottombar.astro';
+import RightPanel from '../components/RightPanel.astro';
+import Cookiesbar from '../components/Cookiesbar.astro';
 ---
 
 <Scaffold>
@@ -16,9 +16,9 @@ import Topbar from '../components/Topbar.astro';
 		<Content>
 			<slot />
 		</Content>
-		<!-- <RightPanel /> -->
-		<!-- <Bottombar /> -->
-		<!-- <Cookiesbar/> -->
+		<RightPanel />
+		<Bottombar />
+		<Cookiesbar />
 	</div>
 
 	<style lang='css' is:inline>

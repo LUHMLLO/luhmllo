@@ -257,6 +257,8 @@
     cursor: pointer;
   }
 
+  /* :where(label) {} */
+
   /* links */
   :where(a) {
     align-items: center;
@@ -362,7 +364,7 @@
       place-content: center;
     }
 
-    &:where([data-props~="--outline"]) {
+    &:where([data-roles~="--outline"]) {
       background-color: transparent;
       color: var(--clr-primary__base);
       outline-color: var(--clr-primary__base);
@@ -384,7 +386,7 @@
       }
     }
 
-    &:where([data-props~='--flat']) {
+    &:where([data-roles~='--flat']) {
       background-color: inherit;
       outline-color: transparent;
 

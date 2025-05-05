@@ -7,7 +7,7 @@ import Iframe from '../../layouts/iframe.astro';
 	<Iframe>
 		<x-stack id='appbar'>
 			<x-flex>
-				<button type='button' data-props="--outline">
+				<button type='button' data-roles="--outline">
 					<i class='icon'>arrow_back</i>
 				</button>
 				<figure style='flex-shrink: 1; width: min(100%, 100px);'>
@@ -32,8 +32,8 @@ import Iframe from '../../layouts/iframe.astro';
 					<a href={'#' + crypto.randomUUID()} style='color: inherit;'>
 						Revistas Academicas
 					</a>
-					<button type='button' data-props='--accent'>AUTOSERVICIO</button>
-					<button type='button' data-props='--secondary'>
+					<button type='button' data-roles='--accent'>AUTOSERVICIO</button>
+					<button type='button' data-roles='--secondary'>
 						<i class='icon'>menu</i>
 					</button>
 				</x-row>
@@ -41,7 +41,7 @@ import Iframe from '../../layouts/iframe.astro';
 
 			<label
 				for='searchbar'
-				data-props='--input'
+				data-roles='--input'
 				style='border-radius: var(--xl);'>
 				<input
 					type='text'

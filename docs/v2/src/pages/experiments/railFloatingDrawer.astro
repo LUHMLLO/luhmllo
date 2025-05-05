@@ -45,7 +45,7 @@ import Iframe from '../../layouts/iframe.astro';
 
 				<dialog id='drawer'>
 					<span>label</span>
-					<x-flex data-props='--input'>
+					<x-flex data-roles='--input'>
 						<i class='icon'> search </i>
 						<input type='text' placeholder='search' />
 						<i class='icon'> keyboard_command_key </i>
@@ -211,7 +211,7 @@ import Iframe from '../../layouts/iframe.astro';
 								}
 							}
 
-							[data-props~='--input'] {
+							[data-roles~='--input'] {
 								background-color: var(--clr-background__raised);
 							}
 						}

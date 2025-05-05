@@ -1,73 +1,27 @@
 @layer props {
-  :where(hr[data-props~="--x"]) {
+  :where(hr[data-roles~="--x"]) {
     height: 1px;
     width: 100%;
   }
 
-  :where(hr[data-props~="--y"]) {
+  :where(hr[data-roles~="--y"]) {
     height: 100%;
     width: 1px;
   }
 
-  :where([data-props~="--input"]) {
-    align-items: center;
-    background-color: var(--clr-background__base);
-    border-radius: var(--xs);
-    display: flex;
-    gap: var(--xs);
-    height: 45px;
-    outline: solid 2px var(--clr-border__base);
-    outline-offset: -2px;
-    overflow: clip;
-    padding: 0 var(--nm);
-    transition-duration: var(--animDuration);
-    transition-property: background-color, color, outline, outline-offset;
-    transition-timing-function: var(--animTiming);
-
-    &:has(:focus) {
-      outline-color: var(--clr-accent__base);
-    }
-
-    & > input {
-      background-color: transparent;
-      border-radius: 0;
-      height: auto;
-      outline: none;
-      padding: 0;
-      width: 100%;
-    }
-
-    & > :where(.icon, button, figure) {
-      flex-shrink: 0;
-    }
-
-    &:has(> :where(.icon, figure, button, kbd):first-child):not(:has(> :where(.icon, figure, button, kbd):last-child)) {
-      padding-left: var(--md);
-    }
-
-    &:has(> :where(.icon, button, figure):last-child):not(:has(> :where(.icon, figure, button, kbd):first-child)) {
-      padding-right: var(--md);
-    }
-
-    &:has(> :where(.icon, figure, button, kbd):first-child):has(> :where(.icon, figure, button, kbd):last-child) {
-      padding-left: var(--md);
-      padding-right: var(--md);
-    }
-  }
-
-  :where([data-props~="--circle"]) {
+  :where([data-roles~="--circle"]) {
     aspect-ratio: 1/1;
     border-radius: 50%;
     overflow: clip;
   }
 
-  :where([data-props~="--squircle"]) {
+  :where([data-roles~="--squircle"]) {
     aspect-ratio: 1/1;
     border-radius: 25%;
     overflow: clip;
   }
 
-  :where([data-props~="--segmented-controls"]) {
+  :where([data-roles~="--segmented-controls"]) {
     background-color: var(--clr-background__base);
     border-radius: var(--xl);
     gap: calc(var(--xs) / 5);
@@ -85,7 +39,7 @@
     }
   }
 
-  :where([data-props~="--highlight"]) {
+  :where([data-roles~="--highlight"]) {
     background-color: transparent;
     isolation: isolate;
     position: relative;
@@ -113,7 +67,7 @@
     }
   }
 
-  :where([data-props~="--bottomsheet"]) {
+  :where([data-roles~="--bottomsheet"]) {
     background-color: var(--clr-background__base);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -138,7 +92,7 @@
     }
   }
 
-  :where([data-props~="--fab"]) {
+  :where([data-roles~="--fab"]) {
     margin: var(--sm);
     position: fixed;
     z-index: 1;
