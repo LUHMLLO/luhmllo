@@ -408,6 +408,71 @@
     }
   }
 
+  /*select*/
+  :where(select, ::picker(select)) {
+    appearance: base-select;
+  }
+
+  :where(select) {
+    background-color: var(--clr-background__base);
+    border-radius: var(--xs);
+    color: var(--clr-text__base);
+    display: inline-block;
+    font-size: inherit;
+    height: 45px;
+    line-height: 1;
+    outline: solid 2px var(--clr-border__base);
+    outline-offset: -2px;
+    overflow: clip;
+    padding: 0 var(--md);
+    place-items: center;
+    transition-property: background-color,
+      color,
+      outline,
+      outline-offset;
+    transition-duration: var(--animDuration);
+    transition-timing-function: var(--animTiming);
+    white-space: nowrap;
+    width: fit-content;
+
+    &:focus-visible {
+      outline-color: var(--clr-accent__base);
+    }
+
+    &::picker(select) {
+      appearance: base-select;
+      background-color: var(--clr-background__base);
+      border-radius: var(--xs);
+      flex-direction: column;
+      border: solid 2px var(--clr-border__base);
+      overflow-x: clip;
+      overflow-y: auto;
+      transition-property: opacity, visibility;
+      transition-duration: var(--animDuration);
+      transition-timing-function: var(--animTiming);
+      transition-behavior: allow-discrete;
+    }
+
+    &:open::picker(select) {
+      display: flex;
+    }
+
+    & > option {
+      align-items: center;
+      display: inline-flex;
+      font: inherit;
+      gap: var(--xs);
+      height: 45px;
+      line-height: 1;
+      overflow: clip;
+      padding: 0 var(--md);
+      transition-property: background-color, color, filter, outline, outline-color, outline-offset;
+      transition-duration: var(--animDuration);
+      transition-timing-function: var(--animTiming);
+      white-space: nowrap;
+    }
+  }
+
   /* inputs */
   :where(input) {
     background-color: var(--clr-background__base);
