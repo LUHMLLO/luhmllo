@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/app.astro';
+---
+
+<Layout>
+	<button type='button'>
+		<i class='icon'>arrow_left_alt</i>
+		<span>lead icon</span>
+	</button>
+
+	<button type='button'>
+		<span>no icons</span>
+	</button>
+
+	<button type='button'>
+		<i class='icon'>add_2</i>
+	</button>
+
+	<button type='button'>
+		<i class='icon'>globe</i>
+		<span>both icons</span>
+		<i class='icon'>open_in_new</i>
+	</button>
+
+	<button type='button'>
+		<span>trail icon</span>
+		<i class='icon'>arrow_right_alt</i>
+	</button>
+
+	<button type='button' disabled>
+		<span>disabled</span>
+		<i class='icon'>block</i>
+	</button>
+
+	<button type='button' data-roles='primary'>
+		<span>--primary</span>
+	</button>
+
+	<button type='button' data-roles='outline'>
+		<span>--outline</span>
+	</button>
+
+	<button type='button' data-roles='flat'>
+		<span>--flat</span>
+	</button>
+</Layout>

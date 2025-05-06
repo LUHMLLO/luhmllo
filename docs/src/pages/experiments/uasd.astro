@@ -1,0 +1,86 @@
+---
+import Layout from '../../layouts/app.astro';
+import Iframe from '../../layouts/iframe.astro';
+---
+
+<Layout>
+	<Iframe>
+		<x-stack id='appbar'>
+			<x-flex>
+				<button type='button' data-roles="--outline">
+					<i class='icon'>arrow_back</i>
+				</button>
+				<figure style='flex-shrink: 1; width: min(100%, 100px);'>
+					<img src='/images/logo_uasd.svg' alt='logo' style='object-fit: contain;' />
+				</figure>
+
+				<x-row
+					id='menu'
+					style='flex: 1 1; gap: inherit; place-content: end; place-items: center; width: 100%;'>
+					<a href={'#' + crypto.randomUUID()} style='color: inherit;'>
+						Intranet
+					</a>
+					<a href={'#' + crypto.randomUUID()} style='color: inherit;'>
+						Contactos
+					</a>
+					<a href={'#' + crypto.randomUUID()} style='color: inherit;'>
+						Correo
+					</a>
+					<a href={'#' + crypto.randomUUID()} style='color: inherit;'>
+						Egresados
+					</a>
+					<a href={'#' + crypto.randomUUID()} style='color: inherit;'>
+						Revistas Academicas
+					</a>
+					<button type='button' data-roles='accent'>AUTOSERVICIO</button>
+					<button type='button' data-roles='secondary'>
+						<i class='icon'>menu</i>
+					</button>
+				</x-row>
+			</x-flex>
+
+			<label
+				for='searchbar'
+				data-roles='input'
+				style='border-radius: var(--xl);'>
+				<input
+					type='text'
+					name='searchbar'
+					id='searchbar'
+					placeholder='Busca en el portal'
+				/>
+				<i class='icon'>search</i>
+			</label>
+		</x-stack>
+
+		<figure style='height: 512px; width: 100%;'>
+			<img
+				src='https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+				alt='banner'
+			/>
+		</figure>
+
+		<style lang='css' is:inline>
+			@scope {
+				:scope {
+					#appbar {
+						background-color: var(--clr-background__raised);
+						gap: var(--md);
+						padding: var(--md) var(--sm);
+
+						& > x-flex {
+							gap: var(--sm);
+							place-items: center;
+						}
+
+						#menu {
+							a {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+		</style>
+	</Iframe>
+</Layout>

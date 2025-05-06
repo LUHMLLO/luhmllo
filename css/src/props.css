@@ -1,27 +1,27 @@
 @layer props {
-  :where(hr[data-roles~="--x"]) {
+  :where(hr[data-roles~="x"]) {
     height: 1px;
     width: 100%;
   }
 
-  :where(hr[data-roles~="--y"]) {
+  :where(hr[data-roles~="y"]) {
     height: 100%;
     width: 1px;
   }
 
-  :where([data-roles~="--circle"]) {
+  :where([data-roles~="circle"]) {
     aspect-ratio: 1/1;
     border-radius: 50%;
     overflow: clip;
   }
 
-  :where([data-roles~="--squircle"]) {
+  :where([data-roles~="squircle"]) {
     aspect-ratio: 1/1;
     border-radius: 25%;
     overflow: clip;
   }
 
-  :where([data-roles~="--segmented-controls"]) {
+  :where([data-roles~="segmented-controls"]) {
     background-color: var(--clr-background__base);
     border-radius: var(--xl);
     gap: calc(var(--xs) / 5);
@@ -39,7 +39,7 @@
     }
   }
 
-  :where([data-roles~="--highlight"]) {
+  :where([data-roles~="highlight"]) {
     background-color: transparent;
     isolation: isolate;
     position: relative;
@@ -67,7 +67,7 @@
     }
   }
 
-  :where([data-roles~="--bottomsheet"]) {
+  :where([data-roles~="bottomsheet"]) {
     background-color: var(--clr-background__base);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -92,7 +92,7 @@
     }
   }
 
-  :where([data-roles~="--fab"]) {
+  :where([data-roles~="fab"]) {
     margin: var(--sm);
     position: fixed;
     z-index: 1;

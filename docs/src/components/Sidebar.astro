@@ -1,0 +1,211 @@
+<aside id='app__sidebar'>
+	<x-row>
+		<a href='/' data-roles='text'>
+			<figure>
+				<img src='/images/logo.png' alt='logo' />
+			</figure>
+
+			<div>
+				<h5>Lilycat</h5>
+				<p>DX-Oriented CSS library.</p>
+			</div>
+		</a>
+
+		<button type='button' style='display: contents;' data-toggle-sidebar>
+			<i class='icon'> left_panel_close </i>
+		</button>
+	</x-row>
+
+	<label for='search' data-roles='input'>
+		<i class='icon'> search </i>
+		<input type='text' name='search' id='search' />
+		<kbd>Ctrl + K</kbd>
+	</label>
+
+	<hr />
+
+	<ul role='list'>
+		<p>Get Started</p>
+		<li>
+			<a href={'#' + crypto.randomUUID()}><span>Introduction</span></a>
+		</li>
+		<li>
+			<details open>
+				<summary role='button'>
+					<span>Quickstart</span>
+					<i class='icon'> keyboard_arrow_down </i>
+				</summary>
+				<ul>
+					<li>
+						<a href={'#' + crypto.randomUUID()}>How to install</a>
+					</li>
+					<li>
+						<a href={'#' + crypto.randomUUID()}>How to use</a>
+					</li>
+					<li>
+						<a href={'#' + crypto.randomUUID()}>Tailwind support</a>
+					</li>
+				</ul>
+			</details>
+		</li>
+		<li>
+			<a href={'#' + crypto.randomUUID()}><span>Examples</span></a>
+		</li>
+		<li>
+			<a href={'#' + crypto.randomUUID()}><span>FAQs</span></a>
+		</li>
+	</ul>
+
+	<ul role='list'>
+		<p>Concepts</p>
+		<li>
+			<a href={'#' + crypto.randomUUID()}><span>Philosophy</span></a>
+		</li>
+		<li>
+			<details open>
+				<summary role='button'>
+					<span>Symbols</span>
+					<i class='icon'> keyboard_arrow_down </i>
+				</summary>
+				<ol>
+					<li class='active'>
+						<a href={'#' + crypto.randomUUID()}>Tokens</a>
+					</li>
+					<li>
+						<a href={'#' + crypto.randomUUID()}>Reset</a>
+					</li>
+					<li>
+						<a href={'#' + crypto.randomUUID()}>Normalize</a>
+					</li>
+					<li>
+						<a href={'#' + crypto.randomUUID()}>Icons</a>
+					</li>
+					<li>
+						<a href={'#' + crypto.randomUUID()}>Customs</a>
+					</li>
+					<li>
+						<a href={'#' + crypto.randomUUID()}>Props</a>
+					</li>
+				</ol>
+			</details>
+		</li>
+	</ul>
+
+	<ul role='list'>
+		<p>Development</p>
+		<li>
+			<a href={'#' + crypto.randomUUID()}><span>What's new</span></a>
+		</li>
+		<li>
+			<a href={'#' + crypto.randomUUID()}><span>Roadmap</span></a>
+		</li>
+		<li>
+			<a href={'#' + crypto.randomUUID()}><span>Contributing</span></a>
+		</li>
+	</ul>
+
+	<hr />
+
+	<ul role='list'>
+		<li>
+			<a href={'#' + crypto.randomUUID()}>
+				<figure>
+					<img src='/images/icon-github.png' alt='github icon' />
+				</figure>
+				<span>GitHub Repository</span>
+				<i class='icon'>arrow_outward</i>
+			</a>
+		</li>
+		<li>
+			<a href={'#' + crypto.randomUUID()}>
+				<figure>
+					<img src='/images/icon-jsr.png' alt='jsr icon' />
+				</figure>
+				<span>JSR Package</span>
+				<i class='icon'>arrow_outward</i>
+			</a>
+		</li>
+		<li>
+			<a href={'#' + crypto.randomUUID()}>
+				<figure>
+					<img src='/images/icon-sponsor.png' alt='sponsor icon' />
+				</figure>
+				<span>Support Us</span>
+				<i class='icon'>arrow_outward</i>
+			</a>
+		</li>
+	</ul>
+
+	<script type='module' is:inline>
+		import { listenToSidebarToggle } from '/js/sidebar.js';
+		window.addEventListener('DOMContentLoaded', listenToSidebarToggle);
+	</script>
+
+	<script type='module' is:inline>
+		import { bindSidebarToggles } from '/js/sidebar.js';
+		window.addEventListener('DOMContentLoaded', bindSidebarToggles);
+	</script>
+
+	<style lang='css' is:inline>
+		@scope {
+			:scope {
+				background-color: var(--clr-background__raised);
+				border-right: solid 2px var(--clr-border__base);
+				gap: var(--xl);
+				grid-column: left;
+				grid-row: expand;
+				height: 100dvh;
+				inset: 0;
+				overflow: auto;
+				padding: var(--xl) var(--md);
+				position: sticky;
+				transition-property: opacity, position, transform, translate;
+				transition-duration: var(--animDuration);
+				transition-timing-function: var(--animTiming);
+				width: max(0px, 300px);
+				z-index: 5;
+
+				&.float {
+					opacity: 0;
+					position: fixed;
+					transform: translateX(-95%);
+
+					&:hover {
+						opacity: 1;
+						transform: translateX(0);
+					}
+				}
+
+				& > x-row {
+					align-items: center;
+					gap: var(--xs);
+
+					a {
+						flex: 1 1 auto;
+						flex-wrap: wrap;
+
+						& > figure {
+							aspect-ratio: 1/1;
+							flex-shrink: 0;
+							vertical-align: middle;
+							width: 45px;
+						}
+
+						& > div {
+							flex: 1 1 auto;
+							min-width: 0;
+						}
+					}
+				}
+
+				& > label[data-roles~='input'] {
+					background-color: var(--clr-background__raised);
+				}
+
+				& > hr {
+					background-color: var(--clr-border__raised);
+				}
+			}
+		}
+	</style>
+</aside>

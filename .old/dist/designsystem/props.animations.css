@@ -1,9 +1,0 @@
-@layer props {
-  :root {
-    --animDefaults: var(--animDuration) var(--animTiming);
-    --animDuration: 360ms;
-    --animTiming: cubic-bezier(0.2, 0, 0, 1);
-  }
-}
-
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9saWIvcGFja2FnZXMvZGVzaWduc3lzdGVtL2Nzcy9wcm9wcy5hbmltYXRpb25zLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJwcm9wcy5hbmltYXRpb25zLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBsYXllciBwcm9wcyB7XG4gIDpyb290IHtcbiAgICAtLWFuaW1EZWZhdWx0czogdmFyKC0tYW5pbUR1cmF0aW9uKSB2YXIoLS1hbmltVGltaW5nKTtcbiAgICAtLWFuaW1EdXJhdGlvbjogMzYwbXM7XG4gICAgLS1hbmltVGltaW5nOiBjdWJpYy1iZXppZXIoMC4yLCAwLCAwLCAxKTtcbiAgfVxufVxuIl19 */

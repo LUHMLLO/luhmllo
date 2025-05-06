@@ -130,7 +130,7 @@
     }
   }
 
-  :where([data-roles~="--input"]) {
+  :where([data-roles~="input"]) {
     align-items: center;
     background-color: var(--clr-background__base);
     border-radius: var(--xs);

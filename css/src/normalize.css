@@ -276,12 +276,6 @@
     text-decoration-thickness: from-font;
     width: fit-content;
 
-    &:not([role="none"], [role="presentation"], [role="text"]) {
-      &:visited:not(:focus-visible, :hover, :active) {
-        color: hsl(from var(--clr-accent__base) h calc(s - 15) calc(l - 10));
-      }
-    }
-
     &:focus-visible {
       outline-color: inherit;
       outline-offset: 0.5px;
@@ -300,7 +294,13 @@
       text-decoration: none;
     }
 
-    &:where([role="none"], [role="presentation"], [role="text"]) {
+    &:not([data-roles~="text"]) {
+      &:visited:not(:focus-visible, :hover, :active) {
+        color: hsl(from var(--clr-accent__base) h calc(s - 15) calc(l - 10));
+      }
+    }
+
+    &:where([data-roles~="text"]) {
       color: inherit;
       text-decoration: none;
     }
@@ -364,7 +364,7 @@
       place-content: center;
     }
 
-    &:where([data-roles~="--outline"]) {
+    &:where([data-roles~="outline"]) {
       background-color: transparent;
       color: var(--clr-primary__base);
       outline-color: var(--clr-primary__base);
@@ -386,7 +386,7 @@
       }
     }
 
-    &:where([data-roles~='--flat']) {
+    &:where([data-roles~='flat']) {
       background-color: inherit;
       outline-color: transparent;
 

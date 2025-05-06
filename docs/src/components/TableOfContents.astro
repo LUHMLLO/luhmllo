@@ -1,0 +1,25 @@
+<aside id='app__rightpanel'>
+	<p>not use for this right now besides testing</p>
+
+	<style lang='css' is:inline>
+		@scope {
+			:scope {
+				background-color: var(--clr-background__raised);
+				border-right: solid 2px var(--clr-border__base);
+				gap: var(--xl);
+				grid-column: right;
+				grid-row: expand;
+				height: 100dvh;
+				inset: 0;
+				overflow: auto;
+				padding: var(--xl) var(--md);
+				position: sticky;
+				transition-property: opacity, position, transform, translate;
+				transition-duration: var(--animDuration);
+				transition-timing-function: var(--animTiming);
+				width: max(0px, 300px);
+				z-index: 5;
+			}
+		}
+	</style>
+</aside>

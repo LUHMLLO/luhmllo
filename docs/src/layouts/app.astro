@@ -1,0 +1,30 @@
+---
+import '../../../css/dist/all.css';
+import Scaffold from './html.astro';
+import Content from '../components/Content.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Topbar from '../components/Topbar.astro';
+import Bottombar from '../components/Bottombar.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import Cookiesbar from '../components/Cookiesbar.astro';
+---
+
+<Scaffold>
+	<div id='app'>
+		<Topbar />
+		<Sidebar />
+		<Content>
+			<slot />
+		</Content>
+		<TableOfContents />
+		<Bottombar />
+		<Cookiesbar />
+	</div>
+
+	<style lang='css' is:inline>
+		@scope {
+			#app {
+			}
+		}
+	</style>
+</Scaffold>

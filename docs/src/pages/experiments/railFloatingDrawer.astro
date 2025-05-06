@@ -1,0 +1,223 @@
+---
+import Layout from '../../layouts/app.astro';
+import Iframe from '../../layouts/iframe.astro';
+---
+
+<Layout>
+	<Iframe>
+		<script type='module' is:inline>
+			document.addEventListener('DOMContentLoaded', () => {
+				const button = document.getElementById('menu-button');
+				const dialog = document.getElementById('drawer');
+
+				if (button && dialog instanceof HTMLDialogElement) {
+					button.addEventListener('click', () => {
+						dialog.open ? dialog.close() : dialog.show();
+					});
+				}
+			});
+		</script>
+
+		<main>
+			<x-stack id='navigation'>
+				<nav id='rail'>
+					<a href='#'>
+						<i class='icon' style='--fill: 1;'> asterisk </i>
+					</a>
+					<x-flex id='menu-icons'>
+						<a href='#'>
+							<i class='icon'> search </i>
+						</a>
+						<a href='#'>
+							<i class='icon'> co_present </i>
+						</a>
+						<a href='#'>
+							<i class='icon'> docs </i>
+						</a>
+						<a href='#'>
+							<i class='icon'> smart_display </i>
+						</a>
+						<button id='menu-button' type='button' style='display: contents;'>
+							<i class='icon'> menu </i>
+						</button>
+					</x-flex>
+				</nav>
+
+				<dialog id='drawer'>
+					<span>label</span>
+					<x-flex data-roles='input'>
+						<i class='icon'> search </i>
+						<input type='text' placeholder='search' />
+						<i class='icon'> keyboard_command_key </i>
+					</x-flex>
+					<hr />
+					<span>label</span>
+					<a href='#'>
+						<i class='icon'> home </i>
+						<span>home</span>
+					</a>
+					<a href='#'>
+						<i class='icon'> home </i>
+						<span>home</span>
+					</a>
+					<a href='#'>
+						<i class='icon'> home </i>
+						<span>home</span>
+					</a>
+					<a href='#'>
+						<i class='icon'> home </i>
+						<span>home</span>
+					</a>
+					<hr />
+					<span>label</span>
+					<a href='#'>
+						<i class='icon'> home </i>
+						<span>home</span>
+					</a>
+					<a href='#'>
+						<i class='icon'> home </i>
+						<span>home</span>
+					</a>
+				</dialog>
+			</x-stack>
+
+			<x-stack>
+				<h1>hello world</h1>
+				<p>
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam
+					inventore, quasi corporis ad amet a, architecto hic doloremque illo
+					error voluptatum eum. Alias neque nesciunt, incidunt ullam voluptas
+					officia ex.
+				</p>
+			</x-stack>
+		</main>
+
+		<style lang='css' is:inline>
+			@scope {
+				:scope {
+					main {
+						display: flex;
+						flex-direction: column-reverse;
+						gap: var(--md);
+						height: 100%;
+						overflow: clip;
+						padding: var(--md);
+
+						& > * {
+							flex-shrink: 0;
+						}
+
+						@media screen and (min-width: 440px) {
+							flex-direction: row;
+						}
+					}
+
+					#navigation {
+						align-items: center;
+						flex-direction: column-reverse;
+						flex-shrink: 0;
+						gap: var(--md);
+
+						@media screen and (min-width: 440px) {
+							flex-direction: row;
+						}
+
+						#rail {
+							align-items: inherit;
+							background-color: var(--clr-background__raised);
+							border-radius: var(--xs);
+							flex-shrink: 0;
+							gap: inherit;
+							height: 50px;
+							overflow: clip;
+							padding: var(--md);
+							width: 100%;
+
+							@media screen and (min-width: 440px) {
+								flex-direction: column;
+								height: 100%;
+								width: 50px;
+							}
+
+							#logo {
+								aspect-ratio: 1/1;
+								flex-shrink: 1;
+								height: 20px;
+								width: 20px;
+							}
+
+							#menu-icons {
+								align-items: inherit;
+								flex-grow: 1;
+								flex-wrap: nowrap;
+								gap: var(--md);
+								place-content: end;
+
+								@media screen and (min-width: 440px) {
+									flex-direction: column;
+								}
+
+								:where(a:not(:hover, :focus, :active)) {
+									color: inherit;
+								}
+							}
+						}
+
+						#drawer {
+							background-color: var(--clr-background__raised);
+							border-radius: var(--xs);
+							flex-direction: column;
+							gap: var(--md);
+							inset: auto 0 calc(50px + var(--md)) 0;
+							margin: var(--md);
+							max-height: calc(100% - calc(var(--md) * 2) - 50px - 15px);
+							max-width: calc(100% - calc(var(--md) * 2));
+							min-height: 0;
+							min-width: 0;
+							outline: none;
+							overflow: auto;
+							padding: var(--md);
+							place-content: space-between;
+							width: 100%;
+
+							&[open] {
+								display: flex;
+							}
+
+							@media screen and (min-width: 440px) {
+								height: 100%;
+								inset: 0 0 0 calc(50px + var(--md));
+								max-height: calc(100% - calc(var(--md) * 2));
+								place-content: start;
+								width: min(300px, 100%);
+							}
+
+							> * {
+								flex-shrink: 0;
+							}
+
+							a {
+								align-items: center;
+								display: flex;
+								gap: var(--xs);
+								width: 100%;
+
+								&:where(:not(:hover, :focus, :active)) {
+									color: inherit;
+								}
+
+								span {
+									flex-grow: 1;
+								}
+							}
+
+							[data-roles~='input'] {
+								background-color: var(--clr-background__raised);
+							}
+						}
+					}
+				}
+			}
+		</style>
+	</Iframe>
+</Layout>
