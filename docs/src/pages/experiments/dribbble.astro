@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import Avatar from '../../assets/luisrmelo.png';
 import Layout from '../../layouts/app.astro';
 import Iframe from '../../layouts/iframe.astro';
 ---
@@ -53,7 +55,7 @@ import Iframe from '../../layouts/iframe.astro';
 				</button>
 
 				<figure>
-					<img src='/images/luisrmelo.png' alt='Profile' />
+					<Image src={Avatar} alt='avatar' decoding='async' loading='eager' />
 				</figure>
 			</x-row>
 		</nav>

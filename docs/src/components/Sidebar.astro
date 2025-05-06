@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import Logo from '../assets/logo.png';
 import IconGithub from '../assets/icon_github.svg';
 import IconJSR from '../assets/icon_jsr.svg';
 import IconSponsor from '../assets/icon_sponsor.svg';
@@ -9,15 +10,7 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 	<x-row>
 		<a href='/' data-roles='text'>
 			<figure>
-				<Image
-					src='/images/logo.png'
-					alt='logo'
-					decoding='async'
-					loading='eager'
-					inferSize={true}
-					height={45}
-					width={45}
-				/>
+				<Image src={Logo} alt='logo' decoding='async' loading='eager' />
 			</figure>
 
 			<div>

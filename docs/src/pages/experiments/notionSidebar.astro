@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import Avatar from '../../assets/luisrmelo.png';
 import Layout from '../../layouts/app.astro';
 import Iframe from '../../layouts/iframe.astro';
 ---
@@ -11,7 +13,7 @@ import Iframe from '../../layouts/iframe.astro';
 					<figure
 						data-roles='circle'
 						style='background-color: white; height: var(--xl);'>
-						<img alt='Photo: Luis R. Melo' src='/images/luisrmelo.png' />
+						<Image src={Avatar} alt='avatar' decoding='async' loading='eager' />
 					</figure>
 					<span> Luis R. Melo </span>
 					<i class='icon'>keyboard_arrow_down</i>
