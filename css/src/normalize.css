@@ -461,6 +461,7 @@
       align-items: center;
       display: inline-flex;
       font: inherit;
+      flex-shrink: 0;
       gap: var(--xs);
       height: 45px;
       line-height: 1;
