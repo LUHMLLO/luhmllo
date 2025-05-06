@@ -130,49 +130,17 @@
     }
   }
 
-  :where([data-roles~="input"]) {
-    align-items: center;
-    background-color: var(--clr-background__base);
-    border-radius: var(--xs);
-    display: flex;
-    gap: var(--xs);
-    height: 45px;
-    outline: solid 2px var(--clr-border__base);
-    outline-offset: -2px;
+  :where(x-container) {
+    --outter-gutter: 0;
+    --outter-columns: 0;
+    --inner-gutter: minmax(1.5rem, 1fr);
+    --inner-column: minmax(0, 80rem);
+
+    display: grid;
+    grid-column: expand;
+    grid-row: bottom;
+    grid-template-columns:
+      [expand-start] var(--outter-gutter) [left-start] var(--outter-columns) [left-end] 0 [breakout-start] var(--inner-gutter) [inner-start] var(--inner-column) [inner-end] var(--inner-gutter) [breakout-end] 0 [right-start] var(--outter-columns) [right-end] var(--outter-gutter) [expand-end];
     overflow: clip;
-    padding: 0 var(--nm);
-    transition-duration: var(--animDuration);
-    transition-property: background-color, color, outline, outline-offset;
-    transition-timing-function: var(--animTiming);
-
-    &:has(:focus) {
-      outline-color: var(--clr-accent__base);
-    }
-
-    & > input {
-      background-color: transparent;
-      border-radius: 0;
-      height: auto;
-      outline: none;
-      padding: 0;
-      width: 100%;
-    }
-
-    & > :where(.icon, button, figure) {
-      flex-shrink: 0;
-    }
-
-    &:has(> :where(.icon, figure, button, kbd):first-child):not(:has(> :where(.icon, figure, button, kbd):last-child)) {
-      padding-left: var(--md);
-    }
-
-    &:has(> :where(.icon, button, figure):last-child):not(:has(> :where(.icon, figure, button, kbd):first-child)) {
-      padding-right: var(--md);
-    }
-
-    &:has(> :where(.icon, figure, button, kbd):first-child):has(> :where(.icon, figure, button, kbd):last-child) {
-      padding-left: var(--md);
-      padding-right: var(--md);
-    }
   }
 }

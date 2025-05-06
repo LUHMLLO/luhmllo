@@ -1,28 +1,23 @@
-<x-grid id='app__cookieconsent'>
-	<p>
-		We use cookies to understand how you use the Lilycat docs. No ads, no
-		tracking across sites.<br />You can manage your cookie preferences anytime.
-		<a href='/privacy/'>Privacy Policy</a>
-	</p>
-
+<x-container id='app__cookieconsent'>
 	<x-grid>
-		<button type='button' data-roles='primary'>Accept</button>
-		<button type='button' data-roles='outline'>Reject</button>
+		<p>
+			We use cookies to understand how you use the Lilycat docs. No ads, no
+			tracking across sites. You can manage your cookie preferences anytime.
+			<a href='/privacy/'>Privacy Policy</a>
+		</p>
+
+		<x-grid>
+			<button type='button' data-roles='primary'>Accept</button>
+			<button type='button' data-roles='outline'>Reject</button>
+		</x-grid>
 	</x-grid>
 
 	<style lang='css' is:inline>
 		@scope {
 			:scope {
-				--cols: 2;
-				--gap: var(--nm);
-
-				grid-column: expand;
-				grid-row: bottom;
 				inset: 0 0 -0.1px 0;
 				margin-bottom: -0.1px;
-				padding: var(--nm) clamp(var(--nm), 100%, 5dvw);
-				place-content: center;
-				place-items: safe center;
+				padding: var(--nm) 0;
 				position: sticky;
 				z-index: 10;
 
@@ -36,23 +31,33 @@
 					z-index: -1;
 				}
 
-				& > p {
-					color: var(--clr-background__lowered);
+				& > * {
+					grid-column: inner;
 					width: 100%;
 				}
 
 				& > x-grid {
 					--cols: 2;
-					--gap: var(--xs);
+					--gap: var(--nm);
 
-					flex: 1 1;
+					place-items: safe center;
 					width: 100%;
 
-					button {
+					& > p {
+						color: var(--clr-background__lowered);
+					}
+
+					& > x-grid {
+						--cols: 2;
+						--gap: var(--sm);
 						width: 100%;
+
+						button {
+							width: 100%;
+						}
 					}
 				}
 			}
 		}
 	</style>
-</x-grid>
+</x-container>

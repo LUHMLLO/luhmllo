@@ -296,7 +296,7 @@
 
     &:not([data-roles~="text"]) {
       &:visited:not(:focus-visible, :hover, :active) {
-        color: hsl(from var(--clr-accent__base) h calc(s - 15) calc(l - 10));
+        color: var(--clr-accent__lowered);
       }
     }
 

@@ -1,11 +1,19 @@
 ---
-// import { Image } from 'astro:assets';
+import { Image } from 'astro:assets';
 ---
 
 <nav id='app__topbar'>
 	<a href='/' data-roles='text'>
 		<figure>
-			<img src='/images/logo.png' alt='logo' />
+			<Image
+				src='/images/logo.png'
+				alt='logo'
+				decoding='async'
+				loading='eager'
+				inferSize={true}
+				height={45}
+				width={45}
+			/>
 		</figure>
 		<span>Lilycat</span>
 	</a>
@@ -24,7 +32,7 @@
 				grid-row: top;
 				height: max-content;
 				inset: var(--nm);
-				margin: var(--nm);
+				margin: var(--nm) 0 0 0;
 				outline: solid 2px var(--clr-border__base);
 				outline-offset: 2px;
 				overflow: clip;

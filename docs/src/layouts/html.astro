@@ -8,14 +8,9 @@
 		/>
 		<meta name='generator' content={Astro.generator} />
 
-		<!-- <link rel='canonical' href={canonicalUrl} /> -->
-
 		<link rel='icon' type='image/svg+xml' sizes='any' href='/images/logo.png' />
 
 		<title>lilys</title>
-
-		<link rel='stylesheet' href='/css/app.css' />
-		<link rel='stylesheet' href='/css/utils.css' />
 
 		<link rel='preconnect' href='https://fonts.googleapis.com' />
 		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
@@ -31,6 +26,29 @@
 		<style lang='css'>
 			html {
 				font-family: 'General Sans', sans-serif;
+			}
+
+			@layer utils {
+				.gridlines {
+					--grid-line-color: hsla(0deg, 0%, 50%, 0.05);
+					--grid-line-width: 1px;
+					--grid-size: 100px;
+
+					background-attachment: fixed;
+					background-blend-mode: difference;
+					background-image: linear-gradient(
+							to right,
+							var(--grid-line-color) var(--grid-line-width),
+							transparent var(--grid-line-width)
+						),
+						linear-gradient(
+							to bottom,
+							var(--grid-line-color) var(--grid-line-width),
+							transparent var(--grid-line-width)
+						);
+					background-position: center;
+					background-size: var(--grid-size) var(--grid-size);
+				}
 			}
 		</style>
 	</head>
