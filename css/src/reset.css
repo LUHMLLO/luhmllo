@@ -61,7 +61,7 @@
     &::before {
       backface-visibility: inherit;
       box-sizing: inherit;
-      clear: both;
+      /* clear: both; */
     }
 
     &:where([disabled], [not-allowed]) {

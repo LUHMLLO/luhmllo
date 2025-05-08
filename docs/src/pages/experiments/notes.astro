@@ -1,0 +1,122 @@
+---
+import Layout from '../../layouts/app.astro';
+import Iframe from '../../layouts/iframe.astro';
+---
+
+<Layout>
+	<Iframe>
+		<header style='--gap: var(--md); --spacing: var(--nm);'>
+			<h1>Good Morning</h1>
+			<p>Here are your tasks for today.</p>
+			<time datetime='6:15 AM'>6:15 AM</time>
+		</header>
+
+		<x-grid style='--cols: 3; --gap: var(--nm); --spacing: var(--nm);'>
+			<button>
+				<i class='icon'> note </i>
+				<span>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint eum,
+					expedita natus dolor placeat molestiae. Placeat ducimus magni maiores
+					obcaecati ipsum in? Modi recusandae tempora deleniti eum, excepturi ad
+					commodi?
+				</span>
+			</button><button>
+				<i class='icon'> note </i>
+				<span>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint eum,
+					expedita natus dolor placeat molestiae. Placeat ducimus magni maiores
+					obcaecati ipsum in? Modi recusandae tempora deleniti eum, excepturi ad
+					commodi?
+				</span>
+			</button><button>
+				<i class='icon'> note </i>
+				<span>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint eum,
+					expedita natus dolor placeat molestiae. Placeat ducimus magni maiores
+					obcaecati ipsum in? Modi recusandae tempora deleniti eum, excepturi ad
+					commodi?
+				</span>
+			</button><button>
+				<i class='icon'> note </i>
+				<span>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint eum,
+					expedita natus dolor placeat molestiae. Placeat ducimus magni maiores
+					obcaecati ipsum in? Modi recusandae tempora deleniti eum, excepturi ad
+					commodi?
+				</span>
+			</button><button>
+				<i class='icon'> note </i>
+				<span>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint eum,
+					expedita natus dolor placeat molestiae. Placeat ducimus magni maiores
+					obcaecati ipsum in? Modi recusandae tempora deleniti eum, excepturi ad
+					commodi?
+				</span>
+			</button>
+		</x-grid>
+
+		<label for='inputask' data-roles='input'>
+			<input
+				type='text'
+				name='inputask'
+				id='inputask'
+				placeholder='Input task'
+			/>
+			<i class='icon'> mic </i>
+		</label>
+
+		<style lang='css' is:inline>
+			@scope {
+				:scope {
+					display: grid;
+					grid-auto-rows: max-content;
+					grid-template-columns: 1fr;
+					grid-template-rows: minmax(max-content, 1fr) minmax(max-content, 1fr);
+					overflow: auto;
+
+					& > header {
+						padding: var(--spacing);
+
+						& > *:not(:first-child) {
+							margin-top: var(--gap);
+						}
+
+						& > p {
+							font-size: var(--nm);
+						}
+
+						& > time {
+							background-color: var(--clr-background__raised);
+							border-radius: var(--xs);
+							display: inline-block;
+							height: 30px;
+							padding: 0 var(--sm);
+							place-content: center;
+						}
+					}
+
+					& > x-grid {
+						padding: var(--spacing);
+
+						button {
+							align-items: start;
+							background-color: var(--clr-background__raised);
+							border-radius: var(--xs);
+							height: 100%;
+							padding-block: var(--md);
+							text-align: left;
+							width: 100%;
+						}
+					}
+
+					& > label {
+						box-shadow: 0 0 100vmax 5vmax var(--clr-background__base);
+						inset: var(--nm);
+						margin: 0 var(--nm) var(--nm) var(--nm);
+						position: sticky;
+					}
+				}
+			}
+		</style>
+	</Iframe>
+</Layout>

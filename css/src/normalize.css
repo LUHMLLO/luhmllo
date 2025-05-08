@@ -26,9 +26,9 @@
     line-height: 1;
   }
 
-  :where(a, button, [type="button"], caption, figcaption, h1, h2, h3, h4, h5, h6, input, kbd, label, legend, select, small, span, summary) {
+  /* :where(a, button, [type="button"], caption, figcaption, h1, h2, h3, h4, h5, h6, input, kbd, label, legend, select, small, span, summary) {
     text-box: trim-both;
-  }
+  } */
 
   :where(aside) {
     display: flex;
