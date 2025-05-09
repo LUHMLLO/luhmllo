@@ -1,114 +1,5 @@
 @layer normalize {
 
-
-
-
-
-
-  :where(nav) {
-    display: flex;
-  }
-
-  :where(hr) {
-    background-color: var(--clr-border__base);
-    flex: 0 0 2px;
-    height: 2px;
-    width: 100%;
-  }
-
-  :where(mark) {
-    background-color: var(--clr-warning);
-  }
-
-  /* media */
-  :where(audio, canvas, figure, iframe, img, video) {
-    display: inline-block;
-    width: fit-content;
-  }
-
-  :where(audio) {
-    height: 50px;
-    width: clamp(250px, 100%, 350px);
-  }
-
-  :where(figure > img) {
-    display: block;
-    height: 100%;
-    width: 100%;
-  }
-
-  :where(img) {
-    object-fit: cover;
-  }
-
-  /* meter & progress */
-  :where(meter, progress) {
-    display: inline-block;
-    height: 35px;
-  }
-
-
-
-  /* quotes */
-  :where(blockquote) {
-    border-left: solid var(--xs);
-    margin: min(5%, var(--sm));
-    padding: min(5%, var(--sm));
-  }
-
-
-
-  /* links */
-  :where(a) {
-    align-items: center;
-    color: var(--clr-accent__base);
-    display: inline-flex;
-    gap: var(--xs);
-    height: max-content;
-    outline: solid 1px transparent;
-    outline-offset: 1px;
-    text-decoration: underline;
-    text-decoration-skip-ink: auto;
-    transition-property: color;
-    transition-duration: var(--animDuration);
-    transition-timing-function: var(--animTiming);
-    text-decoration-thickness: from-font;
-    width: fit-content;
-
-    &:focus-visible {
-      outline-color: inherit;
-      outline-offset: 0.5px;
-    }
-
-    &:hover {
-      color: hsl(from var(--clr-accent__raised) h s calc(l + var(--ratio-texts)));
-    }
-
-    &:active {
-      color: hsl(from var(--clr-accent__lowered) h s calc(l - var(--ratio-texts)));
-    }
-
-    &:where(:not([href]), [href=""], [href="#"], [href^="javascript:"], [href^="void(0)"]) {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    &:not([data-roles~="text"]) {
-      &:visited:not(:focus-visible, :hover, :active) {
-        color: var(--clr-accent__lowered);
-      }
-    }
-
-    &:where([data-roles~="text"]) {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    & > span {
-      flex: 1 1;
-    }
-  }
-
   /* buttons */
   :where(button, [type="button"]) {
     align-items: center;
@@ -205,6 +96,12 @@
         outline-color: transparent;
       }
     }
+  }
+
+
+  :where(meter, progress) {
+    display: inline-block;
+    height: 35px;
   }
 
   /*select*/
@@ -413,76 +310,6 @@
 
     &:focus-visible {
       outline-color: var(--clr-accent__base);
-    }
-  }
-
-  /* table */
-  :where(table) {
-    display: block;
-    background-color: var(--clr-background__base);
-    border-collapse: collapse;
-    border-spacing: 0;
-    outline: solid 2px var(--clr-border__base);
-    outline-offset: -2px;
-    overflow-x: auto;
-    position: relative;
-    table-layout: auto;
-    width: fit-content;
-
-    :where(caption) {
-      background-color: var(--clr-background__base);
-      font-size: inherit;
-      overflow: clip;
-      padding: var(--sm);
-      text-align: center;
-      width: 100%;
-
-      > * {
-        vertical-align: middle;
-      }
-    }
-
-    :where(th) {
-      min-height: 100px;
-      padding: var(--lg) var(--xl) var(--lg);
-    }
-
-    :where(td) {
-      min-height: 75px;
-      padding: var(--nm) var(--xl) var(--lg);
-    }
-
-    :where(th, td) {
-      border: solid 1px var(--clr-border__base);
-      font: inherit;
-      max-width: none;
-      min-width: max-content;
-      overflow: clip;
-      text-align: left;
-      vertical-align: baseline;
-      white-space: nowrap;
-      width: auto;
-    }
-  }
-
-  /* dialog */
-  :where(dialog) {
-    background-color: var(--clr-background__base);
-    border-radius: var(--xs);
-    height: max-content;
-    inset: 0;
-    margin: auto;
-    outline: none;
-    position: absolute;
-
-    &:modal {
-      outline: solid 2px var(--clr-border__base);
-      outline-offset: -2px;
-    }
-
-    &::backdrop {
-      background-color: hsl(from var(--clr-background__lowered) h s l / 75%);
-      backdrop-filter: blur(0.5ex);
     }
   }
 }

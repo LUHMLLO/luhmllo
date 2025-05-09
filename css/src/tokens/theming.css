@@ -1,0 +1,47 @@
+@layer tokens {
+  :root {
+    --clr-text__lowered: hsl(from var(--clr-text__base) h s calc(l - 5));
+    --clr-text__base: light-dark(hsl(0, 0%, 10%), hsl(0, 0%, 90%));
+    --clr-text__raised: hsl(from var(--clr-text__base) h s calc(l + 5));
+
+    --clr-background__lowered: hsl(from var(--clr-background__base) h s calc(l - 3));
+    --clr-background__base: light-dark(hsl(0, 0%, 90%), hsl(0, 0%, 10%));
+    --clr-background__raised: hsl(from var(--clr-background__base) h s calc(l + 3));
+
+    --clr-border__lowered: hsl(from var(--clr-border__base) h s calc(l - 5));
+    --clr-border__base: light-dark(hsl(0, 0%, 85%), hsl(0, 0%, 15%));
+    --clr-border__raised: hsl(from var(--clr-border__base) h s calc(l + 5));
+
+    --clr-primary__lowered: hsl(from var(--clr-primary__base) h s calc(l - 5));
+    --clr-primary__base: light-dark(hsl(26, 36%, 72%), hsl(26, 50%, 48%));
+    --clr-primary__raised: hsl(from var(--clr-primary__base) h s calc(l + 5));
+
+    --clr-secondary__lowered: hsl(from var(--clr-secondary__base) h s calc(l - 5));
+    --clr-secondary__base: light-dark(hsl(47, 38%, 82%), hsl(47, 50%, 42%));
+    --clr-secondary__raised: hsl(from var(--clr-secondary__base) h s calc(l + 5));
+
+    --clr-accent__lowered: hsl(from var(--clr-accent__base) h s calc(l - 5));
+    --clr-accent__base: light-dark(hsl(4, 65%, 58%), hsl(4, 65%, 58%));
+    --clr-accent__raised: hsl(from var(--clr-accent__base) h s calc(l + 5));
+
+    --clr-debug__lowered: hsl(from var(--clr-debug__raised) h s calc(l - 5));
+    --clr-debug__base: light-dark(hsl(325, 45%, 50%), hsl(325, 35%, 65%));
+    --clr-debug__raised: hsl(from var(--clr-debug__raised) h s calc(l + 5));
+
+    --clr-error__lowered: hsl(from var(--clr-error__base) h s calc(l - 5));
+    --clr-error__base: light-dark(hsl(4, 70%, 50%), hsl(4, 50%, 65%));
+    --clr-error__raised: hsl(from var(--clr-error__base) h s calc(l + 5));
+
+    --clr-info__lowered: hsl(from var(--clr-info__base) h s calc(l - 5));
+    --clr-info__base: light-dark(hsl(210, 40%, 50%), hsl(210, 40%, 65%));
+    --clr-info__raised: hsl(from var(--clr-info__base) h s calc(l + 5));
+
+    --clr-success__lowered: hsl(from var(--clr-success__base) h s calc(l - 5));
+    --clr-success__base: light-dark(hsl(135, 32%, 50%), hsl(135, 40%, 65%));
+    --clr-success__raised: hsl(from var(--clr-success__base) h s calc(l + 5));
+
+    --clr-warning__lowered: hsl(from var(--clr-warning__base) h s calc(l - 5));
+    --clr-warning__base: light-dark(hsl(38, 60%, 50%), hsl(38, 50%, 65%));
+    --clr-warning__raised: hsl(from var(--clr-warning__base) h s calc(l + 5));
+  }
+}

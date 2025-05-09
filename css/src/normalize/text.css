@@ -1,0 +1,88 @@
+@layer normalize {
+
+  :where(h1, h2, h3, h4, h5, h6,
+    p, blockquote, q, cite,
+    ul, ol, dl, dt, dd, li,
+    a, div, span, details, summary, figure, figcaption, caption,
+    address, main, section, article, aside, header, footer, nav,
+    form, fieldset, legend, label, button, input, select, textarea, optgroup, option) {
+    font-family: inherit;
+    font-weight: 400;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+    text-wrap: pretty;
+    word-break: break-word;
+  }
+
+  :where(acronym, span, strong, b, big, em, i, mark, small, del, dfn, abbr, ins, sub, sup, code, kbd, samp, var, br, tt, wbr, time, data, cite, q) {
+    display: inline;
+    line-height: 1;
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    color: var(--clr-text__raised);
+    font-weight: 500;
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  :where(h1) {
+    font-size: calc(45 * 0.0625rem);
+  }
+
+  :where(h2) {
+    font-size: calc(40 * 0.0625rem);
+  }
+
+  :where(h3) {
+    font-size: calc(30 * 0.0625rem);
+  }
+
+  :where(h4) {
+    font-size: calc(25 * 0.0625rem);
+  }
+
+  :where(h5) {
+    font-size: calc(20 * 0.0625rem);
+  }
+
+  :where(h6) {
+    font-size: calc(15 * 0.0625rem);
+  }
+
+  :where(p) {
+    display: block;
+    width: min(100%, 75ch);
+  }
+
+  :where(code, pre) {
+    display: inline;
+    font: inherit;
+    text-box: trim-both ex alphabetic;
+    vertical-align: inherit;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  :where(code) {
+    color: var(--clr-debug);
+  }
+
+  :where(pre) {
+    white-space-collapse: preserve-breaks;
+  }
+
+  :where(kbd) {
+    background-color: var(--clr-background__raised);
+    border-radius: var(--xs);
+    font-family: monospace;
+    font-size: calc(10 * 0.0625rem);
+    height: 25px;
+    outline: solid 2px var(--clr-border__raised);
+    padding: 0 var(--sm);
+    place-content: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+}

@@ -1,9 +1,5 @@
-@layer icons {
-
-  :is(.icon,
-    .material-symbols-outlined,
-    .material-symbols-rounded,
-    .material-symbols-sharp) {
+@layer x-customs {
+  :where(x-icon) {
     --size: var(--nm);
     --fill: 0;
     --grad: 0;

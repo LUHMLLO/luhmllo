@@ -1,0 +1,27 @@
+@layer normalize {
+
+  :where(article, figcaption, footer, header, hgroup, menu, section) {
+    display: block;
+  }
+
+  :where(main) {}
+
+  :where(header) {}
+
+  :where(footer) {}
+
+  :where(section) {}
+
+  :where(article) {}
+
+  :where(nav) {}
+
+  :where(aside) {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      flex-shrink: 0;
+    }
+  }
+}

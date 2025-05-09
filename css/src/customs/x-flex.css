@@ -1,0 +1,16 @@
+@layer x-customs {
+  :where(x-flex, x-row) {
+    display: flex;
+    flex: 1 1;
+  }
+
+  :where(x-wrap) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  :where(x-col, x-column, x-group, x-stack) {
+    display: flex;
+    flex-direction: column;
+  }
+}

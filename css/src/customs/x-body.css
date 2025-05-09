@@ -1,0 +1,14 @@
+@layer x-customs {
+  :where(x-body) {
+    display: block;
+    height: 100%;
+    isolation: isolate;
+    overflow: auto;
+    position: relative;
+    width: 100%;
+
+    & > * {
+      flex-shrink: 0;
+    }
+  }
+}
