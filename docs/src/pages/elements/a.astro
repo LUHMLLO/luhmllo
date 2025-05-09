@@ -5,12 +5,12 @@ import Layout from '../../layouts/app.astro';
 <Layout>
 	<x-wrap style='gap: var(--nm);'>
 		<a>
-			<i class='icon'>asterisk</i>
+			<x-icon>asterisk</x-icon>
 			<span>lead icon</span>
 		</a>
 
 		<a href={'#' + crypto.randomUUID()}>
-			<i class='icon'>asterisk</i>
+			<x-icon>asterisk</x-icon>
 			<span>span</span>
 		</a>
 	</x-wrap>
@@ -25,27 +25,27 @@ import Layout from '../../layouts/app.astro';
 
 	<x-wrap style='gap: var(--nm);'>
 		<a>
-			<i class='icon'>asterisk</i>
+			<x-icon>asterisk</x-icon>
 			<span>both icons</span>
-			<i class='icon'> asterisk </i>
+			<x-icon> asterisk </x-icon>
 		</a>
 
 		<a href={'#' + crypto.randomUUID()}>
-			<i class='icon'>asterisk</i>
+			<x-icon>asterisk</x-icon>
 			<span>both icons</span>
-			<i class='icon'>asterisk</i>
+			<x-icon>asterisk</x-icon>
 		</a>
 	</x-wrap>
 
 	<x-wrap style='gap: var(--nm);'>
 		<a>
 			<span>trail icon</span>
-			<i class='icon'>asterisk</i>
+			<x-icon>asterisk</x-icon>
 		</a>
 
 		<a href={'#' + crypto.randomUUID()}>
 			<span>trail icon</span>
-			<i class='icon'>asterisk</i>
+			<x-icon>asterisk</x-icon>
 		</a>
 	</x-wrap>
 </Layout>

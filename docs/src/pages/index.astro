@@ -58,11 +58,12 @@ for (const folder in groupedRoutes) {
 
 const experiments: RouteItem[] = groupedRoutes['experiments'] || [];
 const elements: RouteItem[] = groupedRoutes['elements'] || [];
+const uncategorized: RouteItem[] = groupedRoutes['uncategorized'] || [];
 ---
 
 <Layout>
 	<x-grid style='--gap: var(--nm); --cols: 2;'>
-		<x-card style='outline-color: var(--clr-debug); outline-offset: 2px;'>
+		<x-card style='outline-color: var(--clr-debug__base); outline-offset: 2px;'>
 			<h1>Lilycat</h1>
 			<p>
 				Powered by dead simple <code>--opinionated</code> CSS props and a mix of
@@ -82,7 +83,7 @@ const elements: RouteItem[] = groupedRoutes['elements'] || [];
 					elements.map((el) => (
 						<a href={el.path}>
 							<span>{el.name}</span>
-							<i class='icon'>north_east</i>
+							<x-icon>north_east</x-icon>
 						</a>
 					))
 				}
@@ -96,7 +97,21 @@ const elements: RouteItem[] = groupedRoutes['elements'] || [];
 					experiments.map((el) => (
 						<a href={el.path}>
 							<span>{el.name}</span>
-							<i class='icon'>north_east</i>
+							<x-icon>north_east</x-icon>
+						</a>
+					))
+				}
+			</x-grid>
+		</x-card>
+
+		<x-card style='outline-offset: 2px;'>
+			<h2>uncategorized</h2>
+			<x-grid style='--gap: var(--md); --cols: 4;'>
+				{
+					uncategorized.map((el) => (
+						<a href={el.path}>
+							<span>{el.name}</span>
+							<x-icon>north_east</x-icon>
 						</a>
 					))
 				}

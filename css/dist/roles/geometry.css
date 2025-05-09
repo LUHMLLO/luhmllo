@@ -1,0 +1,1 @@
+@layer roles{:where([data-roles~=circle]){aspect-ratio:1/1;border-radius:50%;overflow:clip}:where([data-roles~=squircle]){aspect-ratio:1/1;border-radius:25%;overflow:clip}}

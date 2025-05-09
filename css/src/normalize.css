@@ -1,9 +1,93 @@
 @layer normalize {
+  /* general text handling */
+  :where(
 
+    /* Headings */
+    h1, h2, h3, h4, h5, h6,
+    /* Text content */
+    p, blockquote, q, cite,
+    /* Lists */
+    ul, ol, dl, dt, dd, li,
+    /* Containers and semantic elements */
+    a, div, span, details, summary, figure, figcaption, caption,
+    address, main, section, article, aside, header, footer, nav,
+    /* Form elements */
+    form, fieldset, legend, label, button, [type="button"], input, select, textarea, optgroup, option) {
+    font-family: inherit;
+    font-weight: 400;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+    text-wrap: pretty;
+    word-break: break-word;
+  }
 
+  :where(abbr, acronym, b, big, cite, code, del, dfn, em, i, ins, kbd, q,
+    samp, small, strong, sub, sup, tt, var) {
+    line-height: 1;
+  }
 
+  /* :where(a, button, [type="button"], caption, figcaption, h1, h2, h3, h4, h5, h6, input, kbd, label, legend, select, small, span, summary) {
+    text-box: trim-both;
+  } */
 
+  :where(aside) {
+    display: flex;
+    flex-direction: column;
 
+    & > * {
+      flex-shrink: 0;
+    }
+  }
+
+  :where(kbd) {
+    background-color: var(--clr-background__raised);
+    border-radius: var(--xs);
+    display: inline-block;
+    font-family: monospace;
+    font-size: calc(10 * 0.0625rem);
+    height: 25px;
+    outline: solid 2px var(--clr-border__raised);
+    padding: 0 var(--sm);
+    place-content: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* general block */
+  :where(article, figcaption, footer, header, hgroup, menu, section) {
+    display: block;
+  }
+
+  :where(details) {
+    display: block;
+    overflow: clip;
+
+    &::details-content {
+      block-size: 0;
+      opacity: 0;
+      transition-property: block-size, content-visibility, opacity;
+      transition-duration: var(--animDuration);
+      transition-timing-function: var(--animTiming);
+      transition-behavior: allow-discrete;
+    }
+
+    &[open]::details-content {
+      block-size: auto;
+      opacity: 1;
+    }
+  }
+
+  :where(summary) {
+    &::marker {
+      content: none;
+    }
+
+    display: flex;
+
+    & > span {
+      flex: 1 1;
+    }
+  }
 
   :where(nav) {
     display: flex;
@@ -17,7 +101,7 @@
   }
 
   :where(mark) {
-    background-color: var(--clr-warning);
+    background-color: var(--clr-warning__base);
   }
 
   /* media */
@@ -47,7 +131,23 @@
     height: 35px;
   }
 
+  /* code and pre wrapping */
+  :where(code, pre) {
+    display: inline;
+    font: inherit;
+    text-box: trim-both ex alphabetic;
+    vertical-align: inherit;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
 
+  :where(code) {
+    color: var(--clr-debug__base);
+  }
+
+  :where(pre) {
+    white-space-collapse: preserve-breaks;
+  }
 
   /* quotes */
   :where(blockquote) {
@@ -56,7 +156,108 @@
     padding: min(5%, var(--sm));
   }
 
+  /* general clickable items */
+  :where(a, area, button, [type="button"], input, label, select, summary, textarea) {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+  }
 
+  /* organized & unorganized lists */
+  :where(menu, ol, ul) {
+    display: block;
+    list-style-position: inside;
+    margin-inline-start: var(--sm);
+    margin-trim: block;
+
+    &[role="list"] {
+      list-style: none;
+    }
+
+    &:is(ul) {
+      &:not([role="list"]) {
+        li::marker {
+          content: none;
+        }
+
+        li::before {
+          color: inherit;
+          content: "* ";
+          display: inline-block;
+          height: 0.5lh;
+          margin-block-start: 0.2lh;
+          margin-inline-start: calc(var(--sm) * -1);
+          pointer-events: none;
+          position: absolute;
+          text-align: center;
+          user-select: none;
+        }
+      }
+    }
+
+    & > li {
+      margin-block: var(--xs);
+      position: relative;
+    }
+
+    & > :not(li) {
+      margin-inline-start: calc(var(--sm) * -1);
+    }
+  }
+
+  /* description list */
+  :where(dl) {
+    display: block;
+  }
+
+  :where(dt) {
+    color: var(--clr-text__lowered);
+  }
+
+  :where(dd) {
+    padding-left: 0.5em;
+  }
+
+  /* headings */
+  :where(h1, h2, h3, h4, h5, h6) {
+    color: var(--clr-text__raised);
+    font-weight: 500;
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  :where(h1) {
+    font-size: calc(45 * 0.0625rem);
+  }
+
+  :where(h2) {
+    font-size: calc(40 * 0.0625rem);
+  }
+
+  :where(h3) {
+    font-size: calc(30 * 0.0625rem);
+  }
+
+  :where(h4) {
+    font-size: calc(25 * 0.0625rem);
+  }
+
+  :where(h5) {
+    font-size: calc(20 * 0.0625rem);
+  }
+
+  :where(h6) {
+    font-size: calc(15 * 0.0625rem);
+  }
+
+  :where(p) {
+    width: min(100%, 75ch);
+  }
+
+  :where(a, button, select, summary, [type="button"], [type="checkbox"], [type="radio"], [type="reset"], [type="submit"]) {
+    cursor: pointer;
+  }
+
+  /* :where(label) {} */
 
   /* links */
   :where(a) {

@@ -231,7 +231,7 @@ import Iframe from '../../layouts/iframe.astro';
 				<x-dropdown id='more'>
 					<summary slot='summary'>
 						<a href='javascript:void(0)'>
-							<i class='icon'>more_horiz</i>
+							<x-icon>more_horiz</x-icon>
 						</a>
 					</summary>
 				</x-dropdown>
@@ -241,22 +241,22 @@ import Iframe from '../../layouts/iframe.astro';
 				{/* User controls */}
 				<nav id='actions'>
 					<a href='#search'>
-						<i class='icon'>search</i>
+						<x-icon>search</x-icon>
 					</a>
 					<a href='#new'>
-						<i class='icon'>add_2</i>
+						<x-icon>add_2</x-icon>
 					</a>
 					<a href='#inbox'>
-						<i class='icon'>group</i>
+						<x-icon>group</x-icon>
 					</a>
 					<a href='#inbox'>
-						<i class='icon'>calendar_today</i>
+						<x-icon>calendar_today</x-icon>
 					</a>
 					<a href='#settings' onclick='toggleNotificationsPanel()'>
-						<i class='icon'>notifications</i>
+						<x-icon>notifications</x-icon>
 					</a>
 					<a href='#settings'>
-						<i class='icon'>settings</i>
+						<x-icon>settings</x-icon>
 					</a>
 					<figure
 						style='aspect-ratio: 1/1; height: var(--xl); flex-shrink: 0; border-radius: 50%;'>
@@ -266,7 +266,7 @@ import Iframe from '../../layouts/iframe.astro';
 						/>
 					</figure>
 					<a href='#apps'>
-						<i class='icon'>apps</i>
+						<x-icon>apps</x-icon>
 					</a>
 				</nav>
 			</nav>
@@ -284,19 +284,19 @@ import Iframe from '../../layouts/iframe.astro';
 							style='display: contents;'
 							type='button'
 							onclick='toggleNotificationsPanel()'>
-							<i class='icon'>close_small</i>
+							<x-icon>close_small</x-icon>
 						</button>
 					</x-row>
 
 					<label for='searchbar' data-roles='input' style='border-radius: 0;'>
-						<i class='icon'> search </i>
+						<x-icon> search </x-icon>
 						<input
 							type='text'
 							style='border-radius: 0;'
 							name='searchbar'
 							placeholder='Type in to filter list'
 						/>
-						<i class='icon'> keyboard_command_key </i>
+						<x-icon> keyboard_command_key </x-icon>
 					</label>
 				</aside>
 			</x-surlayer>
