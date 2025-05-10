@@ -1,0 +1,41 @@
+/* main axis alignment on flex | grid */
+@property --content {
+  syntax: "start | center | space-between | space-around | space-evenly | stretch | end";
+  inherits: false;
+  initial-value: start;
+}
+
+/* cross axis alignment on flex | grid */
+@property --items {
+  syntax: "start | end | center | stretch | baseline";
+  inherits: false;
+  initial-value: start;
+}
+
+/* content direction on flex | grid */
+@property --flow {
+  syntax: "column | row";
+  inherits: false;
+  initial-value: row;
+}
+
+/* space between content inside block | flex | grid */
+@property --gap {
+  syntax: "<length> | <length-percentage> | <percentage>";
+  inherits: false;
+  initial-value: 0;
+}
+
+/* container padding */
+@property --padding {
+  syntax: "<length> | <length-percentage> | <percentage>";
+  inherits: false;
+  initial-value: 0;
+}
+
+/* container borde radius */
+@property --radius {
+  syntax: "<length> | <length-percentage> | <percentage>";
+  inherits: false;
+  initial-value: 0;
+}
