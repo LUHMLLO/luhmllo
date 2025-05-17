@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/app.astro';
+import Iframe from '../../layouts/iframe.astro';
+---
+
+<Layout>
+	<Iframe>
+		<header
+			data-layout='flex'
+			style='--flow: column; --gap: auto; --height: 175px; --padding: var(--nm) var(--md);'>
+			<h3>Proposal Tool Center</h3>
+			<x-row style='gap: var(--sm); justify-content: end; width: 100%;'>
+				<button>
+					<x-icon> search</x-icon>
+				</button>
+				<button>
+					<x-icon> add_2 </x-icon>
+				</button>
+				<button>
+					<x-icon> more_vert </x-icon>
+				</button>
+			</x-row>
+		</header>
+	</Iframe>
+</Layout>

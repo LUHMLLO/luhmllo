@@ -1,18 +1,12 @@
 @layer normalize {
-  /* general text handling */
-  :where(
 
-    /* Headings */
-    h1, h2, h3, h4, h5, h6,
-    /* Text content */
+  /* general text */
+  :where(h1, h2, h3, h4, h5, h6,
     p, blockquote, q, cite,
-    /* Lists */
     ul, ol, dl, dt, dd, li,
-    /* Containers and semantic elements */
     a, div, span, details, summary, figure, figcaption, caption,
     address, main, section, article, aside, header, footer, nav,
-    /* Form elements */
-    form, fieldset, legend, label, button, [type="button"], input, select, textarea, optgroup, option) {
+    form, fieldset, legend, label, button, input, select, textarea, optgroup, option) {
     font-family: inherit;
     font-weight: 400;
     overflow-wrap: break-word;
@@ -26,9 +20,9 @@
     line-height: 1;
   }
 
-  /* :where(a, button, [type="button"], caption, figcaption, h1, h2, h3, h4, h5, h6, input, kbd, label, legend, select, small, span, summary) {
+  :where(button, input, select, summary) {
     text-box: trim-both;
-  } */
+  }
 
   :where(aside) {
     display: flex;
@@ -134,7 +128,6 @@
   /* code and pre wrapping */
   :where(code, pre) {
     display: inline;
-    font: inherit;
     text-box: trim-both ex alphabetic;
     vertical-align: inherit;
     white-space: pre-wrap;
@@ -143,9 +136,11 @@
 
   :where(code) {
     color: var(--clr-debug__base);
+    font-family: monospace;
   }
 
   :where(pre) {
+    font: inherit;
     white-space-collapse: preserve-breaks;
   }
 

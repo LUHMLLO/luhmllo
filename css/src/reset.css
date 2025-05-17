@@ -34,13 +34,6 @@
     color-scheme: dark;
   }
 
-  /* 
-  * {
-    outline: solid var(--clr-debug__base) 1px;
-    outline-offset: -1px;
-  } 
-  */
-
   * {
     backface-visibility: inherit;
     border: 0;
@@ -61,7 +54,6 @@
     &::before {
       backface-visibility: inherit;
       box-sizing: inherit;
-      /* clear: both; */
     }
 
     &:where([disabled], [not-allowed]) {
@@ -127,6 +119,13 @@
     body {
       background-color: Canvas;
       color: CanvasText;
+    }
+  }
+
+  :where(html, body).debug {
+    * {
+      outline: solid var(--clr-debug__base) 1px;
+      outline-offset: -1px;
     }
   }
 }
