@@ -359,7 +359,7 @@
       place-content: center;
     }
 
-    &:where([data-roles~="outline"]) {
+    &:where([data-variant~="outline"]) {
       background-color: transparent;
       color: var(--clr-text__base);
       outline-color: var(--clr-border__base);
@@ -381,7 +381,7 @@
       }
     }
 
-    &:where([data-roles~='flat']) {
+    &:where([data-variant~='flat']) {
       background-color: inherit;
       outline-color: transparent;
 
@@ -600,7 +600,7 @@
     outline: solid 2px var(--clr-border__base);
     outline-offset: -2px;
     overflow: clip;
-    padding: var(--md);
+    padding: var(--sm);
     resize: both;
 
     transition-property: background-color, color, outline, outline-offset;

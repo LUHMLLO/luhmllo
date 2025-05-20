@@ -56,10 +56,10 @@ for (const folder in groupedRoutes) {
 	groupedRoutes[folder].sort((a, b) => a.name.localeCompare(b.name));
 }
 
-const experiments: RouteItem[] = groupedRoutes['experiments'] || [];
+const apps: RouteItem[] = groupedRoutes['apps'] || [];
 const elements: RouteItem[] = groupedRoutes['elements'] || [];
-const uncategorized: RouteItem[] = groupedRoutes['uncategorized'] || [];
-// const uncategorized: RouteItem[] = groupedRoutes['uncategorized'] || [];
+const mdx: RouteItem[] = groupedRoutes['mdx'] || [];
+const sketches: RouteItem[] = groupedRoutes['sketches'] || [];
 ---
 
 <Layout>
@@ -78,6 +78,20 @@ const uncategorized: RouteItem[] = groupedRoutes['uncategorized'] || [];
 		</x-card>
 
 		<x-card style='outline-offset: 2px;'>
+			<h2>Apps</h2>
+			<x-grid style='--gap: var(--md); --cols: 4;'>
+				{
+					apps.map((el) => (
+						<a href={el.path}>
+							<span>{el.name}</span>
+							<x-icon>north_east</x-icon>
+						</a>
+					))
+				}
+			</x-grid>
+		</x-card>
+
+		<x-card style='outline-offset: 2px;'>
 			<h2>Elements</h2>
 			<x-grid style='--gap: var(--md); --cols: 4;'>
 				{
@@ -92,10 +106,10 @@ const uncategorized: RouteItem[] = groupedRoutes['uncategorized'] || [];
 		</x-card>
 
 		<x-card style='outline-offset: 2px;'>
-			<h2>Experiments</h2>
+			<h2>MDX</h2>
 			<x-grid style='--gap: var(--md); --cols: 4;'>
 				{
-					experiments.map((el) => (
+					mdx.map((el) => (
 						<a href={el.path}>
 							<span>{el.name}</span>
 							<x-icon>north_east</x-icon>
@@ -106,10 +120,10 @@ const uncategorized: RouteItem[] = groupedRoutes['uncategorized'] || [];
 		</x-card>
 
 		<x-card style='outline-offset: 2px;'>
-			<h2>uncategorized</h2>
+			<h2>Sketches</h2>
 			<x-grid style='--gap: var(--md); --cols: 4;'>
 				{
-					uncategorized.map((el) => (
+					sketches.map((el) => (
 						<a href={el.path}>
 							<span>{el.name}</span>
 							<x-icon>north_east</x-icon>
