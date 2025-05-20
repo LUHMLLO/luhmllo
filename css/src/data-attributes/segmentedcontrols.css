@@ -1,4 +1,4 @@
-@layer roles {
+@layer data-attributes {
   :where([data-roles~="segmented-controls"]) {
     background-color: var(--clr-background__base);
     border-radius: var(--xl);

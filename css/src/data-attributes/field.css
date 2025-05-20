@@ -1,0 +1,17 @@
+@layer data-attributes {
+  :where([data-is="field"]) {
+    display: grid;
+    gap: var(--xs);
+    grid: auto/1fr;
+
+    & > [data-part="label"] {
+      align-items: center;
+      display: flex;
+      color: var(--clr-text__lowered);
+    }
+
+    & > input {
+      width: 100%;
+    }
+  }
+}

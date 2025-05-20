@@ -1,0 +1,1 @@
+@layer data-attributes{:where([data-is=field]){display:grid;gap:var(--xs);grid:auto/1fr}:where([data-is=field])>[data-part=label]{align-items:center;color:var(--clr-text__lowered);display:flex}:where([data-is=field])>input{width:100%}}

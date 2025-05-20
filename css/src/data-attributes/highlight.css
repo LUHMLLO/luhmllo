@@ -1,4 +1,4 @@
-@layer roles {
+@layer data-attributes {
   :where([data-roles~="highlight"]) {
     background-color: transparent;
     isolation: isolate;

@@ -1,4 +1,4 @@
-@layer roles {
+@layer data-attributes {
   :where([data-roles~="bottomsheet"]) {
     background-color: var(--clr-background__base);
     border-bottom-left-radius: 0;

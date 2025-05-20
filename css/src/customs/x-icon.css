@@ -1,5 +1,5 @@
 @layer x-customs {
-  :where(x-icon) {
+  :where([data-is='icon'], x-icon) {
     --size: var(--nm);
     --fill: 0;
     --grad: 0;
@@ -32,11 +32,11 @@
     transition-timing-function: var(--animTiming);
     transition-behavior: allow-discrete;
     user-select: none;
-    vertical-align: text-bottom;
+    vertical-align: -webkit-baseline-middle middle;
     width: var(--size);
 
     & > * {
-      display: contents;
+      /* display: contents; */
       vertical-align: -webkit-baseline-middle middle;
     }
   }

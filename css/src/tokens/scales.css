@@ -1,10 +1,10 @@
 @layer tokens {
   :root {
-    --xs: clamp(calc(calc(5 * 0.0625rem) / 2), 100dvmax, calc(5 * 0.0625rem));
-    --sm: clamp(calc(calc(10 * 0.0625rem) / 2), 100dvmax, calc(10 * 0.0625rem));
-    --md: clamp(calc(calc(15 * 0.0625rem) / 2), 100dvmax, calc(15 * 0.0625rem));
-    --nm: clamp(calc(calc(20 * 0.0625rem) / 2), 100dvmax, calc(20 * 0.0625rem));
-    --lg: clamp(calc(calc(25 * 0.0625rem) / 2), 100dvmax, calc(25 * 0.0625rem));
-    --xl: clamp(calc(calc(30 * 0.0625rem) / 2), 100dvmax, calc(30 * 0.0625rem));
+    --xs: calc(5 * 0.0625rem);
+    --sm: calc(10 * 0.0625rem);
+    --md: calc(15 * 0.0625rem);
+    --nm: calc(20 * 0.0625rem);
+    --lg: calc(25 * 0.0625rem);
+    --xl: calc(30 * 0.0625rem);
   }
 }

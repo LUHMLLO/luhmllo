@@ -1,5 +1,5 @@
-@layer roles {
-  :where([data-roles~="input"]) {
+@layer data-attributes {
+  :where([data-is="input"]) {
     align-items: center;
     background-color: var(--clr-background__base);
     border-radius: var(--xs);
@@ -27,19 +27,19 @@
       width: 100%;
     }
 
-    & > :where(.icon, button, figure) {
+    & > :where([data-part='lead'], [data-part='trail']) {
       flex-shrink: 0;
     }
 
-    &:has(> :where(.icon, figure, button, kbd):first-child):not(:has(> :where(.icon, figure, button, kbd):last-child)) {
+    &:has(> :where([data-part='lead'], [data-part='trail']):first-child):not(:has(> :where([data-part='lead'], [data-part='trail']):last-child)) {
       padding-left: var(--sm);
     }
 
-    &:has(> :where(.icon, button, figure):last-child):not(:has(> :where(.icon, figure, button, kbd):first-child)) {
+    &:has(> :where(.icon, button, figure):last-child):not(:has(> :where([data-part='lead'], [data-part='trail']):first-child)) {
       padding-right: var(--sm);
     }
 
-    &:has(> :where(.icon, figure, button, kbd):first-child):has(> :where(.icon, figure, button, kbd):last-child) {
+    &:has(> :where([data-part='lead'], [data-part='trail']):first-child):has(> :where([data-part='lead'], [data-part='trail']):last-child) {
       padding-left: var(--sm);
       padding-right: var(--sm);
     }
