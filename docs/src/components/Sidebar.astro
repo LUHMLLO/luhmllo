@@ -192,22 +192,33 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 	</ul>
 
 	<script type='module' is:inline>
-		//addCustomEventListener
 		window.addEventListener('DOMContentLoaded', () => {
 			const sidebar = document.querySelector('#app__sidebar');
 			if (!sidebar) return;
-			globalThis.addEventListener('sidebar:toggle', () => {
-				sidebar.classList.toggle('float');
-			});
-		});
 
-		//dispatchCustomEvent
-		window.addEventListener('DOMContentLoaded', () => {
-			document.querySelectorAll('[data-toggle-sidebar]').forEach((btn) => {
-				btn.addEventListener('click', () => {
-					globalThis.dispatchEvent(new CustomEvent('sidebar:toggle'));
-				});
+			if (localStorage.getItem('sidebarFloat')) {
+				sidebar.classList.add('float');
+			} else {
+				sidebar.classList.remove('float');
+			}
+
+			//addCustomEventListener
+			addEventListener('sidebar:toggle', () => {
+				sidebar.classList.toggle('float');
+				localStorage.setItem(
+					'sidebarFloat',
+					sidebar.classList.contains('float') ? 'true' : 'false',
+				);
 			});
+
+			//dispatchCustomEvent
+			document
+				.querySelectorAll('[data-toggle-sidebar]')
+				.forEach((el) =>
+					el.addEventListener('click', () =>
+						dispatchEvent(new CustomEvent('sidebar:toggle')),
+					),
+				);
 		});
 	</script>
 

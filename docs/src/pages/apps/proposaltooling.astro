@@ -5,10 +5,8 @@ import Iframe from '../../layouts/iframe.astro';
 
 <Layout>
 	<Iframe>
-		<header
-			data-layout='flex'
-			style='--flow: column; --gap: auto; --height: 175px; --padding: var(--nm) var(--md);'>
-			<h3>Proposal Tool Center</h3>
+		<header>
+			<h3>Proposal Tool<br />Center</h3>
 			<x-row style='gap: var(--sm); justify-content: end; width: 100%;'>
 				<button data-variant='outline'>
 					<x-icon> search</x-icon>
@@ -21,5 +19,26 @@ import Iframe from '../../layouts/iframe.astro';
 				</button>
 			</x-row>
 		</header>
+		<style lang='css' is:inline>
+			@scope {
+				:scope {
+					background-color: var(--clr-background__lowered);
+
+					:where(h1, h2, h3, h4, h5, h6) {
+						font-weight: 300;
+					}
+
+					header {
+						background-color: var(--clr-background__base);
+						display: flex;
+						flex-direction: column;
+						gap: var(--xl);
+						height: 175px;
+						justify-content: space-between;
+						padding: var(--nm) var(--md);
+					}
+				}
+			}
+		</style>
 	</Iframe>
 </Layout>

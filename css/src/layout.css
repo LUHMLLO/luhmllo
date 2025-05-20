@@ -1,90 +1,100 @@
 /* main axis alignment on flex | grid */
 @property --content {
-  syntax: "* | start | center | space-between | space-around | space-evenly | stretch | end | safe center | unsafe center";
+  /* syntax: "start | center | space-between | space-around | space-evenly | stretch | end | safe center | unsafe center"; */
+  syntax: "start | center | space-between | space-around | space-evenly | stretch | end";
   inherits: false;
   initial-value: start;
 }
 
 /* cross axis alignment on flex | grid */
 @property --items {
-  syntax: "* | start | end | center | stretch | baseline | first baseline | last baseline | safe center | unsafe center";
+  /* syntax: "start | end | center | stretch | baseline | first baseline | last baseline | safe center | unsafe center"; */
+  syntax: "start | end | center | stretch | baseline";
   inherits: false;
   initial-value: start;
 }
 
 /* main and cross axis alignment on flex | grid */
 @property --place {
-  syntax: "* | start | end | center | stretch | space-between | space-around | space-evenly | baseline | safe center | unsafe center";
+  /* syntax: "start | end | center | stretch | space-between | space-around | space-evenly | baseline | safe center | unsafe center"; */
+  syntax: "start | end | center | stretch | space-between | space-around | space-evenly | baseline";
   inherits: false;
   initial-value: start;
 }
 
 /* content direction on flex */
 @property --flow {
-  syntax: "* | row | column | row-reverse | column-reverse";
+  syntax: "row | column | row-reverse | column-reverse";
   inherits: false;
   initial-value: row;
 }
 
 /* content direction on grid */
 @property --grid-flow {
-  syntax: "* | row | column | dense";
+  syntax: "row | column | dense";
   inherits: false;
   initial-value: row;
 }
 
 /* content wrapping */
 @property --wrap {
-  syntax: "* | wrap | nowrap | wrap-reverse";
+  syntax: "wrap | nowrap | wrap-reverse";
   inherits: false;
   initial-value: nowrap;
 }
 
 /* space between content inside flex | grid */
 @property --gap {
-  syntax: "* | <integer> | <length> | <length-percentage> | <number> | <percentage>";
+  /* syntax: "<integer> | <length> | <length-percentage> | <number> | <percentage>"; */
+  syntax: "*";
   inherits: false;
   initial-value: 0;
 }
 
 /* space between content between grid columns */
 @property --column-gap {
-  syntax: "* | <integer> | <length> | <length-percentage> | <number> | <percentage>";
+  /* syntax: "<integer> | <length> | <length-percentage> | <number> | <percentage>"; */
+  syntax: "*";
   inherits: false;
   initial-value: 0;
 }
 
 /* space between content between grid rows */
 @property --row-gap {
-  syntax: "* | <integer> | <length> | <length-percentage> | <number> | <percentage>";
+  /* syntax: "<integer> | <length> | <length-percentage> | <number> | <percentage>"; */
+  syntax: "*";
   inherits: false;
   initial-value: 0;
 }
 
 /* margin space between container children */
 @property --gutter {
-  syntax: "* | <integer> | <length> | <length-percentage> | <number> | <percentage>";
+  /* syntax: "<integer> | <length> | <length-percentage> | <number> | <percentage>"; */
+  syntax: "*";
   inherits: false;
   initial-value: 0;
 }
 
 /* container margin */
 @property --margin {
-  syntax: "* | <integer> | <length> | <length-percentage> | <number> | <percentage>";
+  /* syntax: "<integer> | <length> | <length-percentage> | <number> | <percentage>"; */
+  syntax: "*";
   inherits: false;
   initial-value: 0;
 }
 
 /* container padding */
 @property --padding {
-  syntax: "* | <integer> | <length> | <length-percentage> | <number> | <percentage>";
+  /* syntax: "<integer> | <length> | <length-percentage> | <number> | <percentage>"; */
+  syntax: "*";
   inherits: false;
   initial-value: 0;
 }
 
 /* container border radius */
 @property --radius {
-  syntax: "* | <integer> | <length> | <length-percentage> | <number> | <percentage>";
+  /* syntax: "<integer> | <length> | <length-percentage> | <number> | <percentage>"; */
+  syntax: "*";
   inherits: false;
   initial-value: 0;
 }
