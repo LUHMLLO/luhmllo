@@ -20,6 +20,10 @@
     line-height: 1;
   }
 
+  :where(small){
+    font-size: 50%;
+  }
+
   :where(button, input, select, summary) {
     text-box: trim-both;
   }

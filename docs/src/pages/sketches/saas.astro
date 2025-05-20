@@ -101,7 +101,7 @@ const foundersArticles = [
 					<small>THE PROCESS</small>
 					<h2>Built by founds, for founders</h2>
 				</header>
-				<grid data-props='--4' class='g-sm'>
+				<x-grid style='--cols: 4;' class='g-sm'>
 					{
 						foundersArticles.map((article, index) => (
 							<article class='bg-primary p-sm radius-3xs'>
@@ -118,7 +118,7 @@ const foundersArticles = [
 							</article>
 						))
 					}
-				</grid>
+				</x-grid>
 			</section>
 		</x-container>
 

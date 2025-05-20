@@ -1,5 +1,5 @@
 ---
-layout: '@astro/layouts/docs.astro'
+layout: '../../layouts/app.astro'
 ---
 
 ##  Anchor <small class="clr-subtext txt-nm txt-lowercase"> native </small>
@@ -10,7 +10,7 @@ They can be styled to look like buttons or other interactive elements,
 making them versatile for navigation and linking purposes. Anchors are
 essential for creating a connected and interactive web experience.
 
-<grid data-props="--2" class='outln outln-primary radius-3xs'>
+<x-grid style="--cols: 2;" class='outln outln-primary radius-3xs'>
   ```html
   <a>
     <span>
@@ -18,16 +18,16 @@ essential for creating a connected and interactive web experience.
     </span>
   </a>
   ```
-  <column class='align-center[items] flex place-center p-5xl'>
+  <x-group class='align-center[items] place-center p-5xl'>
     <a>
       <span>
         anchor
       </span>
     </a>
-  </column>
-</grid>
+  </x-group>
+</x-grid>
 
-<grid data-props="--2" class='outln outln-primary radius-3xs'>
+<x-grid style="--cols: 2;" class='outln outln-primary radius-3xs'>
   ```html
   <a href="#">
     <span>
@@ -35,14 +35,14 @@ essential for creating a connected and interactive web experience.
     </span>
   </a>
   ```
-  <column class='align-center[items] flex place-center p-5xl'>
+  <x-group class='align-center[items] place-center p-5xl'>
     <a href="#anchor--a">
       <span>
         anchor
       </span>
     </a>
-  </column>
-</grid>
+  </x-group>
+</x-grid>
 
 ### -- parentElement <small class="clr-subtext txt-sm"> PROPS </small>
 
@@ -52,8 +52,8 @@ essential for creating a connected and interactive web experience.
 | - - outline | sets outline style                  | - - button |
 | - - fab     | changes style to look like a FAB    | - - button |
 
-<grid data-props="--2" class="g-sm">
-    <column class="grid outln outln-primary radius-3xs">
+<x-grid style="--cols: 2;" class="g-sm">
+    <x-grid style="--cols: 2;" class="outln outln-primary radius-3xs">
         ```html
         <a data-props="--button --outline">
           <span>
@@ -62,15 +62,14 @@ essential for creating a connected and interactive web experience.
         </a>
         ```
 
-        <div class="flex place-center p-5xl">
+        <x-group class="place-center p-5xl">
             <a data-props='--button --outline'>
               <span>anchor</span>
             </a>
-        </div>
+        </x-group>
+    </x-grid>
 
-    </column>
-
-    <column class="grid outln outln-primary radius-3xs">
+    <x-grid style="--cols: 2;" class="outln outln-primary radius-3xs">
         ```html
         <a data-props="--button --outline --fab">
           <icon>
@@ -79,17 +78,15 @@ essential for creating a connected and interactive web experience.
         </a>
         ```
 
-        <div class="flex place-center p-5xl">
+        <x-group class="place-center p-5xl">
             <a data-props='--button --outline --fab'>
               <icon>
                 add_circle
               </icon>
             </a>
-        </div>
-
-    </column>
-
-</grid>
+        </x-group>
+    </x-grid>
+</x-grid>
 
 ### -- childrenElements <small class="clr-subtext txt-sm"> PROPS </small>
 
@@ -98,8 +95,8 @@ essential for creating a connected and interactive web experience.
 | - - lead  | set’s as leading item  | left side optical corrections  |
 | - - trail | set’s as trailing item | right side optical corrections |
 
-<grid data-props="--2" class="g-sm">
-    <column class="grid outln outln-primary radius-3xs">
+<x-grid style="--cols: 2;" class="g-sm">
+    <x-grid style="--cols: 2" class="outln outln-primary radius-3xs">
         ```html
         <a data-props="--button --outline">
           <icon data-props="--lead">
@@ -109,18 +106,17 @@ essential for creating a connected and interactive web experience.
         </a>
         ```
 
-        <div class="flex place-center p-5xl">
+        <x-group class="place-center p-5xl">
           <a data-props="--button --outline">
             <icon data-props="--lead">
               add_circle
             </icon>
             <span>anchor</span>
           </a>
-        </div>
+        </x-group>
+    </x-grid>
 
-    </column>
-
-    <column class="grid outln outln-primary radius-3xs">
+    <x-grid style="--cols: 2" class="outln outln-primary radius-3xs">
         ```html
         <a data-props="--button --outline">
           <span>anchor</span>
@@ -130,15 +126,13 @@ essential for creating a connected and interactive web experience.
         </a>
         ```
 
-        <div class="flex place-center p-5xl">
+        <x-group class="place-center p-5xl">
             <a data-props="--button --outline">
                 <span>anchor</span>
                 <icon data-props="--trail">
                     add_circle
                 </icon>
             </a>
-        </div>
-
-    </column>
-
-</grid>
+        </x-group>
+    </x-grid>
+</x-grid>

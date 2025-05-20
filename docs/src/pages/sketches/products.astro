@@ -14,7 +14,7 @@ import Iframe from '../../layouts/iframe.astro';
 		numquam!
 	</p>
 	<!--  -->
-	<grid data-props="--3" class='g-sm'>
+	<x-grid style="--cols: 3;"class='g-sm'>
 		{
 			[...Array(4).keys()].map((i) => (
 				<article class='inline-grid outln outln-primary g-sm p-sm radius-sm' style=`${i < 1 && 'grid-column: 1/-1;'}`>
@@ -73,7 +73,7 @@ import Iframe from '../../layouts/iframe.astro';
 				</article>
 			))
 		}
-	</grid>
+	</x-grid>
 	<!--  -->
   </Iframe>
 </Layout>

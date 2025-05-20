@@ -1,5 +1,5 @@
 ---
-layout: '@astro/layouts/docs.astro'
+layout: '../../layouts/app.astro'
 ---
 
 ## Details / Summary <small class="clr-subtext txt-nm txt-lowercase"> native </small>
@@ -8,7 +8,7 @@ The `<summary>` element provides a summary or caption for the content of a `<det
 It is used to toggle the visibility of the details content when clicked, making it ideal for
 presenting collapsible sections of information or controls in a user interface.
 
-<grid data-props="--2" class='outln outln-primary radius-3xs'>
+<x-grid style="--cols: 2;" class='outln outln-primary radius-3xs'>
   ```html
   <details>
     <summary>
@@ -25,7 +25,7 @@ presenting collapsible sections of information or controls in a user interface.
       . . . content here . . .
     </details>
   </column>
-</grid>
+</x-grid>
 
 ### -- summaryElement <small class="clr-subtext txt-sm"> PROPS </small>
 
@@ -35,7 +35,7 @@ presenting collapsible sections of information or controls in a user interface.
 | - - outline | sets outline style                  | - - button |
 | - - fab     | changes style to look like a FAB    | - - button |
 
-<grid data-props="--2" class="g-sm">
+<x-grid style="--cols: 2;" class="g-sm">
     <column class="grid outln outln-primary radius-3xs">
         ```html
         <details>
@@ -86,7 +86,7 @@ presenting collapsible sections of information or controls in a user interface.
 
     </column>
 
-</grid>
+</x-grid>
 
 ### -- summaryChildrenElements <small class="clr-subtext txt-sm"> PROPS </small>
 
@@ -95,7 +95,7 @@ presenting collapsible sections of information or controls in a user interface.
 | - - lead  | set’s as leading item  | left side optical corrections  |
 | - - trail | set’s as trailing item | right side optical corrections |
 
-<grid data-props="--2" class="g-sm">
+<x-grid style="--cols: 2;" class="g-sm">
     <column class="grid outln outln-primary radius-3xs">
         ```html
         <details>
@@ -150,4 +150,4 @@ presenting collapsible sections of information or controls in a user interface.
 
     </column>
 
-</grid>
+</x-grid>

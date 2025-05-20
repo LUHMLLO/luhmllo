@@ -1,5 +1,5 @@
 ---
-layout: '@astro/layouts/docs.astro'
+layout: '../../layouts/app.astro'
 ---
 
 export const filters = [
@@ -53,7 +53,7 @@ grid layout for displaying tabular data. It consists of one or more
 or `<th/>` (table header) elements. Tables are essential for presenting 
 data in a structured and organized manner.
 
-<grid data-props="--2" class='outln outln-primary radius-3xs'>
+<x-grid style="--cols: 2;" class='outln outln-primary radius-3xs'>
   ```html
   <table>
     <thead>
@@ -100,4 +100,4 @@ data in a structured and organized manner.
       </tbody>
     </table>
   </column>
-</grid>
+</x-grid>

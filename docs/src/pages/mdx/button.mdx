@@ -1,5 +1,5 @@
 ---
-layout: '@astro/layouts/docs.astro'
+layout: '../../layouts/app.astro'
 ---
 
 ## Button <small class="clr-subtext txt-nm txt-lowercase"> native </small>
@@ -8,7 +8,7 @@ layout: '@astro/layouts/docs.astro'
 They come in various styles to suit different needs and are effective for prompting
 users to take action to progress within an interface.
 
-<grid data-props="--2" class='outln outln-primary radius-3xs'>
+<x-grid style="--cols: 2;" class='outln outln-primary radius-3xs'>
   ```html
   <button>
     <span>button</span>
@@ -19,7 +19,7 @@ users to take action to progress within an interface.
       <span>button</span>
     </button>
   </column>
-</grid>
+</x-grid>
 
 ### -- parentElement <small class="clr-subtext txt-sm"> PROPS </small>
 
@@ -28,7 +28,7 @@ users to take action to progress within an interface.
 | - - outline | sets outline style               | -        |
 | - - fab     | changes style to look like a FAB | -        |
 
-<grid data-props="--2" class="g-sm">
+<x-grid style="--cols: 2;" class="g-sm">
     <column class="grid outln outln-primary radius-3xs">
         ```html
         <button data-props="--outline">
@@ -57,7 +57,7 @@ users to take action to progress within an interface.
 
     </column>
 
-</grid>
+</x-grid>
 
 ### -- childrenElements <small class="clr-subtext txt-sm"> PROPS </small>
 
@@ -66,7 +66,7 @@ users to take action to progress within an interface.
 | - - lead  | set’s as leading item  | left side optical corrections  |
 | - - trail | set’s as trailing item | right side optical corrections |
 
-<grid data-props="--2" class="g-sm">
+<x-grid style="--cols: 2;" class="g-sm">
     <column class="grid outln outln-primary radius-3xs">
         ```html
         <button data-props="--outline">
@@ -109,4 +109,4 @@ users to take action to progress within an interface.
 
     </column>
 
-</grid>
+</x-grid>

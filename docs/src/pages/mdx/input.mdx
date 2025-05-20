@@ -1,5 +1,5 @@
 ---
-layout: '@astro/layouts/docs.astro'
+layout: '../../layouts/app.astro'
 ---
 
 ## Input <small class="clr-subtext txt-sm txt-lowercase"> native </small>
@@ -9,35 +9,35 @@ They come in various types such as text, password, email, and more, each
 designed for different types of data entry. Inputs are essential for
 gathering user information and enabling interactivity within forms.
 
-<grid data-props="--2" class="g-sm">
-  <grid class='grid outln outln-primary radius-3xs'>
+<x-grid style="--cols: 2;" class="g-sm">
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="button" value="input type button"/>
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="button" value="input type button"/>
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="checkbox" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="checkbox" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="email" placeholder="email@example.com"/>
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="email" placeholder="email@example.com" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="file" />
     ```
@@ -45,170 +45,170 @@ gathering user information and enabling interactivity within forms.
       <input id="demo-file" type="file" />
       <button>invoke file</button>
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="image" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="image" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="password" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="password" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="radio" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="radio" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="time" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="time" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="range" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="range" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="reset" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="reset" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="url" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="url" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="color" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="color" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="date" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="date" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="datetime-local" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="datetime-local" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="hidden" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="hidden" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="month" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="month" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="number" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="number" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="search" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="search" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="submit" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="submit" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="tel" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="tel" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='grid outln outln-primary radius-3xs'>
+  <x-grid class='grid outln outln-primary radius-3xs'>
     ```html
     <input type="text" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="text" />
     </column>
-  </grid>
+  </x-grid>
 
-  <grid class='outln outln-primary radius-3xs'>
+  <x-grid class='outln outln-primary radius-3xs'>
     ```html
     <input type="week" />
     ```
     <column class='align-center[items] flex place-center p-5xl'>
       <input type="week" />
     </column>
-  </grid>
-</grid>
+  </x-grid>
+</x-grid>
 ### -- parentElement <small class="clr-subtext txt-sm"> PROPS </small>
 
 | prop        | description                         | applies to      |
@@ -216,7 +216,7 @@ gathering user information and enabling interactivity within forms.
 | - - part    | changes style to look like a button | all             |
 | - - switch  | sets outline style                  | checkbox, radio |
 
-<grid data-props="--2" class="g-sm">
+<x-grid style="--cols: 2;" class="g-sm">
     <column class="grid outln outln-primary radius-3xs">
         ```html
         <input type="text" data-props="--discrete" />
@@ -239,4 +239,4 @@ gathering user information and enabling interactivity within forms.
 
     </column>
 
-</grid>
+</x-grid>

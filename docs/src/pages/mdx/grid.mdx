@@ -1,33 +1,33 @@
 ---
-layout: '@astro/layouts/docs.astro'
+layout: '../../layouts/app.astro'
 ---
 
 ## Grid <small class="clr-subtext txt-nm txt-lowercase"> custom </small>
 
-`<grid/>` in web development is used to define a flexbox 
+`<x-grid/>` in web development is used to define a flexbox 
 container, which enables flexible layout management within a parent element. 
 It allows child elements to dynamically adjust their size and alignment based 
 on available space and specified rules, making it ideal for creating responsive 
 and dynamic layouts.
 
-<grid data-props="--2" class='outln outln-primary radius-3xs'>
+<x-grid style="--cols: 2;" class='outln outln-primary radius-3xs'>
   ```html
-  <grid>
+  <x-grid>
     <span>- content -</span>
     <span>- content -</span>
     <span>- content -</span>
     <span>- content -</span>
-  </grid>
+  </x-grid>
   ```
   <column class='align-center[items] flex place-center p-5xl'>
-    <grid>
+    <x-grid>
       <span>- content -</span>
       <span>- content -</span>
       <span>- content -</span>
       <span>- content -</span>
-    </grid>
+    </x-grid>
   </column>
-</grid>
+</x-grid>
 
 ### -- parentElement <small class="clr-subtext txt-sm"> PROPS </small>
 
@@ -35,40 +35,40 @@ and dynamic layouts.
 | --------------- | ------------------------------ | -------- |
 | - - 2 . . . 12  | sets maximum amount of columns | -        |
 
-<grid data-props="--2" class="g-sm">
+<x-grid style="--cols: 2;" class="g-sm">
     <column class="grid outln outln-primary radius-3xs">
       ```html
-      <grid data-props="--2">
+      <x-grid style="--cols: 2;">
         <span>- content -</span>
         <span>- content -</span>
         <span>- content -</span>
         <span>- content -</span>
-      </grid>
+      </x-grid>
       ```
 
         <div class="flex place-center p-5xl">
-          <grid data-props="--2">
+          <x-grid style="--cols: 2;">
             <span>- content -</span>
             <span>- content -</span>
             <span>- content -</span>
             <span>- content -</span>
-          </grid>
+          </x-grid>
         </div>
 
     </column>
 
     <column class="grid outln outln-primary radius-3xs">
       ```html
-      <grid data-props="--12">
+      <x-grid style="--cols: 12;">
         <span>- content -</span>
         <span>- content -</span>
         <span>- content -</span>
         <span>- content -</span>
-      </grid>
+      </x-grid>
       ```
 
         <div class="flex place-center p-5xl">
-          <grid data-props="--12">
+          <x-grid style="--cols: 12;">
             <span>- content -</span>
             <span>- content -</span>
             <span>- content -</span>
@@ -79,10 +79,10 @@ and dynamic layouts.
             <span>- content -</span>
             <span>- content -</span>
             <span>- content -</span>
-          </grid>
+          </x-grid>
         </div>
 
     </column>
 
-</grid>
+</x-grid>
 
