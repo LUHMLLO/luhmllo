@@ -205,7 +205,7 @@
   }
 
   :where(dt) {
-    color: var(--clr-text__lowered);
+    color: var(--clr-text__raised);
   }
 
   :where(dd) {
@@ -308,7 +308,7 @@
   /* buttons */
   :where(button, [type="button"]) {
     align-items: center;
-    background-color: var(--clr-primary__base);
+    background-color: var(--clr-background__base);
     border-radius: var(--xl);
     display: inline-flex;
     font: inherit;
@@ -326,15 +326,15 @@
     width: fit-content;
 
     &:focus-visible {
-      outline-color: var(--clr-accent__base);
+      outline-color: var(--clr-text__base);
     }
 
     &:hover {
-      background-color: var(--clr-primary__raised);
+      background-color: var(--clr-background__raised);
     }
 
     &:active {
-      background-color: var(--clr-primary__lowered);
+      background-color: var(--clr-background__lowered);
     }
 
     /* Icon at the start */
@@ -361,23 +361,23 @@
 
     &:where([data-roles~="outline"]) {
       background-color: transparent;
-      color: var(--clr-primary__base);
-      outline-color: var(--clr-primary__base);
+      color: var(--clr-text__base);
+      outline-color: var(--clr-border__base);
 
       &:focus-visible {
-        outline-color: var(--clr-primary__base);
+        outline-color: var(--clr-text__base);
       }
 
       &:hover {
         background-color: transparent;
-        color: var(--clr-primary__raised);
-        outline-color: var(--clr-primary__raised);
+        color: var(--clr-text__raised);
+        outline-color: var(--clr-text__raised);
       }
 
       &:active {
         background-color: transparent;
-        color: var(--clr-primary__lowered);
-        outline-color: var(--clr-primary__lowered);
+        color: var(--clr-text__lowered);
+        outline-color: var(--clr-text__lowered);
       }
     }
 
@@ -386,18 +386,18 @@
       outline-color: transparent;
 
       &:focus-visible {
-        outline-color: var(--clr-primary__base);
+        outline-color: var(--clr-text__base);
       }
 
       &:hover {
         background-color: transparent;
-        color: var(--clr-primary__raised);
+        color: var(--clr-text__raised);
         outline-color: transparent;
       }
 
       &:active {
         background-color: transparent;
-        color: var(--clr-primary__lowered);
+        color: var(--clr-text__lowered);
         outline-color: transparent;
       }
     }
@@ -485,6 +485,7 @@
     transition-property: background-color, color, outline, outline-offset;
     transition-duration: var(--animDuration);
     transition-timing-function: var(--animTiming);
+    vertical-align: -webkit-baseline-middle;
     white-space: nowrap;
     width: fit-content;
 
@@ -561,7 +562,7 @@
 
     &::-webkit-slider-thumb {
       appearance: none;
-      background-color: var(--clr-primary__base);
+      background-color: var(--clr-text__base);
       block-size: var(--thumb-size);
       border-radius: 50%;
       cursor: ew-resize;
@@ -572,11 +573,11 @@
       transition-timing-function: var(--animTiming);
 
       &:hover {
-        background-color: hsl(from var(--clr-primary__raised) h s calc(l + var(--ratio-backgrounds)));
+        background-color: var(--clr-text__raised);
       }
 
       &:active {
-        background-color: hsl(from var(--clr-primary__lowered) h s calc(l - var(--ratio-backgrounds)));
+        background-color: var(--clr-text__lowered);
       }
     }
   }

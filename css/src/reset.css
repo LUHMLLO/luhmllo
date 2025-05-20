@@ -63,7 +63,7 @@
     }
 
     &:where([type="disabled"], [disabled]) {
-      filter: grayscale(15%) saturate(95%) contrast(90%);
+      filter: grayscale(15%) saturate(50%) contrast(90%);
     }
 
     &[not-allowed] {
@@ -80,7 +80,7 @@
   }
 
   :where(html) {
-    background-color: var(--clr-background__base);
+    background-color: var(--clr-background__lowered);
     color: var(--clr-text__base);
     display: contents;
     font-family: sans-serif;

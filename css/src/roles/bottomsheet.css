@@ -9,7 +9,7 @@
     inset: auto 0 0;
     margin: auto;
     max-height: calc(100% - var(--md));
-    outline: solid 2px var(--clr-primary__base);
+    outline: solid 2px var(--clr-background__base);
     outline-offset: -2px;
     overflow: auto;
     overscroll-behavior: contain;
