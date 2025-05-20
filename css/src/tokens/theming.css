@@ -4,9 +4,9 @@
     --clr-background__base: light-dark(hsl(0 0 95), hsl(0 0 5));
     --clr-background__raised: hsl(from var(--clr-background__base) h s calc(l + 2));
 
-    --clr-text__lowered: hsl(from var(--clr-text__base) h s calc(l - 40));
+    --clr-text__lowered: light-dark(hsl(from var(--clr-text__base) h s calc(l + 40)), hsl(from var(--clr-text__base) h s calc(l - 40)));
     --clr-text__base: light-dark(hsl(0 0 20), hsl(0 0 90));
-    --clr-text__raised: hsl(from var(--clr-text__base) h s calc(l + 10));
+    --clr-text__raised: light-dark(hsl(from var(--clr-text__base) h s calc(l - 10)), hsl(from var(--clr-text__base) h s calc(l + 10)));
 
     --clr-border__lowered: hsl(from var(--clr-border__base) h s calc(l - 5));
     --clr-border__base: light-dark(hsl(0 0 90), hsl(0 0 10));
