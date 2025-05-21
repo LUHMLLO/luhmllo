@@ -196,7 +196,7 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 			const sidebar = document.querySelector('#app__sidebar');
 			if (!sidebar) return;
 
-			if (localStorage.getItem('sidebarFloat')) {
+			if (localStorage.getItem('sidebarFloat') === 'true') {
 				sidebar.classList.add('float');
 			} else {
 				sidebar.classList.remove('float');
