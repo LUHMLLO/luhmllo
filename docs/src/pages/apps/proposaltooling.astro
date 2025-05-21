@@ -120,17 +120,28 @@ import Iframe from '../../layouts/iframe.astro';
 
 				<h4>Contact Methods</h4>
 				<label for='email' data-is='field'>
-					<span data-part='label'> Email </span>
+					<span data-part='label'>
+						Email
+						<i data-is='icon' data-status='error'>
+							<small>asterisk</small>
+						</i>
+					</span>
 					<input
 						type='email'
 						id='email'
 						name='email'
 						autocomplete='email'
 						value='shkan@gmail.com'
+						required
 					/>
 				</label>
 				<label for='mobile_phone' data-is='field'>
-					<span data-part='label'> Mobile Phone </span>
+					<span data-part='label'>
+						Mobile Phone
+						<i data-is='icon' data-status='error'>
+							<small>asterisk</small>
+						</i>
+					</span>
 					<input
 						type='tel'
 						id='mobile_phone'
@@ -139,6 +150,7 @@ import Iframe from '../../layouts/iframe.astro';
 						inputmode='tel'
 						pattern='\d{3}-\d{3}-\d{4}'
 						value='904-646-4344'
+						required
 					/>
 				</label>
 
@@ -176,17 +188,28 @@ import Iframe from '../../layouts/iframe.astro';
 					/>
 				</label>
 				<label for='address_state' data-is='field'>
-					<span data-part='label'> State </span>
+					<span data-part='label'>
+						State
+						<i data-is='icon' data-status='error'>
+							<small>asterisk</small>
+						</i>
+					</span>
 					<input
 						type='text'
 						id='address_state'
 						name='address_state'
 						autocomplete='address-level1'
 						value='New York'
+						required
 					/>
 				</label>
 				<label for='address_zipcode' data-is='field'>
-					<span data-part='label'> Zip Code </span>
+					<span data-part='label'>
+						Zip Code
+						<i data-is='icon' data-status='error'>
+							<small>asterisk</small>
+						</i>
+					</span>
 					<input
 						type='text'
 						id='address_zipcode'
@@ -195,6 +218,7 @@ import Iframe from '../../layouts/iframe.astro';
 						inputmode='numeric'
 						pattern='\d{5}'
 						value='11554'
+						required
 					/>
 				</label>
 
@@ -208,9 +232,8 @@ import Iframe from '../../layouts/iframe.astro';
 						data-is='switch'
 					/>
 					<span data-part='caption'>
-						Check this if your customer is of low income. This will allow the
-						system to generate a SOLAR NYSERDA LOW INCOME REBATE when
-						applicable.
+						This will allow the system to generate a SOLAR NYSERDA LOW INCOME
+						REBATE when applicable.
 					</span>
 				</label>
 
