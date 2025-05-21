@@ -1,12 +1,24 @@
 @layer data-attributes {
   :where([data-is="switch"]) {
     align-items: center;
-    background-color: var(--clr-background__base);
+    background-color: transparent;
     border-radius: var(--xl);
     height: var(--xl);
+    outline-offset: -1.75px;
     overflow: clip;
     position: relative;
     width: calc(var(--xl) * 2);
+
+    &::before {
+      background-color: var(--clr-background__base);
+      content: "";
+      inset: 0;
+      position: absolute;
+      transition-duration: var(--animDuration);
+      transition-property: background-color;
+      transition-timing-function: var(--animTiming);
+      z-index: -1;
+    }
 
     &::after {
       aspect-ratio: 1/1;
@@ -15,21 +27,25 @@
       content: "";
       height: 100%;
       inset: 0;
-      margin-inline: auto 50%;
+      margin: auto 0;
       position: absolute;
+      transform: translateX(0);
       transition-duration: var(--animDuration);
-      transition-property: margin;
+      transition-property: transform;
       transition-timing-function: var(--animTiming);
       width: auto;
+      z-index: 1;
     }
 
     &:checked {
+      &::before {
+        background-color: var(--clr-accent__base);
+        box-shadow: 0 0 100vmax 100vmax var(--clr-border__base);
+      }
+
       &::after {
-        box-shadow: 0 0 100vmax 100vmax var(--clr-accent__base);
-        border: solid 2px var(--clr-accent__base);
-        margin-inline: 50% auto;
+        transform: translateX(100%);
       }
     }
-
   }
 }
