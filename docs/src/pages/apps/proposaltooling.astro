@@ -241,6 +241,65 @@ import Iframe from '../../layouts/iframe.astro';
 			</form>
 		</main>
 
+		<dialog data-is='bottomsheet'>
+			<header>
+				<hr style='margin: auto; width: 25%;' />
+				<h5>Options</h5>
+				<p>
+					Select the items that you would like to include in this proposal. Only
+					available items are shown.
+				</p>
+			</header>
+			<a>
+				<span>Customer Information</span>
+				<i data-is='icon'>arrow_forward_ios</i>
+			</a>
+			<a>
+				<span>Solar Panels</span>
+				<i data-is='icon'>arrow_forward_ios</i>
+			</a>
+			<a>
+				<span>Battery System</span>
+				<i data-is='icon'>arrow_forward_ios</i>
+			</a>
+			<a>
+				<span>Roof Replacement</span>
+				<i data-is='icon'>arrow_forward_ios</i>
+			</a>
+			<a>
+				<span>Electrical Work</span>
+				<i data-is='icon'>arrow_forward_ios</i>
+			</a>
+			<a>
+				<span>Energy Efficiency</span>
+				<i data-is='icon'>arrow_forward_ios</i>
+			</a>
+			<a>
+				<span>H.V.A.C</span>
+				<i data-is='icon'>arrow_forward_ios</i>
+			</a>
+			<a>
+				<span>Geothermal Services</span>
+				<i data-is='icon'>arrow_forward_ios</i>
+			</a>
+			<a>
+				<span>Other Project Adders</span>
+				<i data-is='icon'>arrow_forward_ios</i>
+			</a>
+			<a>
+				<span>Additional Projects</span>
+				<i data-is='icon'>arrow_forward_ios</i>
+			</a>
+			<a>
+				<span>Internal Sales Notes</span>
+				<i data-is='icon'>arrow_forward_ios</i>
+			</a>
+			<a>
+				<span>Financial</span>
+				<i data-is='icon'>arrow_forward_ios</i>
+			</a>
+		</dialog>
+
 		<style lang='css' is:inline>
 			@scope {
 				:scope {
@@ -323,7 +382,6 @@ import Iframe from '../../layouts/iframe.astro';
 						& > button:nth-child(1) {
 							border-radius: 0;
 							background-color: var(--clr-background__raised);
-							gap: var(--sm);
 							width: 100%;
 
 							span {

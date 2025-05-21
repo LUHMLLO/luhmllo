@@ -1,10 +1,8 @@
 @layer data-attributes {
-  :where([data-roles~="bottomsheet"]) {
+  :where([data-is="bottomsheet"]) {
     background-color: var(--clr-background__base);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    box-shadow: 0 0 25vmax 25vmax black;
-    gap: var(--md);
     height: max-content;
     inset: auto 0 0;
     margin: auto;
@@ -13,7 +11,6 @@
     outline-offset: -2px;
     overflow: auto;
     overscroll-behavior: contain;
-    padding: 20px var(--md);
     position: fixed;
     width: 100dvw;
     z-index: 20;
@@ -22,5 +19,30 @@
       display: grid;
       grid-auto-rows: max-content;
     }
+
+    & > header {
+      padding: var(--lg) var(--nm) var(--nm);
+
+      p {
+        color: var(--clr-text__lowered);
+      }
+    }
+
+    & > a {
+      width: 100%;
+
+      & > span {
+        flex: 1 1;
+      }
+    }
+
+    /* &::before {
+      background-color: hsl(0 0 0 / 0.75);
+      content: '';
+      display: block;
+      inset: 0;
+      position: fixed;
+      z-index: -1;
+    } */
   }
 }
