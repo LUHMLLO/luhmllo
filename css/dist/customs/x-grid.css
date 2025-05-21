@@ -1,1 +1,1 @@
-@layer x-customs{:where(x-grid){--cols:1;--gap:0px;--count:auto-fill;--track_min:clamp(5rem,100%,15rem);--track_max:1fr;display:grid;gap:var(--gap);grid-template-columns:repeat(var(--count),minmax(max(var(--track_min),100%/var(--cols) - var(--gap)),var(--track_max)))}}
+@layer x-customs{:where([data-is=grid],x-grid){--cols:1;--gap:0px;--count:auto-fill;--track_min:clamp(5rem,100%,15rem);--track_max:1fr;display:grid;gap:var(--gap);grid-template-columns:repeat(var(--count),minmax(max(var(--track_min),100%/var(--cols) - var(--gap)),var(--track_max)))}}

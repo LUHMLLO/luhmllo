@@ -1,5 +1,5 @@
 @layer x-customs {
-  :where(x-grid) {
+  :where([data-is='grid'], x-grid) {
     --cols: 1;
     --gap: 0px;
 

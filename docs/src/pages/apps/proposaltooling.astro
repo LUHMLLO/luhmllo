@@ -6,7 +6,7 @@ import Iframe from '../../layouts/iframe.astro';
 <Layout>
 	<Iframe>
 		<header id='appbar'>
-			<h3>Proposal Tool<br />Center</h3>
+			<!-- <h3>Proposal Tool<br />Center</h3>
 
 			<nav>
 				<button data-variant='outline'>
@@ -29,7 +29,7 @@ import Iframe from '../../layouts/iframe.astro';
 					placeholder='Filter list . . .'
 				/>
 				<i data-is='icon' data-part='trail'>close_small</i>
-			</label>
+			</label> -->
 
 			<nav style='justify-content: space-between;'>
 				<button data-variant='outline'>
@@ -37,6 +37,9 @@ import Iframe from '../../layouts/iframe.astro';
 				</button>
 
 				<nav>
+					<button data-variant='outline'>
+						<i data-is='icon'> search</i>
+					</button>
 					<button data-variant='outline'>
 						<i data-is='icon'>add_2</i>
 					</button>
@@ -79,25 +82,139 @@ import Iframe from '../../layouts/iframe.astro';
 				<span>Customer information</span>
 				<i data-is='icon'>keyboard_arrow_down</i>
 			</button>
-			<form>
+
+			<form data-is='grid' autocomplete='on'>
 				<h4>Personal Information</h4>
 				<label for='first_name' data-is='field'>
-					<span data-part="label">
+					<span data-part='label'>
 						First Name
-						<i data-is='icon'>
+						<i data-is='icon' data-status='error'>
 							<small>asterisk</small>
 						</i>
 					</span>
-					<input type='text' value='Shah' />
+					<input
+						type='text'
+						id='first_name'
+						name='first_name'
+						autocomplete='given-name'
+						value='Shah'
+						required
+					/>
 				</label>
-				<label for='first_name' data-is='field'>
-					<span>First Name</span>
-					<input type='text' value='Shah' />
+				<label for='last_name' data-is='field'>
+					<span data-part='label'>
+						Last Name
+						<i data-is='icon' data-status='error'>
+							<small>asterisk</small>
+						</i>
+					</span>
+					<input
+						type='text'
+						id='last_name'
+						name='last_name'
+						autocomplete='family-name'
+						value='Khan'
+						required
+					/>
 				</label>
-				<label for='first_name' data-is='field'>
-					<span>First Name</span>
-					<input type='text' value='Shah' />
+
+				<h4>Contact Methods</h4>
+				<label for='email' data-is='field'>
+					<span data-part='label'> Email </span>
+					<input
+						type='email'
+						id='email'
+						name='email'
+						autocomplete='email'
+						value='shkan@gmail.com'
+					/>
 				</label>
+				<label for='mobile_phone' data-is='field'>
+					<span data-part='label'> Mobile Phone </span>
+					<input
+						type='tel'
+						id='mobile_phone'
+						name='mobile_phone'
+						autocomplete='tel'
+						inputmode='tel'
+						pattern='\d{3}-\d{3}-\d{4}'
+						value='904-646-4344'
+					/>
+				</label>
+
+				<h4>Address Details</h4>
+				<label for='address_street' data-is='field'>
+					<span data-part='label'>
+						Street
+						<i data-is='icon' data-status='error'>
+							<small>asterisk</small>
+						</i>
+					</span>
+					<input
+						type='text'
+						id='address_street'
+						name='address_street'
+						autocomplete='street-address'
+						value='485 Clearmeadow Dr'
+						required
+					/>
+				</label>
+				<label for='address_city' data-is='field'>
+					<span data-part='label'>
+						City
+						<i data-is='icon' data-status='error'>
+							<small>asterisk</small>
+						</i>
+					</span>
+					<input
+						type='text'
+						id='address_city'
+						name='address_city'
+						autocomplete='address-level2'
+						value='East Meadow'
+						required
+					/>
+				</label>
+				<label for='address_state' data-is='field'>
+					<span data-part='label'> State </span>
+					<input
+						type='text'
+						id='address_state'
+						name='address_state'
+						autocomplete='address-level1'
+						value='New York'
+					/>
+				</label>
+				<label for='address_zipcode' data-is='field'>
+					<span data-part='label'> Zip Code </span>
+					<input
+						type='text'
+						id='address_zipcode'
+						name='address_zipcode'
+						autocomplete='postal-code'
+						inputmode='numeric'
+						pattern='\d{5}'
+						value='11554'
+					/>
+				</label>
+
+				<h4>Miscellaneous</h4>
+				<label for='miscellaneous_customerIsOfLowIncome' data-is='field'>
+					<span data-part='label'> Customer is of Low Income </span>
+					<input
+						type='checkbox'
+						id='miscellaneous_customerIsOfLowIncome'
+						name='miscellaneous_customerIsOfLowIncome'
+						data-is='switch'
+					/>
+					<span data-part='caption'>
+						Check this if your customer is of low income. This will allow the
+						system to generate a SOLAR NYSERDA LOW INCOME REBATE when
+						applicable.
+					</span>
+				</label>
+
+				<hr style='background-color: transparent; height: 100px;' />
 			</form>
 		</main>
 
@@ -105,6 +222,13 @@ import Iframe from '../../layouts/iframe.astro';
 			@scope {
 				:scope {
 					background-color: var(--clr-background__lowered);
+					display: flex;
+					flex-direction: column;
+					gap: 0;
+
+					& > * {
+						flex-shrink: 0;
+					}
 
 					:where(h1, h2, h3, h4, h5, h6) {
 						font-weight: 300;
@@ -115,7 +239,8 @@ import Iframe from '../../layouts/iframe.astro';
 						display: grid;
 						grid: auto / 1fr;
 						justify-content: space-between;
-						min-height: 175px;
+						height: 175px;
+						overflow: clip;
 						padding: var(--nm) var(--md);
 						row-gap: var(--xl);
 
@@ -153,6 +278,7 @@ import Iframe from '../../layouts/iframe.astro';
 						background-color: var(--clr-warning__base);
 						color: var(--clr-onWarning);
 						gap: var(--xs);
+						height: max-content;
 						padding: var(--sm) var(--md);
 
 						[data-is='icon'] {
@@ -165,7 +291,13 @@ import Iframe from '../../layouts/iframe.astro';
 					}
 
 					main {
-						& > button:first-child {
+						display: grid;
+						flex: 1 1;
+						grid: auto/1fr;
+						grid-template-rows: max-content 1fr;
+						overflow: clip;
+
+						& > button:nth-child(1) {
 							border-radius: 0;
 							gap: var(--sm);
 							width: 100%;
@@ -178,14 +310,19 @@ import Iframe from '../../layouts/iframe.astro';
 						}
 
 						& > form {
-							display: grid;
-							grid: auto/1fr;
-							gap: var(--lg);
+							--cols: 2;
+							--gap: var(--md);
+							grid-auto-rows: max-content;
+							overflow: auto;
 							padding: 0 var(--md) var(--xl);
 
 							& > h4 {
 								align-content: end;
 								height: 60px;
+							}
+
+							& > :where(h4, hr) {
+								grid-column: 1/-1;
 							}
 						}
 					}

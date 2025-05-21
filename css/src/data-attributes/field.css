@@ -7,11 +7,19 @@
     & > [data-part="label"] {
       align-items: center;
       display: flex;
+      color: var(--clr-text__base);
+    }
+
+    & > input:not([type=checkbox], [type=radio]) {
+      width: 100%;
+    }
+
+    & > [data-part="caption"] {
       color: var(--clr-text__lowered);
     }
 
-    & > input {
-      width: 100%;
+    & [data-status="error"] {
+      color: var(--clr-error__base);
     }
   }
 }
