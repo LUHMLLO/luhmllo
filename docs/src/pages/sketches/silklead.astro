@@ -231,7 +231,7 @@ import Iframe from '../../layouts/iframe.astro';
 				<x-dropdown id='more'>
 					<summary slot='summary'>
 						<a href='javascript:void(0)'>
-							<x-icon>more_horiz</x-icon>
+							<i data-is='icon'>more_horiz</i>
 						</a>
 					</summary>
 				</x-dropdown>
@@ -241,22 +241,22 @@ import Iframe from '../../layouts/iframe.astro';
 				{/* User controls */}
 				<nav id='actions'>
 					<a href='#search'>
-						<x-icon>search</x-icon>
+						<i data-is='icon'>search</i>
 					</a>
 					<a href='#new'>
-						<x-icon>add_2</x-icon>
+						<i data-is='icon'>add_2</i>
 					</a>
 					<a href='#inbox'>
-						<x-icon>group</x-icon>
+						<i data-is='icon'>group</i>
 					</a>
 					<a href='#inbox'>
-						<x-icon>calendar_today</x-icon>
+						<i data-is='icon'>calendar_today</i>
 					</a>
 					<a href='#settings' onclick='toggleNotificationsPanel()'>
-						<x-icon>notifications</x-icon>
+						<i data-is='icon'>notifications</i>
 					</a>
 					<a href='#settings'>
-						<x-icon>settings</x-icon>
+						<i data-is='icon'>settings</i>
 					</a>
 					<figure
 						style='aspect-ratio: 1/1; height: var(--xl); flex-shrink: 0; border-radius: 50%;'>
@@ -266,7 +266,7 @@ import Iframe from '../../layouts/iframe.astro';
 						/>
 					</figure>
 					<a href='#apps'>
-						<x-icon>apps</x-icon>
+						<i data-is='icon'>apps</i>
 					</a>
 				</nav>
 			</nav>
@@ -284,19 +284,19 @@ import Iframe from '../../layouts/iframe.astro';
 							style='display: contents;'
 							type='button'
 							onclick='toggleNotificationsPanel()'>
-							<x-icon>close_small</x-icon>
+							<i data-is='icon'>close_small</i>
 						</button>
 					</x-row>
 
 					<label for='searchbar' data-is='input' style='border-radius: 0;'>
-						<x-icon> search </x-icon>
+						<i data-is='icon'> search </i>
 						<input
 							type='text'
 							style='border-radius: 0;'
 							name='searchbar'
 							placeholder='Type in to filter list'
 						/>
-						<x-icon> keyboard_command_key </x-icon>
+						<i data-is='icon'> keyboard_command_key </i>
 					</label>
 				</aside>
 			</x-surlayer>

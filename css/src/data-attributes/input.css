@@ -31,16 +31,11 @@
       flex-shrink: 0;
     }
 
-    &:has(> :where([data-part='lead'], [data-part='trail']):first-child):not(:has(> :where([data-part='lead'], [data-part='trail']):last-child)) {
+    &:has(> :where([data-part='lead']):first-child) {
       padding-left: var(--sm);
     }
 
-    &:has(> :where(.icon, button, figure):last-child):not(:has(> :where([data-part='lead'], [data-part='trail']):first-child)) {
-      padding-right: var(--sm);
-    }
-
-    &:has(> :where([data-part='lead'], [data-part='trail']):first-child):has(> :where([data-part='lead'], [data-part='trail']):last-child) {
-      padding-left: var(--sm);
+    &:has(> :where([data-part='trail']):last-child) {
       padding-right: var(--sm);
     }
   }

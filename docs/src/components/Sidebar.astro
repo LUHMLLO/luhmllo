@@ -19,15 +19,15 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 			</div>
 		</a>
 
-		<button type='button' style='display: contents;' data-toggle-sidebar>
-			<x-icon> left_panel_close </x-icon>
+		<button style='display: contents;' data-toggle-sidebar>
+			<i data-is='icon'> left_panel_close </i>
 		</button>
 	</x-row>
 
 	<label for='search' data-is='input'>
-		<x-icon> search </x-icon>
+		<i data-is='icon' data-part='lead'> search </i>
 		<input type='text' name='search' id='search' />
-		<kbd>Ctrl + K</kbd>
+		<kbd data-part='trail'>Ctrl + K</kbd>
 	</label>
 
 	<hr />
@@ -41,9 +41,9 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 		</li>
 		<li>
 			<details>
-				<summary data-roles='button'>
+				<summary>
 					<span>Quickstart</span>
-					<x-icon> keyboard_arrow_down </x-icon>
+					<i data-is='icon' data-part='trail'> keyboard_arrow_down </i>
 				</summary>
 				<ul>
 					<li>
@@ -85,9 +85,9 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 		</li>
 		<li>
 			<details>
-				<summary data-roles='button'>
+				<summary>
 					<span>Symbols</span>
-					<x-icon> keyboard_arrow_down </x-icon>
+					<i data-is='icon' data-part='trail'> keyboard_arrow_down </i>
 				</summary>
 				<ol>
 					<li class='active'>
@@ -158,7 +158,7 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 					<IconGithub />
 				</figure>
 				<span>GitHub Repository</span>
-				<x-icon>arrow_outward</x-icon>
+				<i data-is='icon' data-part='trail'>arrow_outward</i>
 			</a>
 		</li>
 		<li>
@@ -172,7 +172,7 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 					<IconJSR />
 				</figure>
 				<span>JSR Package</span>
-				<x-icon>arrow_outward</x-icon>
+				<i data-is='icon' data-part='trail'>arrow_outward</i>
 			</a>
 		</li>
 		<li>
@@ -186,7 +186,7 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 					<IconSponsor />
 				</figure>
 				<span>Support Us</span>
-				<x-icon>arrow_outward</x-icon>
+				<i data-is='icon' data-part='trail'>arrow_outward</i>
 			</a>
 		</li>
 	</ul>

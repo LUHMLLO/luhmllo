@@ -1,4 +1,4 @@
-@layer x-customs {
+@layer data-attributes {
   :where([data-is='grid'], x-grid) {
     --cols: 1;
     --gap: 0px;
@@ -9,7 +9,6 @@
 
     display: grid;
     gap: var(--gap);
-    /* grid-auto-rows: max-content; */
     grid-template-columns:
       repeat(var(--count),
         minmax(max(var(--track_min), 100% / var(--cols) - var(--gap)),

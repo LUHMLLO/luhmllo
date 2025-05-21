@@ -23,9 +23,9 @@ import Iframe from '../../layouts/iframe.astro';
 							src='https://cdn.dribbble.com/userupload/14856095/file/original-2054c6980b03637f35168d04410351b8.jpg?resize=1024x768'
 							alt='thumbnail'
 						/>
-						<ly-dropdown class='ps-absolute top right mt-5xs mr-5xs'>
+						<x-dropdown class='ps-absolute top right mt-5xs mr-5xs'>
 							<summary slot='summary' class='radius-3xs __button __outline' style="--bg: transparent; mix-blend-mode: difference;">
-								<icon> more_vert </icon>
+								<i data-is='icon'> more_vert </i>
 							</summary>
 							<button>
 								<span>option</span>
@@ -36,37 +36,37 @@ import Iframe from '../../layouts/iframe.astro';
 							<button>
 								<span>option</span>
 							</button>
-						</ly-dropdown>
+						</x-dropdown>
 					</figure>
-					<ly-group class='g-3xs px-sm'>
+					<x-group class='g-3xs px-sm'>
 						<figure
 							class='aspect-[1/1] bord bord-background radius-sm w-max'
-							style='height: calc(var(--scale-5xl) * 2); margin-top: calc(calc(var(--scale-5xl) * 1.5) * -1);'>
+							style='height: calc(var(--scale-xl) * 2); margin-top: calc(calc(var(--scale-xl) * 1.5) * -1);'>
 							<img
 								src='https://cdn.dribbble.com/userupload/14856095/file/original-2054c6980b03637f35168d04410351b8.jpg?resize=1024x768'
 								alt='thumbvatar'
 							/>
 						</figure>
-						<ly-flex axis='x' class='align-center[items] g-sm place-between  wrap'>
+						<x-flex axis='x' class='align-center[items] g-sm place-between  wrap'>
 							<h6>Product Name</h6>
 							<small class='inline-block bg-subtext clr-text px-sm py-3xs radius-3xs txt-truncate'>
 								Product Tag
 							</small>
-						</ly-flex>
+						</x-flex>
 						<p>
 							Lorem ipsum dolor sit amet consectetur adipisicing elit.
 							Necessitatibus debitis, expedita vitae molestias autem eaque
 							aperiam aut ab labore et temporibus repudiandae cum sint quas
 							officia enim a incidunt aliquam.
 						</p>
-					</ly-group>
+					</x-group>
 
 					<hr class='h-1[pt]' />
 
 					<footer class='align-center[items] flex-row g-sm place-between wrap'>
-						<button class='__outline'> Call to action </button>
+						<button data-variant='outline'> Call to action </button>
 						<a>
-							<icon>cloud_download</icon>
+							<i data-is='icon'>cloud_download</i>
 							<span> 3,000 finished </span>
 						</a>
 					</footer>

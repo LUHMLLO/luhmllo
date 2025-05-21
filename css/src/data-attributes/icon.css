@@ -1,5 +1,5 @@
-@layer x-customs {
-  :where([data-is='icon'], x-icon) {
+@layer data-attributes {
+  :where([data-is='icon']) {
     --size: var(--nm);
     --fill: 0;
     --grad: 0;

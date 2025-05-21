@@ -18,8 +18,8 @@ import Iframe from '../../layouts/iframe.astro';
 		</x-sublayer>
 
 		<nav style='place-content: space-between; place-items: center;'>
-			<button type='button' data-variant='outline'>
-				<x-icon> menu </x-icon>
+			<button data-variant='outline'>
+				<i data-is='icon'> menu </i>
 			</button>
 
 			<h6
@@ -27,8 +27,8 @@ import Iframe from '../../layouts/iframe.astro';
 				TinkXo
 			</h6>
 
-			<a href={'#' + crypto.randomUUID()} type='button' data-variant='outline'>
-				<x-icon> phone </x-icon>
+			<a href={'#' + crypto.randomUUID()} data-is='button' data-variant='outline'>
+				<i data-is='icon'> phone </i>
 			</a>
 		</nav>
 
@@ -85,7 +85,7 @@ import Iframe from '../../layouts/iframe.astro';
 
 				<a href={'#' + crypto.randomUUID()}>
 					<span>Enquire Now</span>
-					<x-icon> arrow_right_alt </x-icon>
+					<i data-is='icon'> arrow_right_alt </i>
 				</a>
 			</x-group>
 		</x-grid>

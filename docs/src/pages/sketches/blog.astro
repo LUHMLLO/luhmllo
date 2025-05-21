@@ -19,7 +19,7 @@ import Iframe from '../../layouts/iframe.astro';
 				class='outln outln-primary radius-sm overflow-clip'>
 				<x-flex axis='x' class='align-center[items]'>
 					<button style='--bg: transparent; --radius: 0;'>
-						<icon> search </icon>
+						<i data-is='icon'> search </i>
 					</button>
 					<input
 						type='text'
@@ -33,18 +33,18 @@ import Iframe from '../../layouts/iframe.astro';
 								slot='summary'
 								data-props='--button'
 								style='--radius: 0;'>
-								<icon> filter_list </icon>
+								<i data-is='icon'> filter_list </i>
 							</summary>
 							<button>
-								<icon>add</icon>
+								<i data-is='icon'>add</i>
 								<span>label</span>
 							</button>
 							<button>
-								<icon>add</icon>
+								<i data-is='icon'>add</i>
 								<span>label</span>
 							</button>
 							<button>
-								<icon>add</icon>
+								<i data-is='icon'>add</i>
 								<span>label</span>
 							</button>
 						</x-dropdown>
@@ -84,7 +84,7 @@ import Iframe from '../../layouts/iframe.astro';
 										</button>
 									))}
 									<button style='--bg: transparent;'>
-										<icon>add</icon>
+										<i data-is='icon'>add</i>
 									</button>
 								</ly-flex>
 							</ly-grid>

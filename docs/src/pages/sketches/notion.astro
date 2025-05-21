@@ -26,7 +26,7 @@ const filters = [
 				<ly-group>
 					<span class='txt-600 g-sm'>
 						Acme Inc.
-						<icon> unfold_more </icon>
+						<i data-is='icon'> unfold_more </i>
 					</span>
 					<p class='clr-subtext'>perian@makenotion.com</p>
 				</ly-group>
@@ -34,7 +34,7 @@ const filters = [
 			<ly-flex axis='x' class='align-center[items] g-5xs'>
 				<ly-dropdown>
 					<summary slot='summary' class='__button __outline'>
-						<icon> more_horiz </icon>
+						<i data-is='icon'> more_horiz </i>
 					</summary>
 					<button>
 						<span> options </span>
@@ -59,9 +59,9 @@ const filters = [
 								class='aspect-[1/1] bg-primary align-end w-100'
 								style='overflow: visible;'>
 								{/* <img src="" alt=""> */}
-								<icon style='margin-bottom: calc(var(--scale-sm) * -1); translate: 0% 16%;'>
+								<i style='margin-bottom: calc(var(--scale-sm) * -1); translate: 0% 16%;'>
 									home
-								</icon>
+								</i>
 							</figure>
 							<h6 class='px-5xs'>Home</h6>
 						</article>
@@ -73,25 +73,25 @@ const filters = [
 		<footer>
 			<ly-field class='__wrapper'>
 				<button class='aspect-[1/1] h-5xl w-max'>
-					<icon>search</icon>
+					<i data-is='icon'>search</i>
 				</button>
 				<input type='search' />
 				<button class='aspect-[1/1] h-5xl w-max'>
-					<icon>IA</icon>
+					<i data-is='icon'>IA</i>
 				</button>
 			</ly-field>
 			<nav class='g-sm place-around'>
 				<button>
-					<icon> list </icon>
+					<i data-is='icon'> list </i>
 				</button>
 				<button>
-					<icon> search </icon>
+					<i data-is='icon'> search </i>
 				</button>
 				<button>
-					<icon> notifications </icon>
+					<i data-is='icon'> notifications </i>
 				</button>
-				<button class='__outline'>
-					<icon> edit </icon>
+				<button data-variant='outline'>
+					<i data-is='icon'> edit </i>
 				</button>
 			</nav>
 		</footer>

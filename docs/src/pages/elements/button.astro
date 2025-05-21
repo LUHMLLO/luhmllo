@@ -3,40 +3,40 @@ import Layout from '../../layouts/app.astro';
 ---
 
 <Layout>
-	<button type='button'>
-		<x-icon>arrow_left_alt</x-icon>
+	<button>
+		<i data-is='icon' data-part='lead'>arrow_left_alt</i>
 		<span>lead icon</span>
 	</button>
 
-	<button type='button'>
+	<button>
 		<span>no icons</span>
 	</button>
 
-	<button type='button'>
-		<x-icon>add_2</x-icon>
+	<button>
+		<i data-is='icon'>add_2</i>
 	</button>
 
-	<button type='button'>
-		<x-icon>globe</x-icon>
+	<button>
+		<i data-is='icon' data-part='lead'>globe</i>
 		<span>both icons</span>
-		<x-icon>open_in_new</x-icon>
+		<i data-is='icon' data-part='trail'>open_in_new</i>
 	</button>
 
-	<button type='button'>
+	<button>
 		<span>trail icon</span>
-		<x-icon>arrow_right_alt</x-icon>
+		<i data-is='icon' data-part='trail'>arrow_right_alt</i>
 	</button>
 
-	<button type='button' data-variant='outline'>
+	<button data-variant='outline'>
 		<span>--outline</span>
 	</button>
 
-	<button type='button' data-roles='flat'>
+	<button data-variant='flat'>
 		<span>--flat</span>
 	</button>
 
-	<button type='button' disabled>
+	<button disabled>
 		<span>disabled</span>
-		<x-icon>block</x-icon>
+		<i data-is='icon' data-part='trail'>block</i>
 	</button>
 </Layout>

@@ -32,29 +32,29 @@ import Layout from '../../layouts/app.astro';
 			style='place-items:center; padding-inline: var(--md); height: 50px;'>
 			<p>Service clients</p>
 			<button id='modalClose' type='button' style='display: contents;'>
-				<x-icon>close_small</x-icon>
+				<i data-is='icon'>close_small</i>
 			</button>
 		</x-flex>
 
 		<label for='searchbar' data-is='input' style='margin-inline: var(--sm);'>
-			<x-icon> search </x-icon>
+			<i data-is='icon' data-part='lead'> search </i>
 			<input
 				type='text'
 				class='rounded-none w-full'
 				name='searchbar'
 				placeholder='Type in to filter list'
 			/>
-			<x-icon> keyboard_command_key </x-icon>
+			<i data-is='icon' data-part='trail'> keyboard_command_key </i>
 		</label>
 
 		<x-stack style='gap: var(--md); place-items: center; padding: var(--xl);'>
-			<x-icon  style='--size: 50px;'>block</x-icon>
+			<i data-is='icon' style='--size: 50px;'>block</i>
 			<x-block style='text-align: center;'>
 				<p>No service clients found.</p>
 				<p>Try another search query or add a new service client.</p>
 			</x-block>
-			<button type='button'>
-				<x-icon>add_2</x-icon>
+			<button>
+				<i data-is='icon' data-part='lead'> add_2 </i>
 				<span>Add client</span>
 			</button>
 		</x-stack>

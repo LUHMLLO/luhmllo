@@ -15,12 +15,12 @@
     word-break: break-word;
   }
 
-  :where(abbr, acronym, b, big, cite, code, del, dfn, em, i, ins, kbd, q,
-    samp, small, strong, sub, sup, tt, var) {
+  :where(abbr, acronym, b, big, button, cite, code, del, dfn, em, h1, h2, h3, h4, h5, h6, i, input, ins, kbd, option, q,
+    samp, select, small, strong, sub, sup, tt, var) {
     line-height: 1;
   }
 
-  :where(small){
+  :where(small) {
     font-size: 50%;
   }
 
@@ -156,7 +156,7 @@
   }
 
   /* general clickable items */
-  :where(a, area, button, [type="button"], input, label, select, summary, textarea) {
+  :where(a, area, button, input, label, select, summary, textarea) {
     -ms-touch-action: manipulation;
     touch-action: manipulation;
   }
@@ -220,7 +220,6 @@
   :where(h1, h2, h3, h4, h5, h6) {
     color: var(--clr-text__raised);
     font-weight: 500;
-    line-height: 1;
     text-wrap: balance;
   }
 
@@ -310,7 +309,7 @@
   }
 
   /* buttons */
-  :where(button, [type="button"]) {
+  :where(button) {
     align-items: center;
     background-color: var(--clr-background__base);
     border-radius: var(--xl);
@@ -318,7 +317,6 @@
     font: inherit;
     gap: var(--xs);
     height: 45px;
-    line-height: 1;
     outline: solid 2px transparent;
     outline-offset: -2px;
     overflow: clip;
@@ -334,76 +332,40 @@
     }
 
     &:hover {
-      background-color: var(--clr-background__raised);
+      filter: brightness(125%);
     }
 
     &:active {
-      background-color: var(--clr-background__lowered);
+      filter: brightness(80%);
     }
 
-    /* Icon at the start */
-    &:has(> :where(.icon, figure, kbd):first-child):not(:has(> :where(.icon, figure, kbd):last-child)) {
+    &:has(> :where([data-part='lead']):first-child) {
       padding-left: var(--sm);
     }
 
-    /* Icon at the end */
-    &:has(> :where(.icon, figure, kbd):last-child):not(:has(> :where(.icon, figure, kbd):first-child)) {
+    &:has(> :where([data-part='trail']):last-child) {
       padding-right: var(--sm);
     }
 
-    /* Icons on both sides */
-    &:has(> :where(.icon, figure, kbd):first-child):has(> :where(.icon, figure, kbd):last-child) {
-      padding-left: var(--sm);
-      padding-right: var(--sm);
-    }
-
-    &:has(> :where(.icon, figure, kbd):only-child) {
+    &:has(> :where(i, figure, kbd):only-child) {
       aspect-ratio: 1/1;
       padding: 0;
       place-content: center;
     }
 
-    &:where([data-variant~="outline"]) {
+    &:where([data-variant="outline"]) {
       background-color: transparent;
       color: var(--clr-text__base);
       outline-color: var(--clr-border__base);
-
-      &:focus-visible {
-        outline-color: var(--clr-text__base);
-      }
-
-      &:hover {
-        background-color: transparent;
-        color: var(--clr-text__raised);
-        outline-color: var(--clr-text__raised);
-      }
-
-      &:active {
-        background-color: transparent;
-        color: var(--clr-text__lowered);
-        outline-color: var(--clr-text__lowered);
-      }
     }
 
-    &:where([data-variant~='flat']) {
-      background-color: inherit;
+    &:where([data-variant='flat']) {
+      background-color: transparent;
       outline-color: transparent;
+    }
 
-      &:focus-visible {
-        outline-color: var(--clr-text__base);
-      }
-
-      &:hover {
-        background-color: transparent;
-        color: var(--clr-text__raised);
-        outline-color: transparent;
-      }
-
-      &:active {
-        background-color: transparent;
-        color: var(--clr-text__lowered);
-        outline-color: transparent;
-      }
+    & > span {
+      flex: 1 1;
     }
   }
 
@@ -419,7 +381,6 @@
     display: inline-block;
     font-size: inherit;
     height: 45px;
-    line-height: 1;
     outline: solid 2px var(--clr-border__base);
     outline-offset: -2px;
     overflow: clip;
@@ -463,7 +424,6 @@
       flex-shrink: 0;
       gap: var(--xs);
       height: 45px;
-      line-height: 1;
       overflow: clip;
       padding: 0 var(--md);
       transition-property: background-color, color, filter, outline, outline-color, outline-offset;
@@ -481,7 +441,6 @@
     display: inline-block;
     font-size: inherit;
     height: 45px;
-    line-height: 1;
     outline: solid 2px var(--clr-border__base);
     outline-offset: -2px;
     overflow: clip;
