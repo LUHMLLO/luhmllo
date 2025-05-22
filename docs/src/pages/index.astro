@@ -59,6 +59,7 @@ for (const folder in groupedRoutes) {
 const apps: RouteItem[] = groupedRoutes['apps'] || [];
 const elements: RouteItem[] = groupedRoutes['elements'] || [];
 const mdx: RouteItem[] = groupedRoutes['mdx'] || [];
+const prototype: RouteItem[] = groupedRoutes['prototype'] || [];
 const sketches: RouteItem[] = groupedRoutes['sketches'] || [];
 ---
 
@@ -82,6 +83,20 @@ const sketches: RouteItem[] = groupedRoutes['sketches'] || [];
 			<x-grid style='--gap: var(--md); --cols: 4;'>
 				{
 					apps.map((el) => (
+						<a href={el.path}>
+							<span>{el.name}</span>
+							<i data-is='icon'>north_east</i>
+						</a>
+					))
+				}
+			</x-grid>
+		</x-card>
+
+		<x-card style='outline-offset: 2px;'>
+			<h2>Prototype</h2>
+			<x-grid style='--gap: var(--md); --cols: 4;'>
+				{
+					prototype.map((el) => (
 						<a href={el.path}>
 							<span>{el.name}</span>
 							<i data-is='icon'>north_east</i>

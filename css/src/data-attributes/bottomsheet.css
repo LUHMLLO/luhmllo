@@ -1,19 +1,12 @@
 @layer data-attributes {
   :where([data-is="bottomsheet"]) {
-    background-color: var(--clr-background__base);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    height: max-content;
     inset: auto 0 0;
-    margin: auto;
-    max-height: calc(100% - var(--md));
-    outline: solid 2px var(--clr-background__base);
-    outline-offset: -2px;
+    max-height: 75%;
     overflow: auto;
     overscroll-behavior: contain;
-    position: fixed;
-    width: 100dvw;
-    z-index: 20;
+    width: 100%;
 
     &[open] {
       display: grid;

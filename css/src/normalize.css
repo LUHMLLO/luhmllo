@@ -628,11 +628,12 @@
   /* dialog */
   :where(dialog) {
     background-color: var(--clr-background__base);
-    border-radius: var(--xs);
+    border-radius: var(--sm);
     height: max-content;
     inset: 0;
     margin: auto;
-    outline: none;
+    outline: solid 2px var(--clr-border__base);
+    outline-offset: -2px;
     position: absolute;
 
     &:modal {

@@ -77,7 +77,7 @@ import Iframe from '../../layouts/iframe.astro';
 		</x-row>
 
 		<main>
-			<button>
+			<button data-toggle-menu>
 				<i data-is='icon'>side_navigation</i>
 				<span>Customer information</span>
 				<i data-is='icon'>keyboard_arrow_down</i>
@@ -241,63 +241,84 @@ import Iframe from '../../layouts/iframe.astro';
 			</form>
 		</main>
 
-		<dialog data-is='bottomsheet'>
-			<header>
-				<hr style='margin: auto; width: 25%;' />
+		<dialog id='menu' data-is='bottomsheet'>
+			<header data-toggle-menu>
+				<hr style='margin: auto; width: min(100%, 100px);' />
 				<h5>Options</h5>
 				<p>
 					Select the items that you would like to include in this proposal. Only
 					available items are shown.
 				</p>
 			</header>
-			<a>
+			<a data-is='button'>
 				<span>Customer Information</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
-			<a>
+			<a data-is='button'>
 				<span>Solar Panels</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
-			<a>
+			<a data-is='button'>
 				<span>Battery System</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
-			<a>
+			<a data-is='button'>
 				<span>Roof Replacement</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
-			<a>
+			<a data-is='button'>
 				<span>Electrical Work</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
-			<a>
+			<a data-is='button'>
 				<span>Energy Efficiency</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
-			<a>
+			<a data-is='button'>
 				<span>H.V.A.C</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
-			<a>
+			<a data-is='button'>
 				<span>Geothermal Services</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
-			<a>
+			<a data-is='button'>
 				<span>Other Project Adders</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
-			<a>
+			<a data-is='button'>
 				<span>Additional Projects</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
-			<a>
+			<a data-is='button'>
 				<span>Internal Sales Notes</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
-			<a>
+			<a data-is='button'>
 				<span>Financial</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
+
+			<script type='module' is:inline>
+				window.addEventListener('DOMContentLoaded', () => {
+					const menu = document.querySelector('#menu');
+					if (!menu || !(menu instanceof HTMLDialogElement)) return;
+
+					//addCustomEventListener
+					addEventListener('menu:toggle', () => {
+						menu.open ? menu.close() : menu.showModal();
+					});
+
+					//dispatchCustomEvent
+					document
+						.querySelectorAll('[data-toggle-menu]')
+						.forEach((el) =>
+							el.addEventListener('click', () =>
+								dispatchEvent(new CustomEvent('menu:toggle')),
+							),
+						);
+				});
+			</script>
 		</dialog>
 
 		<style lang='css' is:inline>
@@ -406,6 +427,22 @@ import Iframe from '../../layouts/iframe.astro';
 							& > :where(h4, hr) {
 								grid-column: 1/-1;
 							}
+						}
+					}
+
+					#menu {
+						max-height: 75%;
+
+						& > header {
+							background-color: inherit;
+							inset: 0;
+							position: sticky;
+							z-index: 2;
+						}
+
+						& > :where(button, a) {
+							border-radius: 0;
+							width: 100%;
 						}
 					}
 				}
