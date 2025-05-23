@@ -253,42 +253,48 @@ import Iframe from '../../layouts/iframe.astro';
 			<hr />
 			<a data-is='button'>
 				<span>Customer Information</span>
-				<input type='checkbox' data-is='switch' />
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
 			<hr />
 			<a data-is='button'>
 				<span>Solar Panels</span>
+				<input type='checkbox' data-is='switch' />
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
 			<hr />
 			<a data-is='button'>
 				<span>Battery System</span>
+				<input type='checkbox' data-is='switch' />
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
 			<hr />
 			<a data-is='button'>
 				<span>Roof Replacement</span>
+				<input type='checkbox' data-is='switch' />
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
 			<hr />
 			<a data-is='button'>
 				<span>Electrical Work</span>
+				<input type='checkbox' data-is='switch' />
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
 			<hr />
 			<a data-is='button'>
 				<span>Energy Efficiency</span>
+				<input type='checkbox' data-is='switch' />
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
 			<hr />
 			<a data-is='button'>
 				<span>H.V.A.C</span>
+				<input type='checkbox' data-is='switch' />
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
 			<hr />
 			<a data-is='button'>
 				<span>Geothermal Services</span>
+				<input type='checkbox' data-is='switch' />
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
 			<hr />
@@ -318,12 +324,28 @@ import Iframe from '../../layouts/iframe.astro';
 					const menu = document.querySelector('#menu');
 					if (!menu || !(menu instanceof HTMLDialogElement)) return;
 
-					//addCustomEventListener
+					function handleClickOutside(event) {
+						if (!menu.contains(event.target)) {
+							menu.close();
+						}
+					}
+
 					addEventListener('menu:toggle', () => {
-						menu.open ? menu.close() : menu.show();
+						if (menu.open) {
+							menu.close();
+						} else {
+							menu.show();
+
+							setTimeout(() => {
+								document.addEventListener('click', handleClickOutside);
+							});
+						}
 					});
 
-					//dispatchCustomEvent
+					menu.addEventListener('close', () => {
+						document.removeEventListener('click', handleClickOutside);
+					});
+
 					document
 						.querySelectorAll('[data-toggle-menu]')
 						.forEach((el) =>
