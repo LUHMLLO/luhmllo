@@ -242,62 +242,76 @@ import Iframe from '../../layouts/iframe.astro';
 		</main>
 
 		<dialog id='menu' data-is='bottomsheet'>
-			<header data-toggle-menu>
-				<hr style='margin: auto; width: min(100%, 100px);' />
+			<header>
+				<hr id='menu__handle' data-toggle-menu />
 				<h5>Options</h5>
 				<p>
 					Select the items that you would like to include in this proposal. Only
 					available items are shown.
 				</p>
 			</header>
+			<hr />
 			<a data-is='button'>
 				<span>Customer Information</span>
+				<input type='checkbox' data-is='switch' />
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
+			<hr />
 			<a data-is='button'>
 				<span>Solar Panels</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
+			<hr />
 			<a data-is='button'>
 				<span>Battery System</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
+			<hr />
 			<a data-is='button'>
 				<span>Roof Replacement</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
+			<hr />
 			<a data-is='button'>
 				<span>Electrical Work</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
+			<hr />
 			<a data-is='button'>
 				<span>Energy Efficiency</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
+			<hr />
 			<a data-is='button'>
 				<span>H.V.A.C</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
+			<hr />
 			<a data-is='button'>
 				<span>Geothermal Services</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
+			<hr />
 			<a data-is='button'>
 				<span>Other Project Adders</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
+			<hr />
 			<a data-is='button'>
 				<span>Additional Projects</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
+			<hr />
 			<a data-is='button'>
 				<span>Internal Sales Notes</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
+			<hr />
 			<a data-is='button'>
 				<span>Financial</span>
 				<i data-is='icon'>arrow_forward_ios</i>
 			</a>
+			<hr />
 
 			<script type='module' is:inline>
 				window.addEventListener('DOMContentLoaded', () => {
@@ -306,7 +320,7 @@ import Iframe from '../../layouts/iframe.astro';
 
 					//addCustomEventListener
 					addEventListener('menu:toggle', () => {
-						menu.open ? menu.close() : menu.showModal();
+						menu.open ? menu.close() : menu.show();
 					});
 
 					//dispatchCustomEvent
@@ -431,18 +445,46 @@ import Iframe from '../../layouts/iframe.astro';
 					}
 
 					#menu {
+						background-color: var(--clr-background__base);
 						max-height: 75%;
 
 						& > header {
 							background-color: inherit;
 							inset: 0;
+							padding: 0 var(--md) var(--nm);
 							position: sticky;
 							z-index: 2;
+
+							& > #menu__handle {
+								border-radius: var(--xs);
+								height: var(--xs);
+								margin: var(--xl) auto;
+								width: min(100%, 100px);
+							}
+
+							p {
+								color: var(--clr-text__lowered);
+								margin-top: var(--xs);
+							}
 						}
 
 						& > :where(button, a) {
+							background-color: inherit;
 							border-radius: 0;
 							width: 100%;
+
+							& > span {
+								flex: 1 1;
+							}
+
+							& > input {
+								flex-shrink: 0;
+							}
+						}
+
+						& > hr:last-of-type {
+							background-color: inherit;
+							height: calc(var(--xl) * 5);
 						}
 					}
 				}

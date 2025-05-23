@@ -632,8 +632,8 @@
     height: max-content;
     inset: 0;
     margin: auto;
-    outline: solid 2px var(--clr-border__base);
-    outline-offset: -2px;
+    /* outline: solid 2px var(--clr-border__base);
+    outline-offset: -2px; */
     position: absolute;
 
     &:modal {

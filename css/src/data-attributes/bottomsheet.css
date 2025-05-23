@@ -4,29 +4,25 @@
     border-bottom-right-radius: 0;
     inset: auto 0 0;
     max-height: 75%;
-    overflow: auto;
+    overflow: clip auto;
     overscroll-behavior: contain;
+    scrollbar-width: none;
     width: 100%;
+    z-index: 1;
 
     &[open] {
       display: grid;
       grid-auto-rows: max-content;
     }
 
-    & > header {
-      padding: var(--lg) var(--nm) var(--nm);
-
-      p {
-        color: var(--clr-text__lowered);
-      }
-    }
-
-    & > a {
-      width: 100%;
-
-      & > span {
-        flex: 1 1;
-      }
+    &::before {
+      background-color: hsl(from var(--clr-background__lowered) h s l / 75%);
+      backdrop-filter: blur(0.5ex);
+      content: '';
+      display: block;
+      inset: 0;
+      position: fixed;
+      z-index: -1;
     }
 
     /* &::before {
