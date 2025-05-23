@@ -355,8 +355,12 @@
 
     &:has(> :where(i, figure, kbd):only-child) {
       aspect-ratio: 1/1;
+      display: grid;
+      flex-shrink: 1;
+      height: auto;
       padding: 0;
       place-content: center;
+      width: min(100%, 45px);
     }
 
     &:where([data-variant="outline"]) {
