@@ -55,5 +55,8 @@
 
   & > span {
     flex: 1 1;
+    overflow: clip;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
