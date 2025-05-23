@@ -369,7 +369,6 @@ import Iframe from '../../layouts/iframe.astro';
 						pointerId = e.pointerId;
 						menu.style.transition = 'none';
 						handle.setPointerCapture(pointerId);
-						menu.style.willChange = 'transform';
 					});
 
 					handle.addEventListener('pointermove', (e) => {
@@ -386,7 +385,6 @@ import Iframe from '../../layouts/iframe.astro';
 						const delta = currentY - startY;
 						menu.style.transition = '';
 						menu.style.transform = '';
-						menu.style.willChange = 'auto';
 
 						if (delta > 100) {
 							menu.close();
