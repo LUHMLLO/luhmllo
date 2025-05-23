@@ -331,6 +331,12 @@ import Iframe from '../../layouts/iframe.astro';
 						}
 					}
 
+					function handleEscKey(event) {
+						if (event.key === 'Escape') {
+							menu.close();
+						}
+					}
+
 					addEventListener('menu:toggle', () => {
 						if (menu.open) {
 							menu.close();
@@ -338,12 +344,14 @@ import Iframe from '../../layouts/iframe.astro';
 							menu.show();
 							setTimeout(() => {
 								document.addEventListener('click', handleClickOutside);
+								document.addEventListener('keydown', handleEscKey);
 							});
 						}
 					});
 
 					menu.addEventListener('close', () => {
 						document.removeEventListener('click', handleClickOutside);
+						document.removeEventListener('keydown', handleEscKey);
 					});
 
 					document
@@ -420,6 +428,7 @@ import Iframe from '../../layouts/iframe.astro';
 						background-color: var(--clr-background__base);
 						display: grid;
 						grid: auto / 1fr;
+						grid-template-rows: max-content 1fr;
 						justify-content: space-between;
 						height: 175px;
 						overflow: clip;
@@ -427,11 +436,16 @@ import Iframe from '../../layouts/iframe.astro';
 						row-gap: var(--xl);
 
 						& > nav {
+							align-items: center;
 							gap: var(--sm);
-							justify-content: end;
+							height: max-content;
 
-							nav {
-								gap: inherit;
+							& > nav {
+								align-items: center;
+								flex: 1 1;
+								gap: var(--sm);
+								justify-content: end;
+								overflow: clip;
 							}
 						}
 
@@ -551,7 +565,7 @@ import Iframe from '../../layouts/iframe.astro';
 
 						& > hr:last-of-type {
 							background-color: inherit;
-							height: calc(var(--xl) * 5);
+							height: calc(var(--xl) * 2);
 						}
 					}
 				}

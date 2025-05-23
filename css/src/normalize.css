@@ -356,7 +356,7 @@
     &:has(> :where(i, figure, kbd):only-child) {
       aspect-ratio: 1/1;
       display: grid;
-      flex-shrink: 1;
+      flex-shrink: 0;
       height: auto;
       padding: 0;
       place-content: center;
