@@ -90,6 +90,7 @@
     letter-spacing: -.03em;
     line-height: 1.25;
     position: static;
+    text-align: left;
     text-underline-offset: 3px;
   }
 

@@ -11,6 +11,7 @@
     outline-offset: -2px;
     overflow: clip;
     padding: 0 var(--md);
+    text-align: inherit;
     transition-property: background-color, color, filter, outline, outline-color, outline-offset;
     transition-duration: var(--animDuration);
     transition-timing-function: var(--animTiming);
@@ -41,10 +42,10 @@
       aspect-ratio: 1/1;
       display: grid;
       flex-shrink: 0;
-      height: auto;
+      height: 45px;
       padding: 0;
       place-content: center;
-      width: min(100%, 45px);
+      width: 45px;
     }
 
     &:where([data-variant="outline"]) {
@@ -61,6 +62,7 @@
     & > span {
       flex: 1 1;
       overflow: clip;
+      text-align: inherit;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
