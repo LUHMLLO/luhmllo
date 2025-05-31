@@ -60,6 +60,7 @@ const apps: RouteItem[] = groupedRoutes['apps'] || [];
 const elements: RouteItem[] = groupedRoutes['elements'] || [];
 const mdx: RouteItem[] = groupedRoutes['mdx'] || [];
 const prototype: RouteItem[] = groupedRoutes['prototype'] || [];
+const sites: RouteItem[] = groupedRoutes['sites'] || [];
 const sketches: RouteItem[] = groupedRoutes['sketches'] || [];
 ---
 
@@ -125,6 +126,20 @@ const sketches: RouteItem[] = groupedRoutes['sketches'] || [];
 			<x-grid style='--gap: var(--md); --cols: 4;'>
 				{
 					mdx.map((el) => (
+						<a href={el.path}>
+							<span>{el.name}</span>
+							<i data-is='icon'>north_east</i>
+						</a>
+					))
+				}
+			</x-grid>
+		</x-card>
+
+		<x-card style='outline-offset: 2px;'>
+			<h2>Sites</h2>
+			<x-grid style='--gap: var(--md); --cols: 4;'>
+				{
+					sites.map((el) => (
 						<a href={el.path}>
 							<span>{el.name}</span>
 							<i data-is='icon'>north_east</i>
