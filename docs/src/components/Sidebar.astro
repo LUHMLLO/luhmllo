@@ -6,7 +6,7 @@ import IconJSR from '../assets/icon_jsr.svg';
 import IconSponsor from '../assets/icon_sponsor.svg';
 ---
 
-<aside id='app__sidebar'>
+<aside id='app__sidebar' data-visible='true'>
 	<x-row>
 		<a href='/' data-roles='text'>
 			<figure>
@@ -19,7 +19,7 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 			</div>
 		</a>
 
-		<button style='display: contents;' data-toggle-sidebar>
+		<button data-toggle-sidebar>
 			<i data-is='icon'> left_panel_close </i>
 		</button>
 	</x-row>
@@ -196,36 +196,35 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 			const sidebar = document.querySelector('#app__sidebar');
 			if (!sidebar) return;
 
-			if (localStorage.getItem('sidebarFloat') === 'true') {
-				sidebar.classList.add('float');
-			} else {
-				sidebar.classList.remove('float');
-			}
+			// Read from localStorage on load
+			const isVisible = localStorage.getItem('sidebarVisible') !== 'false';
+			sidebar.dataset.visible = isVisible;
 
-			//addCustomEventListener
-			addEventListener('sidebar:toggle', () => {
-				sidebar.classList.toggle('float');
-				localStorage.setItem(
-					'sidebarFloat',
-					sidebar.classList.contains('float') ? 'true' : 'false',
-				);
-			});
+			const setVisibility = (visible) => {
+				sidebar.dataset.visible = visible;
+				localStorage.setItem('sidebarVisible', visible ? 'true' : 'false');
 
-			//dispatchCustomEvent
-			document
-				.querySelectorAll('[data-toggle-sidebar]')
-				.forEach((el) =>
-					el.addEventListener('click', () =>
-						dispatchEvent(new CustomEvent('sidebar:toggle')),
-					),
+				// Emit visibility change
+				dispatchEvent(
+					new CustomEvent('sidebar:visibility', {
+						detail: { visible },
+					}),
 				);
+			};
+
+			document.querySelectorAll('[data-toggle-sidebar]').forEach((el) =>
+				el.addEventListener('click', () => {
+					const nowVisible = sidebar.dataset.visible !== 'true';
+					setVisibility(nowVisible);
+				}),
+			);
 		});
 	</script>
 
 	<style lang='css' is:inline>
 		@scope {
 			:scope {
-				background-color: var(--clr-background__raised);
+				background-color: var(--clr-background__base);
 				border-right: solid 2px var(--clr-border__base);
 				gap: var(--xl);
 				grid-column: left;
@@ -241,15 +240,10 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 				width: max(0px, 300px);
 				z-index: 5;
 
-				&.float {
+				&[data-visible='false'] {
 					opacity: 0;
 					position: fixed;
 					transform: translateX(-100%);
-
-					/* &:hover {
-						opacity: 1;
-						transform: translateX(0);
-					} */
 				}
 
 				& > x-row {
@@ -274,13 +268,19 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 					}
 				}
 
-				& > label[data-roles~='input'] {
+				/* & > label[data-roles~='input'] {
 					background-color: var(--clr-background__raised);
-				}
+				} */
 
-				& > hr {
+				/* & > hr {
 					background-color: var(--clr-border__raised);
-				}
+				} */
+
+				/* ul:last-of-type {
+					background-color: inherit;
+					position: sticky;
+					bottom: 0;
+				} */
 			}
 		}
 	</style>

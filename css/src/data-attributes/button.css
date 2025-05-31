@@ -1,66 +1,68 @@
-:where([data-is="button"]) {
-  align-items: center;
-  background-color: var(--clr-background__base);
-  border-radius: var(--xl);
-  display: inline-flex;
-  font: inherit;
-  gap: var(--xs);
-  height: 45px;
-  outline: solid 2px transparent;
-  outline-offset: -2px;
-  overflow: clip;
-  padding: 0 var(--md);
-  transition-property: background-color, color, filter, outline, outline-color, outline-offset;
-  transition-duration: var(--animDuration);
-  transition-timing-function: var(--animTiming);
-  white-space: nowrap;
-  width: fit-content;
-
-  &:focus-visible {
-    outline-color: var(--clr-text__base);
-  }
-
-  &:hover {
-    filter: brightness(125%);
-  }
-
-  &:active {
-    filter: brightness(80%);
-  }
-
-  &:has(> :where([data-part='lead']):first-child) {
-    padding-left: var(--sm);
-  }
-
-  &:has(> :where([data-part='trail']):last-child) {
-    padding-right: var(--sm);
-  }
-
-  &:has(> :where(i, figure, kbd):only-child) {
-    aspect-ratio: 1/1;
-    display: grid;
-    flex-shrink: 0;
-    height: auto;
-    padding: 0;
-    place-content: center;
-    width: min(100%, 45px);
-  }
-
-  &:where([data-variant="outline"]) {
-    background-color: transparent;
-    color: var(--clr-text__base);
-    outline-color: var(--clr-border__base);
-  }
-
-  &:where([data-variant='flat']) {
-    background-color: transparent;
-    outline-color: transparent;
-  }
-
-  & > span {
-    flex: 1 1;
+@layer data-attributes {
+  :where([data-is="button"]) {
+    align-items: center;
+    background-color: var(--clr-background__base);
+    border-radius: var(--xl);
+    display: inline-flex;
+    font: inherit;
+    gap: var(--xs);
+    height: 45px;
+    outline: solid 2px transparent;
+    outline-offset: -2px;
     overflow: clip;
-    text-overflow: ellipsis;
+    padding: 0 var(--md);
+    transition-property: background-color, color, filter, outline, outline-color, outline-offset;
+    transition-duration: var(--animDuration);
+    transition-timing-function: var(--animTiming);
     white-space: nowrap;
+    width: fit-content;
+
+    &:focus-visible {
+      outline-color: var(--clr-text__base);
+    }
+
+    &:hover {
+      filter: brightness(125%);
+    }
+
+    &:active {
+      filter: brightness(80%);
+    }
+
+    &:has(> :where([data-part='lead']):first-child) {
+      padding-left: var(--sm);
+    }
+
+    &:has(> :where([data-part='trail']):last-child) {
+      padding-right: var(--sm);
+    }
+
+    &:has(> :where(i, figure, kbd):only-child) {
+      aspect-ratio: 1/1;
+      display: grid;
+      flex-shrink: 0;
+      height: auto;
+      padding: 0;
+      place-content: center;
+      width: min(100%, 45px);
+    }
+
+    &:where([data-variant="outline"]) {
+      background-color: transparent;
+      color: var(--clr-text__base);
+      outline-color: var(--clr-border__base);
+    }
+
+    &:where([data-variant='flat']) {
+      background-color: transparent;
+      outline-color: transparent;
+    }
+
+    & > span {
+      flex: 1 1;
+      overflow: clip;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 }

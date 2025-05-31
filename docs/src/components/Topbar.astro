@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import Logo from '../assets/logo.png';
 ---
 
-<nav id='app__topbar'>
+<nav id='app__topbar' data-visible='false'>
 	<a href='/' data-roles='text'>
 		<figure>
 			<Image src={Logo} alt='logo' decoding='async' loading='eager' />
@@ -14,6 +14,22 @@ import Logo from '../assets/logo.png';
 	<button data-toggle-sidebar>
 		<i data-is='icon'>menu</i>
 	</button>
+
+	<script type='module' is:inline>
+		window.addEventListener('DOMContentLoaded', () => {
+			const topbar = document.querySelector('#app__topbar');
+			if (!topbar) return;
+
+			// Initial sync from sidebar state
+			const isSidebarVisible = localStorage.getItem('sidebarVisible') == 'true';
+			topbar.dataset.visible = !isSidebarVisible;
+
+			addEventListener('sidebar:visibility', (e) => {
+				const visible = e.detail?.visible ?? false;
+				topbar.dataset.visible = !visible;
+			});
+		});
+	</script>
 
 	<style lang='css' is:inline>
 		@scope {
@@ -32,6 +48,9 @@ import Logo from '../assets/logo.png';
 				place-content: space-between;
 				place-items: center;
 				position: sticky;
+				transition-property: opacity, position, transform, translate;
+				transition-duration: var(--animDuration);
+				transition-timing-function: var(--animTiming);
 				z-index: 4;
 
 				&::before {
@@ -41,6 +60,12 @@ import Logo from '../assets/logo.png';
 					inset: 0;
 					position: absolute;
 					z-index: -1;
+				}
+
+				&[data-visible='false'] {
+					opacity: 0;
+					position: fixed;
+					transform: translateY(-100%);
 				}
 
 				& > a {

@@ -14,6 +14,10 @@
     transition-property: background-color, color, outline, outline-offset;
     transition-timing-function: var(--animTiming);
 
+    &:focus-visible {
+      outline-color: var(--clr-text__base);
+    }
+
     &:has(:focus) {
       outline-color: var(--clr-accent__base);
     }
