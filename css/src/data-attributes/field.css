@@ -10,7 +10,7 @@
       color: var(--clr-text__base);
     }
 
-    & > input:not([type=checkbox], [type=radio]) {
+    & > :where(input:not([type=checkbox], [type=radio]), select) {
       width: 100%;
     }
 

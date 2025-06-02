@@ -10,7 +10,7 @@ import Topbar from '../components/Topbar.astro';
 ---
 
 <Scaffold>
-	<div id='app'>
+	<div id='app' data-is='app'>
 		<Topbar />
 		<Sidebar />
 		<Content>
@@ -21,10 +21,10 @@ import Topbar from '../components/Topbar.astro';
 		<!-- <Cookiesbar /> -->
 	</div>
 
-	<style lang='css' is:inline>
+	<!-- <style lang='css' is:inline>
 		@scope {
 			#app {
 			}
 		}
-	</style>
+	</style> -->
 </Scaffold>

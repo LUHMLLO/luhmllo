@@ -1,0 +1,329 @@
+---
+import Layout from '../../layouts/app.astro';
+import Iframe from '../../layouts/iframe.astro';
+---
+
+<Layout>
+	<Iframe>
+		<div data-is='app'>
+			<nav id='navbar' data-layout='expand'>
+				<x-row>
+					<figure style='height: 75px;'>
+						<img src='/images/halo/hytech_h2o.png' alt='logo' />
+					</figure>
+				</x-row>
+
+				<x-row>
+					<a href='#' data-is='text'>About</a>
+					<a href='#' data-is='text'>Clean Water</a>
+					<a href='#' data-is='text'>Products</a>
+					<a href='#' data-is='text'>Hytech Home</a>
+				</x-row>
+
+				<x-row>
+					<button class='btn-secondary'> Get in contact </button>
+				</x-row>
+			</nav>
+
+			<header
+				data-is='grid'
+				data-layout='expand'
+				style='--cols: 2; place-content: center;'>
+				<figure data-is='background' style='height: auto; inset: auto 0 0 0;'>
+					<img src='/images/halo/Familia.png' alt='background' />
+				</figure>
+
+				<x-stack
+					style='align-items: center; gap: var(--xl); text-align: center;'>
+					<x-group style='gap: var(--xs);'>
+						<h1 style='color: white;'>Protect your family</h1>
+						<p style='color: white; font-size: var(--lg);'>
+							With pure and safe water.
+						</p>
+					</x-group>
+
+					<button
+						class='btn-secondary'
+						style='height: 60px; padding-inline: 30px;'>
+						Discover Our Filtration Systems
+					</button>
+				</x-stack>
+			</header>
+
+			<section data-is='grid' style='--cols: 2; --gap: var(--nm);'>
+				<h3>
+					CLEANER WATER STARTS HERE — POWERED BY HALO®, BROUGHT TO YOU BY
+					HYTECH HOME
+				</h3>
+
+				<p style='font-weight: 500; place-content: end;'>
+					Elevate every drop. Protect your family.
+				</p>
+
+				<p>
+					Hytech Home has teamed up with HALO® Water Systems to bring
+					industry-leading water filtration right to your home. HALO’s
+					state-of-the-art systems remove harmful contaminants, extend the life
+					of your plumbing, and deliver refreshing, clean water from every tap.
+				</p>
+
+				<p>
+					As a trusted home performance company, Hytech Home is proud to offer
+					seamless access to HALO’s proven technology — including expert
+					guidance, professional installation, and exclusive incentives.
+				</p>
+			</section>
+
+			<section
+				data-is='grid'
+				data-layout='expand'
+				style='--cols: 2; --gap: var(--nm);'>
+				<figure data-is='background'>
+					<img src='/images/halo/Menol_Bratpit_.png' alt='background' />
+				</figure>
+
+				<x-group></x-group>
+
+				<form
+					id='consultation-quoting-form'
+					data-is='grid'
+					style='--cols: 1; --gap: var(--xl);'>
+					<header>
+						<h3>Request a Free Consultation or Quote</h3>
+						<p>
+							Fill out this form for a free consultation or product quote. We'll
+							get back to you shortly.
+						</p>
+					</header>
+
+					<fieldset data-is='grid' style='--cols: 2; --gap: var(--nm);'>
+						<label for='first_name' data-is='field'>
+							<span>First Name</span>
+							<input
+								type='text'
+								name='first_name'
+								id='first_name'
+								placeholder='...'
+							/>
+						</label>
+
+						<label for='first_name' data-is='field'>
+							<span>Last Name</span>
+							<input
+								type='text'
+								name='last_name'
+								id='last_name'
+								placeholder='...'
+							/>
+						</label>
+
+						<label for='phone_number' data-is='field'>
+							<span>Phone</span>
+							<input
+								type='tel'
+								name='phone_number'
+								id='phone_number'
+								placeholder='...'
+							/>
+						</label>
+
+						<label for='email' data-is='field'>
+							<span>Email</span>
+							<input type='email' name='email' id='email' placeholder='...' />
+						</label>
+					</fieldset>
+
+					<fieldset data-is='grid' style='--cols: 2; --gap: var(--nm);'>
+						<label for='address' data-is='field'>
+							<span>Address</span>
+							<div data-is='input'>
+								<input
+									type='text'
+									name='address'
+									id='address'
+									placeholder='...'
+								/>
+								<button data-variant='flat' data-part='trail'>
+									<i data-is='icon'>my_location</i>
+								</button>
+							</div>
+						</label>
+
+						<label for='state' data-is='field'>
+							<span>State</span>
+							<select name='state' id='state'>
+								<option value=''>Pick an option</option>
+							</select>
+						</label>
+
+						<label for='city' data-is='field'>
+							<span>City</span>
+							<select name='city' id='city'>
+								<option value=''>Pick an option</option>
+							</select>
+						</label>
+
+						<label for='zip' data-is='field'>
+							<span>Zip</span>
+							<input type='number' name='zip' id='zip' placeholder='...' />
+						</label>
+					</fieldset>
+
+					<fieldset data-is='grid' style='--cols: 2; --gap: var(--nm);'>
+						<label for='productsofinterest' data-is='field'>
+							<span>Which products are of interest?</span>
+							<select name='productsofinterest' id='productsofinterest'>
+								<option value=''>Pick one or more options</option>
+							</select>
+						</label>
+
+						<label for='preferredcontactime' data-is='field'>
+							<span>Preferred contact time</span>
+							<select name='preferredcontactime' id='preferredcontactime'>
+								<option value=''>Pick one or more options</option>
+							</select>
+						</label>
+					</fieldset>
+
+					<button
+						class='btn-secondary big'
+						style='height: 60px; justify-content: center; padding-inline: 30px; text-align: center; width: 100%;'>
+						Get Started
+					</button>
+				</form>
+			</section>
+		</div>
+
+		<style lang='css' is:inline>
+			@scope {
+				:scope {
+					--clr-background__lowered: #eceeec;
+					--clr-background__base: #f1f3f1;
+					--clr-background__raised: #f7f8f7;
+
+					--clr-text__lowered: #999999;
+					--clr-text__base: #333333;
+					--clr-text__raised: #111111;
+
+					--clr-border__lowered: #e0e0e0;
+					--clr-border__base: #e5e5e5;
+					--clr-border__raised: #ebebeb;
+
+					[data-is='app'] {
+						background-color: var(--clr-background__raised);
+						color: var(--clr-text__base);
+						grid-auto-rows: max-content;
+						grid-template-rows: max-content;
+						height: 100%;
+						isolation: isolation;
+						min-height: 100%;
+						overflow: clip auto;
+						position: relative;
+						scrollbar-width: none;
+						z-index: 1;
+
+						> * {
+							grid-row: initial;
+							overflow: clip;
+						}
+
+						& > #navbar {
+							align-items: center;
+							background: linear-gradient(
+								180deg,
+								rgba(255, 255, 255, 0.5) 0%,
+								rgba(255, 255, 255, 0) 100%
+							);
+							height: 150px;
+							inset: 0 0 auto 0;
+							position: fixed;
+							z-index: 2;
+
+							& > x-row {
+								align-items: inherit;
+								flex: 1 1;
+								gap: var(--nm);
+
+								&:nth-child(2) {
+									flex: 2 1;
+									justify-content: center;
+
+									@container xwindow (width < 700px) {
+										display: none;
+									}
+								}
+
+								&:nth-child(3) {
+									justify-content: end;
+								}
+							}
+						}
+
+						& > header {
+							background:
+								linear-gradient(
+									180deg,
+									rgba(255, 255, 255, 0.15) 0%,
+									rgba(1, 24, 50, 0) 100%
+								),
+								url('/images/halo/Fondo.png') lightgray 50%;
+							background-attachment: fixed;
+							background-repeat: no-repeat;
+							background-size: cover;
+							height: 700px;
+							isolation: isolate;
+							overflow: clip;
+							position: relative;
+						}
+
+						& > section {
+							isolation: isolation;
+							padding-block: 100px;
+							position: relative;
+						}
+					}
+
+					#consultation-quoting-form {
+						background-color: hsl(
+							from var(--clr-background__raised) h s l / 50%
+						);
+						backdrop-filter: blur(5ex);
+						border-radius: var(--sm);
+						padding: var(--xl);
+
+						& > fieldset {
+							& > label {
+								& > :where(input, select, [data-is='input']) {
+									background-color: hsl(
+										from var(--clr-background__raised) h s l / 50%
+									);
+									&:not(:focus-visible) {
+										outline-color: transparent;
+									}
+								}
+							}
+						}
+					}
+
+					.btn-secondary {
+						background-color: var(--clr-secondary__base);
+						color: white;
+
+						&.big {
+							font-size: var(--nm);
+							font-weight: 500;
+						}
+
+						&:hover {
+							background-color: var(--clr-secondary__raised);
+						}
+
+						&:active {
+							background-color: var(--clr-secondary__lowered);
+						}
+					}
+				}
+			}
+		</style>
+	</Iframe>
+</Layout>

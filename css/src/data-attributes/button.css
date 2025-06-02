@@ -2,7 +2,8 @@
   :where([data-is="button"]) {
     align-items: center;
     background-color: var(--clr-background__base);
-    border-radius: var(--xl);
+    border-radius: 5ex;
+    color: inherit;
     display: inline-flex;
     font: inherit;
     gap: var(--xs);

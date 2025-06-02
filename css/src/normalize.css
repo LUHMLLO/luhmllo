@@ -286,11 +286,11 @@
     }
 
     &:hover {
-      color: hsl(from var(--clr-accent__raised) h s calc(l + var(--ratio-texts)));
+      color: var(--clr-accent__raised);
     }
 
     &:active {
-      color: hsl(from var(--clr-accent__lowered) h s calc(l - var(--ratio-texts)));
+      color: var(--clr-accent__lowered);
     }
 
     &:where(:not([href]), [href=""], [href="#"], [href^="javascript:"], [href^="void(0)"]) {
@@ -298,13 +298,13 @@
       text-decoration: none;
     }
 
-    &:not([data-roles~="text"]) {
+    &:not([data-is="text"]) {
       &:visited:not(:focus-visible, :hover, :active) {
         color: var(--clr-accent__lowered);
       }
     }
 
-    &:where([data-roles~="text"]) {
+    &:where([data-is="text"]) {
       color: inherit;
       text-decoration: none;
     }
@@ -322,7 +322,8 @@
   :where(button) {
     align-items: center;
     background-color: var(--clr-background__base);
-    border-radius: var(--xl);
+    border-radius: 5ex;
+    color: inherit;
     display: inline-flex;
     font: inherit;
     gap: var(--xs);
@@ -343,11 +344,11 @@
     }
 
     &:hover {
-      filter: brightness(125%);
+      background-color: var(--clr-background__raised);
     }
 
     &:active {
-      filter: brightness(80%);
+      background-color: var(--clr-background__lowered);
     }
 
     &:has(> :where([data-part='lead']):first-child) {
@@ -366,6 +367,11 @@
       padding: 0;
       place-content: center;
       width: 45px;
+
+      &[data-variant='flat'] {
+        height: max-content;
+        width: max-content;
+      }
     }
 
     &:where([data-variant="outline"]) {
@@ -396,7 +402,7 @@
   :where(select) {
     background-color: var(--clr-background__base);
     border-radius: var(--xs);
-    color: var(--clr-text__base);
+    color: inherit;
     display: inline-block;
     font-size: inherit;
     height: 45px;
@@ -422,6 +428,7 @@
       appearance: base-select;
       background-color: var(--clr-background__base);
       border-radius: var(--xs);
+      color: inherit;
       flex-direction: column;
       border: solid 2px var(--clr-border__base);
       overflow-x: clip;
@@ -519,7 +526,7 @@
   }
 
   :where(input[type="radio"]) {
-    border-radius: 50%;
+    border-radius: 5ex;
   }
 
   :where(input[type="range"]) {
@@ -546,7 +553,7 @@
       appearance: none;
       background-color: var(--clr-text__base);
       block-size: var(--thumb-size);
-      border-radius: 50%;
+      border-radius: 5ex;
       cursor: ew-resize;
       inline-size: var(--thumb-size);
       margin-top: var(--thumb-offset);

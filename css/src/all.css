@@ -9,7 +9,6 @@
 
 @import url('./normalize.css');
 
-@import url('./customs/x-app.css');
 @import url('./customs/x-block.css');
 @import url('./customs/x-body.css');
 @import url('./customs/x-card.css');
@@ -20,6 +19,8 @@
 @import url('./customs/x-layers.css');
 @import url('./customs/x-window.css');
 
+@import url('./data-attributes/app.css');
+@import url('./data-attributes/background.css');
 @import url('./data-attributes/bottomsheet.css');
 @import url('./data-attributes/button.css');
 @import url('./data-attributes/fab.css');

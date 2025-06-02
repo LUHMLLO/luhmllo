@@ -28,7 +28,7 @@
       aspect-ratio: 1/1;
       background-color: var(--clr-text__lowered);
       border: solid 2px var(--clr-background__lowered);
-      border-radius: 50%;
+      border-radius: 5ex;
       content: "";
       height: 100%;
       inset: 0;
