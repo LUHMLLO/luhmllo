@@ -3,7 +3,7 @@
     --outter-gutter: 0;
     --outter-columns: 0;
     --inner-gutter: 1.5rem;
-    --inner-column: 80rem;
+    --inner-column: 90rem;
 
     display: grid;
     grid-template-columns:

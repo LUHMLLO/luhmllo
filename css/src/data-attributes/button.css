@@ -62,6 +62,7 @@
 
     & > span {
       flex: 1 1;
+      font: inherit;
       overflow: clip;
       text-align: inherit;
       text-overflow: ellipsis;
