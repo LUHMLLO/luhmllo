@@ -1,0 +1,36 @@
+@layer data-attributes {
+  :where([data-has="blur"]) {
+    --dir: to top;
+    --base-blur: 0.0625px;
+    --blur-growth: 0.333ex;
+    --mask-step: 15%;
+
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    pointer-events: none;
+
+    :where([data-is="layer"]) {
+      --i: 0;
+      --blur-amount: calc(var(--base-blur) + var(--i) * var(--blur-growth));
+      --start: calc(var(--i) * var(--mask-step));
+      --mid: calc(var(--start) + var(--mask-step));
+      --end: calc(var(--mid) + var(--mask-step));
+      --fade: calc(var(--end) + var(--mask-step));
+
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      border-radius: inherit;
+      backdrop-filter: blur(var(--blur-amount));
+      mask-image: linear-gradient(var(--dir),
+          rgba(255, 255, 255, 0) var(--start),
+          rgba(255, 255, 255, 1) var(--mid),
+          rgba(255, 255, 255, 1) var(--end),
+          rgba(255, 255, 255, 0) var(--fade));
+    }
+  }
+
+}

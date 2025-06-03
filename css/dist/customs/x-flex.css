@@ -1,1 +1,1 @@
-@layer x-customs{:where(x-flex,x-row){display:flex}:where(x-wrap){display:flex;flex-wrap:wrap}:where(x-col,x-column,x-group,x-stack){display:flex;flex-direction:column}}
+@layer x-customs{:where(x-flex [data-is=flex]){display:flex}:where(x-wrap,[data-is=wrap]){display:flex;flex-wrap:wrap}:where(x-row,[data-is=row]){display:flex;flex-direction:row}:where(x-column,[data-is=column],x-group,[data-is=group],x-stack,[data-is=stack]){display:flex;flex-direction:column}}

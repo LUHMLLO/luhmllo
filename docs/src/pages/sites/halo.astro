@@ -6,6 +6,17 @@ import Iframe from '../../layouts/iframe.astro';
 <Layout>
 	<Iframe>
 		<div data-is='app'>
+			<div
+				data-has='blur'
+				style='background: linear-gradient(180deg,rgba(255, 255, 255, 0.5) 0%,rgba(255, 255, 255, 0) 100%); height: 115px; inset: 0 0 auto 0; position: fixed; width: 100%; z-index: 1;'>
+				<div data-is='layer' style='--i: 0;'></div>
+				<div data-is='layer' style='--i: 1;'></div>
+				<div data-is='layer' style='--i: 2;'></div>
+				<div data-is='layer' style='--i: 3;'></div>
+				<div data-is='layer' style='--i: 4;'></div>
+				<div data-is='layer' style='--i: 5;'></div>
+			</div>
+
 			<nav id='navbar' data-layout='expand'>
 				<x-row>
 					<figure style='height: 75px;'>
@@ -13,10 +24,10 @@ import Iframe from '../../layouts/iframe.astro';
 					</figure>
 				</x-row>
 
-				<x-row>
-					<a href='#' data-is='text'>About</a>
-					<a href='#' data-is='text'>Clean Water</a>
-					<a href='#' data-is='text'>Products</a>
+				<x-row class='hide-on-mobile'>
+					<a href='#about' data-is='text'>About</a>
+					<a href='#cleanwater' data-is='text'>Clean Water</a>
+					<a href='#products' data-is='text'>Products</a>
 					<a href='#' data-is='text'>Hytech Home</a>
 				</x-row>
 
@@ -26,21 +37,23 @@ import Iframe from '../../layouts/iframe.astro';
 			</nav>
 
 			<header
+				id='hero'
 				data-is='grid'
 				data-layout='expand'
-				style='--cols: 2; place-content: center;'>
+				style='--cols: 2; --gap: 60px; place-content: center;'>
 				<figure data-is='background' style='height: auto; inset: auto 0 0 0;'>
 					<img src='/images/halo/Familia.png' alt='background' />
 				</figure>
 
 				<x-stack
-					style='align-items: center; gap: var(--xl); text-align: center;'>
-					<x-group style='gap: var(--xs);'>
+					style='align-items: center; gap: 30px; text-align: center;'
+					class='span-on-mobile'>
+					<div data-is='group' style='gap: 5px;'>
 						<h1 style='color: white;'>Protect your family</h1>
-						<p style='color: white; font-size: var(--lg);'>
+						<p style='color: white; font-size: 25px;'>
 							With pure and safe water.
 						</p>
-					</x-group>
+					</div>
 
 					<button
 						class='btn-secondary'
@@ -50,13 +63,16 @@ import Iframe from '../../layouts/iframe.astro';
 				</x-stack>
 			</header>
 
-			<section data-is='grid' style='--cols: 2; --gap: var(--nm);'>
-				<h3>
+			<section
+				id='about'
+				data-is='grid'
+				style='--cols: 2; --gap: 60px; row-gap: 30px;'>
+				<h3 class='span-on-mobile'>
 					CLEANER WATER STARTS HERE — POWERED BY HALO®, BROUGHT TO YOU BY
 					HYTECH HOME
 				</h3>
 
-				<p style='font-weight: 500; place-content: end;'>
+				<p style='font-weight: 500; place-content: end;' class='hide-on-mobile'>
 					Elevate every drop. Protect your family.
 				</p>
 
@@ -75,28 +91,33 @@ import Iframe from '../../layouts/iframe.astro';
 			</section>
 
 			<section
+				id='consulting-quoting'
 				data-is='grid'
 				data-layout='expand'
-				style='--cols: 2; --gap: var(--nm);'>
+				style='--cols: 2; --gap: 60px;'>
 				<figure data-is='background'>
-					<img src='/images/halo/Menol_Bratpit_.png' alt='background' />
+					<img
+						src='/images/halo/Menol_Bratpit_.png'
+						alt='background'
+						style='object-position: 1% 0%;'
+					/>
 				</figure>
 
-				<x-group></x-group>
+				<div class='hide-on-mobile'></div>
 
 				<form
-					id='consultation-quoting-form'
 					data-is='grid'
-					style='--cols: 1; --gap: var(--xl);'>
-					<header>
-						<h3>Request a Free Consultation or Quote</h3>
+					style='--cols: 1; --gap: 60px;'
+					class='span-on-mobile'>
+					<header data-is='stack' style='gap: var(--md);'>
+						<h3>Request a Free<br />Consultation or Quote</h3>
 						<p>
-							Fill out this form for a free consultation or product quote. We'll
-							get back to you shortly.
+							Fill out this form for a free consultation or product quote.<br />
+							We'll get back to you shortly.
 						</p>
 					</header>
 
-					<fieldset data-is='grid' style='--cols: 2; --gap: var(--nm);'>
+					<fieldset data-is='grid' style='--cols: 2; --gap: 30px;'>
 						<label for='first_name' data-is='field'>
 							<span>First Name</span>
 							<input
@@ -133,7 +154,7 @@ import Iframe from '../../layouts/iframe.astro';
 						</label>
 					</fieldset>
 
-					<fieldset data-is='grid' style='--cols: 2; --gap: var(--nm);'>
+					<fieldset data-is='grid' style='--cols: 2; --gap: 30px;'>
 						<label for='address' data-is='field'>
 							<span>Address</span>
 							<div data-is='input'>
@@ -143,9 +164,7 @@ import Iframe from '../../layouts/iframe.astro';
 									id='address'
 									placeholder='...'
 								/>
-								<button data-variant='flat' data-part='trail'>
-									<i data-is='icon'>my_location</i>
-								</button>
+								<i data-is='icon' data-part='trail'>my_location</i>
 							</div>
 						</label>
 
@@ -169,7 +188,7 @@ import Iframe from '../../layouts/iframe.astro';
 						</label>
 					</fieldset>
 
-					<fieldset data-is='grid' style='--cols: 2; --gap: var(--nm);'>
+					<fieldset data-is='grid' style='--cols: 2; --gap: 30px;'>
 						<label for='productsofinterest' data-is='field'>
 							<span>Which products are of interest?</span>
 							<select name='productsofinterest' id='productsofinterest'>
@@ -192,6 +211,74 @@ import Iframe from '../../layouts/iframe.astro';
 					</button>
 				</form>
 			</section>
+
+			<section id='cleanwater' data-is='grid' style='--cols: 1; --gap: 60px;'>
+				<h3>Why Choose Halo water filtering system?</h3>
+				<div data-is='grid' style='--cols: 2; --gap: 60px;'>
+					<div
+						data-is='grid'
+						style='--cols: 2; --gap: 60px;'
+						class='span-on-mobile'>
+						<x-group style='gap: 10px;'>
+							<i data-is='icon' style='--size: 100px; --wght: 100;'>
+								heart_plus
+							</i>
+							<h5>Health and Wellness</h5>
+							<p>
+								Eliminates contaminants and bacteria, providing safe water for
+								daily consumption.
+							</p>
+						</x-group>
+
+						<x-group style='gap: 10px;'>
+							<i data-is='icon' style='--size: 100px; --wght: 100;'>
+								water_full
+							</i>
+							<h5>Improve Taste and Odor</h5>
+							<p>
+								Reduction of chlorine and other substances that affect the taste
+								and odor of water.
+							</p>
+						</x-group>
+
+						<x-group style='gap: 10px;'>
+							<i data-is='icon' style='--size: 100px; --wght: 100;'>
+								dishwasher_gen
+							</i>
+							<h5>Appliance Protection</h5>
+							<p>
+								Prevents the buildup of minerals and sediment that can damage
+								your appliances.
+							</p>
+						</x-group>
+
+						<x-group style='gap: 10px;'>
+							<i data-is='icon' style='--size: 100px; --wght: 100;'>
+								savings
+							</i>
+							<h5>Economic Savings</h5>
+							<p>
+								It reduces the need to buy bottled water, generating long-term
+								savings.
+							</p>
+						</x-group>
+					</div>
+
+					<blockquote
+						data-is='stack'
+						style='box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.05); justify-content: center; border-left-color: var(--clr-accent__base); gap: 15px; padding: 30px;'
+						class='span-on-mobile'>
+						<p style='font-size: 20px;'>
+							We don’t just filter water — we filter your worries, delivering
+							crystal-clear quality you can trust. Enjoy pure water and life.
+						</p>
+						<cite
+							style='color: var(--clr-accent__base); font-size: 15px; font-weight: 500;'>
+							— Adam Joyce, Founder & CEO
+						</cite>
+					</blockquote>
+				</div>
+			</section>
 		</div>
 
 		<style lang='css' is:inline>
@@ -209,13 +296,17 @@ import Iframe from '../../layouts/iframe.astro';
 					--clr-border__base: #e5e5e5;
 					--clr-border__raised: #ebebeb;
 
+					--clr-accent__lowered: var(--clr-secondary__lowered);
+					--clr-accent__base: var(--clr-secondary__base);
+					--clr-accent__raised: var(--clr-secondary__raised);
+
 					[data-is='app'] {
 						background-color: var(--clr-background__raised);
 						color: var(--clr-text__base);
 						grid-auto-rows: max-content;
 						grid-template-rows: max-content;
 						height: 100%;
-						isolation: isolation;
+						isolation: isolate;
 						min-height: 100%;
 						overflow: clip auto;
 						position: relative;
@@ -224,72 +315,67 @@ import Iframe from '../../layouts/iframe.astro';
 
 						> * {
 							grid-row: initial;
-							overflow: clip;
-						}
-
-						& > #navbar {
-							align-items: center;
-							background: linear-gradient(
-								180deg,
-								rgba(255, 255, 255, 0.5) 0%,
-								rgba(255, 255, 255, 0) 100%
-							);
-							height: 150px;
-							inset: 0 0 auto 0;
-							position: fixed;
-							z-index: 2;
-
-							& > x-row {
-								align-items: inherit;
-								flex: 1 1;
-								gap: var(--nm);
-
-								&:nth-child(2) {
-									flex: 2 1;
-									justify-content: center;
-
-									@container xwindow (width < 700px) {
-										display: none;
-									}
-								}
-
-								&:nth-child(3) {
-									justify-content: end;
-								}
-							}
-						}
-
-						& > header {
-							background:
-								linear-gradient(
-									180deg,
-									rgba(255, 255, 255, 0.15) 0%,
-									rgba(1, 24, 50, 0) 100%
-								),
-								url('/images/halo/Fondo.png') lightgray 50%;
-							background-attachment: fixed;
-							background-repeat: no-repeat;
-							background-size: cover;
-							height: 700px;
 							isolation: isolate;
 							overflow: clip;
 							position: relative;
 						}
+					}
 
-						& > section {
-							isolation: isolation;
-							padding-block: 100px;
-							position: relative;
+					#navbar {
+						align-items: center;
+						height: 115px;
+						inset: 0 0 auto 0;
+						position: fixed;
+						z-index: 1;
+
+						& > x-row {
+							align-items: inherit;
+							flex: 1 1;
+							gap: 30px;
+
+							&:nth-child(2) {
+								flex: 2 1;
+								justify-content: center;
+
+								a {
+									color: #333;
+									font-weight: 500;
+									mix-blend-mode: difference;
+								}
+							}
+
+							&:nth-child(3) {
+								justify-content: end;
+							}
 						}
 					}
 
-					#consultation-quoting-form {
+					#hero {
+						background:
+							linear-gradient(
+								180deg,
+								rgba(255, 255, 255, 0.15) 0%,
+								rgba(1, 24, 50, 0) 100%
+							),
+							url('/images/halo/Fondo.png') lightgray 50%;
+						background-attachment: fixed;
+						background-repeat: no-repeat;
+						background-size: cover;
+						height: 700px;
+						overflow: clip;
+					}
+
+					section {
+						padding-block: 60px;
+					}
+
+					form {
 						background-color: hsl(
 							from var(--clr-background__raised) h s l / 50%
 						);
 						backdrop-filter: blur(5ex);
 						border-radius: var(--sm);
-						padding: var(--xl);
+						padding: 40px 30px;
 
 						& > fieldset {
 							& > label {
@@ -310,7 +396,7 @@ import Iframe from '../../layouts/iframe.astro';
 						color: white;
 
 						&.big {
-							font-size: var(--nm);
+							font-size: 20px;
 							font-weight: 500;
 						}
 
@@ -320,6 +406,18 @@ import Iframe from '../../layouts/iframe.astro';
 
 						&:active {
 							background-color: var(--clr-secondary__lowered);
+						}
+					}
+
+					.hide-on-mobile {
+						@container xwindow (width < 800px) {
+							display: none;
+						}
+					}
+
+					.span-on-mobile {
+						@container xwindow (width < 800px) {
+							grid-column: 1/-1;
 						}
 					}
 				}
