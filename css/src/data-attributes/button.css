@@ -24,11 +24,11 @@
     }
 
     &:hover {
-      filter: brightness(125%);
+      background-color: var(--clr-background__raised);
     }
 
     &:active {
-      filter: brightness(80%);
+      background-color: var(--clr-background__lowered);
     }
 
     &:has(> :where([data-part='lead']):first-child) {
@@ -47,6 +47,11 @@
       padding: 0;
       place-content: center;
       width: 45px;
+
+      &[data-variant='flat'] {
+        height: max-content;
+        width: max-content;
+      }
     }
 
     &:where([data-variant="outline"]) {

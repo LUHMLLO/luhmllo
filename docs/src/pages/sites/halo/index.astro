@@ -68,16 +68,19 @@ import SectionQuote from './.lib/section.quote.astro';
 					}
 				}
 
-				button {
+				:where(button, [data-is='button']) {
 					background-color: var(--clr-accent__base);
 					color: var(--clr-background__raised);
+					text-decoration: none;
 
 					&:hover {
 						background-color: var(--clr-accent__raised);
+						color: var(--clr-background__raised);
 					}
 
 					&:active {
 						background-color: var(--clr-accent__lowered);
+						color: var(--clr-background__raised);
 					}
 
 					&.big {
@@ -95,10 +98,12 @@ import SectionQuote from './.lib/section.quote.astro';
 
 						&:hover {
 							background-color: var(--clr-background__raised);
+							color: var(--clr-text__base);
 						}
 
 						&:active {
 							background-color: var(--clr-background__lowered);
+							color: var(--clr-text__base);
 						}
 					}
 				}
