@@ -326,7 +326,68 @@ import Iframe from '../../layouts/iframe.astro';
 				</div>
 			</section>
 
-			<section></section>
+			<section id='products' data-is='grid' style='--cols: 1;'>
+				<div data-is='wrap'>
+					<h3>Explore Our Featured<br />Products Catalog</h3>
+					<figure>
+						<img src='/images/halo/product-1.png' alt='product' />
+					</figure>
+					<figure>
+						<img src='/images/halo/product-2.png' alt='product' />
+					</figure>
+				</div>
+
+				<div data-is='wrap'>
+					<b>Feature</b>
+					<p>H2 ZERO ULTIMATE</p>
+					<p>HALO Ultra PLUS RO with Alkalinity Booster</p>
+				</div>
+
+				<div data-is='wrap'>
+					<b>Type</b>
+					<p>Whole-house filtration and conditioning system</p>
+					<p>
+						Under-sink reverse osmosis (RO) drinking water system with
+						alkalinity booster
+					</p>
+				</div>
+
+				<div data-is='wrap'>
+					<b>Primary Function</b>
+					<p>
+						Reduces chlorine and conditions water to prevent scale buildup
+						throughout the home
+					</p>
+					<p>
+						Provides purified drinking water by removing a wide range of
+						contaminants and enhancing pH levels
+					</p>
+				</div>
+
+				<div data-is='wrap'>
+					<b>Filtration Technology</b>
+					<p>
+						High Activity Carbon (HAC) filter combined with HALO ION inline
+						water conditioner
+					</p>
+					<p>
+						Multi-stage filtration: sediment filter, carbon block pre-filter, RO
+						membrane, and alkalinity pH booster
+					</p>
+				</div>
+
+				<div data-is='wrap'>
+					<b>Contaminant Reduction</b>
+					<p>
+						Reduces free chlorine; conditions water to prevent limescale and
+						corrosion
+					</p>
+					<p>
+						Targets PFAS, PFOS, arsenic, barium, cadmium, copper, fluoride,
+						chromium (hexavalent), lead, radium 226/228, selenium, and more
+					</p>
+				</div>
+			</section>
 
 			<section
 				id=''
@@ -375,7 +436,7 @@ import Iframe from '../../layouts/iframe.astro';
 					</p>
 
 					<div data-is='row' style='gap: 5px;'>
-						<label for='email' style='flex:1 1;'>
+						<label for='email' data-is='field' style='flex:1 1;'>
 							<input
 								type='email'
 								id='email'
@@ -592,6 +653,26 @@ import Iframe from '../../layouts/iframe.astro';
 
 								&:not(:focus-visible) {
 									outline-color: transparent;
+								}
+							}
+						}
+					}
+				}
+
+				#products {
+					& > div {
+						border-bottom: solid 2px var(--clr-border__base);
+						gap: 30px;
+						padding-block: 30px;
+
+						& > * {
+							flex: 1 1 0;
+
+							&:first-child {
+								flex: 0 1 350px;
+
+								@container xwindow (width < 800px) {
+									flex: 1 1 100%;
 								}
 							}
 						}
