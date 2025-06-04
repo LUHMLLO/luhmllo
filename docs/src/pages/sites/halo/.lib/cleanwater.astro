@@ -77,7 +77,7 @@
 				}
 
 				@container xwindow (width < 800px) {
-					& > div {
+					& > :where(div, blockquote) {
 						grid-column: 1 /-1;
 					}
 				}
