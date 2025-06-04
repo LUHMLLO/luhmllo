@@ -1,0 +1,135 @@
+<section
+	id='consulting-quoting'
+	data-is='grid'
+	data-layout='expand'
+	style='--cols: 2; --gap: 60px;'>
+	<figure data-is='background'>
+		<img
+			src='/images/halo/Menol_Bratpit_.png'
+			alt='background'
+			style='object-position: 1% 0%;'
+		/>
+	</figure>
+
+	<div class='hide-on-mobile'></div>
+
+	<form data-is='grid' style='--cols: 1; --gap: 60px;' class='span-on-mobile'>
+		<header data-is='stack' style='gap: var(--md);'>
+			<h3>Request a Free<br />Consultation or Quote</h3>
+			<p>
+				Fill out this form for a free consultation or product quote.<br />
+				We'll get back to you shortly.
+			</p>
+		</header>
+
+		<fieldset data-is='grid' style='--cols: 2; --gap: 30px;'>
+			<label for='first_name' data-is='field'>
+				<span>First Name</span>
+				<input
+					type='text'
+					name='first_name'
+					id='first_name'
+					placeholder='...'
+				/>
+			</label>
+
+			<label for='first_name' data-is='field'>
+				<span>Last Name</span>
+				<input type='text' name='last_name' id='last_name' placeholder='...' />
+			</label>
+
+			<label for='phone_number' data-is='field'>
+				<span>Phone</span>
+				<input
+					type='tel'
+					name='phone_number'
+					id='phone_number'
+					placeholder='...'
+				/>
+			</label>
+
+			<label for='email' data-is='field'>
+				<span>Email</span>
+				<input type='email' name='email' id='email' placeholder='...' />
+			</label>
+		</fieldset>
+
+		<fieldset data-is='grid' style='--cols: 2; --gap: 30px;'>
+			<label for='address' data-is='field'>
+				<span>Address</span>
+				<div data-is='input'>
+					<input type='text' name='address' id='address' placeholder='...' />
+					<i data-is='icon' data-part='trail'>my_location</i>
+				</div>
+			</label>
+
+			<label for='state' data-is='field'>
+				<span>State</span>
+				<select name='state' id='state'>
+					<option value=''>Pick an option</option>
+				</select>
+			</label>
+
+			<label for='city' data-is='field'>
+				<span>City</span>
+				<select name='city' id='city'>
+					<option value=''>Pick an option</option>
+				</select>
+			</label>
+
+			<label for='zip' data-is='field'>
+				<span>Zip</span>
+				<input type='number' name='zip' id='zip' placeholder='...' />
+			</label>
+		</fieldset>
+
+		<fieldset data-is='grid' style='--cols: 2; --gap: 30px;'>
+			<label for='productsofinterest' data-is='field'>
+				<span>Which products are of interest?</span>
+				<select name='productsofinterest' id='productsofinterest'>
+					<option value=''>Pick one or more options</option>
+				</select>
+			</label>
+
+			<label for='preferredcontactime' data-is='field'>
+				<span>Preferred contact time</span>
+				<select name='preferredcontactime' id='preferredcontactime'>
+					<option value=''>Pick one or more options</option>
+				</select>
+			</label>
+		</fieldset>
+
+		<button class='big' style='width: 100%;'> Get Started </button>
+	</form>
+
+	<style lang='css' is:inline>
+		@scope {
+			:scope {
+				overflow: clip;
+				padding-block: 60px;
+				position: relative;
+
+				form {
+					background-color: hsl(from var(--clr-background__raised) h s l / 50%);
+					backdrop-filter: blur(5ex);
+					border-radius: var(--sm);
+					padding: 40px 30px;
+
+					& > fieldset {
+						& > label {
+							& > :where(input, select, [data-is='input']) {
+								background-color: hsl(
+									from var(--clr-background__raised) h s l / 50%
+								);
+
+								&:not(:focus-visible) {
+									outline-color: transparent;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	</style>
+</section>

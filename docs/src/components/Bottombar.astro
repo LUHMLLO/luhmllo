@@ -3,9 +3,17 @@
 ---
 
 <nav id='app__bottombar'>
-	<button>
-		<span>footer</span>
-	</button>
+	<div data-is='row'>
+		<button>
+			<span>footer</span>
+		</button>
+		<button>
+			<span>footer</span>
+		</button>
+		<button>
+			<span>footer</span>
+		</button>
+	</div>
 
 	<a href='#top' data-is='button'>
 		<i data-is='icon'> arrow_upward </i>
@@ -37,18 +45,6 @@
 					inset: 0;
 					position: absolute;
 					z-index: -1;
-				}
-
-				& > a {
-					& > figure {
-						aspect-ratio: 1/1;
-						vertical-align: middle;
-						width: 45px;
-					}
-				}
-
-				& > :where(a, button) {
-					flex-shrink: 0;
 				}
 			}
 		}

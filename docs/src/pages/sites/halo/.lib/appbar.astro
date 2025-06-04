@@ -1,0 +1,75 @@
+<div id='top' style='height: 0; width: 0;'></div>
+<div
+	data-has='blur'
+	style='background: linear-gradient(180deg,rgba(255, 255, 255, 0.5) 0%,rgba(255, 255, 255, 0) 100%); height: 115px; inset: 0 0 auto 0; position: fixed; width: 100%; z-index: 1;'>
+	<div data-is='layer' style='--i: 0;'></div>
+	<div data-is='layer' style='--i: 1;'></div>
+	<div data-is='layer' style='--i: 2;'></div>
+	<div data-is='layer' style='--i: 3;'></div>
+	<div data-is='layer' style='--i: 4;'></div>
+	<div data-is='layer' style='--i: 5;'></div>
+</div>
+
+<nav id='appbar' data-layout='expand'>
+	<x-row>
+		<figure style='height: 75px;'>
+			<img src='/images/halo/hytech_h2o.png' alt='logo' />
+		</figure>
+	</x-row>
+
+	<x-row>
+		<a href='#about' data-is='text'>
+			<span>About</span>
+		</a>
+		<a href='#cleanwater' data-is='text'>
+			<span>Clean Water</span>
+		</a>
+		<a href='#products' data-is='text'>
+			<span>Products</span>
+		</a>
+		<a href='#' data-is='text'>
+			<span>Hytech Home</span>
+			<i data-is='icon'>north_east</i>
+		</a>
+	</x-row>
+
+	<x-row>
+		<button class='big' style='font-size: 15px;'> Get in contact </button>
+	</x-row>
+
+	<style lang='css' is:inline>
+		@scope {
+			:scope {
+				align-items: center;
+				height: 115px;
+				inset: 0 0 auto 0;
+				overflow: visible;
+				position: fixed;
+				z-index: 1;
+
+				x-row {
+					align-items: inherit;
+					flex: 1 1;
+					gap: 15px;
+
+					&:nth-child(2) {
+						flex: 2 1;
+						justify-content: center;
+
+						a {
+							font-weight: 500;
+						}
+
+						@container xwindow (width < 800px) {
+							display: none;
+						}
+					}
+
+					&:nth-child(3) {
+						justify-content: end;
+					}
+				}
+			}
+		}
+	</style>
+</nav>

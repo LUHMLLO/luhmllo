@@ -1,0 +1,120 @@
+---
+import Layout from '../../../layouts/app.astro';
+import Iframe from '../../../layouts/iframe.astro';
+
+import Appbar from './.lib/appbar.astro';
+import Hero from './.lib/hero.astro';
+
+import Footer from './.lib/footer.astro';
+import SectionAbout from './.lib/section.about.astro';
+import SectionBanner from './.lib/section.banner.astro';
+import SectionCleanWater from './.lib/section.cleanwater.astro';
+import SectionForm from './.lib/section.form.astro';
+import SectionProducts from './.lib/section.products.astro';
+import SectionQuote from './.lib/section.quote.astro';
+---
+
+<Layout>
+	<Iframe>
+		<div id='demoapp' data-is='app'>
+			<Appbar />
+			<Hero />
+			<SectionAbout />
+			<SectionForm />
+			<SectionCleanWater />
+			<SectionBanner />
+			<SectionProducts />
+			<SectionQuote />
+			<Footer />
+		</div>
+	</Iframe>
+
+	<style lang='css' is:inline>
+		@scope {
+			:scope {
+				--clr-background__lowered: #eceeec;
+				--clr-background__base: #f1f3f1;
+				--clr-background__raised: #f7f8f7;
+
+				--clr-text__lowered: #999999;
+				--clr-text__base: #333333;
+				--clr-text__raised: #111111;
+
+				--clr-border__lowered: #e0e0e0;
+				--clr-border__base: #e5e5e5;
+				--clr-border__raised: #ebebeb;
+
+				--clr-accent__lowered: #0677f9;
+				--clr-accent__base: #1f84fa;
+				--clr-accent__raised: #3892fa;
+				--clr-onAccent: #011832;
+
+				#demoapp {
+					background-color: var(--clr-background__raised);
+					color: var(--clr-text__base);
+					grid-auto-rows: max-content;
+					grid-template-rows: max-content;
+					height: 100%;
+					isolation: isolate;
+					min-height: 100%;
+					overflow: clip auto;
+					position: relative;
+					scrollbar-width: none;
+					z-index: 1;
+
+					> * {
+						grid-row: initial;
+						isolation: isolate;
+					}
+				}
+
+				button {
+					background-color: var(--clr-accent__base);
+					color: var(--clr-background__raised);
+
+					&:hover {
+						background-color: var(--clr-accent__raised);
+					}
+
+					&:active {
+						background-color: var(--clr-accent__lowered);
+					}
+
+					&.big {
+						font-size: 20px;
+						font-weight: 500;
+						height: 60px;
+						justify-content: center;
+						padding-inline: 30px;
+						text-align: center;
+					}
+
+					&.light {
+						background-color: var(--clr-background__base);
+						color: var(--clr-text__base);
+
+						&:hover {
+							background-color: var(--clr-background__raised);
+						}
+
+						&:active {
+							background-color: var(--clr-background__lowered);
+						}
+					}
+				}
+
+				.hide-on-mobile {
+					@container xwindow (width < 800px) {
+						display: none;
+					}
+				}
+
+				.span-on-mobile {
+					@container xwindow (width < 800px) {
+						grid-column: 1/-1;
+					}
+				}
+			}
+		}
+	</style>
+</Layout>
