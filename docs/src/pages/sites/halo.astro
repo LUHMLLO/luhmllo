@@ -75,11 +75,11 @@ import Iframe from '../../layouts/iframe.astro';
 				data-is='grid'
 				style='--cols: 2; --gap: 60px; row-gap: 30px;'>
 				<h3 class='span-on-mobile'>
-					CLEANER WATER STARTS HERE — POWERED BY HALO®, BROUGHT TO YOU BY
-					HYTECH HOME
+					CLEANER WATER STARTS HERE —<br />POWERED BY HALO®, BROUGHT<br />TO
+					YOU BY HYTECH HOME
 				</h3>
 
-				<p style='font-weight: 500; place-content: end;' class='hide-on-mobile'>
+				<p style='font-weight: 500; place-content: end;' class='span-on-mobile'>
 					Elevate every drop. Protect your family.
 				</p>
 
@@ -269,14 +269,14 @@ import Iframe from '../../layouts/iframe.astro';
 
 					<blockquote
 						data-is='stack'
-						style='box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.05); justify-content: center; border-left-color: var(--clr-accent__base); gap: 15px; padding: 30px;'
+						style='box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.05); justify-content: center; border-left-color: var(--clr-accent__base); gap: 30px; padding: 120px 60px;'
 						class='span-on-mobile'>
-						<p style='font-size: 20px;'>
-							We don’t just filter water — we filter your worries, delivering
-							crystal-clear quality you can trust. Enjoy pure water and life.
+						<p style='font-size: 25px;'>
+							❝ We don’t just filter water — we filter your worries, delivering
+							crystal-clear quality you can trust. Enjoy pure water and life ❞
 						</p>
 						<cite
-							style='color: var(--clr-accent__base); font-size: 15px; font-weight: 500;'>
+							style='color: var(--clr-accent__base); font-size: 20px; font-weight: 500;'>
 							— Adam Joyce, Founder & CEO
 						</cite>
 					</blockquote>
@@ -431,8 +431,8 @@ import Iframe from '../../layouts/iframe.astro';
 				<div data-is='stack' style='gap: 15px;'>
 					<h6>Join Our Newsletter</h6>
 					<p>
-						Receive latest updates and news about Hytech H2O. Enter your email
-						address to subscribe!
+						Receive latest updates and news about Hytech H2O.<br />Enter your
+						email address to subscribe!
 					</p>
 
 					<div data-is='row' style='gap: 5px;'>
@@ -512,6 +512,10 @@ import Iframe from '../../layouts/iframe.astro';
 						</a>
 					</div>
 				</div>
+
+				<hr />
+
+				<p>2025 @HytechHome. All rights reserved.</p>
 			</footer>
 		</div>
 	</Iframe>
@@ -676,12 +680,55 @@ import Iframe from '../../layouts/iframe.astro';
 								}
 							}
 						}
+
+						@container xwindow (width < 800px) {
+							gap: 15px;
+
+							&:is(:first-child) {
+								row-gap: 30px;
+							}
+
+							&:not(:first-child) {
+								border: solid 2px var(--clr-border__base);
+								padding-top: 0;
+
+								& > *:first-child {
+									background-color: var(--clr-background__lowered);
+									height: 60px;
+									padding-inline: 15px;
+									place-content: center;
+								}
+
+								& > *:nth-child(2) {
+									padding-left: 15px;
+								}
+
+								& > *:nth-child(3) {
+									padding-right: 15px;
+								}
+							}
+						}
 					}
 				}
 
 				footer {
 					background-color: var(--clr-onAccent);
 					color: var(--clr-background__lowered);
+
+					& > :where(hr, p) {
+						grid-column: 1/-1;
+						width: 100%;
+					}
+
+					& > hr {
+						background-color: var(--clr-accent__lowered);
+						opacity: 0.05;
+					}
+
+					& > p {
+						color: var(--clr-text__lowered);
+						text-align: center;
+					}
 
 					:where(h1, h2, h3, h4, h5, h6) {
 						color: var(--clr-background__raised);
