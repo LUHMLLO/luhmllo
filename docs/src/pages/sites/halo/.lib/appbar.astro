@@ -53,6 +53,10 @@
 		<a href='#contact' data-is='button' class='big' style='font-size: 15px;'>
 			<span>Get in Contact</span>
 		</a>
+
+		<button class='big' style='font-size: 15px;' data-toggle-menu>
+			<span>Menu</span>
+		</button>
 	</x-row>
 
 	<style lang='css' is:inline>
@@ -85,6 +89,20 @@
 
 					&:nth-child(3) {
 						justify-content: end;
+					}
+				}
+
+				a[href='#contact'] {
+					@container xwindow (width < 800px) {
+						display: none;
+					}
+				}
+
+				button[data-toggle-menu] {
+					display: none;
+
+					@container xwindow (width < 800px) {
+						display: revert-layer;
 					}
 				}
 			}
