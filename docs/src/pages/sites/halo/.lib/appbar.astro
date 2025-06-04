@@ -33,7 +33,7 @@
 		</figure>
 	</div>
 
-	<div id='appbar__menu' data-is='flex'>
+	<div id='appbar__menu' data-is='flex' data-visible='false'>
 		<a href='#about' data-is='text'>
 			<span>About</span>
 		</a>
@@ -55,9 +55,53 @@
 		</a>
 
 		<button data-toggle-menu>
-			<span>Menu</span>
+			<i data-is='icon'>
+				<span data-visible='true'>menu</span>
+				<span data-visible='false'>close</span>
+			</i>
 		</button>
 	</div>
+
+	<script type='module' is:inline>
+		window.addEventListener('DOMContentLoaded', () => {
+			const menu = document.querySelector('#appbar__menu');
+			const buttons = document.querySelectorAll('[data-toggle-menu]');
+			if (!menu || !buttons) return;
+
+			const setVisibility = (visible) => {
+				menu.dataset.visible = visible;
+
+				buttons.forEach((el) => {
+					const spans = el.querySelectorAll('i span');
+					spans.forEach((span) => {
+						const currentlyVisible = span.dataset.visible === 'true';
+						span.dataset.visible = (!currentlyVisible).toString();
+					});
+				});
+
+				// Emit visibility change
+				dispatchEvent(
+					new CustomEvent('menu:visibility', {
+						detail: { visible },
+					}),
+				);
+			};
+
+			document.querySelectorAll('[data-toggle-menu]').forEach((el) =>
+				el.addEventListener('click', () => {
+					const nowVisible = menu.dataset.visible !== 'true';
+					setVisibility(nowVisible);
+				}),
+			);
+
+			menu.querySelectorAll('a').forEach((el) =>
+				el.addEventListener('click', () => {
+					const nowVisible = menu.dataset.visible !== 'true';
+					setVisibility(nowVisible);
+				}),
+			);
+		});
+	</script>
 
 	<style lang='css' is:inline>
 		@scope (#appbar) {
@@ -93,8 +137,41 @@
 				}
 
 				@container xwindow (width < 800px) {
+					#appbar__logo {
+						z-index: 3;
+					}
+
 					#appbar__menu {
-						display: none;
+						align-items: start;
+						background-color: var(--clr-background__raised);
+						flex-direction: column;
+						gap: 0;
+						inset: 0;
+						justify-content: center;
+						position: fixed;
+						z-index: 2;
+
+						a {
+							padding: 30px;
+							text-align: left;
+							width: 100%;
+
+							&:hover {
+								background-color: var(--clr-background__base);
+							}
+
+							&:active {
+								background-color: var(--clr-background__lowered);
+							}
+
+							&:not(:last-child) {
+								border-bottom: solid 2px var(--clr-border__base);
+							}
+						}
+
+						&[data-visible='false'] {
+							display: none;
+						}
 					}
 
 					#appbar__options {
@@ -104,6 +181,11 @@
 
 						button[data-toggle-menu] {
 							display: revert-layer;
+							z-index: 3;
+
+							& > i > span[data-visible='false'] {
+								display: none;
+							}
 						}
 					}
 				}
