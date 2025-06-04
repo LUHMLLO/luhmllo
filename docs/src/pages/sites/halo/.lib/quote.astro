@@ -7,9 +7,7 @@
 		<img src='/images/halo/Fondo.png' alt='background' />
 	</figure>
 
-	<div
-		data-is='stack'
-		style='gap: 15px; place-content: center; place-items: center; text-align: center;'>
+	<div data-is='stack'>
 		<p>Transform your tap into a source of wellness.</p>
 		<h3>Pure Intentions Start at Home</h3>
 		<p>
@@ -31,6 +29,13 @@
 				overflow: clip;
 				padding-block: 60px;
 				position: relative;
+
+				& > div {
+					gap: 15px;
+					place-content: center;
+					place-items: center;
+					text-align: center;
+				}
 
 				:where(h1, h2, h3, h4, h5, h6) {
 					color: var(--clr-background__raised);

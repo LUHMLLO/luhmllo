@@ -60,31 +60,37 @@
 	</div>
 
 	<style lang='css' is:inline>
-		@scope {
+		@scope (#products) {
 			:scope {
 				overflow: clip;
 				padding-block: 60px;
 				position: relative;
 
-				& > div {
+				& > [data-is='wrap'] {
 					border-bottom: solid 2px var(--clr-border__base);
 					gap: 30px;
 					padding-block: 30px;
+
+					&:first-child {
+						padding-top: 0;
+					}
 
 					& > * {
 						flex: 1 1 0;
 
 						&:first-child {
 							flex: 0 1 350px;
-
-							@container xwindow (width < 800px) {
-								flex: 1 1 100%;
-							}
 						}
 					}
+				}
 
-					@container xwindow (width < 800px) {
+				@container xwindow (width < 800px) {
+					& > [data-is='wrap'] {
 						gap: 15px;
+
+						& > *:first-child {
+							flex: 1 1 100%;
+						}
 
 						&:is(:first-child) {
 							row-gap: 30px;
@@ -92,6 +98,7 @@
 
 						&:not(:first-child) {
 							border: solid 2px var(--clr-border__base);
+							margin-top: -2px;
 							padding-top: 0;
 
 							& > *:first-child {
