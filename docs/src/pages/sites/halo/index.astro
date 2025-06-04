@@ -5,13 +5,13 @@ import Iframe from '../../../layouts/iframe.astro';
 import Appbar from './.lib/appbar.astro';
 import Hero from './.lib/hero.astro';
 
+import About from './.lib/about.astro';
+import Banner from './.lib/banner.astro';
+import CleanWater from './.lib/cleanwater.astro';
+import Contact from './.lib/contact.astro';
 import Footer from './.lib/footer.astro';
-import SectionAbout from './.lib/section.about.astro';
-import SectionBanner from './.lib/section.banner.astro';
-import SectionCleanWater from './.lib/section.cleanwater.astro';
-import SectionForm from './.lib/section.form.astro';
-import SectionProducts from './.lib/section.products.astro';
-import SectionQuote from './.lib/section.quote.astro';
+import Products from './.lib/products.astro';
+import Quote from './.lib/quote.astro';
 ---
 
 <Layout>
@@ -19,12 +19,12 @@ import SectionQuote from './.lib/section.quote.astro';
 		<div id='demoapp' data-is='app'>
 			<Appbar />
 			<Hero />
-			<SectionAbout />
-			<SectionForm />
-			<SectionCleanWater />
-			<SectionBanner />
-			<SectionProducts />
-			<SectionQuote />
+			<About />
+			<Contact />
+			<CleanWater />
+			<Banner />
+			<Products />
+			<Quote />
 			<Footer />
 		</div>
 	</Iframe>
@@ -71,6 +71,12 @@ import SectionQuote from './.lib/section.quote.astro';
 				:where(button, [data-is='button']) {
 					background-color: var(--clr-accent__base);
 					color: var(--clr-background__raised);
+					font-size: clamp(15px, 100%, 20px);
+					font-weight: 500;
+					height: 60px;
+					justify-content: center;
+					padding-inline: 30px;
+					text-align: center;
 					text-decoration: none;
 
 					&:hover {
@@ -81,30 +87,6 @@ import SectionQuote from './.lib/section.quote.astro';
 					&:active {
 						background-color: var(--clr-accent__lowered);
 						color: var(--clr-background__raised);
-					}
-
-					&.big {
-						font-size: 20px;
-						font-weight: 500;
-						height: 60px;
-						justify-content: center;
-						padding-inline: 30px;
-						text-align: center;
-					}
-
-					&.light {
-						background-color: var(--clr-background__base);
-						color: var(--clr-text__base);
-
-						&:hover {
-							background-color: var(--clr-background__raised);
-							color: var(--clr-text__base);
-						}
-
-						&:active {
-							background-color: var(--clr-background__lowered);
-							color: var(--clr-text__base);
-						}
 					}
 				}
 

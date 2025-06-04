@@ -1,0 +1,30 @@
+@layer data-attributes {
+  :where(x-flex, [data-is="flex"]) {
+    display: flex;
+  }
+
+  :where(x-wrap, [data-is="wrap"]) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  :where(x-row, [data-is="row"]) {
+    display: flex;
+    flex-direction: row;
+  }
+
+  :where(x-column, [data-is="column"]) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  :where(x-group, [data-is="group"]) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  :where(x-stack, [data-is="stack"]) {
+    display: flex;
+    flex-direction: column;
+  }
+}

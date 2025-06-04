@@ -2,14 +2,11 @@
 	id='about'
 	data-is='grid'
 	style='--cols: 2; --gap: 60px; row-gap: 30px;'>
-	<h3 class='span-on-mobile'>
-		CLEANER WATER STARTS HERE —<br />POWERED BY HALO®, BROUGHT<br />TO YOU BY
-		HYTECH HOME
+	<h3>
+		CLEANER WATER STARTS HERE — POWERED BY HALO®, BROUGHT TO YOU BY HYTECH HOME
 	</h3>
 
-	<p style='font-weight: 500; place-content: end;' class='span-on-mobile'>
-		Elevate every drop. Protect your family.
-	</p>
+	<b> Elevate every drop. Protect your family. </b>
 
 	<p>
 		Hytech Home has teamed up with HALO® Water Systems to bring
@@ -25,11 +22,22 @@
 	</p>
 
 	<style lang='css' is:inline>
-		@scope {
+		@scope (#about) {
 			:scope {
 				overflow: clip;
 				padding-block: 60px;
 				position: relative;
+
+				b {
+					font-weight: 500;
+					place-content: end;
+				}
+
+				@container xwindow (width < 800px) {
+					:where(h3, b) {
+						grid-column: 1/-1;
+					}
+				}
 			}
 		}
 	</style>

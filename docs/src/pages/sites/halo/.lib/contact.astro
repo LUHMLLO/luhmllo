@@ -1,0 +1,200 @@
+<section
+	id='contact'
+	data-is='grid'
+	data-layout='expand'
+	style='--cols: 2; --gap: 60px;'>
+	<figure data-is='background'>
+		<img
+			src='/images/halo/Menol_Bratpit_.png'
+			alt='background'
+			style='object-position: 1% 0%;'
+		/>
+	</figure>
+
+	<hr style='height: 0; width: 0;' />
+
+	<form
+		id='contact__form'
+		data-is='grid'
+		style='--cols: 1; --gap: 60px;'
+		autocomplete='on'>
+		<header data-is='stack' style='gap: 15px;'>
+			<h3>Request a Free<br />Consultation or Quote</h3>
+			<p>
+				Fill out this form for a free consultation or product quote.<br />
+				We'll get back to you shortly.
+			</p>
+		</header>
+
+		<fieldset data-is='grid' style='--cols: 2; --gap: 30px;'>
+			<label for='first_name' data-is='field'>
+				<span data-part='label'> First Name </span>
+				<input
+					type='text'
+					id='first_name'
+					name='first_name'
+					autocomplete='given-name'
+					placeholder='John'
+					required
+				/>
+			</label>
+
+			<label for='last_name' data-is='field'>
+				<span data-part='label'> Last Name </span>
+				<input
+					type='text'
+					id='last_name'
+					name='last_name'
+					autocomplete='family-name'
+					placeholder='Doe'
+					required
+				/>
+			</label>
+
+			<label for='phone_number' data-is='field'>
+				<span data-part='label'> Phone </span>
+				<input
+					type='tel'
+					id='phone_number'
+					name='phone_number'
+					inputmode='tel'
+					pattern='\d{3}[-.\s]?\d{3}[-.\s]?\d{4}'
+					autocomplete='tel'
+					placeholder='123-456-7890'
+					required
+				/>
+			</label>
+
+			<label for='email' data-is='field'>
+				<span data-part='label'> Email </span>
+				<input
+					type='email'
+					id='email'
+					name='email'
+					autocomplete='email'
+					placeholder='you@example.com'
+					required
+				/>
+			</label>
+		</fieldset>
+
+		<fieldset data-is='grid' style='--cols: 2; --gap: 30px;'>
+			<label for='address' data-is='field'>
+				<span data-part='label'> Address </span>
+				<input
+					type='text'
+					id='address'
+					name='address'
+					autocomplete='street-address'
+					placeholder='123 Main St'
+				/>
+			</label>
+
+			<label for='city' data-is='field'>
+				<span data-part='label'>City</span>
+				<select id='city' name='city' autocomplete='address-level2' required>
+					<option value=''>Select a city</option>
+					<option value='san_diego'>San Diego</option>
+					<option value='los_angeles'>Los Angeles</option>
+					<option value='san_francisco'>San Francisco</option>
+					<option value='sacramento'>Sacramento</option>
+				</select>
+			</label>
+
+			<label for='state' data-is='field'>
+				<span data-part='label'>State</span>
+				<select id='state' name='state' autocomplete='address-level1' required>
+					<option value=''>Select a state</option>
+					<option value='CA'>California</option>
+					<option value='NV'>Nevada</option>
+					<option value='AZ'>Arizona</option>
+					<option value='OR'>Oregon</option>
+				</select>
+			</label>
+
+			<label for='zip' data-is='field'>
+				<span data-part='label'>ZIP Code</span>
+				<input
+					type='text'
+					id='zip'
+					name='zip'
+					inputmode='numeric'
+					pattern='\d{5}'
+					autocomplete='postal-code'
+					placeholder='92101'
+				/>
+			</label>
+		</fieldset>
+
+		<fieldset data-is='grid' style='--cols: 2; --gap: 30px'>
+			<label for='product_interest' data-is='field'>
+				<span data-part='label'>Which products are of interest?</span>
+				<select id='product_interest' name='product_interest' required>
+					<option value=''>Select a product</option>
+					<option value='whole_house'>Whole House Filtration</option>
+					<option value='under_sink'>Under-Sink Systems</option>
+					<option value='softeners'>Water Softeners</option>
+					<option value='reverse_osmosis'>Reverse Osmosis</option>
+					<option value='consultation'>Just a Consultation</option>
+				</select>
+			</label>
+
+			<label for='contact_time' data-is='field'>
+				<span data-part='label'>Preferred contact time</span>
+				<select id='contact_time' name='contact_time' required>
+					<option value=''>Select a time</option>
+					<option value='morning'>Morning (8am–12pm)</option>
+					<option value='afternoon'>Afternoon (12pm–4pm)</option>
+					<option value='evening'>Evening (4pm–8pm)</option>
+				</select>
+			</label>
+		</fieldset>
+
+		<footer>
+			<button type='submit' data-is='button' style='width: 100%;'>
+				Submit Request
+			</button>
+		</footer>
+	</form>
+
+	<style lang='css' is:inline>
+		@scope (#contact) {
+			:scope {
+				overflow: clip;
+				padding-block: 60px;
+				position: relative;
+
+				#contact__form {
+					background-color: hsl(from var(--clr-background__raised) h s l / 50%);
+					backdrop-filter: blur(5ex);
+					border-radius: var(--sm);
+					padding: 40px 30px;
+
+					& > fieldset {
+						& > label {
+							& > :where(input, select, [data-is='input']) {
+								background-color: hsl(
+									from var(--clr-background__raised) h s l / 50%
+								);
+
+								&:not(:focus-visible) {
+									outline-color: transparent;
+								}
+							}
+						}
+					}
+				}
+
+				@container xwindow (width < 800px) {
+					hr {
+						display: none;
+					}
+
+					#contact__form {
+						grid-column: 1/-1;
+					}
+				}
+			}
+		}
+	</style>
+</section>

@@ -3,25 +3,26 @@
 	data-is='grid'
 	data-layout='expand'
 	style='--cols: 2; --gap: 60px; place-content: center;'>
-	<figure data-is='background' style='height: auto; inset: auto 0 0 0;'>
+	<figure
+		id='hero__background'
+		data-is='background'
+		style='height: auto; inset: auto 0 0 0;'>
 		<img src='/images/halo/Familia.png' alt='background' />
 	</figure>
 
-	<x-stack
-		style='align-items: center; gap: 30px; text-align: center;'
-		class='span-on-mobile'>
+	<div id='hero__content' data-is='stack'>
 		<div data-is='group' style='gap: 5px;'>
-			<h1 style='color: white;'>Protect your family</h1>
-			<p style='color: white; font-size: 25px;'>With pure and safe water.</p>
+			<h2>Protect your family</h2>
+			<h4>With pure and safe water</h4>
 		</div>
 
-		<a href='#contact' data-is='button' class='big' style='font-size: 15px;'>
+		<a href='#contact' data-is='button'>
 			<span>Discover Our Filtration Systems</span>
 		</a>
-	</x-stack>
+	</div>
 
 	<style lang='css' is:inline>
-		@scope {
+		@scope (#hero) {
 			:scope {
 				background:
 					linear-gradient(
@@ -36,6 +37,20 @@
 				height: 700px;
 				overflow: clip;
 				position: relative;
+
+				#hero__content {
+					align-items: center;
+					gap: 30px;
+					text-align: center;
+
+					:where(h1, h2, h3, h4, h5, h6) {
+						color: var(--clr-background__raised);
+					}
+
+					@container xwindow (width < 800px) {
+						grid-column: 1/-1;
+					}
+				}
 			}
 		}
 	</style>

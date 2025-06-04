@@ -9,7 +9,7 @@
 	<div data-is='layer' style='--i: 5;'></div>
 
 	<style lang='css' is:inline>
-		@scope {
+		@scope ([data-has="blur"]) {
 			:scope {
 				background: linear-gradient(
 					180deg,
@@ -27,13 +27,13 @@
 </div>
 
 <nav id='appbar' data-layout='expand'>
-	<x-row>
+	<div id='appbar__logo'>
 		<figure style='height: 75px;'>
 			<img src='/images/halo/hytech_h2o.png' alt='logo' />
 		</figure>
-	</x-row>
+	</div>
 
-	<x-row>
+	<div id='appbar__menu' data-is='flex'>
 		<a href='#about' data-is='text'>
 			<span>About</span>
 		</a>
@@ -47,20 +47,20 @@
 			<span>Hytech Home</span>
 			<i data-is='icon'>north_east</i>
 		</a>
-	</x-row>
+	</div>
 
-	<x-row>
-		<a href='#contact' data-is='button' class='big' style='font-size: 15px;'>
+	<div id='appbar__options' data-is='row'>
+		<a href='#contact' data-is='button'>
 			<span>Get in Contact</span>
 		</a>
 
-		<button class='big' style='font-size: 15px;' data-toggle-menu>
+		<button data-toggle-menu>
 			<span>Menu</span>
 		</button>
-	</x-row>
+	</div>
 
 	<style lang='css' is:inline>
-		@scope {
+		@scope (#appbar) {
 			:scope {
 				align-items: center;
 				height: 115px;
@@ -69,40 +69,42 @@
 				position: fixed;
 				z-index: 1;
 
-				x-row {
+				& > div {
 					align-items: inherit;
 					flex: 1 1;
 					gap: 15px;
+				}
 
-					&:nth-child(2) {
-						flex: 2 1;
-						justify-content: center;
+				#appbar__menu {
+					flex: 2 1;
+					justify-content: center;
 
-						a {
-							font-weight: 500;
-						}
-
-						@container xwindow (width < 800px) {
-							display: none;
-						}
-					}
-
-					&:nth-child(3) {
-						justify-content: end;
+					a {
+						font-weight: 500;
 					}
 				}
 
-				a[href='#contact'] {
-					@container xwindow (width < 800px) {
+				#appbar__options {
+					justify-content: end;
+
+					button[data-toggle-menu] {
 						display: none;
 					}
 				}
 
-				button[data-toggle-menu] {
-					display: none;
+				@container xwindow (width < 800px) {
+					#appbar__menu {
+						display: none;
+					}
 
-					@container xwindow (width < 800px) {
-						display: revert-layer;
+					#appbar__options {
+						a[href='#contact'] {
+							display: none;
+						}
+
+						button[data-toggle-menu] {
+							display: revert-layer;
+						}
 					}
 				}
 			}

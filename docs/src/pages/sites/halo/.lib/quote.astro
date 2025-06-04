@@ -1,5 +1,5 @@
 <section
-	id=''
+	id='quote'
 	data-is='grid'
 	data-layout='expand'
 	style='--cols: 1; --gap: 30px; place-items: center;'>
@@ -21,16 +21,12 @@
 		</p>
 	</div>
 
-	<a
-		href='#contact'
-		data-is='button'
-		class='big light'
-		style='width: min(100%, 348px);'>
+	<a href='#contact' data-is='button' style='width: min(100%, 348px);'>
 		<span>Get a Quote</span>
 	</a>
 
 	<style lang='css' is:inline>
-		@scope {
+		@scope (#quote) {
 			:scope {
 				overflow: clip;
 				padding-block: 60px;
@@ -42,6 +38,21 @@
 
 				p {
 					color: var(--clr-background__base);
+				}
+
+				a[data-is='button'] {
+					background-color: var(--clr-background__base);
+					color: var(--clr-text__base);
+
+					&:hover {
+						background-color: var(--clr-background__raised);
+						color: var(--clr-text__base);
+					}
+
+					&:active {
+						background-color: var(--clr-background__lowered);
+						color: var(--clr-text__base);
+					}
 				}
 			}
 		}
