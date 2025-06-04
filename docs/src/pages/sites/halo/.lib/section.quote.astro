@@ -6,12 +6,13 @@
 	<figure data-is='background'>
 		<img src='/images/halo/Fondo.png' alt='background' />
 	</figure>
+
 	<div
 		data-is='stack'
 		style='gap: 15px; place-content: center; place-items: center; text-align: center;'>
-		<p style='color: #f2f2f2;'>Transform your tap into a source of wellness.</p>
-		<h3 style='color: #ffffff;'>Pure Intentions Start at Home</h3>
-		<p style='color: #f2f2f2;'>
+		<p>Transform your tap into a source of wellness.</p>
+		<h3>Pure Intentions Start at Home</h3>
+		<p>
 			With every sip, you're making a choice that's good for your health, your
 			safety, and your peace of mind. Our advanced water filtration systems are
 			like a guardian angel for your family's health. They don't just remove
@@ -25,7 +26,7 @@
 		data-is='button'
 		class='big light'
 		style='width: min(100%, 348px);'>
-		Get a quote
+		<span>Get a Quote</span>
 	</a>
 
 	<style lang='css' is:inline>
@@ -34,6 +35,14 @@
 				overflow: clip;
 				padding-block: 60px;
 				position: relative;
+
+				:where(h1, h2, h3, h4, h5, h6) {
+					color: var(--clr-background__raised);
+				}
+
+				p {
+					color: var(--clr-background__base);
+				}
 			}
 		}
 	</style>

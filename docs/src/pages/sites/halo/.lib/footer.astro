@@ -104,6 +104,10 @@
 				padding-block: 60px;
 				position: relative;
 
+				:where(h1, h2, h3, h4, h5, h6) {
+					color: var(--clr-background__raised);
+				}
+
 				& > :where(hr, p) {
 					grid-column: 1/-1;
 					width: 100%;
@@ -117,10 +121,6 @@
 				& > p {
 					color: var(--clr-text__lowered);
 					text-align: center;
-				}
-
-				:where(h1, h2, h3, h4, h5, h6) {
-					color: var(--clr-background__raised);
 				}
 			}
 		}

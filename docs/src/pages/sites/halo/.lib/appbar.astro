@@ -1,13 +1,29 @@
-<div id='top' style='height: 0; width: 0;'></div>
-<div
-	data-has='blur'
-	style='background: linear-gradient(180deg,rgba(255, 255, 255, 0.5) 0%,rgba(255, 255, 255, 0) 100%); height: 115px; inset: 0 0 auto 0; position: fixed; width: 100%; z-index: 1;'>
+<hr id='top' style='height: 0; width: 0;' />
+
+<div data-has='blur'>
 	<div data-is='layer' style='--i: 0;'></div>
 	<div data-is='layer' style='--i: 1;'></div>
 	<div data-is='layer' style='--i: 2;'></div>
 	<div data-is='layer' style='--i: 3;'></div>
 	<div data-is='layer' style='--i: 4;'></div>
 	<div data-is='layer' style='--i: 5;'></div>
+
+	<style lang='css' is:inline>
+		@scope {
+			:scope {
+				background: linear-gradient(
+					180deg,
+					rgba(255, 255, 255, 0.5) 0%,
+					rgba(255, 255, 255, 0) 100%
+				);
+				height: 115px;
+				inset: 0 0 auto 0;
+				position: fixed;
+				width: 100%;
+				z-index: 1;
+			}
+		}
+	</style>
 </div>
 
 <nav id='appbar' data-layout='expand'>
@@ -27,7 +43,7 @@
 		<a href='#products' data-is='text'>
 			<span>Products</span>
 		</a>
-		<a href='#' data-is='text'>
+		<a href='https://hytechhome.com/' target='_blank' data-is='text'>
 			<span>Hytech Home</span>
 			<i data-is='icon'>north_east</i>
 		</a>
@@ -35,7 +51,7 @@
 
 	<x-row>
 		<a href='#contact' data-is='button' class='big' style='font-size: 15px;'>
-			Get in contact
+			<span>Get in Contact</span>
 		</a>
 	</x-row>
 
