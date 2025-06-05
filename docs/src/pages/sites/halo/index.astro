@@ -28,6 +28,8 @@ import Quote from './.lib/quote.astro';
 			<Footer />
 
 			<style lang='css' is:inline>
+				@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
 				@scope (#demoapp) {
 					:scope {
 						--clr-background__lowered: #eceeec;
@@ -49,6 +51,7 @@ import Quote from './.lib/quote.astro';
 
 						background-color: var(--clr-background__raised);
 						color: var(--clr-text__base);
+						font-family: 'Figtree', sans-serif;
 						grid-auto-rows: max-content;
 						grid-template-rows: max-content;
 						height: 100%;
