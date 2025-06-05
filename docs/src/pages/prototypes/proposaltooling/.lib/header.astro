@@ -1,0 +1,90 @@
+---
+
+---
+
+<header id='appbar' data-is='grid'>
+	<div data-is='row'>
+		<button data-variant='outline' onclick='history.back()'>
+			<i data-is='icon'>arrow_back</i>
+		</button>
+
+		<div data-is='row'>
+			<button data-variant='outline'>
+				<i data-is='icon'> search</i>
+			</button>
+			<button data-variant='outline'>
+				<i data-is='icon'> add_2 </i>
+			</button>
+			<button data-variant='outline'>
+				<i data-is='icon'>more_vert</i>
+			</button>
+		</div>
+	</div>
+
+	<!-- <label for='search' data-is='input'>
+		<i data-is='icon' data-part='lead'>search</i>
+		<input
+			type='text'
+			name='search'
+			id='search'
+			placeholder='Filter list . . .'
+		/>
+		<i data-is='icon' data-part='trail'>close_small</i>
+	</label> -->
+
+	<div id='appbar__info' data-is='row'>
+		<!-- <h2>Proposal Tool<br />Center</h2> -->
+
+		<div>
+			<p>Proposal for</p>
+			<h3>Shah Khan</h3>
+		</div>
+
+		<div data-is='row' id='status'>
+			<i data-is='icon'>circle</i>
+			<span>Approved</span>
+		</div>
+	</div>
+
+	<style lang='css' is:inline>
+		@scope (#appbar) {
+			:scope {
+				background-color: var(--clr-background__base);
+				grid: auto / 1fr;
+				grid-template-rows: max-content 1fr;
+				height: 175px;
+				padding: var(--nm) var(--md);
+
+				[data-is='row'] {
+					align-items: center;
+					gap: var(--sm);
+					height: max-content;
+
+					& > [data-is='row'] {
+						flex: 1 1;
+						justify-content: end;
+					}
+				}
+
+				#appbar__info {
+					align-items: end;
+					gap: var(--sm);
+					height: 100%;
+
+					p {
+						color: var(--clr-text__lowered);
+					}
+				}
+
+				#status {
+					color: var(--clr-success__base);
+					gap: 0;
+
+					[data-is='icon'] {
+						--fill: 1;
+					}
+				}
+			}
+		}
+	</style>
+</header>

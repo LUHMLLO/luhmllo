@@ -1,5 +1,62 @@
 ---
-
+const options = [
+	{
+		name: 'Customer Information',
+		path: '/prototypes/proposaltooling/customer-information',
+		switch: false,
+	},
+	{
+		name: 'Solar Panels',
+		path: '/prototypes/proposaltooling/solar-panels',
+		switch: true,
+	},
+	{
+		name: 'Battery System',
+		path: '/prototypes/proposaltooling/battery-system',
+		switch: true,
+	},
+	{
+		name: 'Roof Replacement',
+		path: '/prototypes/proposaltooling/roof-replacement',
+		switch: true,
+	},
+	{
+		name: 'Electrical Work',
+		path: '/prototypes/proposaltooling/electrical-work',
+		switch: true,
+	},
+	{
+		name: 'Energy Efficiency',
+		path: '/prototypes/proposaltooling/energy-efficiency',
+		switch: true,
+	},
+	{ name: 'H.V.A.C', path: '/prototypes/proposaltooling/hvac', switch: true },
+	{
+		name: 'Geothermal Services',
+		path: '/prototypes/proposaltooling/geothermal',
+		switch: true,
+	},
+	{
+		name: 'Other Project Adders',
+		path: '/prototypes/proposaltooling/other-project-adders',
+		switch: false,
+	},
+	{
+		name: 'Additional Projects',
+		path: '/prototypes/proposaltooling/additional-projects',
+		switch: false,
+	},
+	{
+		name: 'Internal Sales Notes',
+		path: '/prototypes/proposaltooling/internal-sales-notes',
+		switch: false,
+	},
+	{
+		name: 'Financial',
+		path: '/prototypes/proposaltooling/financial',
+		switch: false,
+	},
+];
 ---
 
 <dialog id='menu' data-is='bottomsheet'>
@@ -11,74 +68,20 @@
 			<br />Only available items are shown.
 		</p>
 	</header>
-	<hr />
-	<a href='/prototype/proposaltooling/customer-information' data-is='button'>
-		<span>Customer Information</span>
-		<i data-is='icon' data-part='trail'>arrow_forward_ios</i>
-	</a>
-	<hr />
-	<a href='/prototype/proposaltooling/customer-information' data-is='button'>
-		<span>Solar Panels</span>
-		<input type='checkbox' data-is='switch' />
-		<i data-is='icon' data-part='trail'>arrow_forward_ios</i>
-	</a>
-	<hr />
-	<a href='/prototype/proposaltooling/customer-information' data-is='button'>
-		<span>Battery System</span>
-		<input type='checkbox' data-is='switch' />
-		<i data-is='icon' data-part='trail'>arrow_forward_ios</i>
-	</a>
-	<hr />
-	<a href='/prototype/proposaltooling/customer-information' data-is='button'>
-		<span>Roof Replacement</span>
-		<input type='checkbox' data-is='switch' />
-		<i data-is='icon' data-part='trail'>arrow_forward_ios</i>
-	</a>
-	<hr />
-	<a href='/prototype/proposaltooling/customer-information' data-is='button'>
-		<span>Electrical Work</span>
-		<input type='checkbox' data-is='switch' />
-		<i data-is='icon' data-part='trail'>arrow_forward_ios</i>
-	</a>
-	<hr />
-	<a href='/prototype/proposaltooling/customer-information' data-is='button'>
-		<span>Energy Efficiency</span>
-		<input type='checkbox' data-is='switch' />
-		<i data-is='icon' data-part='trail'>arrow_forward_ios</i>
-	</a>
-	<hr />
-	<a href='/prototype/proposaltooling/customer-information' data-is='button'>
-		<span>H.V.A.C</span>
-		<input type='checkbox' data-is='switch' />
-		<i data-is='icon' data-part='trail'>arrow_forward_ios</i>
-	</a>
-	<hr />
-	<a href='/prototype/proposaltooling/customer-information' data-is='button'>
-		<span>Geothermal Services</span>
-		<input type='checkbox' data-is='switch' />
-		<i data-is='icon' data-part='trail'>arrow_forward_ios</i>
-	</a>
-	<hr />
-	<a href='/prototype/proposaltooling/customer-information' data-is='button'>
-		<span>Other Project Adders</span>
-		<i data-is='icon' data-part='trail'>arrow_forward_ios</i>
-	</a>
-	<hr />
-	<a href='/prototype/proposaltooling/customer-information' data-is='button'>
-		<span>Additional Projects</span>
-		<i data-is='icon' data-part='trail'>arrow_forward_ios</i>
-	</a>
-	<hr />
-	<a href='/prototype/proposaltooling/customer-information' data-is='button'>
-		<span>Internal Sales Notes</span>
-		<i data-is='icon' data-part='trail'>arrow_forward_ios</i>
-	</a>
-	<hr />
-	<a href='/prototype/proposaltooling/customer-information' data-is='button'>
-		<span>Financial</span>
-		<i data-is='icon' data-part='trail'>arrow_forward_ios</i>
-	</a>
-	<hr />
+
+	{
+		options.map((opt) => (
+			<a href={opt.path} data-is='button'>
+				<span>{opt.name}</span>
+
+				{opt.switch && <input type='checkbox' data-is='switch' />}
+
+				<i data-is='icon' data-part='trail'>
+					arrow_forward_ios
+				</i>
+			</a>
+		))
+	}
 
 	<script type='module' is:inline>
 		window.addEventListener('DOMContentLoaded', () => {
@@ -124,7 +127,6 @@
 				);
 
 			// ─────────────────────────────────────────────
-			// DRAG-TO-CLOSE with proper touch support
 			let startY = 0;
 			let currentY = 0;
 			let dragging = false;
@@ -169,51 +171,52 @@
 	</script>
 
 	<style lang='css' is:inline>
-		@scope {
+		@scope (#menu) {
 			:scope {
 				background-color: var(--clr-background__base);
 				max-height: 100%;
 				height: calc(100dvh - 35%);
 
-				& > header {
+				#menu__handle {
+					border-radius: var(--xs);
+					cursor: grab;
+					height: var(--xs);
+					margin: var(--xl) auto;
+					touch-action: none;
+					width: min(100%, 100px);
+
+					&:active {
+						cursor: grabbing;
+					}
+				}
+
+				header {
 					background-color: inherit;
+					border-bottom: solid 2px var(--clr-border__base);
 					inset: 0;
 					padding: 0 var(--md) var(--nm);
 					position: sticky;
 					z-index: 2;
 
-					& > #menu__handle {
-						border-radius: var(--xs);
-						cursor: grab;
-						height: var(--xs);
-						margin: var(--xl) auto;
-						touch-action: none;
-						width: min(100%, 100px);
-
-						&:active {
-							cursor: grabbing;
-						}
-					}
-
 					p {
 						color: var(--clr-text__lowered);
-						margin-top: var(--xs);
+						margin-top: var(--sm);
 					}
 				}
 
-				& > :where(button, a) {
+				:where(button, a) {
 					background-color: inherit;
 					border-radius: 0;
+					text-decoration: none;
 					width: 100%;
 
 					& > input {
 						flex-shrink: 0;
 					}
-				}
 
-				& > hr:last-of-type {
-					background-color: inherit;
-					height: calc(var(--xl) * 2);
+					&:not(:last-of-type) {
+						border-bottom: solid 2px var(--clr-border__base);
+					}
 				}
 			}
 		}

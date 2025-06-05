@@ -59,29 +59,33 @@ for (const folder in groupedRoutes) {
 const apps: RouteItem[] = groupedRoutes['apps'] || [];
 const elements: RouteItem[] = groupedRoutes['elements'] || [];
 const mdx: RouteItem[] = groupedRoutes['mdx'] || [];
-const prototype: RouteItem[] = groupedRoutes['prototype'] || [];
+const prototypes: RouteItem[] = groupedRoutes['prototypes'] || [];
 const sites: RouteItem[] = groupedRoutes['sites'] || [];
 const sketches: RouteItem[] = groupedRoutes['sketches'] || [];
 ---
 
 <Layout>
-	<x-grid style='--gap: var(--nm); --cols: 2; grid-auto-flow: row dense;'>
-		<x-card style='outline-color: var(--clr-debug__base); outline-offset: 2px;'>
+	<div
+		data-is='grid'
+		style='--gap: var(--nm); --cols: 2; grid-auto-flow: row dense;'>
+		<div
+			data-is='card'
+			style='outline-color: var(--clr-debug__base); outline-offset: 2px;'>
 			<h1>Lilycat</h1>
 			<p>
 				Powered by dead simple <code>--opinionated</code> CSS props and a mix of
 				common convention rules for better DX &amp; while keeping styling minimal.
 			</p>
-		</x-card>
+		</div>
 
-		<x-card style='outline-offset: 2px;'>
+		<div data-is='card' style='outline-offset: 2px;'>
 			<h2>Test Page</h2>
 			<a href='/test'>Understand each element behaviour better</a>
-		</x-card>
+		</div>
 
-		<x-card style='outline-offset: 2px;'>
+		<div data-is='card' style='outline-offset: 2px;'>
 			<h2>Apps</h2>
-			<x-grid style='--gap: var(--md); --cols: 4;'>
+			<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
 				{
 					apps.map((el) => (
 						<a href={el.path}>
@@ -90,26 +94,26 @@ const sketches: RouteItem[] = groupedRoutes['sketches'] || [];
 						</a>
 					))
 				}
-			</x-grid>
-		</x-card>
+			</div>
+		</div>
 
-		<x-card style='outline-offset: 2px;'>
-			<h2>Prototype</h2>
-			<x-grid style='--gap: var(--md); --cols: 4;'>
+		<div data-is='card' style='outline-offset: 2px;'>
+			<h2>Prototypes</h2>
+			<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
 				{
-					prototype.map((el) => (
+					prototypes.map((el) => (
 						<a href={el.path}>
 							<span>{el.name}</span>
 							<i data-is='icon'>north_east</i>
 						</a>
 					))
 				}
-			</x-grid>
-		</x-card>
+			</div>
+		</div>
 
-		<x-card style='outline-offset: 2px;'>
+		<div data-is='card' style='outline-offset: 2px;'>
 			<h2>Elements</h2>
-			<x-grid style='--gap: var(--md); --cols: 4;'>
+			<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
 				{
 					elements.map((el) => (
 						<a href={el.path}>
@@ -118,12 +122,12 @@ const sketches: RouteItem[] = groupedRoutes['sketches'] || [];
 						</a>
 					))
 				}
-			</x-grid>
-		</x-card>
+			</div>
+		</div>
 
-		<x-card style='outline-offset: 2px;'>
+		<div data-is='card' style='outline-offset: 2px;'>
 			<h2>MDX</h2>
-			<x-grid style='--gap: var(--md); --cols: 4;'>
+			<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
 				{
 					mdx.map((el) => (
 						<a href={el.path}>
@@ -132,12 +136,12 @@ const sketches: RouteItem[] = groupedRoutes['sketches'] || [];
 						</a>
 					))
 				}
-			</x-grid>
-		</x-card>
+			</div>
+		</div>
 
-		<x-card style='outline-offset: 2px;'>
+		<div data-is='card' style='outline-offset: 2px;'>
 			<h2>Sites</h2>
-			<x-grid style='--gap: var(--md); --cols: 4;'>
+			<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
 				{
 					sites.map((el) => (
 						<a href={el.path}>
@@ -146,12 +150,12 @@ const sketches: RouteItem[] = groupedRoutes['sketches'] || [];
 						</a>
 					))
 				}
-			</x-grid>
-		</x-card>
+			</div>
+		</div>
 
-		<x-card style='outline-offset: 2px;'>
+		<div data-is='card' style='outline-offset: 2px;'>
 			<h2>Sketches</h2>
-			<x-grid style='--gap: var(--md); --cols: 4;'>
+			<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
 				{
 					sketches.map((el) => (
 						<a href={el.path}>
@@ -160,7 +164,7 @@ const sketches: RouteItem[] = groupedRoutes['sketches'] || [];
 						</a>
 					))
 				}
-			</x-grid>
-		</x-card>
-	</x-grid>
+			</div>
+		</div>
+	</div>
 </Layout>

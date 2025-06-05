@@ -1,5 +1,5 @@
-@layer customs {
-  :where(x-card) {
+@layer data-attributes {
+  :where([data-is="card"]) {
     background-color: var(--clr-background__raised);
     border-radius: var(--xs);
     display: flex;

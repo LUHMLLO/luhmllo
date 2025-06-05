@@ -11,8 +11,6 @@
 
 @import url('./customs/x-block.css');
 @import url('./customs/x-body.css');
-@import url('./customs/x-card.css');
-@import url('./customs/x-card.css');
 @import url('./customs/x-container.css');
 @import url('./customs/x-frame.css');
 @import url('./customs/x-layers.css');
@@ -23,6 +21,7 @@
 @import url('./data-attributes/blur.css');
 @import url('./data-attributes/bottomsheet.css');
 @import url('./data-attributes/button.css');
+@import url('./data-attributes/card.css');
 @import url('./data-attributes/fab.css');
 @import url('./data-attributes/field.css');
 @import url('./data-attributes/flex.css');
