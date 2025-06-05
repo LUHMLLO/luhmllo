@@ -3,10 +3,8 @@ import Layout from './.lib/_layout.astro';
 ---
 
 <Layout>
-	<div data-is='row' style='gap: 60px;'>
-		<aside
-			data-is='group'
-			style='gap: 30px; padding-block: 60px; min-width: max-content;'>
+	<div id='terms' data-is='row' style='gap: 60px;'>
+		<aside id='terms__tableofcontent' data-is='group'>
 			<h5>Table of Contents</h5>
 			<ol>
 				<li><a href='#our-services'>Our Services</a></li>
@@ -62,7 +60,7 @@ import Layout from './.lib/_layout.astro';
 			</ol>
 		</aside>
 
-		<div data-is='stack' style='gap: 30px; padding-block: 60px;'>
+		<div id='terms__content' data-is='stack'>
 			<header>
 				<h1>Terms of Use</h1>
 				<p><em>Last updated June 05, 2025</em></p>
@@ -346,9 +344,20 @@ import Layout from './.lib/_layout.astro';
 	<style lang='css' is:inline>
 		@scope {
 			:scope {
-				--gaps: 15px;
+				#terms__tableofcontent {
+					gap: 30px;
+					padding-block: 60px;
+					min-width: max-content;
 
-				& > div > div {
+					@container xwindow (width < 800px) {
+						display: none;
+					}
+				}
+
+				#terms__content {
+					gap: 30px;
+					padding-block: 60px;
+
 					:where(h1, h2, h3, h4, h5, h6) {
 						margin-bottom: 15px;
 					}
