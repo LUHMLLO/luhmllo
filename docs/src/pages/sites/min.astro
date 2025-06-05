@@ -5,15 +5,31 @@ import Iframe from '../../layouts/iframe.astro';
 
 <Layout>
 	<Iframe>
-    
+		<div id='demoapp'>
+			<header>
+				<style lang='css' is:inline>
+					@scope {
+						:scope {
+						}
+					}
+				</style>
+			</header>
 
+			<section>
+				<style lang='css' is:inline>
+					@scope {
+						:scope {
+						}
+					}
+				</style>
+			</section>
 
-		<style lang='css' is:inline>
-			@scope {
-				:scope {
-
-        }
-      }
-		</style>
+			<style lang='css' is:inline>
+				@scope {
+					:scope {
+					}
+				}
+			</style>
+		</div>
 	</Iframe>
 </Layout>

@@ -26,70 +26,68 @@ import Quote from './.lib/quote.astro';
 			<Products />
 			<Quote />
 			<Footer />
+
+			<style lang='css' is:inline>
+				@scope (#demoapp) {
+					:scope {
+						--clr-background__lowered: #eceeec;
+						--clr-background__base: #f1f3f1;
+						--clr-background__raised: #f7f8f7;
+
+						--clr-text__lowered: #999999;
+						--clr-text__base: #333333;
+						--clr-text__raised: #111111;
+
+						--clr-border__lowered: #e0e0e0;
+						--clr-border__base: #e5e5e5;
+						--clr-border__raised: #ebebeb;
+
+						--clr-accent__lowered: #0677f9;
+						--clr-accent__base: #1f84fa;
+						--clr-accent__raised: #3892fa;
+						--clr-onAccent: #011832;
+
+						background-color: var(--clr-background__raised);
+						color: var(--clr-text__base);
+						grid-auto-rows: max-content;
+						grid-template-rows: max-content;
+						height: 100%;
+						isolation: isolate;
+						min-height: 100%;
+						overflow: clip auto;
+						position: relative;
+						scrollbar-width: none;
+						z-index: 1;
+
+						> * {
+							grid-row: initial;
+							isolation: isolate;
+						}
+
+						:where(button, [data-is='button']) {
+							background-color: var(--clr-accent__base);
+							color: var(--clr-background__raised);
+							font-size: clamp(15px, 100%, 20px);
+							font-weight: 500;
+							height: 60px;
+							justify-content: center;
+							padding-inline: 30px;
+							text-align: center;
+							text-decoration: none;
+
+							&:hover {
+								background-color: var(--clr-accent__raised);
+								color: var(--clr-background__raised);
+							}
+
+							&:active {
+								background-color: var(--clr-accent__lowered);
+								color: var(--clr-background__raised);
+							}
+						}
+					}
+				}
+			</style>
 		</div>
 	</Iframe>
-
-	<style lang='css' is:inline>
-		@scope {
-			:scope {
-				--clr-background__lowered: #eceeec;
-				--clr-background__base: #f1f3f1;
-				--clr-background__raised: #f7f8f7;
-
-				--clr-text__lowered: #999999;
-				--clr-text__base: #333333;
-				--clr-text__raised: #111111;
-
-				--clr-border__lowered: #e0e0e0;
-				--clr-border__base: #e5e5e5;
-				--clr-border__raised: #ebebeb;
-
-				--clr-accent__lowered: #0677f9;
-				--clr-accent__base: #1f84fa;
-				--clr-accent__raised: #3892fa;
-				--clr-onAccent: #011832;
-
-				#demoapp {
-					background-color: var(--clr-background__raised);
-					color: var(--clr-text__base);
-					grid-auto-rows: max-content;
-					grid-template-rows: max-content;
-					height: 100%;
-					isolation: isolate;
-					min-height: 100%;
-					overflow: clip auto;
-					position: relative;
-					scrollbar-width: none;
-					z-index: 1;
-
-					> * {
-						grid-row: initial;
-						isolation: isolate;
-					}
-				}
-
-				:where(button, [data-is='button']) {
-					background-color: var(--clr-accent__base);
-					color: var(--clr-background__raised);
-					font-size: clamp(15px, 100%, 20px);
-					font-weight: 500;
-					height: 60px;
-					justify-content: center;
-					padding-inline: 30px;
-					text-align: center;
-					text-decoration: none;
-
-					&:hover {
-						background-color: var(--clr-accent__raised);
-						color: var(--clr-background__raised);
-					}
-
-					&:active {
-						background-color: var(--clr-accent__lowered);
-						color: var(--clr-background__raised);
-					}
-				}
-			}
-		}
-	</style>
 </Layout>
