@@ -69,6 +69,7 @@ import Quote from './.lib/quote.astro';
 
 						:where(button, [data-is='button']) {
 							background-color: var(--clr-accent__base);
+							box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.05);
 							color: var(--clr-background__raised);
 							font-size: clamp(15px, 100%, 20px);
 							font-weight: 500;
@@ -77,14 +78,20 @@ import Quote from './.lib/quote.astro';
 							padding-inline: 30px;
 							text-align: center;
 							text-decoration: none;
+							transition-duration: var(--animDuration);
+							transition-property: background-color, box-shadow, color, filter,
+								outline, outline-color, outline-offset;
+							transition-timing-function: var(--animTiming);
 
 							&:hover {
 								background-color: var(--clr-accent__raised);
+								box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.15);
 								color: var(--clr-background__raised);
 							}
 
 							&:active {
 								background-color: var(--clr-accent__lowered);
+								box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.03);
 								color: var(--clr-background__raised);
 							}
 						}
