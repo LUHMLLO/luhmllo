@@ -1,19 +1,14 @@
-<section id='banner' data-is='grid' data-layout='expand' style='--cols: 3;'>
+<section id='banner' data-is='grid' data-layout='expand'>
 	<figure data-is='background'>
 		<img src='/images/halo/Fondo.png' alt='background' />
 	</figure>
 
-	<div
-		style='height: 100%; min-height: 410px; overflow: clip; position: relative;'>
-		<figure style='height: 100%; width: 100%;'>
-			<img src='/images/halo/haloinstallation.png' alt='installation' />
-		</figure>
-	</div>
+	<figure id='banner__installation'>
+		<img src='/images/halo/haloinstallation.png' alt='installation' />
+	</figure>
 
 	<div id='banner__content' data-is='group'>
-		<h3>
-			WATER FILTRATION<br />& CONDITIONING SYSTEM<br />FOR THE WHOLE HOUSE
-		</h3>
+		<h3>WATER FILTRATION & CONDITIONING SYSTEM FOR THE WHOLE HOUSE</h3>
 		<p>
 			At Hytech Home, we understand the importance of having clean, safe water
 			in your home. Our water filtration system are designed to remove
@@ -21,52 +16,76 @@
 		</p>
 	</div>
 
-	<div style='height: 410px; overflow: clip; position: relative;'>
-		<figure style='height: 100%; width: 100%;'>
-			<img
-				src='/images/halo/childrendrinkingwater.png'
-				alt='childrendrinkingwater'
-				style='object-fit: contain; object-position: right 75px;'
-			/>
-		</figure>
-	</div>
+	<figure id='banner__child'>
+		<img
+			src='/images/halo/childrendrinkingwater.png'
+			alt='childrendrinkingwater'
+		/>
+	</figure>
 
 	<style lang='css' is:inline>
 		@scope (#banner) {
 			:scope {
-				--gap: calc(
-					60px -
-						max(
-							calc((100% - var(--inner-column)) / 2),
-							calc(var(--inner-gutter) + 1px)
-						)
-				);
+				--cols: 3;
 				align-items: center;
+				grid-auto-rows: 1fr;
+				grid-template-rows: 1fr;
 				min-height: 384px;
 				overflow: clip;
 				padding: 0;
+				place-content: stretch;
 				position: relative;
 
-				:where(h1, h2, h3, h4, h5, h6) {
-					color: var(--clr-background__raised);
-				}
-
-				p {
-					color: var(--clr-background__base);
+				#banner__installation {
+					height: 100%;
+					overflow: clip;
+					place-content: end;
+					position: relative;
+					width: 100%;
 				}
 
 				#banner__content {
 					gap: 15px;
-					padding-block: 60px;
-					padding-inline: max(
-						calc((100% - var(--inner-column)) / 2),
-						calc(var(--inner-gutter) + 1px)
-					);
+					padding-block: 60px 30px;
+					padding-inline: 30px 0;
+
+					:where(h1, h2, h3, h4, h5, h6) {
+						color: var(--clr-background__raised);
+					}
+
+					p {
+						color: var(--clr-background__base);
+					}
+				}
+
+				#banner__child {
+					height: 100%;
+					overflow: clip;
+					place-content: end;
+					position: relative;
+					width: 100%;
+
+					img {
+						height: 410px;
+						object-fit: contain;
+						object-position: right bottom;
+					}
 				}
 
 				@container xwindow (width < 800px) {
-					& > div {
-						grid-column: 1 /-1;
+					--cols: 1;
+					grid-auto-rows: max-content;
+
+					#banner__installation {
+						height: 410px;
+					}
+
+					#banner__content {
+						padding-inline: 30px;
+					}
+
+					#banner__child {
+						height: max-content;
 					}
 				}
 			}
