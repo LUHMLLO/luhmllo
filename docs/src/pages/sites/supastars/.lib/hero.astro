@@ -1,0 +1,21 @@
+<header id='hero' data-is='grid' data-layout='expand'>
+	<figure data-is='background' style='filter: blur(5ex); scale: 2;'>
+		<img src='/images/supastars/herobg.jpg' alt='hero-background' />
+	</figure>
+
+	<h1>Your Digital<br />Growth<br />Partner</h1>
+
+	<style lang='css' is:inline>
+		@scope (#hero) {
+			:scope {
+				--cols: 2;
+
+				background-color: var(--clr-accent__base);
+				height: 600px;
+				overflow: clip;
+				place-content: center;
+				position: relative;
+			}
+		}
+	</style>
+</header>
