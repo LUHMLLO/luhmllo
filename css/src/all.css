@@ -6,15 +6,7 @@
 @import url('./tokens/theming.css');
 
 @import url('./reset.css');
-
 @import url('./normalize.css');
-
-@import url('./customs/x-block.css');
-@import url('./customs/x-body.css');
-@import url('./customs/x-container.css');
-@import url('./customs/x-frame.css');
-@import url('./customs/x-layers.css');
-@import url('./customs/x-window.css');
 
 @import url('./data-attributes/app.css');
 @import url('./data-attributes/background.css');
@@ -30,5 +22,7 @@
 @import url('./data-attributes/highlight.css');
 @import url('./data-attributes/icon.css');
 @import url('./data-attributes/input.css');
+@import url('./data-attributes/layers.css');
 @import url('./data-attributes/segmentedcontrols.css');
 @import url('./data-attributes/switch.css');
+@import url('./data-attributes/window.css');

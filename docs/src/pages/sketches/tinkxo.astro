@@ -5,17 +5,18 @@ import Iframe from '../../layouts/iframe.astro';
 
 <Layout>
 	<Iframe>
-		<x-sublayer>
-			<figure style='height: 100%; inset:0; position: absolute; width: 100%;'>
+		<div data-is='layer' data-variant='under'>
+			<figure data-is='background'>
 				<img
 					src='https://images.unsplash.com/photo-1697538022268-c565529e616f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 					alt='Mass timber architecture background'
 				/>
 			</figure>
 			<span
-				style='backdrop-filter: blur(0.5ex); background-color: hsl(from var(--clr-background__lowered) h s l / 75%); height: 100%; position: absolute; width: 100%;'>
+				data-is='background'
+				style='background-color: hsl(from var(--clr-background__lowered) h s l / 75%); backdrop-filter: blur(0.5ex);'>
 			</span>
-		</x-sublayer>
+		</div>
 
 		<nav style='place-content: space-between; place-items: center;'>
 			<button data-variant='outline'>
@@ -27,7 +28,10 @@ import Iframe from '../../layouts/iframe.astro';
 				TinkXo
 			</h6>
 
-			<a href={'#' + crypto.randomUUID()} data-is='button' data-variant='outline'>
+			<a
+				href={'#' + crypto.randomUUID()}
+				data-is='button'
+				data-variant='outline'>
 				<i data-is='icon'> phone </i>
 			</a>
 		</nav>

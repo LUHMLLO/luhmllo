@@ -4,59 +4,64 @@ import Layout from '../../layouts/app.astro';
 
 <Layout>
 	<script is:inline>
-		document.addEventListener('DOMContentLoaded', () => {
-			const buttonOpen = document.getElementById('modalOpen');
-			const buttonClose = document.getElementById('modalClose');
-			const modalDialog = document.getElementById('modal');
+		window.addEventListener('DOMContentLoaded', () => {
+			const modal = document.querySelector('#modal');
 
-			if (
-				buttonOpen &&
-				buttonClose &&
-				modalDialog instanceof HTMLDialogElement
-			) {
-				buttonOpen.addEventListener('click', () => {
-					modalDialog.showModal();
-				});
+			addEventListener('modal:toggle', () => {
+				if (modal.open) {
+					modal.close();
+				} else {
+					modal.show();
+				}
+			});
 
-				buttonClose.addEventListener('click', () => {
-					modalDialog.close();
-				});
-			}
+			document
+				.querySelectorAll('[data-toggle-modal]')
+				.forEach((el) =>
+					el.addEventListener('click', () =>
+						dispatchEvent(new CustomEvent('modal:toggle')),
+					),
+				);
 		});
 	</script>
 
-	<button id='modalOpen' type='button'> open modal </button>
+	<button data-toggle-modal> open modal </button>
 
 	<dialog id='modal'>
-		<x-flex
-			style='place-items:center; padding-inline: var(--md); height: 50px;'>
-			<p>Service clients</p>
-			<button id='modalClose' type='button' style='display: contents;'>
+		<div
+			data-is='row'
+			style='align-items: center; justify-content: space-between; padding: var(--md);'>
+			<h6>Service clients</h6>
+			<button data-variant='flat' data-toggle-modal>
 				<i data-is='icon'>close_small</i>
 			</button>
-		</x-flex>
+		</div>
 
-		<label for='searchbar' data-is='input' style='margin-inline: var(--sm);'>
+		<label for='searchbar' data-is='input' style='margin-inline: var(--md);'>
 			<i data-is='icon' data-part='lead'> search </i>
 			<input
 				type='text'
-				class='rounded-none w-full'
+				id='searchbar'
 				name='searchbar'
 				placeholder='Type in to filter list'
 			/>
 			<i data-is='icon' data-part='trail'> keyboard_command_key </i>
 		</label>
 
-		<x-stack style='gap: var(--md); place-items: center; padding: var(--xl);'>
+		<div
+			data-is='stack'
+			style='gap: var(--md); place-items: center; padding: var(--xl);'>
 			<i data-is='icon' style='--size: 50px;'>block</i>
-			<x-block style='text-align: center;'>
+
+			<div style='text-align: center;'>
 				<p>No service clients found.</p>
 				<p>Try another search query or add a new service client.</p>
-			</x-block>
-			<button>
+			</div>
+
+			<button data-variant='outline'>
 				<i data-is='icon' data-part='lead'> add_2 </i>
 				<span>Add client</span>
 			</button>
-		</x-stack>
+		</div>
 	</dialog>
 </Layout>

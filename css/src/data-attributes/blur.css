@@ -10,7 +10,7 @@
     height: 100px;
     pointer-events: none;
 
-    :where([data-is="layer"]) {
+    :where([data-part="layer"]) {
       --i: 0;
       --blur-amount: calc(var(--base-blur) + var(--i) * var(--blur-growth));
       --start: calc(var(--i) * var(--mask-step));

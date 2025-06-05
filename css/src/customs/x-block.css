@@ -1,5 +1,0 @@
-@layer x-customs {
-  :where(x-block) {
-    display: block;
-  }
-}

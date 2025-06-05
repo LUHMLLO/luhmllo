@@ -1,0 +1,1 @@
+@layer data-attributes{:where([data-is=window],[data-is=frame],[data-is=capsule]){backdrop-filter:blur(.5ex);background-color:var(--clr-background__base);border-radius:var(--md);container:xwindow/size;display:block;height:100%;isolation:isolate;outline:solid 2px var(--clr-border__base);outline-offset:0;overflow:clip;position:relative;width:100%}}

@@ -5,8 +5,8 @@ import Iframe from '../../layouts/iframe.astro';
 
 <Layout>
 	<Iframe>
-		<x-block id='notification'>
-			<x-row style='flex-wrap: wrap;'>
+		<div id='notification'>
+			<div data-is='wrap'>
 				<figure>
 					<img
 						src='https://cdn.dribbble.com/userupload/36827646/file/original-24ed8e5b476e7896326891445660a9f4.png?resize=1024x768&vertical=center'
@@ -14,41 +14,33 @@ import Iframe from '../../layouts/iframe.astro';
 					/>
 				</figure>
 
-				<x-group>
+				<div>
 					<span>Time Sensitive</span>
 					<h6>Gross House</h6>
 					<p>Property Offer</p>
-				</x-group>
-			</x-row>
+				</div>
+			</div>
 
 			<hr />
 
-			<x-row style='align-items: start;'>
+			<div data-is='row' style='align-items: start;'>
 				<i data-is='icon' style='--fill: 1; --size: var(--xl);'> schedule </i>
 				<p>
 					Leave on Time Sensitive notifications from Props? This allows Props to
 					deliver important notifications inmmediately
 				</p>
-			</x-row>
+			</div>
 
 			<hr />
 
-			<x-row style='flex-wrap: wrap;'>
+			<div data-is='wrap'>
 				<button data-variant='outline'>Turn Off</button>
 				<button data-variant='outline'>Leave On</button>
-			</x-row>
-		</x-block>
+			</div>
 
-		<style lang='css' is:inline>
-			@import url('https://fonts.googleapis.com/css2?family=Oi&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-			@scope {
-				:scope {
-					font-family: 'Poppins', sans-serif;
-					place-content: center;
-					place-items: center;
-
-					#notification {
+			<style lang='css' is:inline>
+				@scope (#notification) {
+					:scope {
 						background-color: var(--clr-background__raised);
 						border-radius: var(--md);
 						height: max-content;
@@ -57,7 +49,7 @@ import Iframe from '../../layouts/iframe.astro';
 						place-self: safe center;
 						width: min(100%, 440px);
 
-						& > x-row {
+						& > [data-is='wrap'] {
 							align-items: center;
 							gap: var(--md);
 							padding: var(--lg);
@@ -70,7 +62,7 @@ import Iframe from '../../layouts/iframe.astro';
 								overflow: clip;
 							}
 
-							& > x-group {
+							& > div {
 								width: fit-content;
 
 								& > span {
@@ -88,7 +80,24 @@ import Iframe from '../../layouts/iframe.astro';
 								place-content: center;
 							}
 						}
+
+						& > [data-is='row'] {
+							gap: var(--md);
+							padding: var(--lg);
+						}
 					}
+				}
+			</style>
+		</div>
+
+		<style lang='css' is:inline>
+			@import url('https://fonts.googleapis.com/css2?family=Oi&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+			@scope {
+				:scope {
+					font-family: 'Poppins', sans-serif;
+					place-content: center;
+					place-items: center;
 				}
 			}
 		</style>

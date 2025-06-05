@@ -1,5 +1,5 @@
-@layer x-customs {
-  :where(x-window) {
+@layer data-attributes {
+  :where([data-is="window"], [data-is="frame"], [data-is="capsule"]) {
     background-color: var(--clr-background__base);
     backdrop-filter: blur(0.5ex);
     border-radius: var(--md);

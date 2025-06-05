@@ -1,5 +1,5 @@
 @layer data-attributes {
-  :where([data-is="app"]) {
+  :where([data-is="app"], [data-is="container"]) {
     --outter-gutter: 0;
     --outter-columns: 0;
     --inner-gutter: 1.5rem;

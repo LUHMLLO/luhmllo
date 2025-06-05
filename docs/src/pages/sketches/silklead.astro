@@ -275,9 +275,10 @@ import Iframe from '../../layouts/iframe.astro';
 				<p>hello world</p>
 			</div>
 
-			<x-surlayer style='position: absolute; height: 100%; width: 100%;'>
+			<div data-is='layer' data-variant='over'>
 				<aside id='pane_notifications' class='pane'>
-					<x-row
+					<div
+						data-is='row'
 						style='place-items: center; height: 48px; gap: var(--xs); padding-inline: var(--sm);'>
 						<p>Notifications</p>
 						<button
@@ -286,7 +287,7 @@ import Iframe from '../../layouts/iframe.astro';
 							onclick='toggleNotificationsPanel()'>
 							<i data-is='icon'>close_small</i>
 						</button>
-					</x-row>
+					</div>
 
 					<label for='searchbar' data-is='input' style='border-radius: 0;'>
 						<i data-is='icon'> search </i>
@@ -299,7 +300,7 @@ import Iframe from '../../layouts/iframe.astro';
 						<i data-is='icon'> keyboard_command_key </i>
 					</label>
 				</aside>
-			</x-surlayer>
+			</div>
 		</div>
 
 		<style lang='css' is:inline>

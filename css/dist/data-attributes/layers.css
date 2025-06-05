@@ -1,0 +1,1 @@
+@layer data-attributes{:where([data-is=layer]){display:grid;inset:0;isolation:isolate;margin:0;overflow:clip;position:fixed;visibility:hidden}:where([data-is=layer])>*{visibility:visible}:where([data-is=layer])[data-variant=over]{container:overlayer/size;z-index:100}:where([data-is=layer])[data-variant=under]{container:underlayer/size;z-index:-100}}
