@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@layer tokens, reset, normalize, customs, data-attributes;
+@layer tokens, reset, normalize, data-attributes;
 
 @import url('./tokens/animations.css');
 @import url('./tokens/scales.css');
