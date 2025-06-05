@@ -1,0 +1,91 @@
+---
+import Layout from '../../../../layouts/app.astro';
+import Iframe from '../../../../layouts/iframe.astro';
+
+import Appbar from './appbar.astro';
+import Hero from './hero.astro';
+import Footer from './footer.astro';
+---
+
+<Layout>
+	<Iframe>
+		<div id='demoapp' data-is='app'>
+			<Appbar />
+			<Hero />
+			<slot />
+			<Footer />
+
+			<style lang='css' is:inline>
+				@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+				@scope (#demoapp) {
+					:scope {
+						--clr-background__lowered: #eceeec;
+						--clr-background__base: #f1f3f1;
+						--clr-background__raised: #f7f8f7;
+
+						--clr-text__lowered: #999999;
+						--clr-text__base: #333333;
+						--clr-text__raised: #111111;
+
+						--clr-border__lowered: #e0e0e0;
+						--clr-border__base: #e5e5e5;
+						--clr-border__raised: #ebebeb;
+
+						--clr-accent__lowered: #0677f9;
+						--clr-accent__base: #1f84fa;
+						--clr-accent__raised: #3892fa;
+						--clr-onAccent: #011832;
+
+						background-color: var(--clr-background__raised);
+						color: var(--clr-text__base);
+						font-family: 'Figtree', sans-serif;
+						grid-auto-rows: max-content;
+						grid-template-rows: max-content;
+						height: 100%;
+						isolation: isolate;
+						min-height: 100%;
+						overflow: clip auto;
+						position: relative;
+						scrollbar-width: none;
+						z-index: 1;
+
+						> * {
+							grid-row: initial;
+							isolation: isolate;
+						}
+
+						:where(button, [data-is='button']) {
+							background-color: var(--clr-accent__base);
+							box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.05);
+							color: var(--clr-background__raised);
+							font-size: clamp(15px, 100%, 20px);
+							font-weight: 500;
+							height: 60px;
+							justify-content: center;
+							padding-inline: 30px;
+							text-align: center;
+							text-decoration: none;
+							transition-duration: var(--animDuration);
+							transition-property: background-color, box-shadow, color, filter,
+								outline, outline-color, outline-offset;
+							transition-timing-function: var(--animTiming);
+
+							&:hover {
+								background-color: var(--clr-accent__raised);
+								box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.15);
+								color: var(--clr-background__raised);
+							}
+
+							&:active {
+								background-color: var(--clr-accent__lowered);
+								box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.03);
+								color: var(--clr-background__raised);
+							}
+						}
+					}
+				}
+			</style>
+		</div>
+	</Iframe>
+</Layout>
