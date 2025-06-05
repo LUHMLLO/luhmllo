@@ -59,6 +59,76 @@
 		</p>
 	</div>
 
+	<details>
+		<summary data-is='button'>expand</summary>
+
+		<div data-is='wrap'>
+			<b>Water Waste</b>
+			<p>Zero waste</p>
+			<p>
+				1:1 water purification ratio (produces 1 gallon of waste for every
+				gallon of purified water)
+			</p>
+		</div>
+
+		<div data-is='wrap'>
+			<b>Electricity Requirement </b>
+			<p>None</p>
+			<p>None</p>
+		</div>
+
+		<div data-is='wrap'>
+			<b>Maintenance</b>
+			<p>Minimal; no backwash or electricity required</p>
+			<p>
+				Requires periodic filter replacements; smart faucet indicates when to
+				change filters
+			</p>
+		</div>
+
+		<div data-is='wrap'>
+			<b>Installation Location</b>
+			<p>Main water line (whole-house installation)</p>
+			<p>Under the kitchen sink (point-of-use installation)</p>
+		</div>
+
+		<div data-is='wrap'>
+			<b>Storage Tank</b>
+			<p>Not applicable</p>
+			<p>Includes a 4.5-gallon storage tank</p>
+		</div>
+
+		<div data-is='wrap'>
+			<b>Special Features </b>
+			<p>
+				All-in-one tank design; uses magnetic fields to condition water;
+				eco-friendly design
+			</p>
+			<p>
+				Smart faucet with filter change indicator; leak detector; easy filter
+				replacement without tools
+			</p>
+		</div>
+
+		<div data-is='wrap'>
+			<b>Warranty</b>
+			<p>10-year warranty on carbon media and HALO ION conditioner</p>
+			<p>2-year warranty covering defects in materials and workmanship</p>
+		</div>
+
+		<div data-is='wrap'>
+			<b>Ideal For</b>
+			<p>
+				Homeowners seeking a comprehensive, low-maintenance solution for
+				whole-house water filtration and conditioning
+			</p>
+			<p>
+				Individuals seeking high-quality, purified drinking water with enhanced
+				taste and pH levels at a specific point of use (e.g., kitchen sink)
+			</p>
+		</div>
+	</details>
+
 	<style lang='css' is:inline>
 		@scope (#products) {
 			:scope {
@@ -66,7 +136,7 @@
 				padding-block: 60px;
 				position: relative;
 
-				& > [data-is='wrap'] {
+				[data-is='wrap'] {
 					border-bottom: solid 2px var(--clr-border__base);
 					gap: 30px;
 					padding-block: 30px;
@@ -84,8 +154,41 @@
 					}
 				}
 
+				details {
+					overflow: visible;
+					position: relative;
+
+					summary {
+						background-color: var(--clr-background__base);
+						border: solid 2px var(--clr-border__base);
+						color: var(--clr-text__base);
+						height: 45px;
+						inset: -20px 0 0 0;
+						margin: 0 auto;
+						position: absolute;
+						z-index: 3;
+
+						&:hover {
+							background-color: var(--clr-background__raised);
+							color: var(--clr-text__base);
+						}
+
+						&:active {
+							background-color: var(--clr-background__lowered);
+							color: var(--clr-text__base);
+						}
+					}
+
+					&[open] {
+						summary {
+							opacity: 0;
+							pointer-events: none;
+						}
+					}
+				}
+
 				@container xwindow (width < 800px) {
-					& > [data-is='wrap'] {
+					[data-is='wrap'] {
 						gap: 15px;
 
 						& > *:first-child {
