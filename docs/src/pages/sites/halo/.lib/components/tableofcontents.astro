@@ -1,0 +1,84 @@
+---
+const sections = [
+	{ href: '#agreement-and-terms', label: 'Agreement/Legal Terms' },
+	{ href: '#our-services', label: 'Our Services' },
+	{
+		href: '#intellectual-property-rights',
+		label: 'Intellectual Property Rights',
+	},
+	{ href: '#user-representations', label: 'User Representations' },
+	{ href: '#user-registration', label: 'User Registration' },
+	{ href: '#purchases-and-payment', label: 'Purchases and Payment' },
+	{ href: '#subscriptions', label: 'Subscriptions' },
+	{ href: '#policy', label: 'Policy' },
+	{ href: '#prohibited-activities', label: 'Prohibited Activities' },
+	{
+		href: '#user-generated-contributions',
+		label: 'User Generated Contributions',
+	},
+	{ href: '#contribution-license', label: 'Contribution License' },
+	{
+		href: '#third-party-websites-and-content',
+		label: 'Third-Party Websites and Content',
+	},
+	{ href: '#advertisers', label: 'Advertisers' },
+	{ href: '#services-management', label: 'Services Management' },
+	{ href: '#privacy-policy', label: 'Privacy Policy' },
+	{ href: '#term-and-termination', label: 'Term and Termination' },
+	{
+		href: '#modifications-and-interruptions',
+		label: 'Modifications and Interruptions',
+	},
+	{ href: '#governing-law', label: 'Governing Law' },
+	{ href: '#dispute-resolution', label: 'Dispute Resolution' },
+	{ href: '#corrections', label: 'Corrections' },
+	{ href: '#disclaimer', label: 'Disclaimer' },
+	{ href: '#limitations-of-liability', label: 'Limitations of Liability' },
+	{ href: '#indemnification', label: 'Indemnification' },
+	{ href: '#user-data', label: 'User Data' },
+	{
+		href: '#electronic-communications',
+		label: 'Electronic Communications, Transactions, and Signatures',
+	},
+	{ href: '#sms-text-messaging', label: 'SMS Text Messaging' },
+	{ href: '#california-users', label: 'California Users and Residents' },
+	{ href: '#miscellaneous', label: 'Miscellaneous' },
+	{ href: '#contact', label: 'Contact Us' },
+];
+---
+
+<aside id='terms__tableofcontents' data-is='group'>
+	<h4>Table of Contents</h4>
+
+	<ol>
+		{
+			sections.map(({ href, label }) => (
+				<li>
+					<a href={href}>
+						<span>{label}</span>
+					</a>
+				</li>
+			))
+		}
+	</ol>
+
+	<style lang='css' is:inline>
+		@scope (#terms__tableofcontents) {
+			:scope {
+				border-right: solid 2px var(--clr-border__base);
+				flex: 0 0 max-content;
+				gap: 15px;
+				padding: 60px 60px 60px 0;
+				width: max-content;
+
+				a {
+					max-width: 25ch;
+				}
+
+				@container xwindow (width < 800px) {
+					display: none;
+				}
+			}
+		}
+	</style>
+</aside>

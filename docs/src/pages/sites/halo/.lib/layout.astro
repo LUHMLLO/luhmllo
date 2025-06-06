@@ -1,24 +1,22 @@
 ---
-import Layout from '../../../../layouts/app.astro';
-import Iframe from '../../../../layouts/iframe.astro';
+import ShellLayout from '../../../../layouts/app.astro';
+import ViewFrame from '../../../../layouts/iframe.astro';
 
-import Appbar from './appbar.astro';
-import Hero from './hero.astro';
-import Footer from './footer.astro';
+import Appbar from './components/appbar.astro';
+import Footer from './components/footer.astro';
 ---
 
-<Layout>
-	<Iframe>
-		<div id='demoapp' data-is='app'>
+<ShellLayout>
+	<ViewFrame>
+		<div id='site' data-is='app'>
 			<Appbar />
-			<Hero />
 			<slot />
 			<Footer />
 
 			<style lang='css' is:inline>
 				@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 
-				@scope (#demoapp) {
+				@scope (#site) {
 					:scope {
 						--clr-background__lowered: #eceeec;
 						--clr-background__base: #f1f3f1;
@@ -87,5 +85,5 @@ import Footer from './footer.astro';
 				}
 			</style>
 		</div>
-	</Iframe>
-</Layout>
+	</ViewFrame>
+</ShellLayout>

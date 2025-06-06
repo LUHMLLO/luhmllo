@@ -1,5 +1,5 @@
 @layer data-attributes {
-  :where([data-roles~="fab"]) {
+  :where([data-position~="fab"]) {
     margin: var(--sm);
     position: fixed;
     z-index: 1;

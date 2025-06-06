@@ -1,15 +1,17 @@
 ---
-import Layout from './.lib/_layout.astro';
+import Layout from './.lib/layout.astro';
 
-import About from './.lib/about.astro';
-import Banner from './.lib/banner.astro';
-import CleanWater from './.lib/cleanwater.astro';
-import Contact from './.lib/contact.astro';
-import Products from './.lib/products.astro';
-import Quote from './.lib/quote.astro';
+import About from './.lib/sections/about.astro';
+import Banner from './.lib/sections/banner.astro';
+import CleanWater from './.lib/sections/cleanwater.astro';
+import Contact from './.lib/sections/contact.astro';
+import Hero from './.lib/sections/hero.astro';
+import Products from './.lib/sections/products.astro';
+import Quote from './.lib/sections/quote.astro';
 ---
 
 <Layout>
+	<Hero />
 	<About />
 	<Contact />
 	<CleanWater />
