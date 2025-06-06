@@ -1,17 +1,20 @@
 # Lilycat 🐱✨
 
-> **Dead simple, props-powered CSS — build fast, style clean, and stay native.**
+> **Minimal, attribute-based CSS that gets out of your way—so you can focus on design, not syntax.**
 
 [![Sponsor Lilycat](https://img.shields.io/badge/Sponsor_Lilycat-💖-ff69b4?style=for-the-badge)](https://github.com/sponsors/LUHMLLO)
 
-**Lilycat** is a dead simple, props-powered CSS library built for a streamlined, opinionated development experience.  
-It keeps your HTML clean and your styling flexible — without drowning you in utility class noise.
+*What if you could do something amazing with no setup?*
 
-Designed for developers who value simplicity and clarity, Lilycat leans heavily on native HTML and vanilla CSS.  
-By embracing modern CSS features like variables and layers, it offers a lightweight, scalable foundation that makes extending your UI painless — not a constant battle.
+That's where Lilycat comes in. By focusing on developers as their main users instead of their clients, let's face it, your clients don't care. Most of the time, they have no idea what tech stack you are using or how the newest quantum JS framework will revolutionize the internet. However, your clients, stakeholders, and product owners care about one thing: having their requests delivered. They want their product to work and their problems to be solved. As developers and designers, we often forget that most of the things we create end up in the hands of consumers who know no more than what the product will do for them. Even when given an army knife, they will most likely just use one function. Regardless, we artists want to create masterpieces—creations with meaning and purpose—and craft something that other artists can find inspiration in and congratulate our efforts, discoveries, and creativity. This is what made Lilycat.
 
-No bloated syntax. No framework lock-in.  
-Just clean props, real CSS, and the freedom to build your way.
+This library is essentially an opinionated reset and normalizer with enough data attributes to help you focus on making your idea a reality. It can help you translate designs into code or simply remove stress from the never-ending evolution of modern front-end development.
+
+Lilycat implements a simple set of CSS variables that allow you to configure certain aspects to your liking and needs. This ensures that it can adapt to every type of modern front-end project, including websites, web apps, and mobile-first web products.
+
+By embracing modern CSS features like variables and layers, as well as the "if it ain't broke, don't fix it" mentality, and accepting that data attributes are meant to be used, it offers a lightweight, scalable foundation that makes extending your UI painless. There's no bloated syntax or framework lock-in; just clean, real CSS and the freedom to build your way.
+
+All of this is possible without blocking users from using other utility-first CSS libraries, such as Tailwind. You can opt out of everything and use only the data attributes if you want. But why miss out on the full experience?
 
 ---
 
@@ -19,7 +22,7 @@ Just clean props, real CSS, and the freedom to build your way.
 
 - [Mission](#-mission)
 - [Why Lilycat?](#-why-lilycat)
-- [Important: Lilycat and Utility Classes](#-important-lilycat-and-utility-classes)
+- [Lilycat + Utility Classes](#-important-lilycat-and-utility-classes)
 - [Benefits](#-benefits)
 - [Who is Lilycat for?](#-who-is-lilycat-for)
 - [Project Links](#-project-links)
@@ -28,80 +31,86 @@ Just clean props, real CSS, and the freedom to build your way.
 
 ---
 
-## 🎯 Mission
+## Mission
 
-Lilycat exists to bring simplicity and freedom back to frontend development.  
-We believe great UIs don't require bloated frameworks, endless classes, or custom syntax.
+Lilycat was created to simplify front-end development. Great user interfaces don't require bloated frameworks, endless classes, or an abundance of third parties.
 
-If it can be done with native HTML and CSS, that's the path we choose — tapping into the full power of modern CSS with variables, layers, and cascade control.
+Why fall into the trap of using endless third-party solutions that require as much maintenance as the end product itself when most things can be done with native solutions like HTML, CSS, and Vanilla JS (TS for my modern-day developers)?
 
-Less noise. More signal. True freedom to design, structure, and scale your UI your way.
+Lilycat's focus is on tapping into the full power of modern CSS's core tools and appropriate practices, such as variables, layers, cascade controls, attributes, and scoping.
 
 ---
 
-## 🤌 Why Lilycat?
+## Why Lilycat?
 
 - **HTML should be clean.**  
-  Debugging becomes a nightmare when every element is flooded with utility classes.
-  
+  Debugging becomes a nightmare when utility classes flood every element.
+
 - **CSS should be a skill, not a chore.**  
-  Writing real CSS is powerful — avoiding it shouldn't be the goal.
+  CSS is a powerful tool; avoiding it shouldn't be the goal.
 
 - **Utility-first should assist, not replace.**  
-  Utility classes are great tools — but they're not a replacement for solid CSS fundamentals.
+  Although utility classes are great tools, they are not a replacement for solid CSS fundamentals.
 
 - **Separation of concerns matters.**  
-  Styles should live in CSS, not be tangled endlessly into your HTML.
+  Styles should not be tangled endlessly into your HTML.
 
 ---
 
-## 📢 Important: Lilycat and Utility Classes
+Although componentization has become the norm nowadays, it has also become dependent on ever-changing solutions, such as front-end frameworks. But did you know that you can do componentization without a framework?
+
+---
+
+## Lilycat + Utility Classes
 
 Lilycat is **not** meant to replace Tailwind or other utility-first frameworks.  
 In fact, **you can use Tailwind classes alongside Lilycat if you wish.**
 
-While Lilycat encourages cleaner, less polluted HTML, it **does not oppose** utility classes.  
-We simply believe that utility-first should be **an assistant, not a crutch.**  
-You’re free to mix and match — we trust developers to decide what fits best for each project.
+While Lilycat encourages cleaner, less polluted HTML, it **does not oppose** utility classes nor inline styling.
+
+However utility-first should be **an assistant, not a crutch.**  
+You’re free to mix and match — we trust developers and designers to decide what fits best for each of their needs.
 
 ---
 
-## 💪 Benefits
+## Benefits
 
 - Lightweight and efficient — no unnecessary bloat.
 - Native HTML and semantic-first approach.
 - Cross-browser consistency out of the box.
-- Encourages modern, maintainable, scalable styling practices.
+- Encourages modern, maintainable, scalable styling practices with an order and clear directives and conventions.
 
 ---
 
-## 🎯 Who is Lilycat for?
+## Who is Lilycat for?
 
-Lilycat is built for developers who:
+Lilycat is built for:
 
-- Prefer clean, maintainable HTML.
-- Respect native CSS and want to use it to its fullest.
+- CSS evangelist
+- Frontend Artisans and Engineers
+- Whoever Prefers clean, maintainable HTML.
+- Those who believe on native CSS and want to use it to its fullest.
 - Value fast iteration without sacrificing long-term code quality.
 - Want a system that **helps** — not one that **takes over.**
 
-If you're tired of heavy frameworks or bloated utility classes... welcome home.
+If you're tired of heavy frameworks, bloated utility classes and jumping into the never ending world of abstraction by avoiding to understand the fundamentals of web dev and frontend development... welcome home.
 
 ---
 
-## 📞 Project Links
+## Project Links
 
 - **Repository**: [LUHMLLO/lilycat](https://github.com/LUHMLLO/lilycat)
 - **Deno Package**: [jsr:@luhmllo/lilycat](https://jsr.io/@luhmllo/lilycat)
 
 ---
 
-## 🗃️ License
+## License
 
 Lilycat is released under the **MIT License**. See `LICENSE` for details.
 
 ---
 
-## 💖 Support This Project
+## Support This Project
 
 If you find Lilycat helpful and want to support its development,  
 please consider [**sponsoring**](https://github.com/sponsors/LUHMLLO) — even a small contribution helps keep open-source projects alive.

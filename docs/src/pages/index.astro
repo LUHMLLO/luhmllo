@@ -59,7 +59,7 @@ for (const folder in groupedRoutes) {
 const apps: RouteItem[] = groupedRoutes['apps'] || [];
 const elements: RouteItem[] = groupedRoutes['elements'] || [];
 const mdx: RouteItem[] = groupedRoutes['mdx'] || [];
-const prototypes: RouteItem[] = groupedRoutes['prototypes'] || [];
+const mvps: RouteItem[] = groupedRoutes['mvps'] || [];
 const sites: RouteItem[] = groupedRoutes['sites'] || [];
 const sketches: RouteItem[] = groupedRoutes['sketches'] || [];
 ---
@@ -98,10 +98,10 @@ const sketches: RouteItem[] = groupedRoutes['sketches'] || [];
 		</div>
 
 		<div data-is='card' style='outline-offset: 2px;'>
-			<h2>Prototypes</h2>
+			<h2>MVP(s)</h2>
 			<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
 				{
-					prototypes.map((el) => (
+					mvps.map((el) => (
 						<a href={el.path}>
 							<span>{el.name}</span>
 							<i data-is='icon'>north_east</i>
