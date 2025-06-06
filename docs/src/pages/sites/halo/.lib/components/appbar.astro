@@ -53,6 +53,20 @@
 			<span>Hytech Home</span>
 			<i data-is='icon'>north_east</i>
 		</a>
+		<a href='#' data-is='text' data-condition='mobile-only'>
+			<span>About us</span>
+		</a>
+		<a href='#' data-is='text' data-condition='mobile-only'>
+			<span>Privacy policies</span>
+		</a>
+		<a href='/sites/halo/terms' data-is='text' data-condition='mobile-only'>
+			<span>Terms of use</span>
+		</a>
+		<div data-is='stack' data-condition='mobile-only'>
+			<a href='/sites/halo#contact' data-is='button'>
+				<span>Get in Contact</span>
+			</a>
+		</div>
 	</div>
 
 	<div id='appbar__options' data-is='row'>
@@ -132,6 +146,10 @@
 					a {
 						font-weight: 500;
 					}
+
+					[data-condition='mobile-only'] {
+						display: none;
+					}
 				}
 
 				#appbar__options {
@@ -159,10 +177,13 @@
 						position: fixed;
 						z-index: 2;
 
-						a {
+						& > * {
+							width: 100%;
+						}
+
+						a:not([data-is='button']) {
 							padding: 30px;
 							text-align: left;
-							width: 100%;
 
 							&:hover {
 								background-color: var(--clr-background__base);
@@ -179,6 +200,24 @@
 
 						&[data-visible='false'] {
 							display: none;
+						}
+
+						[data-condition='mobile-only'] {
+							display: revert-layer;
+						}
+
+						& > [data-is='stack'] {
+							background-color: var(--clr-background__lowered);
+							bottom: 0;
+							flex: 1 0;
+							min-height: max-content;
+							padding: 30px;
+							place-content: end;
+
+							& > * {
+								flex-shrink: 0;
+								width: 100%;
+							}
 						}
 					}
 
