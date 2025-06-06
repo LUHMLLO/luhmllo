@@ -1,22 +1,18 @@
 @layer data-attributes {
-  :where([data-is="app"]) {
+  :where([data-is="container"]) {
     --outter-gutter: 0;
     --outter-columns: 0;
     --inner-gutter: 1.5rem;
     --inner-column: 90rem;
 
     display: grid;
+    grid-auto-rows: min-content;
     grid-template-columns:
       [expand-start] var(--outter-gutter) [left-start] minmax(0, max-content) [left-end] 0 [breakout-start] minmax(var(--inner-gutter), 1fr) [inner-start] minmax(0, var(--inner-column)) [inner-end] minmax(var(--inner-gutter), 1fr) [breakout-end] 0 [right-start] minmax(0, max-content) [right-end] var(--outter-gutter) [expand-end];
-    grid-template-rows:
-      [expand-start] 0 [top-start] max-content [top-end] 0 [center-start]minmax(0, 1fr)[center-end] 0 [bottom-start] max-content [bottom-end] 0 [expand-end];
-    min-height: 100dvh;
-    overflow: clip;
     width: 100%;
 
     & > * {
       grid-column: inner-start/inner-end;
-      grid-row: center-start/center-end;
 
       &:where([data-layout="expand"]) {
         grid-column: expand-start/expand-end;

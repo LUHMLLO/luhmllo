@@ -138,7 +138,6 @@
   /* code and pre wrapping */
   :where(code, pre) {
     display: inline;
-    text-box: trim-both ex alphabetic;
     vertical-align: inherit;
     white-space: pre-wrap;
     word-wrap: break-word;

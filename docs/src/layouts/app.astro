@@ -1,7 +1,6 @@
 ---
 import '../../../css/dist/all.css';
 import Scaffold from './html.astro';
-import Content from '../components/Content.astro';
 import Sidebar from '../components/Sidebar.astro';
 import Topbar from '../components/Topbar.astro';
 import Bottombar from '../components/Bottombar.astro';
@@ -13,9 +12,22 @@ import Cookiesbar from '../components/Cookiesbar.astro';
 	<div id='app' data-is='app'>
 		<Topbar />
 		<Sidebar />
-		<Content>
+		<div id='app__content' data-is='container'>
 			<slot />
-		</Content>
+
+			<style lang='css' is:inline>
+				@scope (#app__content) {
+					:scope {
+						padding-block: var(--xl);
+						z-index: 1;
+
+						& > * {
+							grid-column: expand;
+						}
+					}
+				}
+			</style>
+		</div>
 		<!-- <TableOfContents /> -->
 		<Bottombar />
 		<Cookiesbar />
