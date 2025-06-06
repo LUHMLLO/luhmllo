@@ -370,7 +370,7 @@
       place-content: center;
       width: 45px;
 
-      &[data-variant='flat'] {
+      &[data-variant='ghost'] {
         height: max-content;
         width: max-content;
       }
@@ -382,7 +382,7 @@
       outline-color: var(--clr-border__base);
     }
 
-    &:where([data-variant='flat']) {
+    &:where([data-variant='ghost']) {
       background-color: transparent;
       outline-color: transparent;
     }
