@@ -8,7 +8,7 @@
 
 		<div data-is='grid'>
 			<button data-variant='outline' data-toggle-cookieconsent>Accept</button>
-			<button data-variant='ghost' data-toggle-cookieconsent>Reject</button>
+			<button data-toggle-cookieconsent>Reject</button>
 		</div>
 	</div>
 
@@ -29,7 +29,7 @@
 				dispatchEvent(
 					new CustomEvent('cookieconsent:visibility', {
 						detail: { visible },
-					}),
+					})
 				);
 			};
 
@@ -37,7 +37,7 @@
 				el.addEventListener('click', () => {
 					const nowVisible = cookieconsent.dataset.visible !== 'true';
 					setVisibility(nowVisible);
-				}),
+				})
 			);
 		});
 	</script>

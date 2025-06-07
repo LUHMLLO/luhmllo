@@ -1,10 +1,10 @@
 @layer data-attributes {
   :where([data-is="codeblock"]) {
-    background-color: var(--clr-background__base);
+    background-color: var(--clr-background__lowered);
     border-radius: var(--xs);
-    display: flex;
-    flex-direction: column;
-    flex: 1 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content 1fr;
     outline: dashed 2px var(--clr-border__base);
     outline-offset: -2px;
     width: 100%;

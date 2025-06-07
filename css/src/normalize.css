@@ -324,7 +324,7 @@
   }
 
   /* buttons */
-  :where(button) {
+  :where(button, [data-is="button"]) {
     align-items: center;
     background-color: var(--clr-background__base);
     border-radius: 5ex;
@@ -372,11 +372,6 @@
       padding: 0;
       place-content: center;
       width: 45px;
-
-      &[data-variant='ghost'] {
-        height: max-content;
-        width: max-content;
-      }
     }
 
     &:where([data-variant="outline"]) {
@@ -387,7 +382,25 @@
 
     &:where([data-variant='ghost']) {
       background-color: transparent;
+      border-radius: 0;
+      height: auto;
       outline-color: transparent;
+      padding: 0;
+
+      &:focus-visible {
+        outline-color: inherit;
+        outline-offset: 0.5px;
+      }
+
+      &:hover {
+        background-color: transparent;
+        color: var(--clr-text__raised);
+      }
+
+      &:active {
+        background-color: transparent;
+        color: var(--clr-text__lowered);
+      }
     }
 
     & > span {
