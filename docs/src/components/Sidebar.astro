@@ -208,7 +208,7 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 				dispatchEvent(
 					new CustomEvent('sidebar:visibility', {
 						detail: { visible },
-					}),
+					})
 				);
 			};
 
@@ -216,7 +216,7 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 				el.addEventListener('click', () => {
 					const nowVisible = sidebar.dataset.visible !== 'true';
 					setVisibility(nowVisible);
-				}),
+				})
 			);
 		});
 	</script>
@@ -267,20 +267,6 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 						}
 					}
 				}
-
-				/* & > label[data-roles~='input'] {
-					background-color: var(--clr-background__raised);
-				} */
-
-				/* & > hr {
-					background-color: var(--clr-border__raised);
-				} */
-
-				/* ul:last-of-type {
-					background-color: inherit;
-					position: sticky;
-					bottom: 0;
-				} */
 			}
 		}
 	</style>
