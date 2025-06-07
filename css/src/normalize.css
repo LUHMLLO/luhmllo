@@ -293,21 +293,25 @@
       color: var(--clr-accent__lowered);
     }
 
-    &:where(:not([href]), [href=""], [href="#"], [href^="javascript:"], [href^="void(0)"]) {
+    /* Decorative / fake links */
+    &:not([href]) {
       color: inherit;
       text-decoration: none;
     }
 
-    &:not([data-is="text"]) {
-      &:visited:not(:focus-visible, :hover, :active) {
-        color: var(--clr-accent__lowered);
+    &[data-variant="text"] {
+      text-decoration: none;
+
+      &:not(:focus-visible, :hover, :active) {
+        color: inherit;
       }
     }
 
-    &:where([data-is="text"]) {
-      color: inherit;
-      text-decoration: none;
+    /* Visited, valid links only */
+    &:not([data-variant="text"]):visited:not(:focus-visible, :hover, :active) {
+      color: var(--clr-accent__lowered);
     }
+
 
     & > span {
       flex: 1 1;

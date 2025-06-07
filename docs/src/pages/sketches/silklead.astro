@@ -20,7 +20,7 @@ import Iframe from '../../layouts/frame.astro';
 
 				// Move items **to** "more" if they overflow
 				const menuChildren = Array.from(menu.children).filter(
-					(child) => !child.classList.contains('active'),
+					(child) => !child.classList.contains('active')
 				);
 
 				menuChildren.sort((a, b) => {
@@ -43,7 +43,7 @@ import Iframe from '../../layouts/frame.astro';
 
 				// Move items **back to menu** if there is space
 				let moreItems = Array.from(more.children).filter(
-					(child) => child !== summary,
+					(child) => child !== summary
 				);
 
 				while (moreItems.length > 0) {
@@ -66,7 +66,7 @@ import Iframe from '../../layouts/frame.astro';
 
 					// Update moreItems array after each iteration
 					moreItems = Array.from(more.children).filter(
-						(child) => child !== summary,
+						(child) => child !== summary
 					);
 				}
 
@@ -159,46 +159,46 @@ import Iframe from '../../layouts/frame.astro';
 				<hr />
 
 				<nav id='menu'>
-					<a href={'#' + crypto.randomUUID()} role='presentation' data-order='1'
+					<a href={'#' + crypto.randomUUID()} data-variant='text' data-order='1'
 						>Pipelines</a
 					>
-					<a href={'#' + crypto.randomUUID()} role='presentation' data-order='2'
+					<a href={'#' + crypto.randomUUID()} data-variant='text' data-order='2'
 						>Tasks</a
 					>
-					<a href={'#' + crypto.randomUUID()} role='presentation' data-order='3'
+					<a href={'#' + crypto.randomUUID()} data-variant='text' data-order='3'
 						>Workflows</a
 					>
 
 					<hr data-order='4' />
 
-					<a href={'#' + crypto.randomUUID()} role='presentation' data-order='5'
+					<a href={'#' + crypto.randomUUID()} data-variant='text' data-order='5'
 						>Campaigns</a
 					>
-					<a href={'#' + crypto.randomUUID()} role='presentation' data-order='6'
+					<a href={'#' + crypto.randomUUID()} data-variant='text' data-order='6'
 						>Contacts</a
 					>
-					<a href={'#' + crypto.randomUUID()} role='presentation' data-order='7'
+					<a href={'#' + crypto.randomUUID()} data-variant='text' data-order='7'
 						>Projects</a
 					>
 
 					<hr data-order='8' />
 
-					<a href={'#' + crypto.randomUUID()} role='presentation' data-order='9'
+					<a href={'#' + crypto.randomUUID()} data-variant='text' data-order='9'
 						>Leads</a
 					>
 					<a
 						href={'#' + crypto.randomUUID()}
-						role='presentation'
+						data-variant='text'
 						data-order='10'>Opportunities</a
 					>
 					<a
 						href={'#' + crypto.randomUUID()}
-						role='presentation'
+						data-variant='text'
 						data-order='11'>Quotes</a
 					>
 					<a
 						href={'#' + crypto.randomUUID()}
-						role='presentation'
+						data-variant='text'
 						data-order='12'>Sales</a
 					>
 
@@ -206,22 +206,22 @@ import Iframe from '../../layouts/frame.astro';
 
 					<a
 						href={'#' + crypto.randomUUID()}
-						role='presentation'
+						data-variant='text'
 						data-order='14'>Inventories</a
 					>
 					<a
 						href={'#' + crypto.randomUUID()}
-						role='presentation'
+						data-variant='text'
 						data-order='15'>Products</a
 					>
 					<a
 						href={'#' + crypto.randomUUID()}
-						role='presentation'
+						data-variant='text'
 						data-order='16'>Properties</a
 					>
 					<a
 						href={'#' + crypto.randomUUID()}
-						role='presentation'
+						data-variant='text'
 						data-order='17'>Services</a
 					>
 				</nav>

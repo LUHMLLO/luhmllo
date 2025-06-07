@@ -1,13 +1,11 @@
 @layer data-attributes {
   :where([data-is="card"]) {
-    background-color: var(--clr-background__raised);
+    background-color: var(--clr-background__base);
     border-radius: var(--xs);
     display: flex;
     flex-direction: column;
     flex: 1 1;
     gap: var(--nm);
-    outline: dashed 2px var(--clr-border__base);
-    outline-offset: -2px;
     padding: var(--nm);
     width: 100%;
   }

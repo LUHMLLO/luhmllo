@@ -2,137 +2,69 @@
 layout: '../../layouts/app.astro'
 ---
 
-##  Anchor <small class="clr-subtext txt-nm txt-lowercase"> native </small>
+## Anchor <small>native</small>
 
-`<a/>` elements in web development create hyperlinks, which are used to
-navigate to other pages, sections within a page, or external resources.
-They can be styled to look like buttons or other interactive elements,
-making them versatile for navigation and linking purposes. Anchors are
-essential for creating a connected and interactive web experience.
+<br />
 
-<x-grid style="--cols: 2;" class='outln outln-primary radius-3xs'>
-  ```html
-  <a>
-    <span>
-      anchor
-    </span>
-  </a>
-  ```
-  <x-group class='align-center[items] place-center p-5xl'>
-    <a>
-      <span>
-        anchor
-      </span>
-    </a>
-  </x-group>
-</x-grid>
+`<a></a>` elements in web development create hyperlinks, which are used to navigate to other pages, sections within a page, or external resources. They can be styled to look like buttons or other interactive elements, making them versatile for navigation and linking purposes. Anchors are essential for creating a connected and interactive web experience.
 
-<x-grid style="--cols: 2;" class='outln outln-primary radius-3xs'>
-  ```html
-  <a href="#">
-    <span>
-      anchor
-    </span>
-  </a>
-  ```
-  <x-group class='align-center[items] place-center p-5xl'>
-    <a href="#anchor--a">
-      <span>
-        anchor
-      </span>
-    </a>
-  </x-group>
-</x-grid>
+<br />
 
-### -- parentElement <small class="clr-subtext txt-sm"> PROPS </small>
+<div data-is="grid" style="--cols: 2; --gap: var(--nm);">
+  <div data-is="group" style="gap: var(--sm);">
+     Anchor elements without a [href] will visually behave as a paragraph.
 
-| prop        | description                         | requires   |
-| ----------- | ----------------------------------- | ---------- |
-| - - button  | changes style to look like a button | -          |
-| - - outline | sets outline style                  | - - button |
-| - - fab     | changes style to look like a FAB    | - - button |
-
-<x-grid style="--cols: 2;" class="g-sm">
-    <x-grid style="--cols: 2;" class="outln outln-primary radius-3xs">
-        ```html
-        <a data-props="--button --outline">
-          <span>
-            anchor
-          </span>
-        </a>
-        ```
-
-        <x-group class="place-center p-5xl">
-            <a data-props='--button --outline'>
-              <span>anchor</span>
-            </a>
-        </x-group>
-    </x-grid>
-
-    <x-grid style="--cols: 2;" class="outln outln-primary radius-3xs">
-        ```html
-        <a data-props="--button --outline --fab">
-          <i data-is='icon'>
-            add_circle
-          </i>
-        </a>
-        ```
-
-        <x-group class="place-center p-5xl">
-            <a data-props='--button --outline --fab'>
-              <i data-is='icon'>
-                add_circle
-              </i>
-            </a>
-        </x-group>
-    </x-grid>
-</x-grid>
-
-### -- childrenElements <small class="clr-subtext txt-sm"> PROPS </small>
-
-| prop      | description            | purpose                        |
-| --------- | ---------------------- | ------------------------------ |
-| - - lead  | set’s as leading item  | left side optical corrections  |
-| - - trail | set’s as trailing item | right side optical corrections |
-
-<x-grid style="--cols: 2;" class="g-sm">
-    <x-grid style="--cols: 2" class="outln outln-primary radius-3xs">
-        ```html
-        <a data-props="--button --outline">
-          <i data-props="--lead">
-            add_circle
-          </i>
+    <div data-is="codeblock">
+      <div data-part="example">
+        <a>
           <span>anchor</span>
         </a>
-        ```
+      </div>
 
-        <x-group class="place-center p-5xl">
-          <a data-props="--button --outline">
-            <i data-props="--lead">
-              add_circle
-            </i>
-            <span>anchor</span>
-          </a>
-        </x-group>
-    </x-grid>
+      ```html
+      <a>
+        <span>anchor</span>
+      </a>
+      ```
+    </div>
 
-    <x-grid style="--cols: 2" class="outln outln-primary radius-3xs">
-        ```html
-        <a data-props="--button --outline">
+  </div>
+
+  <div data-is="group" style="gap: var(--sm);">
+    When it has an `href` attribute it behaves like a normal hyperlink.
+
+    <div data-is="codeblock">
+      <div data-part="example">
+        <a href="#href">
           <span>anchor</span>
-          <i data-props="--trail">
-            add_circle
-          </i>
         </a>
-        ```
+      </div>
 
-        <x-group class="place-center p-5xl">
-            <a data-props="--button --outline">
-                <span>anchor</span>
-                <i data-props="--trail">
-                    add_circle
-                </i>
-            </a>
-        </x-group>
-    </x-grid>
-</x-grid>
+      ```html
+      <a href="#href">
+        <span>anchor</span>
+      </a>
+      ```
+    </div>
+
+  </div>
+
+  <div data-is="group" style="gap: var(--sm);">
+    If you like to keep it discrete but want to ensure it's accessible when using `[href]`, you can use the `data-variant="text"` attribute to preserve hyperlink interactions.
+
+    <div data-is="codeblock">
+      <div data-part="example">
+        <a href="#" data-variant="text">
+          <span>anchor</span>
+        </a>
+      </div>
+
+      ```html
+      <a href="#" data-variant="text">
+        <span>anchor</span>
+      </a>
+      ```
+    </div>
+
+  </div>
+</div>
