@@ -1,0 +1,20 @@
+@layer normalize {
+  :where(details) {
+    display: block;
+    overflow: clip;
+
+    &::details-content {
+      block-size: 0;
+      opacity: 0;
+      transition-property: block-size, content-visibility, opacity;
+      transition-duration: var(--animDuration);
+      transition-timing-function: var(--animTiming);
+      transition-behavior: allow-discrete;
+    }
+
+    &[open]::details-content {
+      block-size: auto;
+      opacity: 1;
+    }
+  }
+}

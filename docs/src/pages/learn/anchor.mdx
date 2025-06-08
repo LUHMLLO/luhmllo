@@ -12,7 +12,7 @@ layout: '../../layouts/app.astro'
 
 <div data-is="grid" style="--cols: 2; --gap: var(--nm);">
   <div data-is="group" style="gap: var(--sm);">
-     Anchor elements without a [href] will visually behave as a paragraph.
+     Anchor elements without a `[href]` will visually behave as a paragraph.
 
     <div data-is="codeblock">
       <div data-part="example">
@@ -35,13 +35,13 @@ layout: '../../layouts/app.astro'
 
     <div data-is="codeblock">
       <div data-part="example">
-        <a href="#href">
+        <a href="#">
           <span>anchor</span>
         </a>
       </div>
 
       ```html
-      <a href="#href">
+      <a href="#">
         <span>anchor</span>
       </a>
       ```
@@ -67,4 +67,91 @@ layout: '../../layouts/app.astro'
     </div>
 
   </div>
+</div>
+
+<br />
+
+## Extra
+
+<br />
+
+<div data-is="grid" style="--cols: 2; --gap: var(--nm);">
+  <div data-is="group" style="gap: var(--sm);">
+     If you ever need an anchor that looks like a button or a button that behaves like an anchor you can achieve this by using `[data-is="button"]` attributes on an anchor
+
+    <div data-is="codeblock">
+      <div data-part="example">
+        <a href="#" data-is="button">
+          <span>anchor</span>
+        </a>
+      </div>
+
+      ```html
+      <a href="#" data-is="button">
+        <span>anchor</span>
+      </a>
+      ```
+    </div>
+
+  </div>
+
+  <div data-is="group" style="gap: var(--sm);">
+     You can even use button `[data-variant="outline"]` or `[data-variant="ghost"]` if it ever makes sense
+
+    <div data-is="codeblock">
+      <div data-part="example">
+        <a href="#" data-is="button" data-variant="outline">
+          <span>anchor</span>
+        </a>
+      </div>
+
+      ```html
+      <a href="#" data-is="button" data-variant="outline">
+        <span>anchor</span>
+      </a>
+      ```
+    </div>
+
+  </div>
+
+  <div data-is="group" style="gap: var(--sm);">
+     This includes buttons padding optical corrections using `[data-part="lead"]` and `[data-part="trail"]` attributes on its children
+
+    <div data-is="codeblock">
+      <div data-part="example">
+        <a href="#" data-is="button" data-variant="outline">
+          <i data-is="icon" data-part="lead">anchor</i>
+          <span>anchor</span>
+        </a>
+      </div>
+
+      ```html
+      <a href="#" data-is="button" data-variant="outline">
+        <i data-is="icon" data-part="lead">anchor</i>
+        <span>anchor</span>
+      </a>
+      ```
+    </div>
+
+  </div>
+
+  <div data-is="group" style="gap: var(--sm);">
+    The `[data-is="button"]` also enables the single child circular condition of native buttons
+
+    <div data-is="codeblock">
+      <div data-part="example">
+        <a href="#" data-is="button">
+          <i data-is="icon">add_2</i>
+        </a>
+      </div>
+
+      ```html
+      <a href="#" data-is="button">
+        <i data-is="icon">add_2</i>
+      </a>
+      ```
+    </div>
+
+  </div>
+
 </div>

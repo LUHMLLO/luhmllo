@@ -49,7 +49,7 @@ const groupedRoutes = routes.reduce(
 		acc[folder].push(route);
 		return acc;
 	},
-	{} as Record<string, RouteItem[]>,
+	{} as Record<string, RouteItem[]>
 );
 
 for (const folder in groupedRoutes) {
@@ -59,30 +59,40 @@ for (const folder in groupedRoutes) {
 const apps: RouteItem[] = groupedRoutes['apps'] || [];
 const elements: RouteItem[] = groupedRoutes['elements'] || [];
 const learn: RouteItem[] = groupedRoutes['learn'] || [];
-const mvps: RouteItem[] = groupedRoutes['mvps'] || [];
-const sites: RouteItem[] = groupedRoutes['sites'] || [];
+const mvps: RouteItem[] = [
+	{
+		path: '/mvps/proposaltooling',
+		name: 'proposal tooling',
+		title: 'proposal tooling',
+	},
+];
+const sites: RouteItem[] = [
+	{
+		path: '/sites/halo',
+		name: 'halo',
+		title: 'halo',
+	},
+];
 const sketches: RouteItem[] = groupedRoutes['sketches'] || [];
 ---
 
 <Layout>
+	<header data-is='stack' style='gap: var(--sm);'>
+		<h1>Lilycat</h1>
+		<p>
+			A minimal, attribute-based CSS library that allows you to focus on
+			delivery without any unnecessary extras. Featuring a mix of well-written
+			convention rules designed to enhance the developer experience.
+		</p>
+
+		<a href='/preview'>Preview native elements</a>
+	</header>
+
+	<br />
+
 	<div
 		data-is='grid'
 		style='--gap: var(--nm); --cols: 2; grid-auto-flow: row dense;'>
-		<div
-			data-is='card'
-			style='outline-color: var(--clr-debug__base); outline-offset: 2px;'>
-			<h1>Lilycat</h1>
-			<p>
-				Powered by dead simple <code>--opinionated</code> CSS props and a mix of
-				common convention rules for better DX &amp; while keeping styling minimal.
-			</p>
-		</div>
-
-		<div data-is='card' style='outline-offset: 2px;'>
-			<h2>Test Page</h2>
-			<a href='/test'>Understand each element behaviour better</a>
-		</div>
-
 		<div data-is='card' style='outline-offset: 2px;'>
 			<h2>Apps</h2>
 			<div data-is='grid' style='--gap: var(--md); --cols: 4;'>

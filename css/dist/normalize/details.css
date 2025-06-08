@@ -1,0 +1,1 @@
+@layer normalize{:where(details){display:block;overflow:clip}:where(details)::details-content{block-size:0;opacity:0;transition-behavior:allow-discrete;transition-duration:var(--animDuration);transition-property:block-size,content-visibility,opacity;transition-timing-function:var(--animTiming)}:where(details)[open]::details-content{block-size:auto;opacity:1}}

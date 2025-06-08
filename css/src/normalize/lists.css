@@ -1,0 +1,56 @@
+@layer normalize {
+  :where(dl) {
+    display: block;
+  }
+
+  :where(dt) {
+    color: var(--clr-text__raised);
+  }
+
+  :where(dd) {
+    padding-left: 0.5em;
+  }
+}
+
+@layer normalize {
+  :where(menu, ol, ul) {
+    display: block;
+    list-style-position: inside;
+    margin-inline-start: var(--sm);
+    margin-trim: block;
+
+    &[role="list"] {
+      list-style: none;
+    }
+
+    &:is(ul) {
+      &:not([role="list"]) {
+        li::marker {
+          content: none;
+        }
+
+        li::before {
+          color: inherit;
+          content: "* ";
+          display: inline-block;
+          height: 0.5lh;
+          margin-block-start: 0.2lh;
+          margin-inline-start: calc(var(--sm) * -1);
+          pointer-events: none;
+          position: absolute;
+          text-align: center;
+          user-select: none;
+        }
+      }
+    }
+
+    & > li {
+      margin-block: var(--xs);
+      position: relative;
+    }
+
+    & > :not(li) {
+      margin-inline-start: calc(var(--sm) * -1);
+    }
+  }
+}

@@ -1,0 +1,1 @@
+@layer normalize{:where(aside){display:flex;flex-direction:column}:where(aside)>*{flex-shrink:0}}

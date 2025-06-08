@@ -7,6 +7,19 @@
 
 @import url('./reset.css');
 @import url('./normalize.css');
+@import url('./normalize/anchor.css');
+@import url('./normalize/aside.css');
+@import url('./normalize/button.css');
+@import url('./normalize/details.css');
+@import url('./normalize/dialog.css');
+@import url('./normalize/headings.css');
+@import url('./normalize/input.css');
+@import url('./normalize/kbd.css');
+@import url('./normalize/lists.css');
+@import url('./normalize/select.css');
+@import url('./normalize/summary.css');
+@import url('./normalize/table.css');
+@import url('./normalize/textarea.css');
 
 @import url('./data-attributes/app.css');
 @import url('./data-attributes/background.css');

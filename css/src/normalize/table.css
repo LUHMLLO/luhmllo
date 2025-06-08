@@ -1,0 +1,49 @@
+@layer normalize {
+  :where(table) {
+    display: block;
+    background-color: var(--clr-background__base);
+    border-collapse: collapse;
+    border-spacing: 0;
+    outline: solid 2px var(--clr-border__base);
+    outline-offset: -2px;
+    overflow-x: auto;
+    position: relative;
+    table-layout: auto;
+    width: fit-content;
+
+    :where(caption) {
+      background-color: var(--clr-background__base);
+      font-size: inherit;
+      overflow: clip;
+      padding: var(--sm);
+      text-align: center;
+      width: 100%;
+
+      > * {
+        vertical-align: middle;
+      }
+    }
+
+    :where(th) {
+      min-height: 100px;
+      padding: var(--lg) var(--xl) var(--lg);
+    }
+
+    :where(td) {
+      min-height: 75px;
+      padding: var(--nm) var(--xl) var(--lg);
+    }
+
+    :where(th, td) {
+      border: solid 1px var(--clr-border__base);
+      font: inherit;
+      max-width: none;
+      min-width: max-content;
+      overflow: clip;
+      text-align: left;
+      vertical-align: baseline;
+      white-space: nowrap;
+      width: auto;
+    }
+  }
+}

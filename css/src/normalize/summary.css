@@ -1,0 +1,19 @@
+@layer normalize {
+  :where(summary) {
+    display: flex;
+    text-align: inherit;
+
+    &::marker {
+      content: none;
+    }
+
+    & > span {
+      flex: 1 1;
+      font: inherit;
+      overflow: clip;
+      text-align: inherit;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

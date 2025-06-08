@@ -1,0 +1,1 @@
+@layer normalize{:where(kbd){background-color:var(--clr-background__raised);border-radius:var(--xs);display:inline-block;flex-shrink:0;font-family:monospace;font-size:calc(10 * .0625rem);height:25px;outline:solid 2px var(--clr-border__raised);padding:0 var(--sm);place-content:center;white-space:nowrap}}
