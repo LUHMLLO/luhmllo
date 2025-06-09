@@ -19,6 +19,10 @@
     line-height: 1;
   }
 
+  :where(big) {
+    font-size: 125%;
+  }
+
   :where(small) {
     font-size: 50%;
   }
@@ -37,9 +41,15 @@
 
   :where(hr) {
     background-color: var(--clr-border__base);
-    flex: 0 0 2px;
-    height: 2px;
+    display: inline-block;
+    flex: 0 0 1px;
+    height: 1px;
     width: 100%;
+
+    &[data-variant="y"] {
+      height: 100%;
+      width: 1px;
+    }
   }
 
   :where(mark) {
