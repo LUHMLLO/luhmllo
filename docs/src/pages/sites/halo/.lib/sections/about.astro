@@ -1,7 +1,7 @@
 <section
 	id='about'
 	data-is='grid'
-	style='--cols: 2; --gap: 60px; row-gap: 30px;'>
+	style='--cols: 2; --gap: calc(var(--xl) * 2); row-gap: var(--xl);'>
 	<h3>
 		CLEANER WATER STARTS HERE — POWERED BY HALO®, BROUGHT TO YOU BY HYTECH HOME
 	</h3>
@@ -25,7 +25,7 @@
 		@scope (#about) {
 			:scope {
 				overflow: clip;
-				padding-block: 60px;
+				padding-block: calc(var(--xl) * 2);
 				position: relative;
 
 				b {

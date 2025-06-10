@@ -2,7 +2,7 @@
 	id='contact'
 	data-is='grid'
 	data-layout='expand'
-	style='--cols: 2; --gap: 60px;'>
+	style='--cols: 2; --gap: calc(var(--xl) * 2);'>
 	<figure data-is='background'>
 		<img
 			src='/images/halo/Menol_Bratpit_.png'
@@ -18,9 +18,9 @@
 		action='/sites/halo/api/methods'
 		method='POST'
 		data-is='grid'
-		style='--cols: 1; --gap: 60px;'
+		style='--cols: 1; --gap: calc(var(--xl) * 2);'
 		autocomplete='on'>
-		<header data-is='stack' style='gap: 15px;'>
+		<header data-is='stack' style='gap: var(--xs);'>
 			<h3>Request a Free<br />Consultation or Quote</h3>
 			<p>
 				Fill out this form for a free consultation or product quote.<br />
@@ -28,7 +28,7 @@
 			</p>
 		</header>
 
-		<fieldset data-is='grid' style='--cols: 2; --gap: 30px;'>
+		<fieldset data-is='grid' style='--cols: 2; --gap: var(--xl);'>
 			<label for='first_name' data-is='field'>
 				<span data-part='label'> First Name </span>
 				<input
@@ -76,7 +76,7 @@
 			</label>
 		</fieldset>
 
-		<fieldset data-is='grid' style='--cols: 2; --gap: 30px;'>
+		<fieldset data-is='grid' style='--cols: 2; --gap: var(--xl);'>
 			<label for='address' data-is='field'>
 				<span data-part='label'> Address </span>
 				<input
@@ -166,7 +166,7 @@
 			</label>
 		</fieldset>
 
-		<fieldset data-is='grid' style='--cols: 2; --gap: 30px'>
+		<fieldset data-is='grid' style='--cols: 2; --gap: var(--xl)'>
 			<label for='product_interest' data-is='field'>
 				<span data-part='label'>Which products are of interest?</span>
 				<select id='product_interest' name='product_interest'>
@@ -243,14 +243,14 @@
 		@scope (#contact) {
 			:scope {
 				overflow: clip;
-				padding-block: 60px;
+				padding-block: calc(var(--xl) * 2);
 				position: relative;
 
 				#contact__form {
 					background-color: hsl(from var(--clr-background__raised) h s l / 50%);
 					backdrop-filter: blur(5ex);
 					border-radius: var(--sm);
-					padding: 40px 30px;
+					padding: calc(var(--nm) * 2) var(--xl);
 
 					& > fieldset {
 						& > label {

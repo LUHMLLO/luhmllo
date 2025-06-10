@@ -1,8 +1,11 @@
-<section id='cleanwater' data-is='grid' style='--cols: 2; --gap: 60px;'>
+<section
+	id='cleanwater'
+	data-is='grid'
+	style='--cols: 2; --gap: calc(var(--xl) * 2);'>
 	<h3>Why Choose Halo water filtering system?</h3>
 
-	<div data-is='grid' style='--cols: 2; --gap: 60px;'>
-		<div data-is='group' style='gap: 10px;'>
+	<div data-is='grid' style='--cols: 2; --gap: calc(var(--xl) * 2);'>
+		<div data-is='group' style='gap: var(--sm);'>
 			<i data-is='icon' style='--size: 100px; --wght: 100;'> heart_plus </i>
 			<h5>Health and Wellness</h5>
 			<p>
@@ -11,7 +14,7 @@
 			</p>
 		</div>
 
-		<div data-is='group' style='gap: 10px;'>
+		<div data-is='group' style='gap: var(--sm);'>
 			<i data-is='icon' style='--size: 100px; --wght: 100;'> water_full </i>
 			<h5>Improve Taste and Odor</h5>
 			<p>
@@ -20,7 +23,7 @@
 			</p>
 		</div>
 
-		<div data-is='group' style='gap: 10px;'>
+		<div data-is='group' style='gap: var(--sm);'>
 			<i data-is='icon' style='--size: 100px; --wght: 100;'> dishwasher_gen </i>
 			<h5>Appliance Protection</h5>
 			<p>
@@ -29,7 +32,7 @@
 			</p>
 		</div>
 
-		<div data-is='group' style='gap: 10px;'>
+		<div data-is='group' style='gap: var(--sm);'>
 			<i data-is='icon' style='--size: 100px; --wght: 100;'> savings </i>
 			<h5>Economic Savings</h5>
 			<p>
@@ -51,7 +54,7 @@
 		@scope (#cleanwater) {
 			:scope {
 				overflow: clip;
-				padding-block: 60px;
+				padding-block: calc(var(--xl) * 2);
 				position: relative;
 
 				h3 {
@@ -61,17 +64,17 @@
 				blockquote {
 					box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.05);
 					border-left-color: var(--clr-accent__base);
-					gap: 30px;
+					gap: var(--xl);
 					justify-content: center;
-					padding: 120px 60px;
+					padding: 120px calc(var(--xl) * 2);
 
 					p {
-						font-size: 25px;
+						font-size: var(--lg);
 					}
 
 					cite {
 						color: var(--clr-accent__base);
-						font-size: 20px;
+						font-size: var(--nm);
 						font-weight: 500;
 					}
 				}
@@ -79,7 +82,7 @@
 				@container xwindow (width < 800px) {
 					blockquote {
 						margin: 0;
-						padding: 30px 0 30px 15px;
+						padding: var(--xl) 0 var(--xl) var(--md);
 					}
 
 					& > :where(div, blockquote) {

@@ -2,7 +2,7 @@
 	id='quote'
 	data-is='grid'
 	data-layout='expand'
-	style='--cols: 1; --gap: 30px; place-items: center;'>
+	style='--cols: 1; --gap: var(--xl); place-items: center;'>
 	<figure data-is='background'>
 		<img src='/images/halo/Fondo.png' alt='background' />
 	</figure>
@@ -30,11 +30,11 @@
 		@scope (#quote) {
 			:scope {
 				overflow: clip;
-				padding-block: 60px;
+				padding-block: calc(var(--xl) * 2);
 				position: relative;
 
 				& > div {
-					gap: 15px;
+					gap: var(--md);
 					place-content: center;
 					place-items: center;
 					text-align: center;

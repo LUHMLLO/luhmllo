@@ -1,7 +1,7 @@
 <footer
 	data-is='grid'
 	data-layout='expand'
-	style='--cols: 4; --gap: 60px; row-gap: 30px;'>
+	style='--cols: 4; --gap: calc(var(--xl) * 2); row-gap: var(--xl);'>
 	<div style='grid-column: 1/-1;'>
 		<a href='/sites/halo'>
 			<figure style='height: 75px;'>
@@ -10,11 +10,11 @@
 		</a>
 	</div>
 
-	<div data-is='stack' style='gap: 15px;'>
+	<div data-is='stack' style='gap: var(--md);'>
 		<h6>Join Our Newsletter</h6>
 		<p>Receive latest updates and news about Hytech H2O.</p>
 
-		<div data-is='row' style='gap: 5px;'>
+		<div data-is='row' style='gap: var(--xs);'>
 			<label for='email' data-is='field' style='flex:1 1;'>
 				<input
 					type='email'
@@ -23,14 +23,14 @@
 					placeholder='Your email address'
 				/>
 			</label>
-			<button style='border-radius: 5px;'> Subscribe </button>
+			<button style='border-radius: 0.75ex;'> Subscribe </button>
 		</div>
 	</div>
 
-	<div data-is='stack' style='gap: 15px;'>
+	<div data-is='stack' style='gap: var(--md);'>
 		<h6>Contact</h6>
 
-		<div data-is='stack' style='gap: 10px;'>
+		<div data-is='stack' style='gap: var(--sm);'>
 			<a href='mailto:info@hytechhome.com' data-variant='text'>
 				info@hytechhome.com
 			</a>
@@ -45,20 +45,20 @@
 		</div>
 	</div>
 
-	<div data-is='stack' style='gap: 15px;'>
+	<div data-is='stack' style='gap: var(--md);'>
 		<h6>Company</h6>
 
-		<div data-is='stack' style='gap: 10px;'>
+		<div data-is='stack' style='gap: var(--sm);'>
 			<a href='#' data-variant='text'> About us </a>
 			<a href='#' data-variant='text'> Privacy policies </a>
 			<a href='/sites/halo/terms' data-variant='text'> Terms of use </a>
 		</div>
 	</div>
 
-	<div data-is='stack' style='gap: 15px;'>
+	<div data-is='stack' style='gap: var(--md);'>
 		<h6>Social</h6>
 
-		<div data-is='row' style='gap: 10px;'>
+		<div data-is='row' style='gap: var(--sm);'>
 			<a
 				href='https://www.facebook.com/HytechHomeinc/'
 				target='_blank'
@@ -99,7 +99,7 @@
 				background-color: var(--clr-onAccent);
 				color: var(--clr-background__lowered);
 				overflow: clip;
-				padding-block: 60px;
+				padding-block: calc(var(--xl) * 2);
 				position: relative;
 
 				:where(h1, h2, h3, h4, h5, h6) {

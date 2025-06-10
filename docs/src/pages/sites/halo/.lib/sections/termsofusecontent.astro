@@ -271,21 +271,21 @@
 		@scope (#terms__content) {
 			:scope {
 				flex: 1 1;
-				gap: 30px;
+				gap: var(--xl);
 				overflow: clip auto;
-				padding-block: 60px;
+				padding-block: calc(var(--xl) * 2);
 
 				header {
 					border-bottom: solid 2px var(--clr-border__base);
-					padding-bottom: 30px;
+					padding-bottom: var(--xl);
 				}
 
 				:where(h1, h2, h3, h4, h5, h6) {
-					margin-bottom: 10px;
+					margin-bottom: var(--sm);
 				}
 
 				h2 {
-					font-size: 20px;
+					font-size: var(--nm);
 				}
 			}
 		}

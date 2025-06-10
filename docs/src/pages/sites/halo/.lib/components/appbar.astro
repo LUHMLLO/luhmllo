@@ -59,7 +59,10 @@
 		<a href='#' data-variant='text' data-condition='mobile-only'>
 			<span>Privacy policies</span>
 		</a>
-		<a href='/sites/halo/terms' data-variant='text' data-condition='mobile-only'>
+		<a
+			href='/sites/halo/terms'
+			data-variant='text'
+			data-condition='mobile-only'>
 			<span>Terms of use</span>
 		</a>
 		<div data-is='stack' data-condition='mobile-only'>
@@ -103,7 +106,7 @@
 				dispatchEvent(
 					new CustomEvent('menu:visibility', {
 						detail: { visible },
-					}),
+					})
 				);
 			};
 
@@ -111,14 +114,14 @@
 				el.addEventListener('click', () => {
 					const nowVisible = menu.dataset.visible !== 'true';
 					setVisibility(nowVisible);
-				}),
+				})
 			);
 
 			menu.querySelectorAll('a').forEach((el) =>
 				el.addEventListener('click', () => {
 					const nowVisible = menu.dataset.visible !== 'true';
 					setVisibility(nowVisible);
-				}),
+				})
 			);
 		});
 	</script>
@@ -136,7 +139,7 @@
 				& > div {
 					align-items: inherit;
 					flex: 1 1;
-					gap: 15px;
+					gap: var(--md);
 				}
 
 				#appbar__menu {
@@ -182,7 +185,7 @@
 						}
 
 						a:not([data-is='button']) {
-							padding: 30px;
+							padding: var(--xl);
 							text-align: left;
 
 							&:hover {
@@ -211,7 +214,7 @@
 							bottom: 0;
 							flex: 1 0;
 							min-height: max-content;
-							padding: 30px;
+							padding: var(--xl);
 							place-content: end;
 
 							& > * {

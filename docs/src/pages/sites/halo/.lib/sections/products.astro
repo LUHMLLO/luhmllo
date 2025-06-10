@@ -135,13 +135,13 @@
 		@scope (#products) {
 			:scope {
 				overflow: clip;
-				padding-block: 60px;
+				padding-block: calc(var(--xl) * 2);
 				position: relative;
 
 				[data-is='wrap'] {
 					border-bottom: solid 2px var(--clr-border__base);
-					gap: 30px;
-					padding-block: 30px;
+					gap: var(--xl);
+					padding-block: var(--xl);
 
 					&:first-child {
 						padding-top: 0;
@@ -164,7 +164,7 @@
 						background-color: var(--clr-background__base);
 						border: solid 2px var(--clr-border__base);
 						color: var(--clr-text__base);
-						height: 45px;
+						height: calc(var(--nm) * 2.15);
 						inset: 0;
 						margin: auto auto -25px auto;
 						padding-inline: revert-layer;
@@ -192,14 +192,14 @@
 
 				@container xwindow (width < 800px) {
 					[data-is='wrap'] {
-						gap: 15px;
+						gap: var(--md);
 
 						& > *:first-child {
 							flex: 1 1 100%;
 						}
 
 						&:is(:first-child) {
-							row-gap: 30px;
+							row-gap: var(--xl);
 						}
 
 						&:not(:first-child) {
@@ -209,17 +209,17 @@
 
 							& > *:first-child {
 								background-color: var(--clr-background__lowered);
-								height: 60px;
-								padding-inline: 15px;
+								height: calc(var(--xl) * 2);
+								padding-inline: var(--md);
 								place-content: center;
 							}
 
 							& > *:nth-child(2) {
-								padding-left: 15px;
+								padding-left: var(--md);
 							}
 
 							& > *:nth-child(3) {
-								padding-right: 15px;
+								padding-right: var(--md);
 							}
 						}
 					}
