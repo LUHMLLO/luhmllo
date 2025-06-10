@@ -61,7 +61,7 @@
 
 	<details>
 		<summary data-is='button'>
-			<i data-is='icon'>unfold_more</i>
+			<i data-is='icon'>keyboard_arrow_down</i>
 		</summary>
 
 		<div data-is='wrap'>
@@ -161,14 +161,16 @@
 					position: relative;
 
 					summary {
+						aspect-ratio: 1/1;
 						background-color: var(--clr-background__base);
 						border: solid 2px var(--clr-border__base);
 						color: var(--clr-text__base);
-						height: calc(var(--nm) * 2.15);
+						height: calc(var(--nm) * 2);
 						inset: 0;
-						margin: auto auto -25px auto;
+						margin: auto auto calc(var(--nm) * -1) auto;
 						padding-inline: revert-layer;
 						position: absolute;
+						width: auto;
 						z-index: 3;
 
 						&:hover {

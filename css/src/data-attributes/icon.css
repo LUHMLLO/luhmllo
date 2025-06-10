@@ -26,18 +26,20 @@
     overflow: clip;
     place-content: center center;
     place-items: center center;
+    text-align: center;
     touch-action: manipulation;
     transition-property: height, font, width;
     transition-duration: var(--animDuration);
     transition-timing-function: var(--animTiming);
     transition-behavior: allow-discrete;
     user-select: none;
-    vertical-align: -webkit-baseline-middle middle;
+    vertical-align: -webkit-baseline-middle;
     width: var(--size);
 
     & > * {
       /* display: contents; */
-      vertical-align: -webkit-baseline-middle middle;
+      text-align: center;
+      vertical-align: -webkit-baseline-middle;
     }
   }
 

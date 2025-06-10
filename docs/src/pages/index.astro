@@ -59,20 +59,8 @@ for (const folder in groupedRoutes) {
 const apps: RouteItem[] = groupedRoutes['apps'] || [];
 const elements: RouteItem[] = groupedRoutes['elements'] || [];
 const learn: RouteItem[] = groupedRoutes['learn'] || [];
-const mvps: RouteItem[] = [
-	{
-		path: '/mvps/proposaltooling',
-		name: 'proposal tooling',
-		title: 'proposal tooling',
-	},
-];
-const sites: RouteItem[] = [
-	{
-		path: '/sites/halo',
-		name: 'halo',
-		title: 'halo',
-	},
-];
+const mvps: RouteItem[] = groupedRoutes['mvps'] || [];
+const sites: RouteItem[] = groupedRoutes['sites'] || [];
 const sketches: RouteItem[] = groupedRoutes['sketches'] || [];
 ---
 
@@ -108,10 +96,80 @@ const sketches: RouteItem[] = groupedRoutes['sketches'] || [];
 
 	<br />
 
-	<h2>Learn</h2>
+	<h2>apps</h2>
+	<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
+		{
+			apps.map((el) => (
+				<a href={el.path}>
+					<span>{el.name}</span>
+					<i data-is='icon'>north_east</i>
+				</a>
+			))
+		}
+	</div>
+
+	<br />
+
+	<h2>elements</h2>
+	<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
+		{
+			elements.map((el) => (
+				<a href={el.path}>
+					<span>{el.name}</span>
+					<i data-is='icon'>north_east</i>
+				</a>
+			))
+		}
+	</div>
+
+	<br />
+
+	<h2>learn</h2>
 	<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
 		{
 			learn.map((el) => (
+				<a href={el.path}>
+					<span>{el.name}</span>
+					<i data-is='icon'>north_east</i>
+				</a>
+			))
+		}
+	</div>
+
+	<br />
+
+	<h2>mvps</h2>
+	<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
+		{
+			mvps.map((el) => (
+				<a href={el.path}>
+					<span>{el.name}</span>
+					<i data-is='icon'>north_east</i>
+				</a>
+			))
+		}
+	</div>
+
+	<br />
+
+	<h2>sites</h2>
+	<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
+		{
+			sites.map((el) => (
+				<a href={el.path}>
+					<span>{el.name}</span>
+					<i data-is='icon'>north_east</i>
+				</a>
+			))
+		}
+	</div>
+
+	<br />
+
+	<h2>sketches</h2>
+	<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
+		{
+			sketches.map((el) => (
 				<a href={el.path}>
 					<span>{el.name}</span>
 					<i data-is='icon'>north_east</i>
