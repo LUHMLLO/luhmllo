@@ -1,0 +1,1 @@
+@layer data-attributes{:where([data-is=badge]){background-color:var(--clr-background__raised);border-radius:5ex;font-size:var(--md);height:var(--xl);padding-inline:var(--sm);place-content:center;width:fit-content}}

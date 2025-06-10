@@ -24,7 +24,7 @@
   }
 
   :where(small) {
-    font-size: 50%;
+    font-size: 75%;
   }
 
   :where(button, input, select, summary) {

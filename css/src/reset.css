@@ -71,7 +71,7 @@
     }
 
     scrollbar-width: thin;
-    scrollbar-color: color-mix(in hsl, var(--clr-text__lowered), var(--clr-background__lowered)) hsl(from var(--clr-background__lowered) h s l / 50%);
+    scrollbar-color: color-mix(in hsl, var(--clr-text__lowered), var(--clr-background__lowered)) transparent;
   }
 
   /* Application root containers */
@@ -84,10 +84,10 @@
     color: var(--clr-text__base);
     display: contents;
     font-family: sans-serif;
-    font-size: clamp(15px, 100% - 1ex, 17px);
+    font-size: clamp(17px, 100% - 1ex, 21px);
     font-variant-numeric: tabular-nums;
     hanging-punctuation: first last;
-    letter-spacing: -.03em;
+    letter-spacing: clamp(-.01em, calc(1dvmax / 0.0625), -.03em);
     line-height: 1.25;
     position: static;
     text-align: left;

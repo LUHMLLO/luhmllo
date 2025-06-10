@@ -77,104 +77,46 @@ const sketches: RouteItem[] = groupedRoutes['sketches'] || [];
 ---
 
 <Layout>
-	<header data-is='stack' style='gap: var(--sm);'>
-		<h1>Lilycat</h1>
-		<p>
-			A minimal, attribute-based CSS library that allows you to focus on
-			delivery without any unnecessary extras. Featuring a mix of well-written
-			convention rules designed to enhance the developer experience.
-		</p>
-
-		<a href='/preview'>Preview native elements</a>
-	</header>
+	<span data-is='badge'>
+		<small>Think</small>
+		<small>|</small>
+		<small>Design</small>
+		<small>|</small>
+		<small>Craft</small>
+		<small>|</small>
+		<small>Deliver</small>
+	</span>
 
 	<br />
 
-	<div
-		data-is='grid'
-		style='--gap: var(--nm); --cols: 2; grid-auto-flow: row dense;'>
-		<div data-is='card' style='outline-offset: 2px;'>
-			<h2>Apps</h2>
-			<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
-				{
-					apps.map((el) => (
-						<a href={el.path}>
-							<span>{el.name}</span>
-							<i data-is='icon'>north_east</i>
-						</a>
-					))
-				}
-			</div>
-		</div>
+	<h1>Lilycat</h1>
+	<p>
+		A minimal, attribute-driven CSS library built for developers and designers
+		who value clarity, speed, and control — without the hassle of steep learning
+		curves. Lilycat lets you focus on delivery, not setup. No build steps. No
+		clutter. Just building.
+	</p>
 
-		<div data-is='card' style='outline-offset: 2px;'>
-			<h2>MVP(s)</h2>
-			<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
-				{
-					mvps.map((el) => (
-						<a href={el.path}>
-							<span>{el.name}</span>
-							<i data-is='icon'>north_east</i>
-						</a>
-					))
-				}
-			</div>
-		</div>
+	<br />
 
-		<div data-is='card' style='outline-offset: 2px;'>
-			<h2>Elements</h2>
-			<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
-				{
-					elements.map((el) => (
-						<a href={el.path}>
-							<span>{el.name}</span>
-							<i data-is='icon'>north_east</i>
-						</a>
-					))
-				}
-			</div>
-		</div>
+	<h6>Ready to simplify your CSS workflow?</h6>
+	<ul>
+		<li><a href='/docs'>Explore Documentation</a></li>
+		<li><a href='/install'>Get the Package</a></li>
+		<li><a href='/examples'>See Examples</a></li>
+	</ul>
 
-		<div data-is='card' style='outline-offset: 2px;'>
-			<h2>Learn</h2>
-			<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
-				{
-					learn.map((el) => (
-						<a href={el.path}>
-							<span>{el.name}</span>
-							<i data-is='icon'>north_east</i>
-						</a>
-					))
-				}
-			</div>
-		</div>
+	<br />
 
-		<div data-is='card' style='outline-offset: 2px;'>
-			<h2>Sites</h2>
-			<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
-				{
-					sites.map((el) => (
-						<a href={el.path}>
-							<span>{el.name}</span>
-							<i data-is='icon'>north_east</i>
-						</a>
-					))
-				}
-			</div>
-		</div>
-
-		<div data-is='card' style='outline-offset: 2px;'>
-			<h2>Sketches</h2>
-			<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
-				{
-					sketches.map((el) => (
-						<a href={el.path}>
-							<span>{el.name}</span>
-							<i data-is='icon'>north_east</i>
-						</a>
-					))
-				}
-			</div>
-		</div>
+	<h2>Learn</h2>
+	<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
+		{
+			learn.map((el) => (
+				<a href={el.path}>
+					<span>{el.name}</span>
+					<i data-is='icon'>north_east</i>
+				</a>
+			))
+		}
 	</div>
 </Layout>

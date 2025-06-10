@@ -1,11 +1,11 @@
 @layer normalize {
   :where(kbd) {
     background-color: var(--clr-background__raised);
-    border-radius: var(--xs);
+    border-radius: 0.5ex;
     display: inline-block;
     font-family: monospace;
     font-size: calc(10 * 0.0625rem);
-    height: 25px;
+    height: min(100%, var(--lg));
     outline: solid 2px var(--clr-border__raised);
     padding: 0 var(--sm);
     place-content: center;

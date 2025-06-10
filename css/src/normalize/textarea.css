@@ -1,7 +1,7 @@
 @layer normalize {
   :where(textarea) {
     background-color: var(--clr-background__base);
-    border-radius: var(--xs);
+    border-radius: 0.75ex;
     color: var(--clr-text__base);
     display: inline-block;
 

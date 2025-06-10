@@ -1,7 +1,7 @@
 @layer normalize {
   :where(dialog) {
     background-color: var(--clr-background__base);
-    border-radius: var(--sm);
+    border-radius: 1ex;
     height: max-content;
     inset: 0;
     margin: auto;

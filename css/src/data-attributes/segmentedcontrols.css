@@ -1,7 +1,7 @@
 @layer data-attributes {
-  :where([data-roles~="segmented-controls"]) {
+  :where([data-is="segmented-controls"]) {
     background-color: var(--clr-background__base);
-    border-radius: var(--xl);
+    border-radius: 5ex;
     gap: calc(var(--xs) / 5);
     height: 45px;
     outline: solid 2px var(--clr-background-10);

@@ -1,7 +1,7 @@
 @layer normalize {
   :where(input) {
     background-color: var(--clr-background__base);
-    border-radius: var(--xs);
+    border-radius: 0.75ex;
     color: var(--clr-text__base);
     display: inline-block;
     font-size: inherit;
@@ -46,6 +46,7 @@
     appearance: none;
     aspect-ratio: 1/1;
     background-color: var(--clr-background__base);
+    border-radius: 0.5ex;
     contain: content;
     display: inline-grid;
     flex: 0 0 max-content;

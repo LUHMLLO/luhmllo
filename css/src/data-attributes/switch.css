@@ -3,7 +3,7 @@
     align-items: center;
     background-color: transparent;
     border: solid 2px var(--clr-border__base);
-    border-radius: var(--xl);
+    border-radius: 5ex;
     height: var(--xl);
     min-width: calc(var(--xl) * 2);
     outline: none;
