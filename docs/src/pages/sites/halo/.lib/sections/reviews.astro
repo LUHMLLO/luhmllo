@@ -1,15 +1,11 @@
-<section
-	id='reviews'
-	data-is='stack'
-	data-layout='expand-content'
-	style='gap: var(--xl);'>
+<section id='reviews' data-is='stack' data-layout='expand-content'>
 	<h3>Customer Success Stories</h3>
 	<div data-is='slider' data-variant='horizontal' style='gap: var(--xl);'>
 		{
 			[...Array(10).keys()].map(() => (
 				<blockquote
 					data-is='group'
-					style='gap: var(--md); padding: var(--xl); width: 640px;'>
+					style='background-color: var(--clr-background__raised); gap: var(--md); margin: 0; padding: var(--xl); width: clamp(512px, 10dvw + 1rem, 640px);'>
 					<h5>
 						Lorem ipsum dolor, sit amet consectetur adipisicing elit.
 						Exercitationem autem cumque illum delectus fuga.
@@ -27,14 +23,22 @@
 							<img src='/images/halo/haloinstallation.png' alt='' />
 						</figure>
 						<div data-is='group' style='flex: 1 1;'>
-							<p>Gerald Gerhold</p>
+							<b>Gerald Gerhold</b>
 							<time datetime=''>Apr 01, 2025</time>
 						</div>
 						<div data-is='row'>
-							<i data-is='icon'>star_rate</i>
-							<i data-is='icon'>star_rate</i>
-							<i data-is='icon'>star_rate</i>
-							<i data-is='icon'>star_rate</i>
+							<i data-is='icon' style='--fill: 1;'>
+								star_rate
+							</i>
+							<i data-is='icon' style='--fill: 1;'>
+								star_rate
+							</i>
+							<i data-is='icon' style='--fill: 1;'>
+								star_rate
+							</i>
+							<i data-is='icon' style='--fill: 1;'>
+								star_rate
+							</i>
 							<i data-is='icon'>star_rate</i>
 						</div>
 					</div>
@@ -43,7 +47,7 @@
 		}
 	</div>
 
-	<div data-is='row'>
+	<div data-is='row' style='gap: var(--md); justify-content: end;'>
 		<button>
 			<i data-is='icon'>arrow_left_alt</i>
 		</button>
@@ -55,9 +59,25 @@
 	<style lang='css' is:inline>
 		@scope (#reviews) {
 			:scope {
+				background-color: var(--clr-background__base);
+				box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.05);
 				overflow: clip;
-				padding-block: calc(var(--xl) * 2);
+				padding-block: calc(var(--xl) * 2) 0;
 				position: relative;
+
+				& > * {
+					padding-bottom: var(--xl);
+				}
+
+				blockquote {
+					transition-duration: var(--animDuration);
+					transition-property: box-shadow;
+					transition-timing-function: var(--animTiming);
+
+					&:hover {
+						box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.15);
+					}
+				}
 			}
 		}
 	</style>
