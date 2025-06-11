@@ -9,10 +9,10 @@ import Cookiesbar from '../components/Cookiesbar.astro';
 ---
 
 <Scaffold>
-	<div id='app' data-is='app'>
+	<div id='app' data-is='app' class='gridlines'>
 		<Topbar />
 		<Sidebar />
-		<div id='app__content' data-is='container'>
+		<div id='app__content' data-is='container' data-layout='expand-all'>
 			<slot />
 
 			<style lang='css' is:inline>
@@ -21,9 +21,9 @@ import Cookiesbar from '../components/Cookiesbar.astro';
 						padding-block: var(--xl);
 						z-index: 1;
 
-						& > * {
+						/* & > * {
 							grid-column: expand;
-						}
+						} */
 					}
 				}
 			</style>

@@ -41,7 +41,6 @@
 
   :where(hr) {
     background-color: var(--clr-border__base);
-    display: inline-block;
     flex: 0 0 1px;
     height: 1px;
     width: 100%;

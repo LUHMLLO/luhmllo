@@ -1,7 +1,10 @@
 @layer data-attributes {
   :where([data-is='badge']) {
+    align-items: center;
     background-color: var(--clr-background__raised);
     border-radius: 5ex;
+    display: inline-flex;
+    gap: var(--xs);
     height: var(--xl);
     font-size: var(--md);
     padding-inline: var(--sm);
