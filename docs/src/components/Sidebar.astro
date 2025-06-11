@@ -7,7 +7,7 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 ---
 
 <aside id='app__sidebar' data-visible='true'>
-	<x-row>
+	<div data-is='flex'>
 		<a href='/' data-variant='text'>
 			<figure>
 				<Image src={Logo} alt='logo' decoding='async' loading='eager' />
@@ -22,7 +22,7 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 		<button data-toggle-sidebar>
 			<i data-is='icon'> left_panel_close </i>
 		</button>
-	</x-row>
+	</div>
 
 	<label for='search' data-is='input'>
 		<i data-is='icon' data-part='lead'> search </i>
@@ -247,8 +247,7 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 					transform: translateX(-100%);
 				}
 
-				& > x-row {
-					align-items: center;
+				& > [data-is='flex'] {
 					gap: var(--xs);
 
 					a {
