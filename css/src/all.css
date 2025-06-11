@@ -2,6 +2,7 @@
 @layer tokens, reset, normalize, data-attributes;
 
 @import url('./tokens/animations.css');
+@import url('./tokens/breakpoints.css');
 @import url('./tokens/scales.css');
 @import url('./tokens/theming.css');
 

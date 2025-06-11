@@ -92,6 +92,18 @@
     position: static;
     text-align: left;
     text-underline-offset: 3px;
+
+    @media screen and (max-width: 800px) {
+      font-size: 14px;
+    }
+
+    @media screen and (max-width: 400px) {
+      font-size: 12px;
+    }
+
+    @media screen and (max-width: 256px) {
+      font-size: 10px;
+    }
   }
 
   :where(body) {

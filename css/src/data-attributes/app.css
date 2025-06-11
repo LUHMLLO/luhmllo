@@ -1,8 +1,8 @@
 @layer data-attributes {
   :where([data-is="app"]) {
-    --outter-gutter: 3.5rem;
+    --outter-gutter: var(--tmpl-outter_gutter);
     --outter-columns: 0;
-    --inner-gutter: 1.5rem;
+    --inner-gutter: var(--tmpl-inner_gutter);
     --inner-column: 100rem;
 
     display: grid;
@@ -19,8 +19,9 @@
       grid-row: center-start/center-end;
 
       &:where([data-layout="breakout"]) {
-        grid-column: breakout-start/breakout-end;
-        padding-inline: max(calc((100% - var(--inner-column)) / 2), calc((var(--outter-gutter) / 2) + -1px));
+        grid-column: breakout-start / breakout-end;
+        padding-inline: max(var(--inner-gutter),
+            calc((100% - var(--inner-column)) / 2));
       }
 
       &:where([data-layout="breakout-all"]) {
@@ -29,7 +30,8 @@
 
       &:where([data-layout="expand"]) {
         grid-column: expand-start/expand-end;
-        padding-inline: max(calc((100% - var(--inner-column)) / 2), calc((var(--inner-gutter) + var(--outter-gutter))));
+        padding-inline: max(calc((100% - var(--inner-column)) / 2),
+            calc((var(--inner-gutter) + var(--outter-gutter))));
       }
 
       &:where([data-layout="expand-all"]) {

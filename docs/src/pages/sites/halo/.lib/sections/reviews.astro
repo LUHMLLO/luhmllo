@@ -1,7 +1,42 @@
 <section id='reviews' data-is='stack' style='gap: var(--xl);'>
 	<h3>Customer Success Stories</h3>
 
-	<div data-is='row' style='gap: var(--xl);'></div>
+	<div data-is='scroll' data-variant='horizontal' style='gap: var(--xl);'>
+		{
+			[...Array(10).keys()].map(() => (
+				<blockquote data-is='group' style='gap: var(--md); padding: var(--xl);'>
+					<h5>
+						Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+						Exercitationem autem cumque illum delectus fuga.
+					</h5>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Necessitatibus magnam illum aperiam, explicabo et provident? Libero
+						soluta quaerat distinctio doloremque. Culpa odio veniam, itaque
+						deleniti sed aut optio sunt excepturi.
+					</p>
+					<div data-is='row' style='align-items: center; gap: var(--md);'>
+						<figure
+							data-geometry='circle'
+							style='background-color: var(--clr-background__base); height: calc(var(--lg) * 2);'>
+							<img src='/images/halo/haloinstallation.png' alt='' />
+						</figure>
+						<div data-is='group' style='flex: 1 1;'>
+							<p>Gerald Gerhold</p>
+							<time datetime=''>Apr 01, 2025</time>
+						</div>
+						<div data-is='row'>
+							<i data-is='icon'>star_rate</i>
+							<i data-is='icon'>star_rate</i>
+							<i data-is='icon'>star_rate</i>
+							<i data-is='icon'>star_rate</i>
+							<i data-is='icon'>star_rate</i>
+						</div>
+					</div>
+				</blockquote>
+			))
+		}
+	</div>
 
 	<div data-is='row'>
 		<button>
