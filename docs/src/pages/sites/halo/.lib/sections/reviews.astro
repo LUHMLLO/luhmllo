@@ -1,10 +1,15 @@
-<section id='reviews' data-is='stack' style='gap: var(--xl);'>
+<section
+	id='reviews'
+	data-is='stack'
+	data-layout='expand-content'
+	style='gap: var(--xl);'>
 	<h3>Customer Success Stories</h3>
-
-	<div data-is='scroll' data-variant='horizontal' style='gap: var(--xl);'>
+	<div data-is='slider' data-variant='horizontal' style='gap: var(--xl);'>
 		{
 			[...Array(10).keys()].map(() => (
-				<blockquote data-is='group' style='gap: var(--md); padding: var(--xl);'>
+				<blockquote
+					data-is='group'
+					style='gap: var(--md); padding: var(--xl); width: 640px;'>
 					<h5>
 						Lorem ipsum dolor, sit amet consectetur adipisicing elit.
 						Exercitationem autem cumque illum delectus fuga.

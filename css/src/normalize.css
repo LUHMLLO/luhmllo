@@ -102,7 +102,7 @@
 
   /* quotes */
   :where(blockquote) {
-    border-left: solid var(--xs);
+    border-left: solid 2px var(--clr-accent__base);
     margin: min(5%, var(--sm));
     padding: min(5%, var(--sm));
   }

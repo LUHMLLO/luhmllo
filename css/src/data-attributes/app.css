@@ -26,6 +26,20 @@
 
       &:where([data-layout="breakout-all"]) {
         grid-column: breakout-start/breakout-end;
+
+        & > :where([data-layout='omit']) {
+          padding-inline: max(var(--inner-gutter),
+              calc((100% - var(--inner-column)) / 2));
+        }
+      }
+
+      &:where([data-layout="breakout-content"]) {
+        grid-column: breakout-start/breakout-end;
+
+        & > *:not([data-layout='omit']) {
+          padding-inline: max(var(--inner-gutter),
+              calc((100% - var(--inner-column)) / 2));
+        }
       }
 
       &:where([data-layout="expand"]) {
@@ -36,6 +50,20 @@
 
       &:where([data-layout="expand-all"]) {
         grid-column: expand-start/expand-end;
+
+        & > :where([data-layout='omit']) {
+          padding-inline: max(calc((100% - var(--inner-column)) / 2),
+              calc((var(--inner-gutter) + var(--outter-gutter))));
+        }
+      }
+
+      &:where([data-layout="expand-content"]) {
+        grid-column: expand-start/expand-end;
+
+        & > *:not([data-layout='omit']) {
+          padding-inline: max(calc((100% - var(--inner-column)) / 2),
+              calc((var(--inner-gutter) + var(--outter-gutter))));
+        }
       }
     }
   }
