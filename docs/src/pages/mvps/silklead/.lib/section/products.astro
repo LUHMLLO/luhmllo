@@ -1,0 +1,264 @@
+---
+const data = [
+	{
+		tag: 'new',
+		thumbnail:
+			'https://cdn.dribbble.com/users/1413577/screenshots/16269590/media/19ce370f0fc3153e8db77d570e36d02f.png',
+		name: 'High-Efficiency Solar Panel (300W)',
+		description:
+			'This monocrystalline solar panel boasts industry-leading efficiency, capturing more sunlight and maximizing your energy production. Built to withstand harsh weather conditions, it comes with a 25-year power output warranty.  ',
+		properties: [
+			{ wattage: '300W' },
+			{ efficiency: '22.3%' },
+			{ dimensions: 'L 66.1 in x W 39.4 in x T 1.4 in' },
+			{ warranty: '25 years' },
+		],
+		price: '$249.99',
+	},
+	{
+		tag: 'sale',
+		thumbnail:
+			'https://cdn.dribbble.com/users/1413577/screenshots/16269590/media/19ce370f0fc3153e8db77d570e36d02f.png',
+		name: 'Wind Turbine (Small)',
+		description:
+			'Bring clean energy to your home with this compact wind turbine. Ideal for off-grid applications or supplementing your existing power source. Easy to install and maintain, it generates enough electricity to power basic appliances.',
+		properties: [
+			{ 'blade diameter': '3 meters' },
+			{ 'rated power': '500W' },
+			{ 'wind speed range': '3-25 m/s' },
+			{ 'noise level': '< 40 dB' },
+		],
+		price: '$1,499.00',
+	},
+	{
+		tag: 'bundle',
+		thumbnail:
+			'https://cdn.dribbble.com/users/1413577/screenshots/16269590/media/19ce370f0fc3153e8db77d570e36d02f.png',
+		name: 'Solar Battery Backup System (5kWh)',
+		description:
+			'Maximize your solar energy harvest with this innovative microinverter. It optimizes power production from each panel, even in case of shading or panel mismatch. Easy to install and monitor.',
+		properties: [
+			{ capacity: '5kWh' },
+			{ 'inverter power': '2kW' },
+			{ warranty: '10 years' },
+			{ includes: 'Battery unit, Inverter, Monitoring system' },
+		],
+		price: '$3,999.99',
+	},
+	{
+		tag: '',
+		thumbnail:
+			'https://cdn.dribbble.com/users/1413577/screenshots/16269590/media/19ce370f0fc3153e8db77d570e36d02f.png',
+		name: 'Solar Panel Disconnect Switch',
+		description:
+			'Ensure safe and easy isolation of your solar power system with this disconnect switch. Required by most codes for solar installations.',
+		properties: [
+			{ 'amperage rating': '30A' },
+			{ 'voltage rating': '600VDC' },
+			{ 'enclosure type': 'NEMA 4X' },
+		],
+		price: '$79.99',
+	},
+	{
+		tag: '',
+		thumbnail:
+			'https://cdn.dribbble.com/users/1413577/screenshots/16269590/media/19ce370f0fc3153e8db77d570e36d02f.png',
+		name: 'Solar Grounding Kit',
+		description:
+			'Proper grounding is crucial for safety and system performance. This kit provides all the necessary components to ground your solar system according to electrical codes.',
+		properties: [
+			{ includes: 'Grounding rods, clamps, and wire' },
+			{ material: 'Copper' },
+		],
+		price: '$99.00',
+	},
+	{
+		tag: '',
+		thumbnail:
+			'https://cdn.dribbble.com/users/1413577/screenshots/16269590/media/19ce370f0fc3153e8db77d570e36d02f.png',
+		name: 'Solar Inverter (Grid-Tie)',
+		description:
+			'Convert the DC electricity produced by your solar panels into AC electricity usable by your home or business. This grid-tie inverter seamlessly integrates with your existing electrical system.',
+		properties: [{ 'power output': '5kW' }, { warranty: '10 years' }],
+		price: '$1,999.00',
+	},
+	{
+		tag: '',
+		thumbnail:
+			'https://cdn.dribbble.com/users/1413577/screenshots/16269590/media/19ce370f0fc3153e8db77d570e36d02f.png',
+		name: 'Microinverter (Single Unit)',
+		description:
+			'Maximize your solar energy harvest with this innovative microinverter. It optimizes power production from each panel, even in case of shading or panel mismatch. Easy to install and monitor.',
+		properties: [
+			{ 'maximum output power': '250W' },
+			{ 'MPPT voltage range': '30-60V' },
+			{ communication: 'Wi-Fi' },
+			{ warranty: '12 years' },
+		],
+		price: '$129.00',
+	},
+	{
+		tag: '',
+		thumbnail:
+			'https://cdn.dribbble.com/users/1413577/screenshots/16269590/media/19ce370f0fc3153e8db77d570e36d02f.png',
+		name: 'Microinverter (Single Unit)',
+		description:
+			'Maximize your solar energy harvest with this innovative microinverter. It optimizes power production from each panel, even in case of shading or panel mismatch. Easy to install and monitor.',
+		properties: [
+			{ 'maximum output power': '250W' },
+			{ 'MPPT voltage range': '30-60V' },
+			{ communication: 'Wi-Fi' },
+			{ warranty: '12 years' },
+		],
+		price: '$129.00',
+	},
+	{
+		tag: 'new',
+		thumbnail:
+			'https://cdn.dribbble.com/users/1413577/screenshots/16269590/media/19ce370f0fc3153e8db77d570e36d02f.png',
+		name: 'Solar Mounting Kit (for Roof)',
+		description:
+			'Securely mount your solar panels on your rooftop with this comprehensive kit. Includes all necessary hardware for a hassle-free installation.',
+		properties: [
+			{ compatibility: 'Most roof types' },
+			{ material: 'Galvanized steel' },
+			{ 'weight capacity': '200 lbs per bracket' },
+		],
+		price: '$99.99',
+	},
+	{
+		tag: '',
+		thumbnail:
+			'https://cdn.dribbble.com/users/1413577/screenshots/16269590/media/19ce370f0fc3153e8db77d570e36d02f.png',
+		name: 'Solar Panel Monitoring System',
+		description:
+			'Monitor your solar energy production in real-time with this intuitive system. Track power generation, identify potential issues, and maximize your system performance.',
+		properties: [
+			{ connectivity: 'Wi-Fi' },
+			{ 'app compatibility': 'iOS & Android' },
+			{ 'data monitoring': 'Energy production, voltage, current' },
+		],
+		price: '$199.00',
+	},
+	{
+		tag: 'new',
+		thumbnail:
+			'https://cdn.dribbble.com/users/1413577/screenshots/16269590/media/19ce370f0fc3153e8db77d570e36d02f.png',
+		name: 'High-Efficiency Solar Panel (300W)',
+		description:
+			'This monocrystalline solar panel boasts industry-leading efficiency, capturing more sunlight and maximizing your energy production. Built to withstand harsh weather conditions, it comes with a 25-year power output warranty.',
+		properties: [
+			{ wattage: '300W' },
+			{ efficiency: '22.3%' },
+			{ dimensions: 'L 66.1 in x W 39.4 in x T 1.4 in' },
+			{ warranty: '25 years' },
+		],
+		price: '$249.99',
+	},
+	{
+		tag: 'sale',
+		thumbnail:
+			'https://cdn.dribbble.com/users/1413577/screenshots/16269590/media/19ce370f0fc3153e8db77d570e36d02f.png',
+		name: 'Wind Turbine (Small)',
+		description:
+			'Bring clean energy to your home with this compact wind turbine. Ideal for off-grid applications or supplementing your existing power source. Easy to install and maintain, it generates enough electricity to power basic appliances.',
+		properties: [
+			{ 'blade diameter': '3 meters' },
+			{ 'rated power': '500W' },
+			{ 'wind speed range': '3-25 m/s' },
+			{ 'noise level': '< 40 dB' },
+		],
+		price: '$1,499.00',
+	},
+	{
+		tag: 'bundle',
+		thumbnail:
+			'https://cdn.dribbble.com/users/1413577/screenshots/16269590/media/19ce370f0fc3153e8db77d570e36d02f.png',
+		name: 'Solar Battery Backup System (5kWh)',
+		description:
+			'Maximize your solar energy harvest with this innovative microinverter. It optimizes power production from each panel, even in case of shading or panel mismatch. Easy to install and monitor.',
+		properties: [
+			{ capacity: '5kWh' },
+			{ 'inverter power': '2kW' },
+			{ warranty: '10 years' },
+			{ includes: 'Battery unit, Inverter, Monitoring system' },
+		],
+		price: '$3,999.99',
+	},
+	{
+		tag: '',
+		thumbnail:
+			'https://cdn.dribbble.com/users/1413577/screenshots/16269590/media/19ce370f0fc3153e8db77d570e36d02f.png',
+		name: 'Microinverter (Single Unit)',
+		description:
+			'Maximize your solar energy harvest with this innovative microinverter. It optimizes power production from each panel, even in case of shading or panel mismatch. Easy to install and monitor.',
+		properties: [
+			{ 'maximum output power': '250W' },
+			{ 'MPPT voltage range': '30-60V' },
+			{ communication: 'Wi-Fi' },
+			{ warranty: '12 years' },
+		],
+		price: '$129.00',
+	},
+];
+---
+
+<section data-is='container' data-layout='expand-all'>
+	<h2>Products</h2>
+	<p>Product component preview</p>
+
+	<br />
+
+	<div
+		data-is='slider'
+		data-variant='horizontal'
+		data-layout='expand'
+		style='gap: var(--sm);'>
+		{
+			data.map((el) => (
+				<article data-is='card' style='width: 256px;'>
+					<span> {el.tag} </span>
+
+					<figure>
+						<img src={el.thumbnail} alt='thumbnail' />
+					</figure>
+
+					<header data-is='group' style='gap: var(--sm);'>
+						<h5>{el.name}</h5>
+						<small>{el.description}</small>
+					</header>
+
+					<ul role='list' data-is='stack'>
+						{el.properties.map((property) => (
+							<li data-is='flex' style='gap: var(--md);' />
+						))}
+					</ul>
+					<footer data-is='row'>
+						<span>Price</span>
+						<var>{el.price}</var>
+					</footer>
+				</article>
+			))
+		}
+	</div>
+
+	<style lang='css' is:inline>
+		@scope {
+			:scope {
+				[data-is='card'] {
+					background-color: var(--clr-background__raised);
+
+					& > ul {
+						li {
+							padding-bottom: var(--sm);
+
+							&:not(:last-child) {
+								border-bottom: solid 2px var(--clr-border__base);
+							}
+						}
+					}
+				}
+			}
+		}
+	</style>
+</section>

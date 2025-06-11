@@ -1,6 +1,10 @@
 <section id='reviews' data-is='stack' data-layout='expand-content'>
 	<h3>Customer Success Stories</h3>
-	<div data-is='slider' data-variant='horizontal' style='gap: var(--xl);'>
+	<div
+		id='reviews__slider'
+		data-is='slider'
+		data-variant='horizontal'
+		style='gap: var(--xl);'>
 		{
 			[...Array(10).keys()].map(() => (
 				<blockquote
@@ -47,7 +51,10 @@
 		}
 	</div>
 
-	<div data-is='row' style='gap: var(--md); justify-content: end;'>
+	<div
+		id='reviews__slidercontrols'
+		data-is='row'
+		style='gap: var(--sm); justify-content: end;'>
 		<button>
 			<i data-is='icon'>arrow_left_alt</i>
 		</button>
