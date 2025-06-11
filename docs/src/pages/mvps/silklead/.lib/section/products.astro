@@ -203,38 +203,30 @@ const data = [
 ];
 ---
 
-<section data-is='container' data-layout='expand-all'>
-	<h2>Products</h2>
-	<p>Product component preview</p>
+<section data-is='stack' data-layout='expand-content'>
+	<header>
+		<h2>Products</h2>
+		<p>Product component preview</p>
+	</header>
 
 	<br />
 
-	<div
-		data-is='slider'
-		data-variant='horizontal'
-		data-layout='expand'
-		style='gap: var(--sm);'>
+	<div data-is='slider' data-variant='horizontal' style='gap: var(--nm);'>
 		{
 			data.map((el) => (
-				<article data-is='card' style='width: 256px;'>
+				<article data-is='card' style='width: 512px;'>
 					<span> {el.tag} </span>
 
-					<figure>
-						<img src={el.thumbnail} alt='thumbnail' />
-					</figure>
-
 					<header data-is='group' style='gap: var(--sm);'>
+						<figure>
+							<img src={el.thumbnail} alt='thumbnail' />
+						</figure>
 						<h5>{el.name}</h5>
-						<small>{el.description}</small>
+						<p>{el.description}</p>
 					</header>
 
-					<ul role='list' data-is='stack'>
-						{el.properties.map((property) => (
-							<li data-is='flex' style='gap: var(--md);' />
-						))}
-					</ul>
 					<footer data-is='row'>
-						<span>Price</span>
+						<span style='flex: 1 1;'>Price</span>
 						<var>{el.price}</var>
 					</footer>
 				</article>

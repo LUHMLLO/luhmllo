@@ -1,78 +1,43 @@
 ---
-import Layout from '../../../layouts/app.astro';
-import Iframe from '../../../layouts/frame.astro';
-
-import Appbar from './.lib/components/appbar.astro';
-import NotificationPane from './.lib/components/notificationsPane.astro';
+import Layout from './.lib/layout.astro';
 
 import Leaderboards from './.lib/section/leaderboards.astro';
 import Products from './.lib/section/products.astro';
 ---
 
 <Layout>
-	<Iframe>
-		<div id='silkapp' data-is='app'>
-			<Appbar />
+	<h1>Dashboard</h1>
+	<Leaderboards />
+	<Products />
 
-			<div id='silkapp__content' data-is='container' data-layout='expand-all'>
-				<h1>Dashboard</h1>
-				<Leaderboards />
-				<Products />
-
-				<section>
-					<h2>Table</h2>
-					<p>Showcase</p>
-					<ly-flex axis='x' class='g-sm place-between wrap'>
-						<button class='bg-primary'>
-							<span>Re-Render Table</span>
-						</button>
-						<ly-field type='search' class='grow'>
-							<input placeholder='Type to filter table' />
-						</ly-field>
-						<button class='bg-primary'>
-							<ly-icon>view_column_2</ly-icon>
-							<span>Columns</span>
-						</button>
-						<button class='bg-primary'>
-							<ly-icon>swap_vert</ly-icon>
-							<span>Sort</span>
-						</button>
-						<button class='bg-primary'>
-							<ly-icon>filter_list</ly-icon>
-							<span>Filters</span>
-						</button>
-					</ly-flex>
-					<ly-slider tmpl-expand>
-						<!-- <Table
+	<section>
+		<h2>Table</h2>
+		<p>Showcase</p>
+		<ly-flex axis='x' class='g-sm place-between wrap'>
+			<button class='bg-primary'>
+				<span>Re-Render Table</span>
+			</button>
+			<ly-field type='search' class='grow'>
+				<input placeholder='Type to filter table' />
+			</ly-field>
+			<button class='bg-primary'>
+				<ly-icon>view_column_2</ly-icon>
+				<span>Columns</span>
+			</button>
+			<button class='bg-primary'>
+				<ly-icon>swap_vert</ly-icon>
+				<span>Sort</span>
+			</button>
+			<button class='bg-primary'>
+				<ly-icon>filter_list</ly-icon>
+				<span>Filters</span>
+			</button>
+		</ly-flex>
+		<ly-slider tmpl-expand>
+			<!-- <Table
             columns="{[...new Set(productsTestData.flatMap(Object.keys))]}"
             rows="{productsTestData}"
           /> -->
-					</ly-slider>
-				</section>
-			</div>
-
-			<div data-is='layer' data-variant='over'>
-				<NotificationPane />
-			</div>
-
-			<style lang='css' is:inline>
-				@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
-
-				@scope (#silkapp) {
-					:scope {
-						font-family: 'Figtree', sans-serif;
-						height: 100%;
-						min-height: 0;
-
-						#silkapp__content {
-							height: 100%;
-							overflow: auto;
-							padding-block: calc(var(--xl) * 1.5);
-							row-gap: var(--xl);
-						}
-					}
-				}
-			</style>
-		</div>
-	</Iframe>
+		</ly-slider>
+	</section>
 </Layout>

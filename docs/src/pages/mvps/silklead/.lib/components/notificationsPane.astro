@@ -1,7 +1,7 @@
 <aside id='silklead__notificationspane' data-visible='false'>
 	<div
 		data-is='row'
-		style='place-items: center; height: 48px; gap: var(--xs); padding-inline: var(--sm);'>
+		style='padding-top: 2px; place-items: center; height: calc(var(--xl) * 2); gap: var(--xs); padding-inline: var(--sm);'>
 		<p>Notifications</p>
 		<button type='button' data-toggle-notificationspanel>
 			<i data-is='icon'>close_small</i>
@@ -50,8 +50,8 @@
 		@scope (#silklead__notificationspane) {
 			:scope {
 				background-color: var(--clr-background__base);
-				height: max(0%, 100%);
-				inset: 0;
+				height: max(0%, calc(100% + 4px));
+				inset: -2px -2px -2px 0;
 				margin: 0 0 auto auto;
 				outline: solid 2px var(--clr-border__base);
 				outline-offset: -2px;

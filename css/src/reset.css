@@ -71,7 +71,7 @@
     }
 
     scrollbar-width: thin;
-    scrollbar-color: color-mix(in hsl, var(--clr-text__lowered), var(--clr-background__lowered)) transparent;
+    scrollbar-color: color-mix(in hsl, var(--clr-text__lowered), var(--clr-background__lowered)) hsl(from var(--clr-border__base) h s l / 15%);
   }
 
   /* Application root containers */

@@ -230,10 +230,14 @@
 		@scope (#silkapp__topbar) {
 			:scope {
 				align-items: center;
+				background-color: var(--clr-background__base);
 				border-bottom: solid 2px var(--clr-border__base);
 				gap: var(--md);
-				grid-row: top;
+				/* grid-row: top; */
 				height: calc(var(--xl) * 2);
+				inset: 0;
+				position: sticky;
+				z-index: 1;
 
 				& > * {
 					align-items: inherit;

@@ -1,0 +1,42 @@
+---
+import ShellLayout from '../../../../layouts/app.astro';
+import ViewFrame from '../../../../layouts/frame.astro';
+
+import Appbar from './components/appbar.astro';
+import NotificationPane from './components/notificationsPane.astro';
+---
+
+<ShellLayout>
+	<ViewFrame>
+		<div id='silkapp' data-is='app'>
+			<Appbar />
+
+			<slot />
+
+			<div data-is='layer' data-variant='over'>
+				<NotificationPane />
+			</div>
+
+			<style lang='css' is:inline>
+				@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+				@scope (#silkapp) {
+					:scope {
+						font-family: 'Figtree', sans-serif;
+						grid-auto-rows: max-content;
+						grid-template-rows: max-content;
+						height: 100%;
+						min-height: 0;
+						overflow: auto;
+						row-gap: var(--xl);
+						/* scrollbar-gutter: both-edges stable; */
+
+						& > * {
+							grid-row: initial;
+						}
+					}
+				}
+			</style>
+		</div>
+	</ViewFrame>
+</ShellLayout>
