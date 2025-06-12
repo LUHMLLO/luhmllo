@@ -1,0 +1,13 @@
+<div id='docpage' data-layout='breakout-all'>
+	<slot />
+</div>
+
+<style lang='css' is:inline>
+	@scope (#docpage) {
+		:scope {
+			*:not(:first-child) {
+				margin-top: 30px;
+			}
+		}
+	}
+</style>

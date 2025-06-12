@@ -1,0 +1,137 @@
+---
+import ShellLayout from '@layouts/app.astro';
+import ViewFrame from '@layouts/frame.astro';
+
+const filters = [
+	'Discover',
+	'Animation',
+	'Branding',
+	'Illustration',
+	'Mobile',
+	'Print',
+	'Typography',
+	'Web Design',
+];
+---
+
+<ShellLayout scheme='light' className='overflow-clip'>
+	<ViewFrame>
+		<!--  -->
+		<nav class='align-center[items] place-between px-5xl' data-props='--expand'>
+			<ly-flex axis='x' class='align-center[items] g-5xs'>
+				<button>
+					<i data-is='icon'> menu </i>
+				</button>
+				<a href='#'>
+					<span class='txt-xl'>Dribbble</span>
+				</a>
+			</ly-flex>
+			<ly-flex axis='x' class='align-center[items] g-5xs'>
+				<button>
+					<i data-is='icon'> search </i>
+				</button>
+				<ly-dropdown>
+					<summary slot='summary'>
+						<figure class='aspect-[1/1] h-5xl w-auto' style='--radius: 50%;'>
+							<img
+								src='https://cdn.dribbble.com/userupload/14807988/file/original-2f68022906802fbb67109f137987ac7e.jpg?resize=640x480'
+								alt='avatar'
+							/>
+						</figure>
+					</summary>
+				</ly-dropdown>
+			</ly-flex>
+		</nav>
+		<!--  -->
+		<nav class='align-center[items] place-between px-5xl' data-props='--expand'>
+			<ly-dropdown>
+				<summary slot='summary' class='__button __outline radius-3xs'>
+					<span>Following</span>
+					<i data-is='icon'> expand_more </i>
+				</summary>
+				<button>
+					<span>Following</span>
+				</button>
+				<button>
+					<span>Popular</span>
+				</button>
+				<button>
+					<span>New & Noteworthy</span>
+				</button>
+			</ly-dropdown>
+			<ly-dropdown>
+				<summary slot='summary' class='__button __outline radius-3xs'>
+					<i data-is='icon'> filter_list </i>
+					<span>Filters</span>
+				</summary>
+				<ly-field label='Tags' type='text'>
+					<input />
+				</ly-field>
+				<ly-field label='Color' type='color'>
+					<input style='border: none; outline: none;' />
+				</ly-field>
+				<ly-field label='Timeframe' type='datetime-local'>
+					<input />
+				</ly-field>
+			</ly-dropdown>
+		</nav>
+		<!--  -->
+		<ly-slider data-props='--expand' axis='x' class='place-safe-center g-5xs'>
+			{
+				filters.map((filter, i) => (
+					<button class={i <= 0 ? 'bg-primary' : ''}> {filter} </button>
+				))
+			}
+		</ly-slider>
+		<!--  -->
+		<ly-slider axis='y' class='radius-3xs' style='height: 100%;'>
+			<ly-grid tmpl='4' class='g-5xl'>
+				{
+					[...Array(12).keys()].map(() => (
+						<article class='grid g-sm'>
+							<figure class='w-100'>
+								<img
+									src='https://cdn.dribbble.com/userupload/14829882/file/original-9776221b049412e514238e7aeed74fef.jpg?resize=1024x768'
+									alt=''
+								/>
+							</figure>
+							<ly-flex axis='x' class='align-center[items] g-sm place-between'>
+								<ly-group class='flex flex-row align-center[items] g-3xs'>
+									<figure class='aspect-[1/1] h-5xl w-auto radius-5xl'>
+										<img
+											src='https://cdn.dribbble.com/userupload/14829882/file/original-9776221b049412e514238e7aeed74fef.jpg?resize=1024x768'
+											alt=''
+										/>
+									</figure>
+									<span class='txt-500 txt-sm'>Username</span>
+									<small class='inline-block bg-tertiary clr-text px-sm py-5xs radius-3xs txt-3xs txt-500 txt-truncate'>
+										PRO
+									</small>
+								</ly-group>
+								<ly-group class='flex flex-row align-center[items] g-3xs'>
+									<a class='clr-subtext'>
+										<i style='--fill: 1;'>favorite</i>
+										<var>120</var>
+									</a>
+									<a class='clr-subtext'>
+										<i style='--fill: 1;'>visibility</i>
+										<var>120</var>
+									</a>
+								</ly-group>
+							</ly-flex>
+						</article>
+					))
+				}
+			</ly-grid>
+		</ly-slider>
+
+		<style lang='css' is:inline>
+			:global(ly-app) {
+				grid-template-rows: max-content max-content max-content 1fr;
+				& > *:first-child {
+					margin-top: 0;
+				}
+			}
+		</style>
+	</ViewFrame>
+</ShellLayout>

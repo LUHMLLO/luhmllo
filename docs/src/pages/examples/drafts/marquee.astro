@@ -1,0 +1,89 @@
+---
+import ShellLayout from '@layouts/app.astro';
+import ViewFrame from '@layouts/frame.astro';
+---
+
+<ShellLayout>
+	<ViewFrame>
+		<div class='marquee'>
+			<div class='item'>1</div>
+			<div class='item'>2</div>
+			<div class='item'>3</div>
+			<div class='item'>4</div>
+			<div class='item'>5</div>
+			<div class='item'>6</div>
+			<div class='item'>7</div>
+			<div class='item'>8</div>
+		</div>
+
+		<style lang='css' is:inline>
+			.marquee {
+				display: flex;
+				gap: 16rem;
+				height: 16rem;
+				margin: auto;
+				mask: linear-gradient(
+					90deg,
+					transparent,
+					black 20%,
+					black calc(100% - 20%),
+					transparent
+				);
+				overflow-y: clip;
+				position: relative;
+				width: 100%;
+
+				& > .item {
+					aspect-ratio: 3/2;
+					background-color: red;
+					border-radius: calc(16rem / 4);
+					display: inline-grid;
+					place-content: center center;
+					width: 16rem;
+				}
+			}
+
+			@keyframes slideLeft {
+				to {
+					left: -16rem;
+				}
+			}
+
+			.item {
+				animation-duration: 30s;
+				animation-iteration-count: infinite;
+				animation-name: slideLeft;
+				animation-timing-function: linear;
+				animation-delay: -10s;
+
+				left: max(calc(16rem * 8), 100%);
+				position: absolute;
+
+				&:nth-child(1) {
+					animation-delay: calc(30s / 8 * (8 - 1) * -1);
+				}
+				&:nth-child(2) {
+					animation-delay: calc(30s / 8 * (8 - 2) * -1);
+				}
+				&:nth-child(3) {
+					animation-delay: calc(30s / 8 * (8 - 3) * -1);
+				}
+				&:nth-child(4) {
+					animation-delay: calc(30s / 8 * (8 - 4) * -1);
+				}
+				&:nth-child(5) {
+					animation-delay: calc(30s / 8 * (8 - 5) * -1);
+				}
+				&:nth-child(6) {
+					animation-delay: calc(30s / 8 * (8 - 6) * -1);
+				}
+				&:nth-child(7) {
+					animation-delay: calc(30s / 8 * (8 - 7) * -1);
+				}
+				&:nth-child(8) {
+					animation-delay: calc(30s / 8 * (8 - 8) * -1);
+				}
+			}
+		</style>
+	</ViewFrame>
+</ShellLayout>

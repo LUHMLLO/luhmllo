@@ -1,9 +1,9 @@
 // @ts-check
-import { defineConfig } from "astro/config";
-import mdx from "@astrojs/mdx";
-import svelte from "@astrojs/svelte";
+import { defineConfig } from "astro/config"
+import mdx from "@astrojs/mdx"
+import svelte from "@astrojs/svelte"
 
-import vercel from "@astrojs/vercel";
+import vercel from "@astrojs/vercel"
 
 export default defineConfig({
   compressHTML: true,
@@ -17,4 +17,4 @@ export default defineConfig({
   ],
 
   adapter: vercel(),
-});
+})

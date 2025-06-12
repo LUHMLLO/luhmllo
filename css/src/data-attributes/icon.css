@@ -27,6 +27,7 @@
     place-content: center center;
     place-items: center center;
     text-align: center;
+    text-rendering: optimizeLegibility;
     touch-action: manipulation;
     transition-property: height, font, width;
     transition-duration: var(--animDuration);

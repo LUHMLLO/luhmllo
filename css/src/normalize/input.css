@@ -41,16 +41,16 @@
   }
 
   :where(input[type="checkbox"], input[type="radio"]) {
-    --size: var(--nm);
-
     appearance: none;
     aspect-ratio: 1/1;
     background-color: var(--clr-background__base);
+    border: solid 2px var(--clr-border__base);
     border-radius: 0.5ex;
     contain: content;
     display: inline-grid;
-    flex: 0 0 max-content;
-    height: var(--size);
+    flex: 0 0;
+    height: var(--lg);
+    outline: none;
     padding: 0;
     touch-action: manipulation;
     transition-property: color, height, font-size, width;
@@ -58,7 +58,7 @@
     transition-timing-function: var(--animTiming);
     user-select: none;
     vertical-align: text-bottom;
-    width: var(--size);
+    width: max-content;
 
     &:checked {
       background-color: var(--clr-accent__base);

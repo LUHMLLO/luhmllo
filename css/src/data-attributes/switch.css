@@ -1,56 +1,42 @@
 @layer data-attributes {
   :where([data-is="switch"]) {
     align-items: center;
-    background-color: transparent;
+    background-color: var(--clr-background__base);
     border: solid 2px var(--clr-border__base);
     border-radius: 5ex;
+    display: inline-grid;
+    grid-template-columns: 0px var(--xl) calc(var(--xl) * 1);
+    grid-template-rows: 1fr;
     height: var(--xl);
     min-width: calc(var(--xl) * 2);
     outline: none;
     overflow: clip;
     position: relative;
     transition-duration: var(--animDuration);
-    transition-property: border-color;
+    transition-property: background-color, border-color, grid-template-columns;
     transition-timing-function: var(--animTiming);
-
-    &::before {
-      background-color: var(--clr-background__base);
-      content: "";
-      inset: 0;
-      position: absolute;
-      transition-duration: var(--animDuration);
-      transition-property: background-color;
-      transition-timing-function: var(--animTiming);
-      z-index: -1;
-    }
+    width: max-content;
 
     &::after {
       aspect-ratio: 1/1;
       background-color: var(--clr-text__lowered);
-      border: solid 2px var(--clr-background__lowered);
       border-radius: 5ex;
       content: "";
+      grid-column: 2;
       height: 100%;
-      inset: 0;
-      margin: 0;
-      position: absolute;
-      transform: translateX(0);
       transition-duration: var(--animDuration);
-      transition-property: background-color, border-color, transform;
+      transition-property: background-color;
       transition-timing-function: var(--animTiming);
+      width: max-content;
       z-index: 1;
     }
 
     &:checked {
-      &::before {
-        background-color: var(--clr-accent__base);
-        box-shadow: 0 0 100vmax 100vmax var(--clr-border__base);
-      }
+      background-color: var(--clr-accent__base);
+      grid-template-columns: calc(var(--xl) * 1) var(--xl) 0px;
 
       &::after {
         background-color: var(--clr-text__base);
-        border-color: var(--clr-accent__base);
-        transform: translateX(115%);
       }
     }
   }

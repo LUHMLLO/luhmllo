@@ -1,0 +1,25 @@
+---
+import ShellLayout from '@layouts/app.astro';
+import { getRoutesByGroup, type RouteItem } from 'src/utils/getPageGroup';
+
+const pages: RouteItem[] = getRoutesByGroup('examples');
+---
+
+<ShellLayout>
+	<section>
+		<h2>Docs</h2>
+
+		<br />
+
+		<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
+			{
+				pages.map((el) => (
+					<a href={el.path}>
+						<span>{el.name}</span>
+						<i data-is='icon'>north_east</i>
+					</a>
+				))
+			}
+		</div>
+	</section>
+</ShellLayout>
