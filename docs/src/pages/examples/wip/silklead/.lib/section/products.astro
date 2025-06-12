@@ -214,11 +214,11 @@ const data = [
 	<div data-is='slider' data-variant='horizontal' style='gap: var(--nm);'>
 		{
 			data.map((el) => (
-				<article data-is='card' style='width: 512px;'>
+				<article data-is='card' style='width: 384px;'>
 					<span> {el.tag} </span>
 
 					<header data-is='group' style='gap: var(--sm);'>
-						<figure>
+						<figure style='height: 256px; width: 100%;'>
 							<img src={el.thumbnail} alt='thumbnail' />
 						</figure>
 						<h5>{el.name}</h5>

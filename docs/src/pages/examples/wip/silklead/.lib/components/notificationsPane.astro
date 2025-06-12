@@ -3,20 +3,20 @@
 		data-is='row'
 		style='padding-top: 2px; place-items: center; height: calc(var(--xl) * 2); gap: var(--xs); padding-inline: var(--sm);'>
 		<p>Notifications</p>
-		<button type='button' data-toggle-notificationspanel>
+		<button type='button' data-variant='ghost' data-toggle-notificationspanel>
 			<i data-is='icon'>close_small</i>
 		</button>
 	</div>
 
 	<label for='searchbar' data-is='input' style='border-radius: 0;'>
-		<i data-is='icon'> search </i>
+		<i data-is='icon' data-part='lead'> search </i>
 		<input
 			type='text'
 			style='border-radius: 0;'
 			name='searchbar'
 			placeholder='Type in to filter list'
 		/>
-		<i data-is='icon'> keyboard_command_key </i>
+		<i data-is='icon' data-part='trail'> keyboard_command_key </i>
 	</label>
 
 	<script type='module' is:inline>
