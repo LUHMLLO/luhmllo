@@ -1,0 +1,13 @@
+<div id='docsheet'>
+	<slot />
+</div>
+
+<style lang='css' is:inline>
+	@scope (#docsheet) {
+		:scope {
+			background-color: var(--clr-background__base);
+			outline: solid 2px var(--clr-border__base);
+			padding: var(--xl);
+		}
+	}
+</style>

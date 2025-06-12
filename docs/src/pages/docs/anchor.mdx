@@ -2,6 +2,9 @@
 layout: '@layouts/app.astro'
 ---
 
+import Docsheet from '@layouts/docsheet.astro';
+
+<Docsheet>
 ## Anchor <small>native</small>
 
 <br />
@@ -10,7 +13,7 @@ layout: '@layouts/app.astro'
 
 <br />
 
-<div data-is="grid" style="--cols: 2; --gap: var(--nm);">
+<div data-is="grid" style="--cols: 1; --gap: var(--nm);">
   <div data-is="group" style="gap: var(--sm);">
      Anchor elements without a `[href]` will visually behave as a paragraph.
 
@@ -70,12 +73,14 @@ layout: '@layouts/app.astro'
 </div>
 
 <br />
+<hr />
+<br />
 
 ## Extra
 
 <br />
 
-<div data-is="grid" style="--cols: 2; --gap: var(--nm);">
+<div data-is="grid" style="--cols: 1; --gap: var(--nm);">
   <div data-is="group" style="gap: var(--sm);">
      If you ever need an anchor that looks like a button or a button that behaves like an anchor you can achieve this by using `[data-is="button"]` attributes on an anchor
 
@@ -155,3 +160,4 @@ layout: '@layouts/app.astro'
   </div>
 
 </div>
+</Docsheet>
