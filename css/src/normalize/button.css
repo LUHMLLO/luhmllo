@@ -48,16 +48,6 @@
       padding-right: var(--xs);
     }
 
-    &:has(> :where(i, figure, kbd):only-child) {
-      aspect-ratio: 1/1;
-      display: grid;
-      flex-shrink: 0;
-      height: 45px;
-      padding: 0;
-      place-content: center;
-      width: 45px;
-    }
-
     &:where([data-variant="outline"]) {
       background-color: transparent;
       color: var(--clr-text__base);
@@ -70,6 +60,7 @@
       height: auto;
       outline-color: transparent;
       padding: 0;
+      width: auto;
 
       &:focus-visible {
         outline-color: inherit;
@@ -85,6 +76,16 @@
         background-color: transparent;
         color: var(--clr-text__lowered);
       }
+    }
+
+    &:not([data-variant='ghost']):has(> :where(i, figure, kbd):only-child) {
+      aspect-ratio: 1/1;
+      display: grid;
+      flex-shrink: 0;
+      height: 45px;
+      padding: 0;
+      place-content: center;
+      width: 45px;
     }
 
     & > span {
