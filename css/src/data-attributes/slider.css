@@ -2,8 +2,6 @@
   :where([data-is="slider"]) {
     display: grid;
     height: max-content;
-    scrollbar-gutter: both-edges stable;
-
 
     &:is([data-variant="horizontal"]) {
       grid-auto-flow: column;
