@@ -6,7 +6,7 @@
 	<div data-is='row'>
 		<a href='' data-variant='text'>Rubik Studio</a>
 	</div>
-	<div data-is='row' style='justify-content: center;'>
+	<div id='topbar__menu' data-is='row' style='justify-content: center;'>
 		<a href='' data-variant='text'> About </a>
 		<a href='' data-variant='text'> Projects </a>
 		<a href='' data-variant='text'> Work </a>
@@ -18,13 +18,19 @@
 	<style lang='css' is:inline>
 		@scope (#topbar) {
 			:scope {
-				align-items: center;
+				align-items: end;
 				grid-row: top;
-				height: 100px;
+				height: 55px;
 
 				& > * {
 					flex: 1 1;
 					gap: var(--xl);
+				}
+
+				#topbar__menu {
+					@media screen and (max-width: 640px) {
+						display: none;
+					}
 				}
 			}
 		}

@@ -32,15 +32,23 @@ const cards = [
 						}
 
 						&:nth-child(2) {
-							filter: blur(0.25ex);
+							filter: blur(0.1ex);
 							rotate: 5deg;
 							z-index: -2;
+
+							& > figure {
+								opacity: 0.5;
+							}
 						}
 
 						&:nth-child(3) {
-							filter: blur(0.25ex);
+							filter: blur(0.15ex);
 							rotate: 10deg;
 							z-index: -3;
+
+							& > figure {
+								opacity: 0.25;
+							}
 						}
 					}
 				}
