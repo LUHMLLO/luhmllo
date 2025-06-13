@@ -26,6 +26,18 @@ const { image } = Astro.props;
 				background-color: transparent;
 				width: calc(var(--xl) * 16);
 
+				@media screen and (max-width: 896px) {
+					width: calc(var(--xl) * 14);
+				}
+
+				@media screen and (max-width: 640px) {
+					width: calc(var(--xl) * 12);
+				}
+
+				@media screen and (max-width: 384px) {
+					width: calc(var(--xl) * 10);
+				}
+
 				& > [data-is='row'] {
 					aspect-ratio: 1/1;
 					background-color: hsla(0 0 0/0.1);
