@@ -1,3 +1,8 @@
+---
+import { Image } from 'astro:assets';
+import AssetBannerInstallGuy from '../assets/bannerinstallguy.png';
+---
+
 <section id='reviews' data-is='stack' data-layout='expand-content'>
 	<h3>Customer Success Stories</h3>
 	<div
@@ -24,7 +29,12 @@
 						<figure
 							data-geometry='circle'
 							style='background-color: var(--clr-background__base); height: calc(var(--lg) * 2);'>
-							<img src='/images/halo/haloinstallation.png' alt='' />
+							<Image
+								src={AssetBannerInstallGuy}
+								alt='banner installation guy'
+								decoding='async'
+								loading='eager'
+							/>
 						</figure>
 						<div data-is='group' style='flex: 1 1;'>
 							<b>Gerald Gerhold</b>

@@ -1,4 +1,8 @@
 ---
+import { getBasePath } from 'src/utils/routeSegments';
+
+const basePath = getBasePath(Astro.url.pathname, 3);
+
 const sections = [
 	{ href: '#agreement-and-terms', label: 'Agreement/Legal Terms' },
 	{ href: '#our-services', label: 'Our Services' },
@@ -54,7 +58,7 @@ const sections = [
 		{
 			sections.map(({ href, label }) => (
 				<li>
-					<a href={href}>
+					<a href={basePath + href}>
 						<span>{label}</span>
 					</a>
 				</li>

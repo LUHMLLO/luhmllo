@@ -1,11 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import AssetLogo from '../assets/hytech_h2o.png';
+import Asset_SocialIcon_Facebook from '../assets/facebook.png';
+import Asset_SocialIcon_Instagram from '../assets/linkedin.png';
+import Asset_SocialIcon_Linkedin from '../assets/instagram.png';
+import { getBasePath } from 'src/utils/routeSegments';
+
+const basePath = getBasePath(Astro.url.pathname, 2);
+---
+
 <footer
 	data-is='grid'
 	data-layout='expand'
 	style='--cols: 4; --gap: calc(var(--xl) * 2); row-gap: var(--xl);'>
 	<div style='grid-column: 1/-1;'>
-		<a href='/sites/halo'>
+		<a href={basePath}>
 			<figure style='height: 75px;'>
-				<img src='/images/halo/hytech_h2o.png' alt='logo' />
+				<Image src={AssetLogo} alt='logo' decoding='async' loading='eager' />
 			</figure>
 		</a>
 	</div>
@@ -49,9 +60,9 @@
 		<h6>Company</h6>
 
 		<div data-is='stack' style='gap: var(--sm);'>
-			<a href='#' data-variant='text'> About us </a>
-			<a href='#' data-variant='text'> Privacy policies </a>
-			<a href='/sites/halo/terms' data-variant='text'> Terms of use </a>
+			<a href={`${basePath}#`} data-variant='text'> About us </a>
+			<a href={`${basePath}#`} data-variant='text'> Privacy policies </a>
+			<a href={`${basePath}/terms`} data-variant='text'> Terms of use </a>
 		</div>
 	</div>
 
@@ -65,7 +76,12 @@
 				rel='noopener noreferrer'
 				data-variant='text'>
 				<figure>
-					<img src='/images/halo/facebook.png' alt='facebook' />
+					<Image
+						src={Asset_SocialIcon_Facebook}
+						alt='social icon - facebook'
+						decoding='async'
+						loading='eager'
+					/>
 				</figure>
 			</a>
 			<a
@@ -74,7 +90,12 @@
 				rel='noopener noreferrer'
 				data-variant='text'>
 				<figure>
-					<img src='/images/halo/instagram.png' alt='instagram' />
+					<Image
+						src={Asset_SocialIcon_Instagram}
+						alt='social icon - instagram'
+						decoding='async'
+						loading='eager'
+					/>
 				</figure>
 			</a>
 			<a
@@ -83,7 +104,12 @@
 				rel='noopener noreferrer'
 				data-variant='text'>
 				<figure>
-					<img src='/images/halo/linkedin.png' alt='linkedin' />
+					<Image
+						src={Asset_SocialIcon_Linkedin}
+						alt='social icon - linkedin'
+						decoding='async'
+						loading='eager'
+					/>
 				</figure>
 			</a>
 		</div>

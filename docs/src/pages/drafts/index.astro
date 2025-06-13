@@ -1,13 +1,18 @@
 ---
 import ShellLayout from '@layouts/app.astro';
-import { getRoutesByGroup, type RouteItem } from 'src/utils/getPageGroup';
+import {
+	getTopLevelRoutesByGroup,
+	type RouteItem,
+} from 'src/utils/getPageGroup';
 
-const pages: RouteItem[] = getRoutesByGroup('examples');
+const pages: RouteItem[] = getTopLevelRoutesByGroup('drafts').filter(
+	(page) => page.name !== 'drafts'
+);
 ---
 
 <ShellLayout>
 	<section>
-		<h2>Docs</h2>
+		<h2>Drafts</h2>
 
 		<br />
 

@@ -1,10 +1,23 @@
+---
+import { Image } from 'astro:assets';
+import AssetBannerBackground from '../assets/bannerbackground.png';
+import { getBasePath } from 'src/utils/routeSegments';
+
+const basePath = getBasePath(Astro.url.pathname, 2);
+---
+
 <section
 	id='quote'
 	data-is='grid'
 	data-layout='expand'
 	style='--cols: 1; --gap: var(--xl); place-items: center;'>
 	<figure data-is='background'>
-		<img src='/images/halo/Fondo.png' alt='background' />
+		<Image
+			src={AssetBannerBackground}
+			alt='banner background'
+			decoding='async'
+			loading='eager'
+		/>
 	</figure>
 
 	<div data-is='stack'>
@@ -20,7 +33,7 @@
 	</div>
 
 	<a
-		href='/sites/halo/#contact'
+		href={`${basePath}#contact`}
 		data-is='button'
 		style='width: min(100%, 348px);'>
 		<span>Get a Quote</span>

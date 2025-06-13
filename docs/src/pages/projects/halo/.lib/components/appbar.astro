@@ -1,3 +1,11 @@
+---
+import { Image } from 'astro:assets';
+import AssetLogo from '../assets/hytech_h2o.png';
+import { getBasePath } from 'src/utils/routeSegments';
+
+const basePath = getBasePath(Astro.url.pathname, 2);
+---
+
 <hr id='top' style='height: 0; width: 0;' />
 
 <nav id='appbar' data-layout='expand'>
@@ -32,48 +40,48 @@
 	</div>
 
 	<div id='appbar__logo'>
-		<a href='/sites/halo'>
+		<a href={basePath}>
 			<figure style='height: 75px;'>
-				<img src='/images/halo/hytech_h2o.png' alt='logo' />
+				<Image src={AssetLogo} alt='logo' decoding='async' loading='eager' />
 			</figure>
 		</a>
 	</div>
 
 	<div id='appbar__menu' data-is='flex' data-visible='false'>
-		<a href='/sites/halo#about' data-variant='text'>
+		<a href={`${basePath}#about`} data-variant='text'>
 			<span>About</span>
 		</a>
-		<a href='/sites/halo#cleanwater' data-variant='text'>
+		<a href={`${basePath}#cleanwater`} data-variant='text'>
 			<span>Clean Water</span>
 		</a>
-		<a href='/sites/halo#products' data-variant='text'>
+		<a href={`${basePath}#products`} data-variant='text'>
 			<span>Products</span>
 		</a>
 		<a href='https://hytechhome.com/' target='_blank' data-variant='text'>
 			<span>Hytech Home</span>
 			<i data-is='icon'>north_east</i>
 		</a>
-		<a href='#' data-variant='text' data-condition='mobile-only'>
+		<a href={`${basePath}#`} data-variant='text' data-condition='mobile-only'>
 			<span>About us</span>
 		</a>
-		<a href='#' data-variant='text' data-condition='mobile-only'>
+		<a href={`${basePath}#`} data-variant='text' data-condition='mobile-only'>
 			<span>Privacy policies</span>
 		</a>
 		<a
-			href='/sites/halo/terms'
+			href={`${basePath}/terms`}
 			data-variant='text'
 			data-condition='mobile-only'>
 			<span>Terms of use</span>
 		</a>
 		<div data-is='stack' data-condition='mobile-only'>
-			<a href='/sites/halo#contact' data-is='button'>
+			<a href={`${basePath}#contact`} data-is='button'>
 				<span>Get in Contact</span>
 			</a>
 		</div>
 	</div>
 
 	<div id='appbar__options' data-is='row'>
-		<a href='/sites/halo#contact' data-is='button'>
+		<a href={`${basePath}#contact`} data-is='button'>
 			<span>Get in Contact</span>
 		</a>
 

@@ -1,12 +1,19 @@
+---
+import { Image } from 'astro:assets';
+import AssetContactBackground from '../assets/contactbackground.png';
+---
+
 <section
 	id='contact'
 	data-is='grid'
 	data-layout='expand'
 	style='--cols: 2; --gap: calc(var(--xl) * 2);'>
 	<figure data-is='background'>
-		<img
-			src='/images/halo/Menol_Bratpit_.png'
-			alt='background'
+		<Image
+			src={AssetContactBackground}
+			alt='contact section background'
+			decoding='async'
+			loading='eager'
 			style='object-position: 1% 0%;'
 		/>
 	</figure>

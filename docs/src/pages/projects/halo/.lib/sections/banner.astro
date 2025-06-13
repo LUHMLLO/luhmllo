@@ -1,10 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import AssetBannerBackground from '../assets/bannerbackground.png';
+import AssetBannerInstallGuy from '../assets/bannerinstallguy.png';
+import AssetBannerChildWithCupOfWater from '../assets/bannerchildwithcupofwater.png';
+---
+
 <section id='banner' data-is='grid' data-layout='expand'>
 	<figure data-is='background'>
-		<img src='/images/halo/Fondo.png' alt='background' />
+		<Image
+			src={AssetBannerBackground}
+			alt='banner background'
+			decoding='async'
+			loading='eager'
+		/>
 	</figure>
 
 	<figure id='banner__installation'>
-		<img src='/images/halo/haloinstallation.png' alt='installation' />
+		<Image
+			src={AssetBannerInstallGuy}
+			alt='banner installation guy'
+			decoding='async'
+			loading='eager'
+		/>
 	</figure>
 
 	<div id='banner__content' data-is='group'>
@@ -17,9 +34,11 @@
 	</div>
 
 	<figure id='banner__child'>
-		<img
-			src='/images/halo/childrendrinkingwater.png'
-			alt='childrendrinkingwater'
+		<Image
+			src={AssetBannerChildWithCupOfWater}
+			alt='banner child with cup of water'
+			decoding='async'
+			loading='eager'
 		/>
 	</figure>
 

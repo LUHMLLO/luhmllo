@@ -1,11 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import AssetProduct1 from '../assets/product-1.png';
+import AssetProduct2 from '../assets/product-2.png';
+---
+
 <section id='products' data-is='grid' style='--cols: 1;'>
 	<div data-is='wrap'>
 		<h3>Explore Our Featured<br />Products Catalog</h3>
 		<figure>
-			<img src='/images/halo/product-1.png' alt='product' />
+			<Image
+				src={AssetProduct1}
+				alt='product - H2 ZERO ULTIMATE'
+				decoding='async'
+				loading='eager'
+			/>
 		</figure>
 		<figure>
-			<img src='/images/halo/product-2.png' alt='product' />
+			<Image
+				src={AssetProduct2}
+				alt='product - H2 ZERO ULTIMATEHALO Ultra PLUS RO with Alkalinity Booster'
+				decoding='async'
+				loading='eager'
+			/>
 		</figure>
 	</div>
 

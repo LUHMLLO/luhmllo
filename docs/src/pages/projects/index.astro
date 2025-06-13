@@ -5,14 +5,14 @@ import {
 	type RouteItem,
 } from 'src/utils/getPageGroup';
 
-const pages: RouteItem[] = getTopLevelRoutesByGroup('docs').filter(
-	(page) => page.name !== 'docs'
+const pages: RouteItem[] = getTopLevelRoutesByGroup('projects').filter(
+	(page) => page.name !== 'projects'
 );
 ---
 
 <ShellLayout>
 	<section>
-		<h2>Docs</h2>
+		<h2>Projects</h2>
 
 		<br />
 

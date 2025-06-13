@@ -56,7 +56,7 @@ import Footer from './components/footer.astro';
 						:where(button, [data-is='button']) {
 							background-color: var(--clr-accent__base);
 							box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.05);
-							color: var(--clr-background__raised);
+							color: var(--clr-background__base);
 							font-size: clamp(var(--md), 100%, var(--nm));
 							font-weight: 500;
 							height: calc(var(--xl) * 2);
@@ -78,7 +78,7 @@ import Footer from './components/footer.astro';
 							&:active {
 								background-color: var(--clr-accent__lowered);
 								box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.03);
-								color: var(--clr-background__raised);
+								color: var(--clr-background__lowered);
 							}
 						}
 					}
