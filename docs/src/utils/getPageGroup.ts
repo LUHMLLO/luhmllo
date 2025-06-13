@@ -33,8 +33,8 @@ export interface RouteItem {
   description?: string
   icon?: string
   component?: unknown
-  depth: number // New: track how deep the route is
-  parentFolder?: string // New: track immediate parent folder
+  depth: number
+  parentFolder?: string
 }
 
 export interface RouteGroupOptions {
@@ -43,49 +43,71 @@ export interface RouteGroupOptions {
   excludeFolders?: string[]
 }
 
-const modules = import.meta.glob( '/src/pages/**/*.{astro,mdx}', { eager: true } )
+// Cache for routes to avoid re-processing
+let routesCache: RouteItem[] | null = null
 
-const routes: RouteItem[] = []
+// Function to get all routes (lazy loading)
+const getAllRoutes = async (): Promise<RouteItem[]> => {
+  // Return cached routes if already processed
+  if ( routesCache ) {
+    return routesCache
+  }
 
-for ( const path in modules ) {
-  const mod = modules[ path ] as Record<string, any>
+  // Use non-eager import to avoid circular dependencies
+  const modules = import.meta.glob( '/src/pages/**/*.{astro,mdx}' )
+  const routes: RouteItem[] = []
 
-  const cleanPath = path
-    .replace( '/src/pages', '' )
-    .replace( /\/?index\.(astro|mdx)$/, '' )
-    .replace( /\.(astro|mdx)$/, '' )
+  // Process modules one by one
+  for ( const path in modules ) {
+    try {
+      const mod = await modules[ path ]() as Record<string, any>
 
-  const pathSegments = cleanPath.split( '/' ).filter( Boolean )
-  const name = pathSegments[ pathSegments.length - 1 ] || 'unknown'
-  const depth = pathSegments.length
-  const parentFolder = pathSegments[ pathSegments.length - 2 ]
+      const cleanPath = path
+        .replace( '/src/pages', '' )
+        .replace( /\/?index\.(astro|mdx)$/, '' )
+        .replace( /\.(astro|mdx)$/, '' )
 
-  routes.push( {
-    path: cleanPath || '/',
-    name,
-    title:
-      mod.title ||
-      name.replace( /[-_]/g, ' ' ).replace( /\b\w/g, l => l.toUpperCase() ) ||
-      'Untitled',
-    description:
-      mod.description ||
-      mod.frontmatter?.description ||
-      'No description available',
-    icon: mod.icon || mod.frontmatter?.icon,
-    component: mod.default,
-    depth,
-    parentFolder,
-  } )
+      const pathSegments = cleanPath.split( '/' ).filter( Boolean )
+      const name = pathSegments[ pathSegments.length - 1 ] || 'unknown'
+      const depth = pathSegments.length
+      const parentFolder = pathSegments[ pathSegments.length - 2 ]
+
+      routes.push( {
+        path: cleanPath || '/',
+        name,
+        title:
+          mod.title ||
+          name.replace( /[-_]/g, ' ' ).replace( /\b\w/g, l => l.toUpperCase() ) ||
+          'Untitled',
+        description:
+          mod.description ||
+          mod.frontmatter?.description ||
+          'No description available',
+        icon: mod.icon || mod.frontmatter?.icon,
+        component: mod.default,
+        depth,
+        parentFolder,
+      } )
+    } catch ( error ) {
+      console.warn( `Failed to load module: ${ path }`, error )
+    }
+  }
+
+  // Cache the results
+  routesCache = routes
+  return routes
 }
 
 export const getFolder = ( route: RouteItem ) =>
   route.path.split( '/' )[ 1 ] || 'root'
 
 // Enhanced function to get routes with subfolder control
-export const getRoutesByGroup = (
+export const getRoutesByGroup = async (
   group: string,
   options: RouteGroupOptions = {}
-): RouteItem[] => {
+): Promise<RouteItem[]> => {
+  const routes = await getAllRoutes()
+
   const {
     includeSubfolders = true,
     maxDepth = Infinity,
@@ -122,17 +144,18 @@ export const getRoutesByGroup = (
 }
 
 // Convenience functions for common use cases
-export const getTopLevelRoutesByGroup = ( group: string ): RouteItem[] =>
+export const getTopLevelRoutesByGroup = async ( group: string ): Promise<RouteItem[]> =>
   getRoutesByGroup( group, { includeSubfolders: false } )
 
-export const getRoutesByGroupExcluding = (
+export const getRoutesByGroupExcluding = async (
   group: string,
   excludeFolders: string[]
-): RouteItem[] =>
+): Promise<RouteItem[]> =>
   getRoutesByGroup( group, { excludeFolders } )
 
 // Get all unique folders for a group (useful for navigation)
-export const getSubfoldersInGroup = ( group: string ): string[] => {
+export const getSubfoldersInGroup = async ( group: string ): Promise<string[]> => {
+  const routes = await getAllRoutes()
   const groupRoutes = routes.filter( route => getFolder( route ) === group )
   const subfolders = new Set<string>()
 
@@ -146,10 +169,11 @@ export const getSubfoldersInGroup = ( group: string ): string[] => {
 }
 
 // Get routes for a specific subfolder within a group
-export const getRoutesForSubfolder = (
+export const getRoutesForSubfolder = async (
   group: string,
   subfolder: string
-): RouteItem[] => {
+): Promise<RouteItem[]> => {
+  const routes = await getAllRoutes()
   return routes.filter( route => {
     const routeFolder = getFolder( route )
     return routeFolder === group && route.path.startsWith( `/${ group }/${ subfolder }/` )

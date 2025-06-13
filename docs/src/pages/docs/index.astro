@@ -5,7 +5,7 @@ import {
 	type RouteItem,
 } from 'src/utils/getPageGroup';
 
-const pages: RouteItem[] = getTopLevelRoutesByGroup('docs').filter(
+const pages: RouteItem[] = (await getTopLevelRoutesByGroup('docs')).filter(
 	(page) => page.name !== 'docs'
 );
 ---

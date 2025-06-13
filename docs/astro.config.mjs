@@ -17,4 +17,14 @@ export default defineConfig({
   ],
 
   adapter: vercel(),
+
+  // vite: {
+  //   resolve: {
+  //     alias: {
+  //       "@assets/*": "src/assets/*",
+  //       "@components/*": "src/components/*",
+  //       "@layouts/*": "src/layouts/*"
+  //     }
+  //   },
+  // }
 })
