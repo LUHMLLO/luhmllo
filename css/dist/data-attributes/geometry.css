@@ -1,1 +1,1 @@
-@layer data-attributes{:where([data-geometry=circle]){aspect-ratio:1/1;border-radius:10ex;overflow:clip}:where([data-geometry=squircle]){aspect-ratio:1/1;border-radius:.5ex;overflow:clip}}
+@layer data-attributes{:where([data-geometry=circle]){aspect-ratio:1/1;border-radius:10ex;overflow:clip}:where([data-geometry=squircle]){aspect-ratio:1/1;border-radius:5ex;overflow:clip}}

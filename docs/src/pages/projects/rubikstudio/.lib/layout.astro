@@ -1,6 +1,7 @@
 ---
 import ShellLayout from '@layouts/app.astro';
 import ViewFrame from '@layouts/frame.astro';
+
 import Appbar from './components/appbar.astro';
 ---
 
@@ -8,7 +9,32 @@ import Appbar from './components/appbar.astro';
 	<ViewFrame>
 		<div id='rubikstudioapp' data-is='app'>
 			<Appbar />
-			<slot />
+
+			<div
+				id='rubikstudioapp__content'
+				data-is='slider'
+				data-variant='horizontal'
+				data-layout='expand'>
+				<slot />
+
+				<style lang='css' is:inline>
+					@scope (#rubikstudioapp__content) {
+						:scope {
+							height: 100%;
+							place-content: safe center;
+						}
+					}
+				</style>
+			</div>
+
+			<style lang='css' is:inline>
+				@scope (#rubikstudioapp) {
+					:scope {
+						height: 100%;
+						min-height: 0;
+					}
+				}
+			</style>
 		</div>
 	</ViewFrame>
 </ShellLayout>

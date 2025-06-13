@@ -7,7 +7,7 @@
 
   :where([data-geometry="squircle"]) {
     aspect-ratio: 1/1;
-    border-radius: 0.5ex;
+    border-radius: 5ex;
     overflow: clip;
   }
 }

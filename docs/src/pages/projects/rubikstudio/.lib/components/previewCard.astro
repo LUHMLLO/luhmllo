@@ -1,0 +1,53 @@
+---
+const { image } = Astro.props;
+---
+
+<article data-is='card' data-geometry='squircle'>
+	<figure data-is='background'>
+		<img src={image} alt='cover' />
+	</figure>
+
+	<div data-is='row'>
+		<div data-is='group'>
+			<h5 style='font-size: var(--);'>Complex</h5>
+			<p>We need to start somewhere right?</p>
+		</div>
+
+		<button data-variant='ghost'>
+			<i data-is='icon'>add_2</i>
+		</button>
+	</div>
+
+	<style lang='css' is:inline>
+		@scope {
+			:scope {
+				background-color: transparent;
+				width: 512px;
+
+				& > [data-is='row'] {
+					aspect-ratio: 1/1;
+					background-color: hsla(0 0 0/0.1);
+					backdrop-filter: blur(0.75ex);
+					box-shadow: inset 0 0 100vmax -1px hsla(0 0 0/0.125);
+					border-radius: 50%;
+					gap: var(--xs);
+					padding: calc(var(--xl) * 4) calc(var(--xl) * 1.15);
+					place-items: center center;
+					width: 100%;
+
+					[data-is='group'] {
+						flex: 1 1;
+					}
+
+					button {
+						flex-shrink: 0;
+
+						[data-is='icon'] {
+							--size: calc(var(--nm) * 2);
+						}
+					}
+				}
+			}
+		}
+	</style>
+</article>
