@@ -1,0 +1,32 @@
+---
+
+---
+
+<nav id='topbar'>
+	<div data-is='row'>
+		<a href='' data-text='text'>Rubik Studio</a>
+	</div>
+	<div data-is='row' style='justify-content: center;'>
+		<a href='' data-text='text'> About </a>
+		<a href='' data-text='text'> Projects </a>
+		<a href='' data-text='text'> Work </a>
+	</div>
+	<div data-is='row' style='justify-content: end;'>
+		<a href='' data-text='text'> Contact </a>
+	</div>
+
+	<style lang='css' is:inline>
+		@scope (#topbar) {
+			:scope {
+				align-items: center;
+				grid-row: top;
+				height: 100px;
+
+				& > * {
+					flex: 1 1;
+					gap: var(--xl);
+				}
+			}
+		}
+	</style>
+</nav>

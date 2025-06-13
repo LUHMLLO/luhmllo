@@ -8,7 +8,7 @@ import Footer from './components/footer.astro';
 
 <ShellLayout>
 	<ViewFrame>
-		<div id='site' data-is='app'>
+		<div id='haloapp' data-is='app'>
 			<Appbar />
 			<slot />
 			<Footer />
@@ -16,7 +16,7 @@ import Footer from './components/footer.astro';
 			<style lang='css' is:inline>
 				@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 
-				@scope (#site) {
+				@scope (#haloapp) {
 					:scope {
 						--clr-background__lowered: #eceeec;
 						--clr-background__base: #f1f3f1;

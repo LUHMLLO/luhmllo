@@ -97,17 +97,9 @@
       font-size: 14px;
     }
 
-    /* @media screen and (max-width: 640px) {
-      font-size: 14px;
-    } */
-
     @media screen and (max-width: 512px) {
       font-size: 12px;
     }
-
-    /* @media screen and (max-width: 384px) {
-      font-size: 12px;
-    } */
 
     @media screen and (max-width: 256px) {
       font-size: 10px;

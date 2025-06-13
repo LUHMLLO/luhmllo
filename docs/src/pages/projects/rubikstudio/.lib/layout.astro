@@ -1,10 +1,14 @@
 ---
 import ShellLayout from '@layouts/app.astro';
 import ViewFrame from '@layouts/frame.astro';
+import Appbar from './components/appbar.astro';
 ---
 
 <ShellLayout>
 	<ViewFrame>
-		<slot />
+		<div id='rubikstudioapp' data-is='app'>
+			<Appbar />
+			<slot />
+		</div>
 	</ViewFrame>
 </ShellLayout>
