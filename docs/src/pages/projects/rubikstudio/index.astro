@@ -19,47 +19,37 @@ const cards = [
 			cards.map((el, i) => (
 				<PreviewCard
 					image={el}
-					style={`filter: blur(${i * 0.125}ex); opacity: ${Math.max(1 - i / cards.length, 0.1)}; rotate:${i * 5}deg; z-index: ${i * -1}`}
+					style={`
+            --deg:${i * 5}deg;
+            filter: blur(${i * 0.125}ex); 
+            opacity: ${Math.max(1 - i / cards.length, 0.1)}; 
+            transform: rotate(var(--deg));
+            z-index: ${i * -1}`}
 				/>
 			))
 		}
 
 		<style lang='css' is:inline>
-			@scope {
+			@keyframes rotate-in {
+				to {
+				}
+			}
+
+			@scope ([data-is="cardstack"]) {
 				:scope {
 					display: inline-grid;
 					place-items: center;
 
 					& > * {
+						transition-delay: 5s;
+						transition-duration: var(--animDuration);
+						transition-property: transform;
+						transition-timing-function: var(--animTiming);
+
 						grid-area: 1 / 1;
 
 						&:not(:nth-child(1)) {
 							pointer-events: none;
-						}
-
-						&:nth-child(1) {
-							/* rotate: 0deg; */
-							/* z-index: 1; */
-						}
-
-						&:nth-child(2) {
-							/* filter: blur(0.1ex); */
-							/* rotate: 5deg; */
-							/* z-index: -2; */
-
-							/* & > figure {
-								opacity: 0.5;
-							} */
-						}
-
-						&:nth-child(3) {
-							/* filter: blur(0.15ex); */
-							/* rotate: 10deg; */
-							/* z-index: -3; */
-
-							/* & > figure {
-								opacity: 0.25;
-							} */
 						}
 					}
 				}
