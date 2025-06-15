@@ -1,10 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 
-const { image } = Astro.props;
+const { image, style } = Astro.props;
 ---
 
-<article data-is='card' data-geometry='squircle'>
+<article data-is='card' data-geometry='squircle' {style}>
 	<figure data-is='background'>
 		<Image src={image} alt='cover' height='512' width='512' />
 	</figure>
@@ -24,6 +24,8 @@ const { image } = Astro.props;
 		@scope {
 			:scope {
 				background-color: transparent;
+				box-shadow: 0 0 100vmax -1ex hsl(var(--clr-background__lowered) h s l /
+							1);
 				width: calc(var(--xl) * 16);
 
 				@media screen and (max-width: 896px) {

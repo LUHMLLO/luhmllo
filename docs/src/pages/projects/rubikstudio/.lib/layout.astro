@@ -27,11 +27,39 @@ import Appbar from './components/appbar.astro';
 				</style>
 			</div>
 
+			<script
+				src='https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js'
+				is:inline></script>
+
+			<script
+				src='https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js'
+				is:inline></script>
+			<!-- ScrollSmoother requires ScrollTrigger -->
+			<script
+				src='https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js'
+				is:inline></script>
+
+			<script is:inline>
+				// Wait for all scripts to load
+				window.addEventListener('load', () => {
+					if (typeof gsap !== 'undefined') {
+						gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+						// Your GSAP code here
+						console.log('GSAP is ready!', gsap);
+					} else {
+						console.error('GSAP failed to load');
+					}
+				});
+			</script>
+
 			<style lang='css' is:inline>
 				@scope (#rubikstudioapp) {
 					:scope {
+						background-color: var(--clr-background__lowered);
 						height: 100%;
+						isolation: isolate;
 						min-height: 0;
+						position: relative;
 					}
 				}
 			</style>

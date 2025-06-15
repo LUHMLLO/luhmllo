@@ -1,10 +1,14 @@
 ---
-
+import Logo from './logo.astro';
 ---
 
 <nav id='topbar'>
-	<div data-is='row'>
-		<a href='' data-variant='text'>Rubik Studio</a>
+	<div data-is='row' style='height: 20px;'>
+		<a href='' data-variant='text'>
+			<figure style='width: 100px;'>
+				<Logo />
+			</figure>
+		</a>
 	</div>
 	<div id='topbar__menu' data-is='row' style='justify-content: center;'>
 		<a href='' data-variant='text'> About </a>
@@ -19,10 +23,13 @@
 		@scope (#topbar) {
 			:scope {
 				align-items: end;
+				grid-column: expand;
 				grid-row: top;
-				height: 55px;
+				height: calc(var(--lg) * 2);
+				padding-inline: var(--lg);
 
 				& > * {
+					align-items: center;
 					flex: 1 1;
 					gap: var(--xl);
 				}
