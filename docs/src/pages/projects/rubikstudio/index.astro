@@ -16,15 +16,10 @@ const cards = [
 <Layout>
 	<div data-is='cardstack'>
 		{
-			cards.map((el, i) => (
+			cards.map((image, i) => (
 				<PreviewCard
-					image={el}
-					style={`
-            --target-delay: ${i * 0.15}s;
-            --target-opacity: ${Math.max(1 - i / cards.length, 0.1)}; 
-            --target-rotation: ${i * 5}deg;
-            filter: blur(${i * 0.125}ex); 
-            z-index: ${i * -1}`}
+					{image}
+					style={`--target-delay: ${i * 0.15}s; --target-opacity: ${Math.max(1 - i / cards.length, 0.1)}; --target-rotation: ${i * 5}deg; filter: blur(${i * 0.125}ex); z-index: ${i * -1}`}
 				/>
 			))
 		}
