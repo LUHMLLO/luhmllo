@@ -8,6 +8,8 @@ import Appbar from './components/appbar.astro';
 <ShellLayout>
 	<ViewFrame>
 		<div id='rubikstudioapp' data-is='app'>
+			<div data-is='layer' data-variant='over'></div>
+
 			<Appbar />
 
 			<div
@@ -16,41 +18,32 @@ import Appbar from './components/appbar.astro';
 				data-variant='horizontal'
 				data-layout='expand'>
 				<slot />
-
-				<style lang='css' is:inline>
-					@scope (#rubikstudioapp__content) {
-						:scope {
-							height: 100%;
-							place-content: safe center;
-						}
-					}
-				</style>
 			</div>
 
-			<script
-				src='https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js'
-				is:inline></script>
+			<!-- <template>
+				<script
+					src='https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js'
+					is:inline></script>
+				<script
+					src='https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js'
+					is:inline></script>
+				<script
+					src='https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js'
+					is:inline></script>
 
-			<script
-				src='https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js'
-				is:inline></script>
-			<!-- ScrollSmoother requires ScrollTrigger -->
-			<script
-				src='https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js'
-				is:inline></script>
-
-			<script is:inline>
-				// Wait for all scripts to load
-				window.addEventListener('load', () => {
-					if (typeof gsap !== 'undefined') {
-						gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-						// Your GSAP code here
-						console.log('GSAP is ready!', gsap);
-					} else {
-						console.error('GSAP failed to load');
-					}
-				});
-			</script>
+				<script is:inline>
+					// Wait for all scripts to load
+					window.addEventListener('load', () => {
+						if (typeof gsap !== 'undefined') {
+							gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+							// Your GSAP code here
+							console.log('GSAP is ready!', gsap);
+						} else {
+							console.error('GSAP failed to load');
+						}
+					});
+				</script>
+			</template> -->
 
 			<style lang='css' is:inline>
 				@scope (#rubikstudioapp) {
@@ -60,6 +53,13 @@ import Appbar from './components/appbar.astro';
 						isolation: isolate;
 						min-height: 0;
 						position: relative;
+
+						@scope (#rubikstudioapp__content) {
+							:scope {
+								height: 100%;
+								place-content: safe center;
+							}
+						}
 					}
 				}
 			</style>
