@@ -1,59 +1,63 @@
 ---
+import { getBasePath } from 'src/utils/routeSegments';
+
+const basePath = getBasePath(Astro.url.pathname, 2);
+
 const options = [
 	{
 		name: 'Customer Information',
-		path: '/prototypes/proposaltooling/customer-information',
+		path: '/customer-information',
 		switch: false,
 	},
 	{
 		name: 'Solar Panels',
-		path: '/prototypes/proposaltooling/solar-panels',
+		path: '/solar-panels',
 		switch: true,
 	},
 	{
 		name: 'Battery System',
-		path: '/prototypes/proposaltooling/battery-system',
+		path: '/battery-system',
 		switch: true,
 	},
 	{
 		name: 'Roof Replacement',
-		path: '/prototypes/proposaltooling/roof-replacement',
+		path: '/roof-replacement',
 		switch: true,
 	},
 	{
 		name: 'Electrical Work',
-		path: '/prototypes/proposaltooling/electrical-work',
+		path: '/electrical-work',
 		switch: true,
 	},
 	{
 		name: 'Energy Efficiency',
-		path: '/prototypes/proposaltooling/energy-efficiency',
+		path: '/energy-efficiency',
 		switch: true,
 	},
-	{ name: 'H.V.A.C', path: '/prototypes/proposaltooling/hvac', switch: true },
+	{ name: 'H.V.A.C', path: '/hvac', switch: true },
 	{
 		name: 'Geothermal Services',
-		path: '/prototypes/proposaltooling/geothermal',
+		path: '/geothermal',
 		switch: true,
 	},
 	{
 		name: 'Other Project Adders',
-		path: '/prototypes/proposaltooling/other-project-adders',
+		path: '/other-project-adders',
 		switch: false,
 	},
 	{
 		name: 'Additional Projects',
-		path: '/prototypes/proposaltooling/additional-projects',
+		path: '/additional-projects',
 		switch: false,
 	},
 	{
 		name: 'Internal Sales Notes',
-		path: '/prototypes/proposaltooling/internal-sales-notes',
+		path: '/internal-sales-notes',
 		switch: false,
 	},
 	{
 		name: 'Financial',
-		path: '/prototypes/proposaltooling/financial',
+		path: '/financial',
 		switch: false,
 	},
 ];
@@ -71,7 +75,7 @@ const options = [
 
 	{
 		options.map((opt) => (
-			<a href={opt.path} data-is='button'>
+			<a href={basePath + opt.path} data-is='button'>
 				<span>{opt.name}</span>
 
 				{opt.switch && <input type='checkbox' data-is='switch' />}
@@ -122,8 +126,8 @@ const options = [
 				.querySelectorAll('[data-toggle-menu]')
 				.forEach((el) =>
 					el.addEventListener('click', () =>
-						dispatchEvent(new CustomEvent('menu:toggle')),
-					),
+						dispatchEvent(new CustomEvent('menu:toggle'))
+					)
 				);
 
 			// ─────────────────────────────────────────────
