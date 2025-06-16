@@ -14,7 +14,7 @@
       'Material Symbols Rounded',
       'Material Symbols Sharp';
     font-feature-settings: "liga";
-    font-size: calc(50% + var(--size));
+    font-size: var(--size);
     font-size-adjust: from-font;
     font-style: normal;
     font-variation-settings:
