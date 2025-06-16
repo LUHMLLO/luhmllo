@@ -3,6 +3,32 @@ import Logo from './logo.astro';
 ---
 
 <nav id='topbar'>
+	<div id='appbar__blur' data-has='blur'>
+		<div data-part='layer' style='--i: 0;'></div>
+		<div data-part='layer' style='--i: 1;'></div>
+		<div data-part='layer' style='--i: 2;'></div>
+		<div data-part='layer' style='--i: 3;'></div>
+		<div data-part='layer' style='--i: 4;'></div>
+		<div data-part='layer' style='--i: 5;'></div>
+
+		<style lang='css' is:inline>
+			@scope (#appbar__blur) {
+				:scope {
+					background: linear-gradient(
+						180deg,
+						rgba(0, 0, 0, 0.5) 0%,
+						rgba(0, 0, 0, 0) 100%
+					);
+					height: calc(var(--lg) * 2);
+					inset: 0 0 auto 0;
+					position: fixed;
+					width: 100%;
+					z-index: -1;
+				}
+			}
+		</style>
+	</div>
+
 	<div data-is='row' style='height: 20px;'>
 		<a href='' data-variant='text'>
 			<figure style='width: 100px;'>
@@ -26,7 +52,10 @@ import Logo from './logo.astro';
 				grid-column: expand;
 				grid-row: top;
 				height: calc(var(--lg) * 2);
+				inset: 0;
 				padding-inline: var(--lg);
+				position: sticky;
+				z-index: 2;
 
 				& > * {
 					align-items: center;

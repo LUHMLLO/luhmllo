@@ -12,11 +12,7 @@ import Appbar from './components/appbar.astro';
 
 			<Appbar />
 
-			<div
-				id='rubikstudioapp__content'
-				data-is='slider'
-				data-variant='horizontal'
-				data-layout='expand'>
+			<div id='rubikstudioapp__content' data-layout='expand'>
 				<slot />
 			</div>
 
@@ -49,15 +45,17 @@ import Appbar from './components/appbar.astro';
 				@scope (#rubikstudioapp) {
 					:scope {
 						background-color: var(--clr-background__lowered);
-						grid-auto-rows: max-content;
-						grid-template-rows: max-content;
 						height: 100%;
 						min-height: 0;
+						position: relative;
 
 						@scope (#rubikstudioapp__content) {
 							:scope {
 								height: 100%;
+								isolation: isolate;
 								place-content: safe center;
+								position: relative;
+								z-index: 1;
 							}
 						}
 					}
