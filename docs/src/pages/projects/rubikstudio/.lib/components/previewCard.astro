@@ -28,15 +28,15 @@ const { image, style } = Astro.props;
 							1);
 				width: calc(var(--xl) * 16);
 
-				@media screen and (max-width: 896px) {
+				@container xwindow (width < 896px) {
 					width: calc(var(--xl) * 14);
 				}
 
-				@media screen and (max-width: 640px) {
+				@container xwindow (width < 640px) {
 					width: calc(var(--xl) * 12);
 				}
 
-				@media screen and (max-width: 384px) {
+				@container xwindow (width < 384px) {
 					width: calc(var(--xl) * 10);
 				}
 
