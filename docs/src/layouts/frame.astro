@@ -3,9 +3,16 @@
 </div>
 
 <style lang='css' is:inline>
-	@scope (#app__content) {
+	@scope (#app) {
 		:scope {
-			grid-template-rows: 1fr;
+			min-height: 0;
+			height: 100dvh;
+
+			@scope (#app__content) {
+				:scope {
+					grid-template-rows: 1fr;
+				}
+			}
 		}
 	}
 </style>

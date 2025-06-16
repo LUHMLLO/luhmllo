@@ -3,29 +3,33 @@ import '../../../css/dist/all.css';
 import Scaffold from './html.astro';
 import Sidebar from '../components/Sidebar.astro';
 import Topbar from '../components/Topbar.astro';
-// import Bottombar from '../components/Bottombar.astro';
-// import TableOfContents from '../components/TableOfContents.astro';
 import Cookiesbar from '../components/Cookiesbar.astro';
 ---
 
 <Scaffold>
 	<div id='app' data-is='app' class='gridlines'>
 		<Topbar />
+
 		<Sidebar />
+
 		<div id='app__content' data-is='container' data-layout='expand-all'>
 			<slot />
+		</div>
 
-			<style lang='css' is:inline>
-				@scope (#app__content) {
-					:scope {
-						padding-block: var(--xl);
-						z-index: 1;
+		<Cookiesbar />
+
+		<style lang='css' is:inline>
+			@scope (#app) {
+				:scope {
+					@scope (#app__content) {
+						:scope {
+							padding-block: var(--xl);
+							position: relative;
+							z-index: 1;
+						}
 					}
 				}
-			</style>
-		</div>
-		<!-- <TableOfContents /> -->
-		<!-- <Bottombar /> -->
-		<Cookiesbar />
+			}
+		</style>
 	</div>
 </Scaffold>

@@ -1,0 +1,80 @@
+---
+import ShellLayout from '@layouts/app.astro';
+import ViewFrame from '@layouts/frame.astro';
+
+import Header from './components/header.astro';
+import Menu from './components/menu.astro';
+import Toast from './components/toast.astro';
+---
+
+<ShellLayout>
+	<ViewFrame>
+		<div id='proposalapp' data-is='stack'>
+			<Header />
+			<Toast />
+
+			<main>
+				<button data-toggle-menu>
+					<i data-is='icon'>side_navigation</i>
+					<span>Customer information</span>
+					<i data-is='icon'>keyboard_arrow_down</i>
+				</button>
+
+				<slot />
+			</main>
+
+			<Menu />
+
+			<style lang='css' is:inline>
+				@scope (#proposalapp) {
+					:scope {
+						background-color: var(--clr-background__lowered);
+						height: 100%;
+						min-height: 0;
+						position: relative;
+
+						:where(h1, h2, h3, h4, h5, h6) {
+							font-weight: 300;
+						}
+
+						main {
+							display: grid;
+							flex: 1 1;
+							grid: auto/1fr;
+							grid-template-rows: max-content 1fr;
+							overflow: clip;
+
+							& > button:nth-child(1) {
+								border-radius: 0;
+								background-color: var(--clr-background__raised);
+								width: 100%;
+
+								span {
+									text-align: left;
+								}
+							}
+
+							& > form {
+								--cols: 2;
+								--gap: var(--md);
+
+								grid-auto-rows: max-content;
+								overflow: auto;
+								padding: 0 var(--md) var(--xl);
+
+								& > h4 {
+									align-content: end;
+									height: 60px;
+								}
+
+								& > :where(h4, hr) {
+									grid-column: 1/-1;
+								}
+							}
+						}
+					}
+				}
+			</style>
+		</div>
+	</ViewFrame>
+</ShellLayout>

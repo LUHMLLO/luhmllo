@@ -49,10 +49,10 @@ import Appbar from './components/appbar.astro';
 				@scope (#rubikstudioapp) {
 					:scope {
 						background-color: var(--clr-background__lowered);
+						grid-auto-rows: max-content;
+						grid-template-rows: max-content;
 						height: 100%;
-						isolation: isolate;
 						min-height: 0;
-						position: relative;
 
 						@scope (#rubikstudioapp__content) {
 							:scope {
