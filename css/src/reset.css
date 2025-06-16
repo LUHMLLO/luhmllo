@@ -82,6 +82,7 @@
   :where(html) {
     background-color: var(--clr-background__lowered);
     color: var(--clr-text__base);
+    container: base / size;
     display: contents;
     font-family: sans-serif;
     font-size: 16px;
@@ -93,15 +94,15 @@
     text-align: left;
     text-underline-offset: 3px;
 
-    @media screen and (max-width: 768px) {
+    @media (width < 768px) {
       font-size: 14px;
     }
 
-    @media screen and (max-width: 512px) {
+    @media (width < 512px) {
       font-size: 12px;
     }
 
-    @media screen and (max-width: 256px) {
+    @media (width < 256px) {
       font-size: 10px;
     }
   }

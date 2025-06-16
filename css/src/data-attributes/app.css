@@ -6,6 +6,7 @@
     --inner-column: 100rem;
 
     display: grid;
+    container: app / size;
     grid-template-columns:
       [left-start] minmax(0, max-content) [left-end] 0 [expand-start] var(--outter-gutter) [breakout-start] minmax(var(--inner-gutter), 1fr) [inner-start] minmax(0, var(--inner-column)) [inner-end] minmax(var(--inner-gutter), 1fr) [breakout-end] var(--outter-gutter) [expand-end] 0 [right-start] minmax(0, max-content) [right-end];
     grid-template-rows:

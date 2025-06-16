@@ -3,7 +3,6 @@
     background-color: var(--clr-background__base);
     backdrop-filter: blur(0.5ex);
     border-radius: 1ex;
-    container: xwindow / size;
     display: block;
     height: 100%;
     isolation: isolate;
