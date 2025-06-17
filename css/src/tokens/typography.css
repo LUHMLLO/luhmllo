@@ -1,3 +1,20 @@
+/* @layer tokens {
+  :root {
+    --type-base: calc(var(--type-ratio) * clamp(clamp(0.72rem, 1rem, 0.88rem),
+          0.0625dvw,
+          clamp(1rem, 1vw, 16pt)));
+    --type-ratio: 1.125;
+    --type-h1: calc(var(--type-base) * pow(var(--type-ratio), 7));
+    --type-h2: calc(var(--type-base) * pow(var(--type-ratio), 6));
+    --type-h3: calc(var(--type-base) * pow(var(--type-ratio), 5));
+    --type-h4: calc(var(--type-base) * pow(var(--type-ratio), 4));
+    --type-h5: calc(var(--type-base) * pow(var(--type-ratio), 3));
+    --type-h6: calc(var(--type-base) * pow(var(--type-ratio), 2));
+    --type-p: calc(var(--type-base) * pow(var(--type-ratio), 1));
+    --type-s: calc(var(--type-base) / pow(var(--type-ratio), 1));
+  }
+} */
+
 @layer tokens {
   :root {
     --type-base: 16px;
