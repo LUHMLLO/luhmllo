@@ -8,7 +8,6 @@
       grid-auto-columns: max-content;
       overflow-x: auto;
       overflow-y: visible;
-      scroll-snap-type: x proximity;
     }
 
     &:is([data-variant="vertical"]) {
@@ -16,11 +15,11 @@
       grid-auto-rows: max-content;
       overflow-x: visible;
       overflow-y: auto;
-      scroll-snap-type: y proximity;
     }
 
     &[data-snap] {
-      scroll-snap-padding-block: var(--xl);
+      scroll-padding: var(--xl);
+      scroll-snap-type: both mandatory;
 
       & > * {
         scroll-snap-align: start;
