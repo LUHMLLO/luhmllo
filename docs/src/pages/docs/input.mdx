@@ -2,281 +2,228 @@
 layout: '@layouts/documentation.astro'
 ---
 
-## Input <small> native </small>
+<header>
+  ## Input
 
-`<input/>` elements in web development allow users to enter data into a form.
-They come in various types such as text, password, email, and more, each
-designed for different types of data entry. Inputs are essential for
-gathering user information and enabling interactivity within forms.
+`<input />` elements are the core of form interactivity. They enable users to provide structured data and perform actions across a wide range of use cases. Each input type is optimized for specific formats, aiding both UX and validation at the browser level.
 
-<x-grid style="--cols: 2;" class="g-sm">
-  <x-grid class='grid outln outln-primary radius-3xs'>
-    ```html
-    <input type="button" value="input type button"/>
-    ```
-    <column class='align-center[items] flex place-center p-5xl'>
-      <input type="button" value="input type button"/>
-    </column>
-  </x-grid>
+</header>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='checkbox' />
-	`
+<div data-is="grid" style="--cols: 2; --gap: var(--nm);">
+  <div data-is="group" style="gap: var(--sm);">
+    Standard single-line text input for general text content.
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='checkbox' />
-</column>
-</x-grid>
+    <div data-is="codeblock">
+      <div data-part="example">
+        <input type="text" placeholder="Enter text" />
+      </div>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='email' placeholder='email@example.com' />
-	`
+      ```html
+      <input type="text" placeholder="Enter text" />
+      ```
+    </div>
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='email' placeholder='email@example.com' />
-</column>
-</x-grid>
+  </div>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='file' />
-	`
+  <div data-is="group" style="gap: var(--sm);">
+    Obscures input for passwords.
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input id='demo-file' type='file' />
-<button>invoke file</button>
-</column>
-</x-grid>
+    <div data-is="codeblock">
+      <div data-part="example">
+        <input type="password" placeholder="Enter password" />
+      </div>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='image' />
-	`
+      ```html
+      <input type="password" placeholder="Enter password" />
+      ```
+    </div>
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='image' />
-</column>
-</x-grid>
+  </div>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='password' />
-	`
+  <div data-is="group" style="gap: var(--sm);">
+    Email input validates input pattern natively.
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='password' />
-</column>
-</x-grid>
+    <div data-is="codeblock">
+      <div data-part="example">
+        <input type="email" placeholder="name@example.com" />
+      </div>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='radio' />
-	`
+      ```html
+      <input type="email" placeholder="name@example.com" />
+      ```
+    </div>
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='radio' />
-</column>
-</x-grid>
+  </div>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='time' />
-	`
+  <div data-is="group" style="gap: var(--sm);">
+    Numbers only. Accepts optional min, max, and step attributes.
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='time' />
-</column>
-</x-grid>
+    <div data-is="codeblock">
+      <div data-part="example">
+        <input type="number" min="0" max="100" step="1" />
+      </div>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='range' />
-	`
+      ```html
+      <input type="number" min="0" max="100" step="1" />
+      ```
+    </div>
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='range' />
-</column>
-</x-grid>
+  </div>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='reset' />
-	`
+  <div data-is="group" style="gap: var(--sm);">
+    Input field for phone numbers. Browser may present a numeric keyboard on mobile.
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='reset' />
-</column>
-</x-grid>
+    <div data-is="codeblock">
+      <div data-part="example">
+        <input type="tel" placeholder="(555) 555-5555" />
+      </div>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='url' />
-	`
+      ```html
+      <input type="tel" placeholder="(555) 555-5555" />
+      ```
+    </div>
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='url' />
-</column>
-</x-grid>
+  </div>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='color' />
-	`
+  <div data-is="group" style="gap: var(--sm);">
+    Accepts URLs and triggers browser-level validation.
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='color' />
-</column>
-</x-grid>
+    <div data-is="codeblock">
+      <div data-part="example">
+        <input type="url" placeholder="https://example.com" />
+      </div>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='date' />
-	`
+      ```html
+      <input type="url" placeholder="https://example.com" />
+      ```
+    </div>
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='date' />
-</column>
-</x-grid>
+  </div>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='datetime-local' />
-	`
+  <div data-is="group" style="gap: var(--sm);">
+    File upload input. Accepts files based on type or extension.
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='datetime-local' />
-</column>
-</x-grid>
+    <div data-is="codeblock">
+      <div data-part="example">
+        <input type="file" accept="image/*" />
+      </div>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='hidden' />
-	`
+      ```html
+      <input type="file" accept="image/*" />
+      ```
+    </div>
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='hidden' />
-</column>
-</x-grid>
+  </div>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='month' />
-	`
+  <div data-is="group" style="gap: var(--sm);">
+    Checkbox input for boolean values.
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='month' />
-</column>
-</x-grid>
+    <div data-is="codeblock">
+      <div data-part="example">
+        <label for="check">
+          <input type="checkbox" id="check" />
+          <span>Accept</span>
+        </label>
+      </div>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='number' />
-	`
+      ```html
+      <label for="check">
+        <input type="checkbox" id="check" />
+        <span>Accept</span>
+      </label>
+      ```
+    </div>
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='number' />
-</column>
-</x-grid>
+  </div>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='search' />
-	`
+  <div data-is="group" style="gap: var(--sm);">
+    Radio buttons for single-choice options within a group.
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='search' />
-</column>
-</x-grid>
+    <div data-is="codeblock">
+      <div data-part="example">
+        <label for="one">
+          <input type="radio" name="choice" id="one" />
+          <span>One</span>
+        </label>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='submit' />
-	`
+        <label for="two">
+          <input type="radio" name="choice" id="two" />
+          <span>Two</span>
+        </label>
+      </div>
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='submit' />
-</column>
-</x-grid>
+      ```html
+      <label for="one">
+        <input type="radio" name="choice" id="one" />
+        <span>One</span>
+      </label>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='tel' />
-	`
+      <label for="two">
+        <input type="radio" name="choice" id="two" />
+        <span>Two</span>
+      </label>
+      ```
+    </div>
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='tel' />
-</column>
-</x-grid>
+  </div>
 
-{' '}
-<x-grid class='grid outln outln-primary radius-3xs'>
-`html
-	<input type='text' />
-	`
+  <div data-is="group" style="gap: var(--sm);">
+    Date input. Enables native date picker UI in most browsers.
 
-<column class='align-center[items] flex place-center p-5xl'>
-<input type='text' />
-</column>
-</x-grid>
+    <div data-is="codeblock">
+      <div data-part="example">
+        <input type="date" />
+      </div>
 
-  <x-grid class='outln outln-primary radius-3xs'>
-    ```html
-    <input type="week" />
-    ```
-    <column class='align-center[items] flex place-center p-5xl'>
-      <input type="week" />
-    </column>
-  </x-grid>
-</x-grid>
-### -- parentElement <small class="clr-subtext txt-sm"> PROPS </small>
+      ```html
+      <input type="date" />
+      ```
+    </div>
 
-| prop       | description                         | applies to      |
-| ---------- | ----------------------------------- | --------------- |
-| - - part   | changes style to look like a button | all             |
-| - - switch | sets outline style                  | checkbox, radio |
+  </div>
 
-<x-grid style="--cols: 2;" class="g-sm">
-    <column class="grid outln outln-primary radius-3xs">
-        ```html
-        <input type="text" data-props="--discrete" />
-        ```
+  <div data-is="group" style="gap: var(--sm);">
+    Range slider for selecting a numeric value within a defined span.
 
-        <div class="flex place-center p-5xl">
-          <input type="text" data-props="--discrete" placeholder="very discrete"/>
-        </div>
+    <div data-is="codeblock">
+      <div data-part="example">
+        <input type="range" min="0" max="100" value="50" />
+      </div>
 
-    </column>
+      ```html
+      <input type="range" min="0" max="100" value="50" />
+      ```
+    </div>
 
-    <column class="grid outln outln-primary radius-3xs">
-        ```html
-        <input type="checkbox" data-props="--switch" />
-        ```
+  </div>
 
-        <div class="flex place-center p-5xl">
-         <input type="checkbox" data-props="--switch" />
-        </div>
+  <div data-is="group" style="gap: var(--sm);">
+    Color picker input for choosing colors with native browser UI.
 
-    </column>
+    <div data-is="codeblock">
+      <div data-part="example">
+        <input type="color" value="#ff0000" />
+      </div>
 
-</x-grid>
+      ```html
+      <input type="color" value="#ff0000" />
+      ```
+    </div>
+
+  </div>
+
+  <div data-is="group" style="gap: var(--sm);">
+    Search input optimized for search actions, often includes browser-native enhancements.
+
+    <div data-is="codeblock">
+      <div data-part="example">
+        <input type="search" placeholder="Search..." />
+      </div>
+
+      ```html
+      <input type="search" placeholder="Search..." />
+      ```
+    </div>
+
+  </div>
+</div>

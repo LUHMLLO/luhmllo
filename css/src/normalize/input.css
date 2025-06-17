@@ -49,11 +49,11 @@
     contain: content;
     display: inline-grid;
     flex: 0 0;
-    height: var(--lg);
+    height: var(--nm);
     outline: none;
     padding: 0;
     touch-action: manipulation;
-    transition-property: color, height, font-size, width;
+    transition-property: backgrond-color;
     transition-duration: var(--animDuration);
     transition-timing-function: var(--animTiming);
     user-select: none;
