@@ -39,6 +39,7 @@
     border: 0;
     box-sizing: border-box;
     -webkit-font-smoothing: inherit;
+    font-size: inherit;
     height: auto;
     margin: 0;
     max-width: 100%;
@@ -85,7 +86,7 @@
     container: base / size;
     display: contents;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: clamp(12px, calc(10dvw + 1px), 16px);
     font-variant-numeric: tabular-nums;
     hanging-punctuation: first last;
     letter-spacing: clamp(-.01em, calc(1dvmax / 0.0625), -.03em);
@@ -93,18 +94,6 @@
     position: static;
     text-align: left;
     text-underline-offset: 3px;
-
-    @media (width < 768px) {
-      font-size: 14px;
-    }
-
-    @media (width < 512px) {
-      font-size: 12px;
-    }
-
-    @media (width < 256px) {
-      font-size: 10px;
-    }
   }
 
   :where(body) {

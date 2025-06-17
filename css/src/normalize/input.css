@@ -4,7 +4,7 @@
     border-radius: 0.75ex;
     color: var(--clr-text__base);
     display: inline-block;
-    font-size: inherit;
+    font-size: var(--type-p);
     height: 45px;
     outline: solid 2px var(--clr-border__base);
     outline-offset: -2px;

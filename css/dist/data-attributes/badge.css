@@ -1,1 +1,1 @@
-@layer data-attributes{:where([data-is=badge]){align-items:center;background-color:var(--clr-background__raised);border-radius:5ex;display:inline-flex;font-size:var(--md);gap:var(--xs);height:var(--xl);padding-inline:var(--sm);place-content:center;width:fit-content}}
+@layer data-attributes{:where([data-is=badge]){align-items:center;background-color:var(--clr-background__raised);border-radius:5ex;display:inline-flex;font-size:var(--type-p);gap:var(--xs);height:var(--xl);padding-inline:var(--sm);place-content:center;width:fit-content}}

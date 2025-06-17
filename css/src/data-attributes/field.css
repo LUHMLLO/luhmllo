@@ -6,8 +6,9 @@
 
     & > [data-part="label"] {
       align-items: center;
-      display: flex;
       color: var(--clr-text__base);
+      display: flex;
+      font-size: var(--type-p);
     }
 
     & > :where(input:not([type=checkbox], [type=radio]), select) {

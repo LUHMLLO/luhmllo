@@ -6,7 +6,7 @@
     display: inline-flex;
     gap: var(--xs);
     height: var(--xl);
-    font-size: var(--md);
+    font-size: var(--type-p);
     padding-inline: var(--sm);
     place-content: center;
     width: fit-content;

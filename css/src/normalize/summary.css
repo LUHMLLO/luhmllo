@@ -1,6 +1,7 @@
 @layer normalize {
   :where(summary) {
     display: flex;
+    font-size: var(--type-p);
     text-align: inherit;
 
     &::marker {

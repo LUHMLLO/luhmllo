@@ -3,6 +3,7 @@
     align-items: center;
     color: var(--clr-accent__base);
     display: inline-flex;
+    font-size: var(--type-p);
     gap: var(--xs);
     height: max-content;
     outline: solid 1px transparent;

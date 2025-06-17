@@ -1,12 +1,12 @@
 ---
 import '../../../css/dist/all.css';
-import Scaffold from './html.astro';
+import RootLayout from './root.astro';
 import Sidebar from '../components/Sidebar.astro';
 import Topbar from '../components/Topbar.astro';
 import Cookiesbar from '../components/Cookiesbar.astro';
 ---
 
-<Scaffold>
+<RootLayout>
 	<div id='app' data-is='app' class='gridlines'>
 		<Topbar />
 
@@ -32,4 +32,4 @@ import Cookiesbar from '../components/Cookiesbar.astro';
 			}
 		</style>
 	</div>
-</Scaffold>
+</RootLayout>

@@ -6,26 +6,26 @@
   }
 
   :where(h1) {
-    font-size: calc(45 * 0.0625rem);
+    font-size: var(--type-h1);
   }
 
   :where(h2) {
-    font-size: calc(40 * 0.0625rem);
+    font-size: var(--type-h2);
   }
 
   :where(h3) {
-    font-size: calc(30 * 0.0625rem);
+    font-size: var(--type-h3);
   }
 
   :where(h4) {
-    font-size: calc(25 * 0.0625rem);
+    font-size: var(--type-h4);
   }
 
   :where(h5) {
-    font-size: calc(20 * 0.0625rem);
+    font-size: var(--type-h5);
   }
 
   :where(h6) {
-    font-size: calc(15 * 0.0625rem);
+    font-size: var(--type-h6);
   }
 }

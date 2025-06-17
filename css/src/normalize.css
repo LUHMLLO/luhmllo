@@ -114,6 +114,7 @@
   }
 
   :where(p) {
+    font-size: var(--type-p);
     width: min(100%, 75ch);
   }
 

@@ -13,7 +13,7 @@
 
     :where(caption) {
       background-color: var(--clr-background__base);
-      font-size: inherit;
+      font-size: var(--type-s);
       overflow: clip;
       padding: var(--sm);
       text-align: center;
@@ -36,7 +36,7 @@
 
     :where(th, td) {
       border: solid 1px var(--clr-border__base);
-      font: inherit;
+      font-size: var(--type-p);
       max-width: none;
       min-width: max-content;
       overflow: clip;

@@ -5,7 +5,7 @@
     border-radius: 5ex;
     color: inherit;
     display: inline-flex;
-    font: inherit;
+    font-size: var(--type-p);
     gap: var(--xs);
     height: 45px;
     outline: solid 2px transparent;
