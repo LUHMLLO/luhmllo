@@ -17,7 +17,7 @@
 
 @layer tokens {
   :root {
-    --type-base: 16px;
+    --type-base: 15px;
     --type-ratio: 1.125;
     --type-h1: calc(45 * 0.0625rem);
     --type-h2: calc(40 * 0.0625rem);

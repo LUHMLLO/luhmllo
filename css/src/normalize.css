@@ -19,6 +19,10 @@
     line-height: 1;
   }
 
+  :where(b, strong) {
+    font-weight: 600;
+  }
+
   :where(big) {
     font-size: 125%;
   }
