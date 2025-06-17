@@ -1,112 +1,106 @@
 ---
-import ShellLayout from '@layouts/app.astro';
-import ViewFrame from '@layouts/frame.astro';
+import ShowcaseLayout from '@layouts/showcase.astro';
 ---
 
-<ShellLayout>
-	<ViewFrame>
-		<div data-is='layer' data-variant='under'>
-			<figure data-is='background'>
-				<img
-					src='https://images.unsplash.com/photo-1697538022268-c565529e616f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-					alt='Mass timber architecture background'
-				/>
-			</figure>
-			<span
-				data-is='background'
-				style='background-color: hsl(from var(--clr-background__lowered) h s l / 75%); backdrop-filter: blur(0.5ex);'>
-			</span>
-		</div>
+<ShowcaseLayout>
+	<div data-is='layer' data-variant='under'>
+		<figure data-is='background'>
+			<img
+				src='https://images.unsplash.com/photo-1697538022268-c565529e616f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+				alt='Mass timber architecture background'
+			/>
+		</figure>
+		<span
+			data-is='background'
+			style='background-color: hsl(from var(--clr-background__lowered) h s l / 75%); backdrop-filter: blur(0.5ex);'>
+		</span>
+	</div>
 
-		<nav style='place-content: space-between; place-items: center;'>
-			<button data-variant='outline'>
-				<i data-is='icon'> menu </i>
-			</button>
+	<nav style='place-content: space-between; place-items: center;'>
+		<button data-variant='outline'>
+			<i data-is='icon'> menu </i>
+		</button>
 
-			<h6
-				style="font-family: 'Oi'; text-align: center; text-box: trim-both cap alphabetic; white-space: nowrap;">
-				TinkXo
-			</h6>
+		<h6
+			style="font-family: 'Oi'; text-align: center; text-box: trim-both cap alphabetic; white-space: nowrap;">
+			TinkXo
+		</h6>
 
-			<a
-				href={'#' + crypto.randomUUID()}
-				data-is='button'
-				data-variant='outline'>
-				<i data-is='icon'> phone </i>
+		<a href={'#' + crypto.randomUUID()} data-is='button' data-variant='outline'>
+			<i data-is='icon'> phone </i>
+		</a>
+	</nav>
+
+	<p style='font-size: var(--nm);'>
+		TinkXo ignites a NEW ERA where<br />we don’t just build — we *cultivate*.
+	</p>
+
+	<x-row
+		style='border-bottom: solid 1px var(--clr-text__base); flex: 1 0 max-content; padding-block: var(--nm); place-content: space-between; place-items: end;'>
+		<span
+			style='float: right; flex-shrink: 1; min-width: 0; text-box: trim-both cap alphabetic;'>
+			SCROLL
+		</span>
+		<h1 style="font-family: 'Oi'; text-box: trim-both cap alphabetic;">
+			AMENITIES
+		</h1>
+	</x-row>
+
+	<p style='font-size: var(--nm); place-self: end; text-align: right;'>
+		Timber is more than a material—it’s<br />
+		a cornerstone for a thriving, regenerative<br />
+		future in which built spaces breathe and evolve.
+	</p>
+
+	<x-grid style='--gap: var(--nm); --cols: 2;'>
+		<div></div>
+		<div></div>
+
+		<x-group style='gap: var(--nm);'>
+			<p>
+				At TinkXo, we believe buildings should be more like forests—alive,
+				adaptive, and symbiotic with the world around them. As climate change
+				intensifies, rethinking our spaces is no longer optional. It’s urgent.
+			</p>
+			<p>
+				Mass timber is our medium of transformation. Naturally carbon-negative,
+				it sequesters{' '}
+				<span>CO<sub>2</sub></span> as it grows and continues to store it for decades,
+				turning each structure into a living climate ally.
+			</p>
+		</x-group>
+
+		<x-group style='gap: var(--nm);'>
+			<p>
+				TinkXo doesn’t just design buildings—we plant ideas. We’re cultivating
+				hubs where people connect, businesses bloom, and nature finds its place
+				again in our urban fabric.
+			</p>
+			<p>
+				From scent and touch to temperature and texture, timber is not just
+				sustainable—it’s sensorial. It's architecture that speaks to the body,
+				the soul, and the future.
+			</p>
+
+			<a href={'#' + crypto.randomUUID()}>
+				<span>Enquire Now</span>
+				<i data-is='icon'> arrow_right_alt </i>
 			</a>
-		</nav>
+		</x-group>
+	</x-grid>
 
-		<p style='font-size: var(--nm);'>
-			TinkXo ignites a NEW ERA where<br />we don’t just build — we *cultivate*.
-		</p>
+	<style lang='css' is:inline>
+		@import url('https://fonts.googleapis.com/css2?family=Oi&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-		<x-row
-			style='border-bottom: solid 1px var(--clr-text__base); flex: 1 0 max-content; padding-block: var(--nm); place-content: space-between; place-items: end;'>
-			<span
-				style='float: right; flex-shrink: 1; min-width: 0; text-box: trim-both cap alphabetic;'>
-				SCROLL
-			</span>
-			<h1 style="font-family: 'Oi'; text-box: trim-both cap alphabetic;">
-				AMENITIES
-			</h1>
-		</x-row>
-
-		<p style='font-size: var(--nm); place-self: end; text-align: right;'>
-			Timber is more than a material—it’s<br />
-			a cornerstone for a thriving, regenerative<br />
-			future in which built spaces breathe and evolve.
-		</p>
-
-		<x-grid style='--gap: var(--nm); --cols: 2;'>
-			<div></div>
-			<div></div>
-
-			<x-group style='gap: var(--nm);'>
-				<p>
-					At TinkXo, we believe buildings should be more like forests—alive,
-					adaptive, and symbiotic with the world around them. As climate change
-					intensifies, rethinking our spaces is no longer optional. It’s urgent.
-				</p>
-				<p>
-					Mass timber is our medium of transformation. Naturally
-					carbon-negative, it sequesters{' '}
-					<span>CO<sub>2</sub></span> as it grows and continues to store it for decades,
-					turning each structure into a living climate ally.
-				</p>
-			</x-group>
-
-			<x-group style='gap: var(--nm);'>
-				<p>
-					TinkXo doesn’t just design buildings—we plant ideas. We’re cultivating
-					hubs where people connect, businesses bloom, and nature finds its
-					place again in our urban fabric.
-				</p>
-				<p>
-					From scent and touch to temperature and texture, timber is not just
-					sustainable—it’s sensorial. It's architecture that speaks to the body,
-					the soul, and the future.
-				</p>
-
-				<a href={'#' + crypto.randomUUID()}>
-					<span>Enquire Now</span>
-					<i data-is='icon'> arrow_right_alt </i>
-				</a>
-			</x-group>
-		</x-grid>
-
-		<style lang='css' is:inline>
-			@import url('https://fonts.googleapis.com/css2?family=Oi&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-			@scope {
-				:scope {
-					display: flex;
-					flex-direction: column;
-					font-family: 'Poppins', sans-serif;
-					gap: var(--xl);
-					overflow: auto;
-					padding: var(--sm);
-				}
+		@scope {
+			:scope {
+				display: flex;
+				flex-direction: column;
+				font-family: 'Poppins', sans-serif;
+				gap: var(--xl);
+				overflow: auto;
+				padding: var(--sm);
 			}
-		</style>
-	</ViewFrame>
-</ShellLayout>
+		}
+	</style>
+</ShowcaseLayout>

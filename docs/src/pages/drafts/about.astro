@@ -1,22 +1,21 @@
 ---
-import ShellLayout from '@layouts/app.astro';
-import ViewFrame from '@layouts/frame.astro';
+import ShowcaseLayout from '@layouts/showcase.astro';
 ---
 
-<ShellLayout>
+<ShowcaseLayout>
 	<h2>Get Started</h2>
-  <ly-dropdown>
-    <summary data-props="--button --outline" slot="summary">summary</summary>
-    <button>
-      <span>action</span>
-    </button>
-    <button>
-      <span>action</span>
-    </button>
-    <button>
-      <span>action</span>
-    </button>
-  </ly-dropdown>
+	<ly-dropdown>
+		<summary data-props='--button --outline' slot='summary'>summary</summary>
+		<button>
+			<span>action</span>
+		</button>
+		<button>
+			<span>action</span>
+		</button>
+		<button>
+			<span>action</span>
+		</button>
+	</ly-dropdown>
 	<p>lorem...</p>
 
 	<h2>Installation</h2>
@@ -27,4 +26,4 @@ import ViewFrame from '@layouts/frame.astro';
 
 	<h2>What's next?</h2>
 	<p>lorem...</p>
-</ShellLayout>
+</ShowcaseLayout>

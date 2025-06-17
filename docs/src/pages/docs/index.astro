@@ -1,5 +1,5 @@
 ---
-import ShellLayout from '@layouts/app.astro';
+import GeneralLayout from '@layouts/general.astro';
 import {
 	getTopLevelRoutesByGroup,
 	type RouteItem,
@@ -10,7 +10,7 @@ const pages: RouteItem[] = (await getTopLevelRoutesByGroup('docs')).filter(
 );
 ---
 
-<ShellLayout>
+<GeneralLayout>
 	<section>
 		<h2>Docs</h2>
 
@@ -27,4 +27,4 @@ const pages: RouteItem[] = (await getTopLevelRoutesByGroup('docs')).filter(
 			}
 		</div>
 	</section>
-</ShellLayout>
+</GeneralLayout>

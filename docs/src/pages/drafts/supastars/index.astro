@@ -1,20 +1,17 @@
 ---
-import ShellLayout from '@layouts/app.astro';
-import ViewFrame from '@layouts/frame.astro';
+import ShowcaseLayout from '@layouts/showcase.astro';
 
 import Appbar from './.lib/appbar.astro';
 import Hero from './.lib/hero.astro';
 import About from './.lib/about.astro';
 ---
 
-<ShellLayout>
-	<ViewFrame>
-		<div id='demoapp' data-is='app'>
-			<Appbar />
-			<Hero />
-			<About />
-		</div>
-	</ViewFrame>
+<ShowcaseLayout>
+	<div id='demoapp' data-is='app'>
+		<Appbar />
+		<Hero />
+		<About />
+	</div>
 
 	<style lang='css' is:inline>
 		@scope {
@@ -32,7 +29,7 @@ import About from './.lib/about.astro';
 				--clr-border__raised: #ebebeb;
 
 				--clr-accent__lowered: #28368f;
-				--clr-accent__base: #3142AF;
+				--clr-accent__base: #3142af;
 				--clr-accent__raised: #4052c9;
 				--clr-onAccent: #090c20;
 
@@ -57,4 +54,4 @@ import About from './.lib/about.astro';
 			}
 		}
 	</style>
-</ShellLayout>
+</ShowcaseLayout>

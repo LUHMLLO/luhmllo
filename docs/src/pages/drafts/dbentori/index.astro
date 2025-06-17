@@ -1,35 +1,32 @@
 ---
-import ShellLayout from '@layouts/app.astro';
-import ViewFrame from '@layouts/frame.astro';
+import ShowcaseLayout from '@layouts/showcase.astro';
 ---
 
-<ShellLayout>
-	<ViewFrame>
-		<div id='demoapp'>
-			<header>
-				<style lang='css' is:inline>
-					@scope {
-						:scope {
-						}
-					}
-				</style>
-			</header>
-
-			<section>
-				<style lang='css' is:inline>
-					@scope {
-						:scope {
-						}
-					}
-				</style>
-			</section>
-
+<ShowcaseLayout>
+	<div id='demoapp'>
+		<header>
 			<style lang='css' is:inline>
 				@scope {
 					:scope {
 					}
 				}
 			</style>
-		</div>
-	</ViewFrame>
-</ShellLayout>
+		</header>
+
+		<section>
+			<style lang='css' is:inline>
+				@scope {
+					:scope {
+					}
+				}
+			</style>
+		</section>
+
+		<style lang='css' is:inline>
+			@scope {
+				:scope {
+				}
+			}
+		</style>
+	</div>
+</ShowcaseLayout>

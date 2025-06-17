@@ -1,98 +1,90 @@
 ---
-import ShellLayout from '@layouts/app.astro';
-import ViewFrame from '@layouts/frame.astro';
+import ShowcaseLayout from '@layouts/showcase.astro';
 ---
 
-<ShellLayout scheme='light'>
-	<ViewFrame>
-		<!--  -->
-		<h1>Blog</h1>
-		<x-grid class='--cols: 2; --gap: var(--xl);'>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit, impedit
-				officiis laborum quibusdam alias illo dolores ad maxime repudiandae
-				incidunt non asperiores voluptas, saepe iste corporis! Doloribus nam
-				asperiores numquam!
-			</p>
-			<x-field
-				name='search'
-				class='outln outln-primary radius-sm overflow-clip'>
+<ShowcaseLayout scheme='light'>
+	<!--  -->
+	<h1>Blog</h1>
+	<x-grid class='--cols: 2; --gap: var(--xl);'>
+		<p>
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit, impedit
+			officiis laborum quibusdam alias illo dolores ad maxime repudiandae
+			incidunt non asperiores voluptas, saepe iste corporis! Doloribus nam
+			asperiores numquam!
+		</p>
+		<x-field name='search' class='outln outln-primary radius-sm overflow-clip'>
+			<x-flex axis='x' class='align-center[items]'>
+				<button style='--bg: transparent; --radius: 0;'>
+					<i data-is='icon'> search </i>
+				</button>
+				<input
+					type='text'
+					placeholder="Type + 'Hit Enter' to begin search . . ."
+					class='w-100'
+					style='--bg:none; outline: none;'
+				/>
 				<x-flex axis='x' class='align-center[items]'>
-					<button style='--bg: transparent; --radius: 0;'>
-						<i data-is='icon'> search </i>
-					</button>
-					<input
-						type='text'
-						placeholder="Type + 'Hit Enter' to begin search . . ."
-						class='w-100'
-						style='--bg:none; outline: none;'
-					/>
-					<x-flex axis='x' class='align-center[items]'>
-						<x-dropdown>
-							<summary
-								slot='summary'
-								data-props='--button'
-								style='--radius: 0;'>
-								<i data-is='icon'> filter_list </i>
-							</summary>
-							<button>
-								<i data-is='icon'>add</i>
-								<span>label</span>
-							</button>
-							<button>
-								<i data-is='icon'>add</i>
-								<span>label</span>
-							</button>
-							<button>
-								<i data-is='icon'>add</i>
-								<span>label</span>
-							</button>
-						</x-dropdown>
-					</x-flex>
+					<x-dropdown>
+						<summary slot='summary' data-props='--button' style='--radius: 0;'>
+							<i data-is='icon'> filter_list </i>
+						</summary>
+						<button>
+							<i data-is='icon'>add</i>
+							<span>label</span>
+						</button>
+						<button>
+							<i data-is='icon'>add</i>
+							<span>label</span>
+						</button>
+						<button>
+							<i data-is='icon'>add</i>
+							<span>label</span>
+						</button>
+					</x-dropdown>
 				</x-flex>
-			</x-field>
-			<!--  -->
-			<ol class='grid' style='grid-column: 1/-1;'>
-				{
-					[...Array(10).keys()].map(() => (
-						<a
-							class='g-sm p-2xl w-100 wrap hover:bg-primary'
-							style='overflow: visible;'>
-							<var
-								class='bg-primary block __counter txt-xl w-max'
-								style='height: 1lh; width: 1lh; margin-top: calc(1lh/4); margin-bottom: auto;'
-							/>
-							<h2 style='flex: 1 0 auto; min-height: 3lh; margin-bottom: auto; overflow: clip;'>
-								Article Heading
-							</h2>
-							<ly-grid tmpl='2' class='g-2xl' style='flex: 1 0 50%;'>
-								<p style='max-height: 3lh; overflow: clip; text-overflow: ellipsis;'>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Dolore cumque laborum adipisci. Facilis unde fugit eaque natus
-									nulla? Ipsa blanditiis maxime reiciendis beatae nisi enim
-									perspiciatis nulla quia rem repudiandae.
-								</p>
-								<ly-flex axis='x' class='g-3xs wrap'>
-									{[
-										'tag name',
-										'pretty long tag name',
-										'mid tag name',
-										'tag',
-									].map((tag) => (
-										<button class='__outline' style='--bg: transparent;'>
-											<span>{tag}</span>
-										</button>
-									))}
-									<button style='--bg: transparent;'>
-										<i data-is='icon'>add</i>
+			</x-flex>
+		</x-field>
+		<!--  -->
+		<ol class='grid' style='grid-column: 1/-1;'>
+			{
+				[...Array(10).keys()].map(() => (
+					<a
+						class='g-sm p-2xl w-100 wrap hover:bg-primary'
+						style='overflow: visible;'>
+						<var
+							class='bg-primary block __counter txt-xl w-max'
+							style='height: 1lh; width: 1lh; margin-top: calc(1lh/4); margin-bottom: auto;'
+						/>
+						<h2 style='flex: 1 0 auto; min-height: 3lh; margin-bottom: auto; overflow: clip;'>
+							Article Heading
+						</h2>
+						<ly-grid tmpl='2' class='g-2xl' style='flex: 1 0 50%;'>
+							<p style='max-height: 3lh; overflow: clip; text-overflow: ellipsis;'>
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+								cumque laborum adipisci. Facilis unde fugit eaque natus nulla?
+								Ipsa blanditiis maxime reiciendis beatae nisi enim perspiciatis
+								nulla quia rem repudiandae.
+							</p>
+							<ly-flex axis='x' class='g-3xs wrap'>
+								{[
+									'tag name',
+									'pretty long tag name',
+									'mid tag name',
+									'tag',
+								].map((tag) => (
+									<button class='__outline' style='--bg: transparent;'>
+										<span>{tag}</span>
 									</button>
-								</ly-flex>
-							</ly-grid>
-						</a>
-					))
-				}
-			</ol>
-			<!--  -->
-		</x-grid>
-	</ViewFrame>
-</ShellLayout>
+								))}
+								<button style='--bg: transparent;'>
+									<i data-is='icon'>add</i>
+								</button>
+							</ly-flex>
+						</ly-grid>
+					</a>
+				))
+			}
+		</ol>
+		<!--  -->
+	</x-grid>
+</ShowcaseLayout>

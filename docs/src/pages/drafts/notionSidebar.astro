@@ -1,250 +1,244 @@
 ---
 import { Image } from 'astro:assets';
 import Avatar from '@assets/luisrmelo.png';
-import ShellLayout from '@layouts/app.astro';
-import ViewFrame from '@layouts/frame.astro';
+import ShowcaseLayout from '@layouts/showcase.astro';
 ---
 
-<ShellLayout>
-	<ViewFrame>
-		<aside id='notion__sidebar' class='expanded'>
-			<x-flex>
-				<button data-variant='outline'>
-					<figure
-						data-geometry='circle'
-						data-part='lead'
-						style='background-color: white; height: 100%;'>
-						<Image src={Avatar} alt='avatar' decoding='async' loading='eager' />
-					</figure>
-					<span> Luis R. Melo </span>
-					<i data-is='icon' data-part='trail'>keyboard_arrow_down</i>
-				</button>
+<ShowcaseLayout>
+	<aside id='notion__sidebar' class='expanded'>
+		<x-flex>
+			<button data-variant='outline'>
+				<figure
+					data-geometry='circle'
+					data-part='lead'
+					style='background-color: white; height: 100%;'>
+					<Image src={Avatar} alt='avatar' decoding='async' loading='eager' />
+				</figure>
+				<span> Luis R. Melo </span>
+				<i data-is='icon' data-part='trail'>keyboard_arrow_down</i>
+			</button>
 
-				<x-row style='flex-shrink: 0; gap: var(--xs);'>
-					<button id='sidebar-hide' data-variant='outline'>
-						<i data-is='icon'>left_panel_close</i>
-					</button>
-					<button data-variant='outline'>
-						<i data-is='icon'>add_2</i>
-					</button>
-				</x-row>
-			</x-flex>
-
-			<hr />
-
-			<x-group>
-				<button data-variant='outline'>
-					<i data-is='icon' data-part='lead'> search </i>
-					<span>Search</span>
-					<i data-is='icon' data-part='trail'> keyboard_command_key </i>
+			<x-row style='flex-shrink: 0; gap: var(--xs);'>
+				<button id='sidebar-hide' data-variant='outline'>
+					<i data-is='icon'>left_panel_close</i>
 				</button>
 				<button data-variant='outline'>
-					<i data-is='icon' data-part='lead'> stars_2 </i>
-					<span>AI Assistant</span>
+					<i data-is='icon'>add_2</i>
 				</button>
-				<button data-variant='outline'>
-					<i data-is='icon' data-part='lead'> home </i>
-					<span>Home</span>
-				</button>
-				<button data-variant='outline'>
-					<i data-is='icon' data-part='lead'> inbox </i>
-					<span>Inbox</span>
-				</button>
-			</x-group>
+			</x-row>
+		</x-flex>
 
-			<hr />
+		<hr />
 
-			<x-group>
-				<span>Favorites</span>
-				<details>
-					<summary data-is='button' data-variant='outline'>
-						<i data-is='icon' data-part='lead'> asterisk </i>
-						<span>Page Name</span>
-					</summary>
-					<ul>
-						<button data-variant='outline'>item</button>
-						<button data-variant='outline'>item</button>
-						<button data-variant='outline'>item</button>
-						<button data-variant='outline'>item</button>
-					</ul>
-				</details>
-				<button data-variant='outline'>
+		<x-group>
+			<button data-variant='outline'>
+				<i data-is='icon' data-part='lead'> search </i>
+				<span>Search</span>
+				<i data-is='icon' data-part='trail'> keyboard_command_key </i>
+			</button>
+			<button data-variant='outline'>
+				<i data-is='icon' data-part='lead'> stars_2 </i>
+				<span>AI Assistant</span>
+			</button>
+			<button data-variant='outline'>
+				<i data-is='icon' data-part='lead'> home </i>
+				<span>Home</span>
+			</button>
+			<button data-variant='outline'>
+				<i data-is='icon' data-part='lead'> inbox </i>
+				<span>Inbox</span>
+			</button>
+		</x-group>
+
+		<hr />
+
+		<x-group>
+			<span>Favorites</span>
+			<details>
+				<summary data-is='button' data-variant='outline'>
 					<i data-is='icon' data-part='lead'> asterisk </i>
 					<span>Page Name</span>
-				</button>
-				<button data-variant='outline'>
+				</summary>
+				<ul>
+					<button data-variant='outline'>item</button>
+					<button data-variant='outline'>item</button>
+					<button data-variant='outline'>item</button>
+					<button data-variant='outline'>item</button>
+				</ul>
+			</details>
+			<button data-variant='outline'>
+				<i data-is='icon' data-part='lead'> asterisk </i>
+				<span>Page Name</span>
+			</button>
+			<button data-variant='outline'>
+				<i data-is='icon' data-part='lead'> asterisk </i>
+				<span>Page Name</span>
+			</button>
+		</x-group>
+
+		<hr />
+
+		<x-group>
+			<span>Shared</span>
+			<details>
+				<summary data-is='button' data-variant='outline'>
 					<i data-is='icon' data-part='lead'> asterisk </i>
 					<span>Page Name</span>
-				</button>
-			</x-group>
+				</summary>
+				<ul>
+					<button data-variant='outline'>item</button>
+					<button data-variant='outline'>item</button>
+					<button data-variant='outline'>item</button>
+					<button data-variant='outline'>item</button>
+				</ul>
+			</details>
+		</x-group>
 
-			<hr />
+		<hr />
 
-			<x-group>
-				<span>Shared</span>
-				<details>
-					<summary data-is='button' data-variant='outline'>
-						<i data-is='icon' data-part='lead'> asterisk </i>
-						<span>Page Name</span>
-					</summary>
-					<ul>
-						<button data-variant='outline'>item</button>
-						<button data-variant='outline'>item</button>
-						<button data-variant='outline'>item</button>
-						<button data-variant='outline'>item</button>
-					</ul>
-				</details>
-			</x-group>
+		<x-group>
+			<span>Private</span>
+			<details>
+				<summary data-is='button' data-variant='outline'>
+					<i data-is='icon' data-part='lead'> asterisk </i>
+					<span>Page Name</span>
+				</summary>
+				<ul>
+					<button data-variant='outline'>item</button>
+					<button data-variant='outline'>item</button>
+					<button data-variant='outline'>item</button>
+					<button data-variant='outline'>item</button>
+				</ul>
+			</details>
+		</x-group>
 
-			<hr />
+		<hr />
 
-			<x-group>
-				<span>Private</span>
-				<details>
-					<summary data-is='button' data-variant='outline'>
-						<i data-is='icon' data-part='lead'> asterisk </i>
-						<span>Page Name</span>
-					</summary>
-					<ul>
-						<button data-variant='outline'>item</button>
-						<button data-variant='outline'>item</button>
-						<button data-variant='outline'>item</button>
-						<button data-variant='outline'>item</button>
-					</ul>
-				</details>
-			</x-group>
+		<x-group>
+			<button data-variant='outline'>
+				<i data-is='icon' data-part='lead'> settings </i>
+				<span>Settings</span>
+			</button>
+			<button data-variant='outline'>
+				<i data-is='icon' data-part='lead'> browse </i>
+				<span>Templates</span>
+			</button>
+			<button data-variant='outline'>
+				<i data-is='icon' data-part='lead'> delete </i>
+				<span>Trash</span>
+			</button>
+		</x-group>
 
-			<hr />
+		<hr />
 
-			<x-group>
-				<button data-variant='outline'>
-					<i data-is='icon' data-part='lead'> settings </i>
-					<span>Settings</span>
-				</button>
-				<button data-variant='outline'>
-					<i data-is='icon' data-part='lead'> browse </i>
-					<span>Templates</span>
-				</button>
-				<button data-variant='outline'>
-					<i data-is='icon' data-part='lead'> delete </i>
-					<span>Trash</span>
-				</button>
-			</x-group>
+		<x-flex>
+			<button data-variant='outline'>
+				<i data-is='icon'> calendar_today </i>
+			</button>
+			<button data-variant='outline'>
+				<i data-is='icon'> email </i>
+			</button>
 
-			<hr />
+			<hr style='background-color: transparent; flex: 1 1;' />
 
-			<x-flex>
-				<button data-variant='outline'>
-					<i data-is='icon'> calendar_today </i>
-				</button>
-				<button data-variant='outline'>
-					<i data-is='icon'> email </i>
-				</button>
+			<button data-variant='outline'>
+				<i data-is='icon'> help </i>
+			</button>
+		</x-flex>
+	</aside>
 
-				<hr style='background-color: transparent; flex: 1 1;' />
+	<main id='notion__main'></main>
 
-				<button data-variant='outline'>
-					<i data-is='icon'> help </i>
-				</button>
-			</x-flex>
-		</aside>
+	<style lang='css' is:inline>
+		@scope {
+			:scope {
+				display: flex;
 
-		<main id='notion__main'></main>
+				#notion__sidebar {
+					background-color: var(--clr-background__raised);
+					gap: var(--lg);
+					height: 100%;
+					border-right: solid 2px var(--clr-border__base);
+					overflow: auto;
+					padding: var(--sm);
+					position: relative;
+					min-width: 100%;
 
-		<style lang='css' is:inline>
-			@scope {
-				:scope {
-					display: flex;
+					@container app (width > 384px) {
+						min-width: min(100%, 256px);
+					}
 
-					#notion__sidebar {
-						background-color: var(--clr-background__raised);
-						gap: var(--lg);
-						height: 100%;
-						border-right: solid 2px var(--clr-border__base);
-						overflow: auto;
-						padding: var(--sm);
-						position: relative;
-						min-width: 100%;
+					& > x-flex {
+						align-items: center;
+						background-color: hsl(from var(--clr-background__raised) h s l/0.5);
+						backdrop-filter: blur(0.5ex);
+						border-radius: var(--xl);
+						gap: var(--xs);
+						position: sticky;
+						width: 100%;
+						z-index: 5;
 
-						@container app (width > 384px) {
-							min-width: min(100%, 256px);
+						&:first-of-type {
+							top: 0;
+
+							& button {
+								--idle: var(--clr-background__raised);
+								flex: 1 1;
+							}
 						}
 
-						& > x-flex {
-							align-items: center;
+						&:last-of-type {
 							background-color: hsl(
 								from var(--clr-background__raised) h s l/0.5
 							);
 							backdrop-filter: blur(0.5ex);
 							border-radius: var(--xl);
+							box-shadow: 0 15vmax 100vmax 15vmax var(--clr-background__raised);
 							gap: var(--xs);
-							position: sticky;
+							inset: auto auto 0 auto;
+							margin: auto auto 0 auto;
+							padding: var(--xs);
+
+							& button {
+								--idle: var(--clr-background__raised);
+								flex-shrink: 0;
+							}
+						}
+					}
+
+					& > hr {
+						background-color: var(--clr-border__raised);
+					}
+
+					& > x-group {
+						& > span {
+							margin-bottom: var(--md);
+						}
+
+						& :where(button, summary) {
+							background-color: var(--clr-background__raised);
 							width: 100%;
-							z-index: 5;
 
-							&:first-of-type {
-								top: 0;
-
-								& button {
-									--idle: var(--clr-background__raised);
-									flex: 1 1;
-								}
+							&:not(:focus, :focus-visible) {
+								outline-color: transparent;
 							}
 
-							&:last-of-type {
-								background-color: hsl(
-									from var(--clr-background__raised) h s l/0.5
-								);
-								backdrop-filter: blur(0.5ex);
-								border-radius: var(--xl);
-								box-shadow: 0 15vmax 100vmax 15vmax
-									var(--clr-background__raised);
-								gap: var(--xs);
-								inset: auto auto 0 auto;
-								margin: auto auto 0 auto;
-								padding: var(--xs);
-
-								& button {
-									--idle: var(--clr-background__raised);
-									flex-shrink: 0;
-								}
-							}
-						}
-
-						& > hr {
-							background-color: var(--clr-border__raised);
-						}
-
-						& > x-group {
 							& > span {
-								margin-bottom: var(--md);
-							}
-
-							& :where(button, summary) {
-								background-color: var(--clr-background__raised);
-								width: 100%;
-
-								&:not(:focus, :focus-visible) {
-									outline-color: transparent;
-								}
-
-								& > span {
-									text-align: left;
-								}
+								text-align: left;
 							}
 						}
-					}
-
-					#notion__sidebar--rail {
-						padding: var(--xs);
-						width: 75px;
-					}
-
-					#notion__main {
-						width: 100%;
 					}
 				}
+
+				#notion__sidebar--rail {
+					padding: var(--xs);
+					width: 75px;
+				}
+
+				#notion__main {
+					width: 100%;
+				}
 			}
-		</style>
-	</ViewFrame>
-</ShellLayout>
+		}
+	</style>
+</ShowcaseLayout>

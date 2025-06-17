@@ -1,10 +1,8 @@
 ---
-import ShellLayout from '@layouts/app.astro';
-import ViewFrame from '@layouts/frame.astro';
+import ShowcaseLayout from '@layouts/showcase.astro';
 ---
 
-<ShellLayout>
-	<ViewFrame>
+<ShowcaseLayout>
 	<!--  -->
 	<h1>Products</h1>
 	<p>
@@ -14,17 +12,22 @@ import ViewFrame from '@layouts/frame.astro';
 		numquam!
 	</p>
 	<!--  -->
-	<x-grid style="--cols: 3;"class='g-sm'>
+	<x-grid style='--cols: 3;' class='g-sm'>
 		{
 			[...Array(4).keys()].map((i) => (
-				<article class='inline-grid outln outln-primary g-sm p-sm radius-sm' style=`${i < 1 && 'grid-column: 1/-1;'}`>
+				<article
+					class='inline-grid outln outln-primary g-sm p-sm radius-sm'
+					style={`${i < 1 && 'grid-column: 1/-1;'}`}>
 					<figure class='w-100'>
 						<img
 							src='https://cdn.dribbble.com/userupload/14856095/file/original-2054c6980b03637f35168d04410351b8.jpg?resize=1024x768'
 							alt='thumbnail'
 						/>
 						<x-dropdown class='ps-absolute top right mt-5xs mr-5xs'>
-							<summary slot='summary' class='radius-3xs __button __outline' style="--bg: transparent; mix-blend-mode: difference;">
+							<summary
+								slot='summary'
+								class='radius-3xs __button __outline'
+								style='--bg: transparent; mix-blend-mode: difference;'>
 								<i data-is='icon'> more_vert </i>
 							</summary>
 							<button>
@@ -47,7 +50,9 @@ import ViewFrame from '@layouts/frame.astro';
 								alt='thumbvatar'
 							/>
 						</figure>
-						<x-flex axis='x' class='align-center[items] g-sm place-between  wrap'>
+						<x-flex
+							axis='x'
+							class='align-center[items] g-sm place-between  wrap'>
 							<h6>Product Name</h6>
 							<small class='inline-block bg-subtext clr-text px-sm py-3xs radius-3xs txt-truncate'>
 								Product Tag
@@ -75,5 +80,4 @@ import ViewFrame from '@layouts/frame.astro';
 		}
 	</x-grid>
 	<!--  -->
-  </ViewFrame>
-</ShellLayout>
+</ShowcaseLayout>

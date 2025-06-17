@@ -1,105 +1,102 @@
 ---
-import ShellLayout from '@layouts/app.astro';
-import ViewFrame from '@layouts/frame.astro';
+import ShowcaseLayout from '@layouts/showcase.astro';
 ---
 
-<ShellLayout>
-	<ViewFrame>
-		<div id='notification'>
-			<div data-is='wrap'>
-				<figure>
-					<img
-						src='https://cdn.dribbble.com/userupload/36827646/file/original-24ed8e5b476e7896326891445660a9f4.png?resize=1024x768&vertical=center'
-						alt='thumbnail'
-					/>
-				</figure>
+<ShowcaseLayout>
+	<div id='notification'>
+		<div data-is='wrap'>
+			<figure>
+				<img
+					src='https://cdn.dribbble.com/userupload/36827646/file/original-24ed8e5b476e7896326891445660a9f4.png?resize=1024x768&vertical=center'
+					alt='thumbnail'
+				/>
+			</figure>
 
-				<div>
-					<span>Time Sensitive</span>
-					<h6>Gross House</h6>
-					<p>Property Offer</p>
-				</div>
+			<div>
+				<span>Time Sensitive</span>
+				<h6>Gross House</h6>
+				<p>Property Offer</p>
 			</div>
+		</div>
 
-			<hr />
+		<hr />
 
-			<div data-is='row' style='align-items: start;'>
-				<i data-is='icon' style='--fill: 1; --size: var(--xl);'> schedule </i>
-				<p>
-					Leave on Time Sensitive notifications from Props? This allows Props to
-					deliver important notifications inmmediately
-				</p>
-			</div>
+		<div data-is='row' style='align-items: start;'>
+			<i data-is='icon' style='--fill: 1; --size: var(--xl);'> schedule </i>
+			<p>
+				Leave on Time Sensitive notifications from Props? This allows Props to
+				deliver important notifications inmmediately
+			</p>
+		</div>
 
-			<hr />
+		<hr />
 
-			<div data-is='wrap'>
-				<button data-variant='outline'>Turn Off</button>
-				<button data-variant='outline'>Leave On</button>
-			</div>
-
-			<style lang='css' is:inline>
-				@scope (#notification) {
-					:scope {
-						background-color: var(--clr-background__raised);
-						border-radius: var(--md);
-						height: max-content;
-						outline: solid 2px var(--clr-border__base);
-						outline-offset: -2px;
-						place-self: safe center;
-						width: min(100%, 440px);
-
-						& > [data-is='wrap'] {
-							align-items: center;
-							gap: var(--md);
-							padding: var(--lg);
-
-							& > figure {
-								aspect-ratio: 1/1;
-								border-radius: var(--xs);
-								flex-shrink: 0;
-								height: calc(var(--xl) * 2.5);
-								overflow: clip;
-							}
-
-							& > div {
-								width: fit-content;
-
-								& > span {
-									color: #808080;
-								}
-							}
-
-							& > p {
-								width: 100%;
-							}
-
-							& > button {
-								flex-grow: 1;
-								min-width: max-content;
-								place-content: center;
-							}
-						}
-
-						& > [data-is='row'] {
-							gap: var(--md);
-							padding: var(--lg);
-						}
-					}
-				}
-			</style>
+		<div data-is='wrap'>
+			<button data-variant='outline'>Turn Off</button>
+			<button data-variant='outline'>Leave On</button>
 		</div>
 
 		<style lang='css' is:inline>
-			@import url('https://fonts.googleapis.com/css2?family=Oi&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-			@scope {
+			@scope (#notification) {
 				:scope {
-					font-family: 'Poppins', sans-serif;
-					place-content: center;
-					place-items: center;
+					background-color: var(--clr-background__raised);
+					border-radius: var(--md);
+					height: max-content;
+					outline: solid 2px var(--clr-border__base);
+					outline-offset: -2px;
+					place-self: safe center;
+					width: min(100%, 440px);
+
+					& > [data-is='wrap'] {
+						align-items: center;
+						gap: var(--md);
+						padding: var(--lg);
+
+						& > figure {
+							aspect-ratio: 1/1;
+							border-radius: var(--xs);
+							flex-shrink: 0;
+							height: calc(var(--xl) * 2.5);
+							overflow: clip;
+						}
+
+						& > div {
+							width: fit-content;
+
+							& > span {
+								color: #808080;
+							}
+						}
+
+						& > p {
+							width: 100%;
+						}
+
+						& > button {
+							flex-grow: 1;
+							min-width: max-content;
+							place-content: center;
+						}
+					}
+
+					& > [data-is='row'] {
+						gap: var(--md);
+						padding: var(--lg);
+					}
 				}
 			}
 		</style>
-	</ViewFrame>
-</ShellLayout>
+	</div>
+
+	<style lang='css' is:inline>
+		@import url('https://fonts.googleapis.com/css2?family=Oi&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+		@scope {
+			:scope {
+				font-family: 'Poppins', sans-serif;
+				place-content: center;
+				place-items: center;
+			}
+		}
+	</style>
+</ShowcaseLayout>
