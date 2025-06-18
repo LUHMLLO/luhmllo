@@ -3,5 +3,77 @@ import Layout from './.lib/layout.astro';
 ---
 
 <Layout>
-	<h1>Contact</h1>
+	<div data-is='grid' style='--cols: 2; --gap: var(--xl);'>
+		<h1>Contact</h1>
+		<form action='' data-is='grid' style='--cols: 2; --gap: var(--xl);'>
+			<label for='first_name' data-is='field'>
+				<span data-part='label'>
+					First Name
+					<i data-is='icon' data-status='error'>
+						<small>asterisk</small>
+					</i>
+				</span>
+				<input
+					type='text'
+					id='first_name'
+					name='first_name'
+					autocomplete='given-name'
+					value='Shah'
+					required
+				/>
+			</label>
+
+			<label for='last_name' data-is='field'>
+				<span data-part='label'>
+					Last Name
+					<i data-is='icon' data-status='error'>
+						<small>asterisk</small>
+					</i>
+				</span>
+				<input
+					type='text'
+					id='last_name'
+					name='last_name'
+					autocomplete='family-name'
+					value='Khan'
+					required
+				/>
+			</label>
+
+			<label for='email' data-is='field'>
+				<span data-part='label'>
+					Email
+					<i data-is='icon' data-status='error'>
+						<small>asterisk</small>
+					</i>
+				</span>
+				<input
+					type='email'
+					id='email'
+					name='email'
+					autocomplete='email'
+					value='shkan@gmail.com'
+					required
+				/>
+			</label>
+			<label for='mobile_phone' data-is='field'>
+				<span data-part='label'>
+					Mobile Phone
+					<i data-is='icon' data-status='error'>
+						<small>asterisk</small>
+					</i>
+				</span>
+				<input
+					type='tel'
+					id='mobile_phone'
+					name='mobile_phone'
+					autocomplete='tel'
+					inputmode='tel'
+					pattern='\d{3}-\d{3}-\d{4}'
+					value='904-646-4344'
+					required
+				/>
+			</label>
+		</form>
+	</div>
 </Layout>

@@ -1,5 +1,8 @@
 ---
 import Logo from './logo.astro';
+import { getBasePath } from 'src/utils/routeSegments';
+
+const basePath = getBasePath(Astro.url.pathname, 2);
 ---
 
 <nav id='topbar'>
@@ -30,19 +33,18 @@ import Logo from './logo.astro';
 	</div>
 
 	<div data-is='row' style='height: calc(20 * 0.0625rem);'>
-		<a href='' data-variant='text'>
+		<a href={basePath} data-variant='text'>
 			<figure style='width: calc(100 * 0.0625rem);'>
 				<Logo />
 			</figure>
 		</a>
 	</div>
 	<div id='topbar__menu' data-is='row' style='justify-content: center;'>
-		<a href='' data-variant='text'> About </a>
-		<a href='' data-variant='text'> Projects </a>
-		<a href='' data-variant='text'> Work </a>
+		<a href={`${basePath}/about`} data-variant='text'> About </a>
+		<a href={`${basePath}/work`} data-variant='text'> Work </a>
 	</div>
 	<div data-is='row' style='justify-content: end;'>
-		<a href='' data-variant='text'> Contact </a>
+		<a href={`${basePath}/contact`} data-variant='text'> Contact </a>
 	</div>
 
 	<style lang='css' is:inline>
