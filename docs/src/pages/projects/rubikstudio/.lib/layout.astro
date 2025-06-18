@@ -10,7 +10,7 @@ import Appbar from './components/appbar.astro';
 
 		<Appbar />
 
-		<div id='rubikstudioapp__content' data-layout='expand'>
+		<div id='rubikstudioapp__content' data-is='stack' data-layout='expand'>
 			<slot />
 		</div>
 
@@ -56,7 +56,7 @@ import Appbar from './components/appbar.astro';
 						:scope {
 							height: 100%;
 							isolation: isolate;
-							place-content: safe center;
+							padding-block: calc(var(--xl) * 4);
 							position: relative;
 							z-index: 1;
 						}

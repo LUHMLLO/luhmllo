@@ -59,7 +59,6 @@
       /*12px*/
       calc(var(--type-base) / pow(var(--type-ratio), 1));
 
-
     --type-p:
       /*17px*/
       calc(var(--type-base) * pow(var(--type-ratio), 0.575));

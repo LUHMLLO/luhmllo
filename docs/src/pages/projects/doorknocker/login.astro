@@ -1,0 +1,42 @@
+---
+import Layout from './.lib/auth.astro';
+---
+
+<Layout>
+	<header data-layout='expand'>
+		<h1 style='margin-left: calc(2.5 * -0.0625rem);'>
+			<i
+				data-is='icon'
+				style='--size: calc(75 * 0.0625rem); margin-bottom: calc(5.25 * -0.0625rem); margin-left: calc(7.5 * -0.0625rem); margin-right: calc(7.5 * -0.0625rem);'>
+				meeting_room
+			</i>
+			<small>Door</small>
+			<br />
+			Knockers
+		</h1>
+		<p><small>by <big>Hytech</big></small></p>
+	</header>
+
+	<form action='' data-is='stack'>
+		<label for='username' data-is='field'>
+			<span data-is='label'>Username</span>
+			<input type='text' name='username' id='username' />
+		</label>
+
+		<label for='username' data-is='field'>
+			<span data-is='label'>Password</span>
+			<input type='password' name='password' id='password' />
+		</label>
+
+		<div data-is='row'>
+			<label for='rememberme'>
+				<input type='checkbox' name='rememberme"' id='rememberme' />
+				<span>Remember Me</span>
+			</label>
+
+			<a href='#'>Forgot Password</a>
+		</div>
+	</form>
+
+	<button data-layout='expand'> Sign In </button>
+</Layout>

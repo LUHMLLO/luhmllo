@@ -1,0 +1,30 @@
+---
+import ShowcaseLayout from '@layouts/showcase.astro';
+
+// import Appbar from './components/appbar.astro';
+---
+
+<ShowcaseLayout>
+	<div id='doorknockerapp' data-is='flex'>
+		<slot />
+
+		<style lang='css' is:inline>
+			@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+
+			@scope (#doorknockerapp) {
+				:scope {
+					--clr-accent__lowered: #6adc76;
+					--clr-accent__base: #8de496;
+					--clr-accent__raised: #acecb3;
+					--clr-onAccent: #0a290d;
+
+					font-family: 'Bricolage Grotesque', sans-serif;
+					font-optical-sizing: auto;
+					height: 100%;
+					min-height: 0;
+					position: relative;
+				}
+			}
+		</style>
+	</div>
+</ShowcaseLayout>
