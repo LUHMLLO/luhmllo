@@ -126,7 +126,7 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 						border-radius: var(--xs);
 						flex-shrink: 0;
 						gap: inherit;
-						height: 50px;
+						height: calc(50 * 0.0625rem);
 						overflow: clip;
 						padding: var(--md);
 						width: 100%;
@@ -134,14 +134,14 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 						@container app (width > 512px) {
 							flex-direction: column;
 							height: 100%;
-							width: 50px;
+							width: calc(50 * 0.0625rem);
 						}
 
 						#logo {
 							aspect-ratio: 1/1;
 							flex-shrink: 1;
-							height: 20px;
-							width: 20px;
+							height: calc(20 * 0.0625rem);
+							width: calc(20 * 0.0625rem);
 						}
 
 						#menu-icons {

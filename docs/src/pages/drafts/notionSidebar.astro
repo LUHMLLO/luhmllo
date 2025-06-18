@@ -165,7 +165,7 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 					min-width: 100%;
 
 					@container app (width > 384px) {
-						min-width: min(100%, 256px);
+						min-width: min(100%, calc(256 * 0.0625rem));
 					}
 
 					& > x-flex {

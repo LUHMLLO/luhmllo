@@ -154,7 +154,7 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 				data-variant='text'
 				style='width: 100%;'>
 				<figure
-					style='aspect-ratio: 1/1; display: inline-flex; height: 20px; place-content: center;'>
+					style='aspect-ratio: 1/1; display: inline-flex; height: calc(20 * 0.0625rem); place-content: center;'>
 					<IconGithub />
 				</figure>
 				<span>GitHub Repository</span>
@@ -168,7 +168,7 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 				data-variant='text'
 				style='width: 100%;'>
 				<figure
-					style='aspect-ratio: 1/1; display: inline-flex; height: 20px; place-content: center;'>
+					style='aspect-ratio: 1/1; display: inline-flex; height: calc(20 * 0.0625rem); place-content: center;'>
 					<IconJSR />
 				</figure>
 				<span>JSR Package</span>
@@ -182,7 +182,7 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 				data-variant='text'
 				style='width: 100%;'>
 				<figure
-					style='aspect-ratio: 1/1; display: inline-flex; height: 20px; place-content: center;'>
+					style='aspect-ratio: 1/1; display: inline-flex; height: calc(20 * 0.0625rem); place-content: center;'>
 					<IconSponsor />
 				</figure>
 				<span>Support Us</span>
@@ -238,7 +238,7 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 				transition-property: opacity, position, transform, translate;
 				transition-duration: var(--animDuration);
 				transition-timing-function: var(--animTiming);
-				width: max(0px, 300px);
+				width: max(0, calc(300 * 0.0625rem));
 				z-index: 5;
 
 				&[data-visible='false'] {
@@ -258,7 +258,7 @@ import IconSponsor from '../assets/icon_sponsor.svg';
 							aspect-ratio: 1/1;
 							flex-shrink: 0;
 							vertical-align: middle;
-							width: 45px;
+							width: calc(45 * 0.0625rem);
 						}
 
 						& > div {

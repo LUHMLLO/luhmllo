@@ -753,8 +753,8 @@ import DocumentationLayout from '@layouts/documentation.astro';
               background-image:url('/images/cat.webp'); 
               background-position: center;
               background-size: cover;
-              width:300px; 
-              height: 300px; 
+              width: calc(300 * 0.0625rem); 
+              height: calc(300 * 0.0625rem); 
               ">
 				</div>
 			</article>
@@ -807,7 +807,7 @@ import DocumentationLayout from '@layouts/documentation.astro';
 					<h2>Inline SVG</h2>
 				</header>
 				<div>
-					<svg width='100px' height='100px'>
+					<svg width='calc(100 * 0.0625rem)' height='calc(100 * 0.0625rem)'>
 						<circle cx='100' cy='100' r='100' fill='#1fa3ec'></circle>
 					</svg>
 				</div>
