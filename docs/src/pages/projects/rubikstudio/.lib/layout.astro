@@ -14,6 +14,11 @@ import Appbar from './components/appbar.astro';
 			<slot />
 		</div>
 
+		<footer style='grid-row: bottom;'>
+			<button data-cycle-stack> up </button>
+			<button data-cycle-stack> down </button>
+		</footer>
+
 		<!-- <template>
 				<script
 					src='https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js'

@@ -15,7 +15,7 @@
   }
 } */
 
-@layer tokens {
+/* @layer tokens {
   :root {
     --type-base: 15px;
     --type-ratio: 1.125;
@@ -27,5 +27,45 @@
     --type-h6: calc(15 * 0.0625rem);
     --type-p: calc(15 * 0.0625rem);
     --type-s: calc(10 * 0.0625rem);
+  }
+} */
+
+@layer tokens {
+  :root {
+    --type-base: 15px;
+    --type-ratio: 1.250;
+
+    --type-h1:
+      /*48px*/
+      calc(var(--type-base) * pow(var(--type-ratio), 5.25));
+
+    --type-h2:
+      /*40px*/
+      calc(var(--type-base) * pow(var(--type-ratio), 4.5));
+
+    --type-h3:
+      /*32px*/
+      calc(var(--type-base) * pow(var(--type-ratio), 3.5));
+
+    --type-h4:
+      /*24px*/
+      calc(var(--type-base) * pow(var(--type-ratio), 2.5));
+
+    --type-h5:
+      /*19px*/
+      calc(var(--type-base) * pow(var(--type-ratio), 1.5));
+
+    --type-h6:
+      /*12px*/
+      calc(var(--type-base) / pow(var(--type-ratio), 1));
+
+
+    --type-p:
+      /*17px*/
+      calc(var(--type-base) * pow(var(--type-ratio), 0.575));
+
+    --type-s:
+      /*14px*/
+      calc(var(--type-base) / pow(var(--type-ratio), 1));
   }
 }
