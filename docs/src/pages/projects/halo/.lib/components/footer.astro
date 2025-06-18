@@ -15,7 +15,7 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 	style='--cols: 4; --gap: calc(var(--xl) * 2); row-gap: var(--xl);'>
 	<div style='grid-column: 1/-1;'>
 		<a href={basePath}>
-			<figure style='height: 75px;'>
+			<figure style='height: calc(75 * 0.0625rem);'>
 				<Image src={AssetLogo} alt='logo' decoding='async' loading='eager' />
 			</figure>
 		</a>

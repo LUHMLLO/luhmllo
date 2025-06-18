@@ -35,8 +35,8 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 
 	<div id='hero__content' data-is='stack'>
 		<div data-is='group' style='gap: var(--xs);'>
-			<h2>Protect your family</h2>
-			<h3>With pure and safe water</h3>
+			<h1>Protect your family</h1>
+			<h2><small>With pure and safe water</small></h2>
 		</div>
 
 		<a href={`${basePath}#products`} data-is='button'>
@@ -47,7 +47,7 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 	<style lang='css' is:inline>
 		@scope (#hero) {
 			:scope {
-				height: 700px;
+				height: calc(700 * 0.0625rem);
 				overflow: clip;
 				position: relative;
 

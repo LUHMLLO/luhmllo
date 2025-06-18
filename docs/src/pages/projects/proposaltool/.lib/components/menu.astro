@@ -151,7 +151,7 @@ const options = [
 				currentY = e.clientY;
 				const delta = currentY - startY;
 				if (delta > 0) {
-					menu.style.transform = `translateY(${delta}px)`;
+					menu.style.transform = `translateY(calc(${delta} * 0.0625rem))`;
 				}
 			});
 
@@ -187,7 +187,7 @@ const options = [
 					height: var(--xs);
 					margin: var(--xl) auto;
 					touch-action: none;
-					width: min(100%, 100px);
+					width: min(100%, calc(100 * 0.0625rem));
 
 					&:active {
 						cursor: grabbing;
