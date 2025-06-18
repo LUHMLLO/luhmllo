@@ -11,7 +11,7 @@
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
     text-wrap: pretty;
-    will-change: background, color, opacity, outline, position, visibility;
+    will-change: backdrop-filter, background, block-size, color, inline-size, inset, opacity, outline, padding, position, rotate, transform, visibility;
   }
 
   @media (prefers-color-scheme: light) {

@@ -25,21 +25,33 @@ const { image, style } = Astro.props;
 			:scope {
 				background-color: transparent;
 				box-shadow: 0 0 100vmax -1ex hsl(var(--clr-background__lowered) h s l/1);
+				padding: calc(var(--xl) * 2);
+				place-content: center end;
+				transition: padding var(--animDuration) var(--animTiming);
 				width: calc(var(--xl) * 16);
 
-				& > [data-is='row'] {
+				&::before {
 					aspect-ratio: 1/1;
 					background-color: hsla(0 0 0/0.1);
 					backdrop-filter: blur(0.5ex);
 					box-shadow: inset 0 0 100vmax -1px hsla(0 0 0/0.125);
 					border-radius: 50%;
+					content: '';
+					inset: 0;
+					margin: auto;
+					position: absolute;
+					transition: all var(--animDuration) var(--animTiming);
+					width: 90%;
+					z-index: 1;
+				}
+
+				& > [data-is='row'] {
+					align-items: center;
 					gap: var(--xs);
-					padding: calc(var(--xl) * 4) calc(var(--xl) * 1.15);
-					place-items: center center;
-					transition-duration: var(--animDuration);
-					transition-property: backdrop-filter, border-radius, height, width;
-					transition-timing-function: var(--animTiming);
+					height: 100%;
+					transition: block-size var(--animDuration) var(--animTiming);
 					width: 100%;
+					z-index: 2;
 
 					[data-is='group'] {
 						flex: 1 1;
@@ -56,13 +68,17 @@ const { image, style } = Astro.props;
 
 				&:hover {
 					cursor: pointer;
+					padding-block: calc(var(--xl) * 8) var(--xl);
+					padding-inline: var(--xl);
+
+					&::before {
+						backdrop-filter: blur(1ex);
+						border-radius: 0;
+						width: 100%;
+					}
 
 					& > [data-is='row'] {
-						backdrop-filter: blur(0.75ex);
-						border-radius: 0;
-						inset: 0;
-						padding: calc(var(--xl) * 4) calc(var(--xl) * 1.81);
-						position: absolute;
+						height: auto;
 					}
 				}
 

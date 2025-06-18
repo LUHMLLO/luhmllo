@@ -38,11 +38,11 @@ const cards = [
 				@keyframes rotate-in {
 					from {
 						opacity: 0;
-						rotate: 0deg;
+						transform: rotate(0deg);
 					}
 					to {
 						opacity: var(--target-opacity);
-						rotate: var(--target-rotation);
+						transform: rotate(var(--target-rotation));
 					}
 				}
 
@@ -71,7 +71,7 @@ const cards = [
 
 						grid-area: 1 / 1;
 						opacity: 0;
-						rotate: 0deg;
+						transform: rotate(0deg);
 
 						&:not(:nth-child(1)) {
 							pointer-events: none;
