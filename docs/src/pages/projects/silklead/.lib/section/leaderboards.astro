@@ -93,7 +93,7 @@ const data = [
 						<small>{el.description}</small>
 					</header>
 
-					<ul role='list' data-is='stack'>
+					<ul role='list' data-is='stack' data-condition='marginless'>
 						{el.properties.map((property) => (
 							<li data-is='flex' style='gap: var(--md);'>
 								<span>{property.percentage}</span>
