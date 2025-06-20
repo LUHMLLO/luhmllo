@@ -1,7 +1,7 @@
 @layer normalize {
   :where(kbd) {
     background-color: var(--clr-background__raised);
-    border-radius: 0.5ex;
+    border-radius: var(--radii-xs);
     display: inline-block;
     font-family: monospace;
     font-size: var(--type-s);

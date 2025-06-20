@@ -1,0 +1,38 @@
+@layer tokens {
+  :root {
+    --radii-base: calc(2 * 0.0625rem);
+    --radii-ratio: 1.618;
+
+    --radii-full:
+      /*3.35544e+07px*/
+      calc(10000000000 * 0.0625rem);
+
+    --radii-xl:
+      /*49.4px*/
+      calc(var(--radii-base) * pow(var(--radii-ratio), 6.666));
+
+    --radii-lg:
+      /*28.9px*/
+      calc(var(--radii-base) * pow(var(--radii-ratio), 5.555));
+
+    --radii-nm:
+      /*16.9px*/
+      calc(var(--radii-base) * pow(var(--radii-ratio), 4.444));
+
+    --radii-md:
+      /*9.9px*/
+      calc(var(--radii-base) * pow(var(--radii-ratio), 3.333));
+
+    --radii-sm:
+      /*5.8px*/
+      calc(var(--radii-base) * pow(var(--radii-ratio), 2.222));
+
+    --radii-xs:
+      /*3.4px*/
+      calc(var(--radii-base) * pow(var(--radii-ratio), 1.111));
+
+    --radii-none:
+      /*0px*/
+      0px;
+  }
+}

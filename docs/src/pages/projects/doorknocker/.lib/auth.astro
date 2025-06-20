@@ -33,34 +33,39 @@ import RootLayout from './root.astro';
 					}
 
 					& > form {
+						align-items: center;
 						gap: var(--xl);
 						grid-auto-rows: max-content;
 						padding-block: var(--xl);
 
+						& > * {
+							width: 100%;
+						}
+
 						& > [data-is='row'] {
+							flex: 1 1;
 							place-content: space-between;
 						}
-					}
 
-					& > button {
-						background-color: var(--clr-accent__base);
-						border-radius: 0;
-						color: var(--clr-onAccent);
-						font-size: var(--type-h3);
-						font-weight: 500;
-						grid-column: expand;
-						grid-row: bottom;
-						height: calc(100 * 0.0625rem);
-						place-content: center;
-						text-align: center;
-						width: 100%;
+						& > button {
+							background-color: var(--clr-accent__base);
+							color: var(--clr-onAccent);
+							grid-column: expand;
+							grid-row: bottom;
+							font-size: var(--type-h4);
+							font-weight: 500;
+							height: calc(75 * 0.0625rem);
+							place-content: center;
+							text-align: center;
+							width: min(100%, calc(384 * 0.0625rem));
 
-						&:hover {
-							background-color: var(--clr-accent__raised);
-						}
+							&:hover {
+								background-color: var(--clr-accent__raised);
+							}
 
-						&:active {
-							background-color: var(--clr-accent__lowered);
+							&:active {
+								background-color: var(--clr-accent__lowered);
+							}
 						}
 					}
 				}

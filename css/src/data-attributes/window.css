@@ -2,7 +2,7 @@
   :where([data-is="window"], [data-is="frame"], [data-is="capsule"]) {
     background-color: var(--clr-background__base);
     backdrop-filter: blur(0.5ex);
-    border-radius: 1ex;
+    border-radius: var(--radii-md);
     display: block;
     height: 100%;
     isolation: isolate;

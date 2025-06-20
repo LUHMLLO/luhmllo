@@ -2,7 +2,7 @@
   :where([data-is="input"]) {
     align-items: center;
     background-color: var(--clr-background__base);
-    border-radius: 0.75ex;
+    border-radius: var(--radii-sm);
     display: flex;
     gap: var(--xs);
     height: 45px;
@@ -24,7 +24,7 @@
 
     & > input {
       background-color: transparent;
-      border-radius: 0;
+      border-radius: var(--radii-none);
       height: auto;
       outline: none;
       padding: 0;

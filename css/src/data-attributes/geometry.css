@@ -1,13 +1,13 @@
 @layer data-attributes {
   :where([data-geometry="circle"]) {
     aspect-ratio: 1/1;
-    border-radius: 10ex;
+    border-radius: var(--radii-full);
     overflow: clip;
   }
 
   :where([data-geometry="squircle"]) {
     aspect-ratio: 1/1;
-    border-radius: 5ex;
+    border-radius: var(--radii-xl);
     overflow: clip;
   }
 }

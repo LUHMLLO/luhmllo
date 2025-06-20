@@ -1,7 +1,7 @@
 @layer data-attributes {
   :where([data-is="codeblock"]) {
     background-color: var(--clr-background__lowered);
-    border-radius: 0.75ex;
+    border-radius: var(--radii-sm);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: max-content 1fr;

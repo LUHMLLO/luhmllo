@@ -1,7 +1,7 @@
 @layer normalize {
   :where(input) {
     background-color: var(--clr-background__base);
-    border-radius: 0.75ex;
+    border-radius: var(--radii-sm);
     color: var(--clr-text__base);
     display: inline-block;
     font-size: var(--type-p);
@@ -45,7 +45,6 @@
     aspect-ratio: 1/1;
     background-color: var(--clr-background__base);
     border: solid 2px var(--clr-border__base);
-    border-radius: 0.5ex;
     contain: content;
     display: inline-grid;
     flex: 0 0;
@@ -65,8 +64,12 @@
     }
   }
 
+  :where(input[type="checkbox"]) {
+    border-radius: var(--radii-xs);
+  }
+
   :where(input[type="radio"]) {
-    border-radius: 5ex;
+    border-radius: var(--radii-full);
   }
 
   :where(input[type="range"]) {
@@ -85,7 +88,7 @@
       appearance: none;
       background-color: var(--clr-border__base);
       block-size: var(--track-height);
-      border-radius: 5ex;
+      border-radius: var(--radii-ull);
       cursor: pointer;
     }
 
@@ -93,7 +96,7 @@
       appearance: none;
       background-color: var(--clr-text__base);
       block-size: var(--thumb-size);
-      border-radius: 5ex;
+      border-radius: var(--radii-full);
       cursor: ew-resize;
       inline-size: var(--thumb-size);
       margin-top: var(--thumb-offset);

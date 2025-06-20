@@ -3,7 +3,7 @@
     align-items: center;
     background-color: var(--clr-background__base);
     border: solid 2px var(--clr-border__base);
-    border-radius: 5ex;
+    border-radius: var(--radii-full);
     display: inline-grid;
     grid-template-columns: 0px var(--xl) calc(var(--xl) * 1);
     grid-template-rows: 1fr;
@@ -20,7 +20,7 @@
     &::after {
       aspect-ratio: 1/1;
       background-color: var(--clr-text__lowered);
-      border-radius: 5ex;
+      border-radius: inherit;
       content: "";
       grid-column: 2;
       height: 100%;

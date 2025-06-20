@@ -1,38 +1,6 @@
-/* @layer tokens {
-  :root {
-    --type-base: calc(var(--type-ratio) * clamp(clamp(0.72rem, 1rem, 0.88rem),
-          0.0625dvw,
-          clamp(1rem, 1vw, 16pt)));
-    --type-ratio: 1.125;
-    --type-h1: calc(var(--type-base) * pow(var(--type-ratio), 7));
-    --type-h2: calc(var(--type-base) * pow(var(--type-ratio), 6));
-    --type-h3: calc(var(--type-base) * pow(var(--type-ratio), 5));
-    --type-h4: calc(var(--type-base) * pow(var(--type-ratio), 4));
-    --type-h5: calc(var(--type-base) * pow(var(--type-ratio), 3));
-    --type-h6: calc(var(--type-base) * pow(var(--type-ratio), 2));
-    --type-p: calc(var(--type-base) * pow(var(--type-ratio), 1));
-    --type-s: calc(var(--type-base) / pow(var(--type-ratio), 1));
-  }
-} */
-
-/* @layer tokens {
-  :root {
-    --type-base: 15px;
-    --type-ratio: 1.125;
-    --type-h1: calc(45 * 0.0625rem);
-    --type-h2: calc(40 * 0.0625rem);
-    --type-h3: calc(30 * 0.0625rem);
-    --type-h4: calc(25 * 0.0625rem);
-    --type-h5: calc(20 * 0.0625rem);
-    --type-h6: calc(15 * 0.0625rem);
-    --type-p: calc(15 * 0.0625rem);
-    --type-s: calc(10 * 0.0625rem);
-  }
-} */
-
 @layer tokens {
   :root {
-    --type-base: 15px;
+    --type-base: calc(15 * 0.0625rem);
     --type-ratio: 1.250;
 
     --type-h1:

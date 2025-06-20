@@ -5,7 +5,7 @@
 
   :where(select) {
     background-color: var(--clr-background__base);
-    border-radius: 0.75ex;
+    border-radius: var(--radii-sm);
     color: inherit;
     display: inline-block;
     font-size: var(--type-p);
@@ -31,7 +31,7 @@
     &::picker(select) {
       appearance: base-select;
       background-color: var(--clr-background__base);
-      border-radius: 0.75ex;
+      border-radius: var(--radii-sm);
       color: inherit;
       flex-direction: column;
       border: solid 2px var(--clr-border__base);

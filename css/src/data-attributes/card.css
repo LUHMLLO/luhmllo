@@ -1,7 +1,7 @@
 @layer data-attributes {
   :where([data-is="card"]) {
     background-color: var(--clr-background__base);
-    border-radius: 0.75ex;
+    border-radius: var(--radii-sm);
     display: flex;
     flex-direction: column;
     flex: 1 1;

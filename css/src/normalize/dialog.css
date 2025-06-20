@@ -1,14 +1,14 @@
 @layer normalize {
   :where(dialog) {
-    background-color: var(--clr-background__base);
-    border-radius: 1ex;
+    background-color: var(--clr-background__raised);
+    border-radius: var(--radii-md);
     height: max-content;
     inset: 0;
     margin: auto;
     position: absolute;
 
     &:modal {
-      outline: solid 2px var(--clr-border__base);
+      outline: solid 2px var(--clr-border__raised);
       outline-offset: -2px;
     }
 
