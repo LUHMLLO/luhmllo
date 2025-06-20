@@ -10,7 +10,7 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 	id='quote'
 	data-is='grid'
 	data-layout='expand'
-	style='--cols: 1; --gap: var(--xl); place-items: center;'>
+	style='--cols: 1; --gap: var(--space-xl); place-items: center;'>
 	<figure data-is='background'>
 		<Image
 			src={AssetBannerBackground}
@@ -43,11 +43,11 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 		@scope (#quote) {
 			:scope {
 				overflow: clip;
-				padding-block: calc(var(--xl) * 2);
+				padding-block: calc(var(--space-xl) * 2);
 				position: relative;
 
 				& > div {
-					gap: var(--md);
+					gap: var(--space-md);
 					place-content: center;
 					place-items: center;
 					text-align: center;

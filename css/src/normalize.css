@@ -107,8 +107,8 @@
   /* quotes */
   :where(blockquote) {
     border-left: solid 2px var(--clr-accent__base);
-    margin: min(5%, var(--sm));
-    padding: min(5%, var(--sm));
+    margin: min(5%, var(--space-sm));
+    padding: min(5%, var(--space-sm));
   }
 
   /* general clickable items */

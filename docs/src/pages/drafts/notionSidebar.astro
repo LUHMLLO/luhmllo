@@ -18,7 +18,7 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 				<i data-is='icon' data-part='trail'>keyboard_arrow_down</i>
 			</button>
 
-			<x-row style='flex-shrink: 0; gap: var(--xs);'>
+			<x-row style='flex-shrink: 0; gap: var(--space-xs);'>
 				<button id='sidebar-hide' data-variant='outline'>
 					<i data-is='icon'>left_panel_close</i>
 				</button>
@@ -156,11 +156,11 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 
 				#notion__sidebar {
 					background-color: var(--clr-background__raised);
-					gap: var(--lg);
+					gap: var(--space-lg);
 					height: 100%;
 					border-right: solid 2px var(--clr-border__base);
 					overflow: auto;
-					padding: var(--sm);
+					padding: var(--space-sm);
 					position: relative;
 					min-width: 100%;
 
@@ -172,8 +172,8 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 						align-items: center;
 						background-color: hsl(from var(--clr-background__raised) h s l/0.5);
 						backdrop-filter: blur(0.5ex);
-						border-radius: var(--xl);
-						gap: var(--xs);
+						border-radius: var(--space-xl);
+						gap: var(--space-xs);
 						position: sticky;
 						width: 100%;
 						z-index: 5;
@@ -192,12 +192,12 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 								from var(--clr-background__raised) h s l/0.5
 							);
 							backdrop-filter: blur(0.5ex);
-							border-radius: var(--xl);
+							border-radius: var(--space-xl);
 							box-shadow: 0 15vmax 100vmax 15vmax var(--clr-background__raised);
-							gap: var(--xs);
+							gap: var(--space-xs);
 							inset: auto auto 0 auto;
 							margin: auto auto 0 auto;
-							padding: var(--xs);
+							padding: var(--space-xs);
 
 							& button {
 								--idle: var(--clr-background__raised);
@@ -212,7 +212,7 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 
 					& > x-group {
 						& > span {
-							margin-bottom: var(--md);
+							margin-bottom: var(--space-md);
 						}
 
 						& :where(button, summary) {
@@ -231,7 +231,7 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 				}
 
 				#notion__sidebar--rail {
-					padding: var(--xs);
+					padding: var(--space-xs);
 					width: 75px;
 				}
 

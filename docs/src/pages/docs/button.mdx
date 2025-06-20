@@ -8,8 +8,8 @@ layout: '@layouts/documentation.astro'
 
 <br />
 
-<div data-is="grid" style="--cols: 2; --gap: var(--nm);">
-  <div data-is="group" style="gap: var(--sm);">
+<div data-is="grid" style="--cols: 2; --gap: var(--space-nm);">
+  <div data-is="group" style="gap: var(--space-sm);">
      Button have simple mouse micro interactions by default
 
     <div data-is="codeblock">
@@ -28,7 +28,7 @@ layout: '@layouts/documentation.astro'
 
   </div>
 
-  <div data-is="group" style="gap: var(--sm);">
+  <div data-is="group" style="gap: var(--space-sm);">
     For outlined buttons you can use the `[data-variant=outline]` attribute
 
     <div data-is="codeblock">
@@ -47,7 +47,7 @@ layout: '@layouts/documentation.astro'
 
   </div>
 
-  <div data-is="group" style="gap: var(--sm);">
+  <div data-is="group" style="gap: var(--space-sm);">
     For discrete buttons you can use the `[data-variant=ghost]` attribute
 
     <div data-is="codeblock">
@@ -73,8 +73,8 @@ layout: '@layouts/documentation.astro'
 
 <br />
 
-<div data-is="grid" style="--cols: 2; --gap: var(--nm);">
-  <div data-is="group" style="gap: var(--sm);">
+<div data-is="grid" style="--cols: 2; --gap: var(--space-nm);">
+  <div data-is="group" style="gap: var(--space-sm);">
      Buttons padding can implement optical corrections using `[data-part="lead"]` and `[data-part="trail"]` attributes on its children
 
     <div data-is="codeblock">
@@ -94,7 +94,7 @@ layout: '@layouts/documentation.astro'
 
   </div>
 
-  <div data-is="group" style="gap: var(--sm);">
+  <div data-is="group" style="gap: var(--space-sm);">
     Buttons with a single child like an `<figure/>`, `<image/>`, `<i/>`, and `<kbd/>` will become circular by default
 
     <div data-is="codeblock">
@@ -113,7 +113,7 @@ layout: '@layouts/documentation.astro'
 
   </div>
 
-  <div data-is="group" style="gap: var(--sm);">
+  <div data-is="group" style="gap: var(--space-sm);">
     It dont really has to be an icon, you can use any element, `<figure/>`, `<image/>`, `<div/>`, `<kbd/>`, even another button
 
     <div data-is="codeblock">
@@ -122,7 +122,7 @@ layout: '@layouts/documentation.astro'
     				<figure
     					data-geometry='circle'
     					data-part='lead'
-    					style='background-color: white; height: var(--xl);'>
+    					style='background-color: white; height: var(--space-xl);'>
     					<img src="/images/luisrmelo.png" alt='avatar' decoding='async' loading='eager' />
     				</figure>
     				<span> Luis R. Melo </span>
@@ -135,7 +135,7 @@ layout: '@layouts/documentation.astro'
         <figure
           data-geometry='circle'
           data-part='lead'
-          style='background-color: white; height: var(--xl);'>
+          style='background-color: white; height: var(--space-xl);'>
           <img src="/images/luisrmelo.png" alt='avatar' />
         </figure>
         <span> Luis R. Melo </span>

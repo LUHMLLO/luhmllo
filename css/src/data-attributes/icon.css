@@ -1,6 +1,6 @@
 @layer data-attributes {
   :where([data-is='icon']) {
-    --size: var(--nm);
+    --size: var(--type-h5);
     --fill: 0;
     --grad: 0;
     --opsz: 50;

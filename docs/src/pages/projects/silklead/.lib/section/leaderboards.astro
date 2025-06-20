@@ -84,18 +84,18 @@ const data = [
 
 	<br />
 
-	<div data-is='grid' style='--cols: 2; --gap: var(--nm);'>
+	<div data-is='grid' style='--cols: 2; --gap: var(--space-nm);'>
 		{
 			data.map((el) => (
 				<article data-is='card'>
-					<header data-is='group' style='gap: var(--sm);'>
+					<header data-is='group' style='gap: var(--space-sm);'>
 						<h5>{el.name}</h5>
 						<small>{el.description}</small>
 					</header>
 
 					<ul role='list' data-is='stack' data-condition='marginless'>
 						{el.properties.map((property) => (
-							<li data-is='flex' style='gap: var(--md);'>
+							<li data-is='flex' style='gap: var(--space-md);'>
 								<span>{property.percentage}</span>
 								<span style='flex: 1 1; overflow: clip; text-overflow: ellipsis; white-space: nowrap;'>
 									{property.product}
@@ -117,7 +117,7 @@ const data = [
 
 					& > ul {
 						li {
-							padding-bottom: var(--sm);
+							padding-bottom: var(--space-sm);
 
 							&:not(:last-child) {
 								border-bottom: solid 2px var(--clr-border__base);

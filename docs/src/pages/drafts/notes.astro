@@ -3,13 +3,13 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 ---
 
 <ShowcaseLayout>
-	<header style='--gap: var(--md); --spacing: var(--nm);'>
+	<header style='--gap: var(--space-md); --spacing: var(--space-nm);'>
 		<h1>Good Morning</h1>
 		<p>Here are your tasks for today.</p>
 		<time datetime='6:15 AM'>6:15 AM</time>
 	</header>
 
-	<x-grid style='--cols: 3; --gap: var(--nm); --spacing: var(--nm);'>
+	<x-grid style='--cols: 3; --gap: var(--space-nm); --spacing: var(--space-nm);'>
 		<button>
 			<i data-is='icon'> note </i>
 			<span>
@@ -76,15 +76,15 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 					}
 
 					& > p {
-						font-size: var(--nm);
+						font-size: var(--space-nm);
 					}
 
 					& > time {
 						background-color: var(--clr-background__raised);
-						border-radius: var(--xs);
+						border-radius: var(--space-xs);
 						display: inline-block;
 						height: 30px;
-						padding: 0 var(--sm);
+						padding: 0 var(--space-sm);
 						place-content: center;
 					}
 				}
@@ -95,9 +95,9 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 					button {
 						align-items: start;
 						background-color: var(--clr-background__raised);
-						border-radius: var(--xs);
+						border-radius: var(--space-xs);
 						height: 100%;
-						padding-block: var(--md);
+						padding-block: var(--space-md);
 						text-align: left;
 						width: 100%;
 					}
@@ -105,8 +105,8 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 
 				& > label {
 					box-shadow: 0 0 100vmax 5vmax var(--clr-background__base);
-					inset: var(--nm);
-					margin: 0 var(--nm) var(--nm) var(--nm);
+					inset: var(--space-nm);
+					margin: 0 var(--space-nm) var(--space-nm) var(--space-nm);
 					position: sticky;
 				}
 			}

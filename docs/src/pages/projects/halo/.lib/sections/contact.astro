@@ -10,7 +10,7 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 	id='contact'
 	data-is='grid'
 	data-layout='expand'
-	style='--cols: 2; --gap: calc(var(--xl) * 2);'>
+	style='--cols: 2; --gap: calc(var(--space-xl) * 2);'>
 	<figure data-is='background'>
 		<Image
 			src={AssetContactBackground}
@@ -28,9 +28,9 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 		action={`${basePath}/api/methods`}
 		method='POST'
 		data-is='grid'
-		style='--cols: 1; --gap: calc(var(--xl) * 1.25);'
+		style='--cols: 1; --gap: calc(var(--space-xl) * 1.25);'
 		autocomplete='on'>
-		<header data-is='stack' style='gap: var(--xs);'>
+		<header data-is='stack' style='gap: var(--space-xs);'>
 			<h3>Request a Free<br />Consultation or Quote</h3>
 			<p>
 				Fill out this form for a free consultation or product quote.<br />
@@ -38,7 +38,7 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 			</p>
 		</header>
 
-		<fieldset data-is='grid' style='--cols: 2; --gap: var(--xl);'>
+		<fieldset data-is='grid' style='--cols: 2; --gap: var(--space-xl);'>
 			<label for='first_name' data-is='field'>
 				<span data-part='label'> First Name </span>
 				<input
@@ -249,14 +249,14 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 		@scope (#contact) {
 			:scope {
 				overflow: clip;
-				padding-block: calc(var(--xl) * 2);
+				padding-block: calc(var(--space-xl) * 2);
 				position: relative;
 
 				#contact__form {
 					background-color: hsl(from var(--clr-background__raised) h s l / 50%);
 					backdrop-filter: blur(5ex);
-					border-radius: var(--sm);
-					padding: calc(var(--nm) * 2) var(--xl);
+					border-radius: var(--space-sm);
+					padding: calc(var(--space-nm) * 2) var(--space-xl);
 
 					& > fieldset {
 						& > label {

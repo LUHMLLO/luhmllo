@@ -16,7 +16,7 @@ const pages: RouteItem[] = (await getTopLevelRoutesByGroup('projects')).filter(
 
 		<br />
 
-		<div data-is='grid' style='--gap: var(--md); --cols: 4;'>
+		<div data-is='grid' style='--gap: var(--space-md); --cols: 4;'>
 			{
 				pages.map((el) => (
 					<a href={el.path}>

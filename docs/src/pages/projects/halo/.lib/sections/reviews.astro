@@ -10,12 +10,12 @@ import AssetBannerInstallGuy from '../assets/bannerinstallguy.png';
 		data-is='slider'
 		data-variant='horizontal'
 		data-snap
-		style='gap: var(--xl); scrollbar-width: none;'>
+		style='gap: var(--space-xl); scrollbar-width: none;'>
 		{
 			[...Array(10).keys()].map(() => (
 				<blockquote
 					data-is='group'
-					style='background-color: var(--clr-background__raised); gap: var(--md); margin: 0; padding: var(--xl); width: clamp(calc(512 * 0.0625rem), 10dvw + 1rem, calc(640 * 0.0625rem));'>
+					style='background-color: var(--clr-background__raised); gap: var(--space-md); margin: 0; padding: var(--space-xl); width: clamp(calc(512 * 0.0625rem), 10dvw + 1rem, calc(640 * 0.0625rem));'>
 					<h5>
 						Lorem ipsum dolor, sit amet consectetur adipisicing elit.
 						Exercitationem autem cumque illum delectus fuga.
@@ -26,10 +26,10 @@ import AssetBannerInstallGuy from '../assets/bannerinstallguy.png';
 						soluta quaerat distinctio doloremque. Culpa odio veniam, itaque
 						deleniti sed aut optio sunt excepturi.
 					</p>
-					<div data-is='row' style='align-items: center; gap: var(--md);'>
+					<div data-is='row' style='align-items: center; gap: var(--space-md);'>
 						<figure
 							data-geometry='circle'
-							style='background-color: var(--clr-background__base); height: calc(var(--lg) * 2);'>
+							style='background-color: var(--clr-background__base); height: calc(var(--space-lg) * 2);'>
 							<Image
 								src={AssetBannerInstallGuy}
 								alt='banner installation guy'
@@ -65,7 +65,7 @@ import AssetBannerInstallGuy from '../assets/bannerinstallguy.png';
 	<div
 		id='reviews__slidercontrols'
 		data-is='row'
-		style='gap: var(--sm); justify-content: end;'>
+		style='gap: var(--space-sm); justify-content: end;'>
 		<button data-scroll-carousel>
 			<i data-is='icon'>arrow_left_alt</i>
 		</button>
@@ -99,11 +99,11 @@ import AssetBannerInstallGuy from '../assets/bannerinstallguy.png';
 				background-color: var(--clr-background__base);
 				box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.05);
 				overflow: clip;
-				padding-block: calc(var(--xl) * 2) 0;
+				padding-block: calc(var(--space-xl) * 2) 0;
 				position: relative;
 
 				& > * {
-					padding-bottom: var(--xl);
+					padding-bottom: var(--space-xl);
 				}
 
 				blockquote {

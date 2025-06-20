@@ -4,7 +4,7 @@
     color: var(--clr-accent__base);
     display: inline-flex;
     font-size: var(--type-p);
-    gap: var(--xs);
+    gap: var(--space-xs);
     height: max-content;
     outline: solid 1px transparent;
     outline-offset: 1px;

@@ -96,10 +96,10 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 				main {
 					display: flex;
 					flex-direction: column-reverse;
-					gap: var(--md);
+					gap: var(--space-md);
 					height: 100%;
 					overflow: clip;
-					padding: var(--md);
+					padding: var(--space-md);
 
 					& > * {
 						flex-shrink: 0;
@@ -114,7 +114,7 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 					align-items: center;
 					flex-direction: column-reverse;
 					flex-shrink: 0;
-					gap: var(--md);
+					gap: var(--space-md);
 
 					@container app (width > 512px) {
 						flex-direction: row;
@@ -123,12 +123,12 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 					#rail {
 						align-items: inherit;
 						background-color: var(--clr-background__raised);
-						border-radius: var(--xs);
+						border-radius: var(--space-xs);
 						flex-shrink: 0;
 						gap: inherit;
 						height: calc(50 * 0.0625rem);
 						overflow: clip;
-						padding: var(--md);
+						padding: var(--space-md);
 						width: 100%;
 
 						@container app (width > 512px) {
@@ -148,7 +148,7 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 							align-items: inherit;
 							flex-grow: 1;
 							flex-wrap: nowrap;
-							gap: var(--md);
+							gap: var(--space-md);
 							place-content: end;
 
 							@container app (width > 512px) {
@@ -163,18 +163,18 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 
 					#drawer {
 						background-color: var(--clr-background__raised);
-						border-radius: var(--xs);
+						border-radius: var(--space-xs);
 						flex-direction: column;
-						gap: var(--md);
-						inset: auto 0 calc(50px + var(--md)) 0;
-						margin: var(--md);
-						max-height: calc(100% - calc(var(--md) * 2) - 50px - 15px);
-						max-width: calc(100% - calc(var(--md) * 2));
+						gap: var(--space-md);
+						inset: auto 0 calc(50px + var(--space-md)) 0;
+						margin: var(--space-md);
+						max-height: calc(100% - calc(var(--space-md) * 2) - 50px - 15px);
+						max-width: calc(100% - calc(var(--space-md) * 2));
 						min-height: 0;
 						min-width: 0;
 						outline: none;
 						overflow: auto;
-						padding: var(--md);
+						padding: var(--space-md);
 						place-content: space-between;
 						width: 100%;
 
@@ -184,8 +184,8 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 
 						@container app (width > 512px) {
 							height: 100%;
-							inset: 0 0 0 calc(50px + var(--md));
-							max-height: calc(100% - calc(var(--md) * 2));
+							inset: 0 0 0 calc(50px + var(--space-md));
+							max-height: calc(100% - calc(var(--space-md) * 2));
 							place-content: start;
 							width: min(300px, 100%);
 						}
@@ -197,7 +197,7 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 						a {
 							align-items: center;
 							display: flex;
-							gap: var(--xs);
+							gap: var(--space-xs);
 							width: 100%;
 
 							&:where(:not(:hover, :focus, :active)) {

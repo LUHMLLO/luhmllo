@@ -9,7 +9,7 @@
       border-radius: inherit;
       content: "";
       display: inline-flex;
-      height: calc(100% + var(--xs));
+      height: calc(100% + var(--space-xs));
       inset: 50%;
       margin: 0;
       opacity: 0;
@@ -18,7 +18,7 @@
       transition-duration: var(--animDuration);
       transition-timing-function: var(--animTiming);
       translate: -50% -50%;
-      width: calc(100% + var(--xs));
+      width: calc(100% + var(--space-xs));
       z-index: -1;
     }
 

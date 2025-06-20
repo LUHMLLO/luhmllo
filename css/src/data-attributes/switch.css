@@ -5,10 +5,10 @@
     border: solid 2px var(--clr-border__base);
     border-radius: var(--radii-full);
     display: inline-grid;
-    grid-template-columns: 0px var(--xl) calc(var(--xl) * 1);
+    grid-template-columns: 0px var(--space-xl) calc(var(--space-xl) * 1);
     grid-template-rows: 1fr;
-    height: var(--xl);
-    min-width: calc(var(--xl) * 2);
+    height: var(--space-xl);
+    min-width: calc(var(--space-xl) * 2);
     outline: none;
     overflow: clip;
     position: relative;
@@ -33,7 +33,7 @@
 
     &:checked {
       background-color: var(--clr-accent__base);
-      grid-template-columns: calc(var(--xl) * 1) var(--xl) 0px;
+      grid-template-columns: calc(var(--space-xl) * 1) var(--space-xl) 0px;
 
       &::after {
         background-color: var(--clr-text__base);

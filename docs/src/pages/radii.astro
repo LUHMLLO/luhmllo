@@ -3,7 +3,7 @@ import DocumentationLayout from '@layouts/documentation.astro';
 ---
 
 <DocumentationLayout>
-	<div data-is='grid' style='--cols: 4; --gap: var(--xl);'>
+	<div data-is='grid' style='--cols: 4; --gap: var(--space-xl);'>
 		<div class='democard' style='border-radius: var(--radii-full);'>full</div>
 		<div class='democard' style='border-radius: var(--radii-xl);'>xl</div>
 		<div class='democard' style='border-radius: var(--radii-lg);'>lg</div>
@@ -13,12 +13,12 @@ import DocumentationLayout from '@layouts/documentation.astro';
 		<div class='democard' style='border-radius: var(--radii-xs);'>xs</div>
 		<div class='democard' style='border-radius: var(--radii-none);'>none</div>
 
-		<style lang="css" is:inline>
+		<style lang='css' is:inline>
 			.democard {
 				background-color: var(--clr-background__raised);
 				height: 150px;
 				outline: solid 2px var(--clr-border__raised);
-				padding: var(--xl);
+				padding: var(--space-xl);
 				place-content: center center;
 				text-align: center;
 			}

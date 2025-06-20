@@ -13,8 +13,8 @@ layout: '@layouts/documentation.astro'
 
 </header>
 
-<div data-is="grid" style="--cols: 2; --gap: var(--nm);">
-  <div data-is="group" style="gap: var(--sm);">
+<div data-is="grid" style="--cols: 2; --gap: var(--space-nm);">
+  <div data-is="group" style="gap: var(--space-sm);">
      Anchor elements without a `[href]` will visually behave as a paragraph.
 
     <div data-is="codeblock">
@@ -33,7 +33,7 @@ layout: '@layouts/documentation.astro'
 
   </div>
 
-  <div data-is="group" style="gap: var(--sm);">
+  <div data-is="group" style="gap: var(--space-sm);">
     When it has an `href` attribute it behaves like a normal hyperlink.
 
     <div data-is="codeblock">
@@ -52,7 +52,7 @@ layout: '@layouts/documentation.astro'
 
   </div>
 
-  <div data-is="group" style="gap: var(--sm);">
+  <div data-is="group" style="gap: var(--space-sm);">
     If you like to keep it discrete but want to ensure it's accessible when using `[href]`, you can use the `data-variant="text"` attribute to preserve hyperlink interactions.
 
     <div data-is="codeblock">
@@ -72,8 +72,8 @@ layout: '@layouts/documentation.astro'
   </div>
 </div>
 
-<div data-is="grid" style="--cols: 2; --gap: var(--nm);">
-  <div data-is="group" style="gap: var(--sm);">
+<div data-is="grid" style="--cols: 2; --gap: var(--space-nm);">
+  <div data-is="group" style="gap: var(--space-sm);">
      If you ever need an anchor that looks like a button or a button that behaves like an anchor you can achieve this by using `[data-is="button"]` attributes on an anchor
 
     <div data-is="codeblock">
@@ -92,7 +92,7 @@ layout: '@layouts/documentation.astro'
 
   </div>
 
-  <div data-is="group" style="gap: var(--sm);">
+  <div data-is="group" style="gap: var(--space-sm);">
      You can even use button `[data-variant="outline"]` or `[data-variant="ghost"]` if it ever makes sense
 
     <div data-is="codeblock">
@@ -111,7 +111,7 @@ layout: '@layouts/documentation.astro'
 
   </div>
 
-  <div data-is="group" style="gap: var(--sm);">
+  <div data-is="group" style="gap: var(--space-sm);">
      This includes buttons padding optical corrections using `[data-part="lead"]` and `[data-part="trail"]` attributes on its children
 
     <div data-is="codeblock">
@@ -132,7 +132,7 @@ layout: '@layouts/documentation.astro'
 
   </div>
 
-  <div data-is="group" style="gap: var(--sm);">
+  <div data-is="group" style="gap: var(--space-sm);">
     The `[data-is="button"]` also enables the single child circular condition of native buttons
 
     <div data-is="codeblock">

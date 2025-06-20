@@ -1,1 +1,1 @@
-@layer data-attributes{:where([data-position~=fab]){margin:var(--sm);position:fixed;z-index:1}}
+@layer data-attributes{:where([data-position~=fab]){margin:var(--space-sm);position:fixed;z-index:1}}

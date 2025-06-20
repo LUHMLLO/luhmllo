@@ -211,13 +211,13 @@ const data = [
 
 	<br />
 
-	<div data-is='slider' data-variant='horizontal' style='gap: var(--nm);'>
+	<div data-is='slider' data-variant='horizontal' style='gap: var(--space-nm);'>
 		{
 			data.map((el) => (
 				<article data-is='card' style='width: calc(384 * 0.0625rem);'>
 					<span> {el.tag} </span>
 
-					<header data-is='group' style='gap: var(--sm);'>
+					<header data-is='group' style='gap: var(--space-sm);'>
 						<figure style='height: calc(256 * 0.0625rem); width: 100%;'>
 							<img src={el.thumbnail} alt='thumbnail' />
 						</figure>
@@ -242,7 +242,7 @@ const data = [
 
 					& > ul {
 						li {
-							padding-bottom: var(--sm);
+							padding-bottom: var(--space-sm);
 
 							&:not(:last-child) {
 								border-bottom: solid 2px var(--clr-border__base);

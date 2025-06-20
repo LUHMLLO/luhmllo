@@ -22,7 +22,7 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 						rgba(0, 0, 0, 0.5) 0%,
 						rgba(0, 0, 0, 0) 100%
 					);
-					height: calc(var(--lg) * 2);
+					height: calc(var(--space-lg) * 2);
 					inset: 0 0 auto 0;
 					position: fixed;
 					width: 100%;
@@ -53,16 +53,16 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 				align-items: end;
 				grid-column: expand;
 				grid-row: top;
-				height: calc(var(--lg) * 2);
+				height: calc(var(--space-lg) * 2);
 				inset: 0;
-				padding-inline: var(--lg);
+				padding-inline: var(--space-lg);
 				position: sticky;
 				z-index: 2;
 
 				& > * {
 					align-items: center;
 					flex: 1 1;
-					gap: var(--xl);
+					gap: var(--space-xl);
 				}
 
 				#topbar__menu {

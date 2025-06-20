@@ -16,7 +16,7 @@
     outline: solid 2px var(--clr-border__base);
     outline-offset: -2px;
     overflow: clip;
-    padding: var(--sm);
+    padding: var(--space-sm);
     resize: both;
 
     transition-property: background-color, color, outline, outline-offset;

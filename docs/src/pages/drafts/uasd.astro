@@ -39,7 +39,7 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 			</x-row>
 		</x-flex>
 
-		<label for='searchbar' data-is='input' style='border-radius: var(--xl);'>
+		<label for='searchbar' data-is='input' style='border-radius: var(--space-xl);'>
 			<input
 				type='text'
 				name='searchbar'
@@ -62,11 +62,11 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 			:scope {
 				#appbar {
 					background-color: var(--clr-background__raised);
-					gap: var(--md);
-					padding: var(--md) var(--sm);
+					gap: var(--space-md);
+					padding: var(--space-md) var(--space-sm);
 
 					& > x-flex {
-						gap: var(--sm);
+						gap: var(--space-sm);
 						place-items: center;
 					}
 

@@ -4,12 +4,12 @@
     background-color: var(--clr-background__base);
     border-radius: var(--radii-sm);
     display: flex;
-    gap: var(--xs);
+    gap: var(--space-xs);
     height: 45px;
     outline: solid 2px var(--clr-border__base);
     outline-offset: -2px;
     overflow: clip;
-    padding: var(--xs) var(--md);
+    padding: var(--space-xs) var(--space-md);
     transition-duration: var(--animDuration);
     transition-property: background-color, color, outline, outline-offset;
     transition-timing-function: var(--animTiming);
@@ -36,19 +36,19 @@
     }
 
     &:has(> [data-part='lead']:first-child) {
-      padding-left: var(--sm);
+      padding-left: var(--space-sm);
     }
 
     /* &:has(> [data-part='lead']:first-child:is(figure, kbd)) {
-      padding-left: var(--xs);
+      padding-left: var(--space-xs);
     } */
 
     &:has(> :where([data-part='trail']):last-child) {
-      padding-right: var(--sm);
+      padding-right: var(--space-sm);
     }
 
     /* &:has(> [data-part='trail']:last-child:is(figure, kbd)) {
-      padding-right: var(--xs);
+      padding-right: var(--space-xs);
     } */
   }
 }

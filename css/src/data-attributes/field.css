@@ -1,7 +1,7 @@
 @layer data-attributes {
   :where([data-is="field"]) {
     display: grid;
-    gap: var(--xs);
+    gap: var(--space-xs);
     grid: auto/1fr;
 
     & > [data-part="label"] {

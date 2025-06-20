@@ -22,7 +22,7 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 		<hr />
 
 		<div data-is='row' style='align-items: start;'>
-			<i data-is='icon' style='--fill: 1; --size: var(--xl);'> schedule </i>
+			<i data-is='icon' style='--fill: 1; --size: var(--space-xl);'> schedule </i>
 			<p>
 				Leave on Time Sensitive notifications from Props? This allows Props to
 				deliver important notifications inmmediately
@@ -40,7 +40,7 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 			@scope (#notification) {
 				:scope {
 					background-color: var(--clr-background__raised);
-					border-radius: var(--md);
+					border-radius: var(--space-md);
 					height: max-content;
 					outline: solid 2px var(--clr-border__base);
 					outline-offset: -2px;
@@ -49,14 +49,14 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 
 					& > [data-is='wrap'] {
 						align-items: center;
-						gap: var(--md);
-						padding: var(--lg);
+						gap: var(--space-md);
+						padding: var(--space-lg);
 
 						& > figure {
 							aspect-ratio: 1/1;
-							border-radius: var(--xs);
+							border-radius: var(--space-xs);
 							flex-shrink: 0;
-							height: calc(var(--xl) * 2.5);
+							height: calc(var(--space-xl) * 2.5);
 							overflow: clip;
 						}
 
@@ -80,8 +80,8 @@ import ShowcaseLayout from '@layouts/showcase.astro';
 					}
 
 					& > [data-is='row'] {
-						gap: var(--md);
-						padding: var(--lg);
+						gap: var(--space-md);
+						padding: var(--space-lg);
 					}
 				}
 			}

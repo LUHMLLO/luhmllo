@@ -5,8 +5,8 @@
     display: flex;
     flex-direction: column;
     flex: 1 1;
-    gap: var(--nm);
-    padding: var(--nm);
+    gap: var(--space-nm);
+    padding: var(--space-nm);
     position: relative;
     width: 100%;
   }

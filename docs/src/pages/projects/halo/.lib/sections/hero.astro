@@ -11,7 +11,7 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 	id='hero'
 	data-is='grid'
 	data-layout='expand'
-	style='--cols: 2; --gap: calc(var(--xl) * 2); place-content: center;'>
+	style='--cols: 2; --gap: calc(var(--space-xl) * 2); place-content: center;'>
 	<figure id='hero__background' data-is='background'>
 		<Image
 			src={AssetBannerBackground}
@@ -34,7 +34,7 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 	</figure>
 
 	<div id='hero__content' data-is='stack'>
-		<div data-is='group' style='gap: var(--xs);'>
+		<div data-is='group' style='gap: var(--space-xs);'>
 			<h1>Protect your family</h1>
 			<h2><small>With pure and safe water</small></h2>
 		</div>
@@ -53,7 +53,7 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 
 				#hero__content {
 					align-items: center;
-					gap: var(--xl);
+					gap: var(--space-xl);
 					text-align: center;
 
 					:where(h1, h2, h3, h4, h5, h6) {

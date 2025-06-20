@@ -2,12 +2,12 @@
   :where([data-is="segmented-controls"]) {
     background-color: var(--clr-background__base);
     border-radius: var(--radii-full);
-    gap: calc(var(--xs) / 5);
+    gap: calc(var(--space-xs) / 5);
     height: 45px;
     outline: solid 2px var(--clr-background-10);
     outline-offset: -2px;
     overflow: clip;
-    padding: calc(var(--xs) / 2);
+    padding: calc(var(--space-xs) / 2);
 
     & > button {
       border-radius: inherit;

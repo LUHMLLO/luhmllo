@@ -6,12 +6,12 @@
     color: inherit;
     display: inline-flex;
     font-size: var(--type-p);
-    gap: var(--xs);
+    gap: var(--space-xs);
     height: 45px;
     outline: solid 2px transparent;
     outline-offset: -2px;
     overflow: clip;
-    padding: var(--xs) var(--md);
+    padding: var(--space-xs) var(--space-md);
     text-align: inherit;
     text-decoration: none;
     transition-property: background-color, color, filter, outline, outline-color, outline-offset;
@@ -33,19 +33,19 @@
     }
 
     &:has(> [data-part='lead']:first-child) {
-      padding-left: var(--sm);
+      padding-left: var(--space-sm);
     }
 
     &:has(> [data-part='lead']:first-child:is(figure, kbd)) {
-      padding-left: var(--xs);
+      padding-left: var(--space-xs);
     }
 
     &:has(> :where([data-part='trail']):last-child) {
-      padding-right: var(--sm);
+      padding-right: var(--space-sm);
     }
 
     &:has(> [data-part='trail']:last-child:is(figure, kbd)) {
-      padding-right: var(--xs);
+      padding-right: var(--space-xs);
     }
 
     &:where([data-variant="outline"]) {

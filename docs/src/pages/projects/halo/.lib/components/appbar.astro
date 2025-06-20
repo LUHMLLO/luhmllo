@@ -147,7 +147,7 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 				& > div {
 					align-items: inherit;
 					flex: 1 1;
-					gap: var(--md);
+					gap: var(--space-md);
 				}
 
 				#appbar__menu {
@@ -193,7 +193,7 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 						}
 
 						a:not([data-is='button']) {
-							padding: var(--xl);
+							padding: var(--space-xl);
 							text-align: left;
 
 							&:hover {
@@ -222,7 +222,7 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 							bottom: 0;
 							flex: 1 0;
 							min-height: max-content;
-							padding: var(--xl);
+							padding: var(--space-xl);
 							place-content: end;
 
 							& > * {

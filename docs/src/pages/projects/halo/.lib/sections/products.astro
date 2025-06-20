@@ -151,13 +151,13 @@ import AssetProduct2 from '../assets/product-2.png';
 		@scope (#products) {
 			:scope {
 				overflow: clip;
-				padding-block: calc(var(--xl) * 2);
+				padding-block: calc(var(--space-xl) * 2);
 				position: relative;
 
 				[data-is='wrap'] {
 					border-bottom: solid 2px var(--clr-border__base);
-					gap: var(--xl);
-					padding-block: var(--xl);
+					gap: var(--space-xl);
+					padding-block: var(--space-xl);
 
 					&:first-child {
 						padding-top: 0;
@@ -181,9 +181,9 @@ import AssetProduct2 from '../assets/product-2.png';
 						background-color: var(--clr-background__base);
 						border: solid 2px var(--clr-border__base);
 						color: var(--clr-text__base);
-						height: calc(var(--nm) * 2);
+						height: calc(var(--space-nm) * 2);
 						inset: 0;
-						margin: auto auto calc(var(--nm) * -1) auto;
+						margin: auto auto calc(var(--space-nm) * -1) auto;
 						padding-inline: revert-layer;
 						position: absolute;
 						width: auto;
@@ -210,14 +210,14 @@ import AssetProduct2 from '../assets/product-2.png';
 
 				@container app (width < 896px) {
 					[data-is='wrap'] {
-						gap: var(--md);
+						gap: var(--space-md);
 
 						& > *:first-child {
 							flex: 1 1 100%;
 						}
 
 						&:is(:first-child) {
-							row-gap: var(--xl);
+							row-gap: var(--space-xl);
 						}
 
 						&:not(:first-child) {
@@ -227,17 +227,17 @@ import AssetProduct2 from '../assets/product-2.png';
 
 							& > *:first-child {
 								background-color: var(--clr-background__lowered);
-								height: calc(var(--xl) * 2);
-								padding-inline: var(--md);
+								height: calc(var(--space-xl) * 2);
+								padding-inline: var(--space-md);
 								place-content: center;
 							}
 
 							& > *:nth-child(2) {
-								padding-left: var(--md);
+								padding-left: var(--space-md);
 							}
 
 							& > *:nth-child(3) {
-								padding-right: var(--md);
+								padding-right: var(--space-md);
 							}
 						}
 					}

@@ -18,7 +18,7 @@
     }
 
     &[data-snap] {
-      scroll-padding: var(--xl);
+      scroll-padding: var(--space-xl);
       scroll-snap-type: both mandatory;
 
       & > * {

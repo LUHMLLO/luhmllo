@@ -15,7 +15,7 @@
       background-color: var(--clr-background__base);
       font-size: var(--type-s);
       overflow: clip;
-      padding: var(--sm);
+      padding: var(--space-sm);
       text-align: center;
       width: 100%;
 
@@ -26,12 +26,12 @@
 
     :where(th) {
       min-height: 100px;
-      padding: var(--lg) var(--xl) var(--lg);
+      padding: var(--space-lg) var(--space-xl) var(--space-lg);
     }
 
     :where(td) {
       min-height: 75px;
-      padding: var(--nm) var(--xl) var(--lg);
+      padding: var(--space-nm) var(--space-xl) var(--space-lg);
     }
 
     :where(th, td) {

@@ -5,9 +5,9 @@
     display: inline-block;
     font-family: monospace;
     font-size: var(--type-s);
-    height: min(100%, var(--lg));
+    height: min(100%, var(--space-lg));
     outline: solid 2px var(--clr-border__raised);
-    padding: 0 var(--sm);
+    padding: 0 var(--space-sm);
     place-content: center;
     white-space: nowrap;
     flex-shrink: 0;

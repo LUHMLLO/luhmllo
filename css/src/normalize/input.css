@@ -9,7 +9,7 @@
     outline: solid 2px var(--clr-border__base);
     outline-offset: -2px;
     overflow: clip;
-    padding: 0 var(--md);
+    padding: 0 var(--space-md);
     transition-property: background-color, color, outline, outline-offset;
     transition-duration: var(--animDuration);
     transition-timing-function: var(--animTiming);
@@ -23,7 +23,7 @@
   }
 
   :where(input[type="color"]) {
-    --size: var(--xl);
+    --size: var(--space-xl);
 
     appearance: none;
     aspect-ratio: 1/1;
@@ -48,7 +48,7 @@
     contain: content;
     display: inline-grid;
     flex: 0 0;
-    height: var(--nm);
+    height: var(--space-nm);
     outline: none;
     padding: 0;
     touch-action: manipulation;

@@ -13,7 +13,7 @@
     outline: solid 2px var(--clr-border__base);
     outline-offset: -2px;
     overflow: clip;
-    padding: 0 var(--md);
+    padding: 0 var(--space-md);
     place-items: center;
     transition-property: background-color,
       color,
@@ -52,10 +52,10 @@
       display: inline-flex;
       font-size: var(--type-p);
       flex-shrink: 0;
-      gap: var(--xs);
+      gap: var(--space-xs);
       height: 45px;
       overflow: clip;
-      padding: 0 var(--md);
+      padding: 0 var(--space-md);
       transition-property: background-color, color, filter, outline, outline-color, outline-offset;
       transition-duration: var(--animDuration);
       transition-timing-function: var(--animTiming);
