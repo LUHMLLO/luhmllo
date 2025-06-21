@@ -2,6 +2,7 @@
 import ShowcaseLayout from '@layouts/showcase.astro';
 
 import Appbar from './components/appbar.astro';
+import Bottombar from './components/bottombar.astro';
 ---
 
 <ShowcaseLayout>
@@ -14,10 +15,7 @@ import Appbar from './components/appbar.astro';
 			<slot />
 		</div>
 
-		<footer style='grid-row: bottom;'>
-			<button data-cycle-stack> up </button>
-			<button data-cycle-stack> down </button>
-		</footer>
+		<Bottombar />
 
 		<!-- <template>
 				<script
@@ -50,15 +48,22 @@ import Appbar from './components/appbar.astro';
 					background-color: var(--clr-background__lowered);
 					height: 100%;
 					min-height: 0;
+					overflow: auto;
 					position: relative;
+					scrollbar-width: none;
 
 					@scope (#rubikstudioapp__content) {
 						:scope {
-							height: 100%;
+							height: max-content;
 							isolation: isolate;
+							min-height: 100%;
 							padding-block: calc(var(--space-xl) * 4);
 							position: relative;
 							z-index: 1;
+
+							& > * {
+								flex-shrink: 0;
+							}
 						}
 					}
 				}

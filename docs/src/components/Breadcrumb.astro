@@ -1,0 +1,20 @@
+---
+const { pathname } = Astro.url;
+const segments = pathname.split('/').filter(Boolean);
+const crumbs = segments.map((segment, index) => {
+	return {
+		label: decodeURIComponent(segment),
+		href: '/' + segments.slice(0, index + 1).join('/'),
+	};
+});
+---
+
+<div data-is="row" style="gap: var(--space-sm); margin-right: var(--space-md);">
+  <a href='/' data-is="icon" data-variant="text">home</a>
+  {
+    crumbs.map((crumb, _) => (
+      <span style='color: var(--clr-text__lowered);'>/</span> 
+      <a href={crumb.href} data-variant="text">{crumb.label}</a>
+    ))
+  }
+</div>

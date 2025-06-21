@@ -17,12 +17,8 @@ const basePath = getBasePath(Astro.url.pathname, 2);
 		<style lang='css' is:inline>
 			@scope (#appbar__blur) {
 				:scope {
-					background: linear-gradient(
-						180deg,
-						rgba(0, 0, 0, 0.5) 0%,
-						rgba(0, 0, 0, 0) 100%
-					);
-					height: calc(var(--space-lg) * 2);
+					--dir: to top;
+					height: calc(100 * 0.0625rem);
 					inset: 0 0 auto 0;
 					position: fixed;
 					width: 100%;

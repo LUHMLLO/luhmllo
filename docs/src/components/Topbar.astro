@@ -1,20 +1,23 @@
 ---
 import { Image } from 'astro:assets';
 import Logo from '../assets/logo.png';
+import Breadcrumb from './Breadcrumb.astro';
 ---
 
-<nav id='app__topbar' data-visible='false'>
+<nav id='app__topbar' data-visible='true'>
 	<a href='/' data-variant='text'>
 		<figure style='height: calc(45 * 0.0625rem);'>
 			<Image src={Logo} alt='logo' decoding='async' loading='eager' />
 		</figure>
 	</a>
 
-	<button data-variant='outline' data-toggle-sidebar>
-		<i data-is='icon'>menu</i>
-	</button>
+	<Breadcrumb />
 
-	<script type='module' is:inline>
+	<!-- <button data-variant='outline' data-toggle-sidebar>
+		<i data-is='icon'>menu</i>
+	</button> -->
+
+	<!-- <script type='module' is:inline>
 		window.addEventListener('DOMContentLoaded', () => {
 			const topbar = document.querySelector('#app__topbar');
 			if (!topbar) return;
@@ -28,7 +31,7 @@ import Logo from '../assets/logo.png';
 				topbar.dataset.visible = !visible;
 			});
 		});
-	</script>
+	</script> -->
 
 	<style lang='css' is:inline>
 		@scope {

@@ -9,6 +9,7 @@
     width: 100%;
     height: 100px;
     pointer-events: none;
+    user-select: none;
 
     :where([data-part="layer"]) {
       --i: 0;
