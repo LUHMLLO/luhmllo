@@ -25,8 +25,7 @@
   "license": "MIT",
   "exports": {
     ".": "./dist/mod.ts",
-    "./dist/all.css": "./dist/all.css",
-    "./dist/*": "./dist/*"
+    "./all": "./dist/all.css"
   },
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
