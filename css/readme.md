@@ -1,45 +1,20 @@
 # Lilycat 🐱✨
 
-> **Minimal, attribute-based CSS that gets out of your way—so you can focus on
-> design, not syntax.**
+> **Minimal, attribute-based CSS that gets out of your way—so you can focus on design, not syntax.**
 
 [![Sponsor Lilycat](https://img.shields.io/badge/Sponsor_Lilycat-💖-ff69b4?style=for-the-badge)](https://github.com/sponsors/LUHMLLO)
 
-_What if you could do something amazing with no setup?_
+## What if you could build something amazing with zero setup?
 
-That's where Lilycat comes in. By focusing on developers as their main users
-instead of their clients, let's face it, your clients don't care. Most of the
-time, they have no idea what tech stack you are using or how the newest quantum
-JS framework will revolutionize the internet. However, your clients,
-stakeholders, and product owners care about one thing: having their requests
-delivered. They want their product to work and their problems to be solved. As
-developers and designers, we often forget that most of the things we create end
-up in the hands of consumers who know no more than what the product will do for
-them. Even when given an army knife, they will most likely just use one
-function. Regardless, we artists want to create masterpieces—creations with
-meaning and purpose—and craft something that other artists can find inspiration
-in and congratulate our efforts, discoveries, and creativity. This is what made
-Lilycat.
+That's where Lilycat comes in. While other CSS frameworks focus on impressing developers with complex abstractions, Lilycat focuses on what actually matters: **helping you ship great products faster**.
 
-This library is essentially an opinionated reset and normalizer with enough data
-attributes to help you focus on making your idea a reality. It can help you
-translate designs into code or simply remove stress from the never-ending
-evolution of modern front-end development.
+Your clients don't care about the latest quantum JavaScript framework. They care about one thing: **having their problems solved**. Lilycat was built with this truth in mind—a library that empowers developers and designers to create masterpieces without the complexity overhead.
 
-Lilycat implements a simple set of CSS variables that allow you to configure
-certain aspects to your liking and needs. This ensures that it can adapt to
-every type of modern front-end project, including websites, web apps, and
-mobile-first web products.
+This library provides an opinionated reset and normalizer with carefully crafted data attributes that help you translate ideas into reality. Whether you're converting designs to code or simply want to escape the never-ending complexity of modern front-end tooling, Lilycat removes the friction between you and your vision.
 
-By embracing modern CSS features like variables and layers, as well as the "if
-it ain't broke, don't fix it" mentality, and accepting that data attributes are
-meant to be used, it offers a lightweight, scalable foundation that makes
-extending your UI painless. There's no bloated syntax or framework lock-in; just
-clean, real CSS and the freedom to build your way.
+Lilycat leverages modern CSS features like custom properties, cascade layers, and the often-overlooked power of data attributes. It offers a lightweight, scalable foundation that makes extending your UI effortless—no bloated syntax, no framework lock-in, just clean CSS and the freedom to build your way.
 
-All of this is possible without blocking users from using other utility-first
-CSS libraries, such as Tailwind. You can opt out of everything and use only the
-data attributes if you want. But why miss out on the full experience?
+**The best part?** Lilycat plays nicely with other tools. Want to use Tailwind alongside it? Go ahead. Prefer to use only the data attributes? That's fine too. Lilycat adapts to your workflow, not the other way around.
 
 ---
 
@@ -47,113 +22,192 @@ data attributes if you want. But why miss out on the full experience?
 
 - [Mission](#-mission)
 - [Why Lilycat?](#-why-lilycat)
-- [Lilycat + Utility Classes](#-important-lilycat-and-utility-classes)
-- [Benefits](#-benefits)
-- [Who is Lilycat for?](#-who-is-lilycat-for)
+- [Core Philosophy](#-core-philosophy)
+- [Lilycat + Utility Classes](#-lilycat--utility-classes)
+- [Key Benefits](#-key-benefits)
+- [Who Should Use Lilycat?](#-who-should-use-lilycat)
+- [Getting Started](#-getting-started)
 - [Project Links](#-project-links)
 - [License](#-license)
 - [Support This Project](#-support-this-project)
 
 ---
 
-## Mission
+## 🎯 Mission
 
-Lilycat was created to simplify front-end development. Great user interfaces
-don't require bloated frameworks, endless classes, or an abundance of third
-parties.
+**Simplify front-end development without sacrificing power or flexibility.**
 
-Why fall into the trap of using endless third-party solutions that require as
-much maintenance as the end product itself when most things can be done with
-native solutions like HTML, CSS, and Vanilla JS (TS for my modern-day
-developers)?
+Great user interfaces don't require bloated frameworks, endless utility classes, or complex build processes. Most functionality can be achieved with native web technologies—HTML, CSS, and vanilla JavaScript (or TypeScript for modern development).
 
-Lilycat's focus is on tapping into the full power of modern CSS's core tools and
-appropriate practices, such as variables, layers, cascade controls, attributes,
-and scoping.
+Lilycat harnesses the full potential of modern CSS through variables, layers, cascade controls, data attributes, and scoping. It's not about avoiding CSS; it's about **empowering** it.
 
 ---
 
-## Why Lilycat?
+## 🤔 Why Lilycat?
 
-- **HTML should be clean.**\
-  Debugging becomes a nightmare when utility classes flood every element.
+### The Problem with Current Solutions
 
-- **CSS should be a skill, not a chore.**\
-  CSS is a powerful tool; avoiding it shouldn't be the goal.
+- **HTML pollution**: Debugging becomes a nightmare when utility classes flood every element
+- **CSS avoidance**: CSS is powerful—avoiding it shouldn't be the goal
+- **Over-abstraction**: Utility-first libraries often become crutches rather than tools
+- **Maintenance overhead**: Complex frameworks require as much maintenance as your actual product
 
-- **Utility-first should assist, not replace.**\
-  Although utility classes are great tools, they are not a replacement for solid
-  CSS fundamentals.
+### The Lilycat Approach
 
-- **Separation of concerns matters.**\
-  Styles should not be tangled endlessly into your HTML.
-
----
-
-Although componentization has become the norm nowadays, it has also become
-dependent on ever-changing solutions, such as front-end frameworks. But did you
-know that you can do componentization without a framework?
+- **Clean markup**: HTML should be semantic and readable
+- **CSS mastery**: Embrace CSS as a skill, not a chore
+- **Balanced tooling**: Utility classes should assist, not replace good practices
+- **Separation of concerns**: Keep styles organized and maintainable
 
 ---
 
-## Lilycat + Utility Classes
+## 💭 Core Philosophy
 
-Lilycat is **not** meant to replace Tailwind or other utility-first frameworks.\
-In fact, **you can use Tailwind classes alongside Lilycat if you wish.**
+**Modern web development has overcomplicated simple problems.**
 
-While Lilycat encourages cleaner, less polluted HTML, it **does not oppose**
-utility classes nor inline styling.
+While componentization has become the norm, it has also created dependency on ever-changing frameworks. But here's the thing: **you can achieve componentization without heavy frameworks.**
 
-However utility-first should be **an assistant, not a crutch.**\
-You’re free to mix and match — we trust developers and designers to decide what
-fits best for each of their needs.
+Lilycat believes in:
 
----
-
-## Benefits
-
-- Lightweight and efficient — no unnecessary bloat.
-- Native HTML and semantic-first approach.
-- Cross-browser consistency out of the box.
-- Encourages modern, maintainable, scalable styling practices with an order and
-  clear directives and conventions.
+- **Native-first solutions** over complex abstractions
+- **Progressive enhancement** over framework lock-in
+- **Developer empowerment** over hand-holding
+- **Long-term maintainability** over short-term convenience
 
 ---
 
-## Who is Lilycat for?
+## 🤝 Lilycat + Utility Classes
 
-Lilycat is built for:
+**Lilycat is not a replacement for Tailwind or other utility-first frameworks.**
 
-- CSS evangelist
-- Frontend Artisans and Engineers
-- Whoever Prefers clean, maintainable HTML.
-- Those who believe on native CSS and want to use it to its fullest.
-- Value fast iteration without sacrificing long-term code quality.
-- Want a system that **helps** — not one that **takes over.**
+You can absolutely use Tailwind classes alongside Lilycat. We're not here to start a framework war—we're here to give you options.
 
-If you're tired of heavy frameworks, bloated utility classes and jumping into
-the never ending world of abstraction by avoiding to understand the fundamentals
-of web dev and frontend development... welcome home.
+**Our stance:**
+
+- Utility-first should be an **assistant, not a crutch**
+- Clean HTML is valuable, but pragmatism matters
+- Different projects have different needs
+- **You** decide what works best for your specific use case
+
+Mix and match as needed. We trust you to make good decisions.
 
 ---
 
-## Project Links
+## ✨ Key Benefits
+
+- **Lightweight & Efficient**: Zero bloat, maximum performance
+- **Semantic HTML**: Encourages clean, accessible markup
+- **Cross-browser Consistency**: Works reliably everywhere
+- **Modern CSS**: Leverages the latest CSS features and best practices
+- **Framework Agnostic**: Works with any JavaScript framework or none at all
+- **Incremental Adoption**: Use as much or as little as you need
+- **Developer Experience**: Fast iteration without sacrificing code quality
+
+---
+
+## 👥 Who Should Use Lilycat?
+
+Lilycat is perfect for:
+
+**CSS Enthusiasts**
+
+- Developers who appreciate CSS as a powerful tool
+- Those who want to master modern CSS features
+
+**Pragmatic Builders**
+
+- Teams focused on shipping products, not learning frameworks
+- Developers who value clean, maintainable code
+- Anyone tired of framework churn
+
+**Performance-Conscious Developers**
+
+- Projects where bundle size matters
+- Applications requiring fast load times
+- Teams prioritizing user experience over developer convenience
+
+**Independent Thinkers**
+
+- Developers who question popular trends
+- Those who prefer understanding over abstraction
+- Anyone who believes in the power of web standards
+
+If you're tired of heavy frameworks, bloated utility classes, and the endless cycle of abstraction that avoids web fundamentals... **welcome home**.
+
+---
+
+## 🚀 Getting Started
+
+### Install via JSR (Recommended for Deno)
+
+```bash
+deno add @luhmllo/lilycat
+```
+
+### Install via npm
+
+```bash
+npm install @luhmllo/lilycat
+```
+
+### CDN
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/@luhmllo/lilycat/dist/lilycat.css">
+```
+
+### Basic Usage
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="path/to/lilycat.css">
+</head>
+<body>
+  <div data-is="app">
+    <header data-is="grid" data-layout="expand" style="--cols:2;">
+      <h1>Welcome to Lilycat</h1>
+      <p>Clean, semantic, and powerful.</p>
+      <a href="/docs" data-variant="text">Learn More</a>
+    </header>
+  </div>
+</body>
+</html>
+```
+
+**Want to see more examples?** Check out our [documentation](https://github.com/LUHMLLO/lilycat/wiki) and [examples](https://github.com/LUHMLLO/lilycat/tree/main/examples).
+
+---
+
+## 🔗 Project Links
 
 - **Repository**: [LUHMLLO/lilycat](https://github.com/LUHMLLO/lilycat)
-- **Deno Package**: [jsr:@luhmllo/lilycat](https://jsr.io/@luhmllo/lilycat)
+- **JSR Package**: [jsr:@luhmllo/lilycat](https://jsr.io/@luhmllo/lilycat)
+- **Documentation**: [Wiki](https://github.com/LUHMLLO/lilycat/wiki)
+- **Examples**: [Examples Directory](https://github.com/LUHMLLO/lilycat/tree/main/examples)
 
 ---
 
-## License
+## 📄 License
 
-Lilycat is released under the **MIT License**. See `LICENSE` for details.
+Lilycat is released under the **MIT License**. See [LICENSE](LICENSE) for details.
 
 ---
 
-## Support This Project
+## 💖 Support This Project
 
-If you find Lilycat helpful and want to support its development,\
-please consider [**sponsoring**](https://github.com/sponsors/LUHMLLO) — even a
-small contribution helps keep open-source projects alive.
+If Lilycat has helped you build better products, consider [**sponsoring the project**](https://github.com/sponsors/LUHMLLO). Even small contributions help keep open-source projects thriving.
+
+**Other ways to support:**
+
+- ⭐ Star the repository
+- 🐛 Report bugs and suggest features
+- 📖 Contribute to documentation
+- 💬 Share your experience with others
 
 Thanks for helping build a better web. 🚀
+
+---
+
+*Built with ❤️ for developers who believe in the power of native web technologies.*
