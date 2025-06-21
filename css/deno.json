@@ -2,7 +2,7 @@
   "lock": false,
   "nodeModulesDir": "auto",
   "name": "@luhmllo/lilycat",
-  "version": "0.1.33",
+  "version": "0.1.34",
   "description": "Minimal, attribute-based CSS that gets out of your way—so you can focus on design, not syntax.",
   "keywords": [
     "css",
@@ -23,7 +23,11 @@
   ],
   "homepage": "https://github.com/LUHMLLO/lilycat.css",
   "license": "MIT",
-  "exports": "./dist/mod.ts",
+  "exports": {
+    ".": "./dist/mod.ts",
+    "./dist/all.css": "./dist/all.css",
+    "./dist/*": "./dist/*"
+  },
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
     "build": "deno run -A ./build.ts",
