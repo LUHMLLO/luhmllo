@@ -49,6 +49,7 @@
     display: inline-grid;
     flex: 0 0;
     height: var(--space-nm);
+    min-width: max-content;
     outline: none;
     padding: 0;
     touch-action: manipulation;
