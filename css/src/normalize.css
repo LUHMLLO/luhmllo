@@ -62,6 +62,8 @@
   /* media */
   :where(audio, canvas, figure, iframe, img, video) {
     display: inline-block;
+    overflow: clip;
+    position: relative;
     width: fit-content;
   }
 
