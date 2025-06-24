@@ -5,6 +5,7 @@
     -webkit-tap-highlight-color: transparent;
     accent-color: var(--clr-accent__base);
     color-scheme: light dark;
+    font-size: var(--type-p, 17px);
     interpolate-size: allow-keywords;
     scroll-behavior: smooth;
     -moz-text-size-adjust: none;
