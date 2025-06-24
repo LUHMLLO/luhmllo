@@ -22,7 +22,7 @@
     transition-property: background-color, color, outline, outline-offset;
     transition-duration: var(--animDuration);
     transition-timing-function: var(--animTiming);
-    width: 100%;
+    width: max(0px, 384px);
 
     &:focus-visible {
       outline-color: var(--clr-accent__base);
