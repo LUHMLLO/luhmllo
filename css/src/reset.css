@@ -84,7 +84,7 @@
   :where(html) {
     background-color: var(--clr-background__lowered);
     color: var(--clr-text__base);
-    container: base / size;
+    /* container: base / size; */
     display: contents;
     font-family: sans-serif;
     font-size: clamp(12px, calc(10dvw + 1px), 16px);

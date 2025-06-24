@@ -57,7 +57,7 @@
     transition-timing-function: var(--animTiming);
     user-select: none;
     vertical-align: text-bottom;
-    width: max-content;
+    width: var(--space-nm);
 
     &:checked {
       background-color: var(--clr-accent__base);
