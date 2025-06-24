@@ -69,7 +69,7 @@
 
   :where(audio) {
     height: 50px;
-    width: clamp(250px, 100%, 350px);
+    width: max(0px, 384px);
   }
 
   :where(figure > img) {
