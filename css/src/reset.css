@@ -5,14 +5,14 @@
     -webkit-tap-highlight-color: transparent;
     accent-color: var(--clr-accent__base);
     color-scheme: light dark;
-    font-size: var(--type-p, 17px);
+    font-size: clamp(12px, calc(10dvw + 1px), var(--type-p, 17px));
     interpolate-size: allow-keywords;
     scroll-behavior: smooth;
     -moz-text-size-adjust: none;
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
     text-wrap: pretty;
-    will-change: backdrop-filter, background, block-size, color, inline-size, inset, opacity, outline, padding, position, rotate, transform, visibility;
+    /* will-change: backdrop-filter, background, block-size, color, inline-size, inset, opacity, outline, padding, position, rotate, transform, visibility; */
   }
 
   @media (prefers-color-scheme: light) {
@@ -87,7 +87,7 @@
     /* container: base / size; */
     display: contents;
     font-family: sans-serif;
-    font-size: clamp(12px, calc(10dvw + 1px), 16px);
+    font-size: clamp(12px, calc(10dvw + 1px), var(--type-p, 17px));
     font-variant-numeric: tabular-nums;
     hanging-punctuation: first last;
     letter-spacing: clamp(-.01em, calc(1dvmax / 0.0625), -.03em);
