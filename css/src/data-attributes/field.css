@@ -3,6 +3,7 @@
     display: grid;
     gap: var(--space-xs);
     grid: auto/1fr;
+    position: relative;
 
     & > [data-part="label"] {
       align-items: center;
@@ -16,9 +17,20 @@
     }
 
     & > [data-part="caption"] {
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
       color: var(--clr-text__lowered);
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
 
-      &:empty {
+      &[data-absolute] {
+        inset: calc(100% + var(--space-xs)) 0 0 0;
+        position: absolute;
+      }
+
+      &[data-noempty]:empty {
         display: none;
       }
     }
