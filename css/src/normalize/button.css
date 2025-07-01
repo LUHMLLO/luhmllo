@@ -11,7 +11,7 @@
     outline: solid 2px transparent;
     outline-offset: -2px;
     overflow: clip;
-    padding: var(--space-xs) var(--space-md);
+    padding: 0 var(--space-md);
     text-align: inherit;
     text-decoration: none;
     transition-property: background-color, color, filter, outline, outline-color, outline-offset;
@@ -89,8 +89,10 @@
     }
 
     & > span {
+      align-content: center;
       flex: 1 1;
       font: inherit;
+      min-height: 100%;
       overflow: clip;
       text-align: inherit;
       text-overflow: ellipsis;
