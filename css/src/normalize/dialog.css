@@ -1,6 +1,6 @@
 @layer normalize {
   :where(dialog) {
-    background-color: var(--clr-background__raised);
+    background-color: var(--clr-background__base);
     border-radius: var(--radii-md);
     height: max-content;
     inset: 0;
@@ -8,13 +8,14 @@
     position: absolute;
 
     &:modal {
-      outline: solid 2px var(--clr-border__raised);
+      outline: solid 2px var(--clr-border__lowered);
       outline-offset: -2px;
     }
 
     &::backdrop {
-      background-color: hsl(from var(--clr-background__lowered) h s l / 75%);
-      backdrop-filter: blur(0.5ex);
+      background-color: hsl(from var(--clr-background__lowered) h s l/0.125);
+      backdrop-filter: blur(var(--radii-xs));
+      pointer-events: none;
     }
   }
 }

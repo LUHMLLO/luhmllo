@@ -1,7 +1,7 @@
 @layer data-attributes {
   :where([data-is="window"], [data-is="frame"], [data-is="capsule"]) {
     background-color: var(--clr-background__base);
-    backdrop-filter: blur(0.5ex);
+    backdrop-filter: blur(var(--radii-md));
     border-radius: var(--radii-md);
     display: block;
     height: 100%;

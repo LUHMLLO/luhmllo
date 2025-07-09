@@ -124,7 +124,7 @@
     width: min(100%, 75ch);
   }
 
-  :where(a, button, select, summary, [type="button"], [type="checkbox"], [type="radio"], [type="reset"], [type="submit"]) {
+  :where(a, button, select, summary, [type="button"], [type="checkbox"], [type="radio"], [type="reset"], [type="submit"], [type=file]) {
     cursor: pointer;
   }
 }

@@ -35,8 +35,10 @@
 @import url('./data-attributes/codeblock.css');
 @import url('./data-attributes/condition.css');
 @import url('./data-attributes/container.css');
+@import url('./data-attributes/dock.css');
 @import url('./data-attributes/fab.css');
 @import url('./data-attributes/field.css');
+@import url('./data-attributes/fieldgroup.css');
 @import url('./data-attributes/flex.css');
 @import url('./data-attributes/geometry.css');
 @import url('./data-attributes/grid.css');
@@ -47,5 +49,7 @@
 @import url('./data-attributes/screen.css');
 @import url('./data-attributes/segmentedcontrols.css');
 @import url('./data-attributes/slider.css');
+@import url('./data-attributes/subgrid.css');
 @import url('./data-attributes/switch.css');
+@import url('./data-attributes/tabs.css');
 @import url('./data-attributes/window.css');

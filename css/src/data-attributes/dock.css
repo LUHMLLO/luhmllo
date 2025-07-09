@@ -1,0 +1,30 @@
+@layer data-attributes {
+  :where([data-is='dock']) {
+    background-color: hsl(from var(--clr-background__raised) h s l/0.5);
+    backdrop-filter: blur(var(--radii-md));
+    border-radius: var(--radii-full);
+    box-shadow: 0 var(--radii-xl) var(--radii-xl) calc(-1 * var(--radii-xs)) hsla(0, 0%, 0%, 0.15);
+    gap: var(--space-xs);
+    inset: auto 0 0 0;
+    justify-content: center;
+    margin: auto auto var(--space-md) auto;
+    outline: solid 2px hsl(from var(--clr-border__raised) h s l/0.25);
+    outline-offset: -2px;
+    padding: var(--space-xs);
+    position: fixed;
+    width: fit-content;
+    z-index: 2;
+
+    & > button {
+      aspect-ratio: 1/1;
+      border-radius: var(--radii-full);
+      height: 55px;
+      outline: solid 2px hsl(from var(--clr-border__raised) h s l/0.5);
+      padding: 0;
+      place-items: center;
+      place-content: center;
+      text-align: center;
+      width: 55px;
+    }
+  }
+}

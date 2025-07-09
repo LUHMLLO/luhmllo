@@ -3,6 +3,7 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: subpixel-antialiased;
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
     accent-color: var(--clr-accent__base);
     color-scheme: light dark;
     font-size: clamp(12px, calc(10dvw + 1px), var(--type-p, 17px));

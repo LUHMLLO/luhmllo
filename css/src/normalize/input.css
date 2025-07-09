@@ -22,6 +22,11 @@
     }
   }
 
+  :where(input[type=file]) {
+    cursor: pointer;
+    place-content: center;
+  }
+
   :where(input[type="color"]) {
     --size: var(--space-xl);
 
