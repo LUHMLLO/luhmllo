@@ -27,11 +27,11 @@
     }
   }
 
-  html[scheme="light"] {
+  [data-scheme="light"] {
     color-scheme: light;
   }
 
-  html[scheme="dark"] {
+  [data-scheme="dark"] {
     color-scheme: dark;
   }
 
