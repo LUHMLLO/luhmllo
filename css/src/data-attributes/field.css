@@ -12,7 +12,7 @@
       font-size: var(--type-p);
     }
 
-    & > :where(input:not([type=checkbox], [type=radio]), select) {
+    & > :where(input:not([type=checkbox], [type=radio]), select, textarea) {
       width: 100%;
     }
 

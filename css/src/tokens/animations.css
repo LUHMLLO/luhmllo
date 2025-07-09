@@ -1,13 +1,15 @@
 @layer tokens {
   :root {
     /* --animDuration: 384ms; */
-    --animDuration: 448ms;
     /* --animDuration: 512ms; */
     /* --animTiming: cubic-bezier(0.65, 1.75, 0.4, 1); */
-    --animTiming: cubic-bezier(0.725, 1.65, 0.325, 1);
+    /* --animTiming: cubic-bezier(0.72, 1.65, 0.32, 1); */
     /* --animTiming: cubic-bezier(0.77, 1.5, 0.25, 1); */
 
     /* --animDuration: .35s; */
-    /* --animTiming: cubic-bezier(.45, 0, .25, 1); */
+    /* --animTiming: cubic-bezier(.45, 1.5, .25, 1); */
+
+    --animDuration: 448ms;
+    --animTiming: cubic-bezier(0.33, 1, 0.22, 1);
   }
 }
