@@ -1,1 +1,1 @@
-@layer normalize{:where(summary){display:flex;font-size:var(--type-p);text-align:inherit}:where(summary)::marker{content:none}:where(summary)>span{flex:1 1;font:inherit;overflow:clip;text-align:inherit;text-overflow:ellipsis;white-space:nowrap}}
+@layer normalize{:where(summary){display:flex;font-size:var(--type-p);position:relative;text-align:inherit}:where(summary)::marker{content:none}:where(summary)>span{flex:1 1;font:inherit;overflow:clip;text-align:inherit;text-overflow:ellipsis;white-space:nowrap}}

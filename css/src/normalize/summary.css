@@ -2,6 +2,7 @@
   :where(summary) {
     display: flex;
     font-size: var(--type-p);
+    position: relative;
     text-align: inherit;
 
     &::marker {

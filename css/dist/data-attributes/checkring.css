@@ -1,1 +1,1 @@
-@layer data-attributes{:where([data-is=checkring]){background-color:transparent;height:100%;inset:0;position:absolute;width:100%;z-index:1}:where([data-is=checkring]):checked{border-color:var(--clr-accent__base)}}
+@layer data-attributes{:where([data-is=checkring]){background-color:transparent;border-radius:inherit;height:100%;inset:0;position:absolute;width:100%;z-index:1}:where([data-is=checkring]):checked{border-color:var(--clr-accent__base)}}

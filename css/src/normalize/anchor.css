@@ -8,6 +8,7 @@
     height: max-content;
     outline: solid 1px transparent;
     outline-offset: 1px;
+    position: relative;
     text-align: inherit;
     text-decoration: underline;
     text-decoration-skip-ink: auto;

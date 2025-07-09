@@ -12,6 +12,7 @@
     outline-offset: -2px;
     overflow: clip;
     padding: 0 var(--space-md);
+    position: relative;
     text-align: inherit;
     text-decoration: none;
     transition-property: background-color, color, filter, outline, outline-color, outline-offset;
