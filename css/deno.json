@@ -2,7 +2,7 @@
   "lock": false,
   "nodeModulesDir": "auto",
   "name": "@luhmllo/lilycat",
-  "version": "0.1.46",
+  "version": "0.1.47",
   "description": "Minimal, attribute-based CSS that gets out of your way—so you can focus on design, not syntax.",
   "keywords": [
     "css",
