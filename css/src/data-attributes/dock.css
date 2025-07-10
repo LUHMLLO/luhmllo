@@ -15,7 +15,7 @@
     width: fit-content;
     z-index: 2;
 
-    & > button {
+    & > :where(a, button, [data-is="button"]) {
       aspect-ratio: 1/1;
       border-radius: var(--radii-full);
       height: 55px;
