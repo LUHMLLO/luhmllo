@@ -25,16 +25,16 @@
  * Internal state object for tracking interaction state
  * @typedef {Object} DrifterState
  * @property {number} primaryPointerId - ID of the primary pointer for dragging
- * @property {BoundaryConstraints} constraints - Boundary constraint values
+ * @property {DrifterBoundaryConstraints} constraints - Boundary constraint values
  * @property {boolean} isDragging - Whether user is currently dragging
  * @property {boolean} isPinching - Whether user is currently pinching
- * @property {MovementState} movement - Position and drag tracking
+ * @property {DrifterMovementState} movement - Position and drag tracking
  * @property {number} zoom - Current zoom level (1 = 100%)
  */
 
 /**
  * Boundary constraint values
- * @typedef {Object} BoundaryConstraints
+ * @typedef {Object} DrifterBoundaryConstraints
  * @property {number} boundingX - Constrained X position
  * @property {number} boundingY - Constrained Y position
  * @property {number} minX
@@ -45,7 +45,7 @@
 
 /**
  * Movement and position tracking state
- * @typedef {Object} MovementState
+ * @typedef {Object} DrifterMovementState
  * @property {number} offsetX - Current horizontal offset in pixels
  * @property {number} offsetY - Current vertical offset in pixels
  * @property {number} startX - X coordinate where current drag started
@@ -57,7 +57,7 @@
 
 /**
  * Pointer tracking data
- * @typedef {Object} PointerData
+ * @typedef {Object} DrifterPointerData
  * @property {number} x - X coordinate
  * @property {number} y - Y coordinate
  * @property {number} timestamp - When pointer was recorded
@@ -65,7 +65,7 @@
 
 /**
  * Pinch gesture state
- * @typedef {Object} PinchState
+ * @typedef {Object} DrifterPinchState
  * @property {number} initialDistance - Starting distance between pointers
  * @property {number} initialZoom - Zoom level when pinch started
  * @property {Object} initialCenter - Starting center point of pinch
@@ -172,10 +172,10 @@ export class Drifter {
       zoom: this.options.zoom.initial,
     }
 
-    /** @type {Map<number, PointerData>} Active pointers tracking */
+    /** @type {Map<number, DrifterPointerData>} Active pointers tracking */
     this.activePointers = new Map()
 
-    /** @type {PinchState|null} Pinch gesture state */
+    /** @type {DrifterPinchState|null} Pinch gesture state */
     this.pinchState = null
 
     /** @type {number|null} Animation frame ID for performance optimization */
@@ -190,6 +190,8 @@ export class Drifter {
     this._handlePointerMove = this._handlePointerMove.bind(this)
     this._handlePointerUp = this._handlePointerUp.bind(this)
     this._handlePointerCancel = this._handlePointerCancel.bind(this)
+    this._handlePointerLeave = this._handlePointerLeave.bind(this)
+    this._handleWindowBlur = this._handleWindowBlur.bind(this)
     this._handleWheel = this._handleWheel.bind(this)
 
     this.initialize()
@@ -205,6 +207,9 @@ export class Drifter {
     this.boundary.addEventListener('pointermove', this._handlePointerMove)
     this.boundary.addEventListener('pointerup', this._handlePointerUp)
     this.boundary.addEventListener('pointercancel', this._handlePointerCancel)
+    this.boundary.addEventListener('pointerleave', this._handlePointerLeave)
+    globalThis.addEventListener('blur', this._handleWindowBlur)
+    globalThis.addEventListener('visibilitychange', this._handleWindowBlur)
 
     // Set up wheel events for desktop zoom
     if (this.options.zoom.enabled) {
@@ -416,8 +421,8 @@ export class Drifter {
 
   /**
    * Calculates distance between two pointer positions
-   * @param {PointerData} pointer1 - First pointer data
-   * @param {PointerData} pointer2 - Second pointer data
+   * @param {DrifterPointerData} pointer1 - First pointer data
+   * @param {DrifterPointerData} pointer2 - Second pointer data
    * @returns {number} Distance between pointers
    * @private
    */
@@ -429,8 +434,8 @@ export class Drifter {
 
   /**
    * Calculates center point between two pointers
-   * @param {PointerData} pointer1 - First pointer data
-   * @param {PointerData} pointer2 - Second pointer data
+   * @param {DrifterPointerData} pointer1 - First pointer data
+   * @param {DrifterPointerData} pointer2 - Second pointer data
    * @returns {{x: number, y: number}} Center point relative to boundary
    * @private
    */
@@ -792,6 +797,44 @@ export class Drifter {
   }
 
   /**
+   * Handles pointer leave events (when pointer exits the boundary)
+   * @param {PointerEvent} event - The pointer event
+   * @private
+   */
+  _handlePointerLeave(event) {
+    // If this is our primary dragging pointer, end the drag
+    if (this.state.isDragging && this.state.primaryPointerId === event.pointerId) {
+      this._endDrag(event.pointerId)
+    }
+
+    // Remove from active tracking
+    this.activePointers.delete(event.pointerId)
+
+    // If we were pinching and lost a pointer, end pinch
+    if (this.state.isPinching && this.activePointers.size < 2) {
+      this._endPinch()
+    }
+  }
+
+  /**
+ * Handles window blur events (when window loses focus)
+ * @private
+ */
+  _handleWindowBlur() {
+    // End all active interactions when window loses focus
+    if (this.state.isDragging) {
+      this._endDrag(this.state.primaryPointerId)
+    }
+
+    if (this.state.isPinching) {
+      this._endPinch()
+    }
+
+    // Clear all active pointers
+    this.activePointers.clear()
+  }
+
+  /**
    * Handles wheel events for zooming functionality
    * @param {WheelEvent} event - The wheel event
    * @private
@@ -986,7 +1029,10 @@ export class Drifter {
     this.boundary.removeEventListener('pointermove', this._handlePointerMove)
     this.boundary.removeEventListener('pointerup', this._handlePointerUp)
     this.boundary.removeEventListener('pointercancel', this._handlePointerCancel)
+    this.boundary.removeEventListener('pointerleave', this._handlePointerLeave)
     this.boundary.removeEventListener('wheel', this._handleWheel)
+    globalThis.removeEventListener('blur', this._handleWindowBlur)
+    globalThis.removeEventListener('visibilitychange', this._handleWindowBlur)
 
     // Reset styles we modified
     this.boundary.style.touchAction = ''
