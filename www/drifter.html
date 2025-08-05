@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drifter Example</title>
+  </head>
+  <body>
+    <div id="canva">
+      <div>
+        <p>ua</p>
+      </div>
+    </div>
+
+    <script type="module">
+      import { Drifter } from "../utils/dist/drifter.min.js";
+
+      const canvasElement = document.querySelector("#canva");
+      const viewportElement = canvasElement.parentElement;
+
+      new Drifter(canvasElement, viewportElement, {
+        mode: "bounded",
+      });
+    </script>
+  </body>
+</html>
