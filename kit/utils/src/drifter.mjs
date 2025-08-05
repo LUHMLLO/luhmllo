@@ -117,18 +117,6 @@ export class Drifter {
       throw new Error(`Target element not found or invalid: ${ targetSelector }`)
     }
 
-    // Resolve boundary element
-    this.boundary =
-      typeof boundarySelector === 'string'
-        ? document.getElementById(boundarySelector)
-        : boundarySelector
-
-    if (!this.boundary || !(this.boundary instanceof HTMLElement)) {
-      throw new Error(
-        `Boundary element not found or invalid: ${ boundarySelector }`
-      )
-    }
-
     /** @type {DrifterOptions} Merged configuration options */
     this.options = {
       dragSpeed: 1.25,
@@ -145,6 +133,43 @@ export class Drifter {
         zoomTo: 'cursor',
         ...options?.zoom,
       },
+    }
+
+    // Determine the boundary element based on the mode
+    switch (this.options.mode) {
+      case 'bounded':
+        this.boundary =
+          typeof boundarySelector === 'string'
+            ? document.getElementById(boundarySelector)
+            : boundarySelector
+        break
+      case 'free':
+        this.boundary = globalThis
+        break
+    }
+
+    if (!this.boundary || !(this.boundary instanceof HTMLElement)) {
+      throw new Error(
+        `Boundary element not found or invalid for 'bounded' mode: ${ boundarySelector }`
+      )
+    }
+
+    if (this.options.mode === 'bounded') {
+      // You might also want to check if target is a child of boundary
+      if (this.boundary === this.target) {
+        throw new Error(
+          `Boundary element cannot be the same as the target when the mode is 'bounded'. ` +
+          `The boundary should be a parent or ancestor element that contains the draggable target.`
+        )
+      }
+
+      // Optional: Warn if target isn't contained within boundary
+      if (!this.boundary.contains(this.target)) {
+        console.warn(
+          'Target element is not contained within the boundary element. ' +
+          'This may lead to unexpected dragging behavior.'
+        )
+      }
     }
 
     /** @type {DrifterState} Current interaction state */
