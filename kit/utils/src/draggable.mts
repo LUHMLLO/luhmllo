@@ -121,13 +121,13 @@ export class Draggable {
     this.pinchState = null;
     this.inertiaFrameId = null;
 
-    // this._handlePointerDown = this._handlePointerDown.bind(this);
-    // this._handlePointerMove = this._handlePointerMove.bind(this);
-    // this._handlePointerUp = this._handlePointerUp.bind(this);
-    // this._handlePointerCancel = this._handlePointerCancel.bind(this);
-    // this._handlePointerLeave = this._handlePointerLeave.bind(this);
-    // this._handleWindowBlur = this._handleWindowBlur.bind(this);
-    // this._handleWheel = this._handleWheel.bind(this);
+    this._handlePointerDown = this._handlePointerDown.bind(this);
+    this._handlePointerMove = this._handlePointerMove.bind(this);
+    this._handlePointerUp = this._handlePointerUp.bind(this);
+    this._handlePointerCancel = this._handlePointerCancel.bind(this);
+    this._handlePointerLeave = this._handlePointerLeave.bind(this);
+    this._handleWindowBlur = this._handleWindowBlur.bind(this);
+    this._handleWheel = this._handleWheel.bind(this);
 
     this.pre();
   }
@@ -148,5 +148,44 @@ export class Draggable {
         }`,
       );
     }
+  }
+
+  ini() {
+    if (this.options.mode === "bounded") {
+      this.boundaryElement.addEventListener(
+        "pointerdown",
+        this._handlePointerDown,
+      );
+      this.boundaryElement.addEventListener(
+        "pointermove",
+        this._handlePointerMove,
+      );
+      this.boundaryElement.addEventListener(
+        "pointerup",
+        this._handlePointerUp,
+      );
+      this.boundaryElement.addEventListener(
+        "pointercancel",
+        this._handlePointerCancel,
+      );
+      this.boundaryElement.addEventListener(
+        "pointerleave",
+        this._handlePointerLeave,
+      );
+    }
+    globalThis.addEventListener("blur", this._handleWindowBlur);
+    globalThis.addEventListener("visibilitychange", this._handleWindowBlur);
+
+    // Set up wheel events for desktop zoom
+    if (this.options.zoom.enabled) {
+      this.boundary.addEventListener("wheel", this._handleWheel, {
+        passive: false,
+      });
+    }
+
+    this._updateTransform();
+  }
+
+  _updateTransform() {
   }
 }
