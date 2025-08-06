@@ -242,15 +242,6 @@ export class Drifter {
       );
       this.drifterElement.style.setProperty("--translate-z", "0px");
       this.drifterElement.style.setProperty("--scale", `${this.state.zoom}`);
-      this.drifterElement.style.inset = "50% auto auto 50%";
-      // this.drifterElement.style.top = "50%";
-      // this.drifterElement.style.left = "50%";
-      this.drifterElement.style.margin = "auto";
-      this.drifterElement.style.position = "fixed";
-      this.drifterElement.style.transformOrigin = "center";
-      this.drifterElement.style.transformStyle = "preserve-3d";
-      this.drifterElement.style.translate = "-50%, -50%";
-      this.drifterElement.style.willChange = "transform";
       this.animationFrameId = null;
     });
   }

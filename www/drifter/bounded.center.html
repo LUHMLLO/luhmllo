@@ -31,13 +31,38 @@
           z-index: 9;
         }
       }
+
+      :where(#drifter) {
+        --size: 1920px;
+        --translate-x: 0px;
+        --translate-y: 0px;
+        --translate-z: 0px;
+        --scale: 1;
+        aspect-ratio: 1/1;
+        background-color: purple;
+        height: max-content;
+        inset: 50% auto auto 50%;
+        margin: auto;
+        position: fixed;
+        min-height: var(--size);
+        min-width: var(--size);
+        transform: translate(-50%, -50%)
+          translate3d(
+            var(--translate-x),
+            var(--translate-y),
+            var(--translate-z)
+          ) scale3d(var(--scale), var(--scale), var(--scale));
+        transform-origin: center;
+        transform-style: preserve-3d;
+        width: max-content;
+        will-change: transform;
+      }
     </style>
   </head>
   <body>
     <h1>Drifter Example</h1>
     <div
       id="drifter"
-      style="--size: 1920px; --translate-x: 0px; --translate-y: 0px; --translate-z: 0px; --scale: 1; aspect-ratio: 1/1; background-color: purple; height: max-content; min-height: var(--size); min-width: var(--size); transform: translate(-50%, -50%) translate3d(var(--translate-x), var(--translate-y), var(--translate-z)) scale3d(var(--scale), var(--scale), var(--scale)); width: max-content"
     >
       bounded - center
     </div>
