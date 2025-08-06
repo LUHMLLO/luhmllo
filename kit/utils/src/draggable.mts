@@ -242,6 +242,11 @@ export class Drifter {
       );
       this.drifterElement.style.setProperty("--translate-z", "0px");
       this.drifterElement.style.setProperty("--scale", `${this.state.zoom}`);
+      this.drifterElement.style.inset = "0";
+      this.drifterElement.style.margin = "auto";
+      this.drifterElement.style.position = "fixed";
+      this.drifterElement.style.transformStyle = "preserve-3d";
+      this.drifterElement.style.willChange = "transform";
       this.animationFrameId = null;
     });
   }
@@ -270,6 +275,7 @@ export class Drifter {
 
   /**
    * Calculate and apply boundary constraints based on mode and boundedTo settings
+   * Handles cases where target is larger or smaller than boundary
    * @param x - Target X position
    * @param y - Target Y position
    * @param elastic - Whether to apply elastic overshoot
@@ -286,17 +292,25 @@ export class Drifter {
       return { x, y };
     }
 
-    const drifterRect = this.drifterElement.getBoundingClientRect();
-    const boundaryRect = this.boundaryElement.getBoundingClientRect();
+    // const drifterRect = this.drifterElement.getBoundingClientRect();
+    // const boundaryRect = this.boundaryElement.getBoundingClientRect();
 
     // Get actual dimensions accounting for zoom
-    const targetWidth = drifterRect.width * this.state.zoom;
-    const targetHeight = drifterRect.height * this.state.zoom;
+    const targetWidth = this.drifterElement.clientWidth * this.state.zoom;
+    const targetHeight = this.drifterElement.clientHeight * this.state.zoom;
 
-    const boundaryWidth = boundaryRect.width -
-      parseFloat(getComputedStyle(this.boundaryElement).paddingInline);
-    const boundaryHeight = boundaryRect.height -
-      parseFloat(getComputedStyle(this.boundaryElement).paddingBlock);
+    const boundaryStyles = getComputedStyle(this.boundaryElement);
+    const padding = {
+      left: parseFloat(boundaryStyles.paddingLeft),
+      right: parseFloat(boundaryStyles.paddingRight),
+      top: parseFloat(boundaryStyles.paddingTop),
+      bottom: parseFloat(boundaryStyles.paddingBottom),
+    };
+
+    const boundaryWidth = this.boundaryElement.clientWidth - padding.left -
+      padding.right;
+    const boundaryHeight = this.boundaryElement.clientHeight - padding.top -
+      padding.bottom;
 
     const halfTargetW = targetWidth / 2;
     const halfTargetH = targetHeight / 2;
@@ -306,13 +320,14 @@ export class Drifter {
     let minX: number, maxX: number, minY: number, maxY: number;
 
     if (this.options.boundedTo === "center") {
-      // Center point must stay within boundary
+      // CENTER MODE: Each corner of the target can reach the center of the boundary
       maxX = (targetWidth - boundaryWidth) / 2 + halfBoundaryW;
       minX = -maxX;
+
       maxY = (targetHeight - boundaryHeight) / 2 + halfBoundaryH;
       minY = -maxY;
     } else {
-      // "inside" - entire element must stay within boundary
+      // INSIDE MODE: Keep entire target within boundary bounds when possible
       maxX = halfBoundaryW - halfTargetW;
       minX = -maxX;
       maxY = halfBoundaryH - halfTargetH;
@@ -320,13 +335,11 @@ export class Drifter {
 
       // Handle case where target is larger than boundary
       if (targetWidth > boundaryWidth) {
-        console.log("target is wider");
         minX = halfBoundaryW - targetWidth;
         maxX = -minX;
       }
 
       if (targetHeight > boundaryHeight) {
-        console.log("target is taller");
         minY = halfBoundaryH - targetHeight;
         maxY = -minY;
       }
@@ -337,6 +350,7 @@ export class Drifter {
 
     // Apply elastic overshoot if enabled
     const tension = 0.25;
+
     function applyElastic(val: number, min: number, max: number): number {
       if (val < min) return elastic ? min + (val - min) * tension : min;
       if (val > max) return elastic ? max + (val - max) * tension : max;
