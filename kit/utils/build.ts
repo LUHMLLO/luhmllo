@@ -33,8 +33,8 @@ const commonOptions: BuildOptions = {
   minifySyntax: true,
   keepNames: false, // Ensures names are obfuscated
   treeShaking: true, // Eliminates dead code
-  drop: ["console"], // removes all console statements
-  pure: ["console.log"], // Removes unnecessary function calls
+  // drop: ["console"], // removes all console statements
+  // pure: ["console.log"], // Removes unnecessary function calls
   banner: { js: "// deno-lint-ignore-file" },
 };
 

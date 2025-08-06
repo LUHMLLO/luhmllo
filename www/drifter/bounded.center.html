@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drifter Example</title>
+    <link rel="stylesheet" href="http://localhost:8080/kit/css/dist/all.css">
+    <style>
+      :where(body) {
+        &::before {
+          background-color: red;
+          content: "";
+          display: inline-block;
+          inset: 0;
+          margin: auto;
+          pointer-events: none;
+          position: absolute;
+          width: 1px;
+          z-index: 9;
+        }
+
+        &::after {
+          background-color: red;
+          content: "";
+          display: inline-block;
+          height: 1px;
+          inset: 0;
+          margin: auto;
+          pointer-events: none;
+          position: absolute;
+          z-index: 9;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="drifter"
+      style="aspect-ratio: 1/1; background-color: purple; inset: 0; margin: auto; position: fixed; transform: translate3d(var(--translate-x), var(--translate-y), var(--translate-z)) scale3d(var(--scale), var(--scale), var(--scale)); transform-style: preserve-3d; width: 75dvh"
+    >
+      bounded - center
+    </div>
+
+    <script type="module">
+      import { Drifter } from "http://localhost:8080/kit/utils/dist/draggable.min.js";
+
+      const canvasElement = document.querySelector("#drifter");
+      const viewportElement = canvasElement.parentElement;
+
+      new Drifter(canvasElement, viewportElement, {
+        mode: "bounded",
+        boundedTo: "center",
+      });
+    </script>
+  </body>
+</html>
