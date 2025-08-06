@@ -14,7 +14,7 @@
           inset: 0;
           margin: auto;
           pointer-events: none;
-          position: absolute;
+          position: fixed;
           width: 1px;
           z-index: 9;
         }
@@ -27,16 +27,17 @@
           inset: 0;
           margin: auto;
           pointer-events: none;
-          position: absolute;
+          position: fixed;
           z-index: 9;
         }
       }
     </style>
   </head>
   <body>
+    <h1>Drifter Example</h1>
     <div
       id="drifter"
-      style="--size: 1920px; --translate-x: 0px; --translate-y: 0px; --translate-z: 0px; --scale: 1; aspect-ratio: 1/1; background-color: purple; height: max-content; min-height: var(--size); min-width: var(--size); transform: translate3d(var(--translate-x), var(--translate-y), var(--translate-z)) scale3d(var(--scale), var(--scale), var(--scale)); width: max-content"
+      style="--size: 1920px; --translate-x: 0px; --translate-y: 0px; --translate-z: 0px; --scale: 1; aspect-ratio: 1/1; background-color: purple; height: max-content; min-height: var(--size); min-width: var(--size); transform: translate(-50%, -50%) translate3d(var(--translate-x), var(--translate-y), var(--translate-z)) scale3d(var(--scale), var(--scale), var(--scale)); width: max-content"
     >
       bounded - center
     </div>

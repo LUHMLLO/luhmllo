@@ -242,10 +242,14 @@ export class Drifter {
       );
       this.drifterElement.style.setProperty("--translate-z", "0px");
       this.drifterElement.style.setProperty("--scale", `${this.state.zoom}`);
-      this.drifterElement.style.inset = "0";
+      this.drifterElement.style.inset = "50% auto auto 50%";
+      // this.drifterElement.style.top = "50%";
+      // this.drifterElement.style.left = "50%";
       this.drifterElement.style.margin = "auto";
       this.drifterElement.style.position = "fixed";
+      this.drifterElement.style.transformOrigin = "center";
       this.drifterElement.style.transformStyle = "preserve-3d";
+      this.drifterElement.style.translate = "-50%, -50%";
       this.drifterElement.style.willChange = "transform";
       this.animationFrameId = null;
     });
@@ -292,12 +296,12 @@ export class Drifter {
       return { x, y };
     }
 
-    // const drifterRect = this.drifterElement.getBoundingClientRect();
-    // const boundaryRect = this.boundaryElement.getBoundingClientRect();
+    const drifterRect = this.drifterElement.getBoundingClientRect();
+    const boundaryRect = this.boundaryElement.getBoundingClientRect();
 
     // Get actual dimensions accounting for zoom
-    const targetWidth = this.drifterElement.clientWidth * this.state.zoom;
-    const targetHeight = this.drifterElement.clientHeight * this.state.zoom;
+    const targetWidth = drifterRect.width * this.state.zoom;
+    const targetHeight = drifterRect.height * this.state.zoom;
 
     const boundaryStyles = getComputedStyle(this.boundaryElement);
     const padding = {
@@ -307,9 +311,9 @@ export class Drifter {
       bottom: parseFloat(boundaryStyles.paddingBottom),
     };
 
-    const boundaryWidth = this.boundaryElement.clientWidth - padding.left -
+    const boundaryWidth = boundaryRect.width - padding.left -
       padding.right;
-    const boundaryHeight = this.boundaryElement.clientHeight - padding.top -
+    const boundaryHeight = boundaryRect.height - padding.top -
       padding.bottom;
 
     const halfTargetW = targetWidth / 2;
@@ -326,6 +330,9 @@ export class Drifter {
 
       maxY = (targetHeight - boundaryHeight) / 2 + halfBoundaryH;
       minY = -maxY;
+
+      console.log("client height", boundaryHeight);
+      console.log("client width", boundaryWidth);
     } else {
       // INSIDE MODE: Keep entire target within boundary bounds when possible
       maxX = halfBoundaryW - halfTargetW;
