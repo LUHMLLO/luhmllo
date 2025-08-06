@@ -321,9 +321,6 @@ export class Drifter {
 
       maxY = (targetHeight - boundaryHeight) / 2 + halfBoundaryH;
       minY = -maxY;
-
-      console.log("client height", boundaryHeight);
-      console.log("client width", boundaryWidth);
     } else {
       // INSIDE MODE: Keep entire target within boundary bounds when possible
       maxX = halfBoundaryW - halfTargetW;

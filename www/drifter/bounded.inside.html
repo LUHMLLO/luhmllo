@@ -38,23 +38,29 @@
         --translate-y: 0px;
         --translate-z: 0px;
         --scale: 1;
+
         aspect-ratio: 1/1;
         background-color: purple;
-        height: max-content;
-        inset: 50% auto auto 50%;
-        margin: auto;
         position: fixed;
-        min-height: var(--size);
-        min-width: var(--size);
-        transform: translate(-50%, -50%)
+
+        /* Position the top-left corner at viewport center */
+        top: 50%;
+        left: 50%;
+
+        /* Size the element */
+        width: var(--size);
+        height: var(--size);
+
+        /* Transform to center the element's center point at viewport center */
+        transform: translate(-50%, -50%) /* Center the element first */
           translate3d(
             var(--translate-x),
             var(--translate-y),
             var(--translate-z)
           ) scale3d(var(--scale), var(--scale), var(--scale));
+
         transform-origin: center;
         transform-style: preserve-3d;
-        width: max-content;
         will-change: transform;
       }
     </style>
