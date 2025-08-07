@@ -44,12 +44,13 @@
         position: fixed;
 
         /* Position the top-left corner at viewport center */
-        top: 50%;
-        left: 50%;
+        inset: 50% 0 0 50%;
 
         /* Size the element */
-        width: var(--size);
         height: var(--size);
+        min-height: max-content;
+        min-width: max-content;
+        width: var(--size);
 
         /* Transform to center the element's center point at viewport center */
         transform: translate(-50%, -50%) /* Center the element first */

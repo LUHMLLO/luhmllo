@@ -287,12 +287,12 @@ export class Drifter {
       return { x, y };
     }
 
-    const drifterRect = this.drifterElement.getBoundingClientRect();
-    const boundaryRect = this.boundaryElement.getBoundingClientRect();
+    // const drifterRect = this.drifterElement.getBoundingClientRect();
+    // const boundaryRect = this.boundaryElement.getBoundingClientRect();
 
     // Get actual dimensions accounting for zoom
-    const targetWidth = drifterRect.width * this.state.zoom;
-    const targetHeight = drifterRect.height * this.state.zoom;
+    const targetWidth = this.drifterElement.clientWidth * this.state.zoom;
+    const targetHeight = this.drifterElement.clientHeight * this.state.zoom;
 
     const boundaryStyles = getComputedStyle(this.boundaryElement);
     const padding = {
@@ -302,9 +302,9 @@ export class Drifter {
       bottom: parseFloat(boundaryStyles.paddingBottom),
     };
 
-    const boundaryWidth = boundaryRect.width - padding.left -
+    const boundaryWidth = this.boundaryElement.clientWidth - padding.left -
       padding.right;
-    const boundaryHeight = boundaryRect.height - padding.top -
+    const boundaryHeight = this.boundaryElement.clientHeight - padding.top -
       padding.bottom;
 
     const halfTargetW = targetWidth / 2;
