@@ -330,12 +330,12 @@ export class Drifter {
 
       // Handle case where target is larger than boundary
       if (targetWidth > boundaryWidth) {
-        minX = halfBoundaryW - targetWidth;
+        minX = (halfBoundaryW - halfTargetW);
         maxX = -minX;
       }
 
       if (targetHeight > boundaryHeight) {
-        minY = halfBoundaryH - targetHeight;
+        minY = (halfBoundaryH - halfTargetH);
         maxY = -minY;
       }
     }
