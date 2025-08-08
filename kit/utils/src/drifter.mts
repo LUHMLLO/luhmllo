@@ -3,17 +3,6 @@
  * Simplified architecture with cleaner mode/boundary handling
  */
 
-// interface ErrorState {
-//   /** Track if we're in an invalid state */
-//   isInvalid: boolean;
-//   /** Last known valid position */
-//   lastValidPosition: { x: number; y: number; zoom: number };
-//   /** Error recovery attempt count */
-//   recoveryAttempts: number;
-//   /** Maximum recovery attempts before fallback */
-//   maxRecoveryAttempts: number;
-// }
-
 interface Options {
   /** Movement speed multiplier for drag operations */
   dragSpeed: number;
