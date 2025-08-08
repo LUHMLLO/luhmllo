@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drifter Example</title>
+    <link rel="stylesheet" href="http://localhost:8080/kit/css/dist/all.css">
+    <link rel="stylesheet" href="http://localhost:8080/drifter/shared.css">
+  </head>
+  <body>
+    <h1>Drifter Example</h1>
+    <div
+      class="drifter"
+    >
+      <span data-float="top-left">top - left</span>
+      <span data-float="top-right">top - right</span>
+      <b
+        style="display: block; height: max-content; inset: 0; margin: auto; position: absolute; width: max-content"
+      >
+        <ul>
+          <li>mode: bounded</li>
+          <li>boundedTo: center</li>
+          <li>dragTarget: self</li>
+        </ul>
+      </b>
+      <span data-float="bottom-left">bottom - left</span>
+      <span data-float="bottom-right">bottom - right</span>
+    </div>
+
+    <div
+      class="drifter"
+    >
+      <span data-float="top-left">top - left</span>
+      <span data-float="top-right">top - right</span>
+      <b
+        style="display: block; height: max-content; inset: 0; margin: auto; position: absolute; width: max-content"
+      >
+        <ul>
+          <li>mode: bounded</li>
+          <li>boundedTo: center</li>
+          <li>dragTarget: boundary</li>
+        </ul>
+      </b>
+      <span data-float="bottom-left">bottom - left</span>
+      <span data-float="bottom-right">bottom - right</span>
+    </div>
+
+    <script type="module">
+      import { Drifter } from "http://localhost:8080/kit/utils/dist/draggable.min.js";
+
+      const canvasElement = document.querySelectorAll(".drifter");
+
+      new Drifter(canvasElement[0], document.body, {
+        mode: "bounded",
+        boundedTo: "center",
+        dragTarget: "boundary",
+      });
+
+      new Drifter(canvasElement[1], document.body, {
+        mode: "bounded",
+        boundedTo: "center",
+        dragTarget: "boundary",
+      });
+    </script>
+  </body>
+</html>

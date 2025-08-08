@@ -15,11 +15,17 @@ interface Options {
     threshold: number;
   };
 
+  /** Whether it will follow the cursor or requires user to drag around */
+  // behaviour: "drag" | "follow";
+
   /** Interaction mode - determines boundary behavior */
   mode: "bounded" | "free";
 
   /** For bounded mode: how to apply constraints */
   boundedTo: "center" | "inside";
+
+  /** Who to attach listeners to */
+  dragTarget: "self" | "boundary";
 
   /** Zoom/pinch configuration */
   zoom: {
@@ -141,8 +147,10 @@ export class Drifter {
         damping: options.inertia?.damping ?? 0.92,
         threshold: options.inertia?.threshold ?? 1.0,
       },
+      // behaviour: options.behaviour ?? "drag",
       mode: options.mode ?? "bounded",
       boundedTo: options.boundedTo ?? "center",
+      dragTarget: options.dragTarget ?? "self",
       zoom: {
         enabled: options.zoom?.enabled ?? true,
         initial: options.zoom?.initial ?? 1,
@@ -174,7 +182,7 @@ export class Drifter {
     }
 
     // For free mode, we don't need a boundary element
-    if (this.options.mode === "free") {
+    if (this.options.mode === "free" && this.options.dragTarget === "self") {
       this.boundaryElement = null;
     }
   }
@@ -199,9 +207,11 @@ export class Drifter {
    */
   private _attachEventListeners(): void {
     // Use drifter element for free mode, boundary element for bounded mode
-    const eventTarget = this.options.mode === "free"
+    const eventTarget = this.options.dragTarget === "self"
       ? this.drifterElement
       : this.boundaryElement!;
+
+    console.debug("_attachEventListeners", eventTarget);
 
     eventTarget.addEventListener("pointerdown", this._handlePointerDown);
     eventTarget.addEventListener("pointermove", this._handlePointerMove);
@@ -330,12 +340,12 @@ export class Drifter {
 
       // Handle case where target is larger than boundary
       if (targetWidth > boundaryWidth) {
-        minX = (halfBoundaryW - halfTargetW);
+        minX = halfBoundaryW - halfTargetW;
         maxX = -minX;
       }
 
       if (targetHeight > boundaryHeight) {
-        minY = (halfBoundaryH - halfTargetH);
+        minY = halfBoundaryH - halfTargetH;
         maxY = -minY;
       }
     }
@@ -587,9 +597,12 @@ export class Drifter {
     clientY: number,
     smooth: boolean = true,
   ): void {
-    const eventTarget = this.options.mode === "free"
+    const eventTarget = this.options.dragTarget === "self"
       ? this.drifterElement
       : this.boundaryElement!;
+
+    console.debug("_performZoom", eventTarget);
+
     const targetRect = eventTarget.getBoundingClientRect();
 
     let focalX: number, focalY: number;
@@ -646,9 +659,12 @@ export class Drifter {
     this.state.movement.velocityY = 0;
     this.state.movement.lastTime = performance.now();
 
-    const eventTarget = this.options.mode === "free"
+    const eventTarget = this.options.dragTarget === "self"
       ? this.drifterElement
       : this.boundaryElement!;
+
+    console.debug("_beginDrag", eventTarget);
+
     eventTarget.setPointerCapture(pointerId);
   }
 
@@ -667,9 +683,11 @@ export class Drifter {
 
     // Calculate the content point under the initial pinch center
     // This point should remain stationary relative to the pinch center
-    const eventTarget = this.options.mode === "free"
+    const eventTarget = this.options.dragTarget === "self"
       ? this.drifterElement
       : this.boundaryElement!;
+
+    console.debug("_beginPinch", eventTarget);
 
     const contentPointX = (initialCenter.x - eventTarget.clientWidth / 2 -
       this.state.movement.offsetX) / this.state.zoom;
@@ -688,9 +706,11 @@ export class Drifter {
     };
 
     // Capture both pointers
-    const eventTarget2 = this.options.mode === "free"
+    const eventTarget2 = this.options.dragTarget === "self"
       ? this.drifterElement
       : this.boundaryElement!;
+
+    console.debug("_beginPinch (eventTarget2)", eventTarget2);
     this.activePointers.forEach((_, pointerId) => {
       eventTarget2.setPointerCapture(pointerId);
     });
@@ -751,9 +771,11 @@ export class Drifter {
     const currentCenter = this._getPointerCenter(pointer1, pointer2);
 
     // Calculate new position to keep the content point stationary under the pinch center
-    const eventTarget = this.options.mode === "free"
+    const eventTarget = this.options.dragTarget === "self"
       ? this.drifterElement
       : this.boundaryElement!;
+
+    console.debug("_processPinchMovement", eventTarget);
 
     const newOffsetX = currentCenter.x - eventTarget.clientWidth / 2 -
       this.pinchState.contentPoint.x * newZoom;
@@ -784,9 +806,12 @@ export class Drifter {
       this._bounceBackToBounds();
     }
 
-    const eventTarget = this.options.mode === "free"
+    const eventTarget = this.options.dragTarget === "self"
       ? this.drifterElement
       : this.boundaryElement!;
+
+    console.debug("_endDrag", eventTarget);
+
     if (eventTarget.hasPointerCapture(pointerId)) {
       eventTarget.releasePointerCapture(pointerId);
     }
@@ -797,9 +822,11 @@ export class Drifter {
     this.pinchState = null;
 
     // Release pointer capture
-    const eventTarget = this.options.mode === "free"
+    const eventTarget = this.options.dragTarget === "self"
       ? this.drifterElement
       : this.boundaryElement!;
+
+    console.debug("_endPinch", eventTarget);
 
     this.activePointers.forEach((_, pointerId) => {
       if (eventTarget.hasPointerCapture(pointerId)) {
@@ -833,9 +860,12 @@ export class Drifter {
 
     if (Math.abs(clampedZoom - this.state.zoom) < 0.001) return;
 
-    const eventTarget = this.options.mode === "free"
+    const eventTarget = this.options.dragTarget === "self"
       ? this.drifterElement
       : this.boundaryElement!;
+
+    console.debug("setZoom", eventTarget);
+
     const rect = eventTarget.getBoundingClientRect();
 
     // Use center if no focal point provided
@@ -918,9 +948,11 @@ export class Drifter {
    * Public API: Destroy the instance and clean up event listeners
    */
   public destroy(): void {
-    const eventTarget = this.options.mode === "free"
+    const eventTarget = this.options.dragTarget === "self"
       ? this.drifterElement
       : this.boundaryElement!;
+
+    console.debug("destroy", eventTarget);
 
     eventTarget.removeEventListener("pointerdown", this._handlePointerDown);
     eventTarget.removeEventListener("pointermove", this._handlePointerMove);

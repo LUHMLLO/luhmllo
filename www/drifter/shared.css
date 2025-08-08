@@ -24,15 +24,22 @@
   }
 }
 
-:where(#drifter) {
-  --size: 1920px;
+:where(.drifter) {
+  --size: 500px;
   --translate-x: 0px;
   --translate-y: 0px;
   --translate-z: 0px;
   --scale: 1;
 
+  &:nth-of-type(1) {
+    background-color: purple;
+  }
+
+  &:nth-of-type(2) {
+    background-color: violet;
+  }
+
   aspect-ratio: 1/1;
-  background-color: purple;
   position: fixed;
 
   /* Position the top-left corner at viewport center */
@@ -46,10 +53,10 @@
 
   /* Transform to center the element's center point at viewport center */
   transform: translate(-50%, -50%)
-    /* Center the element first */
-    translate3d(var(--translate-x),
-      var(--translate-y),
-      var(--translate-z)) scale3d(var(--scale), var(--scale), var(--scale));
+  /* Center the element first */
+  translate3d(var(--translate-x),
+    var(--translate-y),
+    var(--translate-z)) scale3d(var(--scale), var(--scale), var(--scale));
 
   transform-origin: center;
   transform-style: preserve-3d;
