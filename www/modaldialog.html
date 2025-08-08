@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drifter Example</title>
+    <link rel="stylesheet" href="http://localhost:8080/kit/css/dist/all.css">
+    <!-- <link rel="stylesheet" href="http://localhost:8080/drifter/shared.css"> -->
+  </head>
+  <body>
+    <h1>Bottomsheet Example</h1>
+    <button data-modal-trigger>
+      open dialog
+    </button>
+
+    <dialog data-is="">
+      <header>
+        <h5>header</h5>
+      </header>
+      <p>dialog</p>
+      <footer>footer</footer>
+    </dialog>
+
+    <script type="module">
+      import { ModalDialog } from "http://localhost:8080/kit/utils/dist/modalDialog.min.js";
+
+      const dialogElement = document.querySelector("dialog");
+
+      new ModalDialog(dialogElement, {
+        targetAttribute: "[data-modal-trigger]",
+        dragThreshold: 120,
+        dragHandleHeight: 80,
+        onOpen: () => console.log("Modal opened!"),
+        onClose: () => console.log("Modal closed!"),
+      });
+    </script>
+  </body>
+</html>
