@@ -3,6 +3,17 @@
  * Simplified architecture with cleaner mode/boundary handling
  */
 
+// interface ErrorState {
+//   /** Track if we're in an invalid state */
+//   isInvalid: boolean;
+//   /** Last known valid position */
+//   lastValidPosition: { x: number; y: number; zoom: number };
+//   /** Error recovery attempt count */
+//   recoveryAttempts: number;
+//   /** Maximum recovery attempts before fallback */
+//   maxRecoveryAttempts: number;
+// }
+
 interface Options {
   /** Movement speed multiplier for drag operations */
   dragSpeed: number;
@@ -90,6 +101,7 @@ export class Drifter {
   private boundaryElement: HTMLElement | null;
   private options: Options;
   private state: State;
+  private eventTarget: HTMLElement;
   private activePointers = new Map<number, PointerData>();
   private pinchState: PinchState | null = null;
   private inertiaFrameId: number | null = null;
@@ -112,6 +124,9 @@ export class Drifter {
     // Apply defaults and validate
     this.options = this._applyDefaults(options);
     this._validateConfiguration();
+
+    // Calculate and cache the event target once
+    this.eventTarget = this._resolveEventTarget();
 
     // Initialize state
     this.state = {
@@ -185,6 +200,18 @@ export class Drifter {
     if (this.options.mode === "free" && this.options.dragTarget === "self") {
       this.boundaryElement = null;
     }
+
+    console.debug("eventTarget", this.eventTarget);
+  }
+
+  /**
+   * Resolve the event target element based on configuration
+   * @private
+   */
+  private _resolveEventTarget(): HTMLElement {
+    return this.options.dragTarget === "self"
+      ? this.drifterElement
+      : this.boundaryElement!;
   }
 
   /**
@@ -206,18 +233,14 @@ export class Drifter {
    * @private
    */
   private _attachEventListeners(): void {
-    // Use drifter element for free mode, boundary element for bounded mode
-    const eventTarget = this.options.dragTarget === "self"
-      ? this.drifterElement
-      : this.boundaryElement!;
-
-    console.debug("_attachEventListeners", eventTarget);
-
-    eventTarget.addEventListener("pointerdown", this._handlePointerDown);
-    eventTarget.addEventListener("pointermove", this._handlePointerMove);
-    eventTarget.addEventListener("pointerup", this._handlePointerUp);
-    eventTarget.addEventListener("pointercancel", this._handlePointerCancel);
-    eventTarget.addEventListener("pointerleave", this._handlePointerLeave);
+    this.eventTarget.addEventListener("pointerdown", this._handlePointerDown);
+    this.eventTarget.addEventListener("pointermove", this._handlePointerMove);
+    this.eventTarget.addEventListener("pointerup", this._handlePointerUp);
+    this.eventTarget.addEventListener(
+      "pointercancel",
+      this._handlePointerCancel,
+    );
+    this.eventTarget.addEventListener("pointerleave", this._handlePointerLeave);
 
     // Global events
     globalThis.addEventListener("blur", this._handleWindowBlur);
@@ -225,10 +248,41 @@ export class Drifter {
 
     // Wheel events for zoom
     if (this.options.zoom.enabled) {
-      eventTarget.addEventListener("wheel", this._handleWheel, {
+      this.eventTarget.addEventListener("wheel", this._handleWheel, {
         passive: false,
       });
     }
+  }
+
+  private _detachEventListeners(): void {
+    this.eventTarget.removeEventListener(
+      "pointerdown",
+      this._handlePointerDown,
+    );
+    this.eventTarget.removeEventListener(
+      "pointermove",
+      this._handlePointerMove,
+    );
+    this.eventTarget.removeEventListener("pointerup", this._handlePointerUp);
+    this.eventTarget.removeEventListener(
+      "pointercancel",
+      this._handlePointerCancel,
+    );
+    this.eventTarget.removeEventListener(
+      "pointerleave",
+      this._handlePointerLeave,
+    );
+
+    globalThis.removeEventListener("blur", this._handleWindowBlur);
+    globalThis.removeEventListener("visibilitychange", this._handleWindowBlur);
+
+    this._stopInertia();
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
+    }
+
+    // Clear pointer tracking
+    this.activePointers.clear();
   }
 
   /**
@@ -292,6 +346,10 @@ export class Drifter {
     y: number,
     elastic: boolean = false,
   ): { x: number; y: number } {
+    // Guard against invalid inputs
+    // if (!isFinite(x)) x = this.errorState.lastValidPosition.x || 0;
+    // if (!isFinite(y)) y = this.errorState.lastValidPosition.y || 0;
+
     // Free mode has no constraints
     if (this.options.mode === "free" || !this.boundaryElement) {
       return { x, y };
@@ -354,7 +412,7 @@ export class Drifter {
     this.state.constraints = { minX, maxX, minY, maxY };
 
     // Apply elastic overshoot if enabled
-    const tension = 0.25;
+    const tension = 0.35;
 
     function applyElastic(val: number, min: number, max: number): number {
       if (val < min) return elastic ? min + (val - min) * tension : min;
@@ -597,13 +655,7 @@ export class Drifter {
     clientY: number,
     smooth: boolean = true,
   ): void {
-    const eventTarget = this.options.dragTarget === "self"
-      ? this.drifterElement
-      : this.boundaryElement!;
-
-    console.debug("_performZoom", eventTarget);
-
-    const targetRect = eventTarget.getBoundingClientRect();
+    const targetRect = this.eventTarget.getBoundingClientRect();
 
     let focalX: number, focalY: number;
 
@@ -613,23 +665,23 @@ export class Drifter {
       focalY = clientY - targetRect.top;
     } else {
       // Center of the boundary/drifter element
-      focalX = eventTarget.clientWidth / 2;
-      focalY = eventTarget.clientHeight / 2;
+      focalX = this.eventTarget.clientWidth / 2;
+      focalY = this.eventTarget.clientHeight / 2;
     }
 
     // Calculate the point on the content under the focal point
     // This point should remain stationary relative to the focal point
-    const contentPointX =
-      (focalX - eventTarget.clientWidth / 2 - this.state.movement.offsetX) /
+    const contentPointX = (focalX - this.eventTarget.clientWidth / 2 -
+      this.state.movement.offsetX) /
       this.state.zoom;
-    const contentPointY =
-      (focalY - eventTarget.clientHeight / 2 - this.state.movement.offsetY) /
+    const contentPointY = (focalY - this.eventTarget.clientHeight / 2 -
+      this.state.movement.offsetY) /
       this.state.zoom;
 
     // Calculate new position to keep content point under focal point
-    const newOffsetX = focalX - eventTarget.clientWidth / 2 -
+    const newOffsetX = focalX - this.eventTarget.clientWidth / 2 -
       contentPointX * newZoom;
-    const newOffsetY = focalY - eventTarget.clientHeight / 2 -
+    const newOffsetY = focalY - this.eventTarget.clientHeight / 2 -
       contentPointY * newZoom;
 
     if (smooth) {
@@ -659,13 +711,7 @@ export class Drifter {
     this.state.movement.velocityY = 0;
     this.state.movement.lastTime = performance.now();
 
-    const eventTarget = this.options.dragTarget === "self"
-      ? this.drifterElement
-      : this.boundaryElement!;
-
-    console.debug("_beginDrag", eventTarget);
-
-    eventTarget.setPointerCapture(pointerId);
+    this.eventTarget.setPointerCapture(pointerId);
   }
 
   private _beginPinch(): void {
@@ -683,15 +729,9 @@ export class Drifter {
 
     // Calculate the content point under the initial pinch center
     // This point should remain stationary relative to the pinch center
-    const eventTarget = this.options.dragTarget === "self"
-      ? this.drifterElement
-      : this.boundaryElement!;
-
-    console.debug("_beginPinch", eventTarget);
-
-    const contentPointX = (initialCenter.x - eventTarget.clientWidth / 2 -
+    const contentPointX = (initialCenter.x - this.eventTarget.clientWidth / 2 -
       this.state.movement.offsetX) / this.state.zoom;
-    const contentPointY = (initialCenter.y - eventTarget.clientHeight / 2 -
+    const contentPointY = (initialCenter.y - this.eventTarget.clientHeight / 2 -
       this.state.movement.offsetY) / this.state.zoom;
 
     this.pinchState = {
@@ -705,14 +745,8 @@ export class Drifter {
       contentPoint: { x: contentPointX, y: contentPointY },
     };
 
-    // Capture both pointers
-    const eventTarget2 = this.options.dragTarget === "self"
-      ? this.drifterElement
-      : this.boundaryElement!;
-
-    console.debug("_beginPinch (eventTarget2)", eventTarget2);
     this.activePointers.forEach((_, pointerId) => {
-      eventTarget2.setPointerCapture(pointerId);
+      this.eventTarget.setPointerCapture(pointerId);
     });
   }
 
@@ -771,15 +805,9 @@ export class Drifter {
     const currentCenter = this._getPointerCenter(pointer1, pointer2);
 
     // Calculate new position to keep the content point stationary under the pinch center
-    const eventTarget = this.options.dragTarget === "self"
-      ? this.drifterElement
-      : this.boundaryElement!;
-
-    console.debug("_processPinchMovement", eventTarget);
-
-    const newOffsetX = currentCenter.x - eventTarget.clientWidth / 2 -
+    const newOffsetX = currentCenter.x - this.eventTarget.clientWidth / 2 -
       this.pinchState.contentPoint.x * newZoom;
-    const newOffsetY = currentCenter.y - eventTarget.clientHeight / 2 -
+    const newOffsetY = currentCenter.y - this.eventTarget.clientHeight / 2 -
       this.pinchState.contentPoint.y * newZoom;
 
     // Apply changes directly - no smoothing during active pinch for responsiveness
@@ -806,14 +834,8 @@ export class Drifter {
       this._bounceBackToBounds();
     }
 
-    const eventTarget = this.options.dragTarget === "self"
-      ? this.drifterElement
-      : this.boundaryElement!;
-
-    console.debug("_endDrag", eventTarget);
-
-    if (eventTarget.hasPointerCapture(pointerId)) {
-      eventTarget.releasePointerCapture(pointerId);
+    if (this.eventTarget.hasPointerCapture(pointerId)) {
+      this.eventTarget.releasePointerCapture(pointerId);
     }
   }
 
@@ -822,151 +844,15 @@ export class Drifter {
     this.pinchState = null;
 
     // Release pointer capture
-    const eventTarget = this.options.dragTarget === "self"
-      ? this.drifterElement
-      : this.boundaryElement!;
-
-    console.debug("_endPinch", eventTarget);
-
     this.activePointers.forEach((_, pointerId) => {
-      if (eventTarget.hasPointerCapture(pointerId)) {
-        eventTarget.releasePointerCapture(pointerId);
+      if (this.eventTarget.hasPointerCapture(pointerId)) {
+        this.eventTarget.releasePointerCapture(pointerId);
       }
     });
 
     // Apply boundary constraints after pinch ends
     if (this.options.mode === "bounded") {
       this._bounceBackToBounds();
-    }
-  }
-
-  /**
-   * Public API: Set zoom level programmatically
-   * @param zoom - Target zoom level (will be clamped to min/max)
-   * @param focalX - Optional focal point X (screen coordinates)
-   * @param focalY - Optional focal point Y (screen coordinates)
-   * @param smooth - Whether to apply smoothing animation
-   */
-  public setZoom(
-    zoom: number,
-    focalX?: number,
-    focalY?: number,
-    smooth: boolean = true,
-  ): void {
-    const clampedZoom = Math.max(
-      this.options.zoom.min,
-      Math.min(this.options.zoom.max, zoom),
-    );
-
-    if (Math.abs(clampedZoom - this.state.zoom) < 0.001) return;
-
-    const eventTarget = this.options.dragTarget === "self"
-      ? this.drifterElement
-      : this.boundaryElement!;
-
-    console.debug("setZoom", eventTarget);
-
-    const rect = eventTarget.getBoundingClientRect();
-
-    // Use center if no focal point provided
-    const defaultX = rect.left + eventTarget.clientWidth / 2;
-    const defaultY = rect.top + eventTarget.clientHeight / 2;
-
-    this._performZoom(
-      clampedZoom,
-      focalX ?? defaultX,
-      focalY ?? defaultY,
-      smooth,
-    );
-  }
-
-  /**
-   * Public API: Get current zoom level
-   */
-  public getZoom(): number {
-    return this.state.zoom;
-  }
-
-  /**
-   * Public API: Reset zoom to initial value
-   * @param smooth - Whether to apply smoothing animation
-   */
-  public resetZoom(smooth: boolean = true): void {
-    this.setZoom(this.options.zoom.initial, undefined, undefined, smooth);
-  }
-
-  /**
-   * Public API: Get current position
-   */
-  public getPosition(): { x: number; y: number } {
-    return {
-      x: this.state.movement.offsetX,
-      y: this.state.movement.offsetY,
-    };
-  }
-
-  /**
-   * Public API: Set position programmatically
-   * @param x - Target X position
-   * @param y - Target Y position
-   * @param smooth - Whether to animate to the position
-   */
-  public setPosition(x: number, y: number, smooth: boolean = false): void {
-    if (smooth) {
-      const startX = this.state.movement.offsetX;
-      const startY = this.state.movement.offsetY;
-      const startTime = performance.now();
-      const duration = 250;
-
-      const animate = (now: number) => {
-        const t = Math.min(1, (now - startTime) / duration);
-        const eased = t * (2 - t); // easeOutQuad
-
-        const constrainedPos = this._calculateConstraints(
-          startX + (x - startX) * eased,
-          startY + (y - startY) * eased,
-          false,
-        );
-
-        this.state.movement.offsetX = constrainedPos.x;
-        this.state.movement.offsetY = constrainedPos.y;
-        this._updateTransform();
-
-        if (t < 1) requestAnimationFrame(animate);
-      };
-
-      requestAnimationFrame(animate);
-    } else {
-      const constrainedPos = this._calculateConstraints(x, y, false);
-      this.state.movement.offsetX = constrainedPos.x;
-      this.state.movement.offsetY = constrainedPos.y;
-      this._updateTransform();
-    }
-  }
-
-  /**
-   * Public API: Destroy the instance and clean up event listeners
-   */
-  public destroy(): void {
-    const eventTarget = this.options.dragTarget === "self"
-      ? this.drifterElement
-      : this.boundaryElement!;
-
-    console.debug("destroy", eventTarget);
-
-    eventTarget.removeEventListener("pointerdown", this._handlePointerDown);
-    eventTarget.removeEventListener("pointermove", this._handlePointerMove);
-    eventTarget.removeEventListener("pointerup", this._handlePointerUp);
-    eventTarget.removeEventListener("pointercancel", this._handlePointerCancel);
-    eventTarget.removeEventListener("pointerleave", this._handlePointerLeave);
-    eventTarget.removeEventListener("wheel", this._handleWheel);
-
-    globalThis.removeEventListener("blur", this._handleWindowBlur);
-    globalThis.removeEventListener("visibilitychange", this._handleWindowBlur);
-
-    this._stopInertia();
-    if (this.animationFrameId) {
-      cancelAnimationFrame(this.animationFrameId);
     }
   }
 }
