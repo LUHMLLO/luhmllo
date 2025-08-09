@@ -3,7 +3,7 @@
  * Optimized for performance with RAF throttling and efficient calculations
  */
 
-interface OrbiterOptions {
+interface Options {
   /** Movement sensitivity multiplier (higher = more movement) */
   factor: number;
 
@@ -71,7 +71,7 @@ interface OrbiterState {
 export class Orbiter {
   private orbiterElement: HTMLElement;
   private boundaryElement: HTMLElement;
-  private options: OrbiterOptions;
+  private options: Options;
   private state: OrbiterState;
   private rafId: number | null = null;
   private resizeObserver: ResizeObserver | null = null;
@@ -85,7 +85,7 @@ export class Orbiter {
   constructor(
     orbiterElement: HTMLElement,
     boundaryElement: HTMLElement,
-    options: Partial<OrbiterOptions> = {},
+    options: Partial<Options> = {},
   ) {
     this.orbiterElement = orbiterElement;
     this.boundaryElement = boundaryElement;
@@ -114,7 +114,7 @@ export class Orbiter {
    * Apply default options and merge with user provided options
    * @private
    */
-  private _applyDefaults(options: Partial<OrbiterOptions>): OrbiterOptions {
+  private _applyDefaults(options: Partial<Options>): Options {
     return {
       factor: options.factor ?? 1,
       smoothing: {
@@ -214,7 +214,7 @@ export class Orbiter {
    * @private
    */
   private _setupResizeObserver(): void {
-    if (!window.ResizeObserver) return;
+    if (!globalThis.ResizeObserver) return;
 
     this.resizeObserver = new ResizeObserver(() => {
       this._calculateConstraints();
@@ -260,7 +260,7 @@ export class Orbiter {
           y: Math.max(-maxY, Math.min(y, maxY)),
         };
 
-      case "elastic":
+      case "elastic": {
         const tension = this.options.elastic.tension;
         return {
           x: x > maxX
@@ -274,6 +274,7 @@ export class Orbiter {
             ? -maxY + (y + maxY) * tension
             : y,
         };
+      }
 
       case "none":
       default:
@@ -318,7 +319,7 @@ export class Orbiter {
         return;
       }
 
-      const dt = timestamp - this.state.lastUpdateTime;
+      // const dt = timestamp - this.state.lastUpdateTime;
       this.state.lastUpdateTime = timestamp;
 
       if (this.options.smoothing.enabled) {
