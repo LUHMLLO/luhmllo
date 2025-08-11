@@ -7,6 +7,6 @@
   },
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
-    "build": "deno run -A ./build.ts && cp dist/*.js ../docs/v1/static/vendors/ && cp dist/*.js ../docs/v2/public/"
+    "build": "deno run -A ./build.ts"
   }
 }

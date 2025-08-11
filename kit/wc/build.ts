@@ -10,7 +10,7 @@ import {
 
 // Get the current directory in a cross-platform way
 const __dirname = dirname(fromFileUrl(import.meta.url));
-const entryPath = join(__dirname, "src", "**", "*.mjs");
+const entryPath = join(__dirname, "src", "**", "*.mts");
 const outPath = join(__dirname, "dist");
 
 // Create dist directory if it doesn't exist

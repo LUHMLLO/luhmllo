@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="http://localhost:8080/kit/css/dist/all.css">
     <!-- <link rel="stylesheet" href="http://localhost:8080/drifter/shared.css"> -->
   </head>
+
   <body>
     <h1>Bottomsheet Example</h1>
     <button data-modal-trigger>
@@ -22,9 +24,9 @@
     </dialog>
 
     <script type="module">
-      import { ModalDialog } from "http://localhost:8080/kit/utils/dist/modalDialog.min.js";
+      import { ModalDialog } from "http://localhost:8080/kit/utils/dist/modalDialog.min.js"
 
-      const dialogElement = document.querySelector("dialog");
+      const dialogElement = document.querySelector("dialog")
 
       new ModalDialog(dialogElement, {
         targetAttribute: "[data-modal-trigger]",
@@ -35,4 +37,5 @@
       });
     </script>
   </body>
+
 </html>
