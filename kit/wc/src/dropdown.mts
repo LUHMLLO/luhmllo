@@ -122,6 +122,7 @@ export class XDropdown extends HTMLElement {
         transition-property: height, width;
         transition-duration: var(--animDuration);
         transition-timing-function: var(--animTiming);
+        transform-style: preserve-3d;
         width: calc-size(max-content, size);
         z-index: auto;
       }
@@ -145,16 +146,16 @@ export class XDropdown extends HTMLElement {
         display: flex;
         flex-direction: column;
         isolation: isolate;
-        max-height: calc(100dvh - var(--translate-y));
-        max-width: calc(100dvw - var(--translate-x));
+        max-height: clamp(40dvh, 150px, 70dvh);
+        max-width: calc(100dvw - calc(var(--translate-x) * 2));
         min-height: 0;
         min-width: 0;
         overflow-x: clip;
         overflow-y: auto;
-        padding: var(--space-sm);
+        padding: var(--space-xs);
         position: fixed;
-        transform: translate3d(var(--translate-x),var(--translate-y),0) scale3d(1,1,1);
-        transition-property: top, bottom, opacity, visibility;
+        transform: translate3d(var(--translate-x), var(--translate-y), 1000000px) scale3d(1,1,1);
+        transition-property: top, right, bottom, left, opacity, visibility;
         transition-duration: var(--animDuration);
         transition-timing-function: var(--animTiming);
         z-index: 1000000;
@@ -262,7 +263,9 @@ export class XDropdown extends HTMLElement {
     const summarySlot = this.shadowRoot?.querySelector(
       'slot[name="summary"]',
     ) as HTMLSlotElement;
-    const summary = summarySlot?.assignedElements()[0] as HTMLElement;
+    const summary = summarySlot?.assignedElements({
+      flatten: true,
+    })[0] as HTMLElement;
     const menu = this.shadowRoot?.querySelector(
       '[part="dropmenu"]',
     ) as HTMLElement;
@@ -291,14 +294,14 @@ export class XDropdown extends HTMLElement {
               async fn(state) {
                 await detectOverflow(state, {
                   altBoundary: true,
-                  boundary: document.documentElement,
+                  boundary: document.body,
                   elementContext: "floating" as const,
                   padding: 8,
                   rootBoundary: {
                     x: 0,
                     y: 0,
-                    width: document.documentElement.clientWidth,
-                    height: document.documentElement.clientHeight,
+                    width: document.body.clientWidth,
+                    height: document.body.clientHeight,
                   },
                 });
                 return {};
