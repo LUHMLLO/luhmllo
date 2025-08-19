@@ -117,7 +117,9 @@ func createServer() *http.Server {
 	mux := http.NewServeMux()
 
 	// Static file handlers
-	mux.Handle("/kit/", http.StripPrefix("/kit/", http.FileServer(http.Dir("kit"))))
+	mux.Handle("/kit/css/dist/all.css", http.StripPrefix("/kit/css/dist/all.css", http.FileServer(http.Dir("kit/css/dist/all.css"))))
+	mux.Handle("/kit/utils/dist/", http.StripPrefix("/kit/utils/dist/", http.FileServer(http.Dir("kit/utils/dist/"))))
+	mux.Handle("/kit/wc/dist/", http.StripPrefix("/kit/wc/dist/", http.FileServer(http.Dir("kit/wc/dist/"))))
 	mux.Handle("/", http.FileServer(http.Dir("www")))
 
 	// API endpoint
