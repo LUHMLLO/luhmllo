@@ -153,23 +153,20 @@ func createServer() *http.Server {
 }
 
 func main() {
-	// Directories to watch
-	watchDirs := []string{"www", "kit", "."}
+	watchDirs := []string{"kit", "public", "routes", "."}
 
 	// Channels for coordination
 	reload := make(chan bool, 1)
 	serverDone := make(chan bool, 1)
 
-	// Get the host URL from an environment variable or default to localhost
 	host := os.Getenv("HOST_URL")
 	if host == "" {
-		host = "http://localhost" // Default host for local development
+		host = "http://localhost"
 	}
 
-	// Get the PORT from the environment variable.
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080" // Default port for local development
+		port = "8080"
 	}
 
 	// Start file watcher
@@ -182,7 +179,6 @@ func main() {
 
 		// Start server in goroutine
 		go func() {
-			// Print the full URL with the dynamic host and port
 			fmt.Printf("Server running on %s:%s\n", host, port)
 
 			if err := http.ListenAndServe(":"+port, server.Handler); err != http.ErrServerClosed {
