@@ -534,6 +534,9 @@ export class Drifter {
   // Event handler implementations
   private _handlePointerDown(event: PointerEvent): void {
     if (!(event.target instanceof HTMLElement)) return;
+    if (![this.boundaryElement, this.drifterElement].includes(event.target)) {
+      return;
+    }
 
     this.activePointers.set(event.pointerId, {
       x: event.clientX,

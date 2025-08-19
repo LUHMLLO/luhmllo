@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drifter Example</title>
+    <link rel="stylesheet" href="http://localhost:8080/kit/css/dist/all.css">
+    <link rel="stylesheet" href="http://localhost:8080/drifter/shared.css">
+  </head>
+
+  <body>
+    <h1>Drifter Example</h1>
+    <div class="drifter" style="--size: calc(1920px * 1);">
+      <span data-float="top-left">top - left</span>
+      <span data-float="top-right">top - right</span>
+      <span data-float="bottom-left">bottom - left</span>
+      <span data-float="bottom-right">bottom - right</span>
+
+      <div class="drifter" style="background-color: red;">
+      </div>
+      <div class="drifter" style="background-color: blue;">
+      </div>
+      <div class="drifter" style="background-color: yellow;">
+      </div>
+    </div>
+
+    <script type="module">
+      import { Drifter } from "http://localhost:8080/kit/utils/dist/drifter.min.js"
+
+      const workbench = document.querySelector('body > .drifter')
+      const squares = document.querySelectorAll('body > .drifter > .drifter')
+
+      new Drifter(workbench, document.body, {
+        mode: "bounded",
+        boundedTo: "inside",
+        dragTarget: "self",
+      })
+
+      squares.forEach((i) => {
+        new Drifter(i, workbench, {
+          mode: "bounded",
+          boundedTo: "inside",
+          dragTarget: "self",
+          zoom: {
+            enabled: false
+          }
+        })
+      })
+    </script>
+  </body>
+
+</html>
