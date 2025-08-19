@@ -7,33 +7,155 @@
     <title>Drifter Example</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="/orbiter/shared.css">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@1&amp;display=swap" rel="stylesheet">
   </head>
 
   <body>
     <h1>Orbiter Example</h1>
-    <div class="orbiter">
-      <span data-float="top-left">top - left</span>
-      <span data-float="top-right">top - right</span>
-      <b style="display: block; height: max-content; inset: 0; margin: auto; position: absolute; width: max-content">
-        <ul>
-          <li>mode: bounded</li>
-          <li>boundedTo: center</li>
-          <li>dragTarget: boundary</li>
-        </ul>
-      </b>
-      <span data-float="bottom-left">bottom - left</span>
-      <span data-float="bottom-right">bottom - right</span>
+
+    <figure id='filmcarousel__blurred-imgs' data-is='background'>
+      <img alt='blurred-img' />
+    </figure>
+
+    <div id='cameraframe'>
+
+      <figure id='filmcarousel__sharp-imgs' data-is='background'>
+        <img alt='sharp-img' />
+      </figure>
+
+      <i id='cameraframe_indicator' data-is='icon'>circle</i>
+
+      <span id='cameraframe_center'>
+        <span class='corner tl'></span>
+        <span class='corner tr'></span>
+        <span class='corner bl'></span>
+        <span class='corner br'></span>
+        <i data-is='icon'>add_2</i>
+      </span>
+
+      <div id='cameraframe_stamps' data-is='row'>
+        <span data-is='badge'>
+          <i data-is='icon' style='--fill: 1; --size: var(--type-s); color:var(--clr-error__base);'>
+            circle
+          </i>
+          <b>Camera Frame</b>
+        </span>
+        <span data-is='badge'>
+          <b>Orbiter</b>
+        </span>
+      </div>
     </div>
 
     <script type="module">
       import { Orbiter } from "/utils/orbiter.min.js"
 
-      const orbiterElement = document.querySelector(".orbiter")
+      const orbiterElement = document.querySelector("#cameraframe")
 
       new Orbiter(orbiterElement, document.body, {
-        onLeave: 'reset',
-        resetAnimation: 'linear'
+        onLeave: 'reset'
       });
+    </script>
+
+    <script type='module' is:inline>
+      (async () => {
+        const slides = [
+          'https://cdn.prod.website-files.com/68264700ea161932bdd80da7/682cdb77ae160614a3059a2c_ezra-final.webp',
+          'https://cdn.prod.website-files.com/68264700ea161932bdd80da7/682e42f70b4bfc926ba6af18_ezra-2-final.webp',
+        ]
+        const blurredImage = document.querySelector(
+          '#filmcarousel__blurred-imgs > img'
+        )
+        const sharpImage = document.querySelector(
+          '#filmcarousel__sharp-imgs > img'
+        )
+
+        let currentIndex = 0
+        let isPlaying = true
+        let intervalId
+        let isTransitioning = false
+
+        async function performTransition(updateCallback) {
+          const elements = [ sharpImage, blurredImage ].filter(Boolean)
+
+          // Fade out both images simultaneously
+          const fadeOutAnimations = elements.map((el) =>
+            el.animate(
+              [
+                { opacity: 1, scale: 1.02 },
+                { opacity: 0, scale: 0.98 },
+              ],
+              {
+                duration: 256,
+                easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                fill: 'forwards',
+              }
+            )
+          )
+
+          await Promise.all(fadeOutAnimations.map((a) => a.finished))
+
+          updateCallback()
+
+          // Fade in both images simultaneously
+          const fadeInAnimations = elements.map((el) =>
+            el.animate(
+              [
+                { opacity: 0, scale3d: 0.98 },
+                { opacity: 1, scale: 1.02 },
+              ],
+              {
+                duration: 384,
+                easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                fill: 'forwards',
+              }
+            )
+          )
+
+          await Promise.all(fadeInAnimations.map((a) => a.finished))
+        }
+
+        async function setActiveSlide(i) {
+          if (i < 0 || i >= slides.length || isTransitioning) return
+          isTransitioning = true
+          await performTransition(() => {
+            blurredImage?.setAttribute('src', slides[ i ])
+            sharpImage?.setAttribute('src', slides[ i ])
+          })
+          currentIndex = i
+          isTransitioning = false
+        }
+
+        function nextSlide() {
+          setActiveSlide((currentIndex + 1) % slides.length)
+        }
+
+        function startAutoplay() {
+          if (intervalId) clearInterval(intervalId)
+          intervalId = setInterval(nextSlide, 4000)
+        }
+
+        function pauseAutoplay() {
+          if (intervalId) {
+            clearInterval(intervalId)
+            intervalId = null
+          }
+        }
+
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) pauseAutoplay()
+          else if (isPlaying) startAutoplay()
+        })
+
+        window.addEventListener('beforeunload', pauseAutoplay)
+
+        const prefersReducedMotion = window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        ).matches
+        await setActiveSlide(0)
+        if (!prefersReducedMotion) startAutoplay()
+      })();
     </script>
   </body>
 

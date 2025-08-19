@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"net/http"
@@ -103,6 +104,7 @@ func startFileWatcher(dirs []string, interval time.Duration, reload chan bool) {
 		currentScan := scanFiles(dirs)
 
 		if hasChanges(lastScan, currentScan) {
+			fmt.Println("Files changed, triggering server restart...")
 			reload <- true
 			lastScan = currentScan
 		}
@@ -176,12 +178,13 @@ func main() {
 
 	for {
 		server := createServer()
+		server.Addr = ":" + port
 
 		// Start server in goroutine
 		go func() {
 			fmt.Printf("Server running on %s:%s\n", host, port)
 
-			if err := http.ListenAndServe(":"+port, server.Handler); err != http.ErrServerClosed {
+			if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 				log.Printf("Server error: %v\n", err)
 			}
 			serverDone <- true
@@ -189,17 +192,21 @@ func main() {
 
 		// Wait for file changes
 		<-reload
-		fmt.Println("Files changed, restarting server...")
+		fmt.Println("Restarting server...")
 
-		// Graceful shutdown
-		if err := server.Close(); err != nil {
+		// Graceful shutdown with timeout
+		ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+		if err := server.Shutdown(ctx); err != nil {
 			log.Printf("Server shutdown error: %v\n", err)
+			// Force close if graceful shutdown fails
+			server.Close()
 		}
+		cancel()
 
 		// Wait for server to actually stop
 		<-serverDone
 
-		// Brief pause before restart
-		time.Sleep(100 * time.Millisecond)
+		// Brief pause before restart to ensure port is released
+		time.Sleep(200 * time.Millisecond)
 	}
 }
