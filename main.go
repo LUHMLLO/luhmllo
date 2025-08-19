@@ -117,9 +117,14 @@ func createServer() *http.Server {
 	mux := http.NewServeMux()
 
 	// Static file handlers
-	mux.Handle("/kit/css/dist/all.css", http.StripPrefix("/kit/css/dist/all.css", http.FileServer(http.Dir("kit/css/dist/all.css"))))
-	mux.Handle("/kit/utils/dist/", http.StripPrefix("/kit/utils/dist/", http.FileServer(http.Dir("kit/utils/dist/"))))
-	mux.Handle("/kit/wc/dist/", http.StripPrefix("/kit/wc/dist/", http.FileServer(http.Dir("kit/wc/dist/"))))
+	mux.Handle("/utils/", http.StripPrefix("/utils/", http.FileServer(http.Dir("kit/utils/dist/"))))
+	mux.Handle("/wc/", http.StripPrefix("/wc/", http.FileServer(http.Dir("kit/wc/dist/"))))
+
+	mux.HandleFunc("/styles.css", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/css")
+		http.ServeFile(w, r, "kit/css/dist/all.css")
+	})
+
 	mux.Handle("/", http.FileServer(http.Dir("www")))
 
 	// API endpoint
@@ -142,6 +147,18 @@ func main() {
 	reload := make(chan bool, 1)
 	serverDone := make(chan bool, 1)
 
+	// Get the host URL from an environment variable or default to localhost
+	host := os.Getenv("HOST_URL")
+	if host == "" {
+		host = "http://localhost" // Default host for local development
+	}
+
+	// Get the PORT from the environment variable.
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080" // Default port for local development
+	}
+
 	// Start file watcher
 	go startFileWatcher(watchDirs, 500*time.Millisecond, reload)
 
@@ -152,8 +169,10 @@ func main() {
 
 		// Start server in goroutine
 		go func() {
-			fmt.Printf("Server running on http://localhost:8080\n")
-			if err := server.ListenAndServe(); err != http.ErrServerClosed {
+			// Print the full URL with the dynamic host and port
+			fmt.Printf("Server running on %s:%s\n", host, port)
+
+			if err := http.ListenAndServe(":"+port, server.Handler); err != http.ErrServerClosed {
 				log.Printf("Server error: %v\n", err)
 			}
 			serverDone <- true
