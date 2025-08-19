@@ -116,7 +116,6 @@ func startFileWatcher(dirs []string, interval time.Duration, reload chan bool) {
 func createServer() *http.Server {
 	mux := http.NewServeMux()
 
-	// Static file handlers
 	mux.Handle("/utils/", http.StripPrefix("/utils/", http.FileServer(http.Dir("kit/utils/dist/"))))
 	mux.Handle("/wc/", http.StripPrefix("/wc/", http.FileServer(http.Dir("kit/wc/dist/"))))
 
@@ -125,7 +124,21 @@ func createServer() *http.Server {
 		http.ServeFile(w, r, "kit/css/dist/all.css")
 	})
 
-	mux.Handle("/", http.FileServer(http.Dir("www")))
+	mux.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public/"))))
+
+	mux.HandleFunc("/favicon.ico", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "public/favicon.ico")
+	})
+
+	mux.HandleFunc("/favicon.png", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "public/favicon.png")
+	})
+
+	mux.HandleFunc("/robots.txt", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "public/robots.txt")
+	})
+
+	mux.Handle("/", http.FileServer(http.Dir("routes")))
 
 	// API endpoint
 	mux.HandleFunc("/api/health", func(w http.ResponseWriter, r *http.Request) {
