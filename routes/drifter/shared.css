@@ -47,9 +47,14 @@
 
   /* Size the element */
   height: var(--size);
+  max-height: max-content;
+  max-width: max-content;
   min-height: max-content;
   min-width: max-content;
   width: var(--size);
+
+  transition: transform var(--animDuration) var(--animTiming);
+  transition-delay: calc(var(--animDuration) / 100);
 
   /* Transform to center the element's center point at viewport center */
   transform: translate(-50%, -50%)
@@ -60,7 +65,9 @@
 
   transform-origin: center;
   transform-style: preserve-3d;
-  will-change: transform;
+  will-change: scale,
+  transform,
+  translate;
 
   & > [data-float="top-left"] {
     inset: 0 auto auto 0;

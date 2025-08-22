@@ -114,8 +114,9 @@ export class XDropdown extends HTMLElement {
       }
       
       :host {
+        display: inline-block;
         flex-shrink: 0;
-        height: calc-size(max-content, size);
+        height: max-content;
         min-height: 0;
         min-width: 0;
         position: relative;
@@ -123,7 +124,7 @@ export class XDropdown extends HTMLElement {
         transition-duration: var(--animDuration);
         transition-timing-function: var(--animTiming);
         transform-style: preserve-3d;
-        width: calc-size(max-content, size);
+        width: max-content;
         z-index: auto;
       }
 
@@ -281,13 +282,13 @@ export class XDropdown extends HTMLElement {
               alignment: "start" as const,
               allowedPlacements: ["top", "bottom"] as Placement[],
               crossAxis: true,
-              padding: 8,
+              padding: 0,
             }),
-            offset(8),
+            offset(0),
             shift({
               crossAxis: true,
               mainAxis: true,
-              padding: 8,
+              padding: 0,
             }),
             {
               name: "detectOverflow",
@@ -296,7 +297,7 @@ export class XDropdown extends HTMLElement {
                   altBoundary: true,
                   boundary: document.body,
                   elementContext: "floating" as const,
-                  padding: 8,
+                  padding: 0,
                   rootBoundary: {
                     x: 0,
                     y: 0,
