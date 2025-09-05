@@ -1,0 +1,68 @@
+div[data-is='input'] {
+  align-items: start;
+  flex-direction: column;
+  gap: var(--space-sm);
+  height: max-content;
+  overflow: clip;
+  padding: var(--space-sm) var(--space-md);
+
+  & > textarea {
+    border-radius: 0;
+    outline: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  & > div[data-is='row'] {
+    gap: inherit;
+    place-content: space-between;
+    width: 100%;
+  }
+}
+
+
+:where(html, body) {
+  [data-is=dropdown] {
+    width: fit-content;
+  }
+
+  [data-part='dropmenu'] {
+    --translate-x: 0;
+    --translate-y: 0;
+    --translate-z: 00000px;
+
+    background-color: var(--clr-background__base);
+    border-radius: var(--radii-sm);
+    display: inline-grid;
+    grid-auto-rows: max-content;
+    grid-template-columns: 1fr;
+    height: max-content;
+    inset: 0;
+    max-height: calc(100% - 15dvh);
+    max-width: calc(100% - 15dvw);
+    outline: solid 2px var(--clr-border__base);
+    outline-offset: -2px;
+    overflow: auto;
+    padding: var(--space-xs);
+    position: fixed;
+    transform: translate3d(var(--translate-x),
+        var(--translate-y),
+        var(--translate-z));
+    transition-property: display, opacity, scale, visibility;
+    transition-duration: var(--animDuration);
+    transition-timing-function: var(--animTiming);
+    transition-behavior: allow-discrete;
+    width: max-content;
+    z-index: 1000000;
+
+    & > * {
+      border-radius: inherit;
+      width: 100%;
+      z-index: -1;
+
+      &:is(hr) {
+        margin-block: var(--space-xs);
+      }
+    }
+  }
+}

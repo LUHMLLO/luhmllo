@@ -119,7 +119,6 @@ func createServer() *http.Server {
 	mux := http.NewServeMux()
 
 	mux.Handle("/utils/", http.StripPrefix("/utils/", http.FileServer(http.Dir("kit/utils/dist/"))))
-	mux.Handle("/wc/", http.StripPrefix("/wc/", http.FileServer(http.Dir("kit/wc/dist/"))))
 
 	mux.HandleFunc("/styles.css", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/css")

@@ -148,9 +148,9 @@
           else if (isPlaying) startAutoplay()
         })
 
-        window.addEventListener('beforeunload', pauseAutoplay)
+        globalThis.addEventListener('beforeunload', pauseAutoplay)
 
-        const prefersReducedMotion = window.matchMedia(
+        const prefersReducedMotion = globalThis.matchMedia(
           '(prefers-reduced-motion: reduce)'
         ).matches
         await setActiveSlide(0)

@@ -1,15 +1,28 @@
 {
   "lock": false,
   "nodeModulesDir": "auto",
-  "name": "@luhmllo/utils",
+  "name": "@luhmllo/zimba",
   "version": "0.0.0",
-  "description": "Creat",
+  "description": "A set of tools for fast development",
+  "license": "MIT",
   "exports": {
-    ".": "./dist"
+    ".": "./mod.ts"
   },
+  "include": [
+    "dist/**/*.min.js",
+    "dist/**/*.ts",
+    "./LICENSE",
+    "./readme.md"
+  ],
+  "exclude": [
+    "./node_modules",
+    "./src",
+    "./build.ts"
+  ],
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
-    "build": "deno run -A ./build.ts"
+    "build": "deno run -A ./build.ts",
+    "publish": "deno run -A ./publish.ts"
   },
   "compilerOptions": {
     "lib": [
