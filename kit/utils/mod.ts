@@ -1,3 +1,4 @@
-export * from "./dist/drifter.min.ts";
-export * from "./dist/orbiter.min.ts";
-export * from "./dist/dropdown.min.ts";
+// @ts-nocheck - Bundled outputs
+export * from "./dist/drifter.ts";
+export * from "./dist/orbiter.ts";
+export * from "./dist/dropdown.ts";

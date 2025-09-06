@@ -1,4 +1,5 @@
 // deno-lint-ignore-file
+// @ts-nocheck - Generated code
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 

@@ -30,15 +30,21 @@ const baseOptions: BuildOptions = {
   outdir: outPath,
 };
 
-// TypeScript outputs (preserve types and formatting)
+// TypeScript outputs (preserve types and formatting for JSR)
 const typescriptOptions: BuildOptions = {
   ...baseOptions,
   target: "esnext",
-  // Keep TypeScript-like output by avoiding heavy transformations
+  // Preserve original structure for JSR compatibility
   minifyIdentifiers: false,
   minifySyntax: false,
   keepNames: true,
-  banner: { js: "// deno-lint-ignore-file" },
+  // Don't mangle anything for TypeScript outputs
+  mangleProps: undefined,
+  // Add TypeScript-friendly settings
+  platform: "neutral",
+  banner: { 
+    js: "// deno-lint-ignore-file\n// @ts-nocheck - Generated code" 
+  },
 };
 
 // JavaScript outputs (compiled and optimized)
