@@ -11,10 +11,7 @@
   "publish": {
     "include": [
       "./mod.ts",
-      "dist/**/*.ts",
-      "dist/**/*.min.ts",
-      "dist/**/*.js",
-      "dist/**/*.min.js",
+      "./src/**/*.mts",
       "./LICENSE",
       "./readme.md"
     ]
