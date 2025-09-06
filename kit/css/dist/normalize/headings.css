@@ -1,0 +1,1 @@
+@layer normalize{:where(h1,h2,h3,h4,h5,h6){color:var(--clr-text__raised);font-weight:500;text-wrap:balance}:where(h1){font-size:var(--type-h1)}:where(h2){font-size:var(--type-h2)}:where(h3){font-size:var(--type-h3)}:where(h4){font-size:var(--type-h4)}:where(h5){font-size:var(--type-h5)}:where(h6){font-size:var(--type-h6)}}
