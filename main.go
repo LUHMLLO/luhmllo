@@ -118,11 +118,11 @@ func startFileWatcher(dirs []string, interval time.Duration, reload chan bool) {
 func createServer() *http.Server {
 	mux := http.NewServeMux()
 
-	mux.Handle("/utils/", http.StripPrefix("/utils/", http.FileServer(http.Dir("kit/utils/dist/"))))
+	mux.Handle("/zimba/", http.StripPrefix("/zimba/", http.FileServer(http.Dir("kit/zimba/dist/"))))
 
-	mux.HandleFunc("/styles.css", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/lilycat.css", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/css")
-		http.ServeFile(w, r, "kit/css/dist/all.css")
+		http.ServeFile(w, r, "kit/lilycat/dist/all.css")
 	})
 
 	mux.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public/"))))
