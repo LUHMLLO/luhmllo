@@ -7,36 +7,25 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 )
 
-/**
- * FileInfo holds metadata about a file for change detection
- * @property {string} path - Full file path
- * @property {int64} modTime - Last modification time as Unix timestamp
- * @property {int64} size - File size in bytes
- */
 type FileInfo struct {
 	path    string
 	modTime int64
 	size    int64
 }
 
-/**
- * Recursively scans directories and builds a map of file information
- * @param {[]string} dirs - Directories to scan
- * @returns {map[string]FileInfo} Map of file paths to their metadata
- */
 func scanFiles(dirs []string) map[string]FileInfo {
 	files := make(map[string]FileInfo)
 
 	for _, dir := range dirs {
 		filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
 			if err != nil {
-				return nil // Skip files we can't access
+				return nil
 			}
 
-			// Skip directories and hidden files
 			if !info.IsDir() && !isHidden(path) {
 				files[path] = FileInfo{
 					path:    path,
@@ -51,29 +40,16 @@ func scanFiles(dirs []string) map[string]FileInfo {
 	return files
 }
 
-/**
- * Checks if a file path represents a hidden file or directory
- * @param {string} path - File path to check
- * @returns {bool} True if the file is hidden (starts with .)
- */
 func isHidden(path string) bool {
 	base := filepath.Base(path)
 	return len(base) > 0 && base[0] == '.'
 }
 
-/**
- * Compares two file maps to detect changes
- * @param {map[string]FileInfo} old - Previous file state
- * @param {map[string]FileInfo} new - Current file state
- * @returns {bool} True if any files have changed
- */
 func hasChanges(old, new map[string]FileInfo) bool {
-	// Check if file count changed
 	if len(old) != len(new) {
 		return true
 	}
 
-	// Check each file for modifications
 	for path, newInfo := range new {
 		if oldInfo, exists := old[path]; !exists ||
 			oldInfo.modTime != newInfo.modTime ||
@@ -86,12 +62,6 @@ func hasChanges(old, new map[string]FileInfo) bool {
 	return false
 }
 
-/**
- * Starts a file watcher that polls directories for changes
- * @param {[]string} dirs - Directories to monitor
- * @param {time.Duration} interval - How often to check for changes
- * @param {chan bool} reload - Channel to signal when reload is needed
- */
 func startFileWatcher(dirs []string, interval time.Duration, reload chan bool) {
 	fmt.Printf("Watching directories: %v (polling every %v)\n", dirs, interval)
 
@@ -112,21 +82,105 @@ func startFileWatcher(dirs []string, interval time.Duration, reload chan bool) {
 }
 
 /**
- * Creates and configures the HTTP server with all routes
- * @returns {*http.Server} Configured HTTP server instance
+ * Sets appropriate MIME type and CORS headers for TypeScript/JavaScript modules
  */
+func setModuleHeaders(w http.ResponseWriter, filePath string) {
+	// Set CORS headers for ES modules
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET, OPTIONS")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
+	// Set appropriate MIME type based on file extension
+	ext := strings.ToLower(filepath.Ext(filePath))
+	switch ext {
+	case ".ts":
+		w.Header().Set("Content-Type", "application/typescript")
+	case ".mts":
+		w.Header().Set("Content-Type", "application/typescript")
+	case ".js", ".mjs":
+		w.Header().Set("Content-Type", "application/javascript")
+	case ".json":
+		w.Header().Set("Content-Type", "application/json")
+	case ".css":
+		w.Header().Set("Content-Type", "text/css")
+	default:
+		w.Header().Set("Content-Type", "text/plain")
+	}
+}
+
+/**
+ * Handles serving lily package files with proper module headers
+ */
+func serveLilyModule(w http.ResponseWriter, r *http.Request, filePath string) {
+	// Handle OPTIONS request for CORS
+	if r.Method == "OPTIONS" {
+		setModuleHeaders(w, filePath)
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+
+	// Check if file exists
+	if _, err := os.Stat(filePath); os.IsNotExist(err) {
+		http.NotFound(w, r)
+		return
+	}
+
+	// Set headers and serve file
+	setModuleHeaders(w, filePath)
+	http.ServeFile(w, r, filePath)
+}
+
 func createServer() *http.Server {
 	mux := http.NewServeMux()
 
+	// Zimba kit
 	mux.Handle("/zimba/", http.StripPrefix("/zimba/", http.FileServer(http.Dir("kit/zimba/dist/"))))
 
+	// Lily CSS (legacy endpoint)
 	mux.HandleFunc("/lily", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/css")
 		http.ServeFile(w, r, "kit/lily/dist/all.css")
 	})
 
+	// Lily module endpoints
+	mux.HandleFunc("/lily/mod.ts", func(w http.ResponseWriter, r *http.Request) {
+		serveLilyModule(w, r, "kit/lily/mod.ts")
+	})
+
+	mux.HandleFunc("/lily/mod.js", func(w http.ResponseWriter, r *http.Request) {
+		serveLilyModule(w, r, "kit/lily/mod.js")
+	})
+
+	// Individual CSS files as modules
+	mux.HandleFunc("/lily/all.css", func(w http.ResponseWriter, r *http.Request) {
+		serveLilyModule(w, r, "kit/lily/dist/all.css")
+	})
+
+	mux.HandleFunc("/lily/layout.css", func(w http.ResponseWriter, r *http.Request) {
+		serveLilyModule(w, r, "kit/lily/dist/layout.css")
+	})
+
+	mux.HandleFunc("/lily/normalize.css", func(w http.ResponseWriter, r *http.Request) {
+		serveLilyModule(w, r, "kit/lily/dist/normalize.css")
+	})
+
+	mux.HandleFunc("/lily/reset.css", func(w http.ResponseWriter, r *http.Request) {
+		serveLilyModule(w, r, "kit/lily/dist/reset.css")
+	})
+
+	// Serve entire lily kit with proper headers (for deep imports)
+	mux.Handle("/lily/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		// Remove /lily/ prefix and serve from kit/lily/
+		path := strings.TrimPrefix(r.URL.Path, "/lily/")
+		fullPath := filepath.Join("kit/lily", path)
+
+		serveLilyModule(w, r, fullPath)
+	}))
+
+	// Static files
 	mux.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public/"))))
 
+	// Favicon and robots
 	mux.HandleFunc("/favicon.ico", func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, "public/favicon.ico")
 	})
@@ -139,9 +193,10 @@ func createServer() *http.Server {
 		http.ServeFile(w, r, "public/robots.txt")
 	})
 
+	// Default route handler
 	mux.Handle("/", http.FileServer(http.Dir("routes")))
 
-	// API endpoint
+	// API endpoints
 	mux.HandleFunc("/api/health", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		fmt.Fprintf(w, `{"status": "ok", "message": "Server is healthy"}`)
@@ -156,7 +211,6 @@ func createServer() *http.Server {
 func main() {
 	watchDirs := []string{"kit", "public", "routes", "."}
 
-	// Channels for coordination
 	reload := make(chan bool, 1)
 	serverDone := make(chan bool, 1)
 
@@ -170,7 +224,6 @@ func main() {
 		port = "8080"
 	}
 
-	// Start file watcher
 	go startFileWatcher(watchDirs, 500*time.Millisecond, reload)
 
 	fmt.Println("Starting development server with file watching...")
@@ -179,7 +232,6 @@ func main() {
 		server := createServer()
 		server.Addr = ":" + port
 
-		// Start server in goroutine
 		go func() {
 			fmt.Printf("Server running on %s:%s\n", host, port)
 
@@ -189,23 +241,17 @@ func main() {
 			serverDone <- true
 		}()
 
-		// Wait for file changes
 		<-reload
 		fmt.Println("Restarting server...")
 
-		// Graceful shutdown with timeout
 		ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 		if err := server.Shutdown(ctx); err != nil {
 			log.Printf("Server shutdown error: %v\n", err)
-			// Force close if graceful shutdown fails
 			server.Close()
 		}
 		cancel()
 
-		// Wait for server to actually stop
 		<-serverDone
-
-		// Brief pause before restart to ensure port is released
 		time.Sleep(200 * time.Millisecond)
 	}
 }
