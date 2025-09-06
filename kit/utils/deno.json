@@ -17,8 +17,8 @@
     ]
   },
   "exclude": [
+    "./dist",
     "./node_modules",
-    "./src",
     "./build.ts"
   ],
   "tasks": {
