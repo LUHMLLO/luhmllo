@@ -1,16 +1,12 @@
 {
   "lock": false,
   "nodeModulesDir": "auto",
-  "name": "@luhmllo/lily",
-  "version": "0.0.1",
+  "name": "@luhmllo/lilycat",
+  "version": "0.1.53",
   "description": "Minimal, attribute-based CSS for building great products, not complex abstractions.",
   "license": "MIT",
   "exports": {
-    ".": "./mod.ts",
-    "./all": "./dist/all.css",
-    "./layout": "./dist/layout.css",
-    "./normalize": "./dist/normalize.css",
-    "./reset": "./dist/reset.css"
+    ".": "./mod.ts"
   },
   "publish": {
     "include": [

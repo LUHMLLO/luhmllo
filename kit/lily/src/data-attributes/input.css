@@ -24,9 +24,16 @@
 
     & > input {
       background-color: transparent;
-      border-radius: var(--radii-none);
+      border-radius: var(--radii-none, 0);
       height: auto;
       outline: none;
+      padding: 0;
+      width: 100%;
+    }
+
+    & > textarea {
+      border-radius: var(--radii-none, 0);
+      outline: 0;
       padding: 0;
       width: 100%;
     }

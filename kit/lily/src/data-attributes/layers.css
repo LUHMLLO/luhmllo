@@ -1,6 +1,7 @@
 @layer data-attributes {
   :where([data-is="layer"]) {
     display: grid;
+    grid-auto-rows: max-content;
     inset: 0;
     isolation: isolate;
     margin: 0;
