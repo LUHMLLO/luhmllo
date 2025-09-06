@@ -7,7 +7,10 @@
   "license": "MIT",
   "exports": {
     ".": "./mod.ts",
-    "./all": "./dist/all.css"
+    "./all": "./dist/all.css",
+    "./layout": "./dist/layout.css",
+    "./normalize": "./dist/normalize.css",
+    "./reset": "./dist/reset.css"
   },
   "publish": {
     "include": [
