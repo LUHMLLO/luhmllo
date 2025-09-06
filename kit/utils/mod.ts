@@ -1,3 +1,3 @@
-export { Drifter } from "./dist/drifter.min.js";
-export { Orbiter } from "./dist/orbiter.min.js";
-export { anchorDropdown } from "./dist/dropdown.min.js";
+export * from "./dist/drifter.min.ts";
+export * from "./dist/orbiter.min.ts";
+export * from "./dist/dropdown.min.ts";
