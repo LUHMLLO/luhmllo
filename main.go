@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 	"time"
@@ -45,21 +46,66 @@ func isHidden(path string) bool {
 	return len(base) > 0 && base[0] == '.'
 }
 
-func hasChanges(old, new map[string]FileInfo) bool {
-	if len(old) != len(new) {
-		return true
+/**
+ * Runs build tasks for modified kits
+ */
+func runBuildTasks(changedFiles []string) {
+	kitsToRebuild := make(map[string]bool)
+
+	// Check which kits need rebuilding
+	for _, file := range changedFiles {
+		if strings.HasPrefix(file, "kit/zimba/") {
+			kitsToRebuild["zimba"] = true
+		}
+		if strings.HasPrefix(file, "kit/lily/") {
+			kitsToRebuild["lily"] = true
+		}
 	}
 
+	// Run build commands for each kit
+	for kit := range kitsToRebuild {
+		kitPath := filepath.Join("kit", kit)
+
+		// Check if deno.json exists
+		if _, err := os.Stat(filepath.Join(kitPath, "deno.json")); err == nil {
+			fmt.Printf("Building %s...\n", kit)
+
+			cmd := exec.Command("deno", "task", "build")
+			cmd.Dir = kitPath
+
+			if output, err := cmd.CombinedOutput(); err != nil {
+				fmt.Printf("Build failed for %s: %v\n", kit, err)
+				fmt.Printf("Output: %s\n", string(output))
+			} else {
+				fmt.Printf("Build completed for %s\n", kit)
+			}
+		}
+	}
+}
+
+func hasChanges(old, new map[string]FileInfo) (bool, []string) {
+	var changedFiles []string
+
+	// Check if file count changed
+	if len(old) != len(new) {
+		// Get all new files for rebuild detection
+		for path := range new {
+			changedFiles = append(changedFiles, path)
+		}
+		return true, changedFiles
+	}
+
+	// Check each file for modifications
 	for path, newInfo := range new {
 		if oldInfo, exists := old[path]; !exists ||
 			oldInfo.modTime != newInfo.modTime ||
 			oldInfo.size != newInfo.size {
 			fmt.Printf("File changed: %s\n", path)
-			return true
+			changedFiles = append(changedFiles, path)
 		}
 	}
 
-	return false
+	return len(changedFiles) > 0, changedFiles
 }
 
 func startFileWatcher(dirs []string, interval time.Duration, reload chan bool) {
@@ -73,8 +119,11 @@ func startFileWatcher(dirs []string, interval time.Duration, reload chan bool) {
 	for range ticker.C {
 		currentScan := scanFiles(dirs)
 
-		if hasChanges(lastScan, currentScan) {
-			fmt.Println("Files changed, triggering server restart...")
+		if changed, changedFiles := hasChanges(lastScan, currentScan); changed {
+			fmt.Println("Files changed, running build tasks...")
+			runBuildTasks(changedFiles)
+
+			fmt.Println("Triggering server restart...")
 			reload <- true
 			lastScan = currentScan
 		}
@@ -93,10 +142,9 @@ func setModuleHeaders(w http.ResponseWriter, filePath string) {
 	// Set appropriate MIME type based on file extension
 	ext := strings.ToLower(filepath.Ext(filePath))
 	switch ext {
-	case ".ts":
-		w.Header().Set("Content-Type", "application/typescript")
-	case ".mts":
-		w.Header().Set("Content-Type", "application/typescript")
+	case ".ts", ".mts":
+		// Serve TypeScript as JavaScript for browser compatibility
+		w.Header().Set("Content-Type", "application/javascript")
 	case ".js", ".mjs":
 		w.Header().Set("Content-Type", "application/javascript")
 	case ".json":
@@ -109,9 +157,9 @@ func setModuleHeaders(w http.ResponseWriter, filePath string) {
 }
 
 /**
- * Handles serving lily package files with proper module headers
+ * Handles serving module files with proper headers
  */
-func serveLilyModule(w http.ResponseWriter, r *http.Request, filePath string) {
+func serveModule(w http.ResponseWriter, r *http.Request, filePath string) {
 	// Handle OPTIONS request for CORS
 	if r.Method == "OPTIONS" {
 		setModuleHeaders(w, filePath)
@@ -133,8 +181,64 @@ func serveLilyModule(w http.ResponseWriter, r *http.Request, filePath string) {
 func createServer() *http.Server {
 	mux := http.NewServeMux()
 
-	// Zimba kit
-	mux.Handle("/zimba/", http.StripPrefix("/zimba/", http.FileServer(http.Dir("kit/zimba/dist/"))))
+	// Zimba module endpoints - serve compiled JS files
+	mux.HandleFunc("/zimba/mod.js", func(w http.ResponseWriter, r *http.Request) {
+		serveModule(w, r, "kit/zimba/dist/mod.js")
+	})
+
+	mux.HandleFunc("/zimba/mod.min.js", func(w http.ResponseWriter, r *http.Request) {
+		serveModule(w, r, "kit/zimba/dist/mod.min.js")
+	})
+
+	// For development - serve TypeScript files as JavaScript
+	mux.HandleFunc("/zimba/mod.ts", func(w http.ResponseWriter, r *http.Request) {
+		// Try compiled version first, fallback to source
+		compiledPath := "kit/zimba/dist/mod.js"
+		if _, err := os.Stat(compiledPath); err == nil {
+			serveModule(w, r, compiledPath)
+		} else {
+			serveModule(w, r, "kit/zimba/mod.ts")
+		}
+	})
+
+	// Serve entire zimba kit with proper headers
+	mux.Handle("/zimba/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		path := strings.TrimPrefix(r.URL.Path, "/zimba/")
+		fullPath := filepath.Join("kit/zimba", path)
+
+		// For .ts imports, try to serve compiled .js version
+		if strings.HasSuffix(path, ".ts") && !strings.Contains(path, "dist/") {
+			jsPath := strings.Replace(path, ".ts", ".js", 1)
+			compiledPath := filepath.Join("kit/zimba/dist", jsPath)
+
+			if _, err := os.Stat(compiledPath); err == nil {
+				serveModule(w, r, compiledPath)
+				return
+			}
+		}
+
+		// For .mts imports, try to serve compiled .js version
+		if strings.HasSuffix(path, ".mts") && !strings.Contains(path, "dist/") {
+			jsPath := strings.Replace(path, ".mts", ".js", 1)
+			jsPath = strings.Replace(jsPath, "src/", "", 1) // Remove src/ from path
+			compiledPath := filepath.Join("kit/zimba/dist", jsPath)
+
+			if _, err := os.Stat(compiledPath); err == nil {
+				serveModule(w, r, compiledPath)
+				return
+			}
+		}
+
+		// Check if it's a module file that needs special headers
+		ext := strings.ToLower(filepath.Ext(fullPath))
+		if ext == ".ts" || ext == ".mts" || ext == ".js" || ext == ".mjs" {
+			serveModule(w, r, fullPath)
+			return
+		}
+
+		// Serve other files normally
+		http.ServeFile(w, r, fullPath)
+	}))
 
 	// Lily CSS (legacy endpoint)
 	mux.HandleFunc("/lily", func(w http.ResponseWriter, r *http.Request) {
@@ -144,37 +248,36 @@ func createServer() *http.Server {
 
 	// Lily module endpoints
 	mux.HandleFunc("/lily/mod.ts", func(w http.ResponseWriter, r *http.Request) {
-		serveLilyModule(w, r, "kit/lily/mod.ts")
+		serveModule(w, r, "kit/lily/mod.ts")
 	})
 
 	mux.HandleFunc("/lily/mod.js", func(w http.ResponseWriter, r *http.Request) {
-		serveLilyModule(w, r, "kit/lily/mod.js")
+		serveModule(w, r, "kit/lily/mod.js")
 	})
 
 	// Individual CSS files as modules
 	mux.HandleFunc("/lily/all.css", func(w http.ResponseWriter, r *http.Request) {
-		serveLilyModule(w, r, "kit/lily/dist/all.css")
+		serveModule(w, r, "kit/lily/dist/all.css")
 	})
 
 	mux.HandleFunc("/lily/layout.css", func(w http.ResponseWriter, r *http.Request) {
-		serveLilyModule(w, r, "kit/lily/dist/layout.css")
+		serveModule(w, r, "kit/lily/dist/layout.css")
 	})
 
 	mux.HandleFunc("/lily/normalize.css", func(w http.ResponseWriter, r *http.Request) {
-		serveLilyModule(w, r, "kit/lily/dist/normalize.css")
+		serveModule(w, r, "kit/lily/dist/normalize.css")
 	})
 
 	mux.HandleFunc("/lily/reset.css", func(w http.ResponseWriter, r *http.Request) {
-		serveLilyModule(w, r, "kit/lily/dist/reset.css")
+		serveModule(w, r, "kit/lily/dist/reset.css")
 	})
 
 	// Serve entire lily kit with proper headers (for deep imports)
 	mux.Handle("/lily/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		// Remove /lily/ prefix and serve from kit/lily/
 		path := strings.TrimPrefix(r.URL.Path, "/lily/")
 		fullPath := filepath.Join("kit/lily", path)
 
-		serveLilyModule(w, r, fullPath)
+		serveModule(w, r, fullPath)
 	}))
 
 	// Static files
@@ -226,7 +329,7 @@ func main() {
 
 	go startFileWatcher(watchDirs, 500*time.Millisecond, reload)
 
-	fmt.Println("Starting development server with file watching...")
+	fmt.Println("Starting development server with file watching and auto-build...")
 
 	for {
 		server := createServer()
