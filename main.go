@@ -120,9 +120,9 @@ func createServer() *http.Server {
 
 	mux.Handle("/zimba/", http.StripPrefix("/zimba/", http.FileServer(http.Dir("kit/zimba/dist/"))))
 
-	mux.HandleFunc("/lilycat.css", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/lily", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/css")
-		http.ServeFile(w, r, "kit/lilycat/dist/all.css")
+		http.ServeFile(w, r, "kit/lily/dist/all.css")
 	})
 
 	mux.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public/"))))

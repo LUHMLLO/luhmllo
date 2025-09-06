@@ -1,34 +1,29 @@
 {
   "lock": false,
   "nodeModulesDir": "auto",
-  "name": "@luhmllo/zimba",
+  "name": "@luhmllo/lily",
   "version": "0.0.1",
-  "description": "A collection of composable, zero-dependency libraries by the creators of Lily, designed for elegant and powerful user interfaces.",
+  "description": "Minimal, attribute-based CSS for building great products, not complex abstractions.",
   "license": "MIT",
   "exports": {
-    ".": "./mod.ts"
+    ".": "./mod.ts",
+    "./all": "./dist/all.css"
   },
   "publish": {
     "include": [
       "./mod.ts",
-      "./src/**/*.mts",
+      "./dist/**/*.css",
       "./LICENSE",
       "./readme.md"
     ]
   },
   "exclude": [
-    "./dist",
     "./node_modules",
+    "./src",
     "./build.ts"
   ],
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
     "build": "deno run -A ./build.ts"
-  },
-  "compilerOptions": {
-    "lib": [
-      "deno.window",
-      "dom"
-    ]
   }
 }

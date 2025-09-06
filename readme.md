@@ -1,7 +1,7 @@
-# Lilycat 🐱✨
+# LUHMLLO
 
-> **Time efficient dev kit.**
+> **Time efficient dev kits.**
 
-[![Sponsor Lilycat](https://img.shields.io/badge/Sponsor_Lilycat-💖-ff69b4?style=for-the-badge)](https://github.com/sponsors/LUHMLLO)
+[![Sponsor](https://img.shields.io/badge/Sponsor-💖-ff69b4?style=for-the-badge)](https://github.com/sponsors/LUHMLLO)
 
-*What if you could do something amazing with no setup?*
+_What if you could do something amazing with minimum setup?_
