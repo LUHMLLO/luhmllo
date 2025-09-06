@@ -2,18 +2,23 @@
   "lock": false,
   "nodeModulesDir": "auto",
   "name": "@luhmllo/zimba",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A set of tools for fast development",
   "license": "MIT",
   "exports": {
     ".": "./mod.ts"
   },
-  "include": [
-    "dist/**/*.min.js",
-    "dist/**/*.ts",
-    "./LICENSE",
-    "./readme.md"
-  ],
+  "publish": {
+    "include": [
+      "./mod.ts",
+      "dist/**/*.ts",
+      "dist/**/*.min.ts",
+      "dist/**/*.js",
+      "dist/**/*.min.js",
+      "./LICENSE",
+      "./readme.md"
+    ]
+  },
   "exclude": [
     "./node_modules",
     "./src",
