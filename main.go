@@ -27,18 +27,49 @@ func scanFiles(dirs []string) map[string]FileInfo {
 				return nil
 			}
 
-			if !info.IsDir() && !isHidden(path) {
-				files[path] = FileInfo{
-					path:    path,
-					modTime: info.ModTime().Unix(),
-					size:    info.Size(),
-				}
+			// Skip directories and hidden files
+			if info.IsDir() || isHidden(path) {
+				return nil
+			}
+
+			// Skip build output directories
+			if isBuildOutput(path) {
+				return nil
+			}
+
+			files[path] = FileInfo{
+				path:    path,
+				modTime: info.ModTime().Unix(),
+				size:    info.Size(),
 			}
 			return nil
 		})
 	}
-
 	return files
+}
+
+func isBuildOutput(path string) bool {
+	// Normalize path separators
+	normalizedPath := filepath.ToSlash(path)
+
+	// Skip common build output directories
+	buildDirs := []string{
+		"/dist/",
+		"/build/",
+		"/output/",
+		"/.deno/",
+		"/node_modules/",
+		"LICENSE",
+		"readme.md",
+	}
+
+	for _, buildDir := range buildDirs {
+		if strings.Contains(normalizedPath, buildDir) {
+			return true
+		}
+	}
+
+	return false
 }
 
 func isHidden(path string) bool {
@@ -183,17 +214,13 @@ func createServer() *http.Server {
 
 	// Zimba module endpoints - serve compiled JS files
 	mux.HandleFunc("/zimba/mod.js", func(w http.ResponseWriter, r *http.Request) {
-		serveModule(w, r, "kit/zimba/dist/mod.js")
-	})
-
-	mux.HandleFunc("/zimba/mod.min.js", func(w http.ResponseWriter, r *http.Request) {
-		serveModule(w, r, "kit/zimba/dist/mod.min.js")
+		serveModule(w, r, "kit/zimba/mod.js")
 	})
 
 	// For development - serve TypeScript files as JavaScript
 	mux.HandleFunc("/zimba/mod.ts", func(w http.ResponseWriter, r *http.Request) {
 		// Try compiled version first, fallback to source
-		compiledPath := "kit/zimba/dist/mod.js"
+		compiledPath := "kit/zimba/mod.js"
 		if _, err := os.Stat(compiledPath); err == nil {
 			serveModule(w, r, compiledPath)
 		} else {
