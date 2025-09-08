@@ -1,1 +1,0 @@
-@layer data-attributes{:where([data-is=grid]){--cols:1;--gap:0px;--count:auto-fill;--track_min:min(100%,13rem);--track_max:1fr;display:grid;gap:var(--gap);grid-template-columns:repeat(var(--count),minmax(clamp(var(--track_min),calc((100% - (var(--gap) * (var(--cols) - 1))) / var(--cols)),100%),var(--track_max)))}}

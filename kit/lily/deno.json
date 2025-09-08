@@ -2,7 +2,7 @@
   "lock": false,
   "nodeModulesDir": "auto",
   "name": "@luhmllo/lilycat",
-  "version": "0.1.53",
+  "version": "0.1.54",
   "description": "Minimal, attribute-based CSS for building great products, not complex abstractions.",
   "license": "MIT",
   "exports": {
@@ -24,5 +24,11 @@
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
     "build": "deno run -A ./build.ts"
+  },
+  "compilerOptions": {
+    "lib": [
+      "deno.window",
+      "dom"
+    ]
   }
 }

@@ -1,1 +1,0 @@
-@layer data-attributes{:where([data-is=card]){background-color:var(--clr-background__base);border-radius:var(--radii-sm);display:flex;flex:1 1;flex-direction:column;gap:var(--space-nm);padding:var(--space-nm);position:relative;width:100%}}
