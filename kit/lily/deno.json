@@ -2,7 +2,7 @@
   "lock": false,
   "nodeModulesDir": "auto",
   "name": "@luhmllo/lilycat",
-  "version": "0.1.54",
+  "version": "0.1.55",
   "description": "Minimal, attribute-based CSS for building great products, not complex abstractions.",
   "license": "MIT",
   "exports": {

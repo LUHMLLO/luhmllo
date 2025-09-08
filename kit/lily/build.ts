@@ -153,28 +153,28 @@ async function buildAll() {
     )
 
     // Add the auto-apply function
-    modExports += `// Auto-apply on import (async)\n`
-    modExports += `(function () {\n`
-    modExports += `  if (typeof window !== "undefined" && typeof document !== "undefined") {\n`
-    modExports += `    try {\n`
-    modExports += `      const cssText = all;\n\n`
-    modExports += `      if (\n`
-    modExports += `        "CSSStyleSheet" in window && "replaceSync" in CSSStyleSheet.prototype\n`
-    modExports += `      ) {\n`
-    modExports += `        const sheet = new CSSStyleSheet();\n`
-    modExports += `        sheet.replaceSync(cssText);\n`
-    modExports += `        document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];\n`
-    modExports += `      } else {\n`
-    modExports += `        // Fallback\n`
-    modExports += `        const style = document.createElement("style");\n`
-    modExports += `        style.textContent = cssText;\n`
-    modExports += `        document.head.appendChild(style);\n`
-    modExports += `      }\n`
-    modExports += `    } catch (error) {\n`
-    modExports += `      console.warn("Failed to load CSS:", error);\n`
-    modExports += `    }\n`
-    modExports += `  }\n`
-    modExports += `})();\n`
+    // modExports += `// Auto-apply on import (async)\n`
+    // modExports += `(function () {\n`
+    // modExports += `  if (typeof window !== "undefined" && typeof document !== "undefined") {\n`
+    // modExports += `    try {\n`
+    // modExports += `      const cssText = all;\n\n`
+    // modExports += `      if (\n`
+    // modExports += `        "CSSStyleSheet" in window && "replaceSync" in CSSStyleSheet.prototype\n`
+    // modExports += `      ) {\n`
+    // modExports += `        const sheet = new CSSStyleSheet();\n`
+    // modExports += `        sheet.replaceSync(cssText);\n`
+    // modExports += `        document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];\n`
+    // modExports += `      } else {\n`
+    // modExports += `        // Fallback\n`
+    // modExports += `        const style = document.createElement("style");\n`
+    // modExports += `        style.textContent = cssText;\n`
+    // modExports += `        document.head.appendChild(style);\n`
+    // modExports += `      }\n`
+    // modExports += `    } catch (error) {\n`
+    // modExports += `      console.warn("Failed to load CSS:", error);\n`
+    // modExports += `    }\n`
+    // modExports += `  }\n`
+    // modExports += `})();\n`
 
     await Deno.writeTextFile( modPath, modExports )
     console.log( `\nmod.ts generated at ${ modPath }` )
