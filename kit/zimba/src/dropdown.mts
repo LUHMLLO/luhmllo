@@ -120,7 +120,7 @@ class DropdownAnchor {
 
     // Initial positioning if already open
     if (this.detailsElement.open) {
-      this.handleUpdatePosition();
+      requestAnimationFrame(() => this.handleUpdatePosition());
     }
   }
 
@@ -159,7 +159,13 @@ class DropdownAnchor {
   private handleToggle(_e: Event): void {
     if (this.detailsElement.open) {
       this.enablePortal();
-      this.handleUpdatePosition();
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          this.handleUpdatePosition();
+        });
+      });
+
       document.addEventListener("click", this.clickOutsideHandler);
     } else {
       document.removeEventListener("click", this.clickOutsideHandler);
@@ -197,11 +203,14 @@ class DropdownAnchor {
     let horizontalPlacement: "left" | "right" | "center" =
       this.options.preferredX;
 
+    // Get actual dropdown dimensions or use reasonable defaults
+    const dropdownWidth = dropdownRect.width > 0 ? dropdownRect.width : 200;
+    const dropdownHeight = dropdownRect.height > 0 ? dropdownRect.height : 200;
+
     // Calculate vertical position
     const spaceBelow = viewport.height - triggerRect.bottom -
       this.options.viewportMargin;
     const spaceAbove = triggerRect.top - this.options.viewportMargin;
-    const dropdownHeight = dropdownRect.height || 200; // fallback for initial render
 
     if (this.options.preferredY === "bottom") {
       if (spaceBelow >= dropdownHeight + this.options.gap) {
@@ -213,12 +222,15 @@ class DropdownAnchor {
         y = triggerRect.top - dropdownHeight - this.options.gap;
         verticalPlacement = "top";
       } else {
-        // Use side with more space
+        // Use side with more space, but constrain height if needed
         if (spaceBelow > spaceAbove) {
           y = triggerRect.bottom + this.options.gap;
           verticalPlacement = "bottom";
         } else {
-          y = triggerRect.top - dropdownHeight - this.options.gap;
+          y = Math.max(
+            this.options.viewportMargin,
+            triggerRect.top - dropdownHeight - this.options.gap,
+          );
           verticalPlacement = "top";
         }
       }
@@ -233,16 +245,22 @@ class DropdownAnchor {
       }
     }
 
-    // Calculate horizontal position
-    const dropdownWidth = dropdownRect.width || 200; // fallback
-
+    // Calculate horizontal position with proper overflow handling
     switch (this.options.preferredX) {
       case "left":
         x = triggerRect.left;
         // Check if it overflows right edge
         if (x + dropdownWidth > viewport.width - this.options.viewportMargin) {
-          x = triggerRect.right - dropdownWidth;
-          horizontalPlacement = "right";
+          // Try aligning to the right edge of trigger
+          const rightAlignedX = triggerRect.right - dropdownWidth;
+          if (rightAlignedX >= this.options.viewportMargin) {
+            x = rightAlignedX;
+            horizontalPlacement = "right";
+          } else {
+            // Still doesn't fit, constrain to viewport
+            x = viewport.width - dropdownWidth - this.options.viewportMargin;
+            horizontalPlacement = "right";
+          }
         }
         break;
 
@@ -250,8 +268,19 @@ class DropdownAnchor {
         x = triggerRect.right - dropdownWidth;
         // Check if it overflows left edge
         if (x < this.options.viewportMargin) {
-          x = triggerRect.left;
-          horizontalPlacement = "left";
+          // Try aligning to the left edge of trigger
+          const leftAlignedX = triggerRect.left;
+          if (
+            leftAlignedX + dropdownWidth <=
+              viewport.width - this.options.viewportMargin
+          ) {
+            x = leftAlignedX;
+            horizontalPlacement = "left";
+          } else {
+            // Still doesn't fit, constrain to viewport
+            x = this.options.viewportMargin;
+            horizontalPlacement = "left";
+          }
         }
         break;
 
@@ -266,11 +295,13 @@ class DropdownAnchor {
         ) {
           x = viewport.width - dropdownWidth - this.options.viewportMargin;
           horizontalPlacement = "right";
+        } else {
+          horizontalPlacement = "center";
         }
         break;
     }
 
-    // Ensure dropdown stays within viewport bounds
+    // Final constraint to ensure dropdown stays within viewport bounds
     x = Math.max(
       this.options.viewportMargin,
       Math.min(x, viewport.width - dropdownWidth - this.options.viewportMargin),
@@ -298,7 +329,7 @@ class DropdownAnchor {
    * Updates the dropdown position
    */
   public updatePosition(): void {
-    if (!this.detailsElement.open) return;
+    if (!this.detailsElement.open || this.isDestroyed) return;
 
     const position = this.calculatePosition();
 
@@ -316,32 +347,43 @@ class DropdownAnchor {
    * Sets up observers for automatic repositioning
    */
   private setupObservers(): void {
+    const throttledUpdate = throttle(this.handleUpdatePosition, 16); // ~60fps
+
     globalThis.addEventListener(
       "scroll",
-      throttle(this.handleUpdatePosition, 50),
+      throttledUpdate,
       {
         passive: true,
       },
     );
+
     globalThis.addEventListener(
       "resize",
-      throttle(this.handleUpdatePosition, 50),
+      throttledUpdate,
       {
         passive: true,
       },
     );
 
     // Observe dropdown size changes
-    // Note: Observers already handle their own throttling internally.
-    // No need to wrap them in the throttle utility.
     if (globalThis.ResizeObserver) {
-      this.resizeObserver = new ResizeObserver(this.handleUpdatePosition);
+      this.resizeObserver = new ResizeObserver(() => {
+        if (this.detailsElement.open) {
+          this.handleUpdatePosition();
+        }
+      });
       this.resizeObserver.observe(this.dropdownContent);
+      this.resizeObserver.observe(this.trigger); // Also observe trigger changes
     }
 
     // Observe DOM changes that might affect positioning
     if (globalThis.MutationObserver) {
-      this.mutationObserver = new MutationObserver(this.handleUpdatePosition);
+      this.mutationObserver = new MutationObserver(() => {
+        if (this.detailsElement.open) {
+          // Debounce mutation updates slightly more
+          setTimeout(this.handleUpdatePosition, 10);
+        }
+      });
       this.mutationObserver.observe(this.dropdownContent, {
         childList: true,
         subtree: true,
