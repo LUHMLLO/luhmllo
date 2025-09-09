@@ -19,14 +19,14 @@
         border-radius: var(--radii-xl);
         display: flex;
         inset: 50% 0 0 50%;
-        height: min(96%, 96dvh);
+        /* height: min(99%, 99dvh); */
         isolation: isolate;
-        inset: 0;
+        inset: var(--space-sm);
         margin: auto;
         outline: solid 2px var(--clr-border__base);
         outline-offset: -2px;
         overflow: clip;
-        padding: calc(4px + var(--space-sm));
+        padding: calc(10px + var(--space-sm));
         place-content: center;
         place-items: center;
         position: fixed;
@@ -39,7 +39,7 @@
         transition-duration: var(--animDuration);
         transition-timing-function: var(--animTiming);
         transition-delay: calc(var(--animDuration) / 100);
-        width: min(96%, 96dvw);
+        /* width: min(99%, 99dvw); */
         will-change: aspect-ratio, scale, transform;
         z-index: 0;
       }
