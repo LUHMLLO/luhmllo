@@ -119,7 +119,7 @@ export class Orbiter {
       factor: options.factor ?? 1,
       smoothing: {
         enabled: options.smoothing?.enabled ?? true,
-        speed: options.smoothing?.speed ?? 0.12,
+        speed: options.smoothing?.speed ?? 0.10,
       },
       touch: {
         enabled: options.touch?.enabled ?? true,
@@ -127,13 +127,13 @@ export class Orbiter {
       },
       constraintMode: options.constraintMode ?? "clamp",
       elastic: {
-        tension: options.elastic?.tension ?? 0.2,
-        snapBackDuration: options.elastic?.snapBackDuration ?? 300,
+        tension: options.elastic?.tension ?? 0.000625,
+        snapBackDuration: options.elastic?.snapBackDuration ?? 256,
       },
       onLeave: options.onLeave ?? "reset",
       resetAnimation: {
-        duration: options.resetAnimation?.duration ?? 400,
-        easing: options.resetAnimation?.easing ?? "easeOut",
+        duration: options.resetAnimation?.duration ?? 256,
+        easing: options.resetAnimation?.easing ?? "easeInOut",
       },
     };
   }

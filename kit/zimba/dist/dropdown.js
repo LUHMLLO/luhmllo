@@ -1,20 +1,20 @@
 // deno-lint-ignore-file
-var b = Object.defineProperty;
-var u = (n, t, e) => t in n ? b(n, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : n[t] = e;
-var o = (n, t, e) => u(n, typeof t != "symbol" ? t + "" : t, e);
+var m = Object.defineProperty;
+var u = (s, t, e) => t in s ? m(s, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : s[t] = e;
+var o = (s, t, e) => u(s, typeof t != "symbol" ? t + "" : t, e);
 
 // src/dropdown.mts
-function c(n, t) {
+function b(s, t) {
   let e;
-  return function(...s) {
-    e || (n.apply(this, s), e = !0, setTimeout(() => e = !1, t));
+  return function(...n) {
+    e || (s.apply(this, n), e = !0, setTimeout(() => e = !1, t));
   };
 }
-var g = class {
+var v = class {
   /**
    * Creates a new DropdownAnchor instance
    */
-  constructor(t, e, s = {}) {
+  constructor(t, e, n = {}) {
     o(this, "detailsElement");
     o(this, "dropdownContent");
     o(this, "trigger");
@@ -41,14 +41,14 @@ var g = class {
       animated: !0,
       portal: !1,
       portalTo: document.body,
-      ...s
+      ...n
     }, this.clickOutsideHandler = this.handleClickOutside.bind(this), this.toggleHandler = this.handleToggle.bind(this), this.handleUpdatePosition = this.updatePosition.bind(this), this.initializeDropdown(), this.setupObservers();
   }
   /**
    * Initializes dropdown positioning styles and event handlers
    */
   initializeDropdown() {
-    this.options.animated || (this.dropdownContent.style.transition = "none"), this.options.portal && (this.originalParent = this.dropdownContent.parentElement, this.originalNextSibling = this.dropdownContent.nextElementSibling), this.detailsElement.addEventListener("toggle", this.toggleHandler), this.detailsElement.open && this.handleUpdatePosition();
+    this.options.animated || (this.dropdownContent.style.transition = "none"), this.options.portal && (this.originalParent = this.dropdownContent.parentElement, this.originalNextSibling = this.dropdownContent.nextElementSibling), this.detailsElement.addEventListener("toggle", this.toggleHandler), this.detailsElement.open && requestAnimationFrame(() => this.handleUpdatePosition());
   }
   /**
    * Moves dropdown to document.body for portal behavior
@@ -69,7 +69,11 @@ var g = class {
    * Handles the details toggle event
    */
   handleToggle(t) {
-    this.detailsElement.open ? (this.enablePortal(), this.handleUpdatePosition(), document.addEventListener("click", this.clickOutsideHandler)) : (document.removeEventListener("click", this.clickOutsideHandler), this.disablePortal());
+    this.detailsElement.open ? (this.enablePortal(), requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        this.handleUpdatePosition();
+      });
+    }), document.addEventListener("click", this.clickOutsideHandler)) : (document.removeEventListener("click", this.clickOutsideHandler), this.disablePortal());
   }
   /**
    * Handles clicks outside the dropdown to close it
@@ -82,38 +86,45 @@ var g = class {
    * Calculates optimal dropdown position based on viewport constraints
    */
   calculatePosition() {
-    let t = this.trigger.getBoundingClientRect(), e = this.dropdownContent.getBoundingClientRect(), s = {
+    let t = this.trigger.getBoundingClientRect(), e = this.dropdownContent.getBoundingClientRect(), n = {
       width: globalThis.innerWidth,
       height: globalThis.innerHeight
-    }, i = 0, r = 0, a = this.options.preferredY, p = this.options.preferredX, v = s.height - t.bottom - this.options.viewportMargin, d = t.top - this.options.viewportMargin, l = e.height || 200;
-    this.options.preferredY === "bottom" ? v >= l + this.options.gap ? (r = t.bottom + this.options.gap, a = "bottom") : d >= l + this.options.gap ? (r = t.top - l - this.options.gap, a = "top") : v > d ? (r = t.bottom + this.options.gap, a = "bottom") : (r = t.top - l - this.options.gap, a = "top") : d >= l + this.options.gap ? (r = t.top - l - this.options.gap, a = "top") : (r = t.bottom + this.options.gap, a = "bottom");
-    let h = e.width || 200;
-    switch (this.options.preferredX) {
+    }, i = 0, r = 0, h = this.options.preferredY, l = this.options.preferredX, a = e.width > 0 ? e.width : 200, p = e.height > 0 ? e.height : 200, c = n.height - t.bottom - this.options.viewportMargin, g = t.top - this.options.viewportMargin;
+    switch (this.options.preferredY === "bottom" ? c >= p + this.options.gap ? (r = t.bottom + this.options.gap, h = "bottom") : g >= p + this.options.gap ? (r = t.top - p - this.options.gap, h = "top") : c > g ? (r = t.bottom + this.options.gap, h = "bottom") : (r = Math.max(
+      this.options.viewportMargin,
+      t.top - p - this.options.gap
+    ), h = "top") : g >= p + this.options.gap ? (r = t.top - p - this.options.gap, h = "top") : (r = t.bottom + this.options.gap, h = "bottom"), this.options.preferredX) {
       case "left":
-        i = t.left, i + h > s.width - this.options.viewportMargin && (i = t.right - h, p = "right");
+        if (i = t.left, i + a > n.width - this.options.viewportMargin) {
+          let d = t.right - a;
+          d >= this.options.viewportMargin ? (i = d, l = "right") : (i = n.width - a - this.options.viewportMargin, l = "right");
+        }
         break;
       case "right":
-        i = t.right - h, i < this.options.viewportMargin && (i = t.left, p = "left");
+        if (i = t.right - a, i < this.options.viewportMargin) {
+          let d = t.left;
+          d + a <= n.width - this.options.viewportMargin ? (i = d, l = "left") : (i = this.options.viewportMargin, l = "left");
+        }
         break;
       case "center":
-        i = t.left + (t.width - h) / 2, i < this.options.viewportMargin ? (i = this.options.viewportMargin, p = "left") : i + h > s.width - this.options.viewportMargin && (i = s.width - h - this.options.viewportMargin, p = "right");
+        i = t.left + (t.width - a) / 2, i < this.options.viewportMargin ? (i = this.options.viewportMargin, l = "left") : i + a > n.width - this.options.viewportMargin ? (i = n.width - a - this.options.viewportMargin, l = "right") : l = "center";
         break;
     }
     return i = Math.max(
       this.options.viewportMargin,
-      Math.min(i, s.width - h - this.options.viewportMargin)
+      Math.min(i, n.width - a - this.options.viewportMargin)
     ), r = Math.max(
       this.options.viewportMargin,
       Math.min(
         r,
-        s.height - l - this.options.viewportMargin
+        n.height - p - this.options.viewportMargin
       )
     ), {
       x: i,
       y: r,
       placement: {
-        vertical: a,
-        horizontal: p
+        vertical: h,
+        horizontal: l
       }
     };
   }
@@ -121,7 +132,7 @@ var g = class {
    * Updates the dropdown position
    */
   updatePosition() {
-    if (!this.detailsElement.open) return;
+    if (!this.detailsElement.open || this.isDestroyed) return;
     let t = this.calculatePosition();
     this.dropdownContent.style.setProperty(
       "--translate-y",
@@ -135,19 +146,24 @@ var g = class {
    * Sets up observers for automatic repositioning
    */
   setupObservers() {
+    let t = b(this.handleUpdatePosition, 16);
     globalThis.addEventListener(
       "scroll",
-      c(this.handleUpdatePosition, 50),
+      t,
       {
         passive: !0
       }
     ), globalThis.addEventListener(
       "resize",
-      c(this.handleUpdatePosition, 50),
+      t,
       {
         passive: !0
       }
-    ), globalThis.ResizeObserver && (this.resizeObserver = new ResizeObserver(this.handleUpdatePosition), this.resizeObserver.observe(this.dropdownContent)), globalThis.MutationObserver && (this.mutationObserver = new MutationObserver(this.handleUpdatePosition), this.mutationObserver.observe(this.dropdownContent, {
+    ), globalThis.ResizeObserver && (this.resizeObserver = new ResizeObserver(() => {
+      this.detailsElement.open && this.handleUpdatePosition();
+    }), this.resizeObserver.observe(this.dropdownContent), this.resizeObserver.observe(this.trigger)), globalThis.MutationObserver && (this.mutationObserver = new MutationObserver(() => {
+      this.detailsElement.open && setTimeout(this.handleUpdatePosition, 10);
+    }), this.mutationObserver.observe(this.dropdownContent, {
       childList: !0,
       subtree: !0,
       attributes: !1
@@ -184,10 +200,10 @@ var g = class {
     this.disablePortal(), this.detailsElement.removeEventListener("toggle", this.toggleHandler), document.removeEventListener("click", this.clickOutsideHandler), globalThis.removeEventListener("scroll", this.handleUpdatePosition), globalThis.removeEventListener("resize", this.handleUpdatePosition), this.resizeObserver?.disconnect(), this.mutationObserver?.disconnect(), this.isDestroyed = !0;
   }
 };
-function f(n, t, e) {
-  return new g(n, t, e);
+function w(s, t, e) {
+  return new v(s, t, e);
 }
 export {
-  g as DropdownAnchor,
-  f as anchorDropdown
+  v as DropdownAnchor,
+  w as anchorDropdown
 };

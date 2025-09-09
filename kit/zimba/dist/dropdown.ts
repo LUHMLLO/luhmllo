@@ -74,7 +74,7 @@ var DropdownAnchor = class {
     }
     this.detailsElement.addEventListener("toggle", this.toggleHandler);
     if (this.detailsElement.open) {
-      this.handleUpdatePosition();
+      requestAnimationFrame(() => this.handleUpdatePosition());
     }
   }
   /**
@@ -108,7 +108,11 @@ var DropdownAnchor = class {
   handleToggle(_e) {
     if (this.detailsElement.open) {
       this.enablePortal();
-      this.handleUpdatePosition();
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          this.handleUpdatePosition();
+        });
+      });
       document.addEventListener("click", this.clickOutsideHandler);
     } else {
       document.removeEventListener("click", this.clickOutsideHandler);
@@ -138,9 +142,10 @@ var DropdownAnchor = class {
     let y = 0;
     let verticalPlacement = this.options.preferredY;
     let horizontalPlacement = this.options.preferredX;
+    const dropdownWidth = dropdownRect.width > 0 ? dropdownRect.width : 200;
+    const dropdownHeight = dropdownRect.height > 0 ? dropdownRect.height : 200;
     const spaceBelow = viewport.height - triggerRect.bottom - this.options.viewportMargin;
     const spaceAbove = triggerRect.top - this.options.viewportMargin;
-    const dropdownHeight = dropdownRect.height || 200;
     if (this.options.preferredY === "bottom") {
       if (spaceBelow >= dropdownHeight + this.options.gap) {
         y = triggerRect.bottom + this.options.gap;
@@ -153,7 +158,10 @@ var DropdownAnchor = class {
           y = triggerRect.bottom + this.options.gap;
           verticalPlacement = "bottom";
         } else {
-          y = triggerRect.top - dropdownHeight - this.options.gap;
+          y = Math.max(
+            this.options.viewportMargin,
+            triggerRect.top - dropdownHeight - this.options.gap
+          );
           verticalPlacement = "top";
         }
       }
@@ -166,20 +174,31 @@ var DropdownAnchor = class {
         verticalPlacement = "bottom";
       }
     }
-    const dropdownWidth = dropdownRect.width || 200;
     switch (this.options.preferredX) {
       case "left":
         x = triggerRect.left;
         if (x + dropdownWidth > viewport.width - this.options.viewportMargin) {
-          x = triggerRect.right - dropdownWidth;
-          horizontalPlacement = "right";
+          const rightAlignedX = triggerRect.right - dropdownWidth;
+          if (rightAlignedX >= this.options.viewportMargin) {
+            x = rightAlignedX;
+            horizontalPlacement = "right";
+          } else {
+            x = viewport.width - dropdownWidth - this.options.viewportMargin;
+            horizontalPlacement = "right";
+          }
         }
         break;
       case "right":
         x = triggerRect.right - dropdownWidth;
         if (x < this.options.viewportMargin) {
-          x = triggerRect.left;
-          horizontalPlacement = "left";
+          const leftAlignedX = triggerRect.left;
+          if (leftAlignedX + dropdownWidth <= viewport.width - this.options.viewportMargin) {
+            x = leftAlignedX;
+            horizontalPlacement = "left";
+          } else {
+            x = this.options.viewportMargin;
+            horizontalPlacement = "left";
+          }
         }
         break;
       case "center":
@@ -190,6 +209,8 @@ var DropdownAnchor = class {
         } else if (x + dropdownWidth > viewport.width - this.options.viewportMargin) {
           x = viewport.width - dropdownWidth - this.options.viewportMargin;
           horizontalPlacement = "right";
+        } else {
+          horizontalPlacement = "center";
         }
         break;
     }
@@ -217,7 +238,7 @@ var DropdownAnchor = class {
    * Updates the dropdown position
    */
   updatePosition() {
-    if (!this.detailsElement.open) return;
+    if (!this.detailsElement.open || this.isDestroyed) return;
     const position = this.calculatePosition();
     this.dropdownContent.style.setProperty(
       "--translate-y",
@@ -232,26 +253,36 @@ var DropdownAnchor = class {
    * Sets up observers for automatic repositioning
    */
   setupObservers() {
+    const throttledUpdate = throttle(this.handleUpdatePosition, 16);
     globalThis.addEventListener(
       "scroll",
-      throttle(this.handleUpdatePosition, 50),
+      throttledUpdate,
       {
         passive: true
       }
     );
     globalThis.addEventListener(
       "resize",
-      throttle(this.handleUpdatePosition, 50),
+      throttledUpdate,
       {
         passive: true
       }
     );
     if (globalThis.ResizeObserver) {
-      this.resizeObserver = new ResizeObserver(this.handleUpdatePosition);
+      this.resizeObserver = new ResizeObserver(() => {
+        if (this.detailsElement.open) {
+          this.handleUpdatePosition();
+        }
+      });
       this.resizeObserver.observe(this.dropdownContent);
+      this.resizeObserver.observe(this.trigger);
     }
     if (globalThis.MutationObserver) {
-      this.mutationObserver = new MutationObserver(this.handleUpdatePosition);
+      this.mutationObserver = new MutationObserver(() => {
+        if (this.detailsElement.open) {
+          setTimeout(this.handleUpdatePosition, 10);
+        }
+      });
       this.mutationObserver.observe(this.dropdownContent, {
         childList: true,
         subtree: true,

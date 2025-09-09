@@ -37,7 +37,7 @@ var l = class {
       factor: t.factor ?? 1,
       smoothing: {
         enabled: t.smoothing?.enabled ?? !0,
-        speed: t.smoothing?.speed ?? 0.12
+        speed: t.smoothing?.speed ?? 0.1
       },
       touch: {
         enabled: t.touch?.enabled ?? !0,
@@ -45,13 +45,13 @@ var l = class {
       },
       constraintMode: t.constraintMode ?? "clamp",
       elastic: {
-        tension: t.elastic?.tension ?? 0.2,
-        snapBackDuration: t.elastic?.snapBackDuration ?? 300
+        tension: t.elastic?.tension ?? 625e-6,
+        snapBackDuration: t.elastic?.snapBackDuration ?? 256
       },
       onLeave: t.onLeave ?? "reset",
       resetAnimation: {
-        duration: t.resetAnimation?.duration ?? 400,
-        easing: t.resetAnimation?.easing ?? "easeOut"
+        duration: t.resetAnimation?.duration ?? 256,
+        easing: t.resetAnimation?.easing ?? "easeInOut"
       }
     };
   }

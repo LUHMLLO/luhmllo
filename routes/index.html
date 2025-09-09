@@ -1,15 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-scheme="light">
 
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lilycat</title>
     <link rel="stylesheet" href="/lily/all.css">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style lang="css">
+      #orbiter {
+        --translate-x: 0px;
+        --translate-y: 0px;
+        --translate-z: 0px;
+        --scale: 1;
+
+        border-radius: var(--radii-xl);
+        display: flex;
+        inset: 50% 0 0 50%;
+        height: min(98%, 98dvh);
+        isolation: isolate;
+        /* margin: 2dvmax; */
+        outline: solid 2px var(--clr-background__base);
+        outline-offset: -8px;
+        overflow: clip;
+        padding: calc(8px + var(--space-sm));
+        place-content: center;
+        place-items: center;
+        position: fixed;
+        transform: translate(-50%, -50%) translate3d(var(--translate-x),
+            var(--translate-y),
+            var(--translate-z)) scale3d(var(--scale), var(--scale), var(--scale));
+        transform-origin: center;
+        transform-style: preserve-3d;
+        transition-property: transform;
+        transition-duration: var(--animDuration);
+        transition-timing-function: var(--animTiming);
+        width: min(98%, 98dvw);
+        will-change: aspect-ratio, scale, transform;
+        z-index: 0;
+      }
+
+      #drifter {
+        --translate-x: 0px;
+        --translate-y: 0px;
+        --translate-z: 0px;
+        --scale: 1;
+
+        aspect-ratio: 3/4;
+        background-color: var(--clr-background__raised);
+        border-radius: var(--radii-lg);
+        display: block;
+        margin: auto;
+        outline: solid 2px var(--clr-background__base);
+        outline-offset: -2px;
+        padding: var(--space-sm);
+        position: absolute;
+
+        transition: transform var(--animDuration) var(--animTiming);
+        transition-delay: calc(var(--animDuration) / 100);
+
+        transform: translate(-50%, -50%)
+          /* Center the element first */
+          translate3d(var(--translate-x),
+            var(--translate-y),
+            var(--translate-z)) scale3d(var(--scale), var(--scale), var(--scale));
+
+        transform-origin: center;
+        transform-style: preserve-3d;
+        will-change: scale, transform, translate;
+
+        width: 256px;
+        z-index: 2;
+      }
+    </style>
   </head>
 
   <body>
-    <h1>test</h1>
+    <main id="orbiter">
+      <span id="drifter">
+
+        <div data-is="row" style="align-items: center; place-content: space-between; width: 100%;">
+          <h5>folder name</h5>
+
+          <details data-dropdown data-is="dropdown">
+            <summary data-is="buttonmin" data-variant="outline">
+              <i data-is="icon">more_horiz</i>
+            </summary>
+
+            <div data-dropmenu data-part="dropmenu">
+              <button>
+                <i data-is="icon" data-part="lead">globe_book</i>
+                <span>Web Search</span>
+                <label for="prompt_sourches_websearch" data-part="trail">
+                  <input type="checkbox" name="prompt_sourches_websearch" id="prompt_sourches_websearch"
+                    data-is="switch" />
+                </label>
+              </button>
+              <hr />
+              <button>
+                <i data-is="icon" data-part="lead">device_hub</i>
+                <span>Apps and integrations</span>
+                <label for="prompt_sourches_websearch" data-part="trail">
+                  <input type="checkbox" name="prompt_sourches_websearch" id="prompt_sourches_websearch"
+                    data-is="switch" />
+                </label>
+              </button>
+              <button>
+                <i data-is="icon" data-part="lead">person</i>
+                <span>All sources I can access</span>
+                <label for="prompt_sourches_websearch" data-part="trail">
+                  <input type="checkbox" name="prompt_sourches_websearch" id="prompt_sourches_websearch"
+                    data-is="switch" />
+                </label>
+              </button>
+              <button>
+                <i data-is="icon" data-part="lead">book</i>
+                <span>Help center</span>
+              </button>
+              <hr />
+              <button>
+                <i data-is="icon" data-part="lead">add</i>
+                <span>Connect apps</span>
+              </button>
+              <div style="color: var(--clr-text__lowered); max-width: 28ch; padding: var(--space-sm)">
+                LLM's will only search information from the sources selected
+                here.
+              </div>
+            </div>
+          </details>
+        </div>
+      </span>
+    </main>
   </body>
+
+  <script type="module">
+    import { Drifter, Orbiter } from "/zimba/mod.js"
+
+    const orbiterElement = document.getElementById("orbiter")
+
+    new Orbiter(orbiterElement, document.body, {
+      constraintMode: "elastic",
+      onLeave: "reset",
+      touch: {
+        enabled: false,
+      },
+    })
+
+    const drifterElement = document.getElementById("drifter")
+
+    new Drifter(drifterElement, orbiterElement, {
+      mode: "bounded",
+      boundedTo: "inside",
+      dragTarget: "self",
+    });
+  </script>
 
 </html>
