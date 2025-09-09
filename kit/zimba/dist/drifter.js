@@ -104,21 +104,6 @@ var X = class {
       passive: !1
     });
   }
-  D() {
-    this.eventTarget.removeEventListener(
-      "pointerdown",
-      this.i
-    ), this.eventTarget.removeEventListener(
-      "pointermove",
-      this.s
-    ), this.eventTarget.removeEventListener("pointerup", this.n), this.eventTarget.removeEventListener(
-      "pointercancel",
-      this.o
-    ), this.eventTarget.removeEventListener(
-      "pointerleave",
-      this.a
-    ), globalThis.removeEventListener("blur", this.e), globalThis.removeEventListener("visibilitychange", this.e), this.r(), this.animationFrameId && cancelAnimationFrame(this.animationFrameId), this.activePointers.clear();
-  }
   /**
    * Update CSS custom properties for transform
    * Uses RAF for smooth rendering
@@ -234,7 +219,7 @@ var X = class {
       x: t.clientX,
       y: t.clientY,
       timestamp: Date.now()
-    }), this.activePointers.size === 1 ? this.E(t.clientX, t.clientY, t.pointerId) : this.activePointers.size === 2 && this.options.zoom.enabled && this.Y(), t.preventDefault());
+    }), this.activePointers.size === 1 ? this.E(t.clientX, t.clientY, t.pointerId) : this.activePointers.size === 2 && this.options.zoom.enabled && this.Y());
   }
   s(t) {
     this.activePointers.has(t.pointerId) && this.activePointers.set(t.pointerId, {
@@ -342,6 +327,21 @@ var X = class {
     this.state.isPinching = !1, this.pinchState = null, this.activePointers.forEach((t, e) => {
       this.eventTarget.hasPointerCapture(e) && this.eventTarget.releasePointerCapture(e);
     }), this.options.mode === "bounded" && this.f();
+  }
+  destroy() {
+    this.eventTarget.removeEventListener(
+      "pointerdown",
+      this.i
+    ), this.eventTarget.removeEventListener(
+      "pointermove",
+      this.s
+    ), this.eventTarget.removeEventListener("pointerup", this.n), this.eventTarget.removeEventListener(
+      "pointercancel",
+      this.o
+    ), this.eventTarget.removeEventListener(
+      "pointerleave",
+      this.a
+    ), globalThis.removeEventListener("blur", this.e), globalThis.removeEventListener("visibilitychange", this.e), this.r(), this.animationFrameId && cancelAnimationFrame(this.animationFrameId), this.activePointers.clear();
   }
 };
 export {

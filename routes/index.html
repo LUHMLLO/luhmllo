@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-scheme="light">
+<html lang="en" data-scheme="">
 
   <head>
     <meta charset="UTF-8">
@@ -15,20 +15,22 @@
         --translate-z: 0px;
         --scale: 1;
 
+        background-color: var(--clr-background__base);
         border-radius: var(--radii-xl);
         display: flex;
         inset: 50% 0 0 50%;
-        height: min(98%, 98dvh);
+        height: min(96%, 96dvh);
         isolation: isolate;
-        /* margin: 2dvmax; */
-        outline: solid 2px var(--clr-background__base);
-        outline-offset: -8px;
+        inset: 0;
+        margin: auto;
+        outline: solid 2px var(--clr-border__base);
+        outline-offset: -2px;
         overflow: clip;
-        padding: calc(8px + var(--space-sm));
+        padding: calc(4px + var(--space-sm));
         place-content: center;
         place-items: center;
         position: fixed;
-        transform: translate(-50%, -50%) translate3d(var(--translate-x),
+        transform: translate3d(var(--translate-x),
             var(--translate-y),
             var(--translate-z)) scale3d(var(--scale), var(--scale), var(--scale));
         transform-origin: center;
@@ -36,7 +38,8 @@
         transition-property: transform;
         transition-duration: var(--animDuration);
         transition-timing-function: var(--animTiming);
-        width: min(98%, 98dvw);
+        transition-delay: calc(var(--animDuration) / 100);
+        width: min(96%, 96dvw);
         will-change: aspect-ratio, scale, transform;
         z-index: 0;
       }
@@ -51,8 +54,9 @@
         background-color: var(--clr-background__raised);
         border-radius: var(--radii-lg);
         display: block;
+        inset: 0;
         margin: auto;
-        outline: solid 2px var(--clr-background__base);
+        outline: solid 2px var(--clr-border__base);
         outline-offset: -2px;
         padding: var(--space-sm);
         position: absolute;
@@ -60,9 +64,7 @@
         transition: transform var(--animDuration) var(--animTiming);
         transition-delay: calc(var(--animDuration) / 100);
 
-        transform: translate(-50%, -50%)
-          /* Center the element first */
-          translate3d(var(--translate-x),
+        transform: translate3d(var(--translate-x),
             var(--translate-y),
             var(--translate-z)) scale3d(var(--scale), var(--scale), var(--scale));
 
@@ -135,11 +137,11 @@
   </body>
 
   <script type="module">
-    import { Drifter, Orbiter } from "/zimba/mod.js"
+    import { anchorDropdown, Drifter, Orbiter } from "/zimba/mod.js"
 
     const orbiterElement = document.getElementById("orbiter")
 
-    new Orbiter(orbiterElement, document.body, {
+    const orbiter = new Orbiter(orbiterElement, document.body, {
       constraintMode: "elastic",
       onLeave: "reset",
       touch: {
@@ -147,12 +149,43 @@
       },
     })
 
+    globalThis.addEventListener('beforeunload', () => {
+      if (orbiter && typeof orbiter.destroy === 'function') {
+        orbiter.destroy()
+      }
+    })
+
     const drifterElement = document.getElementById("drifter")
 
-    new Drifter(drifterElement, orbiterElement, {
+    const drifter = new Drifter(drifterElement, orbiterElement, {
       mode: "bounded",
       boundedTo: "inside",
       dragTarget: "self",
+      zoom: {
+        enabled: false
+      }
+    })
+
+    globalThis.addEventListener('beforeunload', () => {
+      if (drifter && typeof drifter.destroy === 'function') {
+        drifter.destroy()
+      }
+    })
+
+    const dropdown = document.querySelector('[data-is="dropdown"]')
+    const dropmenu = document.querySelector('[data-part="dropmenu"]')
+
+    const anchor = anchorDropdown(dropdown, dropmenu, {
+      preferredY: 'bottom',
+      preferredX: 'center',
+      portal: true,
+      portalTo: document.body,
+    })
+
+    globalThis.addEventListener('beforeunload', () => {
+      if (anchor && typeof anchor.destroy === 'function') {
+        anchor.destroy()
+      }
     });
   </script>
 

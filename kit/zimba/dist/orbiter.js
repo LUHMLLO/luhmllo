@@ -1,24 +1,26 @@
 // deno-lint-ignore-file
-var b = Object.defineProperty;
-var p = (o, t, e) => t in o ? b(o, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : o[t] = e;
-var r = (o, t, e) => p(o, typeof t != "symbol" ? t + "" : t, e);
+var v = Object.defineProperty;
+var p = (o, t, e) => t in o ? v(o, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : o[t] = e;
+var n = (o, t, e) => p(o, typeof t != "symbol" ? t + "" : t, e);
 
 // src/orbiter.mts
-var l = class {
-  /**
-   * Creates a new Orbiter instance
-   * @param orbiterElement - The element that will follow the cursor
-   * @param boundaryElement - The container element that defines the tracking area
-   * @param options - Configuration options
-   */
+var m = class {
   constructor(t, e, s = {}) {
-    r(this, "orbiterElement");
-    r(this, "boundaryElement");
-    r(this, "options");
-    r(this, "state");
-    r(this, "rafId", null);
-    r(this, "resizeObserver", null);
-    this.orbiterElement = t, this.boundaryElement = e, this.options = this.h(s), this.state = {
+    n(this, "orbiterElement");
+    n(this, "boundaryElement");
+    n(this, "options");
+    n(this, "state");
+    n(this, "rafId", null);
+    n(this, "resizeObserver", null);
+    // Bound event handlers to prevent memory leaks
+    n(this, "handleMouseMove");
+    n(this, "handleMouseLeave");
+    n(this, "handleTouchMove");
+    n(this, "handleTouchEnd");
+    // Flags for cleanup
+    n(this, "isDestroyed", !1);
+    n(this, "isInitialized", !1);
+    this.orbiterElement = t, this.boundaryElement = e, this.options = this.u(s), this.state = {
       current: { x: 0, y: 0 },
       target: { x: 0, y: 0 },
       constraints: { maxX: 0, maxY: 0, centerX: 0, centerY: 0 },
@@ -26,13 +28,9 @@ var l = class {
       isTracking: !1,
       animationId: null,
       lastUpdateTime: 0
-    }, this.u(), this.a(), this.c(), this.m(), this.l(), this.s();
+    }, this.handleMouseMove = this.c.bind(this), this.handleMouseLeave = this.i.bind(this), this.handleTouchMove = this.d.bind(this), this.handleTouchEnd = this.l.bind(this), this.m(), this.s(), this.n(), this.b(), this.e(), this.isInitialized = !0;
   }
-  /**
-   * Apply default options and merge with user provided options
-   * @private
-   */
-  h(t) {
+  u(t) {
     return {
       factor: t.factor ?? 1,
       smoothing: {
@@ -55,11 +53,7 @@ var l = class {
       }
     };
   }
-  /**
-   * Validate configuration and throw errors for invalid setups
-   * @private
-   */
-  u() {
+  m() {
     if (!this.orbiterElement || !this.boundaryElement)
       throw new Error("Orbiter requires valid orbiter and boundary elements");
     if (this.options.smoothing.speed < 0 || this.options.smoothing.speed > 1)
@@ -68,63 +62,74 @@ var l = class {
       throw new Error("Elastic tension must be between 0 and 1");
   }
   /**
-   * Calculate movement constraints based on current element dimensions
-   * @private
+   * Calculate movement constraints with caching optimization
    */
-  a() {
-    let t = this.boundaryElement.getBoundingClientRect(), e = this.orbiterElement.getBoundingClientRect();
-    this.state.constraints = {
+  s() {
+    if (this.isDestroyed) return;
+    let t = this.boundaryElement.getBoundingClientRect(), e = this.orbiterElement.getBoundingClientRect(), s = {
       maxX: Math.max(0, (t.width - e.width) / 2),
       maxY: Math.max(0, (t.height - e.height) / 2),
       centerX: t.width / 2,
       centerY: t.height / 2
     };
+    (Math.abs(this.state.constraints.maxX - s.maxX) > 1 || Math.abs(this.state.constraints.maxY - s.maxY) > 1 || Math.abs(this.state.constraints.centerX - s.centerX) > 1 || Math.abs(this.state.constraints.centerY - s.centerY) > 1) && (this.state.constraints = s);
   }
   /**
-   * Bind all event handlers to maintain proper context
-   * @private
+   * Attach event listeners with proper options for performance
    */
-  c() {
-    this.i = this.i.bind(this), this.t = this.t.bind(this), this.n = this.n.bind(this), this.e = this.e.bind(this);
-  }
-  /**
-   * Attach event listeners to boundary element
-   * @private
-   */
-  m() {
-    this.boundaryElement.addEventListener("mousemove", this.i), this.boundaryElement.addEventListener("mouseleave", this.t), this.options.touch.enabled && (this.boundaryElement.addEventListener(
-      "touchmove",
-      this.n,
-      {
-        passive: !0
-      }
-    ), this.boundaryElement.addEventListener("touchend", this.e), this.boundaryElement.addEventListener(
+  n() {
+    this.isDestroyed || (this.boundaryElement.addEventListener("mousemove", this.handleMouseMove, {
+      passive: !0
+    }), this.boundaryElement.addEventListener("mouseleave", this.handleMouseLeave, {
+      passive: !0
+    }), this.options.touch.enabled && (this.boundaryElement.addEventListener("touchmove", this.handleTouchMove, {
+      passive: !0
+    }), this.boundaryElement.addEventListener("touchend", this.handleTouchEnd, {
+      passive: !0
+    }), this.boundaryElement.addEventListener(
       "touchcancel",
-      this.e
+      this.handleTouchEnd,
+      { passive: !0 }
+    )));
+  }
+  /**
+   * Remove all event listeners for cleanup
+   */
+  a() {
+    this.boundaryElement.removeEventListener("mousemove", this.handleMouseMove), this.boundaryElement.removeEventListener(
+      "mouseleave",
+      this.handleMouseLeave
+    ), this.options.touch.enabled && (this.boundaryElement.removeEventListener(
+      "touchmove",
+      this.handleTouchMove
+    ), this.boundaryElement.removeEventListener("touchend", this.handleTouchEnd), this.boundaryElement.removeEventListener(
+      "touchcancel",
+      this.handleTouchEnd
     ));
   }
   /**
-   * Set up ResizeObserver to recalculate constraints when elements resize
-   * @private
+   * Set up ResizeObserver with throttling
    */
-  l() {
-    globalThis.ResizeObserver && (this.resizeObserver = new ResizeObserver(() => {
-      this.a();
-    }), this.resizeObserver.observe(this.boundaryElement), this.resizeObserver.observe(this.orbiterElement));
+  b() {
+    if (!globalThis.ResizeObserver || this.isDestroyed) return;
+    let t;
+    this.resizeObserver = new ResizeObserver(() => {
+      t && clearTimeout(t), t = setTimeout(() => {
+        this.isDestroyed || this.s(), t = void 0;
+      }, 16);
+    }), this.resizeObserver.observe(this.boundaryElement), this.resizeObserver.observe(this.orbiterElement);
   }
   /**
-   * Calculate target position based on cursor/touch coordinates
-   * @private
+   * Calculate target position with micro-optimizations
    */
   r(t, e) {
-    let s = this.boundaryElement.getBoundingClientRect(), i = t - s.left, a = e - s.top, u = (i - this.state.constraints.centerX) * this.options.factor, h = (a - this.state.constraints.centerY) * this.options.factor;
-    return this.d(u, h);
+    let s = this.boundaryElement.getBoundingClientRect(), i = t - s.left, a = e - s.top, h = (i - this.state.constraints.centerX) * this.options.factor, u = (a - this.state.constraints.centerY) * this.options.factor;
+    return this.v(h, u);
   }
   /**
-   * Apply movement constraints based on configured mode
-   * @private
+   * Apply movement constraints with optimized calculations
    */
-  d(t, e) {
+  v(t, e) {
     let { maxX: s, maxY: i } = this.state.constraints;
     switch (this.options.constraintMode) {
       case "clamp":
@@ -145,96 +150,148 @@ var l = class {
     }
   }
   /**
-   * Update CSS transform properties with current position
-   * Uses RAF for smooth rendering
-   * @private
+   * Update CSS transform properties with batched DOM writes
    */
-  s() {
-    this.rafId && cancelAnimationFrame(this.rafId), this.rafId = requestAnimationFrame(() => {
-      this.orbiterElement.style.setProperty(
-        "--translate-x",
-        `${this.state.current.x}px`
-      ), this.orbiterElement.style.setProperty(
-        "--translate-y",
-        `${this.state.current.y}px`
-      ), this.orbiterElement.style.setProperty("--translate-z", "0px"), this.rafId = null;
-    });
+  e() {
+    this.isDestroyed || (this.rafId && cancelAnimationFrame(this.rafId), this.rafId = requestAnimationFrame(() => {
+      if (this.isDestroyed) return;
+      let { x: t, y: e } = this.state.current;
+      this.orbiterElement.style.setProperty("--translate-x", `${t}px`), this.orbiterElement.style.setProperty("--translate-y", `${e}px`), this.orbiterElement.style.setProperty("--translate-z", "0px"), this.rafId = null;
+    }));
   }
   /**
-   * Start the animation loop for smooth movement
-   * @private
+   * Start the animation loop with better cleanup
    */
   o() {
-    if (this.state.animationId) return;
+    if (this.state.animationId || this.isDestroyed) return;
     let t = (e) => {
-      if (!this.state.isAnimating) {
+      if (!this.state.isAnimating || this.isDestroyed) {
         this.state.animationId = null;
         return;
       }
       if (this.state.lastUpdateTime = e, this.options.smoothing.enabled) {
-        let s = this.options.smoothing.speed;
-        this.state.current.x += (this.state.target.x - this.state.current.x) * s, this.state.current.y += (this.state.target.y - this.state.current.y) * s, Math.sqrt(
-          Math.pow(this.state.target.x - this.state.current.x, 2) + Math.pow(this.state.target.y - this.state.current.y, 2)
-        ) < 0.1 && !this.state.isTracking && (this.state.isAnimating = !1);
+        let s = this.options.smoothing.speed, i = this.state.target.x - this.state.current.x, a = this.state.target.y - this.state.current.y;
+        this.state.current.x += i * s, this.state.current.y += a * s, i * i + a * a < 0.01 && !this.state.isTracking && (this.state.current.x = this.state.target.x, this.state.current.y = this.state.target.y, this.state.isAnimating = !1);
       } else
         this.state.current.x = this.state.target.x, this.state.current.y = this.state.target.y, this.state.isTracking || (this.state.isAnimating = !1);
-      this.s(), this.state.isAnimating ? this.state.animationId = requestAnimationFrame(t) : this.state.animationId = null;
+      this.e(), this.state.isAnimating && !this.isDestroyed ? this.state.animationId = requestAnimationFrame(t) : this.state.animationId = null;
     };
     this.state.isAnimating = !0, this.state.lastUpdateTime = performance.now(), this.state.animationId = requestAnimationFrame(t);
   }
   /**
-   * Animate back to center position with easing
-   * @private
+   * Stop animation loop with proper cleanup
    */
-  b() {
-    let t = performance.now(), e = this.state.current.x, s = this.state.current.y, { duration: i, easing: a } = this.options.resetAnimation, u = (n) => {
+  t() {
+    this.state.isAnimating = !1, this.state.animationId && (cancelAnimationFrame(this.state.animationId), this.state.animationId = null);
+  }
+  /**
+   * Animate back to center position with easing and cleanup
+   */
+  h() {
+    if (this.isDestroyed) return;
+    this.t();
+    let t = performance.now(), e = this.state.current.x, s = this.state.current.y, { duration: i, easing: a } = this.options.resetAnimation, h = (r) => {
       switch (a) {
         case "easeOut":
-          return 1 - Math.pow(1 - n, 3);
+          return 1 - Math.pow(1 - r, 3);
         case "easeInOut":
-          return n < 0.5 ? 2 * n * n : 1 - Math.pow(-2 * n + 2, 3) / 2;
+          return r < 0.5 ? 2 * r * r : 1 - Math.pow(-2 * r + 2, 3) / 2;
         case "linear":
-          return n;
+          return r;
         default:
-          return 1 - Math.pow(1 - n, 2);
+          return 1 - Math.pow(1 - r, 2);
       }
-    }, h = (n) => {
-      let d = n - t, c = Math.min(d / i, 1), m = u(c);
-      this.state.current.x = e * (1 - m), this.state.current.y = s * (1 - m), this.state.target.x = this.state.current.x, this.state.target.y = this.state.current.y, this.s(), c < 1 ? requestAnimationFrame(h) : this.state.isAnimating = !1;
+    }, u, c = (r) => {
+      if (this.isDestroyed) return;
+      let b = r - t, d = Math.min(b / i, 1), l = h(d);
+      this.state.current.x = e * (1 - l), this.state.current.y = s * (1 - l), this.state.target.x = this.state.current.x, this.state.target.y = this.state.current.y, this.e(), d < 1 && !this.isDestroyed ? u = requestAnimationFrame(c) : this.state.isAnimating = !1;
     };
-    this.state.isAnimating = !0, requestAnimationFrame(h);
+    this.state.isAnimating = !0, u = requestAnimationFrame(c);
   }
-  // Event handlers
-  i(t) {
-    this.state.isTracking = !0, this.state.target = this.r(
+  // Event handlers with early returns for performance
+  c(t) {
+    this.isDestroyed || (this.state.isTracking = !0, this.state.target = this.r(
       t.clientX,
       t.clientY
-    ), this.o();
+    ), this.o());
   }
-  t() {
-    switch (this.state.isTracking = !1, this.options.onLeave) {
-      case "reset":
-        this.b();
-        break;
-      case "freeze":
-        break;
-      case "continue":
-        this.options.smoothing.enabled || (this.state.isAnimating = !1);
-        break;
-    }
+  i() {
+    if (!this.isDestroyed)
+      switch (this.state.isTracking = !1, this.options.onLeave) {
+        case "reset":
+          this.h();
+          break;
+        case "freeze":
+          this.t();
+          break;
+        case "continue":
+          this.options.smoothing.enabled || this.t();
+          break;
+      }
   }
-  n(t) {
-    if (!this.options.touch.enabled || t.touches.length === 0) return;
+  d(t) {
+    if (this.isDestroyed || !this.options.touch.enabled || t.touches.length === 0) return;
     let e = this.options.touch.useFirstTouch ? t.touches[0] : t.touches[t.touches.length - 1];
     this.state.isTracking = !0, this.state.target = this.r(
       e.clientX,
       e.clientY
     ), this.o();
   }
-  e() {
-    this.t();
+  l() {
+    this.isDestroyed || this.i();
   }
+  // Public methods with proper state checking
+  /**
+   * Update configuration options
+   */
+  configure(t) {
+    if (this.isDestroyed) return;
+    let e = this.options.touch.enabled;
+    Object.assign(this.options, t), e !== this.options.touch.enabled && (this.a(), this.n()), this.s();
+  }
+  /**
+   * Get current position
+   */
+  getPosition() {
+    return { ...this.state.current };
+  }
+  /**
+   * Set position directly
+   */
+  setPosition(t, e) {
+    this.isDestroyed || (this.state.current.x = t, this.state.current.y = e, this.state.target.x = t, this.state.target.y = e, this.e());
+  }
+  /**
+   * Reset to center position
+   */
+  reset() {
+    this.isDestroyed || this.h();
+  }
+  /**
+   * Pause all animations and tracking
+   */
+  pause() {
+    this.isDestroyed || (this.state.isTracking = !1, this.t());
+  }
+  /**
+   * Resume animations and tracking
+   */
+  resume() {
+    this.isDestroyed;
+  }
+  /**
+   * Comprehensive cleanup to prevent memory leaks
+   */
+  destroy() {
+    this.isDestroyed || (this.t(), this.rafId && (cancelAnimationFrame(this.rafId), this.rafId = null), this.a(), this.resizeObserver && (this.resizeObserver.disconnect(), this.resizeObserver = null), this.state.animationId = null, this.state.isAnimating = !1, this.state.isTracking = !1, this.isDestroyed = !0);
+  }
+  /**
+   * Check if instance is destroyed
+   */
+  // public isDestroyed(): boolean {
+  //   return this.isDestroyed;
+  // }
 };
 export {
-  l as Orbiter
+  m as Orbiter
 };

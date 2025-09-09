@@ -135,32 +135,6 @@ var Drifter = class {
       });
     }
   }
-  _detachEventListeners() {
-    this.eventTarget.removeEventListener(
-      "pointerdown",
-      this._handlePointerDown
-    );
-    this.eventTarget.removeEventListener(
-      "pointermove",
-      this._handlePointerMove
-    );
-    this.eventTarget.removeEventListener("pointerup", this._handlePointerUp);
-    this.eventTarget.removeEventListener(
-      "pointercancel",
-      this._handlePointerCancel
-    );
-    this.eventTarget.removeEventListener(
-      "pointerleave",
-      this._handlePointerLeave
-    );
-    globalThis.removeEventListener("blur", this._handleWindowBlur);
-    globalThis.removeEventListener("visibilitychange", this._handleWindowBlur);
-    this._stopInertia();
-    if (this.animationFrameId) {
-      cancelAnimationFrame(this.animationFrameId);
-    }
-    this.activePointers.clear();
-  }
   /**
    * Update CSS custom properties for transform
    * Uses RAF for smooth rendering
@@ -365,7 +339,6 @@ var Drifter = class {
     } else if (this.activePointers.size === 2 && this.options.zoom.enabled) {
       this._beginPinch();
     }
-    event.preventDefault();
   }
   _handlePointerMove(event) {
     if (this.activePointers.has(event.pointerId)) {
@@ -566,6 +539,32 @@ var Drifter = class {
     if (this.options.mode === "bounded") {
       this._bounceBackToBounds();
     }
+  }
+  destroy() {
+    this.eventTarget.removeEventListener(
+      "pointerdown",
+      this._handlePointerDown
+    );
+    this.eventTarget.removeEventListener(
+      "pointermove",
+      this._handlePointerMove
+    );
+    this.eventTarget.removeEventListener("pointerup", this._handlePointerUp);
+    this.eventTarget.removeEventListener(
+      "pointercancel",
+      this._handlePointerCancel
+    );
+    this.eventTarget.removeEventListener(
+      "pointerleave",
+      this._handlePointerLeave
+    );
+    globalThis.removeEventListener("blur", this._handleWindowBlur);
+    globalThis.removeEventListener("visibilitychange", this._handleWindowBlur);
+    this._stopInertia();
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
+    }
+    this.activePointers.clear();
   }
 };
 export {

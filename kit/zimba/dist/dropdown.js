@@ -1,34 +1,43 @@
 // deno-lint-ignore-file
-var m = Object.defineProperty;
-var u = (s, t, e) => t in s ? m(s, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : s[t] = e;
-var o = (s, t, e) => u(s, typeof t != "symbol" ? t + "" : t, e);
+var u = Object.defineProperty;
+var m = (o, t, e) => t in o ? u(o, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : o[t] = e;
+var s = (o, t, e) => m(o, typeof t != "symbol" ? t + "" : t, e);
 
 // src/dropdown.mts
-function b(s, t) {
-  let e;
-  return function(...n) {
-    e || (s.apply(this, n), e = !0, setTimeout(() => e = !1, t));
+function b(o, t) {
+  let e, r, i = function(...n) {
+    e || (o.apply(this, n), e = !0, r = setTimeout(() => {
+      e = !1, r = void 0;
+    }, t));
   };
+  return i.cancel = () => {
+    r !== void 0 && (clearTimeout(r), r = void 0), e = !1;
+  }, i;
 }
-var v = class {
-  /**
-   * Creates a new DropdownAnchor instance
-   */
-  constructor(t, e, n = {}) {
-    o(this, "detailsElement");
-    o(this, "dropdownContent");
-    o(this, "trigger");
-    o(this, "options");
-    o(this, "resizeObserver");
-    o(this, "mutationObserver");
-    o(this, "clickOutsideHandler");
-    o(this, "toggleHandler");
-    o(this, "handleUpdatePosition");
-    o(this, "isDestroyed", !1);
+var c = class {
+  constructor(t, e, r = {}) {
+    s(this, "detailsElement");
+    s(this, "dropdownContent");
+    s(this, "trigger");
+    s(this, "options");
+    // Observers - lazy initialized
+    s(this, "resizeObserver");
+    s(this, "mutationObserver");
+    s(this, "intersectionObserver");
+    // Event handlers - bound once
+    s(this, "clickOutsideHandler");
+    s(this, "toggleHandler");
+    s(this, "throttledUpdate");
+    // Animation frame tracking
+    s(this, "animationFrameId");
+    s(this, "lastTriggerRect");
+    // State flags
+    s(this, "isDestroyed", !1);
+    s(this, "isObserversSetup", !1);
     // Portal-related properties
-    o(this, "originalParent", null);
-    o(this, "originalNextSibling", null);
-    o(this, "isPortaled", !1);
+    s(this, "originalParent", null);
+    s(this, "originalNextSibling", null);
+    s(this, "isPortaled", !1);
     if (this.detailsElement = t, this.dropdownContent = e, this.trigger = t.querySelector("summary"), !this.trigger)
       throw new Error(
         "DropdownAnchor: No <summary> element found in <details>"
@@ -41,169 +50,159 @@ var v = class {
       animated: !0,
       portal: !1,
       portalTo: document.body,
-      ...n
-    }, this.clickOutsideHandler = this.handleClickOutside.bind(this), this.toggleHandler = this.handleToggle.bind(this), this.handleUpdatePosition = this.updatePosition.bind(this), this.initializeDropdown(), this.setupObservers();
+      ...r
+    }, this.clickOutsideHandler = this.handleClickOutside.bind(this), this.toggleHandler = this.handleToggle.bind(this), this.throttledUpdate = b(this.updatePosition.bind(this), 16), this.initializeDropdown(), this.setupObserversLazy();
   }
-  /**
-   * Initializes dropdown positioning styles and event handlers
-   */
   initializeDropdown() {
-    this.options.animated || (this.dropdownContent.style.transition = "none"), this.options.portal && (this.originalParent = this.dropdownContent.parentElement, this.originalNextSibling = this.dropdownContent.nextElementSibling), this.detailsElement.addEventListener("toggle", this.toggleHandler), this.detailsElement.open && requestAnimationFrame(() => this.handleUpdatePosition());
+    this.options.animated || (this.dropdownContent.style.transition = "none"), this.options.portal && (this.originalParent = this.dropdownContent.parentElement, this.originalNextSibling = this.dropdownContent.nextElementSibling), this.detailsElement.addEventListener("toggle", this.toggleHandler, {
+      passive: !0
+    }), this.detailsElement.open && requestAnimationFrame(() => this.throttledUpdate());
   }
-  /**
-   * Moves dropdown to document.body for portal behavior
-   */
   enablePortal() {
     !this.options.portal || this.isPortaled || (this.options.portalTo.appendChild(this.dropdownContent), this.isPortaled = !0);
   }
-  /**
-   * Restores dropdown to original position
-   */
   disablePortal() {
-    !this.options.portal || !this.isPortaled || !this.originalParent || (this.originalNextSibling ? this.originalParent.insertBefore(
+    !this.options.portal || !this.isPortaled || !this.originalParent || (this.originalNextSibling && this.originalNextSibling.parentNode === this.originalParent ? this.originalParent.insertBefore(
       this.dropdownContent,
       this.originalNextSibling
     ) : this.originalParent.appendChild(this.dropdownContent), this.isPortaled = !1);
   }
   /**
-   * Handles the details toggle event
+   * More efficient position tracking with early exit
    */
-  handleToggle(t) {
-    this.detailsElement.open ? (this.enablePortal(), requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        this.handleUpdatePosition();
-      });
-    }), document.addEventListener("click", this.clickOutsideHandler)) : (document.removeEventListener("click", this.clickOutsideHandler), this.disablePortal());
+  startPositionTracking() {
+    if (this.animationFrameId || this.isDestroyed) return;
+    let t = () => {
+      if (!this.detailsElement.open || this.isDestroyed) {
+        this.animationFrameId = void 0, this.lastTriggerRect = void 0;
+        return;
+      }
+      let e = this.trigger.getBoundingClientRect();
+      (!this.lastTriggerRect || Math.abs(this.lastTriggerRect.x - e.x) > 0.5 || Math.abs(this.lastTriggerRect.y - e.y) > 0.5 || Math.abs(this.lastTriggerRect.width - e.width) > 0.5 || Math.abs(this.lastTriggerRect.height - e.height) > 0.5) && (this.lastTriggerRect || (this.lastTriggerRect = new DOMRect()), this.lastTriggerRect.x = e.x, this.lastTriggerRect.y = e.y, this.lastTriggerRect.width = e.width, this.lastTriggerRect.height = e.height, this.updatePosition()), this.animationFrameId = requestAnimationFrame(t);
+    };
+    this.animationFrameId = requestAnimationFrame(t);
   }
-  /**
-   * Handles clicks outside the dropdown to close it
-   */
+  stopPositionTracking() {
+    this.animationFrameId && (cancelAnimationFrame(this.animationFrameId), this.animationFrameId = void 0), this.lastTriggerRect = void 0;
+  }
+  handleToggle(t) {
+    this.detailsElement.open ? (this.enablePortal(), this.startPositionTracking(), this.setupObserversLazy(), requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        this.throttledUpdate();
+      });
+    }), document.addEventListener("click", this.clickOutsideHandler, {
+      passive: !0
+    })) : (this.stopPositionTracking(), document.removeEventListener("click", this.clickOutsideHandler), this.disablePortal());
+  }
   handleClickOutside(t) {
     let e = t.target;
-    !this.detailsElement.contains(e) && !this.dropdownContent.contains(e) && (this.detailsElement.open = !1);
+    e && !this.detailsElement.contains(e) && !this.dropdownContent.contains(e) && (this.detailsElement.open = !1);
   }
-  /**
-   * Calculates optimal dropdown position based on viewport constraints
-   */
   calculatePosition() {
-    let t = this.trigger.getBoundingClientRect(), e = this.dropdownContent.getBoundingClientRect(), n = {
+    let t = this.trigger.getBoundingClientRect(), e = this.dropdownContent.getBoundingClientRect(), r = {
       width: globalThis.innerWidth,
       height: globalThis.innerHeight
-    }, i = 0, r = 0, h = this.options.preferredY, l = this.options.preferredX, a = e.width > 0 ? e.width : 200, p = e.height > 0 ? e.height : 200, c = n.height - t.bottom - this.options.viewportMargin, g = t.top - this.options.viewportMargin;
-    switch (this.options.preferredY === "bottom" ? c >= p + this.options.gap ? (r = t.bottom + this.options.gap, h = "bottom") : g >= p + this.options.gap ? (r = t.top - p - this.options.gap, h = "top") : c > g ? (r = t.bottom + this.options.gap, h = "bottom") : (r = Math.max(
+    }, i = 0, n = 0, h = this.options.preferredY, l = this.options.preferredX, a = e.width > 0 ? e.width : 200, d = e.height > 0 ? e.height : 200, v = r.height - t.bottom - this.options.viewportMargin, g = t.top - this.options.viewportMargin;
+    switch (this.options.preferredY === "bottom" ? v >= d + this.options.gap ? (n = t.bottom + this.options.gap, h = "bottom") : g >= d + this.options.gap ? (n = t.top - d - this.options.gap, h = "top") : v > g ? (n = t.bottom + this.options.gap, h = "bottom") : (n = Math.max(
       this.options.viewportMargin,
-      t.top - p - this.options.gap
-    ), h = "top") : g >= p + this.options.gap ? (r = t.top - p - this.options.gap, h = "top") : (r = t.bottom + this.options.gap, h = "bottom"), this.options.preferredX) {
+      t.top - d - this.options.gap
+    ), h = "top") : g >= d + this.options.gap ? (n = t.top - d - this.options.gap, h = "top") : (n = t.bottom + this.options.gap, h = "bottom"), this.options.preferredX) {
       case "left":
-        if (i = t.left, i + a > n.width - this.options.viewportMargin) {
-          let d = t.right - a;
-          d >= this.options.viewportMargin ? (i = d, l = "right") : (i = n.width - a - this.options.viewportMargin, l = "right");
+        if (i = t.left, i + a > r.width - this.options.viewportMargin) {
+          let p = t.right - a;
+          p >= this.options.viewportMargin ? (i = p, l = "right") : (i = r.width - a - this.options.viewportMargin, l = "right");
         }
         break;
       case "right":
         if (i = t.right - a, i < this.options.viewportMargin) {
-          let d = t.left;
-          d + a <= n.width - this.options.viewportMargin ? (i = d, l = "left") : (i = this.options.viewportMargin, l = "left");
+          let p = t.left;
+          p + a <= r.width - this.options.viewportMargin ? (i = p, l = "left") : (i = this.options.viewportMargin, l = "left");
         }
         break;
       case "center":
-        i = t.left + (t.width - a) / 2, i < this.options.viewportMargin ? (i = this.options.viewportMargin, l = "left") : i + a > n.width - this.options.viewportMargin ? (i = n.width - a - this.options.viewportMargin, l = "right") : l = "center";
+        i = t.left + (t.width - a) / 2, i < this.options.viewportMargin ? (i = this.options.viewportMargin, l = "left") : i + a > r.width - this.options.viewportMargin ? (i = r.width - a - this.options.viewportMargin, l = "right") : l = "center";
         break;
     }
     return i = Math.max(
       this.options.viewportMargin,
-      Math.min(i, n.width - a - this.options.viewportMargin)
-    ), r = Math.max(
+      Math.min(i, r.width - a - this.options.viewportMargin)
+    ), n = Math.max(
       this.options.viewportMargin,
       Math.min(
-        r,
-        n.height - p - this.options.viewportMargin
+        n,
+        r.height - d - this.options.viewportMargin
       )
     ), {
       x: i,
-      y: r,
+      y: n,
       placement: {
         vertical: h,
         horizontal: l
       }
     };
   }
-  /**
-   * Updates the dropdown position
-   */
   updatePosition() {
     if (!this.detailsElement.open || this.isDestroyed) return;
     let t = this.calculatePosition();
-    this.dropdownContent.style.setProperty(
-      "--translate-y",
-      `${t.y}px`
-    ), this.dropdownContent.style.setProperty(
-      "--translate-x",
-      `${t.x}px`
-    );
+    this.dropdownContent.style.setProperty("--translate-x", `${t.x}px`), this.dropdownContent.style.setProperty("--translate-y", `${t.y}px`);
   }
   /**
-   * Sets up observers for automatic repositioning
+   * Lazy observer setup - only create when needed
    */
-  setupObservers() {
-    let t = b(this.handleUpdatePosition, 16);
-    globalThis.addEventListener(
-      "scroll",
-      t,
-      {
-        passive: !0
-      }
-    ), globalThis.addEventListener(
-      "resize",
-      t,
-      {
-        passive: !0
-      }
-    ), globalThis.ResizeObserver && (this.resizeObserver = new ResizeObserver(() => {
-      this.detailsElement.open && this.handleUpdatePosition();
-    }), this.resizeObserver.observe(this.dropdownContent), this.resizeObserver.observe(this.trigger)), globalThis.MutationObserver && (this.mutationObserver = new MutationObserver(() => {
-      this.detailsElement.open && setTimeout(this.handleUpdatePosition, 10);
+  setupObserversLazy() {
+    this.isObserversSetup || this.isDestroyed || (globalThis.addEventListener("scroll", this.throttledUpdate, {
+      passive: !0
+    }), globalThis.addEventListener("resize", this.throttledUpdate, {
+      passive: !0
+    }), globalThis.ResizeObserver && (this.resizeObserver = new ResizeObserver((t) => {
+      this.detailsElement.open && t.length > 0 && this.throttledUpdate();
+    }), this.resizeObserver.observe(this.dropdownContent), this.resizeObserver.observe(this.trigger)), globalThis.MutationObserver && (this.mutationObserver = new MutationObserver((t) => {
+      this.detailsElement.open && t.length > 0 && this.throttledUpdate();
+    }), this.mutationObserver.observe(this.detailsElement, {
+      childList: !0,
+      attributes: !0,
+      attributeFilter: ["class", "style"],
+      subtree: !1
+      // Don't watch deep subtree for performance
     }), this.mutationObserver.observe(this.dropdownContent, {
       childList: !0,
-      subtree: !0,
-      attributes: !1
-    }));
+      attributes: !0,
+      attributeFilter: ["class", "style"],
+      subtree: !1
+    }), this.mutationObserver.observe(document.body, {
+      childList: !0,
+      subtree: !0
+    })), globalThis.IntersectionObserver && (this.intersectionObserver = new IntersectionObserver((t) => {
+      this.detailsElement.open && t.length > 0 && this.throttledUpdate();
+    }, {
+      threshold: [0, 1],
+      rootMargin: "10px"
+      // Small buffer for better detection
+    }), this.intersectionObserver.observe(this.trigger)), this.isObserversSetup = !0);
   }
-  /**
-   * Opens the dropdown
-   */
   open() {
     this.isDestroyed || (this.detailsElement.open = !0);
   }
-  /**
-   * Closes the dropdown
-   */
   close() {
     this.isDestroyed || (this.detailsElement.open = !1);
   }
-  /**
-   * Toggles the dropdown
-   */
   toggle() {
     this.isDestroyed || (this.detailsElement.open = !this.detailsElement.open);
   }
-  /**
-   * Updates positioning options
-   */
   configure(t) {
-    Object.assign(this.options, t), this.handleUpdatePosition();
+    this.isDestroyed || (Object.assign(this.options, t), this.throttledUpdate());
   }
   /**
-   * Destroys the anchor and removes all observers
+   * Comprehensive cleanup to prevent memory leaks
    */
   destroy() {
-    this.disablePortal(), this.detailsElement.removeEventListener("toggle", this.toggleHandler), document.removeEventListener("click", this.clickOutsideHandler), globalThis.removeEventListener("scroll", this.handleUpdatePosition), globalThis.removeEventListener("resize", this.handleUpdatePosition), this.resizeObserver?.disconnect(), this.mutationObserver?.disconnect(), this.isDestroyed = !0;
+    this.isDestroyed || (this.stopPositionTracking(), this.disablePortal(), this.detailsElement.removeEventListener("toggle", this.toggleHandler), document.removeEventListener("click", this.clickOutsideHandler), globalThis.removeEventListener("scroll", this.throttledUpdate), globalThis.removeEventListener("resize", this.throttledUpdate), this.throttledUpdate.cancel(), this.resizeObserver && (this.resizeObserver.disconnect(), this.resizeObserver = void 0), this.mutationObserver && (this.mutationObserver.disconnect(), this.mutationObserver = void 0), this.intersectionObserver && (this.intersectionObserver.disconnect(), this.intersectionObserver = void 0), this.originalParent = null, this.originalNextSibling = null, this.lastTriggerRect = void 0, this.isDestroyed = !0, this.isObserversSetup = !1);
   }
 };
-function w(s, t, e) {
-  return new v(s, t, e);
+function w(o, t, e) {
+  return new c(o, t, e);
 }
 export {
-  v as DropdownAnchor,
+  c as DropdownAnchor,
   w as anchorDropdown
 };

@@ -76,12 +76,16 @@ export class Orbiter {
   private rafId: number | null = null;
   private resizeObserver: ResizeObserver | null = null;
 
-  /**
-   * Creates a new Orbiter instance
-   * @param orbiterElement - The element that will follow the cursor
-   * @param boundaryElement - The container element that defines the tracking area
-   * @param options - Configuration options
-   */
+  // Bound event handlers to prevent memory leaks
+  private handleMouseMove: (event: MouseEvent) => void;
+  private handleMouseLeave: () => void;
+  private handleTouchMove: (event: TouchEvent) => void;
+  private handleTouchEnd: () => void;
+
+  // Flags for cleanup
+  private isDestroyed: boolean = false;
+  private isInitialized: boolean = false;
+
   constructor(
     orbiterElement: HTMLElement,
     boundaryElement: HTMLElement,
@@ -102,18 +106,21 @@ export class Orbiter {
       lastUpdateTime: 0,
     };
 
+    // Bind event handlers once to prevent memory leaks
+    this.handleMouseMove = this._handleMouseMove.bind(this);
+    this.handleMouseLeave = this._handleMouseLeave.bind(this);
+    this.handleTouchMove = this._handleTouchMove.bind(this);
+    this.handleTouchEnd = this._handleTouchEnd.bind(this);
+
     this._validateConfiguration();
     this._calculateConstraints();
-    this._bindEventHandlers();
     this._attachEventListeners();
     this._setupResizeObserver();
     this._updateTransform();
+
+    this.isInitialized = true;
   }
 
-  /**
-   * Apply default options and merge with user provided options
-   * @private
-   */
   private _applyDefaults(options: Partial<Options>): Options {
     return {
       factor: options.factor ?? 1,
@@ -138,10 +145,6 @@ export class Orbiter {
     };
   }
 
-  /**
-   * Validate configuration and throw errors for invalid setups
-   * @private
-   */
   private _validateConfiguration(): void {
     if (!this.orbiterElement || !this.boundaryElement) {
       throw new Error("Orbiter requires valid orbiter and boundary elements");
@@ -157,67 +160,107 @@ export class Orbiter {
   }
 
   /**
-   * Calculate movement constraints based on current element dimensions
-   * @private
+   * Calculate movement constraints with caching optimization
    */
   private _calculateConstraints(): void {
+    if (this.isDestroyed) return;
+
     const boundaryRect = this.boundaryElement.getBoundingClientRect();
     const orbiterRect = this.orbiterElement.getBoundingClientRect();
 
-    this.state.constraints = {
+    // Cache constraints to avoid repeated calculations
+    const newConstraints = {
       maxX: Math.max(0, (boundaryRect.width - orbiterRect.width) / 2),
       maxY: Math.max(0, (boundaryRect.height - orbiterRect.height) / 2),
       centerX: boundaryRect.width / 2,
       centerY: boundaryRect.height / 2,
     };
+
+    // Only update if changed significantly (avoid micro-updates)
+    const hasChanged =
+      Math.abs(this.state.constraints.maxX - newConstraints.maxX) > 1 ||
+      Math.abs(this.state.constraints.maxY - newConstraints.maxY) > 1 ||
+      Math.abs(this.state.constraints.centerX - newConstraints.centerX) > 1 ||
+      Math.abs(this.state.constraints.centerY - newConstraints.centerY) > 1;
+
+    if (hasChanged) {
+      this.state.constraints = newConstraints;
+    }
   }
 
   /**
-   * Bind all event handlers to maintain proper context
-   * @private
-   */
-  private _bindEventHandlers(): void {
-    this._handleMouseMove = this._handleMouseMove.bind(this);
-    this._handleMouseLeave = this._handleMouseLeave.bind(this);
-    this._handleTouchMove = this._handleTouchMove.bind(this);
-    this._handleTouchEnd = this._handleTouchEnd.bind(this);
-  }
-
-  /**
-   * Attach event listeners to boundary element
-   * @private
+   * Attach event listeners with proper options for performance
    */
   private _attachEventListeners(): void {
-    // Mouse events
-    this.boundaryElement.addEventListener("mousemove", this._handleMouseMove);
-    this.boundaryElement.addEventListener("mouseleave", this._handleMouseLeave);
+    if (this.isDestroyed) return;
+
+    // Mouse events with passive option where applicable
+    this.boundaryElement.addEventListener("mousemove", this.handleMouseMove, {
+      passive: true,
+    });
+    this.boundaryElement.addEventListener("mouseleave", this.handleMouseLeave, {
+      passive: true,
+    });
 
     // Touch events
     if (this.options.touch.enabled) {
-      this.boundaryElement.addEventListener(
-        "touchmove",
-        this._handleTouchMove,
-        {
-          passive: true,
-        },
-      );
-      this.boundaryElement.addEventListener("touchend", this._handleTouchEnd);
+      this.boundaryElement.addEventListener("touchmove", this.handleTouchMove, {
+        passive: true,
+      });
+      this.boundaryElement.addEventListener("touchend", this.handleTouchEnd, {
+        passive: true,
+      });
       this.boundaryElement.addEventListener(
         "touchcancel",
-        this._handleTouchEnd,
+        this.handleTouchEnd,
+        { passive: true },
       );
     }
   }
 
   /**
-   * Set up ResizeObserver to recalculate constraints when elements resize
-   * @private
+   * Remove all event listeners for cleanup
+   */
+  private _removeEventListeners(): void {
+    this.boundaryElement.removeEventListener("mousemove", this.handleMouseMove);
+    this.boundaryElement.removeEventListener(
+      "mouseleave",
+      this.handleMouseLeave,
+    );
+
+    if (this.options.touch.enabled) {
+      this.boundaryElement.removeEventListener(
+        "touchmove",
+        this.handleTouchMove,
+      );
+      this.boundaryElement.removeEventListener("touchend", this.handleTouchEnd);
+      this.boundaryElement.removeEventListener(
+        "touchcancel",
+        this.handleTouchEnd,
+      );
+    }
+  }
+
+  /**
+   * Set up ResizeObserver with throttling
    */
   private _setupResizeObserver(): void {
-    if (!globalThis.ResizeObserver) return;
+    if (!globalThis.ResizeObserver || this.isDestroyed) return;
+
+    let resizeTimeout: number | undefined;
 
     this.resizeObserver = new ResizeObserver(() => {
-      this._calculateConstraints();
+      // Throttle resize calculations to avoid excessive updates
+      if (resizeTimeout) {
+        clearTimeout(resizeTimeout);
+      }
+
+      resizeTimeout = setTimeout(() => {
+        if (!this.isDestroyed) {
+          this._calculateConstraints();
+        }
+        resizeTimeout = undefined;
+      }, 16); // ~60fps throttling
     });
 
     this.resizeObserver.observe(this.boundaryElement);
@@ -225,8 +268,7 @@ export class Orbiter {
   }
 
   /**
-   * Calculate target position based on cursor/touch coordinates
-   * @private
+   * Calculate target position with micro-optimizations
    */
   private _calculateTargetPosition(
     clientX: number,
@@ -247,8 +289,7 @@ export class Orbiter {
   }
 
   /**
-   * Apply movement constraints based on configured mode
-   * @private
+   * Apply movement constraints with optimized calculations
    */
   private _applyConstraints(x: number, y: number): { x: number; y: number } {
     const { maxX, maxY } = this.state.constraints;
@@ -283,60 +324,58 @@ export class Orbiter {
   }
 
   /**
-   * Update CSS transform properties with current position
-   * Uses RAF for smooth rendering
-   * @private
+   * Update CSS transform properties with batched DOM writes
    */
   private _updateTransform(): void {
+    if (this.isDestroyed) return;
+
+    // Cancel any pending transform update
     if (this.rafId) {
       cancelAnimationFrame(this.rafId);
     }
 
     this.rafId = requestAnimationFrame(() => {
-      this.orbiterElement.style.setProperty(
-        "--translate-x",
-        `${this.state.current.x}px`,
-      );
-      this.orbiterElement.style.setProperty(
-        "--translate-y",
-        `${this.state.current.y}px`,
-      );
+      if (this.isDestroyed) return;
+
+      // Batch DOM writes for better performance
+      const { x, y } = this.state.current;
+      this.orbiterElement.style.setProperty("--translate-x", `${x}px`);
+      this.orbiterElement.style.setProperty("--translate-y", `${y}px`);
       this.orbiterElement.style.setProperty("--translate-z", "0px");
+
       this.rafId = null;
     });
   }
 
   /**
-   * Start the animation loop for smooth movement
-   * @private
+   * Start the animation loop with better cleanup
    */
   private _startAnimationLoop(): void {
-    if (this.state.animationId) return;
+    if (this.state.animationId || this.isDestroyed) return;
 
     const animate = (timestamp: number) => {
-      if (!this.state.isAnimating) {
+      if (!this.state.isAnimating || this.isDestroyed) {
         this.state.animationId = null;
         return;
       }
 
-      // const dt = timestamp - this.state.lastUpdateTime;
       this.state.lastUpdateTime = timestamp;
 
       if (this.options.smoothing.enabled) {
         // Smooth interpolation to target
         const speed = this.options.smoothing.speed;
-        this.state.current.x += (this.state.target.x - this.state.current.x) *
-          speed;
-        this.state.current.y += (this.state.target.y - this.state.current.y) *
-          speed;
+        const deltaX = this.state.target.x - this.state.current.x;
+        const deltaY = this.state.target.y - this.state.current.y;
 
-        // Stop animation when close enough to target
-        const distance = Math.sqrt(
-          Math.pow(this.state.target.x - this.state.current.x, 2) +
-            Math.pow(this.state.target.y - this.state.current.y, 2),
-        );
+        this.state.current.x += deltaX * speed;
+        this.state.current.y += deltaY * speed;
 
-        if (distance < 0.1 && !this.state.isTracking) {
+        // Stop animation when close enough to target (optimized distance check)
+        const distanceSquared = deltaX * deltaX + deltaY * deltaY;
+
+        if (distanceSquared < 0.01 && !this.state.isTracking) { // 0.1^2 = 0.01
+          this.state.current.x = this.state.target.x;
+          this.state.current.y = this.state.target.y;
           this.state.isAnimating = false;
         }
       } else {
@@ -351,7 +390,7 @@ export class Orbiter {
 
       this._updateTransform();
 
-      if (this.state.isAnimating) {
+      if (this.state.isAnimating && !this.isDestroyed) {
         this.state.animationId = requestAnimationFrame(animate);
       } else {
         this.state.animationId = null;
@@ -364,10 +403,26 @@ export class Orbiter {
   }
 
   /**
-   * Animate back to center position with easing
-   * @private
+   * Stop animation loop with proper cleanup
+   */
+  private _stopAnimationLoop(): void {
+    this.state.isAnimating = false;
+
+    if (this.state.animationId) {
+      cancelAnimationFrame(this.state.animationId);
+      this.state.animationId = null;
+    }
+  }
+
+  /**
+   * Animate back to center position with easing and cleanup
    */
   private _animateToCenter(): void {
+    if (this.isDestroyed) return;
+
+    // Stop any existing animation
+    this._stopAnimationLoop();
+
     const startTime = performance.now();
     const startX = this.state.current.x;
     const startY = this.state.current.y;
@@ -386,7 +441,11 @@ export class Orbiter {
       }
     };
 
+    let resetAnimationId: number;
+
     const animate = (timestamp: number) => {
+      if (this.isDestroyed) return;
+
       const elapsed = timestamp - startTime;
       const t = Math.min(elapsed / duration, 1);
       const eased = getEasingValue(t);
@@ -398,19 +457,21 @@ export class Orbiter {
 
       this._updateTransform();
 
-      if (t < 1) {
-        requestAnimationFrame(animate);
+      if (t < 1 && !this.isDestroyed) {
+        resetAnimationId = requestAnimationFrame(animate);
       } else {
         this.state.isAnimating = false;
       }
     };
 
     this.state.isAnimating = true;
-    requestAnimationFrame(animate);
+    resetAnimationId = requestAnimationFrame(animate);
   }
 
-  // Event handlers
+  // Event handlers with early returns for performance
   private _handleMouseMove(event: MouseEvent): void {
+    if (this.isDestroyed) return;
+
     this.state.isTracking = true;
     this.state.target = this._calculateTargetPosition(
       event.clientX,
@@ -420,6 +481,8 @@ export class Orbiter {
   }
 
   private _handleMouseLeave(): void {
+    if (this.isDestroyed) return;
+
     this.state.isTracking = false;
 
     switch (this.options.onLeave) {
@@ -427,19 +490,22 @@ export class Orbiter {
         this._animateToCenter();
         break;
       case "freeze":
-        // Do nothing, keep current position
+        this._stopAnimationLoop();
         break;
       case "continue":
         // Let smoothing continue to target if enabled
         if (!this.options.smoothing.enabled) {
-          this.state.isAnimating = false;
+          this._stopAnimationLoop();
         }
         break;
     }
   }
 
   private _handleTouchMove(event: TouchEvent): void {
-    if (!this.options.touch.enabled || event.touches.length === 0) return;
+    if (
+      this.isDestroyed || !this.options.touch.enabled ||
+      event.touches.length === 0
+    ) return;
 
     const touch = this.options.touch.useFirstTouch
       ? event.touches[0]
@@ -454,6 +520,113 @@ export class Orbiter {
   }
 
   private _handleTouchEnd(): void {
+    if (this.isDestroyed) return;
     this._handleMouseLeave();
   }
+
+  // Public methods with proper state checking
+
+  /**
+   * Update configuration options
+   */
+  public configure(options: Partial<Options>): void {
+    if (this.isDestroyed) return;
+
+    const oldTouchEnabled = this.options.touch.enabled;
+    Object.assign(this.options, options);
+
+    // Re-attach event listeners if touch setting changed
+    if (oldTouchEnabled !== this.options.touch.enabled) {
+      this._removeEventListeners();
+      this._attachEventListeners();
+    }
+
+    this._calculateConstraints();
+  }
+
+  /**
+   * Get current position
+   */
+  public getPosition(): { x: number; y: number } {
+    return { ...this.state.current };
+  }
+
+  /**
+   * Set position directly
+   */
+  public setPosition(x: number, y: number): void {
+    if (this.isDestroyed) return;
+
+    this.state.current.x = x;
+    this.state.current.y = y;
+    this.state.target.x = x;
+    this.state.target.y = y;
+    this._updateTransform();
+  }
+
+  /**
+   * Reset to center position
+   */
+  public reset(): void {
+    if (this.isDestroyed) return;
+    this._animateToCenter();
+  }
+
+  /**
+   * Pause all animations and tracking
+   */
+  public pause(): void {
+    if (this.isDestroyed) return;
+
+    this.state.isTracking = false;
+    this._stopAnimationLoop();
+  }
+
+  /**
+   * Resume animations and tracking
+   */
+  public resume(): void {
+    if (this.isDestroyed) return;
+    // Tracking will resume on next mouse/touch event
+  }
+
+  /**
+   * Comprehensive cleanup to prevent memory leaks
+   */
+  public destroy(): void {
+    if (this.isDestroyed) return;
+
+    // Stop all animations immediately
+    this._stopAnimationLoop();
+
+    // Cancel any pending transform updates
+    if (this.rafId) {
+      cancelAnimationFrame(this.rafId);
+      this.rafId = null;
+    }
+
+    // Remove all event listeners
+    this._removeEventListeners();
+
+    // Disconnect ResizeObserver
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+      this.resizeObserver = null;
+    }
+
+    // Clear all state
+    this.state.animationId = null;
+    this.state.isAnimating = false;
+    this.state.isTracking = false;
+
+    // Mark as destroyed
+    this.isDestroyed = true;
+  }
+
+  /**
+   * Check if instance is destroyed
+   */
+  // public isDestroyed(): boolean {
+  //   return this.isDestroyed;
+  // }
 }

@@ -14,12 +14,14 @@ var Orbiter = class {
   state;
   rafId = null;
   resizeObserver = null;
-  /**
-   * Creates a new Orbiter instance
-   * @param orbiterElement - The element that will follow the cursor
-   * @param boundaryElement - The container element that defines the tracking area
-   * @param options - Configuration options
-   */
+  // Bound event handlers to prevent memory leaks
+  handleMouseMove;
+  handleMouseLeave;
+  handleTouchMove;
+  handleTouchEnd;
+  // Flags for cleanup
+  isDestroyed = false;
+  isInitialized = false;
   constructor(orbiterElement, boundaryElement, options = {}) {
     this.orbiterElement = orbiterElement;
     this.boundaryElement = boundaryElement;
@@ -33,17 +35,17 @@ var Orbiter = class {
       animationId: null,
       lastUpdateTime: 0
     };
+    this.handleMouseMove = this._handleMouseMove.bind(this);
+    this.handleMouseLeave = this._handleMouseLeave.bind(this);
+    this.handleTouchMove = this._handleTouchMove.bind(this);
+    this.handleTouchEnd = this._handleTouchEnd.bind(this);
     this._validateConfiguration();
     this._calculateConstraints();
-    this._bindEventHandlers();
     this._attachEventListeners();
     this._setupResizeObserver();
     this._updateTransform();
+    this.isInitialized = true;
   }
-  /**
-   * Apply default options and merge with user provided options
-   * @private
-   */
   _applyDefaults(options) {
     return {
       factor: options.factor ?? 1,
@@ -67,10 +69,6 @@ var Orbiter = class {
       }
     };
   }
-  /**
-   * Validate configuration and throw errors for invalid setups
-   * @private
-   */
   _validateConfiguration() {
     if (!this.orbiterElement || !this.boundaryElement) {
       throw new Error("Orbiter requires valid orbiter and boundary elements");
@@ -83,66 +81,91 @@ var Orbiter = class {
     }
   }
   /**
-   * Calculate movement constraints based on current element dimensions
-   * @private
+   * Calculate movement constraints with caching optimization
    */
   _calculateConstraints() {
+    if (this.isDestroyed) return;
     const boundaryRect = this.boundaryElement.getBoundingClientRect();
     const orbiterRect = this.orbiterElement.getBoundingClientRect();
-    this.state.constraints = {
+    const newConstraints = {
       maxX: Math.max(0, (boundaryRect.width - orbiterRect.width) / 2),
       maxY: Math.max(0, (boundaryRect.height - orbiterRect.height) / 2),
       centerX: boundaryRect.width / 2,
       centerY: boundaryRect.height / 2
     };
+    const hasChanged = Math.abs(this.state.constraints.maxX - newConstraints.maxX) > 1 || Math.abs(this.state.constraints.maxY - newConstraints.maxY) > 1 || Math.abs(this.state.constraints.centerX - newConstraints.centerX) > 1 || Math.abs(this.state.constraints.centerY - newConstraints.centerY) > 1;
+    if (hasChanged) {
+      this.state.constraints = newConstraints;
+    }
   }
   /**
-   * Bind all event handlers to maintain proper context
-   * @private
-   */
-  _bindEventHandlers() {
-    this._handleMouseMove = this._handleMouseMove.bind(this);
-    this._handleMouseLeave = this._handleMouseLeave.bind(this);
-    this._handleTouchMove = this._handleTouchMove.bind(this);
-    this._handleTouchEnd = this._handleTouchEnd.bind(this);
-  }
-  /**
-   * Attach event listeners to boundary element
-   * @private
+   * Attach event listeners with proper options for performance
    */
   _attachEventListeners() {
-    this.boundaryElement.addEventListener("mousemove", this._handleMouseMove);
-    this.boundaryElement.addEventListener("mouseleave", this._handleMouseLeave);
+    if (this.isDestroyed) return;
+    this.boundaryElement.addEventListener("mousemove", this.handleMouseMove, {
+      passive: true
+    });
+    this.boundaryElement.addEventListener("mouseleave", this.handleMouseLeave, {
+      passive: true
+    });
     if (this.options.touch.enabled) {
-      this.boundaryElement.addEventListener(
-        "touchmove",
-        this._handleTouchMove,
-        {
-          passive: true
-        }
-      );
-      this.boundaryElement.addEventListener("touchend", this._handleTouchEnd);
+      this.boundaryElement.addEventListener("touchmove", this.handleTouchMove, {
+        passive: true
+      });
+      this.boundaryElement.addEventListener("touchend", this.handleTouchEnd, {
+        passive: true
+      });
       this.boundaryElement.addEventListener(
         "touchcancel",
-        this._handleTouchEnd
+        this.handleTouchEnd,
+        { passive: true }
       );
     }
   }
   /**
-   * Set up ResizeObserver to recalculate constraints when elements resize
-   * @private
+   * Remove all event listeners for cleanup
+   */
+  _removeEventListeners() {
+    this.boundaryElement.removeEventListener("mousemove", this.handleMouseMove);
+    this.boundaryElement.removeEventListener(
+      "mouseleave",
+      this.handleMouseLeave
+    );
+    if (this.options.touch.enabled) {
+      this.boundaryElement.removeEventListener(
+        "touchmove",
+        this.handleTouchMove
+      );
+      this.boundaryElement.removeEventListener("touchend", this.handleTouchEnd);
+      this.boundaryElement.removeEventListener(
+        "touchcancel",
+        this.handleTouchEnd
+      );
+    }
+  }
+  /**
+   * Set up ResizeObserver with throttling
    */
   _setupResizeObserver() {
-    if (!globalThis.ResizeObserver) return;
+    if (!globalThis.ResizeObserver || this.isDestroyed) return;
+    let resizeTimeout;
     this.resizeObserver = new ResizeObserver(() => {
-      this._calculateConstraints();
+      if (resizeTimeout) {
+        clearTimeout(resizeTimeout);
+      }
+      resizeTimeout = setTimeout(() => {
+        if (!this.isDestroyed) {
+          this._calculateConstraints();
+        }
+        resizeTimeout = void 0;
+      }, 16);
     });
     this.resizeObserver.observe(this.boundaryElement);
     this.resizeObserver.observe(this.orbiterElement);
   }
   /**
-   * Calculate target position based on cursor/touch coordinates
-   * @private
+   * Calculate target position with micro-optimizations
    */
   _calculateTargetPosition(clientX, clientY) {
     const boundaryRect = this.boundaryElement.getBoundingClientRect();
@@ -153,8 +176,7 @@ var Orbiter = class {
     return this._applyConstraints(rawX, rawY);
   }
   /**
-   * Apply movement constraints based on configured mode
-   * @private
+   * Apply movement constraints with optimized calculations
    */
   _applyConstraints(x, y) {
     const { maxX, maxY } = this.state.constraints;
@@ -177,47 +199,43 @@ var Orbiter = class {
     }
   }
   /**
-   * Update CSS transform properties with current position
-   * Uses RAF for smooth rendering
-   * @private
+   * Update CSS transform properties with batched DOM writes
    */
   _updateTransform() {
+    if (this.isDestroyed) return;
     if (this.rafId) {
       cancelAnimationFrame(this.rafId);
     }
     this.rafId = requestAnimationFrame(() => {
-      this.orbiterElement.style.setProperty(
-        "--translate-x",
-        `${this.state.current.x}px`
-      );
-      this.orbiterElement.style.setProperty(
-        "--translate-y",
-        `${this.state.current.y}px`
-      );
+      if (this.isDestroyed) return;
+      const { x, y } = this.state.current;
+      this.orbiterElement.style.setProperty("--translate-x", `${x}px`);
+      this.orbiterElement.style.setProperty("--translate-y", `${y}px`);
       this.orbiterElement.style.setProperty("--translate-z", "0px");
       this.rafId = null;
     });
   }
   /**
-   * Start the animation loop for smooth movement
-   * @private
+   * Start the animation loop with better cleanup
    */
   _startAnimationLoop() {
-    if (this.state.animationId) return;
+    if (this.state.animationId || this.isDestroyed) return;
     const animate = /* @__PURE__ */ __name((timestamp) => {
-      if (!this.state.isAnimating) {
+      if (!this.state.isAnimating || this.isDestroyed) {
         this.state.animationId = null;
         return;
       }
       this.state.lastUpdateTime = timestamp;
       if (this.options.smoothing.enabled) {
         const speed = this.options.smoothing.speed;
-        this.state.current.x += (this.state.target.x - this.state.current.x) * speed;
-        this.state.current.y += (this.state.target.y - this.state.current.y) * speed;
-        const distance = Math.sqrt(
-          Math.pow(this.state.target.x - this.state.current.x, 2) + Math.pow(this.state.target.y - this.state.current.y, 2)
-        );
-        if (distance < 0.1 && !this.state.isTracking) {
+        const deltaX = this.state.target.x - this.state.current.x;
+        const deltaY = this.state.target.y - this.state.current.y;
+        this.state.current.x += deltaX * speed;
+        this.state.current.y += deltaY * speed;
+        const distanceSquared = deltaX * deltaX + deltaY * deltaY;
+        if (distanceSquared < 0.01 && !this.state.isTracking) {
+          this.state.current.x = this.state.target.x;
+          this.state.current.y = this.state.target.y;
           this.state.isAnimating = false;
         }
       } else {
@@ -228,7 +246,7 @@ var Orbiter = class {
         }
       }
       this._updateTransform();
-      if (this.state.isAnimating) {
+      if (this.state.isAnimating && !this.isDestroyed) {
         this.state.animationId = requestAnimationFrame(animate);
       } else {
         this.state.animationId = null;
@@ -239,10 +257,21 @@ var Orbiter = class {
     this.state.animationId = requestAnimationFrame(animate);
   }
   /**
-   * Animate back to center position with easing
-   * @private
+   * Stop animation loop with proper cleanup
+   */
+  _stopAnimationLoop() {
+    this.state.isAnimating = false;
+    if (this.state.animationId) {
+      cancelAnimationFrame(this.state.animationId);
+      this.state.animationId = null;
+    }
+  }
+  /**
+   * Animate back to center position with easing and cleanup
    */
   _animateToCenter() {
+    if (this.isDestroyed) return;
+    this._stopAnimationLoop();
     const startTime = performance.now();
     const startX = this.state.current.x;
     const startY = this.state.current.y;
@@ -259,7 +288,9 @@ var Orbiter = class {
           return 1 - Math.pow(1 - t, 2);
       }
     }, "getEasingValue");
+    let resetAnimationId;
     const animate = /* @__PURE__ */ __name((timestamp) => {
+      if (this.isDestroyed) return;
       const elapsed = timestamp - startTime;
       const t = Math.min(elapsed / duration, 1);
       const eased = getEasingValue(t);
@@ -268,17 +299,18 @@ var Orbiter = class {
       this.state.target.x = this.state.current.x;
       this.state.target.y = this.state.current.y;
       this._updateTransform();
-      if (t < 1) {
-        requestAnimationFrame(animate);
+      if (t < 1 && !this.isDestroyed) {
+        resetAnimationId = requestAnimationFrame(animate);
       } else {
         this.state.isAnimating = false;
       }
     }, "animate");
     this.state.isAnimating = true;
-    requestAnimationFrame(animate);
+    resetAnimationId = requestAnimationFrame(animate);
   }
-  // Event handlers
+  // Event handlers with early returns for performance
   _handleMouseMove(event) {
+    if (this.isDestroyed) return;
     this.state.isTracking = true;
     this.state.target = this._calculateTargetPosition(
       event.clientX,
@@ -287,22 +319,24 @@ var Orbiter = class {
     this._startAnimationLoop();
   }
   _handleMouseLeave() {
+    if (this.isDestroyed) return;
     this.state.isTracking = false;
     switch (this.options.onLeave) {
       case "reset":
         this._animateToCenter();
         break;
       case "freeze":
+        this._stopAnimationLoop();
         break;
       case "continue":
         if (!this.options.smoothing.enabled) {
-          this.state.isAnimating = false;
+          this._stopAnimationLoop();
         }
         break;
     }
   }
   _handleTouchMove(event) {
-    if (!this.options.touch.enabled || event.touches.length === 0) return;
+    if (this.isDestroyed || !this.options.touch.enabled || event.touches.length === 0) return;
     const touch = this.options.touch.useFirstTouch ? event.touches[0] : event.touches[event.touches.length - 1];
     this.state.isTracking = true;
     this.state.target = this._calculateTargetPosition(
@@ -312,8 +346,87 @@ var Orbiter = class {
     this._startAnimationLoop();
   }
   _handleTouchEnd() {
+    if (this.isDestroyed) return;
     this._handleMouseLeave();
   }
+  // Public methods with proper state checking
+  /**
+   * Update configuration options
+   */
+  configure(options) {
+    if (this.isDestroyed) return;
+    const oldTouchEnabled = this.options.touch.enabled;
+    Object.assign(this.options, options);
+    if (oldTouchEnabled !== this.options.touch.enabled) {
+      this._removeEventListeners();
+      this._attachEventListeners();
+    }
+    this._calculateConstraints();
+  }
+  /**
+   * Get current position
+   */
+  getPosition() {
+    return { ...this.state.current };
+  }
+  /**
+   * Set position directly
+   */
+  setPosition(x, y) {
+    if (this.isDestroyed) return;
+    this.state.current.x = x;
+    this.state.current.y = y;
+    this.state.target.x = x;
+    this.state.target.y = y;
+    this._updateTransform();
+  }
+  /**
+   * Reset to center position
+   */
+  reset() {
+    if (this.isDestroyed) return;
+    this._animateToCenter();
+  }
+  /**
+   * Pause all animations and tracking
+   */
+  pause() {
+    if (this.isDestroyed) return;
+    this.state.isTracking = false;
+    this._stopAnimationLoop();
+  }
+  /**
+   * Resume animations and tracking
+   */
+  resume() {
+    if (this.isDestroyed) return;
+  }
+  /**
+   * Comprehensive cleanup to prevent memory leaks
+   */
+  destroy() {
+    if (this.isDestroyed) return;
+    this._stopAnimationLoop();
+    if (this.rafId) {
+      cancelAnimationFrame(this.rafId);
+      this.rafId = null;
+    }
+    this._removeEventListeners();
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+      this.resizeObserver = null;
+    }
+    this.state.animationId = null;
+    this.state.isAnimating = false;
+    this.state.isTracking = false;
+    this.isDestroyed = true;
+  }
+  /**
+   * Check if instance is destroyed
+   */
+  // public isDestroyed(): boolean {
+  //   return this.isDestroyed;
+  // }
 };
 export {
   Orbiter
