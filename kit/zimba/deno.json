@@ -2,7 +2,7 @@
   "lock": false,
   "nodeModulesDir": "auto",
   "name": "@luhmllo/zimba",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A collection of composable, zero-dependency libraries by the creators of Lily, designed for elegant and powerful user interfaces.",
   "license": "MIT",
   "exports": {
