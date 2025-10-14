@@ -1,10 +1,3 @@
-Got it. Here are your ready-to-paste files:
-
----
-
-## README.md
-
-```markdown
 # LUHMLLO
 
 Personal site and projects.
@@ -39,5 +32,3 @@ npm run dev
 ## About
 
 Building tools to understand how they work. If they're useful to others, cool.
-
-```
