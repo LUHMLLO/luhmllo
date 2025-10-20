@@ -5,6 +5,10 @@
 .env.production.local
 .env.local
 
+# Build directory
+output/*
+dist/*
+
 # Fresh build directory
 _fresh/
 
