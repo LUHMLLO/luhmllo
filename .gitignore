@@ -6,7 +6,12 @@
 .env.local
 
 # Build directory
+*/output
+output
 output/*
+
+*/dist
+dist
 dist/*
 
 # Fresh build directory
