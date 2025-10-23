@@ -1,0 +1,23 @@
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Build directory
+*/output
+output
+output/*
+
+*/dist
+dist
+dist/*
+
+# Fresh build directory
+_fresh/
+
+# NPM dependencies
+*/node_modules
+node_modules
+node_modules/*
