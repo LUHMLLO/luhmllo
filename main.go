@@ -12,12 +12,15 @@ import (
 	"time"
 )
 
+// FileInfo stores metadata about a file to track changes.
 type FileInfo struct {
 	path    string
 	modTime int64
 	size    int64
 }
 
+// scanFiles walks through the specified directories and returns a map of file information.
+// It skips directories, hidden files, and build output directories.
 func scanFiles(dirs []string) map[string]FileInfo {
 	files := make(map[string]FileInfo)
 
@@ -48,6 +51,7 @@ func scanFiles(dirs []string) map[string]FileInfo {
 	return files
 }
 
+// isBuildOutput checks if the given path belongs to a build output directory.
 func isBuildOutput(path string) bool {
 	// Normalize path separators
 	normalizedPath := filepath.ToSlash(path)
@@ -72,14 +76,13 @@ func isBuildOutput(path string) bool {
 	return false
 }
 
+// isHidden checks if a file or directory is hidden (starts with a dot).
 func isHidden(path string) bool {
 	base := filepath.Base(path)
 	return len(base) > 0 && base[0] == '.'
 }
 
-/**
- * Runs build tasks for modified kits
- */
+// runBuildTasks executes build commands for kits that have modified files.
 func runBuildTasks(changedFiles []string) {
 	kitsToRebuild := make(map[string]bool)
 
@@ -114,6 +117,8 @@ func runBuildTasks(changedFiles []string) {
 	}
 }
 
+// hasChanges compares two file scans and returns true if there are any changes.
+// It also returns a list of changed files.
 func hasChanges(old, new map[string]FileInfo) (bool, []string) {
 	var changedFiles []string
 
@@ -139,6 +144,7 @@ func hasChanges(old, new map[string]FileInfo) (bool, []string) {
 	return len(changedFiles) > 0, changedFiles
 }
 
+// startFileWatcher monitors directories for changes and triggers rebuilds and reloads.
 func startFileWatcher(dirs []string, interval time.Duration, reload chan bool) {
 	fmt.Printf("Watching directories: %v (polling every %v)\n", dirs, interval)
 
@@ -161,9 +167,7 @@ func startFileWatcher(dirs []string, interval time.Duration, reload chan bool) {
 	}
 }
 
-/**
- * Sets appropriate MIME type and CORS headers for TypeScript/JavaScript modules
- */
+// setModuleHeaders sets the appropriate Content-Type and CORS headers for module files.
 func setModuleHeaders(w http.ResponseWriter, filePath string) {
 	// Set CORS headers for ES modules
 	w.Header().Set("Access-Control-Allow-Origin", "*")
@@ -187,9 +191,7 @@ func setModuleHeaders(w http.ResponseWriter, filePath string) {
 	}
 }
 
-/**
- * Handles serving module files with proper headers
- */
+// serveModule handles serving a single module file with the correct headers.
 func serveModule(w http.ResponseWriter, r *http.Request, filePath string) {
 	// Handle OPTIONS request for CORS
 	if r.Method == "OPTIONS" {
@@ -209,6 +211,7 @@ func serveModule(w http.ResponseWriter, r *http.Request, filePath string) {
 	http.ServeFile(w, r, filePath)
 }
 
+// createServer configures and returns a new HTTP server instance with all routes defined.
 func createServer() *http.Server {
 	mux := http.NewServeMux()
 

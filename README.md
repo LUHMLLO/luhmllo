@@ -1,5 +1,8 @@
 # LUHMLLO
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/LUHMLLO/luhmllo)](https://goreportcard.com/report/github.com/LUHMLLO/luhmllo)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Building tools to understand how they work. If they're useful to others, even better.
 
 ## The libraries
@@ -17,6 +20,11 @@ Check them out on JSR:
 
 My personal site and playground for testing Lilycat and Zimba in real use. Go serves the static files—TypeScript and CSS do the work on the frontend.
 
+### Prerequisites
+
+- [Go](https://golang.org/doc/install) (1.24+)
+- [Deno](https://deno.land/), [Node.js](https://nodejs.org/), or [Bun](https://bun.sh/) (for building frontend assets)
+
 ### Running locally
 
 ```bash
@@ -24,7 +32,7 @@ My personal site and playground for testing Lilycat and Zimba in real use. Go se
 git clone https://github.com/LUHMLLO/luhmllo.git
 cd luhmllo
 
-# Build the frontend (requires Node, Deno, or Bun)
+# Build the frontend
 cd kit
 deno run build.ts  # or: node build.ts / bun build.ts
 cd ..
@@ -32,6 +40,8 @@ cd ..
 # Run the Go server
 go run main.go
 ```
+
+The server will start at `http://localhost:8080`.
 
 ### Stack
 
@@ -49,3 +59,9 @@ Go keeps the server simple and fast. TypeScript and CSS handle everything else w
 ## Contributing
 
 Found a bug? Have an idea? Open an issue. PRs welcome if they align with the keep-it-simple philosophy.
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
