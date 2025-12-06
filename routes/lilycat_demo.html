@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" data-scheme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lilycat Demo</title>
+    <link rel="stylesheet" href="/lily/all.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        body {
+            padding: 2rem;
+            background-color: var(--clr-background__base);
+            color: var(--clr-text__base);
+        }
+
+        /* Demo helper to visualize layout blocks */
+        [data-demo-block] {
+            background: hsla(0, 0%, 50%, 0.1);
+            border: 1px dashed hsla(0, 0%, 50%, 0.3);
+            padding: 0.5rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header data-is="grid" style="--gap: 1rem; margin-bottom: 3rem;">
+        <h1>Lilycat Component Demo</h1>
+        <p>A comprehensive showcase of the Lilycat design system.</p>
+
+        <nav data-is="dock" style="width: fit-content;">
+            <button data-is="button" data-variant="text">Home</button>
+            <button data-is="button" data-variant="text">Components</button>
+            <button data-is="button" data-variant="text">About</button>
+        </nav>
+    </header>
+
+    <main data-is="grid" style="--gap: 3rem;">
+
+        <!-- Layouts Section -->
+        <section>
+            <h2>Layouts</h2>
+            <div data-is="grid" style="--cols: 2; --gap: 2rem;">
+
+                <div data-is="card">
+                    <h3>Stack (Vertical)</h3>
+                    <div data-is="stack" style="gap: 1rem; margin-top: 1rem;">
+                        <div data-demo-block>Item 1</div>
+                        <div data-demo-block>Item 2</div>
+                        <div data-demo-block>Item 3</div>
+                    </div>
+                </div>
+
+                <div data-is="card">
+                    <h3>Row (Horizontal)</h3>
+                    <div data-is="row" style="gap: 1rem; margin-top: 1rem;">
+                        <div data-demo-block style="flex: 1">Item 1</div>
+                        <div data-demo-block style="flex: 1">Item 2</div>
+                    </div>
+                </div>
+
+                <div data-is="card" style="grid-column: 1/-1;">
+                    <h3>Grid (Responsive)</h3>
+                    <div data-is="grid" style="--cols: 4; --gap: 1rem; margin-top: 1rem;">
+                        <div data-demo-block>1</div>
+                        <div data-demo-block>2</div>
+                        <div data-demo-block>3</div>
+                        <div data-demo-block>4</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Forms Section -->
+        <section>
+            <h2>Forms & Inputs</h2>
+            <div data-is="grid" style="--cols: 2; --gap: 2rem;">
+
+                <div data-is="card">
+                    <h3>Input Fields</h3>
+                    <div data-is="stack" style="gap: 1rem;">
+                        <!-- Standard Field Structure -->
+                        <div data-is="field">
+                            <label data-is="label">Username</label>
+                            <label data-is="input">
+                                <i data-is="icon" data-part="lead">person</i>
+                                <input type="text" placeholder="Enter username">
+                            </label>
+                        </div>
+
+                        <div data-is="field">
+                            <label data-is="label">Search</label>
+                            <label data-is="input">
+                                <input type="text" placeholder="Search...">
+                                <i data-is="icon" data-part="trail">search</i>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-is="card">
+                    <h3>Field Group</h3>
+                    <fieldset data-is="fieldgroup" data-layout="expand">
+                        <header data-is="row">
+                            <h5>Preferences</h5>
+                            <button data-is="button" data-variant="text" style="font-size: 0.8em;">Reset</button>
+                        </header>
+
+                        <div data-is="stack" style="gap: 1rem; margin-top: 1rem;">
+                            <label style="display: flex; gap: 0.5rem; align-items: center;">
+                                <input type="checkbox">
+                                <span>Enable Notifications</span>
+                            </label>
+
+                            <label style="display: flex; gap: 0.5rem; align-items: center;">
+                                <input type="checkbox" checked>
+                                <span>Dark Mode</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </section>
+
+        <!-- UI Elements Section -->
+        <section>
+            <h2>UI Elements</h2>
+            <div data-is="grid" style="--cols: 3; --gap: 2rem;">
+
+                <div data-is="card">
+                    <h3>Buttons</h3>
+                    <div data-is="stack" style="gap: 1rem; align-items: start;">
+                        <button data-is="button">Primary Button</button>
+                        <button data-is="button" data-variant="outline">Outline Button</button>
+                        <button data-is="button" data-variant="ghost">Ghost Button</button>
+                        <button data-is="button" data-variant="text">Text Link</button>
+                    </div>
+                </div>
+
+                <div data-is="card">
+                    <h3>Chips & Tags</h3>
+                    <div data-is="row" style="gap: 0.5rem; flex-wrap: wrap;">
+                        <span data-is="chip">Default</span>
+                        <span data-is="chip"
+                            style="background-color: var(--clr-accent__base); color: white;">Active</span>
+                        <span data-is="chip" style="border: 1px solid currentColor;">Outline</span>
+                    </div>
+                </div>
+
+                <div data-is="card">
+                    <h3>Tabs</h3>
+                    <div data-is="tabs"
+                        style="background: var(--clr-background__raised); padding: 0.25rem; border-radius: 0.5rem;">
+                        <button data-is="button" style="width: 100%;">Tab 1</button>
+                        <button data-is="button" data-variant="ghost" style="width: 100%;">Tab 2</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Advanced Section -->
+        <section>
+            <h2>Advanced Components</h2>
+            <div data-is="grid" style="--cols: 2; --gap: 2rem;">
+
+                <div data-is="card" style="height: 300px; overflow: hidden; position: relative;">
+                    <h3>Blur / Glassmorphism</h3>
+                    <figure data-is="background">
+                        <img src="https://picsum.photos/800/600" alt="Background"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </figure>
+
+                    <div style="position: absolute; inset: 0; display: grid; place-content: center;">
+                        <div data-has="blur"
+                            style="padding: 2rem; border-radius: 1rem; color: white; background: rgba(0,0,0,0.2);">
+                            Glass Effect
+                        </div>
+                    </div>
+                </div>
+
+                <div data-is="card">
+                    <h3>Bottomsheet (Preview)</h3>
+                    <div
+                        style="border: 1px solid var(--clr-border__base); height: 200px; position: relative; overflow: hidden; border-radius: 0.5rem; background: var(--clr-background__lowered);">
+                        <!-- Simulated Bottomsheet -->
+                        <div data-is="bottomsheet"
+                            style="position: absolute; bottom: 0; width: 100%; max-height: 80%; margin: 0;">
+                            <header data-is="stack">
+                                <hr data-part="handle" />
+                                <h5>Sheet Title</h5>
+                            </header>
+                            <div data-is="stack" style="padding: 1rem;">
+                                <p>This is how a bottomsheet looks.</p>
+                                <button data-is="button" style="width: 100%;">Action</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-is="card">
+                    <h3>Layer / HUD</h3>
+                    <div
+                        style="height: 200px; position: relative; border: 1px solid var(--clr-border__base); border-radius: 0.5rem; overflow: hidden;">
+                        <div data-is="layer" data-variant="over"
+                            style="position: absolute; bottom: 0; width: 100%; padding: 1rem; background: rgba(0,0,0,0.05);">
+                            <div data-is="row" style="justify-content: space-between;">
+                                <button data-is="button" data-variant="ghost"><i data-is="icon">menu</i></button>
+                                <button data-is="button" data-variant="ghost"><i data-is="icon">settings</i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
